@@ -1,0 +1,9 @@
+# Dia 1: guard mínimo (<10s). Guards completos (§9) entram em D5.
+# SECRET GUARD: bloqueia .env com segredo (permite .env.example)
+staged=$(git diff --cached --name-only)
+echo "$staged" | grep -qx '\.env' && { echo 'BLOQUEADO: .env no stage'; exit 1; }
+# SIZE GUARD: data/*.json <= 200KB
+for f in $(echo "$staged" | grep '^data/.*\.json$' || true); do
+  [ -f "$f" ] && [ "$(wc -c < "$f")" -gt 204800 ] && { echo "BLOQUEADO: $f > 200KB (§9)"; exit 1; }
+done
+exit 0
