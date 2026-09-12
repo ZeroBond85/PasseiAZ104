@@ -1,0 +1,12 @@
+/* Tema: dark é o default (:root em variables.css). Aqui, ajustes de
+   contraste AA + opt-in light. Tema persiste via theme-toggle (D4). */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    /* Mantém dark como default mesmo em SO light — opt-in explícito. */
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}

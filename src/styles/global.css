@@ -1,0 +1,36 @@
+/* Base global: 100dvh, safe-area, tipografia, foco visível. */
+html {
+  background-color: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh; /* fallback sem dvh */
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+@supports (min-height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--progress);
+  outline-offset: 2px;
+}
+
+button {
+  font: inherit;
+  min-height: var(--tap-min);
+}

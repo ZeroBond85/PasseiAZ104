@@ -1,0 +1,35 @@
+/* Design tokens — Passei AZ-104 (§6). Dark é o default; light via [data-theme="light"]. */
+:root {
+  color-scheme: dark;
+
+  --bg: #0a0e14;
+  --surface: #111826;
+  --surface-raised: #182134;
+  --border: #232f47;
+  --text: #e8edf5;
+  --text-dim: #9aa7bd;
+
+  --brand-green: #4caf50; /* acerto / maestria (box 5, ring 100%) */
+  --progress: #3b82f6; /* azul progresso */
+  --warning: #d9a821; /* dourado streaks */
+  --danger: #e5484d;
+  --info: var(--progress);
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --tap-min: 44px; /* alvo de toque WCAG */
+  --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+  --tabbar-h: 60px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface-raised: #eef1f6;
+  --border: #dbe2ec;
+  --text: #141b28;
+  --text-dim: #5b6a82;
+}

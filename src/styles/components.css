@@ -1,0 +1,41 @@
+/* Primitivos compartilhados (usados pelos componentes Lit em D4+). */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--tap-min);
+  padding: 0 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background-color: var(--surface-raised);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--progress);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: var(--brand-green);
+  border-color: transparent;
+  color: #fff;
+}
+
+.timer-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
