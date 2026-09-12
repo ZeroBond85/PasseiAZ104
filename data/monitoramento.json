@@ -1351,5 +1351,1806 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-mo-061",
+    "domain": "monitoramento",
+    "subdomain": "alert-processing-rule",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alertas de teste e homologação poluem o plantão de produção. Como suprimir por horário e origem sem desligar regras?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de processamento com supressão por escopo/horário"
+      },
+      { "letter": "B", "text": "Excluir as regras de teste" },
+      { "letter": "C", "text": "Desligar todos os alertas" },
+      { "letter": "D", "text": "E-mail filtrado manualmente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Processing rules suprimem por escopo, horário e severidade mantendo regras ativas. Excluir perde cobertura; desligar cega; filtro manual atrasa.",
+    "source": "original",
+    "tags": ["processing-rules", "supressao", "plantao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-062",
+    "domain": "monitoramento",
+    "subdomain": "alert-grouping",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cem alertas do mesmo incidente inundam o ITSM com chamados duplicados. Como agrupar em um chamado com contexto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Agrupamento de alertas por correlação (smart groups)"
+      },
+      { "letter": "B", "text": "Um chamado por alerta" },
+      { "letter": "C", "text": "Ignorar duplicados manualmente" },
+      { "letter": "D", "text": "Desabilitar alertas no incidente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Smart groups correlacionam por recurso/tempo num chamado. Um por alerta inunda; manual atrasa; desligar perde trilha.",
+    "source": "original",
+    "tags": ["agrupamento", "smart-groups", "itsm"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-063",
+    "domain": "monitoramento",
+    "subdomain": "maintenance-window-alert",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Deploys noturnos disparam alertas esperados que acordam o plantão. Como silenciar durante a janela de mudança?",
+    "options": [
+      { "letter": "A", "text": "Supressão programada na janela de manutenção" },
+      { "letter": "B", "text": "Excluir regras antes do deploy" },
+      { "letter": "C", "text": "Ignorar o plantão" },
+      { "letter": "D", "text": "Desligar monitoramento" }
+    ],
+    "correct": ["A"],
+    "explanation": "Supressão agenda silêncio na janela e reativa sozinha. Excluir perde cobertura; ignorar queima plantão; desligar cega.",
+    "source": "original",
+    "tags": ["supressao", "janela", "deploy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-064",
+    "domain": "monitoramento",
+    "subdomain": "alert-severity-triage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sev0 deve acordar e Sev4 virar ticket de backlog. Como rotear por severidade?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Severidades com action groups distintos por nível"
+      },
+      { "letter": "B", "text": "Tudo para o mesmo e-mail" },
+      { "letter": "C", "text": "Tudo como Sev0" },
+      { "letter": "D", "text": "Sem severidade" }
+    ],
+    "correct": ["A"],
+    "explanation": "Sev0-Sev4 roteiam voz/SMS vs ticket conforme impacto. Tudo igual queima ou atrasa; tudo Sev0 dessensibiliza; sem nível não prioriza.",
+    "source": "original",
+    "tags": ["severidade", "triagem", "roteamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-065",
+    "domain": "monitoramento",
+    "subdomain": "monitor-private-link-scope",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Múltiplos workspaces isolados precisam compartilhar o mesmo link privado. Qual escopo o AMPLS usa?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Escopo de Link Privado (Private Link Scope) com recursos"
+      },
+      { "letter": "B", "text": "Um link por query" },
+      { "letter": "C", "text": "Endpoint público por workspace" },
+      { "letter": "D", "text": "Sem link com VPN" }
+    ],
+    "correct": ["A"],
+    "explanation": "AMPLS vincula workspaces e componentes ao link privado. Por query não existe; público expõe; sem link não isola.",
+    "source": "original",
+    "tags": ["ampls", "escopo", "link-privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-066",
+    "domain": "monitoramento",
+    "subdomain": "data-ingestion-access",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Apenas redes corporativas podem ingerir telemetria no workspace. Onde restringir ingestão e consulta à rede privada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Isolamento de rede do workspace (ingestão/consulta)"
+      },
+      { "letter": "B", "text": "Firewall desligado" },
+      { "letter": "C", "text": "Acesso público irrestrito" },
+      { "letter": "D", "text": "Sem workspace" }
+    ],
+    "correct": ["A"],
+    "explanation": "Network isolation separa ingestão e query para redes/VNet. Desligado expõe; público irrestrito vaza; sem workspace não há log.",
+    "source": "original",
+    "tags": ["isolamento", "ingestao", "rede"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-067",
+    "domain": "monitoramento",
+    "subdomain": "daily-cap",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Bug de log verboso ameaça estourar a fatura de ingestão. Qual trava limita o volume diário?",
+    "options": [
+      { "letter": "A", "text": "Teto diário (daily cap) com alerta" },
+      { "letter": "B", "text": "Ingestão ilimitada" },
+      { "letter": "C", "text": "Desligar o workspace" },
+      { "letter": "D", "text": "Excluir logs antigos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Daily cap trava volume com alerta antes do estouro. Ilimitado fatura; desligar cega; excluir antigo não limita ingestão.",
+    "source": "original",
+    "tags": ["daily-cap", "teto", "fatura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-068",
+    "domain": "monitoramento",
+    "subdomain": "basic-logs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logs verbosos de debug precisam de custo baixo com consulta eventual. Qual plano de tabela barateia?",
+    "options": [
+      { "letter": "A", "text": "Logs básicos (Basic) com retenção curta" },
+      { "letter": "B", "text": "Analytics completo para tudo" },
+      { "letter": "C", "text": "Sem log de debug" },
+      { "letter": "D", "text": "Arquivo local por host" }
+    ],
+    "correct": ["A"],
+    "explanation": "Basic logs custam fração para verbosos com query limitada. Analytics em tudo desperdiça; sem log perde debug; local fragmenta.",
+    "source": "original",
+    "tags": ["basic-logs", "custo", "verboso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-069",
+    "domain": "monitoramento",
+    "subdomain": "auxiliary-logs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Trilhas de auditoria raramente consultadas precisam de retenção longa barata. Qual plano arquiva com consulta ocasional?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Logs auxiliares (Auxiliary) com retenção longa"
+      },
+      { "letter": "B", "text": "Analytics quente para tudo" },
+      { "letter": "C", "text": "Exclusão após 30 dias" },
+      { "letter": "D", "text": "CSV manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Auxiliary arquiva barato com restore sob demanda. Quente para tudo custa; excluir perde compliance; CSV não escala.",
+    "source": "original",
+    "tags": ["auxiliary", "arquivo", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-070",
+    "domain": "monitoramento",
+    "subdomain": "restore-logs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Investigação precisa consultar 6 meses de logs arquivados por 2 dias. Como restaurar temporariamente para consulta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restauração (restore) de tabelas por intervalo"
+      },
+      { "letter": "B", "text": "Reingestão manual dos arquivos" },
+      { "letter": "C", "text": "Consulta direta no archive" },
+      { "letter": "D", "text": "Desistir da investigação" }
+    ],
+    "correct": ["A"],
+    "explanation": "Restore materializa intervalo arquivado para KQL temporário. Reingestão duplica; direto no archive é lento/limitado; desistir não investiga.",
+    "source": "original",
+    "tags": ["restore", "arquivo", "investigacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-071",
+    "domain": "monitoramento",
+    "subdomain": "search-jobs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Busca em 1 ano de logs para perícia precisa rodar em segundo plano com resultado em tabela. O que executa a varredura assíncrona?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Trabalho de pesquisa (search job) de longo prazo"
+      },
+      { "letter": "B", "text": "Consulta interativa com timeout" },
+      { "letter": "C", "text": "Paginação manual por dia" },
+      { "letter": "D", "text": "Exportação total para Excel" }
+    ],
+    "correct": ["A"],
+    "explanation": "Search jobs varrem longo prazo assíncronos com resultado em tabela. Interativa estoura timeout; manual atrasa meses; Excel não comporta.",
+    "source": "original",
+    "tags": ["search-jobs", "pericia", "longo-prazo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-072",
+    "domain": "monitoramento",
+    "subdomain": "update-runbook-patch",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Patch precisa de pré-check de espaço em disco com aborto se insuficiente. Onde validar antes de aplicar?",
+    "options": [
+      { "letter": "A", "text": "Runbook de pré-verificação na janela" },
+      { "letter": "B", "text": "Aplicar e torcer" },
+      { "letter": "C", "text": "Verificação manual por RDP" },
+      { "letter": "D", "text": "Ignorar pré-requisitos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Pré-check automatizado aborta sem espaço. Torcer quebra no meio; RDP não escala; ignorar corrompe update.",
+    "source": "original",
+    "tags": ["pre-check", "runbook", "patch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-073",
+    "domain": "monitoramento",
+    "subdomain": "post-patch-validation",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Após patch, serviço precisa de teste de fumaça antes de liberar o lote. O que valida pós-aplicação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Script de validação pós-patch com health check"
+      },
+      { "letter": "B", "text": "Liberar sem validar" },
+      { "letter": "C", "text": "Ping manual" },
+      { "letter": "D", "text": "Aguardar chamado do usuário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Pós-check valida serviço antes do próximo lote. Sem validar propaga quebra; ping não testa app; usuário não é monitor.",
+    "source": "original",
+    "tags": ["pos-check", "validacao", "patch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-074",
+    "domain": "monitoramento",
+    "subdomain": "patch-rollback-auto",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Falha pós-patch precisa reverter automaticamente ao snapshot. O que executa rollback na falha?",
+    "options": [
+      { "letter": "A", "text": "Rollback automatizado no health check falho" },
+      { "letter": "B", "text": "Aguardar próximo ciclo mensal" },
+      { "letter": "C", "text": "Reinstalar manualmente" },
+      { "letter": "D", "text": "Ignorar a falha" }
+    ],
+    "correct": ["A"],
+    "explanation": "Rollback reverte ao snapshot na falha detectada. Aguardar prolonga outage; manual atrasa; ignorar acumula.",
+    "source": "original",
+    "tags": ["rollback", "snapshot", "falha"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-075",
+    "domain": "monitoramento",
+    "subdomain": "patch-report-compliance",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Diretoria exige percentual de conformidade de patch por ambiente mensalmente. De onde extrair o relatório?",
+    "options": [
+      { "letter": "A", "text": "Relatório de conformidade do Update Manager" },
+      { "letter": "B", "text": "Contagem manual por planilha" },
+      { "letter": "C", "text": "E-mail dos admins" },
+      { "letter": "D", "text": "Chute estimado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Relatório agrega conformidade por escopo e período. Planilha desatualiza; e-mail não mede; chute não audita.",
+    "source": "original",
+    "tags": ["relatorio", "conformidade", "patch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-076",
+    "domain": "monitoramento",
+    "subdomain": "arc-monitoring",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Servidores on-premises com Arc precisam das mesmas métricas e logs do Azure. O que projeta o monitoramento?",
+    "options": [
+      { "letter": "A", "text": "Azure Arc com AMA/DCR nos servidores" },
+      { "letter": "B", "text": "Agente legado sem nuvem" },
+      { "letter": "C", "text": "Monitoramento só local" },
+      { "letter": "D", "text": "Sem monitorar on-prem" }
+    ],
+    "correct": ["A"],
+    "explanation": "Arc projeta servidores com AMA/DCR iguais à nuvem. Legado fragmenta; só local não centraliza; sem monitor cega.",
+    "source": "original",
+    "tags": ["arc", "on-premises", "ama", "dcr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-077",
+    "domain": "monitoramento",
+    "subdomain": "arc-update",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Patches em servidores Arc precisam da mesma janela e relatório da nuvem. O que estende o Update Manager?",
+    "options": [
+      { "letter": "A", "text": "Update Manager com escopo Arc" },
+      { "letter": "B", "text": "WSUS isolado sem relatório" },
+      { "letter": "C", "text": "Manual por servidor" },
+      { "letter": "D", "text": "Sem patch on-prem" }
+    ],
+    "correct": ["A"],
+    "explanation": "Escopo Arc unifica janela e relatório. WSUS isolado fragmenta; manual não escala; sem patch vulnerabiliza.",
+    "source": "original",
+    "tags": ["arc", "update-manager", "on-premises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-078",
+    "domain": "monitoramento",
+    "subdomain": "arc-policy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Servidores Arc precisam das mesmas políticas de conformidade da nuvem. O que estende Policy ao on-premises?",
+    "options": [
+      { "letter": "A", "text": "Azure Policy com escopo Arc" },
+      { "letter": "B", "text": "GPO local sem reporte" },
+      { "letter": "C", "text": "Script manual por servidor" },
+      { "letter": "D", "text": "Sem governança on-prem" }
+    ],
+    "correct": ["A"],
+    "explanation": "Policy avalia Arc com conformidade centralizada. GPO local não reporta; manual não escala; sem governança diverge.",
+    "source": "original",
+    "tags": ["arc", "policy", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-079",
+    "domain": "monitoramento",
+    "subdomain": "arc-defender",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Servidores Arc precisam de proteção contra ameaças igual à nuvem. O que estende o Defender?",
+    "options": [
+      { "letter": "A", "text": "Defender for Servers com plano no Arc" },
+      { "letter": "B", "text": "Antivírus local sem central" },
+      { "letter": "C", "text": "Sem proteção on-prem" },
+      { "letter": "D", "text": "Firewall de borda apenas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Plano no Arc centraliza alertas e recomendações. Local sem central fragmenta; sem nada expõe; borda não protege host.",
+    "source": "original",
+    "tags": ["arc", "defender", "servidores"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-080",
+    "domain": "monitoramento",
+    "subdomain": "arc-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Arquivos de servidores Arc precisam de backup em nuvem sem fita. O que protege com MARS?",
+    "options": [
+      { "letter": "A", "text": "Backup com agente MARS no Arc" },
+      { "letter": "B", "text": "Fita local com rotação" },
+      { "letter": "C", "text": "Cópia manual em HD externo" },
+      { "letter": "D", "text": "Sem backup on-prem" }
+    ],
+    "correct": ["A"],
+    "explanation": "MARS envia ao cofre com retenção e criptografia. Fita atrasa restore; HD externo perde; sem nada arrisca.",
+    "source": "original",
+    "tags": ["arc", "backup", "mars"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-081",
+    "domain": "monitoramento",
+    "subdomain": "automanage-arc",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Servidores Arc precisam de baseline automático igual às VMs. O que aplica Automanage no híbrido?",
+    "options": [
+      { "letter": "A", "text": "Automanage com perfil Arc" },
+      { "letter": "B", "text": "Configuração manual por servidor" },
+      { "letter": "C", "text": "Sem baseline on-prem" },
+      { "letter": "D", "text": "Imagem padrão sem gestão" }
+    ],
+    "correct": ["A"],
+    "explanation": "Perfil Arc aplica monitor, backup e segurança continuamente. Manual diverge; sem baseline vulnerabiliza; imagem sem gestão desatualiza.",
+    "source": "original",
+    "tags": ["arc", "automanage", "baseline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-082",
+    "domain": "monitoramento",
+    "subdomain": "change-tracking-arc",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mudanças de arquivos e registro em servidores Arc precisam de trilha com alerta. O que rastreia altering?",
+    "options": [
+      { "letter": "A", "text": "Change Tracking com regras e alertas" },
+      { "letter": "B", "text": "Verificação manual semanal" },
+      { "letter": "C", "text": "Sem rastreio" },
+      { "letter": "D", "text": "Backup sem trilha" }
+    ],
+    "correct": ["A"],
+    "explanation": "Change Tracking com regras detecta drift de arquivos/registro e alerta. Verificação manual semanal atrasa; sem rastreio cega; backup sem trilha não mostra mudança.",
+    "source": "original",
+    "tags": ["change-tracking", "arc", "drift"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-083",
+    "domain": "monitoramento",
+    "subdomain": "inventory-arc",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Software instalado nos servidores Arc precisa de inventário com versão para patch. O que coleta o inventário?",
+    "options": [
+      { "letter": "A", "text": "Inventário do Automation com coleta" },
+      { "letter": "B", "text": "Planilha manual" },
+      { "letter": "C", "text": "E-mail dos admins" },
+      { "letter": "D", "text": "Sem inventário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Inventory coleta pacotes/serviços com versão centralizada. Planilha desatualiza; e-mail dispersa; sem nada não planeja patch.",
+    "source": "original",
+    "tags": ["inventario", "arc", "software"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-084",
+    "domain": "monitoramento",
+    "subdomain": "sql-arc",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "SQL Server on-premises precisa de avaliação e backup gerenciado. O que projeta o SQL para o Azure?",
+    "options": [
+      { "letter": "A", "text": "SQL habilitado pelo Arc com avaliação" },
+      { "letter": "B", "text": "Agente local sem nuvem" },
+      { "letter": "C", "text": "Backup manual com script" },
+      { "letter": "D", "text": "Sem gestão do SQL" }
+    ],
+    "correct": ["A"],
+    "explanation": "Arc SQL avalia best practices e gerencia backup. Local sem nuvem fragmenta; manual falha; sem gestão degrada.",
+    "source": "original",
+    "tags": ["sql", "arc", "avaliacao", "backup"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-085",
+    "domain": "monitoramento",
+    "subdomain": "k8s-arc",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Clusters Kubernetes locais precisam de GitOps e policy centralizados. O que conecta o cluster ao Azure?",
+    "options": [
+      { "letter": "A", "text": "Kubernetes habilitado pelo Arc com Flux" },
+      { "letter": "B", "text": "Kubectl local sem central" },
+      { "letter": "C", "text": "YAML por e-mail" },
+      { "letter": "D", "text": "Sem gestão dos clusters" }
+    ],
+    "correct": ["A"],
+    "explanation": "Arc K8s aplica GitOps e Policy centralizados. Local sem central diverge; e-mail não implanta; sem gestão perde controle.",
+    "source": "original",
+    "tags": ["kubernetes", "arc", "gitops", "flux"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-086",
+    "domain": "monitoramento",
+    "subdomain": "policy-guest-config",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Configurações dentro do SO (serviços, registros) precisam de auditoria via Policy. Qual provedor avalia guest configuration?",
+    "options": [
+      { "letter": "A", "text": "Guest Configuration do Policy com agente" },
+      { "letter": "B", "text": "NSG com regras" },
+      { "letter": "C", "text": "Backup do SO" },
+      { "letter": "D", "text": "Métrica de CPU" }
+    ],
+    "correct": ["A"],
+    "explanation": "Guest Config audita e corrige dentro do SO via Policy. NSG filtra rede; backup não audita config; CPU não mostra setting.",
+    "source": "original",
+    "tags": ["guest-configuration", "policy", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-087",
+    "domain": "monitoramento",
+    "subdomain": "policy-remediate-guest",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "SO fora do baseline precisa de correção automática, não só auditoria. Qual efeito remedia guest configuration?",
+    "options": [
+      { "letter": "A", "text": "DeployIfNotExists com correção de guest" },
+      { "letter": "B", "text": "Audit sem ação" },
+      { "letter": "C", "text": "E-mail de aviso" },
+      { "letter": "D", "text": "Exclusão do recurso" }
+    ],
+    "correct": ["A"],
+    "explanation": "DINE com remediation aplica a config desejada. Audit só observa; e-mail não corrige; excluir destrói.",
+    "source": "original",
+    "tags": ["remediacao", "guest", "dine"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-088",
+    "domain": "monitoramento",
+    "subdomain": "policy-exemptions",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Recurso legado precisa de isenção temporária documentada da política. Como isentar com prazo e motivo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Isenção (exemption) com expiração e justificativa"
+      },
+      { "letter": "B", "text": "Desabilitar a política global" },
+      { "letter": "C", "text": "Excluir o recurso do escopo" },
+      { "letter": "D", "text": "Ignorar a não conformidade" }
+    ],
+    "correct": ["A"],
+    "explanation": "Exemption documenta, expira e audita a exceção. Desligar global afeta todos; excluir foge; ignorar acumula.",
+    "source": "original",
+    "tags": ["exemption", "isencao", "prazo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-089",
+    "domain": "monitoramento",
+    "subdomain": "policy-waivers",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Não conformidade pontual já corrigida precisa sair do relatório sem recriar. O que marca como dispensado?",
+    "options": [
+      { "letter": "A", "text": "Waiver (dispensa) do recurso não conforme" },
+      { "letter": "B", "text": "Exclusão da política" },
+      { "letter": "C", "text": "Recriação do recurso" },
+      { "letter": "D", "text": "Mudança de subscription" }
+    ],
+    "correct": ["A"],
+    "explanation": "Waiver dispensa o item avaliado com trilha. Excluir política afeta todos; recriar perde; trocar sub foge.",
+    "source": "original",
+    "tags": ["waiver", "dispensa", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-090",
+    "domain": "monitoramento",
+    "subdomain": "policy-versioning",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Definições customizadas evoluem e atribuições precisam travar versão estável. Como versionar definição de Policy?",
+    "options": [
+      { "letter": "A", "text": "Versões da definição com pin na atribuição" },
+      { "letter": "B", "text": "Sobrescrever sem versionar" },
+      { "letter": "C", "text": "Nova definição por mudança" },
+      { "letter": "D", "text": "Sem controle de versão" }
+    ],
+    "correct": ["A"],
+    "explanation": "Versionamento com pin estabiliza atribuições. Sobrescrever quebra; duplicar fragmenta; sem controle perde trilha.",
+    "source": "original",
+    "tags": ["policy", "versionamento", "pin"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-091",
+    "domain": "monitoramento",
+    "subdomain": "policy-group-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Iniciativa de segurança agrupa 20 definições com parâmetros comuns. Quais dois elementos compõem o pacote? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Definições referenciadas na iniciativa" },
+      { "letter": "B", "text": "Parâmetros compartilhados com valores" },
+      { "letter": "C", "text": "Atribuições avulsas sem pacote" },
+      { "letter": "D", "text": "Exclusão das definições" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Iniciativa referencia definições com parâmetros unificados. Avulsas fragmentam; excluir remove proteção.",
+    "source": "original",
+    "tags": ["initiative", "pacote", "parametros"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-092",
+    "domain": "monitoramento",
+    "subdomain": "regulatory-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Conformidade com CIS e ISO precisa de pacotes prontos com mapeamento. Quais dois built-ins usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Iniciativa CIS Microsoft Azure" },
+      { "letter": "B", "text": "Iniciativa ISO 27001" },
+      { "letter": "C", "text": "Definição única genérica" },
+      { "letter": "D", "text": "Sem pacote com checklist manual" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Iniciativas regulatórias CIS e ISO 27001 mapeiam controles prontos para auditoria. Definição única genérica não mapeia; checklist manual não audita.",
+    "source": "original",
+    "tags": ["cis", "iso", "compliance", "built-in"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-093",
+    "domain": "monitoramento",
+    "subdomain": "benchmark-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Baseline de segurança Microsoft precisa de cobertura com relatório. Quais dois elementos aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Benchmark de segurança (MCB) como iniciativa" },
+      { "letter": "B", "text": "Relatório de conformidade por controle" },
+      { "letter": "C", "text": "Configuração manual por VM" },
+      { "letter": "D", "text": "Sem baseline" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Benchmark MCB padroniza controles e o relatório mede cobertura por controle. Configuração manual por VM diverge; sem baseline não há padrão.",
+    "source": "original",
+    "tags": ["benchmark", "mcb", "baseline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-094",
+    "domain": "monitoramento",
+    "subdomain": "assignment-scope-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Iniciativa deve valer para produção com exceção de sandbox documentada. Quais dois escopos combinar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Atribuição no MG de produção" },
+      { "letter": "B", "text": "Exclusão com exemption no sandbox" },
+      { "letter": "C", "text": "Atribuição só no sandbox" },
+      { "letter": "D", "text": "Sem atribuição" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Atribuição no MG de produção cobre tudo e exemption documenta a exceção no sandbox. Atribuir só no sandbox inverte; sem atribuição não governa.",
+    "source": "original",
+    "tags": ["escopo", "mg", "exemption"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-095",
+    "domain": "monitoramento",
+    "subdomain": "noncompliance-reasons-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Recursos não conformes precisam de motivo e dono para tratar. Quais dois campos documentar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Motivo da não conformidade" },
+      { "letter": "B", "text": "Responsável e prazo" },
+      { "letter": "C", "text": "Sem motivo registrado" },
+      { "letter": "D", "text": "Responsável anônimo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Motivo da não conformidade explica e responsável com prazo executa a correção. Sem motivo registrado não prioriza; responsável anônimo não cobra.",
+    "source": "original",
+    "tags": ["nao-conformidade", "motivo", "dono"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-096",
+    "domain": "monitoramento",
+    "subdomain": "compliance-trend-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Evolução da conformidade precisa de tendência com marcos. Quais dois elementos medir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Série histórica de conformidade" },
+      { "letter": "B", "text": "Marcos de remediação datados" },
+      { "letter": "C", "text": "Foto única atual" },
+      { "letter": "D", "text": "Sem histórico" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Série histórica mostra evolução da conformidade e marcos datados provam progresso. Foto única atual não tende; sem histórico não há medição.",
+    "source": "original",
+    "tags": ["tendencia", "historico", "marcos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-097",
+    "domain": "monitoramento",
+    "subdomain": "drift-detection-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Mudanças fora do IaC precisam de detecção com diff antes/depois. Quais dois elementos detectar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Detecção de drift no recurso" },
+      { "letter": "B", "text": "Diff de configuração auditado" },
+      { "letter": "C", "text": "Ignorar mudanças manuais" },
+      { "letter": "D", "text": "Sem trilha" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Detecção de drift sinaliza mudança fora do IaC e o diff auditado mostra antes/depois. Ignorar mudanças manuais acumula; sem trilha não há investigação.",
+    "source": "original",
+    "tags": ["drift", "deteccao", "diff"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-098",
+    "domain": "monitoramento",
+    "subdomain": "activity-log-alert-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Exclusão de grupo de recursos precisa alertar imediatamente o SOC. Quais dois elementos compor? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alerta de log de atividade na operação delete"
+      },
+      { "letter": "B", "text": "Action group com voz/SMS ao SOC" },
+      { "letter": "C", "text": "Log semanal consolidado" },
+      { "letter": "D", "text": "Sem alerta" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Alerta de log na operação delete com voz/SMS ao SOC reage em minutos. Log semanal consolidado atrasa dias; sem alerta não há detecção.",
+    "source": "original",
+    "tags": ["activity-log", "delete", "soc"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-099",
+    "domain": "monitoramento",
+    "subdomain": "service-health-alert-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Incidente regional precisa avisar NOC com escopo e severidade. Quais dois elementos configurar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Alerta de Service Health por região/serviço" },
+      { "letter": "B", "text": "Action group do NOC com severidade" },
+      { "letter": "C", "text": "Aviso no portal apenas" },
+      { "letter": "D", "text": "Descoberta pelo usuário" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Alerta de Service Health filtra região/serviço e o NOC recebe com severidade. Aviso só no portal exige olhar; descoberta pelo usuário não monitora.",
+    "source": "original",
+    "tags": ["service-health", "alerta", "noc"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-100",
+    "domain": "monitoramento",
+    "subdomain": "resource-health-alert-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VM indisponível por falha de plataforma precisa alertar o dono com causa. Quais dois elementos compor? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Alerta de Resource Health da VM" },
+      { "letter": "B", "text": "Notificação ao dono com causa" },
+      { "letter": "C", "text": "Verificação manual horária" },
+      { "letter": "D", "text": "Sem alerta" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Alerta de Resource Health detecta indisponibilidade da VM e notifica o dono com a causa. Verificação manual horária atrasa; sem alerta não há detecção.",
+    "source": "original",
+    "tags": ["resource-health", "alerta", "dono"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-101",
+    "domain": "monitoramento",
+    "subdomain": "advisor-alert-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Nova recomendação crítica do Advisor precisa chegar ao time responsável. Quais dois elementos encaminhar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Alerta em nova recomendação do Advisor" },
+      { "letter": "B", "text": "Roteamento ao time dono" },
+      { "letter": "C", "text": "Leitura mensal do portal" },
+      { "letter": "D", "text": "Ignorar recomendações" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Alerta em nova recomendação do Advisor com roteamento ao time dono age rápido. Leitura mensal do portal atrasa; ignorar recomendações acumula risco.",
+    "source": "original",
+    "tags": ["advisor", "alerta", "roteamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-102",
+    "domain": "monitoramento",
+    "subdomain": "scheduled-query-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Query KQL precisa avaliar a cada 5 min com janela de 15 min e threshold. Quais dois parâmetros definir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Frequência de avaliação de 5 min" },
+      { "letter": "B", "text": "Janela e limiar (threshold) calibrados" },
+      { "letter": "C", "text": "Avaliação anual" },
+      { "letter": "D", "text": "Sem limiar" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Frequência com janela e limiar equilibram detecção e ruído. Anual não monitora; sem limiar dispara à toa.",
+    "source": "original",
+    "tags": ["scheduled-query", "frequencia", "threshold"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-103",
+    "domain": "monitoramento",
+    "subdomain": "mute-actions-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Manutenção programada precisa silenciar ações sem desligar regras. Quais dois controles usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Supressão de ações na janela" },
+      { "letter": "B", "text": "Regras mantidas avaliando" },
+      { "letter": "C", "text": "Exclusão das regras" },
+      { "letter": "D", "text": "Desligamento do Monitor" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Supressão de ações na janela mantém as regras avaliando com histórico. Excluir as regras perde cobertura; desligar o Monitor cega tudo.",
+    "source": "original",
+    "tags": ["supressao", "acoes", "janela"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-104",
+    "domain": "monitoramento",
+    "subdomain": "stateful-vs-stateless-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Alerta deve disparar por transição de estado e não a cada avaliação. Quais dois modos diferenciar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Com estado (fired/resolved)" },
+      { "letter": "B", "text": "Sem estado (sempre notifica)" },
+      { "letter": "C", "text": "Sem modo definido" },
+      { "letter": "D", "text": "Notificação única vitalícia" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Modo com estado notifica transição com resolução registrada; sem estado sempre notifica. Escolher errado inunda a operação ou silencia o incidente.",
+    "source": "original",
+    "tags": ["stateful", "stateless", "transicao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-105",
+    "domain": "monitoramento",
+    "subdomain": "auto-resolve-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Alerta recuperado deve fechar sozinho com registro. Quais dois comportamentos configurar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Resolução automática ao normalizar" },
+      { "letter": "B", "text": "Histórico com resolved" },
+      { "letter": "C", "text": "Fechamento manual obrigatório" },
+      { "letter": "D", "text": "Reabertura sem critério" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Resolução automática fecha o alerta ao normalizar, com histórico de resolved. Fechamento manual obrigatório atrasa; reabertura sem critério gera ruído.",
+    "source": "original",
+    "tags": ["auto-resolve", "resolucao", "historico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-106",
+    "domain": "monitoramento",
+    "subdomain": "split-by-dimensions-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falha em um contêiner específico não pode alertar a conta toda. Quais dois recursos segmentar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Divisão por dimensões (split)" },
+      { "letter": "B", "text": "Alerta por segmento com contexto" },
+      { "letter": "C", "text": "Alerta agregado genérico" },
+      { "letter": "D", "text": "Um alerta por blob" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Divisão por dimensões (split) isola o segmento com contexto próprio. Alerta agregado genérico não isola; um alerta por blob explode em volume.",
+    "source": "original",
+    "tags": ["split", "dimensoes", "segmento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-107",
+    "domain": "monitoramento",
+    "subdomain": "failures-anomalies-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pico de falhas fora do padrão precisa de detecção sem limiar fixo. Quais dois recursos usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Detecção de anomalias no Application Insights"
+      },
+      { "letter": "B", "text": "Alerta em desvio do baseline" },
+      { "letter": "C", "text": "Limiar fixo alto permanente" },
+      { "letter": "D", "text": "Sem detecção" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Detecção de anomalias aprende o baseline e alerta em desvio do padrão. Limiar fixo alto permanente perde o sutil; sem detecção o pico passa batido.",
+    "source": "original",
+    "tags": ["anomalias", "baseline", "falhas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-108",
+    "domain": "monitoramento",
+    "subdomain": "proactive-detection-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Degradação futura prevista por tendência precisa de ação antes do estouro. Quais dois elementos antecipar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Detecção proativa com previsão" },
+      { "letter": "B", "text": "Ação preventiva documentada" },
+      { "letter": "C", "text": "Reação após outage" },
+      { "letter": "D", "text": "Sem previsão" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Detecção proativa com previsão antecipa degradação e ação preventiva documentada contém. Reagir após o outage atrasa; sem previsão o estouro surpreende.",
+    "source": "original",
+    "tags": ["proativa", "previsao", "prevencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-109",
+    "domain": "monitoramento",
+    "subdomain": "performance-counters-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Gargalo de CPU/memória/disco precisa de contadores do SO correlacionados. Quais dois coletar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Contadores de performance do convidado" },
+      { "letter": "B", "text": "Correlação com eventos do app" },
+      { "letter": "C", "text": "Métrica de billing" },
+      { "letter": "D", "text": "Log de deploy" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Contadores de performance do convidado mostram recurso e correlação com eventos do app explica a causa. Métrica de billing não diagnostica; log de deploy não mede runtime.",
+    "source": "original",
+    "tags": ["contadores", "performance", "correlacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-110",
+    "domain": "monitoramento",
+    "subdomain": "syslog-events-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Logs do Linux (syslog) e eventos Windows precisam de coleta unificada. Quais dois canais configurar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Syslog via AMA/DCR" },
+      { "letter": "B", "text": "Eventos Windows via DCR" },
+      { "letter": "C", "text": "Arquivo local sem central" },
+      { "letter": "D", "text": "Sem coleta" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Syslog via AMA/DCR e eventos Windows via DCR centralizam multi-OS. Arquivo local sem central fragmenta; sem coleta não há visibilidade.",
+    "source": "original",
+    "tags": ["syslog", "eventos", "ama", "dcr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-111",
+    "domain": "monitoramento",
+    "subdomain": "iis-logs-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Erros 500 com stack precisam de logs IIS + app correlacionados. Quais dois coletar juntos? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Logs IIS (W3C) do servidor" },
+      { "letter": "B", "text": "Logs de aplicação com correlation ID" },
+      { "letter": "C", "text": "Métrica de disco apenas" },
+      { "letter": "D", "text": "Backup dos logs" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Logs IIS (W3C) mostram o request e logs de aplicação com correlation ID mostram a exceção. Métrica de disco apenas não explica 500; backup dos logs não investiga.",
+    "source": "original",
+    "tags": ["iis", "logs", "correlacao", "500"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-112",
+    "domain": "monitoramento",
+    "subdomain": "failed-request-tracing-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Requests lentos intermitentes precisam de rastreio detalhado só nas falhas. Quais dois recursos capturar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Failed Request Tracing (FREB) filtrado" },
+      { "letter": "B", "text": "Profiler sob demanda no pico" },
+      { "letter": "C", "text": "Log genérico sem filtro" },
+      { "letter": "D", "text": "Restart do app" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Failed Request Tracing filtrado captura falhas com detalhe e profiler sob demanda mostra hot path. Log genérico sem filtro afoga; restart do app mascara.",
+    "source": "original",
+    "tags": ["freb", "tracing", "profiler"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-113",
+    "domain": "monitoramento",
+    "subdomain": "stdout-logs-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Crash no startup sem log acessível precisa de stdout capturado. Quais dois canais obter? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Logs de console (stdout) do app" },
+      { "letter": "B", "text": "Eventos de deploy com erro" },
+      { "letter": "C", "text": "Métrica de CPU" },
+      { "letter": "D", "text": "Backup do código" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Logs de console (stdout) mostram a exceção de startup e eventos de deploy registram a falha. Métrica de CPU não mostra erro; backup do código não diagnostica.",
+    "source": "original",
+    "tags": ["stdout", "startup", "crash"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-114",
+    "domain": "monitoramento",
+    "subdomain": "deployment-logs-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Deploy falhou no meio e é preciso saber em qual etapa travou. Quais dois logs consultar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Logs de deployment (Kudu/Actions)" },
+      { "letter": "B", "text": "Status por etapa com erro" },
+      { "letter": "C", "text": "Log do mês passado" },
+      { "letter": "D", "text": "Métrica de rede" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Logs de deployment (Kudu/Actions) mostram a etapa travada e o status por etapa indica o erro para retomar. Log do mês passado desatualiza; métrica de rede não explica build.",
+    "source": "original",
+    "tags": ["deploy", "logs", "etapas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-115",
+    "domain": "monitoramento",
+    "subdomain": "kudu-tools-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Diagnóstico avançado precisa de console e dump do processo ao vivo. Quais duas ferramentas do Kudu usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Console de debug (cmd/PowerShell)" },
+      { "letter": "B", "text": "Dump de processo para análise" },
+      { "letter": "C", "text": "Edição direta em produção" },
+      { "letter": "D", "text": "Exclusão de arquivos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Console inspeciona e dump congela estado para análise. Editar em produção arrisca; excluir destrói evidência.",
+    "source": "original",
+    "tags": ["kudu", "console", "dump"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-116",
+    "domain": "monitoramento",
+    "subdomain": "process-explorer-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Processo com CPU alta precisa de identificação com threads e handles. Quais dois dados inspecionar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Lista de processos com CPU/memória" },
+      { "letter": "B", "text": "Threads e módulos do processo" },
+      { "letter": "C", "text": "Nome do plano de serviço" },
+      { "letter": "D", "text": "Cor do portal" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Processos com consumo e threads apontam o culpado. Plano não identifica processo; portal irrelevante.",
+    "source": "original",
+    "tags": ["processos", "threads", "cpu"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-117",
+    "domain": "monitoramento",
+    "subdomain": "environment-dump-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Variáveis e connection strings em produção precisam de auditoria sem expor valores. Quais dois relatórios gerar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Dump de ambiente com mascaramento" },
+      { "letter": "B", "text": "Lista de settings sem valores" },
+      { "letter": "C", "text": "Print com segredos visíveis" },
+      { "letter": "D", "text": "Exportação sem filtro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Dump de ambiente com mascaramento e lista de settings sem valores auditam sem vazar segredos. Print com segredos visíveis expõe; exportação sem filtro vaza tudo.",
+    "source": "original",
+    "tags": ["ambiente", "dump", "mascaramento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-118",
+    "domain": "monitoramento",
+    "subdomain": "support-ticket-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Incidente com causa na plataforma precisa de chamado com severidade e evidência. Quais dois elementos montar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Severidade alinhada ao impacto" },
+      { "letter": "B", "text": "Evidências (logs, tempo, escopo)" },
+      { "letter": "C", "text": "Chamado sem contexto" },
+      { "letter": "D", "text": "E-mail genérico" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Severidade alinhada ao impacto prioriza e evidências (logs, tempo, escopo) aceleram o suporte. Chamado sem contexto atrasa; e-mail genérico dispersa.",
+    "source": "original",
+    "tags": ["suporte", "severidade", "evidencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-119",
+    "domain": "monitoramento",
+    "subdomain": "rca-report-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pós-incidente precisa de causa raiz com ações preventivas. Quais dois blocos documentar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Linha do tempo com causa raiz" },
+      { "letter": "B", "text": "Ações corretivas com donos" },
+      { "letter": "C", "text": "Culpa individual nominal" },
+      { "letter": "D", "text": "Sem registro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Linha do tempo com causa raiz explica e ações corretivas com donos previnem repetição. Culpa individual nominal não corrige sistema; sem registro o erro repete.",
+    "source": "original",
+    "tags": ["rca", "pos-incidente", "acoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-120",
+    "domain": "monitoramento",
+    "subdomain": "blameless-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cultura de aprendizado sem caça às bruxas precisa de dois princípios. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Foco em sistema e processo" },
+      { "letter": "B", "text": "Melhoria contínua documentada" },
+      { "letter": "C", "text": "Punição exemplar" },
+      { "letter": "D", "text": "Sigilo total do incidente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Foco em sistema e processo corrige a causa e melhoria contínua documentada propaga aprendizado. Punição exemplar esconde erros; sigilo total impede aprender.",
+    "source": "original",
+    "tags": ["blameless", "cultura", "aprendizado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-121",
+    "domain": "monitoramento",
+    "subdomain": "game-days-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Time precisa praticar resposta com falha controlada e aprendizado. Quais dois elementos do game day usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Cenário de falha simulada" },
+      { "letter": "B", "text": "Debrief com melhorias" },
+      { "letter": "C", "text": "Falha real em produção" },
+      { "letter": "D", "text": "Sem preparação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Cenário de falha simulada treina a resposta e debrief com melhorias fixa aprendizado. Falha real em produção sem controle arrisca; sem preparação vira caos.",
+    "source": "original",
+    "tags": ["game-day", "simulacao", "treino"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-122",
+    "domain": "monitoramento",
+    "subdomain": "runbook-docs-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Resposta consistente em plantão precisa de procedimento testado e atualizado. Quais dois artefatos manter? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Runbook passo a passo validado" },
+      { "letter": "B", "text": "Revisão periódica do procedimento" },
+      { "letter": "C", "text": "Conhecimento só oral" },
+      { "letter": "D", "text": "Documento obsoleto" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Runbook passo a passo validado garante resposta consistente e revisão periódica mantém atualizado. Conhecimento só oral se perde; documento obsoleto induz erro.",
+    "source": "original",
+    "tags": ["runbook", "documentacao", "plantao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-123",
+    "domain": "monitoramento",
+    "subdomain": "oncall-rotation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Plantão sustentável sem burnout precisa de rodízio e backup. Quais dois mecanismos adotar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Escala de rodízio publicada" },
+      { "letter": "B", "text": "Backup/secundário por turno" },
+      { "letter": "C", "text": "Uma pessoa fixa para sempre" },
+      { "letter": "D", "text": "Sem escala definida" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Escala de rodízio publicada distribui carga e backup/secundário por turno cobre ausência. Uma pessoa fixa para sempre queima; sem escala definida confunde.",
+    "source": "original",
+    "tags": ["plantao", "rodizio", "backup"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-124",
+    "domain": "monitoramento",
+    "subdomain": "escalation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Incidente sem resposta em 15 min precisa subir de nível automaticamente. Quais dois níveis de escalonamento definir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Escalonamento por tempo sem ack" },
+      { "letter": "B", "text": "Níveis com responsáveis (N1/N2/N3)" },
+      { "letter": "C", "text": "Aguardar indefinidamente" },
+      { "letter": "D", "text": "Escalar tudo sempre" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Escalonamento por tempo sem ack sobe de nível e responsáveis N1/N2/N3 assumem. Aguardar indefinidamente atrasa; escalar tudo sempre queima o time.",
+    "source": "original",
+    "tags": ["escalonamento", "niveis", "ack"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-125",
+    "domain": "monitoramento",
+    "subdomain": "war-room-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Incidente grave precisa de coordenação única com papéis claros. Quais dois elementos montar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Sala de guerra com comandante" },
+      { "letter": "B", "text": "Papéis (comms, ops, scribe)" },
+      { "letter": "C", "text": "Cada um por si" },
+      { "letter": "D", "text": "Sem coordenação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Sala de guerra com comandante centraliza e papéis (comms, ops, scribe) evitam colisão. Cada um por si duplica esforço; sem coordenação dispersa.",
+    "source": "original",
+    "tags": ["war-room", "coordenacao", "papeis"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-126",
+    "domain": "monitoramento",
+    "subdomain": "status-page-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Clientes precisam de transparência durante outage sem sobrecarregar suporte. Quais dois canais manter? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Página de status pública atualizada" },
+      { "letter": "B", "text": "Comunicados periódicos com ETA" },
+      { "letter": "C", "text": "Silêncio total" },
+      { "letter": "D", "text": "Responder um a um" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Página de status pública atualizada centraliza e comunicados periódicos com ETA acalmam. Silêncio total especula; responder um a um não escala.",
+    "source": "original",
+    "tags": ["status-page", "comunicacao", "transparencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-127",
+    "domain": "monitoramento",
+    "subdomain": "slos-burn-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Queima rápida do orçamento de erro precisa de alerta antes de estourar. Quais dois alertas configurar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Burn rate rápido (1h/6h)" },
+      { "letter": "B", "text": "Burn rate lento (3d/6d)" },
+      { "letter": "C", "text": "Sem alerta de burn" },
+      { "letter": "D", "text": "Alerta só após estouro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Burn rate rápido (1h/6h) pega incidente e lento (3d/6d) pega degradação; juntos antecipam o estouro. Sem alerta estoura; só após não previne.",
+    "source": "original",
+    "tags": ["burn-rate", "slo", "alerta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-128",
+    "domain": "monitoramento",
+    "subdomain": "error-budget-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Orçamento de erro esgotado precisa travar features e focar em confiabilidade. Quais duas políticas aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Congelar deploys ao esgotar" },
+      { "letter": "B", "text": "Priorizar confiabilidade no sprint" },
+      { "letter": "C", "text": "Acelerar features mesmo assim" },
+      { "letter": "D", "text": "Ignorar o orçamento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Congelar deploys ao esgotar protege o SLO e priorizar confiabilidade no sprint recupera. Acelerar features mesmo assim piora; ignorar o orçamento anula o mecanismo.",
+    "source": "original",
+    "tags": ["error-budget", "freeze", "confiabilidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-129",
+    "domain": "monitoramento",
+    "subdomain": "reliability-targets-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Metas de confiabilidade precisam de SLO por serviço crítico com revisão. Quais dois elementos definir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "SLOs por jornada crítica" },
+      { "letter": "B", "text": "Revisão trimestral das metas" },
+      { "letter": "C", "text": "Meta única genérica" },
+      { "letter": "D", "text": "Sem metas" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "SLOs por jornada crítica focam no que importa e revisão trimestral recalibra metas. Meta única genérica não dirige; sem metas não há medição.",
+    "source": "original",
+    "tags": ["slo", "metas", "revisao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-130",
+    "domain": "monitoramento",
+    "subdomain": "chaos-experiments-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Resiliência precisa de prova com falha injetada e hipótese medida. Quais dois elementos do experimento usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Hipótese de steady-state" },
+      { "letter": "B", "text": "Falha controlada com blast radius" },
+      { "letter": "C", "text": "Falha real sem controle" },
+      { "letter": "D", "text": "Sem hipótese" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Hipótese de steady-state define sucesso e falha controlada com blast radius testa com limite. Falha real sem controle arrisca; sem hipótese não há conclusão.",
+    "source": "original",
+    "tags": ["caos", "experimento", "hipotese"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-131",
+    "domain": "monitoramento",
+    "subdomain": "fault-injection-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Latência e queda de dependência precisam de simulação com aborto seguro. Quais dois controles aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Injeção de latência/erro gradual" },
+      { "letter": "B", "text": "Abortar em guardrail violado" },
+      { "letter": "C", "text": "Queda total sem limite" },
+      { "letter": "D", "text": "Sem monitoramento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Injeção de latência/erro gradual testa tolerância e abortar em guardrail violado protege. Queda total sem limite derruba; sem monitoramento cega.",
+    "source": "original",
+    "tags": ["fault-injection", "latencia", "aborto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-132",
+    "domain": "monitoramento",
+    "subdomain": "resilience-score-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Postura de resiliência precisa de nota com recomendações priorizadas. Quais dois elementos medir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Score de resiliência por carga" },
+      { "letter": "B", "text": "Recomendações com impacto" },
+      { "letter": "C", "text": "Nota única sem detalhe" },
+      { "letter": "D", "text": "Sem medição" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Score de resiliência por carga prioriza e recomendações com impacto guiam. Nota única sem detalhe não age; sem medição não há evolução.",
+    "source": "original",
+    "tags": ["resiliencia", "score", "recomendacoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-133",
+    "domain": "monitoramento",
+    "subdomain": "advisor-resilience-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cargas sem zona nem backup precisam de recomendação automática. Quais dois sinais o Advisor usa? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Ausência de redundância zonal" },
+      { "letter": "B", "text": "Falta de backup configurado" },
+      { "letter": "C", "text": "Cor do recurso" },
+      { "letter": "D", "text": "Nome do grupo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Ausência de redundância zonal e falta de backup configurado disparam recomendação do Advisor. Cor do recurso e nome do grupo não avaliam resiliência.",
+    "source": "original",
+    "tags": ["advisor", "resiliencia", "recomendacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-134",
+    "domain": "monitoramento",
+    "subdomain": "backup-explorer-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Centenas de itens protegidos precisam de visão com filtro por estado. Quais dois recursos do Explorer usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Visão centralizada multi-cofre" },
+      { "letter": "B", "text": "Filtros por estado e política" },
+      { "letter": "C", "text": "Cofre por cofro manual" },
+      { "letter": "D", "text": "Planilha paralela" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Visão centralizada multi-cofre com filtros por estado e política organiza centenas de itens. Cofre por cofre manual não escala; planilha paralela desatualiza.",
+    "source": "original",
+    "tags": ["backup-explorer", "visao", "filtros"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-135",
+    "domain": "monitoramento",
+    "subdomain": "cross-region-restore-mo-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Teste de DR precisa restaurar na secundária sem afetar produção. Quais dois elementos isolar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Restore em staging isolado" },
+      { "letter": "B", "text": "Validação sem tocar produção" },
+      { "letter": "C", "text": "Restore direto em produção" },
+      { "letter": "D", "text": "Sem teste" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Restore em staging isolado testa sem risco e validação confirma sem tocar produção. Restore direto em produção arrisca; sem teste não se prova DR.",
+    "source": "original",
+    "tags": ["cross-region", "staging", "teste-dr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-136",
+    "domain": "monitoramento",
+    "subdomain": "pitr-blob-mo-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que PITR de blobs exige versionamento e change feed habilitados. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, pré-requisitos obrigatórios" },
+      { "letter": "B", "text": "Não, funciona sem nada" }
+    ],
+    "correct": ["A"],
+    "explanation": "PITR de blobs requer versionamento, change feed e soft delete habilitados. Sem esses pré-requisitos não há ponto de restauração no passado.",
+    "source": "original",
+    "tags": ["pitr", "pre-requisitos", "versionamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-137",
+    "domain": "monitoramento",
+    "subdomain": "retention-vs-pitr-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o ponto mais antigo restaurável é limitado pela retenção configurada. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, retenção limita o passado" },
+      { "letter": "B", "text": "Não, restaura qualquer época" }
+    ],
+    "correct": ["A"],
+    "explanation": "PITR só alcança dentro da retenção configurada para o passado. Restaurar qualquer época ignora o limite de guarda do banco.",
+    "source": "original",
+    "tags": ["pitr", "retencao", "limite"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-138",
+    "domain": "monitoramento",
+    "subdomain": "or-pitr-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que restore operacional e PITR podem coexistir na mesma conta. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, coexistem com políticas distintas" },
+      { "letter": "B", "text": "Não, são mutuamente exclusivos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Restore operacional contínuo e PITR atendem casos distintos e coexistem na mesma conta. Exclusividade mútua entre eles não existe na plataforma.",
+    "source": "original",
+    "tags": ["pitr", "operacional", "coexistencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-139",
+    "domain": "monitoramento",
+    "subdomain": "vault-tier-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que camada de cofre (vault tier) barateia retenção longa de blobs operacionais. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, vault tier reduz custo longo" },
+      { "letter": "B", "text": "Não, só existe tier quente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Camada de cofre (vault tier) move cópias antigas para retenção barata de longo prazo. Achar que só existe tier quente ignora a hierarquia de custo.",
+    "source": "original",
+    "tags": ["vault-tier", "custo", "retencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-140",
+    "domain": "monitoramento",
+    "subdomain": "always-on-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que App Service sem Always On recicla em ociosidade, matando cache e cron. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, sem Always On há unload" },
+      { "letter": "B", "text": "Não, fica sempre ativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Sem Always On o worker descarrega quando ocioso, matando warmup, cache e timers. Assumir sempre ativo ignora o ciclo de vida do plano.",
+    "source": "original",
+    "tags": ["always-on", "ociosidade", "reciclagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-141",
+    "domain": "monitoramento",
+    "subdomain": "arr-affinity-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que afinidade ARR deve ficar ligada por padrão para performance. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, sempre ligada" },
+      { "letter": "B", "text": "Não, desligada salvo estado em memória" }
+    ],
+    "correct": ["B"],
+    "explanation": "Afinidade ARR só serve a estado em memória local; ligada quebra distribuição e escala. O padrão correto é desligada salvo necessidade explícita.",
+    "source": "original",
+    "tags": ["arr-affinity", "distribuicao", "estado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-142",
+    "domain": "monitoramento",
+    "subdomain": "health-check-path-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que health check path do App Service remove instância doente do LB. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, unhealthy sai do pool" },
+      { "letter": "B", "text": "Não, é só informativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Health check path monitora e exclui a instância doente do balanceamento. Tratar como só informativo mantém tráfego no erro.",
+    "source": "original",
+    "tags": ["health-check", "pool", "doente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-143",
+    "domain": "monitoramento",
+    "subdomain": "auto-heal-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que auto-heal reinicia o app em condições como memória alta ou lentidão. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, com gatilhos e ações" },
+      { "letter": "B", "text": "Não, auto-heal não existe" }
+    ],
+    "correct": ["A"],
+    "explanation": "Auto-heal monitora contadores (memória, lentidão) e recicla em condição configurada. Negar a existência ignora o recurso nativo da plataforma.",
+    "source": "original",
+    "tags": ["auto-heal", "reciclagem", "gatilhos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-144",
+    "domain": "monitoramento",
+    "subdomain": "local-cache-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que cache local copia o conteúdo para o disco da instância melhorando leitura. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, local cache acelera leitura" },
+      { "letter": "B", "text": "Não, piora a performance" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cache local replica o conteúdo para o disco da instância reduzindo latência de leitura. Dizer que piora a performance inverte o propósito do recurso.",
+    "source": "original",
+    "tags": ["local-cache", "leitura", "disco"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-145",
+    "domain": "monitoramento",
+    "subdomain": "app-950-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um auditor afirma que o banco atingiu 950 questões validadas cobrindo os 5 domínios. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, meta §4 atingida" },
+      { "letter": "B", "text": "Não, ainda faltam domínios" }
+    ],
+    "correct": ["A"],
+    "explanation": "Banco soma 950 (230+170+230+175+145) validado pelo script. Faltar domínios contraria a contagem oficial.",
+    "source": "original",
+    "tags": ["meta", "950", "banco"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

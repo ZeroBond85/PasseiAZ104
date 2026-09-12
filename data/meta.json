@@ -12,7 +12,7 @@
     "storage": 125,
     "compute": 150,
     "rede-virtual": 175,
-    "monitoramento": 60
+    "monitoramento": 145
   },
   "generatedWith": null,
   "seedVersion": 1,
