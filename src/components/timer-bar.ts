@@ -1,0 +1,66 @@
+import { css, html, LitElement } from 'lit'
+
+export class TimerBar extends LitElement {
+  static properties = {
+    remaining: { type: Number },
+    total: { type: Number },
+    saved: { type: Boolean },
+  }
+
+  declare remaining: number
+  declare total: number
+  declare saved: boolean
+
+  constructor() {
+    super()
+    this.remaining = 0
+    this.total = 1
+    this.saved = false
+  }
+
+  private fmt(s: number) {
+    const m = Math.floor(Math.max(0, s) / 60)
+    const r = Math.max(0, s) % 60
+    return `${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}`
+  }
+
+  render() {
+    const pct = Math.max(0, Math.min(100, (this.remaining / this.total) * 100))
+    return html`
+      <div class="timer-sticky">
+        <div class="row">
+          <strong aria-live="polite">${this.fmt(this.remaining)}</strong>
+          ${this.saved ? html`<span class="saved">progresso salvo ✓</span>` : html``}
+        </div>
+        <div class="bar" role="progressbar" aria-valuenow=${pct} aria-valuemin="0" aria-valuemax="100">
+          <div class="fill" style="width:${pct}%"></div>
+        </div>
+      </div>
+    `
+  }
+
+  static styles = css`
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px 4px;
+    }
+    .saved {
+      color: var(--brand-green);
+      font-size: 13px;
+    }
+    .bar {
+      height: 6px;
+      background: var(--surface-raised);
+      margin: 0 16px 8px;
+      border-radius: 3px;
+    }
+    .fill {
+      height: 100%;
+      background: var(--progress);
+      border-radius: 3px;
+    }
+  `
+}
+customElements.define('timer-bar', TimerBar)
