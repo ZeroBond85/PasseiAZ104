@@ -11,7 +11,7 @@
     "identidade-governanca": 50,
     "storage": 0,
     "compute": 80,
-    "rede-virtual": 0,
+    "rede-virtual": 80,
     "monitoramento": 0
   },
   "generatedWith": null,

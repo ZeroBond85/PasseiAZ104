@@ -1,0 +1,1827 @@
+[
+  {
+    "id": "az104-rv-001",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-subnets",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa segmentar uma rede virtual 10.0.0.0/16 em sub-redes para web, aplicação e banco de dados. Qual prefixo de sub-rede comporta cerca de 250 hosts utilizáveis em cada camada?",
+    "options": [
+      { "letter": "A", "text": "10.0.1.0/24 para cada sub-rede" },
+      { "letter": "B", "text": "10.0.1.0/30 para cada sub-rede" },
+      { "letter": "C", "text": "10.0.0.0/16 repetido em cada camada" },
+      { "letter": "D", "text": "192.168.0.0/8 sobreposto à VNet" }
+    ],
+    "correct": ["A"],
+    "explanation": "/24 entrega 251 IPs utilizáveis (Azure reserva 5), ideal por camada. /30 só tem 2 úteis; repetir /16 sobrepõe e é inválido; 192.168/8 externo não segmenta a VNet.",
+    "source": "original",
+    "tags": ["vnet", "subnets", "cidr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-002",
+    "domain": "rede-virtual",
+    "subdomain": "nsg",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma VM web precisa aceitar HTTPS de qualquer origem, mas SSH somente do IP do escritório 200.10.5.1. Qual configuração de NSG aplica isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra 443 Allow de * + regra 22 Allow só de 200.10.5.1 com prioridade maior"
+      },
+      { "letter": "B", "text": "Regra única Allow * para todas as portas" },
+      { "letter": "C", "text": "Regra Deny 443 de qualquer origem" },
+      { "letter": "D", "text": "NSG aplicada apenas no gateway da VPN" }
+    ],
+    "correct": ["A"],
+    "explanation": "Duas regras de entrada: 443 aberta e 22 restrita ao IP (prioridade menor número = avaliada antes do Deny padrão). Abrir tudo viola; negar 443 quebra o site; NSG em gateway não filtra a VM.",
+    "source": "original",
+    "tags": ["nsg", "regras", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-003",
+    "domain": "rede-virtual",
+    "subdomain": "peering",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Duas VNets na mesma região com espaços 10.1.0.0/16 e 10.2.0.0/16 precisam comunicar com latência de backbone. Qual recurso conecta as duas sem gateway?",
+    "options": [
+      { "letter": "A", "text": "Emparelhamento de VNet (VNet Peering)" },
+      { "letter": "B", "text": "VPN site-to-site entre as VNets" },
+      { "letter": "C", "text": "IP público nas VMs com NSG aberta" },
+      { "letter": "D", "text": "Rota 0.0.0.0/0 para a internet" }
+    ],
+    "correct": ["A"],
+    "explanation": "Peering une VNets pelo backbone com baixa latência e sem gateway. VPN entre VNets (VNet-to-VNet) exige gateways e é mais lenta; IP público expõe; rota default não conecta redes privadas.",
+    "source": "original",
+    "tags": ["peering", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-004",
+    "domain": "rede-virtual",
+    "subdomain": "dns-privado",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VMs em VNets emparelhadas precisam resolver app.privado.local para o IP privado do App Service com Private Endpoint. Qual zona DNS resolve esse nome internamente?",
+    "options": [
+      { "letter": "A", "text": "Zona DNS Privada do Azure vinculada às VNets" },
+      { "letter": "B", "text": "Zona DNS pública na internet" },
+      { "letter": "C", "text": "Arquivo hosts editado em cada VM" },
+      { "letter": "D", "text": "DNS do provedor de internet local" }
+    ],
+    "correct": ["A"],
+    "explanation": "Zona privada vinculada às VNets resolve nomes internos com registros automáticos do Private Endpoint. Zona pública expõe; hosts não escala; DNS do ISP não conhece a zona privada.",
+    "source": "original",
+    "tags": ["dns-privado", "private-endpoint"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-005",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-gateway",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "O escritório precisa de túnel criptografado permanente até a VNet do Azure pela internet. Qual recurso cria esse túnel site-to-site?",
+    "options": [
+      { "letter": "A", "text": "Gateway de VPN com conexão IPsec/IKE" },
+      { "letter": "B", "text": "Load Balancer com regra NAT" },
+      { "letter": "C", "text": "Bastion na VNet" },
+      { "letter": "D", "text": "Rota definida pelo usuário para 0.0.0.0/0" }
+    ],
+    "correct": ["A"],
+    "explanation": "VPN Gateway termina túneis IPsec site-to-site e ponto-a-site. Load Balancer distribui, não tunela; Bastion dá shell, não rede; UDR sozinha não criptografa.",
+    "source": "original",
+    "tags": ["vpn", "site-to-site", "ipsec"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-006",
+    "domain": "rede-virtual",
+    "subdomain": "expressroute",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "O banco exige link privado dedicado ao Azure sem passar pela internet pública, com SLA de conectividade. Qual serviço fornece esse circuito privado?",
+    "options": [
+      { "letter": "A", "text": "ExpressRoute com circuito via provedor" },
+      { "letter": "B", "text": "VPN site-to-site pela internet" },
+      { "letter": "C", "text": "Peering entre VNets" },
+      { "letter": "D", "text": "Front Door com backend privado" }
+    ],
+    "correct": ["A"],
+    "explanation": "ExpressRoute é link privado dedicado com SLA, fora da internet. VPN passa pela internet; peering é entre VNets; Front Door é entrada pública, não link privado.",
+    "source": "original",
+    "tags": ["expressroute", "link-privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-007",
+    "domain": "rede-virtual",
+    "subdomain": "load-balancer",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Três VMs precisam receber tráfego TCP na porta 80 distribuído igualmente, com IP público único na frente. Qual recurso distribui esse tráfego na camada 4?",
+    "options": [
+      { "letter": "A", "text": "Load Balancer Standard com pool de backend" },
+      { "letter": "B", "text": "Application Gateway sem listener" },
+      { "letter": "C", "text": "Traffic Manager com perfil aninhado" },
+      { "letter": "D", "text": "NSG com regra de balanceamento" }
+    ],
+    "correct": ["A"],
+    "explanation": "Load Balancer distribui TCP/UDP (L4) pelo frontend IP ao backend pool. App Gateway sem listener não recebe; Traffic Manager é DNS; NSG filtra, não balanceia.",
+    "source": "original",
+    "tags": ["load-balancer", "camada-4"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-008",
+    "domain": "rede-virtual",
+    "subdomain": "app-gateway",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um e-commerce precisa de roteamento por URL (/api para um pool, /site para outro) com WAF. Qual recurso faz balanceamento de camada 7 com firewall web?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Application Gateway com WAF e regras de roteamento"
+      },
+      { "letter": "B", "text": "Load Balancer Básico" },
+      { "letter": "C", "text": "VPN Gateway com BGP" },
+      { "letter": "D", "text": "DNS privado com registros A" }
+    ],
+    "correct": ["A"],
+    "explanation": "App Gateway opera em L7 (host/URL) e o WAF filtra OWASP. LB Básico é L4 sem SLA; VPN não balanceia HTTP; DNS não inspeciona conteúdo.",
+    "source": "original",
+    "tags": ["app-gateway", "waf", "camada-7"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-009",
+    "domain": "rede-virtual",
+    "subdomain": "nat-gateway",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VMs sem IP público precisam sair à internet por um único IP fixo para allowlist do parceiro. Qual recurso fornece SNAT com IP previsível?",
+    "options": [
+      { "letter": "A", "text": "NAT Gateway com IP público fixo na sub-rede" },
+      { "letter": "B", "text": "IP público em cada VM" },
+      { "letter": "C", "text": "Load Balancer com regra de entrada" },
+      { "letter": "D", "text": "Rota para firewall sem SNAT" }
+    ],
+    "correct": ["A"],
+    "explanation": "NAT Gateway centraliza a saída da sub-rede em IP fixo. IP por VM multiplica allowlist; LB de entrada não faz saída; rota sem SNAT não traduz origem.",
+    "source": "original",
+    "tags": ["nat-gateway", "snat", "saida"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-010",
+    "domain": "rede-virtual",
+    "subdomain": "firewall",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Todo o tráfego de saída das VNets precisa passar por inspeção central com regras de FQDN e TLS. Qual serviço filtra esse tráfego como firewall gerenciado?",
+    "options": [
+      { "letter": "A", "text": "Azure Firewall com políticas e inspeção TLS" },
+      { "letter": "B", "text": "NSG com regras de porta" },
+      { "letter": "C", "text": "Route table sem próximo salto" },
+      { "letter": "D", "text": "Bastion com sessão gravada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Firewall inspeciona L3-L7 com FQDN e TLS centralizados. NSG filtra portas sem inspeção de conteúdo; UDR sozinha não filtra; Bastion dá acesso, não filtra saída.",
+    "source": "original",
+    "tags": ["firewall", "fqdn", "inspecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-011",
+    "domain": "rede-virtual",
+    "subdomain": "private-endpoint",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma conta de armazenamento deve ser acessada só por IP privado dentro da VNet, sem endpoint público. Qual recurso projeta o serviço PaaS para dentro da rede?",
+    "options": [
+      { "letter": "A", "text": "Private Endpoint com Private Link" },
+      { "letter": "B", "text": "Service Endpoint aberto à internet" },
+      { "letter": "C", "text": "SAS com IP liberado" },
+      { "letter": "D", "text": "Firewall da conta com Allow All" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoint cria NIC privada para o PaaS, sem tráfego público. Service Endpoint estende a VNet mas mantém endpoint público; SAS é credencial, não rede; Allow All expõe.",
+    "source": "original",
+    "tags": ["private-endpoint", "private-link", "paas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-012",
+    "domain": "rede-virtual",
+    "subdomain": "traffic-manager",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Usuários globais devem cair no App Service mais próximo (Brasil ou Europa) automaticamente. Qual serviço dirige por DNS com base em geografia?",
+    "options": [
+      { "letter": "A", "text": "Traffic Manager com roteamento geográfico" },
+      { "letter": "B", "text": "Load Balancer regional único" },
+      { "letter": "C", "text": "VNet peering global" },
+      { "letter": "D", "text": "Zona DNS privada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Traffic Manager responde DNS por método (geográfico, performance, prioridade). LB é regional; peering conecta redes; zona privada não resolve internet.",
+    "source": "original",
+    "tags": ["traffic-manager", "dns", "global"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-013",
+    "domain": "rede-virtual",
+    "subdomain": "front-door",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um site global precisa de entrada única com aceleração, WAF e failover entre regiões. Qual borda global entrega esses três juntos?",
+    "options": [
+      { "letter": "A", "text": "Azure Front Door (Standard/Premium)" },
+      { "letter": "B", "text": "Application Gateway regional" },
+      { "letter": "C", "text": "Bastion por região" },
+      { "letter": "D", "text": "VPN ponto a site" }
+    ],
+    "correct": ["A"],
+    "explanation": "Front Door é CDN+borda global com WAF e failover multirregião. App Gateway é regional; Bastion é acesso VM; VPN não publica site.",
+    "source": "original",
+    "tags": ["front-door", "waf", "global"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-014",
+    "domain": "rede-virtual",
+    "subdomain": "udr",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Tráfego da sub-rede de banco deve passar pelo firewall central antes de sair. Onde a rota personalizada que força esse caminho deve ser associada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tabela de rotas (UDR) associada à sub-rede do banco"
+      },
+      { "letter": "B", "text": "Tabela de rotas associada ao firewall" },
+      { "letter": "C", "text": "NSG do firewall com rota" },
+      { "letter": "D", "text": "Peering com gateway desativado" }
+    ],
+    "correct": ["A"],
+    "explanation": "UDR associada à sub-rede de origem redireciona o próximo salto ao firewall. Associar no firewall não afeta a origem; NSG não roteia; peering sem gateway não inspeciona.",
+    "source": "original",
+    "tags": ["udr", "rotas", "firewall"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-015",
+    "domain": "rede-virtual",
+    "subdomain": "service-endpoint",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VMs precisam acessar o Storage sem sair para a internet, identificando-se pela sub-rede no firewall da conta. Qual recurso estende a identidade da VNet ao serviço?",
+    "options": [
+      { "letter": "A", "text": "Service Endpoint da sub-rede para o Storage" },
+      { "letter": "B", "text": "Private Endpoint com DNS privado" },
+      { "letter": "C", "text": "IP público na VM com SAS" },
+      { "letter": "D", "text": "ExpressRoute com peering público" }
+    ],
+    "correct": ["A"],
+    "explanation": "Service Endpoint mantém o tráfego no backbone e permite filtrar por sub-rede no firewall da conta. Private Endpoint também isola, mas com IP privado (outro desenho); IP público sai à internet; peering público é para serviços Microsoft via ExpressRoute.",
+    "source": "original",
+    "tags": ["service-endpoint", "storage"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-016",
+    "domain": "rede-virtual",
+    "subdomain": "bastion",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Administradores precisam de RDP via navegador sem expor portas das VMs. Qual sub-rede especial o Bastion exige na VNet?",
+    "options": [
+      { "letter": "A", "text": "AzureBastionSubnet com /26 ou maior" },
+      { "letter": "B", "text": "GatewaySubnet compartilhada" },
+      { "letter": "C", "text": "Qualquer sub-rede com NSG aberta" },
+      { "letter": "D", "text": "Sub-rede com delegação ao App Service" }
+    ],
+    "correct": ["A"],
+    "explanation": "Bastion exige sub-rede dedicada AzureBastionSubnet (/26+). GatewaySubnet é do gateway VPN; qualquer sub-rede não serve; delegação é para PaaS, não Bastion.",
+    "source": "original",
+    "tags": ["bastion", "sub-rede"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-017",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-fluxo",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Conexões legítimas estão caindo e você suspeita de regra NSG. Qual ferramenta mostra, pacote a pacote, quais regras permitem ou negam o fluxo entre dois IPs?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Verificação de fluxo IP (IP Flow Verify) do Network Watcher"
+      },
+      { "letter": "B", "text": "Log de atividade da assinatura" },
+      { "letter": "C", "text": "Métricas de CPU da VM" },
+      { "letter": "D", "text": "Diagnóstico de inicialização da VM" }
+    ],
+    "correct": ["A"],
+    "explanation": "IP Flow Verify simula o pacote contra NSGs e diz permitir/negar com a regra. Log de atividade registra operações ARM; CPU não mostra rede; boot diagnostics mostra console.",
+    "source": "original",
+    "tags": ["network-watcher", "ip-flow-verify", "nsg"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-018",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-p2s",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Desenvolvedores remotos precisam de túnel individual ao Azure a partir de notebooks com certificado. Qual conexão do gateway atende usuários avulsos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ponto a site (P2S) com autenticação por certificado"
+      },
+      { "letter": "B", "text": "Site a site com dispositivo VPN local" },
+      { "letter": "C", "text": "Peering entre VNets" },
+      { "letter": "D", "text": "ExpressRoute com circuito dedicado" }
+    ],
+    "correct": ["A"],
+    "explanation": "P2S conecta clientes individuais via certificado/RADIUS. S2S liga redes inteiras via appliance; peering é VNet-VNet; ExpressRoute é link dedicado corporativo.",
+    "source": "original",
+    "tags": ["vpn", "p2s", "certificado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-019",
+    "domain": "rede-virtual",
+    "subdomain": "gateway-subnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A implantação do gateway de VPN falhou porque a sub-rede do gateway foi criada com NSG e nome personalizado. Quais são os requisitos dessa sub-rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nome exato GatewaySubnet, sem NSG e /27 ou maior"
+      },
+      { "letter": "B", "text": "Qualquer nome com NSG restritiva" },
+      { "letter": "C", "text": "Nome GatewaySubnet com /29" },
+      { "letter": "D", "text": "Sub-rede delegada ao App Service" }
+    ],
+    "correct": ["A"],
+    "explanation": "Gateway exige GatewaySubnet, sem NSG/UDR e /27+ para IPs do cluster ativo-passivo. Nome livre, NSG ou /29 quebram o deploy; delegação é para outros PaaS.",
+    "source": "original",
+    "tags": ["vpn", "gateway-subnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-020",
+    "domain": "rede-virtual",
+    "subdomain": "dns-hub-spoke",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Em topologia hub-spoke, spokes precisam resolver nomes privados do hub sem zona em cada VNet. Como centralizar a resolução privada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zona DNS privada vinculada ao hub com propagação via peering"
+      },
+      { "letter": "B", "text": "Zona pública replicada por região" },
+      { "letter": "C", "text": "Hosts file distribuído por extensão" },
+      { "letter": "D", "text": "DNS externo com forward condicional" }
+    ],
+    "correct": ["A"],
+    "explanation": "Zona vinculada ao hub resolve para spokes emparelhados (com link e sem sobreposição). Zona pública expõe; hosts não escala; DNS externo não conhece a zona privada.",
+    "source": "original",
+    "tags": ["dns-privado", "hub-spoke"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-021",
+    "domain": "rede-virtual",
+    "subdomain": "peering-transitividade",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Três VNets em cadeia (A-B, B-C) precisam que A alcance C passando por B, que tem firewall. Por que o peering direto A-C falha sem o hub e o que resolve?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering não é transitivo; usar gateway transit ou UDR via firewall do hub"
+      },
+      { "letter": "B", "text": "Peering é transitivo por padrão" },
+      { "letter": "C", "text": "Basta criar DNS privado em C" },
+      { "letter": "D", "text": "Basta abrir NSG em A" }
+    ],
+    "correct": ["A"],
+    "explanation": "Peering não transita: A não alcança C via B sem permitir trânsito de gateway ou rotas pelo firewall. DNS e NSG não criam rota; transitividade exige desenho hub-spoke explícito.",
+    "source": "original",
+    "tags": ["peering", "transitividade", "hub-spoke"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-022",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-service-tags",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra precisa liberar o acesso ao Storage e ao SQL sem listar centenas de IPs que mudam. Qual construção representa esses serviços na NSG?",
+    "options": [
+      { "letter": "A", "text": "Tags de serviço (Storage, Sql) como destino" },
+      { "letter": "B", "text": "IPs fixos manuais por região" },
+      { "letter": "C", "text": "Allow All de saída" },
+      { "letter": "D", "text": "DNS reverso dinâmico" }
+    ],
+    "correct": ["A"],
+    "explanation": "Service tags agrupam prefixos dos serviços gerenciados pela Microsoft. IPs manuais quebram a cada mudança; Allow All viola; DNS reverso não é origem válida de regra.",
+    "source": "original",
+    "tags": ["nsg", "service-tags"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-023",
+    "domain": "rede-virtual",
+    "subdomain": "lb-probe",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Instâncias doentes continuam recebendo tráfego porque o probe valida só TCP na porta. O que garante remoção de instância com aplicativo travado mas porta aberta?",
+    "options": [
+      { "letter": "A", "text": "Probe HTTP com caminho de saúde da aplicação" },
+      { "letter": "B", "text": "Probe TCP com intervalo maior" },
+      { "letter": "C", "text": "Desabilitar o probe do backend" },
+      { "letter": "D", "text": "Aumentar o timeout de ociosidade" }
+    ],
+    "correct": ["A"],
+    "explanation": "Probe HTTP valida resposta da app (200 no /health), detectando trava lógica. TCP só checa handshake; sem probe tudo recebe; timeout de ociosidade é sobre conexão, não saúde.",
+    "source": "original",
+    "tags": ["load-balancer", "health-probe", "http"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-024",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-ssl",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O App Gateway deve terminar TLS com certificado do Key Vault renovado automaticamente. Onde referenciar o certificado com renovação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Listener HTTPS com certificado referenciado do Key Vault"
+      },
+      {
+        "letter": "B",
+        "text": "Certificado PFX enviado por e-mail ao gateway"
+      },
+      { "letter": "C", "text": "Backend HTTP sem TLS" },
+      { "letter": "D", "text": "Probe TCP na porta 443" }
+    ],
+    "correct": ["A"],
+    "explanation": "Listener referencia o segredo no Key Vault (com identidade gerenciada) e acompanha renovações. PFX por e-mail é inseguro e estático; backend HTTP quebra fim-a-fim; probe não termina TLS.",
+    "source": "original",
+    "tags": ["app-gateway", "tls", "key-vault"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-025",
+    "domain": "rede-virtual",
+    "subdomain": "firewall-policy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dez firewalls regionais precisam das mesmas regras de aplicativo versionadas em um só lugar. Como centralizar e herdar essas regras?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de Firewall com grupos de regras herdados"
+      },
+      { "letter": "B", "text": "Regras locais repetidas por firewall" },
+      { "letter": "C", "text": "NSG global única" },
+      { "letter": "D", "text": "UDR com regras de aplicativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Firewall Policy centraliza rule collections com herança pai-filho. Regras locais divergem; NSG não é global nem L7; UDR roteia, não filtra conteúdo.",
+    "source": "original",
+    "tags": ["firewall", "policy", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-026",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-bgp",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dois túneis S2S ativo-ativo precisam escolher rotas dinamicamente sem UDR manual por prefixo. Qual protocolo o gateway usa para trocar rotas?",
+    "options": [
+      { "letter": "A", "text": "BGP entre gateway Azure e dispositivo local" },
+      { "letter": "B", "text": "DNS dinâmico nos túneis" },
+      { "letter": "C", "text": "ARP entre gateways" },
+      { "letter": "D", "text": "RIP versão 1" }
+    ],
+    "correct": ["A"],
+    "explanation": "BGP anuncia prefixos e converte em failover ativo-ativo. DNS não roteia; ARP é enlace local; RIPv1 é obsoleto e sem suporte.",
+    "source": "original",
+    "tags": ["vpn", "bgp", "ativo-ativo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-027",
+    "domain": "rede-virtual",
+    "subdomain": "expressroute-peering",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pelo ExpressRoute, o tráfego do Microsoft 365 deve seguir rota distinta da replicação privada das VNets. Quais peerings separam esses tráfegos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering Microsoft (365/serviços) e peering Privado (VNets)"
+      },
+      { "letter": "B", "text": "Dois peerings privados idênticos" },
+      { "letter": "C", "text": "Peering público para VNets" },
+      { "letter": "D", "text": "Um único peering para tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Peering Microsoft carrega serviços públicos e o Privado, as VNets. Dois privados duplicam; público não alcança VNet; um só mistura políticas distintas.",
+    "source": "original",
+    "tags": ["expressroute", "peering", "microsoft365"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-028",
+    "domain": "rede-virtual",
+    "subdomain": "frontdoor-origin",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O Front Door deve enviar /api ao App Service e /assets ao Storage estático, com failover por origem. O que define destinos e grupos de failover?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Origens agrupadas em grupos de origem com rotas por padrão"
+      },
+      { "letter": "B", "text": "Uma origem única para todos os caminhos" },
+      { "letter": "C", "text": "DNS CNAME direto ao Storage" },
+      { "letter": "D", "text": "NSG na borda global" }
+    ],
+    "correct": ["A"],
+    "explanation": "Origin groups com health probe fazem failover e rotas por padrão dividem por caminho. Origem única não separa; CNAME direto perde a borda; NSG não existe no Front Door.",
+    "source": "original",
+    "tags": ["front-door", "origens", "rotas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-029",
+    "domain": "rede-virtual",
+    "subdomain": "connection-monitor",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Latência entre VM e App Service via Private Endpoint precisa de série histórica com alerta. Qual recurso do Network Watcher monitora continuamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Monitor de Conexão (Connection Monitor) com testes periódicos"
+      },
+      { "letter": "B", "text": "Captura de pacote única" },
+      { "letter": "C", "text": "Topologia estática da VNet" },
+      { "letter": "D", "text": "Diagnóstico de boot da VM" }
+    ],
+    "correct": ["A"],
+    "explanation": "Connection Monitor testa periodicamente e gera métricas/alertas. Captura única não historica; topologia é mapa; boot não mede rede.",
+    "source": "original",
+    "tags": ["network-watcher", "connection-monitor"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-030",
+    "domain": "rede-virtual",
+    "subdomain": "packet-capture",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pacotes entre duas VMs precisam ser inspecionados no Wireshark por 5 minutos. Qual recurso captura e exporta o tráfego para análise?",
+    "options": [
+      { "letter": "A", "text": "Captura de Pacotes do Network Watcher na VM" },
+      { "letter": "B", "text": "Flow log do NSG (apenas metadados)" },
+      { "letter": "C", "text": "Métrica de bytes do Monitor" },
+      { "letter": "D", "text": "Log de DNS privado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Packet Capture grava PCAP para Wireshark. Flow log registra 5-tuplas, não payload; métrica agrega bytes; log DNS mostra nomes, não pacotes.",
+    "source": "original",
+    "tags": ["network-watcher", "packet-capture"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-031",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-integration-limites",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A integração VNet do App Service parou após troca de certificado do gateway. Qual causa raiz explica a quebra do túnel ponto-a-site interno?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Certificado do gateway alterado sem ressincronizar a integração"
+      },
+      { "letter": "B", "text": "Escala do plano para Premium" },
+      { "letter": "C", "text": "Criação de slot de homologação" },
+      { "letter": "D", "text": "Habilitação de logs em Blob" }
+    ],
+    "correct": ["A"],
+    "explanation": "A integração usa certificados do gateway P2S; trocá-los exige ressincronizar. Escala, slots e logs não quebram o túnel.",
+    "source": "original",
+    "tags": ["vnet-integration", "certificado", "gateway"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-032",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-flow-logs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria exige registrar todas as conexões permitidas e negadas pela NSG por 90 dias para investigação. Onde os fluxos com retenção devem ser enviados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Logs de fluxo NSG para Log Analytics/Storage com retenção"
+      },
+      { "letter": "B", "text": "Console ao vivo do portal" },
+      { "letter": "C", "text": "Métricas de 30 dias do Monitor" },
+      { "letter": "D", "text": "E-mail de alerta por conexão" }
+    ],
+    "correct": ["A"],
+    "explanation": "Flow logs gravam 5-tuplas com retenção configurável no LA/Storage. Console ao vivo não retém; métricas agregam; e-mail por conexão é inviável.",
+    "source": "original",
+    "tags": ["nsg", "flow-logs", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-033",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "IPs públicos de produção sofrem floods volumétricos e precisam de mitigação automática com telemetria. Qual plano protege esses IPs?",
+    "options": [
+      { "letter": "A", "text": "DDoS Protection no nível da VNet" },
+      { "letter": "B", "text": "NSG com limite de taxa (rate limit)" },
+      { "letter": "C", "text": "WAF do Application Gateway" },
+      { "letter": "D", "text": "Bloqueio de IP manual por alerta" }
+    ],
+    "correct": ["A"],
+    "explanation": "DDoS Protection mitiga L3/L4 na borda com telemetria. NSG não tem rate limit nativo; WAF protege L7 de apps específicos; bloqueio manual não acompanha flood.",
+    "source": "original",
+    "tags": ["ddos", "protecao", "l3-l4"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-034",
+    "domain": "rede-virtual",
+    "subdomain": "dns-forward",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs precisam resolver nomes on-premises (corp.local) via DNS local e nomes Azure via padrão, sem trocar DNS da VNet por VM. Como encaminhar condicionalmente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conjunto de regras de encaminhamento do resolvedor privado de DNS"
+      },
+      { "letter": "B", "text": "Hosts file idêntico em todas as VMs" },
+      { "letter": "C", "text": "Zona pública para corp.local" },
+      { "letter": "D", "text": "Desabilitar a resolução do Azure" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private DNS Resolver com ruleset encaminha corp.local ao DNS local e o resto ao Azure. Hosts não escala; zona pública expõe interno; desabilitar quebra a resolução Azure.",
+    "source": "original",
+    "tags": ["dns", "resolvedor-privado", "encaminhamento", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-035",
+    "domain": "rede-virtual",
+    "subdomain": "vwan",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Trinta filiais com VPN e ExpressRoute precisam de hub gerenciado com roteamento automático entre tudo. Qual arquitetura centraliza sem configurar cada peering?",
+    "options": [
+      { "letter": "A", "text": "Virtual WAN com hubs e roteamento automático" },
+      { "letter": "B", "text": "Trinta gateways isolados sem hub" },
+      { "letter": "C", "text": "Peering manual em malha completa" },
+      { "letter": "D", "text": "Uma VNet gigante para tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "vWAN abstrai hubs com VPN/ER e roteia automaticamente. Gateways isolados não se falam; malha manual não escala; VNet única mistura domínios e limites.",
+    "source": "original",
+    "tags": ["vwan", "hub", "filiais"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-036",
+    "domain": "rede-virtual",
+    "subdomain": "lb-outbound",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs no backend de um LB Standard perderam a saída padrão para a internet. Como restaurar a saída explícita e previsível?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de saída (outbound rule) com frontend IP dedicado"
+      },
+      { "letter": "B", "text": "Regra de entrada na porta 80" },
+      { "letter": "C", "text": "IP público em cada VM do backend" },
+      { "letter": "D", "text": "Probe TCP na porta 22" }
+    ],
+    "correct": ["A"],
+    "explanation": "LB Standard remove SNAT padrão; outbound rule com frontend próprio restaura saída. Regra de entrada não faz saída; IP por VM foge do desenho; probe monitora, não roteia.",
+    "source": "original",
+    "tags": ["load-balancer", "outbound", "snat"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-037",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-rewrite",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O App Gateway precisa adicionar cabeçalho de correlação e remover versão do servidor nas respostas. Qual conjunto de regras transforma cabeçalhos HTTP?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regras de reescrita (rewrite rules) no conjunto de regras"
+      },
+      { "letter": "B", "text": "Probe de saúde com cabeçalho" },
+      { "letter": "C", "text": "Listener TCP puro" },
+      { "letter": "D", "text": "Backend pool sem HTTP" }
+    ],
+    "correct": ["A"],
+    "explanation": "Rewrite rules alteram cabeçalhos/URL de pedido e resposta. Probe monitora; listener TCP não interpreta HTTP; pool sem HTTP não serve.",
+    "source": "original",
+    "tags": ["app-gateway", "rewrite", "cabecalhos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-038",
+    "domain": "rede-virtual",
+    "subdomain": "private-link-service",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um serviço interno atrás de Load Balancer Standard precisa ser consumido por outra VNet sem expor IPs nem emparelhar redes. Como publicar esse serviço privadamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Serviço Private Link referenciando o LB Standard"
+      },
+      { "letter": "B", "text": "IP público no LB com NSG aberta" },
+      { "letter": "C", "text": "Peering com gateway transit" },
+      { "letter": "D", "text": "DNS público apontando ao IP interno" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Link Service expõe o LB como endpoint privado consumível cross-VNet. IP público expõe; peering acopla redes; DNS público não alcança IP privado.",
+    "source": "original",
+    "tags": ["private-link", "servico", "lb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-039",
+    "domain": "rede-virtual",
+    "subdomain": "az-firewall-dnat",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Acesso RDP pontual a uma VM sem IP público deve passar pelo IP do firewall com tradução de destino. Qual regra publica esse acesso?",
+    "options": [
+      { "letter": "A", "text": "Regra DNAT do Firewall para a VM:3389" },
+      { "letter": "B", "text": "Regra de aplicativo para HTTPS" },
+      { "letter": "C", "text": "Regra de rede com Allow interno" },
+      { "letter": "D", "text": "UDR apontando ao Bastion" }
+    ],
+    "correct": ["A"],
+    "explanation": "DNAT traduz destino do IP do firewall para a VM/porta interna. Regra de app filtra FQDN; regra de rede não traduz; UDR ao Bastion não publica RDP.",
+    "source": "original",
+    "tags": ["firewall", "dnat", "rdp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-040",
+    "domain": "rede-virtual",
+    "subdomain": "ipv6",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma aplicação precisa de conectividade IPv6 fim-a-fim nas VNets mantendo o IPv4 atual. O que deve ser adicionado à VNet e às sub-redes?",
+    "options": [
+      { "letter": "A", "text": "Espaço IPv6 na VNet com sub-redes dual-stack" },
+      { "letter": "B", "text": "Apenas AAAA no DNS público" },
+      { "letter": "C", "text": "NAT64 sem espaço IPv6" },
+      { "letter": "D", "text": "Troca de todo IPv4 por IPv6" }
+    ],
+    "correct": ["A"],
+    "explanation": "Dual-stack adiciona prefixo IPv6 à VNet/sub-redes convivendo com IPv4. Só DNS não cria rota; NAT64 traduz sem fim-a-fim; trocar tudo quebra o legado.",
+    "source": "original",
+    "tags": ["ipv6", "dual-stack"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-041",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-prioridades-avancado",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra Allow 443 com prioridade 200 não surte efeito e o tráfego cai numa regra Deny de prioridade 150. Por que a permissão é ignorada e como corrigir?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG avalia por prioridade crescente; ajustar o Allow para número menor que 150"
+      },
+      { "letter": "B", "text": "NSG avalia por ordem alfabética do nome" },
+      {
+        "letter": "C",
+        "text": "Allow sempre vence Deny independente de prioridade"
+      },
+      { "letter": "D", "text": "É preciso recriar a VNet" }
+    ],
+    "correct": ["A"],
+    "explanation": "Primeira regra coincidente em ordem crescente de prioridade decide; 150 vence 200. Nome não ordena; Allow não tem precedência automática; VNet não precisa ser recriada.",
+    "source": "original",
+    "tags": ["nsg", "prioridade", "deny"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-042",
+    "domain": "rede-virtual",
+    "subdomain": "asg",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Regras entre web e banco quebram a cada troca de IP das VMs. Como agrupar NICs por função para referenciá-las nas regras sem IPs fixos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Grupos de Segurança de Aplicativo (ASG) nas NICs referenciados na NSG"
+      },
+      { "letter": "B", "text": "IPs reservados manuais por VM" },
+      { "letter": "C", "text": "Tags de serviço personalizadas" },
+      { "letter": "D", "text": "DNS interno com TTL baixo" }
+    ],
+    "correct": ["A"],
+    "explanation": "ASG agrupa NICs por papel e a NSG referencia o grupo, imune a troca de IP. IP fixo por VM não escala; tags de serviço são da Microsoft; DNS não é origem de regra NSG.",
+    "source": "original",
+    "tags": ["nsg", "asg", "agrupamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-043",
+    "domain": "rede-virtual",
+    "subdomain": "lb-sku-diferencas",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O LB Básico atual não suporta zona nem backend por IP e precisa de SLA. Qual migração resolve sem trocar o modelo de distribuição?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Migrar para Load Balancer Standard (há caminho de migração)"
+      },
+      { "letter": "B", "text": "Adicionar zonas ao SKU Básico" },
+      { "letter": "C", "text": "Trocar por Traffic Manager" },
+      { "letter": "D", "text": "Habilitar SLA no Básico por ticket" }
+    ],
+    "correct": ["A"],
+    "explanation": "Standard traz zonas, backend por IP e SLA com migração assistida. Básico não recebe zonas; Traffic Manager muda para DNS; SLA não se habilita por ticket.",
+    "source": "original",
+    "tags": ["load-balancer", "sku", "standard", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-044",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-v2",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O Application Gateway v1 precisa de autoscaling e zonas, indisponíveis no SKU atual. Para qual SKU migrar mantendo listeners e pools?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SKU v2 (Standard_v2/WAF_v2) com migração de configuração"
+      },
+      { "letter": "B", "text": "Manter v1 com mais instâncias fixas" },
+      { "letter": "C", "text": "Trocar por Load Balancer Básico" },
+      { "letter": "D", "text": "Trocar por Front Door sem pools" }
+    ],
+    "correct": ["A"],
+    "explanation": "v2 adiciona autoscale, zonas e performance com migração de config. v1 fixo não escala sozinho; LB Básico perde L7; Front Door não importa pools do gateway.",
+    "source": "original",
+    "tags": ["app-gateway", "v2", "autoscaling", "zonas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-045",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-sku",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O gateway VPN Básico precisa de BGP, S2S+P2S simultâneos e 1 Gbps. Qual SKU atende aos três requisitos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "VpnGw2 (ou superior) com BGP e multiprotocolo"
+      },
+      { "letter": "B", "text": "Manter Básico com overprovision" },
+      { "letter": "C", "text": "Trocar por ExpressRoute local" },
+      { "letter": "D", "text": "Dois gateways Básicos em paralelo" }
+    ],
+    "correct": ["A"],
+    "explanation": "VpnGw2+ entrega throughput, BGP e S2S+P2S juntos. Básico não tem BGP nem 1 Gbps; ExpressRoute é outro produto; dois Básicos não somam recursos.",
+    "source": "original",
+    "tags": ["vpn", "sku", "vpngw2", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-046",
+    "domain": "rede-virtual",
+    "subdomain": "er-globalreach",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dois datacenters on-premises em continentes distintos precisam trocar tráfego via backbone Microsoft sem passar pela internet. Qual recurso conecta os circuitos ExpressRoute entre si?",
+    "options": [
+      { "letter": "A", "text": "Global Reach ligando os circuitos" },
+      { "letter": "B", "text": "Peering entre VNets do Azure" },
+      { "letter": "C", "text": "VPN pela internet entre filiais" },
+      { "letter": "D", "text": "Front Door entre datacenters" }
+    ],
+    "correct": ["A"],
+    "explanation": "Global Reach une circuitos ER pelo backbone privado. Peering VNet não alcança on-prem; VPN volta à internet; Front Door publica HTTP, não interliga sites.",
+    "source": "original",
+    "tags": ["expressroute", "global-reach"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-047",
+    "domain": "rede-virtual",
+    "subdomain": "dns-private-resolver-inbound",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O DNS on-premises precisa resolver nomes das zonas privadas do Azure (privatelink.*). Qual endpoint do resolvedor recebe essas consultas do local?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Endpoint de entrada (inbound) do Private DNS Resolver"
+      },
+      { "letter": "B", "text": "Endpoint de saída (outbound) do resolvedor" },
+      { "letter": "C", "text": "Zona pública com os registros privados" },
+      { "letter": "D", "text": "Forwarder no DNS da internet" }
+    ],
+    "correct": ["A"],
+    "explanation": "Inbound expõe IP na VNet para o DNS local encaminhar zonas privadas. Outbound faz o caminho inverso (Azure→local); zona pública expõe; forwarder externo não alcança zona privada.",
+    "source": "original",
+    "tags": ["dns", "inbound-endpoint", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-048",
+    "domain": "rede-virtual",
+    "subdomain": "network-manager",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cinquenta VNets precisam das mesmas regras de segurança e topologia mesh gerenciadas centralmente. Qual serviço aplica configuração em escala multirregião?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure Virtual Network Manager com grupos e configs"
+      },
+      { "letter": "B", "text": "NSG copiada manualmente por VNet" },
+      { "letter": "C", "text": "Peering manual em malha" },
+      { "letter": "D", "text": "Uma NSG global única" }
+    ],
+    "correct": ["A"],
+    "explanation": "Network Manager agrupa VNets e aplica segurança/conectividade centralmente. Cópia manual diverge; malha manual não escala; não existe NSG global.",
+    "source": "original",
+    "tags": ["network-manager", "escala", "mesh"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-049",
+    "domain": "rede-virtual",
+    "subdomain": "peering-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Para emparelhar duas VNets com gateway compartilhado e tráfego só criptografado, quais duas opções do peering devem ser marcadas? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Usar gateway remoto (use remote gateway)" },
+      {
+        "letter": "B",
+        "text": "Permitir trânsito de gateway (allow gateway transit)"
+      },
+      { "letter": "C", "text": "Bloquear todo o tráfego entre VNets" },
+      { "letter": "D", "text": "Desabilitar o peering após criar" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Allow transit exporta o gateway e use remote o consome na spoke. Bloquear anula; desabilitar desfaz o peering.",
+    "source": "original",
+    "tags": ["peering", "gateway-transit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-050",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Uma DMZ precisa permitir HTTP/HTTPS de qualquer origem e negar todo o resto na entrada, com saída liberada para updates. Quais duas regras de entrada compõem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Allow 80/443 de * com prioridade alta (número baixo)"
+      },
+      { "letter": "B", "text": "Deny * de * com prioridade logo abaixo" },
+      { "letter": "C", "text": "Allow 22 de * com prioridade máxima" },
+      { "letter": "D", "text": "Deny de saída para a internet" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Allow web primeiro e Deny geral depois fecha a entrada; a saída usa o Allow padrão. SSH aberto viola; negar saída quebra updates.",
+    "source": "original",
+    "tags": ["nsg", "dmz", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-051",
+    "domain": "rede-virtual",
+    "subdomain": "dns-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Um Private Endpoint do Storage precisa de resolução privada automática e vinculada às VNets. Quais dois elementos garantem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zona privada privatelink.blob.core.windows.net"
+      },
+      { "letter": "B", "text": "Vínculo (link) da zona às VNets" },
+      { "letter": "C", "text": "Registro A manual no DNS público" },
+      { "letter": "D", "text": "Hosts file no cliente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "A zona privatelink recebe o registro do endpoint e o link a publica nas VNets. Registro público expõe; hosts não escala.",
+    "source": "original",
+    "tags": ["dns-privado", "private-endpoint", "privatelink"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-052",
+    "domain": "rede-virtual",
+    "subdomain": "lb-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Um LB Standard precisa de alta disponibilidade zonal e backend por IP (VMs e on-premises). Quais duas características atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Frontend zonal-redundante" },
+      { "letter": "B", "text": "Backend pool por endereço IP" },
+      { "letter": "C", "text": "SKU Básico com IP dinâmico" },
+      { "letter": "D", "text": "Probe desabilitado" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Frontend zone-redundant tolera zona e backend por IP inclui até on-premises via VPN/ER. Básico não tem zonas; sem probe não há saúde.",
+    "source": "original",
+    "tags": ["load-balancer", "zonas", "backend-ip"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-053",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Alta disponibilidade do túnel S2S exige dois túneis ativos com failover automático. Quais dois elementos compõem o ativo-ativo? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway em modo ativo-ativo com dois IPs públicos"
+      },
+      { "letter": "B", "text": "BGP para convergência de rotas" },
+      { "letter": "C", "text": "Um único túnel com DPD" },
+      { "letter": "D", "text": "Gateway Básico sem zona" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Ativo-ativo usa duas instâncias/IPs e o BGP converge rotas na falha. Túnel único é ponto único de falha; Básico não faz ativo-ativo.",
+    "source": "original",
+    "tags": ["vpn", "ativo-ativo", "ha", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-054",
+    "domain": "rede-virtual",
+    "subdomain": "firewall-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O firewall precisa inspecionar TLS de saída e filtrar por FQDN com política central. Quais dois recursos atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Inspeção TLS com CA intermediária gerenciada" },
+      { "letter": "B", "text": "Regras de aplicativo com FQDNs na política" },
+      { "letter": "C", "text": "Regras de porta sem inspeção" },
+      { "letter": "D", "text": "Bypass de inspeção para tudo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "TLS inspection abre o tráfego com CA e as regras de app filtram por FQDN. Só porta não vê conteúdo; bypass geral anula a inspeção.",
+    "source": "original",
+    "tags": ["firewall", "tls-inspection", "fqdn"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-055",
+    "domain": "rede-virtual",
+    "subdomain": "frontdoor-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O Front Door precisa de TLS gerenciado e proteção WAF na borda. Quais dois recursos compõem essa frente segura? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Certificado gerenciado com renovação automática"
+      },
+      { "letter": "B", "text": "Política WAF associada ao frontend" },
+      { "letter": "C", "text": "Certificado expirado fixo" },
+      { "letter": "D", "text": "Backend HTTP sem TLS" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Certificado gerenciado renova sozinho e o WAF filtra OWASP na borda. Cert expirado quebra; backend sem TLS expõe o trecho interno.",
+    "source": "original",
+    "tags": ["front-door", "tls", "waf"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-056",
+    "domain": "rede-virtual",
+    "subdomain": "expressroute-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O circuito ExpressRoute precisa de redundância física e criptografia sobre o link privado. Quais dois elementos atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Conexões primária e secundária do circuito" },
+      { "letter": "B", "text": "IPsec sobre o peering privado" },
+      { "letter": "C", "text": "Circuito único sem redundância" },
+      { "letter": "D", "text": "Rota pública sem autenticação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Duas conexões dão redundância física e o IPsec cifra sobre o privado. Circuito único é ponto único de falha; rota pública sem auth expõe.",
+    "source": "original",
+    "tags": ["expressroute", "redundancia", "ipsec"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-057",
+    "domain": "rede-virtual",
+    "subdomain": "hub-spoke-firewall-avancado",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Spokes trocam tráfego entre si passando pelo firewall do hub, mas pacotes retornam assimétricos e caem. Qual configuração de roteamento garante ida e volta pelo mesmo firewall?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "UDR nas sub-redes do firewall (GatewaySubnet/firewall) forçando retorno simétrico"
+      },
+      { "letter": "B", "text": "Remover todas as UDRs dos spokes" },
+      { "letter": "C", "text": "Desabilitar o firewall do hub" },
+      { "letter": "D", "text": "Peering direto entre spokes" }
+    ],
+    "correct": ["A"],
+    "explanation": "Rota na sub-rede do firewall preserva simetria do fluxo inspecionado. Remover UDRs desvia do firewall; desabilitar perde inspeção; peering direto contorna o hub.",
+    "source": "original",
+    "tags": ["hub-spoke", "firewall", "udr", "simetria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-058",
+    "domain": "rede-virtual",
+    "subdomain": "forced-tunneling",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Todo o tráfego de internet das VNets deve sair pelo datacenter local para inspeção corporativa. Qual desenho força esse retorno on-premises?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Forced tunneling com UDR 0.0.0.0/0 para o gateway VPN/ER"
+      },
+      { "letter": "B", "text": "NAT Gateway com IP fixo no Azure" },
+      { "letter": "C", "text": "Rota 0.0.0.0/0 para a internet" },
+      { "letter": "D", "text": "Bastion como proxy de saída" }
+    ],
+    "correct": ["A"],
+    "explanation": "UDR default para o gateway devolve tudo ao local (forced tunnel). NAT sai pelo Azure; rota internet ignora inspeção; Bastion não proxya saída.",
+    "source": "original",
+    "tags": ["forced-tunneling", "udr", "on-premises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-059",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-end-to-end-tls",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Compliance exige TLS fim-a-fim com re-criptografia e validação do certificado do backend. Quais duas pontas do App Gateway devem usar TLS com backend confiável?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Listener HTTPS + pool HTTPS com certificado válido no backend"
+      },
+      { "letter": "B", "text": "Listener HTTP + pool HTTPS" },
+      { "letter": "C", "text": "Listener HTTPS + pool HTTP" },
+      { "letter": "D", "text": "Listener TCP + pool TCP" }
+    ],
+    "correct": ["A"],
+    "explanation": "TLS nas duas pontas com cert válido no backend garante fim-a-fim. HTTP em qualquer ponta quebra a cadeia; TCP não termina TLS.",
+    "source": "original",
+    "tags": ["app-gateway", "tls", "end-to-end"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-060",
+    "domain": "rede-virtual",
+    "subdomain": "afd-private-origin",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O Front Door Premium precisa alcançar um App Service sem expô-lo à internet. Como conectar a origem de forma privada pela backbone?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Link do Front Door ao App Service (origem privada)"
+      },
+      {
+        "letter": "B",
+        "text": "Restrição de IP ao range público do Front Door"
+      },
+      { "letter": "C", "text": "DNS público com IP interno" },
+      { "letter": "D", "text": "VPN do Front Door ao App Service" }
+    ],
+    "correct": ["A"],
+    "explanation": "Origem privada via Private Link mantém tráfego na backbone sem exposição. Restringir por IP público ainda expõe; DNS não cria caminho; Front Door não faz VPN.",
+    "source": "original",
+    "tags": ["front-door", "private-link", "origem-privada"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-061",
+    "domain": "rede-virtual",
+    "subdomain": "nva-ha",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um NVA de terceiro em VM única é ponto único de falha no caminho forçado. Como obter alta disponibilidade do inspection path sem reescrever rotas por falha?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conjunto com LB interno (Gateway LB) distribuindo aos NVAs ativos"
+      },
+      { "letter": "B", "text": "Uma VM maior para o NVA" },
+      { "letter": "C", "text": "Snapshot diário do NVA" },
+      { "letter": "D", "text": "NSG com failover automático" }
+    ],
+    "correct": ["A"],
+    "explanation": "Gateway LB encadeia NVAs com HA transparente ao roteamento. VM maior não elimina ponto único; snapshot recupera, não evita; NSG não faz failover.",
+    "source": "original",
+    "tags": ["nva", "gateway-lb", "ha"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-062",
+    "domain": "rede-virtual",
+    "subdomain": "er-fastpath",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Tráfego ExpressRoute para uma VM sofre latência do gateway e precisa bypass direto à VNet. Qual recurso permite o caminho direto gateway-bypass?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "FastPath no gateway Ultra/ErGw3AZ com VNet peering"
+      },
+      { "letter": "B", "text": "Aumentar o SKU do gateway VPN" },
+      { "letter": "C", "text": "UDR para a internet" },
+      { "letter": "D", "text": "BGP sem FastPath" }
+    ],
+    "correct": ["A"],
+    "explanation": "FastPath desvia o fluxo direto à VNet, cortando o salto do gateway. SKU VPN não afeta ER; UDR internet piora; BGP sozinho ainda passa pelo gateway.",
+    "source": "original",
+    "tags": ["expressroute", "fastpath", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-063",
+    "domain": "rede-virtual",
+    "subdomain": "dns-split-horizon",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O mesmo nome app.empresa.com deve resolver para IP privado dentro das VNets e IP público na internet. Qual desenho entrega as duas visões do mesmo nome?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zona privada + zona pública homônimas (split-horizon)"
+      },
+      { "letter": "B", "text": "Apenas zona pública com IP privado" },
+      { "letter": "C", "text": "Apenas zona privada exposta" },
+      { "letter": "D", "text": "Hosts file com duas entradas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Zonas homônimas dão visão interna e externa do mesmo FQDN. Zona pública com IP privado vaza topologia; privada exposta quebra; hosts não escala.",
+    "source": "original",
+    "tags": ["dns", "split-horizon", "visoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-064",
+    "domain": "rede-virtual",
+    "subdomain": "waf-tuning",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O WAF bloqueia requisições legítimas com payload JSON grande (falso positivo). Qual ajuste preserva proteção sem quebrar a API?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exclusões por atributo + elevação do limite de corpo"
+      },
+      { "letter": "B", "text": "Desabilitar o conjunto de regras OWASP" },
+      { "letter": "C", "text": "Mudar o WAF para modo Detecção permanente" },
+      { "letter": "D", "text": "Remover o listener HTTPS" }
+    ],
+    "correct": ["A"],
+    "explanation": "Exclusões cirúrgicas e limite de corpo calibrado mantêm bloqueio real. Desligar OWASP cega; Detecção permanente nunca bloqueia; sem listener não há WAF.",
+    "source": "original",
+    "tags": ["waf", "tuning", "falso-positivo", "owasp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-065",
+    "domain": "rede-virtual",
+    "subdomain": "hub-spoke-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O hub precisa inspecionar spoke-to-spoke e internet com failover do firewall. Quais dois elementos compõem o desenho resiliente? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Firewall em múltiplas zonas de disponibilidade"
+      },
+      { "letter": "B", "text": "UDRs dos spokes apontando ao firewall" },
+      { "letter": "C", "text": "Peering direto entre todos os spokes" },
+      { "letter": "D", "text": "Firewall único sem zona" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Firewall zonalmente redundante elimina ponto único e UDRs forçam inspeção. Peering direto contorna o hub; firewall sem zona cai com o datacenter.",
+    "source": "original",
+    "tags": ["hub-spoke", "firewall", "zonas", "udr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-066",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-er-coex-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VPN e ExpressRoute coexistirão no mesmo gateway com failover da VPN para o ER. Quais dois requisitos viabilizam a coexistência? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway com SKU que suporta coexistência (não Básico)"
+      },
+      { "letter": "B", "text": "BGP habilitado nos dois caminhos" },
+      { "letter": "C", "text": "Gateway Básico com rota estática" },
+      { "letter": "D", "text": "Dois gateways na mesma GatewaySubnet" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "SKU compatível comporta os dois túneis e o BGP decide o ativo. Básico não coexiste; dois gateways disputam a mesma sub-rede.",
+    "source": "original",
+    "tags": ["vpn", "expressroute", "coexistencia", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-067",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-autoscale-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O App Gateway v2 precisa escalar sozinho e manter reserva mínima para picos repentinos. Quais dois parâmetros configuram isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autoscaling habilitado com máximo de instâncias"
+      },
+      { "letter": "B", "text": "Contagem mínima de instâncias reservadas" },
+      { "letter": "C", "text": "SKU v1 com instâncias fixas" },
+      { "letter": "D", "text": "Desabilitação de zonas" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Autoscale define o teto e o mínimo reserva capacidade quente. v1 fixo não escala; sem zonas perde resiliência.",
+    "source": "original",
+    "tags": ["app-gateway", "autoscaling", "v2"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-068",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Durante um ataque volumétrico, a equipe precisa de mitigação automática e visibilidade do vetor. Quais dois recursos do DDoS Protection entregam isso? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Mitigação always-on na borda" },
+      { "letter": "B", "text": "Telemetria e alertas do ataque" },
+      { "letter": "C", "text": "Bloqueio manual de /8" },
+      { "letter": "D", "text": "Desligamento dos IPs públicos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Mitigação contínua absorve o flood e a telemetria mostra vetores para resposta. Bloqueio /8 manual é lento e amplo; desligar IPs derruba o serviço.",
+    "source": "original",
+    "tags": ["ddos", "mitigacao", "telemetria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-069",
+    "domain": "rede-virtual",
+    "subdomain": "tm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Failover entre regiões com retorno automático ao primário exige dois comportamentos do Traffic Manager. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Monitoramento com probe e failover por prioridade"
+      },
+      { "letter": "B", "text": "Failback automático ao recuperar o primário" },
+      { "letter": "C", "text": "TTL infinito sem rechecagem" },
+      { "letter": "D", "text": "Endpoint único sem secundário" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Probe detecta queda e prioridade desvia; ao recuperar, o tráfego volta sozinho. TTL infinito prende no secundário; sem secundário não há para onde falhar.",
+    "source": "original",
+    "tags": ["traffic-manager", "failover", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-070",
+    "domain": "rede-virtual",
+    "subdomain": "nat-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Milhares de conexões simultâneas esgotam portas SNAT do NAT Gateway. Quais dois ajustes ampliam portas e resiliência? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "IPs públicos adicionais no NAT Gateway" },
+      { "letter": "B", "text": "Zonalidade do NAT com IPs por zona" },
+      { "letter": "C", "text": "Um único IP com timeout mínimo" },
+      { "letter": "D", "text": "Desabilitar o NAT e usar IP por VM" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Mais IPs multiplicam portas SNAT e a zonalidade distribui por zona. IP único esgota; voltar a IP por VM perde o desenho central.",
+    "source": "original",
+    "tags": ["nat-gateway", "snat", "portas", "zonas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-071",
+    "domain": "rede-virtual",
+    "subdomain": "dnssec-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A zona pública precisa de autenticidade contra spoofing com cadeia válida até a raiz. Quais dois elementos compõem o DNSSEC? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Assinatura da zona com chaves (KSK/ZSK)" },
+      { "letter": "B", "text": "Registro DS na zona pai" },
+      { "letter": "C", "text": "TTL zero em todos os registros" },
+      { "letter": "D", "text": "Desabilitação da validação do resolvedor" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Assinatura prova os registros e o DS ancora a cadeia no pai. TTL zero degrada sem autenticar; sem validação não há verificação.",
+    "source": "original",
+    "tags": ["dns", "dnssec", "assinatura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-072",
+    "domain": "rede-virtual",
+    "subdomain": "vwan-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A Virtual WAN precisa segmentar filiais por perfil (lojas vs fábricas) com políticas distintas. Quais dois construtos segmentam e aplicam política? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Tabelas de rota personalizadas por segmento" },
+      { "letter": "B", "text": "Rótulos (labels) agrupando conexões" },
+      { "letter": "C", "text": "Hub único sem segmentação" },
+      { "letter": "D", "text": "Rota default para tudo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Labels agrupam conexões e route tables por segmento isolam com políticas próprias. Hub único mistura; default único não segmenta.",
+    "source": "original",
+    "tags": ["vwan", "segmentacao", "labels"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-073",
+    "domain": "rede-virtual",
+    "subdomain": "lb-regra-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Sessões com estado exigem afinidade ao mesmo backend e flutuação de porta tolerante. Quais dois ajustes da regra LB atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Persistência de sessão por IP de origem" },
+      { "letter": "B", "text": "Distribuição por 5-tuplas com afinidade" },
+      { "letter": "C", "text": "Floating IP desabilitado sempre" },
+      { "letter": "D", "text": "Probe removido do backend" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Persistência por origem fixa a sessão e 5-tuplas distribuem mantendo afinidade configurada. Sem floating IP alguns cenários (SQL AO) quebram; sem probe não há saúde.",
+    "source": "original",
+    "tags": ["load-balancer", "afinidade", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-074",
+    "domain": "rede-virtual",
+    "subdomain": "cm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O Connection Monitor precisa cobrir conectividade e latência fim-a-fim com alertas. Quais dois elementos compõem o monitoramento completo? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Testes com origem, destino e protocolo" },
+      { "letter": "B", "text": "Alertas sobre métricas dos testes" },
+      { "letter": "C", "text": "Teste único sem repetição" },
+      { "letter": "D", "text": "Topologia sem testes" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Testes periódicos medem perda/latência e alertas reagem a degradação. Teste único não historica; topologia sem teste não mede.",
+    "source": "original",
+    "tags": ["connection-monitor", "testes", "alertas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-075",
+    "domain": "rede-virtual",
+    "subdomain": "peering-crossregion-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VNets em regiões distintas precisam de conectividade privada com failover de rota. Quais dois elementos atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Peering global entre as regiões" },
+      { "letter": "B", "text": "Gateway transit com rotas propagadas" },
+      { "letter": "C", "text": "IP público com NSG aberta" },
+      { "letter": "D", "text": "DNS público como rota" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Peering global une regiões pelo backbone e o transit propaga rotas de gateway. IP público sai à internet; DNS não roteia.",
+    "source": "original",
+    "tags": ["peering-global", "regioes", "gateway-transit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-076",
+    "domain": "rede-virtual",
+    "subdomain": "nva-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dois NVAs ativo-passivo precisam de failover de rota sem intervenção manual. Quais dois elementos automatizam a troca? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Probe de saúde com reescrita de UDR por automação"
+      },
+      { "letter": "B", "text": "IP flutuante interno movido entre NVAs" },
+      { "letter": "C", "text": "Rota estática fixa em um NVA" },
+      { "letter": "D", "text": "Desligamento manual do primário" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Probe detecta falha e a automação move rota/IP flutuante ao secundário. Rota fixa não falha over; processo manual é lento.",
+    "source": "original",
+    "tags": ["nva", "failover", "udr", "ip-flutuante"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-077",
+    "domain": "rede-virtual",
+    "subdomain": "peering-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o emparelhamento de VNets é transitivo por padrão, permitindo que a VNet A alcance a C através da B sem configuração adicional. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, peering sempre transita entre VNets emparelhadas"
+      },
+      {
+        "letter": "B",
+        "text": "Não, peering não é transitivo e exige desenho explícito"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Peering conecta pares; trânsito exige gateway transit ou NVA com rotas. Assumir transitividade é o erro clássico de hub-spoke.",
+    "source": "original",
+    "tags": ["peering", "transitividade", "conceito"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-078",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-padrao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que, sem nenhuma regra personalizada, uma NSG permite todo o tráfego de saída para a internet por causa das regras padrão. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, o AllowInternetOutBound padrão libera a saída"
+      },
+      { "letter": "B", "text": "Não, o padrão nega toda saída até criar regra" }
+    ],
+    "correct": ["A"],
+    "explanation": "As regras padrão incluem AllowVnetOutBound e AllowInternetOutBound; a negação só vem depois. Achar que padrão nega tudo é o erro comum.",
+    "source": "original",
+    "tags": ["nsg", "regras-padrao", "saida"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-079",
+    "domain": "rede-virtual",
+    "subdomain": "sla-lb-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que o Load Balancer Básico possui o mesmo SLA de 99,99% do Standard, diferindo apenas em recursos. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, o SLA é idêntico entre os SKUs" },
+      {
+        "letter": "B",
+        "text": "Não, o Básico não tem SLA e será descontinuado"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Básico não oferece SLA (e tem aposentadoria anunciada); 99,99% exige Standard zonal. Equiparar os SKUs é erro de desenho.",
+    "source": "original",
+    "tags": ["load-balancer", "sla", "sku"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-080",
+    "domain": "rede-virtual",
+    "subdomain": "sobreposicao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que duas VNets com espaços sobrepostos (10.0.0.0/16 em ambas) podem ser emparelhadas normalmente, pois o Azure traduz os endereços. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, o peering resolve sobreposição com NAT" },
+      { "letter": "B", "text": "Não, espaços sobrepostos impedem o peering" }
+    ],
+    "correct": ["B"],
+    "explanation": "Peering exige espaços disjuntos; sobreposição bloqueia a criação. NAT entre VNets não é função do peering.",
+    "source": "original",
+    "tags": ["peering", "sobreposicao", "cidr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  }
+]
