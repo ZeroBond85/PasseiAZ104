@@ -2309,5 +2309,1088 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-co-101",
+    "domain": "compute",
+    "subdomain": "vms-generate-ssh",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs Linux precisam de login SSH sem senha com chaves gerenciadas. Como gerar e injetar o par de chaves na criação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gerar par SSH no portal/CLI e injetar a pública na VM"
+      },
+      { "letter": "B", "text": "Senha simples igual em todas" },
+      { "letter": "C", "text": "Login root sem chave" },
+      { "letter": "D", "text": "Telnet na porta 23" }
+    ],
+    "correct": ["A"],
+    "explanation": "Par SSH (pública na VM, privada com o admin) elimina senha. Senha única vaza; root sem chave expõe; Telnet transmite em claro.",
+    "source": "original",
+    "tags": ["vms", "ssh", "chaves", "linux"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-102",
+    "domain": "compute",
+    "subdomain": "vms-aad-login",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logins SSH/RDP nas VMs devem usar identidades do Entra ID com RBAC, sem contas locais. Qual extensão habilita o login Entra?",
+    "options": [
+      { "letter": "A", "text": "Extensão AADLogin com funções de login de VM" },
+      { "letter": "B", "text": "Conta local compartilhada" },
+      { "letter": "C", "text": "Senha vazia no administrador" },
+      { "letter": "D", "text": "RDP anônimo" }
+    ],
+    "correct": ["A"],
+    "explanation": "AADLogin autentica via Entra com MFA e RBAC (login/admin). Conta local não centraliza; vazia/anônima expõem.",
+    "source": "original",
+    "tags": ["vms", "aad-login", "entra-id", "rbac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-103",
+    "domain": "compute",
+    "subdomain": "vmss-custom-script",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada instância do VMSS precisa baixar config e registrar no deploy. Qual extensão executa o script de bootstrap em todas?",
+    "options": [
+      { "letter": "A", "text": "Custom Script Extension no perfil do VMSS" },
+      { "letter": "B", "text": "Login manual por instância" },
+      { "letter": "C", "text": "Imagem sem customização" },
+      { "letter": "D", "text": "E-mail com instruções" }
+    ],
+    "correct": ["A"],
+    "explanation": "Custom Script roda em cada instância no provisionamento. Manual não escala; sem customizar não configura; e-mail não executa.",
+    "source": "original",
+    "tags": ["vmss", "custom-script", "bootstrap"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-104",
+    "domain": "compute",
+    "subdomain": "app-service-private-endpoint",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O App Service deve ser acessado só via IP privado da VNet hub, sem exposição pública. O que projeta o app para dentro da rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint do App Service + DNS privado"
+      },
+      { "letter": "B", "text": "IP público com restrição 0.0.0.0" },
+      { "letter": "C", "text": "Plano Gratuito público" },
+      { "letter": "D", "text": "Slot público de homologação" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoint dá IP privado com resolução interna. Público com 0.0.0.0 expõe; Gratuito não tem PE; slot público vaza.",
+    "source": "original",
+    "tags": ["app-service", "private-endpoint", "privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-105",
+    "domain": "compute",
+    "subdomain": "functions-keys-rotation",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Chaves de função vazaram no log e precisam ser trocadas sem downtime, com trilha. Como rotacionar com segurança?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Renovar via chaves primária/secundária com transição"
+      },
+      { "letter": "B", "text": "Manter a vazada ativa" },
+      { "letter": "C", "text": "Desabilitar auth da função" },
+      { "letter": "D", "text": "Trocar o nome da função" }
+    ],
+    "correct": ["A"],
+    "explanation": "Duas chaves permitem migrar clientes e revogar a vazada. Manter expõe; sem auth abre; renomear não revoga.",
+    "source": "original",
+    "tags": ["functions", "chaves", "rotacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-106",
+    "domain": "compute",
+    "subdomain": "aci-gpu",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Inferência com GPU esporádica precisa de contêiner sob demanda sem cluster. Qual SKU do ACI oferece GPU?",
+    "options": [
+      { "letter": "A", "text": "ACI com SKU GPU (K80 e superiores)" },
+      { "letter": "B", "text": "ACI CPU comum" },
+      { "letter": "C", "text": "VM D sem GPU" },
+      { "letter": "D", "text": "Function Consumption" }
+    ],
+    "correct": ["A"],
+    "explanation": "ACI GPU provisiona K80+ sob demanda por segundo. CPU não acelera; D sem GPU idem; Consumption não tem GPU.",
+    "source": "original",
+    "tags": ["aci", "gpu", "inferencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-107",
+    "domain": "compute",
+    "subdomain": "container-apps-secrets",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Segredos do Container App devem vir do Key Vault com rotação sem redeploy. De onde referenciar com atualização automática?",
+    "options": [
+      { "letter": "A", "text": "Referência Key Vault nos segredos do app" },
+      { "letter": "B", "text": "Variável em texto claro no YAML" },
+      { "letter": "C", "text": "Imagem com segredo embutido" },
+      { "letter": "D", "text": "E-mail com segredos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Referência ao Key Vault resolve em runtime e acompanha rotação. Texto claro vaza; embutido exige rebuild; e-mail expõe.",
+    "source": "original",
+    "tags": ["container-apps", "segredos", "key-vault"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-108",
+    "domain": "compute",
+    "subdomain": "batch-tasks-deps",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tarefas do Batch têm ordem (preparar → processar → agregar) com dependências. Como modelar o DAG de tarefas?",
+    "options": [
+      { "letter": "A", "text": "Dependências de tarefa (dependsOn) no job" },
+      { "letter": "B", "text": "Todas paralelas sem ordem" },
+      { "letter": "C", "text": "Manual uma após outra" },
+      { "letter": "D", "text": "Um job por tarefa isolada" }
+    ],
+    "correct": ["A"],
+    "explanation": "dependsOn ordena o DAG com faixas de conclusão. Paralelo quebra ordem; manual não escala; isolado perde dependência.",
+    "source": "original",
+    "tags": ["batch", "dependencias", "dag"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-109",
+    "domain": "compute",
+    "subdomain": "vm-disk-burst",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Picos curtos de escrita precisam de IOPS extra sem pagar disco maior permanente. Qual recurso dá rajada de crédito?",
+    "options": [
+      { "letter": "A", "text": "Bursting de disco (Premium/Standard SSD)" },
+      { "letter": "B", "text": "Disco maior permanente" },
+      { "letter": "C", "text": "Cache do SO apenas" },
+      { "letter": "D", "text": "Desligar o pico" }
+    ],
+    "correct": ["A"],
+    "explanation": "Bursting acumula créditos para picos sem custo fixo maior. Disco maior cobra sempre; cache não persiste; ignorar pico degrada.",
+    "source": "original",
+    "tags": ["discos", "bursting", "iops"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-110",
+    "domain": "compute",
+    "subdomain": "app-service-warmup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Deploys causam lentidão inicial (JIT/cache frio) nos primeiros requests. O que aquece a instância antes do swap?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Inicialização de aplicativo (warm-up) no slot"
+      },
+      { "letter": "B", "text": "Swap imediato sem aquecer" },
+      { "letter": "C", "text": "Reinicialização após swap" },
+      { "letter": "D", "text": "Escala para 1 instância" }
+    ],
+    "correct": ["A"],
+    "explanation": "Warm-up executa rotas antes do swap, eliminando frio. Direto expõe lentidão; restart após piora; 1 instância não aquece.",
+    "source": "original",
+    "tags": ["app-service", "warmup", "swap"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-111",
+    "domain": "compute",
+    "subdomain": "functions-scale-limits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Explosão de eventos dispara milhares de instâncias e estoura quota e custo. Como limitar o teto de escala do plano?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Limite máximo de instâncias (scale limit) no plano"
+      },
+      { "letter": "B", "text": "Remover todos os limites" },
+      { "letter": "C", "text": "Timeout zero nas funções" },
+      { "letter": "D", "text": "Desabilitar o gatilho" }
+    ],
+    "correct": ["A"],
+    "explanation": "Scale limit impõe teto de workers controlando custo/quota. Sem limite explode; timeout zero quebra; sem gatilho para o negócio.",
+    "source": "original",
+    "tags": ["functions", "escala", "limite", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-112",
+    "domain": "compute",
+    "subdomain": "aci-liveness",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêiner travado responde ping mas não processa. Qual sonda reinicia só quando a aplicação falha?",
+    "options": [
+      { "letter": "A", "text": "Sonda de liveness HTTP/exec no grupo" },
+      { "letter": "B", "text": "Ping ICMP externo" },
+      { "letter": "C", "text": "Restart manual semanal" },
+      { "letter": "D", "text": "Sem sonda" }
+    ],
+    "correct": ["A"],
+    "explanation": "Liveness valida a app e reinicia o travado. Ping não vê app; manual atrasa; sem sonda acumula zumbis.",
+    "source": "original",
+    "tags": ["aci", "liveness", "sonda"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-113",
+    "domain": "compute",
+    "subdomain": "vm-gallery-sharing",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Imagens precisam ser compartilhadas com subscription de outra empresa parceira com controle. Como compartilhar com RBAC?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Compartilhamento da Galeria via RBAC/controle de acesso"
+      },
+      { "letter": "B", "text": "VHD público para download" },
+      { "letter": "C", "text": "E-mail com link SAS eterna" },
+      { "letter": "D", "text": "Cópia manual por subscription" }
+    ],
+    "correct": ["A"],
+    "explanation": "Gallery sharing com RBAC (inclusive cross-tenant) controla acesso. VHD público expõe IP; SAS eterna vaza; cópia manual diverge.",
+    "source": "original",
+    "tags": ["galeria", "compartilhar", "rbac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-114",
+    "domain": "compute",
+    "subdomain": "vm-restore-point",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Antes de patch arriscado, criar ponto de restauração consistente da VM em segundos. Qual recurso captura estado crash-consistent?",
+    "options": [
+      { "letter": "A", "text": "Ponto de restauração da VM" },
+      { "letter": "B", "text": "Backup completo com dias" },
+      { "letter": "C", "text": "Snapshot manual de cada disco" },
+      { "letter": "D", "text": "Imagem generalizada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Restore point agrupa discos num ponto crash-consistent rápido. Backup é lento e externo; snapshots manuais dispersam; generalizar destrói identidade.",
+    "source": "original",
+    "tags": ["restore-point", "vm", "patch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-115",
+    "domain": "compute",
+    "subdomain": "app-service-mount",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação legada lê arquivos de configuração de um share SMB dentro do App Service. Como montar o Files no app?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Montagem de armazenamento (Bring Your Own Storage) no app"
+      },
+      { "letter": "B", "text": "Arquivos embutidos no deploy" },
+      { "letter": "C", "text": "Download por FTP a cada boot" },
+      { "letter": "D", "text": "Variáveis com conteúdo dos arquivos" }
+    ],
+    "correct": ["A"],
+    "explanation": "BYOS monta Files via SMB no app com chaves gerenciadas. Embutir exige redeploy; FTP atrasa boot; variável não escala arquivo.",
+    "source": "original",
+    "tags": ["app-service", "montagem", "files", "byos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-116",
+    "domain": "compute",
+    "subdomain": "functions-private-endpoint",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O endpoint da Function App não pode ser público; só a VNet via DNS privado alcança. Como expor privadamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint do Function App + zona privada"
+      },
+      { "letter": "B", "text": "Chave de função como proteção" },
+      { "letter": "C", "text": "IP restrito a 0.0.0.0" },
+      { "letter": "D", "text": "Plano Consumo público" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoint dá IP privado ao Function App com resolução DNS interna. Chave de função não é controle de rede; 0.0.0.0 expõe; Consumo não oferece PE nem VNet.",
+    "source": "original",
+    "tags": ["functions", "private-endpoint", "privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-117",
+    "domain": "compute",
+    "subdomain": "batch-autoscale-formula",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Pool deve ter 0 nós ocioso, subir por pending e manter 2 dedicados em horário comercial. O que expressa essa política?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fórmula de autoscale com $PendingTasks e agenda"
+      },
+      { "letter": "B", "text": "Pool fixo com 10 nós" },
+      { "letter": "C", "text": "Escala manual por turno" },
+      { "letter": "D", "text": "Spot sem fórmula" }
+    ],
+    "correct": ["A"],
+    "explanation": "Fórmula avalia pending/tempo e dimensiona sozinha. Fixo desperdiça; manual atrasa; sem fórmula não escala.",
+    "source": "original",
+    "tags": ["batch", "autoscale", "formula"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-118",
+    "domain": "compute",
+    "subdomain": "vmss-rolling-upgrade-policy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Upgrade com 20% de lote, pausa em falha e rollback automático precisa de política declarativa. O que configura lote e saúde?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de rolling upgrade (maxBatch, pauseTime, rollback)"
+      },
+      { "letter": "B", "text": "Upgrade manual simultâneo" },
+      { "letter": "C", "text": "Recriação total do conjunto" },
+      { "letter": "D", "text": "Imagem sem versionar" }
+    ],
+    "correct": ["A"],
+    "explanation": "Rolling policy controla lote, pausa e reversão por saúde. Simultâneo derruba; recriar zera; sem versão não audita.",
+    "source": "original",
+    "tags": ["vmss", "rolling", "policy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-119",
+    "domain": "compute",
+    "subdomain": "vm-application-health",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O balanceador precisa remover VM cuja aplicação trava mas o SO responde. Qual sinal de saúde da aplicação o LB consome?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Probe de integridade da aplicação (HTTP custom)"
+      },
+      { "letter": "B", "text": "Ping ICMP ao host" },
+      { "letter": "C", "text": "Métrica de disco" },
+      { "letter": "D", "text": "Log de boot" }
+    ],
+    "correct": ["A"],
+    "explanation": "Probe HTTP da app detecta trava lógica e tira do pool. Ping vê SO; disco não é saúde; boot é pontual.",
+    "source": "original",
+    "tags": ["lb", "app-health", "probe"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-120",
+    "domain": "compute",
+    "subdomain": "vm-guest-attestation",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Carga regulada precisa provar a terceiros que roda em TEE íntegro. O que emite evidência verificável do ambiente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Atestação de convidado (guest attestation) com relatório"
+      },
+      { "letter": "B", "text": "Declaração do administrador" },
+      { "letter": "C", "text": "Log do aplicativo" },
+      { "letter": "D", "text": "Certificado TLS do site" }
+    ],
+    "correct": ["A"],
+    "explanation": "Attestation emite claims verificáveis do TEE/boot. Declaração não prova; log falsifica; TLS prova canal, não ambiente.",
+    "source": "original",
+    "tags": ["attestation", "tee", "convidado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-121",
+    "domain": "compute",
+    "subdomain": "secure-boot-vtpm",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Boot seguro com vTPM deve travar a VM se o bootloader for adulterado. Quais componentes garantem a cadeia medida?",
+    "options": [
+      { "letter": "A", "text": "Secure Boot + vTPM com boot medido" },
+      { "letter": "B", "text": "BIOS legado sem medição" },
+      { "letter": "C", "text": "Senha do bootloader" },
+      { "letter": "D", "text": "Antivírus pós-boot" }
+    ],
+    "correct": ["A"],
+    "explanation": "Secure Boot valida assinaturas e vTPM ancora medições. Legado não mede; senha não atesta; antivírus age tarde.",
+    "source": "original",
+    "tags": ["secure-boot", "vtpm", "boot-medido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-122",
+    "domain": "compute",
+    "subdomain": "vm-disk-encryption-ade",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Discos de VMs existentes sem criptografia precisam de ADE com CMK sem recriar máquinas. Qual sequência habilita com segurança?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Key Vault com purge protection + extensão ADE por VM"
+      },
+      { "letter": "B", "text": "BitLocker manual sem cofre" },
+      { "letter": "C", "text": "Recriar todas as VMs" },
+      { "letter": "D", "text": "Desabilitar criptografia padrão" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cofre protegido + extensão aplica BitLocker/DM-Crypt in place. Manual não escala; recriar interrompe; desligar padrão piora.",
+    "source": "original",
+    "tags": ["ade", "cmk", "key-vault", "extensao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-123",
+    "domain": "compute",
+    "subdomain": "host-encryption-cache",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cache de SO em host com dados sensíveis precisa de criptografia em repouso sem CMK. O que cifra o cache temporário?",
+    "options": [
+      { "letter": "A", "text": "Criptografia no host (encryption at host)" },
+      { "letter": "B", "text": "Desabilitar o cache" },
+      { "letter": "C", "text": "Disco maior" },
+      { "letter": "D", "text": "Snapshot do cache" }
+    ],
+    "correct": ["A"],
+    "explanation": "Encryption at host cifra temp/cache com chaves da plataforma. Desligar perde performance; maior não cifra; snapshot não protege.",
+    "source": "original",
+    "tags": ["encryption-at-host", "cache", "temporario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-124",
+    "domain": "compute",
+    "subdomain": "vm-confidential-os-disk",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "SO de VM confidencial precisa de disco com criptografia vinculada ao vTPM. Qual tipo de disco amarra a chave ao estado medido?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Disco de SO confidencial (confidential OS disk)"
+      },
+      { "letter": "B", "text": "Disco Standard sem vínculo" },
+      { "letter": "C", "text": "Disco compartilhado entre VMs" },
+      { "letter": "D", "text": "Disco local temporário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Confidential OS disk vincula chave ao vTPM/boot medido. Standard não vincula; compartilhado quebra isolamento; temp não persiste.",
+    "source": "original",
+    "tags": ["confidential-os-disk", "vtpm", "vm-confidencial"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-125",
+    "domain": "compute",
+    "subdomain": "shared-disk-cluster",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cluster de failover Windows precisa de disco compartilhado entre duas VMs na mesma zona. Qual disco permite attach múltiplo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Shared Disk Premium/Ultra com SCSI persistente"
+      },
+      { "letter": "B", "text": "Disco Standard exclusivo" },
+      { "letter": "C", "text": "Blob com lease" },
+      { "letter": "D", "text": "File share SMB" }
+    ],
+    "correct": ["A"],
+    "explanation": "Shared disks permitem multi-attach com reservas SCSI para cluster. Exclusivo não compartilha; blob não é bloco; SMB não serve a cluster de disco.",
+    "source": "original",
+    "tags": ["shared-disk", "cluster", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-126",
+    "domain": "compute",
+    "subdomain": "ultradisk-avset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Banco crítico precisa de Ultra Disk e proteção de rack simultaneamente. Quais dois requisitos combinar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Ultra Disk na zona com VM" },
+      {
+        "letter": "B",
+        "text": "Availability set não suporta Ultra; usar VM única zonal ou VMSS"
+      },
+      { "letter": "C", "text": "Availability set com Ultra" },
+      { "letter": "D", "text": "Disco Standard com SLA de rack" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Ultra exige zonal e é incompatível com availability set; usa-se VM zonal/VMSS flex. Assumir Ultra em avset quebra deploy; Standard não dá IOPS.",
+    "source": "original",
+    "tags": ["ultra-disk", "availability-set", "limitacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-127",
+    "domain": "compute",
+    "subdomain": "ppg-avset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Baixa latência e tolerância a rack parecem conflitantes. Quais dois fatos sobre PPG + availability set considerar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "PPG co-localiza para latência mínima" },
+      {
+        "letter": "B",
+        "text": "PPG pode referenciar um availability set para FD spreading"
+      },
+      { "letter": "C", "text": "Zonas com PPG multizona" },
+      { "letter": "D", "text": "Regiões distintas no mesmo PPG" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "PPG aproxima e pode incluir avset para distribuir fault domains. PPG não é multizona nem multirregião.",
+    "source": "original",
+    "tags": ["ppg", "availability-set", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-128",
+    "domain": "compute",
+    "subdomain": "spot-priority-mix-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VMSS com base garantida e pico barato precisa de composição e remoção corretas. Quais dois parâmetros definir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Base Regular + percentual Spot no excedente" },
+      { "letter": "B", "text": "Política de remoção com Spot primeiro" },
+      { "letter": "C", "text": "100% Spot sem base" },
+      { "letter": "D", "text": "Remoção aleatória sem prioridade" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Base garante e Spot barateia pico; remover Spot primeiro preserva base. 100% Spot despeja tudo; aleatório mata base.",
+    "source": "original",
+    "tags": ["vmss", "spot", "prioridade", "remocao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-129",
+    "domain": "compute",
+    "subdomain": "priority-regular-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que instâncias Regular (pay-as-you-go) no VMSS têm prioridade de capacidade sobre Spot em contenção. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, Regular prevalece sobre Spot" },
+      { "letter": "B", "text": "Não, Spot tem preferência" }
+    ],
+    "correct": ["A"],
+    "explanation": "Em contenção, Spot é despejado primeiro preservando Regular. Inverter a premissa quebra o desenho de base garantida.",
+    "source": "original",
+    "tags": ["vmss", "regular", "spot", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-130",
+    "domain": "compute",
+    "subdomain": "eviction-policy-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que a política de despejo Delete remove VM e discos, enquanto Deallocate preserva discos para retomar depois. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, Delete apaga e Deallocate preserva discos"
+      },
+      { "letter": "B", "text": "Não, ambas preservam tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Eviction Delete remove a VM (discos conforme config) e Deallocate libera mantendo discos. Assumir igualdade perde dados ou desperdiça.",
+    "source": "original",
+    "tags": ["spot", "eviction", "delete", "deallocate"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-131",
+    "domain": "compute",
+    "subdomain": "max-price-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que definir preço máximo no Spot garante a VM enquanto o preço de mercado ficar abaixo do teto, sem despejo por capacidade. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, teto elimina despejo por capacidade" },
+      {
+        "letter": "B",
+        "text": "Não, falta de capacidade despeja mesmo abaixo do teto"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Spot despeja por capacidade independente de preço; teto só limita custo. Confiar só no preço ignora contenção.",
+    "source": "original",
+    "tags": ["spot", "preco-maximo", "capacidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-132",
+    "domain": "compute",
+    "subdomain": "capacity-behavior-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que capacidade Spot excedente sempre existe em todas as regiões e SKUs a qualquer hora. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, Spot é ilimitado" },
+      { "letter": "B", "text": "Não, varia por região, SKU e horário" }
+    ],
+    "correct": ["B"],
+    "explanation": "Capacidade Spot excedente flutua por região, SKU e horário do dia. Assumir oferta ilimitada quebra o planejamento de escala e causa indisponibilidade.",
+    "source": "original",
+    "tags": ["spot", "capacidade", "disponibilidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-133",
+    "domain": "compute",
+    "subdomain": "try-spot-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um dev afirma que dá para testar carga Spot sem compromisso usando preço atual com despejo simulado antes de migrar. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, via simulação de despejo e preço Spot" },
+      { "letter": "B", "text": "Não, só migrando tudo de uma vez" }
+    ],
+    "correct": ["A"],
+    "explanation": "É possível validar tolerância com eviction simulada e monitorar preço. Migrar às cegas arrisca produção.",
+    "source": "original",
+    "tags": ["spot", "simulacao", "teste"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-134",
+    "domain": "compute",
+    "subdomain": "restore-spot-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que após despejo Spot a aplicação retoma sozinha sem checkpoint porque a plataforma preserva estado. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, a plataforma preserva tudo" },
+      { "letter": "B", "text": "Não, a app precisa de checkpoint/retomada" }
+    ],
+    "correct": ["B"],
+    "explanation": "Spot não preserva estado da aplicação; a carga precisa de checkpoint e lógica de retomada. Assumir preservação automática perde todo o trabalho.",
+    "source": "original",
+    "tags": ["spot", "checkpoint", "estado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-135",
+    "domain": "compute",
+    "subdomain": "vm-repair-cli",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "VM Linux com disco de SO corrompido não inicia e o reparo exige chroot offline. Qual comando automatiza VM de resgate + attach + chroot?",
+    "options": [
+      { "letter": "A", "text": "az vm repair create/run/restore" },
+      { "letter": "B", "text": "Exclusão da VM corrompida" },
+      { "letter": "C", "text": "RDP no disco corrompido" },
+      { "letter": "D", "text": "Aguardar autorecuperação" }
+    ],
+    "correct": ["A"],
+    "explanation": "az vm repair orquestra resgate, correção e troca de SO. Excluir perde; RDP não alcança disco morto; aguardar não repara.",
+    "source": "original",
+    "tags": ["vm-repair", "cli", "resgate", "linux"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-136",
+    "domain": "compute",
+    "subdomain": "vm-run-command-list",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cem VMs precisam de coleta de logs com script único e saída centralizada. O que executa em massa com resultado agregado?",
+    "options": [
+      { "letter": "A", "text": "Run Command em lote via CLI/Policy" },
+      { "letter": "B", "text": "Login individual por VM" },
+      { "letter": "C", "text": "E-mail pedindo logs" },
+      { "letter": "D", "text": "Desligar todas as VMs" }
+    ],
+    "correct": ["A"],
+    "explanation": "Run Command em escala via CLI executa e agrega saída. Individual não escala; e-mail não executa; desligar destrói evidência.",
+    "source": "original",
+    "tags": ["run-command", "escala", "logs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-137",
+    "domain": "compute",
+    "subdomain": "azure-automation-dsc",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Configuração de baseline (registro, arquivos, pacotes) precisa convergir e corrigir drift continuamente. Qual DSC na nuvem aplica e monitora?",
+    "options": [
+      { "letter": "A", "text": "Automation State Configuration (DSC) com LCM" },
+      { "letter": "B", "text": "Script único sem idempotência" },
+      { "letter": "C", "text": "Imagem nova por mudança" },
+      { "letter": "D", "text": "Edição manual por RDP" }
+    ],
+    "correct": ["A"],
+    "explanation": "State Configuration aplica MOF idempotente e corrige drift. Script único diverge; imagem por mudança é lenta; manual não escala.",
+    "source": "original",
+    "tags": ["automation", "dsc", "baseline", "drift"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-138",
+    "domain": "compute",
+    "subdomain": "update-rings",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Patches devem passar por canário, piloto e produção com pausa entre anéis. Como organizar os anéis de atualização?",
+    "options": [
+      { "letter": "A", "text": "Anéis (rings) com waves e health check" },
+      { "letter": "B", "text": "Tudo de uma vez" },
+      { "letter": "C", "text": "Ordem alfabética de VM" },
+      { "letter": "D", "text": "Aleatório sem critério" }
+    ],
+    "correct": ["A"],
+    "explanation": "Rings graduam exposição com validação entre ondas. Tudo junto derruba; alfabeto não é risco; aleatório não controla.",
+    "source": "original",
+    "tags": ["update-rings", "canario", "patch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-139",
+    "domain": "compute",
+    "subdomain": "hotpatch",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "VMs críticas não podem reiniciar em patches mensais do Windows. Qual recurso aplica segurança sem reboot?",
+    "options": [
+      { "letter": "A", "text": "Hotpatch com imagem e canal habilitados" },
+      { "letter": "B", "text": "Patch normal com reboot forçado" },
+      { "letter": "C", "text": "Desabilitar updates" },
+      { "letter": "D", "text": "Snapshot antes de cada boot" }
+    ],
+    "correct": ["A"],
+    "explanation": "Hotpatch aplica em memória sem reboot em SKUs suportados. Normal reinicia; desligar vulnerabiliza; snapshot não evita boot.",
+    "source": "original",
+    "tags": ["hotpatch", "sem-reboot", "windows"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-140",
+    "domain": "compute",
+    "subdomain": "vm-guest-patching-mode",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Orquestração pelo Azure com janela e avaliação, sem WSUS local. Qual modo de patch do convidado delega ao Azure?",
+    "options": [
+      { "letter": "A", "text": "AutomaticByPlatform com agendamento" },
+      { "letter": "B", "text": "Manual pelo SO" },
+      { "letter": "C", "text": "Desabilitado permanente" },
+      { "letter": "D", "text": "WSUS local obrigatório" }
+    ],
+    "correct": ["A"],
+    "explanation": "AutomaticByPlatform orquestra pelo Azure com janela. Manual não agenda; desligado vulnerabiliza; WSUS local é legado.",
+    "source": "original",
+    "tags": ["guest-patching", "automatic-by-platform", "janela"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-141",
+    "domain": "compute",
+    "subdomain": "assess-mode-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Antes de aplicar, avaliar pendências por VM com relatório sem instalar nada. Quais dois elementos do modo avaliação usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Avaliação periódica (assessment) por VM" },
+      { "letter": "B", "text": "Relatório de conformidade pendente" },
+      { "letter": "C", "text": "Instalação imediata em tudo" },
+      { "letter": "D", "text": "Desligamento do agente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Assessment lista pendências e o relatório prioriza. Instalar direto pula avaliação; sem agente não há dado.",
+    "source": "original",
+    "tags": ["assessment", "avaliacao", "relatorio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-142",
+    "domain": "compute",
+    "subdomain": "schedule-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Janela mensal com exceção de feriado e notificação prévia exige dois controles. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Agendamento com janela de manutenção" },
+      { "letter": "B", "text": "Notificação e exceção de calendário" },
+      { "letter": "C", "text": "Execução imediata sem janela" },
+      { "letter": "D", "text": "Silêncio total sem aviso" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Janela contém o impacto e aviso/exceção respeitam negócio. Imediato quebra horário; silêncio surpreende.",
+    "source": "original",
+    "tags": ["agendamento", "janela", "notificacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-143",
+    "domain": "compute",
+    "subdomain": "reboot-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Patches com reboot precisam de ordem (banco antes de app) e validação. Quais dois controles ordenam com segurança? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Ordem por dependência (pre/post)" },
+      { "letter": "B", "text": "Health check entre lotes" },
+      { "letter": "C", "text": "Reboot simultâneo geral" },
+      { "letter": "D", "text": "Sem validação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Ordem por dependência (pre/post) sequencia os reboots e o health check pausa em falha. Reboot simultâneo derruba tudo; sem validação o erro se propaga.",
+    "source": "original",
+    "tags": ["reboot", "ordem", "health-check"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-144",
+    "domain": "compute",
+    "subdomain": "rollback-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Patch quebrou o app e é preciso voltar rápido com trilha. Quais dois mecanismos de reversão usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Ponto de restauração pré-patch" },
+      { "letter": "B", "text": "Rollback da imagem/versão com registro" },
+      { "letter": "C", "text": "Reinstalar tudo do zero" },
+      { "letter": "D", "text": "Aguardar próximo patch" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Restore point volta estado e rollback de versão registra. Reinstalar demora; aguardar prolonga outage.",
+    "source": "original",
+    "tags": ["rollback", "restore-point", "reversao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-145",
+    "domain": "compute",
+    "subdomain": "kernel-live-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um admin afirma que hotpatch do Windows dispensa reboot em qualquer VM, independente de SKU e imagem. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, vale para todas" },
+      { "letter": "B", "text": "Não, exige SKU/imagem e canal compatíveis" }
+    ],
+    "correct": ["B"],
+    "explanation": "Hotpatch exige Datacenter Azure Edition em SKUs suportados com canal habilitado. Assumir cobertura universal quebra o planejamento de janelas.",
+    "source": "original",
+    "tags": ["hotpatch", "requisitos", "sku"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-146",
+    "domain": "compute",
+    "subdomain": "assessment-only-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o modo avaliação (assessment) instala patches automaticamente ao detectar pendência. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, avalia e instala" },
+      { "letter": "B", "text": "Não, só avalia e reporta" }
+    ],
+    "correct": ["B"],
+    "explanation": "Assessment lista sem instalar; instalação exige deployment. Confundir avalia com aplica gera janela inesperada.",
+    "source": "original",
+    "tags": ["assessment", "avaliacao", "instalacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-147",
+    "domain": "compute",
+    "subdomain": "patch-class-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que dá para incluir só patches de segurança, excluindo feature packs, na mesma janela. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, via classificação de patch" },
+      { "letter": "B", "text": "Não, janela aplica tudo ou nada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Classificações (security, critical, outros) filtram o escopo. Achar tudo-ou-nada impede janelas cirúrgicas.",
+    "source": "original",
+    "tags": ["patch", "classificacao", "seguranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-148",
+    "domain": "compute",
+    "subdomain": "reboot-required-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um admin afirma que todo patch do Windows exige reboot, sem exceção. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, sempre reinicia" },
+      { "letter": "B", "text": "Não, hotpatch e alguns pacotes dispensam" }
+    ],
+    "correct": ["B"],
+    "explanation": "Hotpatch e pacotes sem componente de kernel dispensam reboot. Generalizar que tudo reinicia paralisa operações sem necessidade técnica.",
+    "source": "original",
+    "tags": ["reboot", "hotpatch", "excecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-149",
+    "domain": "compute",
+    "subdomain": "orchestration-vs-manual-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que orquestração de patch pelo Azure elimina a necessidade de janela de manutenção aprovada. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, orquestra sem janela" },
+      { "letter": "B", "text": "Não, janela aprovada continua obrigatória" }
+    ],
+    "correct": ["B"],
+    "explanation": "Orquestração executa dentro da janela aprovada; sem ela, reboot cai em horário crítico. Automatizar não dispensa governança.",
+    "source": "original",
+    "tags": ["orquestracao", "janela", "governanca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-150",
+    "domain": "compute",
+    "subdomain": "drift-patch-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que VMs fora do escopo de patch convergem sozinhas ao baseline com o tempo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, convergem sozinhas" },
+      { "letter": "B", "text": "Não, sem escopo acumulam drift" }
+    ],
+    "correct": ["B"],
+    "explanation": "Sem escopo/DSC, drift só cresce; convergência exige aplicação contínua. Assumir auto-cura deixa dívida.",
+    "source": "original",
+    "tags": ["drift", "escopo", "convergencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

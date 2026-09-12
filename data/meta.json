@@ -10,7 +10,7 @@
   "countsByDomain": {
     "identidade-governanca": 180,
     "storage": 55,
-    "compute": 100,
+    "compute": 150,
     "rede-virtual": 80,
     "monitoramento": 55
   },
