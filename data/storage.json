@@ -2710,5 +2710,947 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-st-126",
+    "domain": "storage",
+    "subdomain": "blob-access-tier-api",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação precisa mover blob para Cool via API sem portal. Qual operação da REST define a camada?",
+    "options": [
+      { "letter": "A", "text": "Set Blob Tier na API REST/SDK" },
+      { "letter": "B", "text": "Renomear o blob" },
+      { "letter": "C", "text": "Copiar para outra conta" },
+      { "letter": "D", "text": "Alterar a chave da conta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Set Blob Tier muda Hot/Cool/Archive via API. Renomear não muda camada; copiar é migração; chave não define tier.",
+    "source": "original",
+    "tags": ["tier", "api", "set-blob-tier"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-127",
+    "domain": "storage",
+    "subdomain": "copy-blob-async",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cópia server-side de 500 GB entre contas precisa acompanhar progresso sem manter cliente ligado. Como copiar assíncrono?",
+    "options": [
+      { "letter": "A", "text": "Copy Blob assíncrono com polling de status" },
+      { "letter": "B", "text": "Download e reupload pelo cliente" },
+      { "letter": "C", "text": "AzCopy sem --follow-symlinks" },
+      { "letter": "D", "text": "Snapshot como cópia" }
+    ],
+    "correct": ["A"],
+    "explanation": "Copy Blob server-side copia sem tráfego pelo cliente, com status consultável. Download/reupload trafega tudo; flag irrelevante; snapshot não copia entre contas.",
+    "source": "original",
+    "tags": ["copy-blob", "assincrono", "server-side"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-128",
+    "domain": "storage",
+    "subdomain": "abort-copy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cópia errada de 1 TB precisa ser cancelada antes de concluir. Qual operação aborta pelo copy-id?",
+    "options": [
+      { "letter": "A", "text": "Abort Copy Blob com o copy-id" },
+      { "letter": "B", "text": "Excluir a conta de destino" },
+      { "letter": "C", "text": "Aguardar concluir sempre" },
+      { "letter": "D", "text": "Reiniciar o portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Abort Copy cancela pelo identificador da operação. Excluir conta é drástico; aguardar desperdiça; portal não aborta.",
+    "source": "original",
+    "tags": ["abort-copy", "cancelar", "copy-id"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-129",
+    "domain": "storage",
+    "subdomain": "lease-break",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Worker travado mantém lease infinito bloqueando o blob de controle. Como quebrar a concessão para retomar?",
+    "options": [
+      { "letter": "A", "text": "Break Lease liberando imediatamente" },
+      { "letter": "B", "text": "Aguardar expiração inexistente" },
+      { "letter": "C", "text": "Excluir o blob com lease" },
+      { "letter": "D", "text": "Criar conta nova" }
+    ],
+    "correct": ["A"],
+    "explanation": "Break Lease quebra concessão travada para retomada. Infinito não expira; excluir com lease ativo nega; nova conta não resolve.",
+    "source": "original",
+    "tags": ["lease", "break", "travado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-130",
+    "domain": "storage",
+    "subdomain": "lease-renew",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Processamento longo precisa manter o lease válido renovando periodicamente. Qual operação estende a concessão?",
+    "options": [
+      { "letter": "A", "text": "Renew Lease antes de expirar" },
+      { "letter": "B", "text": "Nova concessão a cada segundo" },
+      { "letter": "C", "text": "Lease infinito sem renovar" },
+      { "letter": "D", "text": "Sem lease com retry" }
+    ],
+    "correct": ["A"],
+    "explanation": "Renew estende a concessão ativa. Nova a cada segundo conflita; infinito sem renovar expira igual; sem lease duplica processamento.",
+    "source": "original",
+    "tags": ["lease", "renew", "renovar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-131",
+    "domain": "storage",
+    "subdomain": "container-lease",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Exclusão acidental de contêiner inteiro por automação precisa de trava. O que impede delete do contêiner?",
+    "options": [
+      { "letter": "A", "text": "Lease no contêiner bloqueando exclusão" },
+      { "letter": "B", "text": "Nome longo do contêiner" },
+      { "letter": "C", "text": "Tag de aviso" },
+      { "letter": "D", "text": "E-mail de confirmação" }
+    ],
+    "correct": ["A"],
+    "explanation": "Lease em contêiner bloqueia delete e alteração enquanto vigente. Nome longo não protege; tag não bloqueia; e-mail não impõe trava.",
+    "source": "original",
+    "tags": ["lease", "container", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-132",
+    "domain": "storage",
+    "subdomain": "blob-tags-billing",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Custos de storage precisam de rateio por projeto via tags de índice. Como as tags viram dimensão de custo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tags de blob como dimensão em Cost Management"
+      },
+      { "letter": "B", "text": "Uma conta por projeto" },
+      { "letter": "C", "text": "Fatura única sem dimensão" },
+      { "letter": "D", "text": "Planilha manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Index tags viram filtro/dimensão de custo. Conta por projeto fragmenta; única sem dimensão mistura; planilha desatualiza.",
+    "source": "original",
+    "tags": ["tags", "custo", "rateio", "projeto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-133",
+    "domain": "storage",
+    "subdomain": "metrics-capacity",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Crescimento de 10% ao mês precisa de projeção de capacidade e alerta. Quais métricas monitorar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Capacidade usada + contagem de objetos com alerta"
+      },
+      { "letter": "B", "text": "Apenas latência de leitura" },
+      { "letter": "C", "text": "Cor do portal" },
+      { "letter": "D", "text": "Número de chaves" }
+    ],
+    "correct": ["A"],
+    "explanation": "BlobCapacity e contagem de objetos projetam esgotamento com alerta antecipado. Latência não mede volume; cor do portal e número de chaves são irrelevantes.",
+    "source": "original",
+    "tags": ["metricas", "capacidade", "projecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-134",
+    "domain": "storage",
+    "subdomain": "metrics-transactions",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Throttling por transações precisa de visibilidade por API e resposta. Quais dimensões analisar?",
+    "options": [
+      { "letter": "A", "text": "Transactions por API, status e latência" },
+      { "letter": "B", "text": "Total genérico sem dimensão" },
+      { "letter": "C", "text": "Apenas sucessos" },
+      { "letter": "D", "text": "Logs de VM" }
+    ],
+    "correct": ["A"],
+    "explanation": "Dimensões por operação/status/latência localizam gargalo. Genérico não isola; só sucesso esconde erro; VM não é storage.",
+    "source": "original",
+    "tags": ["metricas", "transacoes", "throttling"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-135",
+    "domain": "storage",
+    "subdomain": "insights-storage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Top contêineres por transação e falhas precisam de visão pronta sem KQL. Onde ver insights de storage?",
+    "options": [
+      { "letter": "A", "text": "Storage Insights no Monitor" },
+      { "letter": "B", "text": "Métrica bruta sem agregação" },
+      { "letter": "C", "text": "Portal de billing" },
+      { "letter": "D", "text": "SSH na conta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Storage Insights agrega topologia, falhas e latência prontos. Bruta exige montar; billing não monitora; SSH inexistente.",
+    "source": "original",
+    "tags": ["insights", "storage", "monitor"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-136",
+    "domain": "storage",
+    "subdomain": "diagnostic-storage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada request (leitura/escrita/exclusão) precisa de log para auditoria com retenção. O que envia logs do Storage ao workspace?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Logs de diagnóstico do Storage ao Log Analytics"
+      },
+      { "letter": "B", "text": "Métrica de disponibilidade" },
+      { "letter": "C", "text": "Console do portal" },
+      { "letter": "D", "text": "E-mail por request" }
+    ],
+    "correct": ["A"],
+    "explanation": "Diagnostic logs registram operação por operação com retenção. Métrica agrega; console não retém; e-mail por request é inviável.",
+    "source": "original",
+    "tags": ["diagnostico", "logs", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-137",
+    "domain": "storage",
+    "subdomain": "minute-metrics",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alertas precisam de granularidade de 1 minuto em vez de hora. Qual configuração de métrica reduz o intervalo?",
+    "options": [
+      { "letter": "A", "text": "Métricas por minuto habilitadas na conta" },
+      { "letter": "B", "text": "Métricas horárias padrão" },
+      { "letter": "C", "text": "Log diário" },
+      { "letter": "D", "text": "Sem métricas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Minute metrics com granularidade de 1 minuto disparam alertas rápidos. Métrica horária atrasa a detecção; log diário piora; sem nada o incidente passa batido.",
+    "source": "original",
+    "tags": ["metricas", "minuto", "granularidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-138",
+    "domain": "storage",
+    "subdomain": "hour-metrics-retention",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tendência de 90 dias de capacidade precisa de métricas horárias retidas. Qual retenção configurar?",
+    "options": [
+      { "letter": "A", "text": "Retenção de métricas horárias por 90 dias" },
+      { "letter": "B", "text": "Retenção de 1 dia" },
+      { "letter": "C", "text": "Sem retenção" },
+      { "letter": "D", "text": "Screenshot diário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Retenção de métricas horárias por 90 dias permite tendência trimestral de capacidade. Retenção de 1 dia apaga histórico; sem retenção não há projeção; print não é dado.",
+    "source": "original",
+    "tags": ["metricas", "retencao", "tendencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-139",
+    "domain": "storage",
+    "subdomain": "classic-metrics",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alertas legados usam métricas clássicas que serão descontinuadas. Para onde migrar os alertas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Métricas novas do Monitor (migração de alertas)"
+      },
+      { "letter": "B", "text": "Manter clássicas indefinidamente" },
+      { "letter": "C", "text": "Desabilitar alertas" },
+      { "letter": "D", "text": "E-mail manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Migração para novas métricas mantém cobertura suportada. Clássicas aposentam; sem alerta cega; manual não escala.",
+    "source": "original",
+    "tags": ["metricas", "classicas", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-140",
+    "domain": "storage",
+    "subdomain": "alert-dimensions",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alerta deve disparar por contêiner específico com latência alta, não pela conta toda. Como segmentar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Dimensões (container, API) na regra de alerta"
+      },
+      { "letter": "B", "text": "Alerta genérico da conta" },
+      { "letter": "C", "text": "Um alerta por blob" },
+      { "letter": "D", "text": "Sem alerta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Dimensões segmentam por contêiner/API com um alerta só. Genérico não isola; por blob explode; sem nada cega.",
+    "source": "original",
+    "tags": ["alertas", "dimensoes", "container"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-141",
+    "domain": "storage",
+    "subdomain": "split-billing-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Fatura precisa separar transações, banda e capacidade por projeto. Quais duas dimensões usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Tags de custo por projeto" },
+      { "letter": "B", "text": "Medidores (meters) por operação" },
+      { "letter": "C", "text": "Fatura única agregada" },
+      { "letter": "D", "text": "Estimativa sem medidor" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Tags de custo alocam por projeto e medidores detalham cada operação para auditoria. Fatura única agregada mistura tudo; estimativa sem medidor não audita.",
+    "source": "original",
+    "tags": ["fatura", "tags", "medidores"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-142",
+    "domain": "storage",
+    "subdomain": "egress-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Egress para internet domina a fatura e precisa cair com cache e região. Quais duas alavancas aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "CDN na frente com cache" },
+      { "letter": "B", "text": "Manter origem na região do consumo" },
+      { "letter": "C", "text": "Egress direto sem cache" },
+      { "letter": "D", "text": "Replicar tudo para todas as regiões" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "CDN na frente absorve egress com cache e origem na região do consumo reduz transferência. Egress direto sem cache paga cheio; replicar tudo multiplica storage.",
+    "source": "original",
+    "tags": ["egress", "cdn", "custo", "regiao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-143",
+    "domain": "storage",
+    "subdomain": "operations-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Milhões de leituras pequenas dominam custo por transação. Quais duas otimizações reduzem operações? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Cache/CDN absorvendo leituras" },
+      { "letter": "B", "text": "Lotes e listagens paginadas eficientes" },
+      { "letter": "C", "text": "Polling a cada segundo" },
+      { "letter": "D", "text": "Leitura individual por byte" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Cache e CDN absorvem leituras repetidas e lotes com listagens paginadas reduzem chamadas. Polling a cada segundo queima transações; leitura individual por byte multiplica custo.",
+    "source": "original",
+    "tags": ["custo", "transacoes", "cache", "lotes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-144",
+    "domain": "storage",
+    "subdomain": "cool-read-penalty-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Camada Cool barateia guarda mas penaliza leitura e saída antecipada. Quais dois custos considerar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Custo maior por leitura/operação" },
+      { "letter": "B", "text": "Penalidade por exclusão precoce (<30 dias)" },
+      { "letter": "C", "text": "Leitura gratuita ilimitada" },
+      { "letter": "D", "text": "Sem penalidade" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Camada Cool cobra mais por leitura/operação e penaliza exclusão precoce antes de 30 dias. Leitura gratuita ilimitada não existe; achar sem penalidade ignora a regra.",
+    "source": "original",
+    "tags": ["cool", "penalidade", "leitura", "exclusao-precoce"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-145",
+    "domain": "storage",
+    "subdomain": "archive-early-delete-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Archive exige permanência mínima e reidratação custa por prioridade. Quais dois custos planejar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Permanência mínima de 180 dias" },
+      { "letter": "B", "text": "Custo de reidratação por prioridade" },
+      { "letter": "C", "text": "Exclusão livre a qualquer momento" },
+      { "letter": "D", "text": "Leitura direta gratuita" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Archive cobra exclusão antecipada antes de 180 dias e reidratação por prioridade de urgência. Exclusão livre a qualquer momento ignora a regra; leitura direta gratuita não existe.",
+    "source": "original",
+    "tags": ["archive", "permanencia", "reidratacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-146",
+    "domain": "storage",
+    "subdomain": "reserved-capacity-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Capacidade estável de 100 TB por 3 anos precisa de desconto previsível. Quais dois elementos da reserva aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Capacidade reservada de 100 TB/3 anos" },
+      { "letter": "B", "text": "Escopo (subscription/RG) da reserva" },
+      { "letter": "C", "text": "Pay-as-you-go sem compromisso" },
+      { "letter": "D", "text": "Reserva diária flexível" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Capacidade reservada trava preço por volume, prazo e escopo (subscription/RG). PAYG sem compromisso não desconta; reserva diária flexível não existe para storage.",
+    "source": "original",
+    "tags": ["reserved-capacity", "reserva", "desconto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-147",
+    "domain": "storage",
+    "subdomain": "data-transfer-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Transferência entre regiões e zonas gera custo invisível no projeto. Quais dois fluxos tarifados mapear? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Egress inter-regiões" },
+      { "letter": "B", "text": "Tráfego entre zonas" },
+      { "letter": "C", "text": "Tráfego na mesma zona/VNet" },
+      { "letter": "D", "text": "Ingress da internet" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Egress inter-regiões e tráfego entre zonas são tarifados; mesma zona/VNet e ingress são gratuitos. Ignorar o mapeamento estima custo errado.",
+    "source": "original",
+    "tags": ["transferencia", "egress", "zonas", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-148",
+    "domain": "storage",
+    "subdomain": "bandwidth-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Primeiros 100 GB de egress mensais e tráfego interno precisam de tratamento distinto. Quais dois são gratuitos? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Franquia de egress inicial por subscription" },
+      { "letter": "B", "text": "Tráfego interno mesma região/VNet" },
+      { "letter": "C", "text": "Egress intercontinental ilimitado" },
+      { "letter": "D", "text": "Tudo tarifado sem exceção" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Franquia inicial cobre o começo e tráfego interno não tarifa. Egress intercontinental ilimitado não existe; achar tudo tarifado ignora gratuidades.",
+    "source": "original",
+    "tags": ["banda", "franquia", "gratuito", "egress"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-149",
+    "domain": "storage",
+    "subdomain": "advisor-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Contas com tier errado e blobs órfãos desperdiçam. Quais duas recomendações do Advisor aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Mover para tier adequado por acesso" },
+      { "letter": "B", "text": "Remover blobs/contas órfãs" },
+      { "letter": "C", "text": "Manter tudo em Premium" },
+      { "letter": "D", "text": "Ignorar recomendações" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Tier adequado por padrão de acesso mais remoção de blobs e contas órfãs cortam desperdício. Tudo em Premium custa caro sem necessidade; ignorar recomendações mantém gasto.",
+    "source": "original",
+    "tags": ["advisor", "custo", "tier", "orfaos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-150",
+    "domain": "storage",
+    "subdomain": "budgets-alerts-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Estouro de custo de storage precisa de trava com aviso progressivo. Quais dois controles combinar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Budget com alertas em 50/80/100%" },
+      { "letter": "B", "text": "Ação (runbook/webhook) no estouro" },
+      { "letter": "C", "text": "Sem budget com revisão anual" },
+      { "letter": "D", "text": "Alerta único no fim" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Budgets com alertas progressivos em 50/80/100% avisam cedo e ação (runbook/webhook) contém. Sem budget o estouro surpreende; alerta único no fim atrasa.",
+    "source": "original",
+    "tags": ["budgets", "alertas", "acao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-151",
+    "domain": "storage",
+    "subdomain": "orphaned-disks-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Discos desanexados de VMs excluídas cobram sem uso. Quais dois passos limpam com segurança? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Identificar unattached via Advisor/queries" },
+      { "letter": "B", "text": "Snapshot antes de excluir" },
+      { "letter": "C", "text": "Manter todos por precaução" },
+      { "letter": "D", "text": "Excluir a subscription" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Identificar discos desanexados via Advisor/queries e fotografar com snapshot antes de excluir limpa com segurança. Manter todos por precaução desperdiça; excluir a subscription é drástico.",
+    "source": "original",
+    "tags": ["discos-orfaos", "limpeza", "snapshot"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-152",
+    "domain": "storage",
+    "subdomain": "old-snapshots-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Snapshots antigos sem retenção acumulam custo silencioso. Quais dois controles limpam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Política de retenção/expiração" },
+      { "letter": "B", "text": "Auditoria periódica de idade" },
+      { "letter": "C", "text": "Manter todos para sempre" },
+      { "letter": "D", "text": "Desabilitar snapshots" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Política de retenção/expiração remove snapshots velhos e auditoria periódica de idade encontra órfãos. Manter todos para sempre custa; desabilitar snapshots perde proteção.",
+    "source": "original",
+    "tags": ["snapshots", "retencao", "limpeza"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-153",
+    "domain": "storage",
+    "subdomain": "lifecycle-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dados com curva quente→frio→arquivo→exclusão precisam de ciclo completo automático. Quais dois estágios configurar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Transições Hot→Cool→Archive por idade" },
+      { "letter": "B", "text": "Exclusão ao fim da vida útil" },
+      { "letter": "C", "text": "Tudo em Hot permanente" },
+      { "letter": "D", "text": "Exclusão manual anual" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Transições Hot→Cool→Archive por idade barateiam e exclusão ao fim da vida útil fecha o ciclo. Tudo em Hot permanente custa caro; exclusão manual anual atrasa.",
+    "source": "original",
+    "tags": ["lifecycle", "ciclo-vida", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-154",
+    "domain": "storage",
+    "subdomain": "compress-encrypt-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Payloads grandes precisam de menos bytes e sigilo antes do upload. Quais duas transformações aplicar no cliente? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Compressão antes do upload" },
+      { "letter": "B", "text": "Criptografia client-side" },
+      { "letter": "C", "text": "Upload bruto sem tratar" },
+      { "letter": "D", "text": "Texto claro com gzip do servidor" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Comprimir antes do upload reduz bytes e criptografia client-side garante sigilo ponta a ponta. Upload bruto sem tratar custa e expõe; gzip do servidor não cifra.",
+    "source": "original",
+    "tags": ["compressao", "criptografia", "client-side"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-155",
+    "domain": "storage",
+    "subdomain": "parallel-upload-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Upload de 1 TB precisa de vazão máxima com retomada em falha. Quais dois parâmetros do AzCopy ajustar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Paralelismo (concurrency) elevado" },
+      { "letter": "B", "text": "Blocos grandes com resume" },
+      { "letter": "C", "text": "Thread única sequencial" },
+      { "letter": "D", "text": "Sem log nem retomada" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Paralelismo (concurrency) elevado com blocos grandes e journal retoma rápido em falha. Thread única sequencial é lenta; sem log nem retomada não há recuperação.",
+    "source": "original",
+    "tags": ["azcopy", "paralelismo", "retomada"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-156",
+    "domain": "storage",
+    "subdomain": "sync-vs-async-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cópias pequenas síncronas e grandes assíncronas exigem APIs distintas. Quais duas usar conforme o tamanho? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Put Blob (síncrona) para pequenos" },
+      { "letter": "B", "text": "Copy Blob (assíncrona) para grandes" },
+      { "letter": "C", "text": "Síncrona para 1 TB" },
+      { "letter": "D", "text": "Assíncrona para 1 KB" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Put Blob síncrona atende pequenos de uma vez; Copy Blob assíncrona move grandes server-side. Síncrona para 1 TB estoura; assíncrona para 1 KB desperdiça.",
+    "source": "original",
+    "tags": ["put-blob", "copy-blob", "sincrono", "assincrono"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-157",
+    "domain": "storage",
+    "subdomain": "azcopy-flags-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Migração com exclusões por padrão e preservação de permissões exige flags certas. Quais duas usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "--exclude-pattern para pular temporários" },
+      { "letter": "B", "text": "--preserve-smb-permissions para ACLs" },
+      { "letter": "C", "text": "Sem flags com tudo incluído" },
+      { "letter": "D", "text": "--delete-destination sempre" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Exclude-pattern filtra temporários e preserve-smb-permissions mantém ACLs na migração. Sem flags copia lixo; delete-destination sempre apaga o destino.",
+    "source": "original",
+    "tags": ["azcopy", "flags", "exclude", "permissoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-158",
+    "domain": "storage",
+    "subdomain": "azcopy-oauth-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "AzCopy em pipeline sem segredos e com auditoria de identidade. Quais dois mecanismos de auth usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Login Entra ID (azcopy login)" },
+      { "letter": "B", "text": "Identidade gerenciada na VM de migração" },
+      { "letter": "C", "text": "Chave no script versionado" },
+      { "letter": "D", "text": "SAS eterna no repo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Login Entra ID e identidade gerenciada autenticam o AzCopy sem segredo, com trilha de auditoria. Chave versionada no script vaza; SAS eterna no repo expira mal.",
+    "source": "original",
+    "tags": ["azcopy", "entra-id", "managed-identity"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-159",
+    "domain": "storage",
+    "subdomain": "azcopy-sync-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Espelho contínuo origem-destino com remoção de órfãos no destino. Quais dois comportamentos do sync usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Sync incremental por hash/data" },
+      { "letter": "B", "text": "Delete-destination para órfãos" },
+      { "letter": "C", "text": "Cópia total sempre" },
+      { "letter": "D", "text": "Manual arquivo a arquivo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Sync incremental copia só o diff por hash/data e delete-destination espelha remoções. Cópia total sempre desperdiça banda; manual arquivo a arquivo não escala.",
+    "source": "original",
+    "tags": ["azcopy", "sync", "espelho"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-160",
+    "domain": "storage",
+    "subdomain": "databox-order-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pedido de Data Box com cadeia de custódia e devolução segura exige dois controles. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Rastreio e lacre da remessa" },
+      { "letter": "B", "text": "Apagamento certificado na devolução" },
+      { "letter": "C", "text": "Envio comum sem rastreio" },
+      { "letter": "D", "text": "Manter dados no device" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Cadeia de custódia com rastreio e lacre acompanha a remessa e o apagamento certificado limpa na devolução. Envio comum sem rastreio perde; manter dados no device vaza.",
+    "source": "original",
+    "tags": ["databox", "cadeia-custodia", "wipe"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-161",
+    "domain": "storage",
+    "subdomain": "databox-validation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dados no Data Box precisam de validação de integridade antes do upload. Quais duas verificações aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Checksum/hash por arquivo" },
+      { "letter": "B", "text": "Validação de formato e contagem" },
+      { "letter": "C", "text": "Confiança visual" },
+      { "letter": "D", "text": "Upload sem validar" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Checksum/hash por arquivo garante integridade e validação de formato e contagem confere completude. Confiança visual não escala; upload sem validar corrompe.",
+    "source": "original",
+    "tags": ["databox", "checksum", "validacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-162",
+    "domain": "storage",
+    "subdomain": "offline-seed-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que sem rede o app carrega questões do IDB semeado na primeira carga. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, IDB-first após seed" },
+      { "letter": "B", "text": "Não, sem rede nada funciona" }
+    ],
+    "correct": ["A"],
+    "explanation": "QuestionLoader semeia no primeiro fetch e depois lê do IDB offline. Achar dependência total de rede ignora o ADR-001.",
+    "source": "original",
+    "tags": ["offline", "idb", "seed"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-163",
+    "domain": "storage",
+    "subdomain": "bundle-size-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um dev afirma que o bundle baixa as 900 questões junto porque o JSON está no repo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, tudo vai no bundle" },
+      { "letter": "B", "text": "Não, fetch + IDB sob demanda" }
+    ],
+    "correct": ["B"],
+    "explanation": "ADR-001 busca por fetch e cacheia; bundle não embute o banco. Assumir bundle gigante ignora o desenho.",
+    "source": "original",
+    "tags": ["bundle", "fetch", "idb", "adr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-164",
+    "domain": "storage",
+    "subdomain": "seed-version-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que nova versão do banco resemeia o IDB via seedVersion do meta.json. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, versão nova dispara reseed" },
+      { "letter": "B", "text": "Não, IDB nunca atualiza" }
+    ],
+    "correct": ["A"],
+    "explanation": "A constante SEED_VERSION compara a versão e resemeia o IDB quando muda. Achar o banco imutável ignora a migração de seed.",
+    "source": "original",
+    "tags": ["seed", "versao", "reseed"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-165",
+    "domain": "storage",
+    "subdomain": "precache-sw-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o service worker faz precache dos JSONs para offline total. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, precache + IDB cobrem offline" },
+      { "letter": "B", "text": "Não, SW não cacheia nada" }
+    ],
+    "correct": ["A"],
+    "explanation": "O VitePWA faz precache dos assets e o IDB guarda os dados; juntos cobrem o modo offline. Negar o precache ignora o desenho PWA do projeto.",
+    "source": "original",
+    "tags": ["precache", "sw", "offline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-166",
+    "domain": "storage",
+    "subdomain": "symlink-data-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um dev afirma que public/data é symlink para ../data e o Vite segue servindo os JSONs. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, verificado no build" },
+      { "letter": "B", "text": "Não, Vite ignora symlinks" }
+    ],
+    "correct": ["A"],
+    "explanation": "Symlink versionado resolve e o build copia dist/data (verificado). Achar que ignora contraria o teste real.",
+    "source": "original",
+    "tags": ["symlink", "public-data", "vite"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-167",
+    "domain": "storage",
+    "subdomain": "size-guard-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que arquivo data/*.json acima de 200KB falha o pre-commit exigindo partição. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, SIZE GUARD bloqueia e particiona" },
+      { "letter": "B", "text": "Não, tamanho é livre" }
+    ],
+    "correct": ["A"],
+    "explanation": "A guarda de 200KB por arquivo com partição por subdomínio mantém diffs revisáveis e builds saudáveis. Tamanho livre incha o repositório.",
+    "source": "original",
+    "tags": ["size-guard", "200kb", "particao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-168",
+    "domain": "storage",
+    "subdomain": "dedup-concept-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o validate detecta questão duplicada por hash FNV-1a do enunciado normalizado. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, dedup por hash de conteúdo" },
+      { "letter": "B", "text": "Não, só valida ID único" }
+    ],
+    "correct": ["A"],
+    "explanation": "O validate checa id único e hash FNV-1a do enunciado normalizado para dedup. Validar só ID deixaria passar duplicata textual.",
+    "source": "original",
+    "tags": ["dedup", "fnv", "hash"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-169",
+    "domain": "storage",
+    "subdomain": "needsreview-flow-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que questão com needsReview:true entra no banco sem revisão quando o WIP estoura. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, entra direto" },
+      { "letter": "B", "text": "Não, WIP >50 pausa generate e foca review" }
+    ],
+    "correct": ["B"],
+    "explanation": "O WIP trava a geração até revisar a fila quando needsReview passa de 50. Entrar direto no banco violaria qualidade sobre volume.",
+    "source": "original",
+    "tags": ["needsreview", "wip", "qualidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-170",
+    "domain": "storage",
+    "subdomain": "source-required-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um dev afirma que questão sem source é rejeitada pelo schema Zod no validate. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, source é obrigatório" },
+      { "letter": "B", "text": "Não, source é opcional" }
+    ],
+    "correct": ["A"],
+    "explanation": "Source é enum obrigatório, com sourceUrl exigido para community/mslearn. Sem origem declarada não há governança do banco.",
+    "source": "original",
+    "tags": ["source", "obrigatorio", "zod"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

@@ -4016,7 +4016,118 @@
     "correct": ["A"],
     "explanation": "Troca de disco de SO (swap) substitui o disco com a VM parada preservando NICs e dados. Recriar a máquina do zero é trabalho desnecessário.",
     "source": "original",
-    "tags": ["os-disk", "swap", "troca"],
+    "tags": ["drift", "escopo", "convergencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-181",
+    "domain": "compute",
+    "subdomain": "vm-insights-dependency",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Mapa de dependências mostra VM falando com IP desconhecido às 3h. Qual investigação confirma se é backup legítimo ou exfiltração?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Correlacionar mapa + NSG flow logs + processo dono"
+      },
+      { "letter": "B", "text": "Desligar a VM imediatamente" },
+      { "letter": "C", "text": "Ignorar por ser madrugada" },
+      { "letter": "D", "text": "Reinstalar o SO" }
+    ],
+    "correct": ["A"],
+    "explanation": "Mapa mostra quem, flow logs mostram volume/destino e processo identifica o binário. Desligar destrói evidência; ignorar é negligência; reinstalar apaga trilha.",
+    "source": "original",
+    "tags": ["vm-insights", "dependencias", "investigacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-182",
+    "domain": "compute",
+    "subdomain": "live-migration",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Manutenção de host exige mover VMs sem downtime perceptível. Como a plataforma preserva memória e conexões?",
+    "options": [
+      { "letter": "A", "text": "Live migration com pré-cópia de memória" },
+      { "letter": "B", "text": "Desligamento e religamento" },
+      { "letter": "C", "text": "Snapshot e restore" },
+      { "letter": "D", "text": "Failover de DNS" }
+    ],
+    "correct": ["A"],
+    "explanation": "Live migration copia RAM iterativamente e transfere em milissegundos. Desligar interrompe; snapshot não migra viva; DNS não move VM.",
+    "source": "original",
+    "tags": ["live-migration", "host", "manutencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-183",
+    "domain": "compute",
+    "subdomain": "memory-preserving-update",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Atualização de host com VMs em memória precisa zerar downtime de guest. Qual técnica mantém estado durante o update?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Atualização com preservação de memória do host"
+      },
+      { "letter": "B", "text": "Reboot de todas as VMs" },
+      { "letter": "C", "text": "Pausa longa das cargas" },
+      { "letter": "D", "text": "Migração manual por RDP" }
+    ],
+    "correct": ["A"],
+    "explanation": "Memory-preserving update mantém guests vivos no host atualizado. Reboot interrompe; pausa degrada; manual não escala.",
+    "source": "original",
+    "tags": ["host-update", "memoria", "zero-downtime"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-184",
+    "domain": "compute",
+    "subdomain": "cluster-aware-update",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cluster de VMs precisa de update orquestrado com validação de quórum entre nós. O que ordena com failover controlado?",
+    "options": [
+      { "letter": "A", "text": "Cluster-Aware Updating com roles de cluster" },
+      { "letter": "B", "text": "Update simultâneo de todos" },
+      { "letter": "C", "text": "Desligar o cluster inteiro" },
+      { "letter": "D", "text": "Patch aleatório" }
+    ],
+    "correct": ["A"],
+    "explanation": "CAU move roles, atualiza e valida mantendo quórum. Simultâneo derruba; desligar zera; aleatório quebra ordem.",
+    "source": "original",
+    "tags": ["cluster-aware", "quorum", "update"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-185",
+    "domain": "compute",
+    "subdomain": "fault-tolerance-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Duas VMs em availability set com discos Premium prometem qual SLA de conectividade segundo o contrato?",
+    "options": [
+      { "letter": "A", "text": "99,95% para o conjunto" },
+      { "letter": "B", "text": "99,99% como zonas" },
+      { "letter": "C", "text": "99,9% de VM única" },
+      { "letter": "D", "text": "100% garantido" }
+    ],
+    "correct": ["A"],
+    "explanation": "Availability set com discos gerenciados contrata 99,95%. 99,99% exige zonas; 99,9% é VM única Premium; 100% não existe.",
+    "source": "original",
+    "tags": ["sla", "availability-set", "99-95"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
