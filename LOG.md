@@ -33,3 +33,10 @@
 - S7: build-simulados.mts (seeded, 1 case contíguo + quotas 12/9/12/10/7) → 10 simulados oficiais fixed/100min; import-community.mts (fetch→quarentena needsReview). Validate 320/0.
 - **Gate 0B PARCIAL (máquina):** banco validado ✓ · 10 simulados ✓ · explicações ✓ · **scores no LOG: pendente HUMANO** (responder simulados no app; 2º simulado é estudo S7).
 - Próximo humano: baseline `B` (S3) + rotina 30–40q/dia + Leitner 15min + 2º simulado. S8–S13 (640q) em lotes sob demanda.
+
+## 2026-09-12 — S8–S11 BANCO 950 FECHADO (modo contínuo, ordem de déficit)
+
+- S8-1/2/3: ig 051-230 (fecha Identidade 230). S9-1: co 151-180 + st 056-075. S9-2: ig 181-230. S9-3: st 076-125. S10-1: st 126-170 (fecha Storage 170) + co 181-185. S10-2: co 186-200 (incidente normalização → LESSONS) + 201-230 (fecha Compute 230). S10-3: rv 081-130. S11-1: rv 131-175 (fecha Rede 175) + mo 056-060. S11-2: mo 061-145 (fecha Monitoramento 145).
+- **BANCO: 950/950 validadas, 0 erros** (ig 230 · st 170 · co 230 · rv 175 · mo 145). Partições SIZE GUARD: identidade-acesso + compute-vms/apps/platform (todas <200KB).
+- 10 simulados oficiais rebuildados sobre o banco final. Teste S2 tolerante a banco crescente. Isca `ro-226` rejeitada pelo validate (gate provado).
+- **Gate 1 (validate + 57/57 + totais §4): ATINGIDO na parte executável.** Restante humano: estudo, média-5, agendamento §12.
