@@ -1,0 +1,12 @@
+[
+  {
+    "id": "case-st-01",
+    "title": "Migração de arquivos da Contoso",
+    "scenario": "A Contoso tem 40 TB em servidores de arquivos locais com pastas por departamento e ACLs NTFS. O link de internet é de 200 Mbps. A meta é centralizar no Azure Files com acesso SMB dos escritórios, autenticação dos usuários do AD e retenção contra ransomware. O time cogita AzCopy direto, Data Box e File Sync."
+  },
+  {
+    "id": "case-mo-01",
+    "title": "Observabilidade da Fabrikam",
+    "scenario": "A Fabrikam roda 60 VMs e 12 App Services em duas regiões. Latências intermitentes afetam o checkout e ninguém sabe se a causa é código, banco ou rede. A diretoria exige alertas automáticos, diagnóstico por camada e trilhas de auditoria de 90 dias, sem agentes manuais por máquina."
+  }
+]

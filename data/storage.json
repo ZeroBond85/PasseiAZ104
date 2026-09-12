@@ -1,0 +1,1232 @@
+[
+  {
+    "id": "az104-st-001",
+    "domain": "storage",
+    "subdomain": "blob-tiers",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Dados acessados raramente (1 vez por ano) precisam do menor custo de armazenamento, aceitando horas para leitura. Qual camada de blob deve ser usada?",
+    "options": [
+      { "letter": "A", "text": "Camada Archive (arquivo morto)" },
+      { "letter": "B", "text": "Camada Hot (quente)" },
+      { "letter": "C", "text": "Camada Cool (fria)" },
+      { "letter": "D", "text": "Disco Premium gerenciado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Archive custa centavos por GB para acesso raríssimo, com reidratação em horas. Hot é para acesso frequente; Cool para mensal; disco Premium não é blob.",
+    "source": "original",
+    "tags": ["blob", "tiers", "archive"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-002",
+    "domain": "storage",
+    "subdomain": "redundancia",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma conta precisa sobreviver à perda de um datacenter inteiro na região com cópias em datacenters separados. Qual redundância replica entre zonas?",
+    "options": [
+      { "letter": "A", "text": "ZRS (Zone-Redundant Storage)" },
+      {
+        "letter": "B",
+        "text": "LRS (Locally-Redundant, 3 cópias no mesmo DC)"
+      },
+      { "letter": "C", "text": "Uma única cópia local" },
+      { "letter": "D", "text": "Cache do navegador" }
+    ],
+    "correct": ["A"],
+    "explanation": "ZRS replica sincronamente em 3 zonas da região. LRS fica num datacenter; cópia única não protege; cache de navegador não é redundância.",
+    "source": "original",
+    "tags": ["redundancia", "zrs", "lrs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-003",
+    "domain": "storage",
+    "subdomain": "file-shares",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Duas VMs Windows precisam compartilhar arquivos com protocolo SMB e letra de unidade mapeada. Qual serviço fornece compartilhamento SMB gerenciado?",
+    "options": [
+      { "letter": "A", "text": "Azure Files com compartilhamento SMB" },
+      { "letter": "B", "text": "Blob com contêiner privado" },
+      { "letter": "C", "text": "Fila de Storage" },
+      { "letter": "D", "text": "Tabela de Storage" }
+    ],
+    "correct": ["A"],
+    "explanation": "Azure Files expõe SMB/NFS montável como unidade. Blob é objeto via REST; filas guardam mensagens; tabelas guardam entidades.",
+    "source": "original",
+    "tags": ["files", "smb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-004",
+    "domain": "storage",
+    "subdomain": "sas",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um parceiro precisa ler um único blob por 24 horas sem receber a chave da conta. Qual credencial temporária e restrita deve ser gerada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAS de blob com expiração de 24h e só leitura"
+      },
+      { "letter": "B", "text": "Chave da conta de armazenamento" },
+      { "letter": "C", "text": "String de conexão completa" },
+      { "letter": "D", "text": "Senha do administrador" }
+    ],
+    "correct": ["A"],
+    "explanation": "SAS delega acesso limitado (recurso, permissão, tempo) sem expor a chave. Chave e connection string dão poder total; senha de admin não autoriza storage.",
+    "source": "original",
+    "tags": ["sas", "acesso-temporario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-005",
+    "domain": "storage",
+    "subdomain": "static-website",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um site estático (HTML/CSS/JS) precisa ser hospedado com custo mínimo e URL pública direta do Storage. Qual recurso publica o conteúdo estático?",
+    "options": [
+      { "letter": "A", "text": "Hospedagem de site estático no Blob ($web)" },
+      { "letter": "B", "text": "Fila de Storage com mensagens HTML" },
+      { "letter": "C", "text": "Tabela com entidades de página" },
+      { "letter": "D", "text": "Disco gerenciado com IIS" }
+    ],
+    "correct": ["A"],
+    "explanation": "Static website serve index/erro do contêiner $web com endpoint. Filas e tabelas não servem HTTP; disco com IIS exige VM.",
+    "source": "original",
+    "tags": ["static-website", "blob", "web"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-006",
+    "domain": "storage",
+    "subdomain": "azcopy",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa copiar 2 TB do storage local para um contêiner de blob mantendo hierarquia de pastas. Qual ferramenta de linha de comando faz a cópia otimizada?",
+    "options": [
+      { "letter": "A", "text": "AzCopy com cópia recursiva e paralelismo" },
+      { "letter": "B", "text": "Upload manual pelo portal arquivo a arquivo" },
+      {
+        "letter": "C",
+        "text": "Conexão RDP copiando pela área de transferência"
+      },
+      { "letter": "D", "text": "E-mail com anexos para o suporte" }
+    ],
+    "correct": ["A"],
+    "explanation": "AzCopy transfere em paralelo com retomada e preserva hierarquia. Portal arquivo a arquivo não escala; RDP não move TB; e-mail não transfere dados.",
+    "source": "original",
+    "tags": ["azcopy", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-007",
+    "domain": "storage",
+    "subdomain": "queues",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Pedidos precisam aguardar processamento assíncrono entre o site e o worker, com entrega garantida e ordem aproximada. Qual serviço enfileira essas mensagens?",
+    "options": [
+      { "letter": "A", "text": "Fila do Storage (Queue Storage)" },
+      { "letter": "B", "text": "Blob de blocos" },
+      { "letter": "C", "text": "Compartilhamento de arquivos" },
+      { "letter": "D", "text": "Tabela de entidades" }
+    ],
+    "correct": ["A"],
+    "explanation": "Queue Storage desacopla produtor e consumidor com mensagens persistentes. Blob guarda objetos; Files compartilha SMB; Table guarda dados estruturados.",
+    "source": "original",
+    "tags": ["queues", "mensagens"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-008",
+    "domain": "storage",
+    "subdomain": "tables",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Milhões de registros de telemetria semiestruturados precisam de leitura por chave com custo mínimo, sem SQL. Qual serviço NoSQL de chave-valor serve?",
+    "options": [
+      { "letter": "A", "text": "Tabela do Storage (Table Storage)" },
+      { "letter": "B", "text": "SQL Database com DTUs" },
+      { "letter": "C", "text": "Blob com um arquivo por registro" },
+      { "letter": "D", "text": "Fila com mensagens de 64KB" }
+    ],
+    "correct": ["A"],
+    "explanation": "Table Storage indexa por PartitionKey/RowKey a centavos. SQL cobra motor relacional; blob por registro é ineficiente; fila não consulta por chave.",
+    "source": "original",
+    "tags": ["tables", "nosql"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-009",
+    "domain": "storage",
+    "subdomain": "firewall-conta",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma conta de armazenamento deve recusar acesso público e aceitar só a VNet da aplicação. Quais duas travas compõem esse fechamento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Negar acesso público + firewall por VNet na conta"
+      },
+      { "letter": "B", "text": "SAS pública sem expiração" },
+      { "letter": "C", "text": "Chave compartilhada com todos" },
+      { "letter": "D", "text": "Contêiner com acesso anônimo de blob" }
+    ],
+    "correct": ["A"],
+    "explanation": "Bloquear public access + firewall por rede selecionada fecha a conta. SAS aberta, chave compartilhada e blob anônimo expõem.",
+    "source": "original",
+    "tags": ["firewall", "acesso-publico", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-010",
+    "domain": "storage",
+    "subdomain": "lifecycle",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Blobs de log devem ir para Cool após 30 dias e ser excluídos após 365, sem intervenção manual. Qual recurso aplica essas transições por regra?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gerenciamento do ciclo de vida (lifecycle policy) do Blob"
+      },
+      { "letter": "B", "text": "Script manual mensal de exclusão" },
+      { "letter": "C", "text": "Snapshot diário de cada blob" },
+      { "letter": "D", "text": "Replicação para outra conta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Lifecycle policy move camadas e exclui por idade automaticamente. Script manual falha; snapshot preserva em vez de transicionar; replicação copia, não gerencia idade.",
+    "source": "original",
+    "tags": ["lifecycle", "blob", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-011",
+    "domain": "storage",
+    "subdomain": "grs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A conta precisa sobreviver à perda de uma região inteira com leitura na secundária durante o outage. Qual redundância oferece failover geográfico com leitura?",
+    "options": [
+      { "letter": "A", "text": "RA-GRS (leitura na secundária)" },
+      { "letter": "B", "text": "LRS com 3 cópias locais" },
+      { "letter": "C", "text": "ZRS em zona única" },
+      { "letter": "D", "text": "Backup manual semanal" }
+    ],
+    "correct": ["A"],
+    "explanation": "RA-GRS replica para região pareada com endpoint de leitura. LRS/ZRS não cruzam região; backup manual não dá leitura contínua.",
+    "source": "original",
+    "tags": ["ra-grs", "georredundancia", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-012",
+    "domain": "storage",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs excluídos por engano precisam ser recuperáveis por 30 dias sem restaurar backup externo. Qual proteção retém blobs apagados?",
+    "options": [
+      { "letter": "A", "text": "Exclusão reversível (soft delete) de blobs" },
+      { "letter": "B", "text": "Controle de versão sem retenção" },
+      { "letter": "C", "text": "Snapshot manual por blob" },
+      { "letter": "D", "text": "Lixeira do portal por 7 dias" }
+    ],
+    "correct": ["A"],
+    "explanation": "Soft delete mantém blobs excluídos pelo período configurado para undelete. Versão sem retenção não recupera exclusão; snapshot manual não escala; não há lixeira de portal.",
+    "source": "original",
+    "tags": ["soft-delete", "blob", "recuperacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-013",
+    "domain": "storage",
+    "subdomain": "versionamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada gravação num blob deve gerar versão recuperável para auditoria de alterações. Qual recurso versiona automaticamente cada sobrescrita?",
+    "options": [
+      { "letter": "A", "text": "Controle de versão de blob" },
+      { "letter": "B", "text": "Snapshot manual a cada escrita" },
+      { "letter": "C", "text": "SAS com versão no nome" },
+      { "letter": "D", "text": "Replicação GRS" }
+    ],
+    "correct": ["A"],
+    "explanation": "Versionamento cria versão prévia a cada escrita automaticamente. Snapshot manual exige chamada; SAS não versiona; GRS replica o atual, não o histórico.",
+    "source": "original",
+    "tags": ["versionamento", "blob", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-014",
+    "domain": "storage",
+    "subdomain": "nfs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs Linux precisam de compartilhamento POSIX com bloqueio de arquivo e alta taxa de transferência. Qual protocolo do Azure Files atende Linux nativamente?",
+    "options": [
+      { "letter": "A", "text": "NFS 4.1 no Azure Files Premium" },
+      { "letter": "B", "text": "SMB 3.0 com AD" },
+      { "letter": "C", "text": "FTP anônimo" },
+      { "letter": "D", "text": "Blob via REST" }
+    ],
+    "correct": ["A"],
+    "explanation": "NFS 4.1 Premium dá semântica POSIX a Linux. SMB é para Windows; FTP não é gerenciado; Blob REST não monta POSIX.",
+    "source": "original",
+    "tags": ["files", "nfs", "linux", "posix"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-015",
+    "domain": "storage",
+    "subdomain": "ad-files",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O compartilhamento SMB precisa autenticar usuários do AD local com ACLs NTFS por pasta. Qual integração de identidade habilita isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticação AD DS no Azure Files com permissões NTFS"
+      },
+      { "letter": "B", "text": "Chave da conta para todos os usuários" },
+      { "letter": "C", "text": "SAS anônima por pasta" },
+      { "letter": "D", "text": "Login local por VM" }
+    ],
+    "correct": ["A"],
+    "explanation": "Integração AD DS autentica por Kerberos com ACLs NTFS reais. Chave única não distingue usuário; SAS não faz NTFS; login local não centraliza.",
+    "source": "original",
+    "tags": ["files", "ad-ds", "ntfs", "smb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-016",
+    "domain": "storage",
+    "subdomain": "databox",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cem terabytes locais precisam migrar com link de 100 Mbps saturado por meses. Qual dispositivo físico da Microsoft acelera a ingestão offline?",
+    "options": [
+      { "letter": "A", "text": "Azure Data Box para transferência física" },
+      { "letter": "B", "text": "AzCopy pela internet saturada" },
+      { "letter": "C", "text": "VPN com mais banda contratada" },
+      { "letter": "D", "text": "Upload pelo portal em partes" }
+    ],
+    "correct": ["A"],
+    "explanation": "Data Box envia o disco físico e a Microsoft injeta no storage. AzCopy no link saturado levaria meses; VPN não cria banda; portal não move TB.",
+    "source": "original",
+    "tags": ["databox", "migracao-offline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-017",
+    "domain": "storage",
+    "subdomain": "object-replication",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs novos em um contêiner precisam ser replicados para outra conta na mesma região em tempo real. Qual recurso replica por política de objeto?",
+    "options": [
+      { "letter": "A", "text": "Replicação de objetos do Blob" },
+      { "letter": "B", "text": "GRS entre regiões" },
+      { "letter": "C", "text": "AzCopy agendado por cron" },
+      { "letter": "D", "text": "Snapshot manual cruzado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Object replication copia por regra (prefixo, tipo) entre contas. GRS replica a conta inteira entre regiões; cron atrasa; snapshot é pontual.",
+    "source": "original",
+    "tags": ["object-replication", "blob"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-018",
+    "domain": "storage",
+    "subdomain": "encryption-scope",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres diferentes precisam de chaves de criptografia distintas gerenciadas pelo cliente. Qual escopo isola chaves por contêiner?",
+    "options": [
+      { "letter": "A", "text": "Escopo de criptografia por contêiner" },
+      { "letter": "B", "text": "Uma chave única para a conta inteira" },
+      { "letter": "C", "text": "TLS no transporte apenas" },
+      { "letter": "D", "text": "SAS com criptografia embutida" }
+    ],
+    "correct": ["A"],
+    "explanation": "Encryption scopes vinculam chaves CMK por contêiner/fila. Chave única mistura domínios; TLS protege trânsito, não repouso; SAS não criptografa.",
+    "source": "original",
+    "tags": ["encryption-scope", "cmk", "chaves"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-019",
+    "domain": "storage",
+    "subdomain": "static-website-cdn",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O site estático no Storage precisa de HTTPS com domínio próprio e cache global. O que colocar na frente do endpoint $web?",
+    "options": [
+      { "letter": "A", "text": "Azure CDN/Front Door com TLS gerenciado" },
+      { "letter": "B", "text": "DNS público direto ao $web" },
+      { "letter": "C", "text": "VPN até o $web" },
+      { "letter": "D", "text": "Bastion na frente do storage" }
+    ],
+    "correct": ["A"],
+    "explanation": "CDN/Front Door entrega HTTPS, domínio próprio e edge cache. DNS direto não dá TLS gerenciado; VPN não publica; Bastion não serve site.",
+    "source": "original",
+    "tags": ["static-website", "cdn", "https"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-020",
+    "domain": "storage",
+    "subdomain": "file-sync",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Servidores de arquivos locais precisam espelhar para o Azure Files com cache local dos arquivos quentes. Qual serviço sincroniza com tiering na nuvem?",
+    "options": [
+      { "letter": "A", "text": "Azure File Sync com cloud tiering" },
+      { "letter": "B", "text": "Robocopy manual semanal" },
+      { "letter": "C", "text": "DFS Replication entre filiais" },
+      { "letter": "D", "text": "Backup do Windows Server" }
+    ],
+    "correct": ["A"],
+    "explanation": "File Sync replica para Files com tiering (quentes locais, frios na nuvem). Robocopy manual não sincroniza; DFSR não integra Files; backup não espelha acesso.",
+    "source": "original",
+    "tags": ["file-sync", "tiering", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-021",
+    "domain": "storage",
+    "subdomain": "blob-inventory",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria mensal precisa de relatório CSV com todos os blobs, camadas e retenções da conta. Qual recurso gera esse inventário automaticamente?",
+    "options": [
+      { "letter": "A", "text": "Inventário de Blobs com relatório agendado" },
+      { "letter": "B", "text": "Listagem manual pelo portal" },
+      { "letter": "C", "text": "Métricas de capacidade do Monitor" },
+      { "letter": "D", "text": "Log de leitura de cada blob" }
+    ],
+    "correct": ["A"],
+    "explanation": "Blob Inventory emite CSV/Parquet agendado com propriedades. Portal manual não escala; métrica agrega sem detalhar; log de leitura registra acesso, não inventário.",
+    "source": "original",
+    "tags": ["blob-inventory", "auditoria", "relatorio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-022",
+    "domain": "storage",
+    "subdomain": "change-feed",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um pipeline precisa reagir a cada criação e exclusão de blob em ordem, sem polling. Qual feed publica essas mudanças para consumo?",
+    "options": [
+      { "letter": "A", "text": "Feed de alterações (Change Feed) do Blob" },
+      { "letter": "B", "text": "Métrica de transações por minuto" },
+      { "letter": "C", "text": "Snapshot diário da conta" },
+      { "letter": "D", "text": "Log de auditoria do portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Change Feed registra mutações ordenadas para pipelines. Métrica agrega; snapshot é pontual; auditoria do portal registra ações ARM, não dados.",
+    "source": "original",
+    "tags": ["change-feed", "blob", "pipeline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-023",
+    "domain": "storage",
+    "subdomain": "datalake-gen2",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Análises big data precisam de hierarquia de pastas com ACLs POSIX sobre o mesmo storage de blobs. Qual recurso adiciona namespace hierárquico?",
+    "options": [
+      { "letter": "A", "text": "Data Lake Gen2 com namespace hierárquico" },
+      { "letter": "B", "text": "Blob plano sem pastas" },
+      { "letter": "C", "text": "File Sync com tiering" },
+      { "letter": "D", "text": "Tabela com partições" }
+    ],
+    "correct": ["A"],
+    "explanation": "Gen2 habilita diretórios reais e ACLs POSIX sobre blob. Blob plano simula pastas; File Sync é SMB; tabela não guarda arquivos.",
+    "source": "original",
+    "tags": ["datalake-gen2", "hierarquia", "posix"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-024",
+    "domain": "storage",
+    "subdomain": "sftp",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Parceiros legados enviam arquivos via SFTP e você quer eliminar o servidor intermediário. Qual endpoint nativo do Storage recebe SFTP direto?",
+    "options": [
+      { "letter": "A", "text": "Suporte SFTP do Blob Storage" },
+      { "letter": "B", "text": "Fila com mensagens binárias" },
+      { "letter": "C", "text": "Tabela com anexos" },
+      { "letter": "D", "text": "VM com OpenSSH e script" }
+    ],
+    "correct": ["A"],
+    "explanation": "Blob com SFTP habilitado recebe clientes legados sem VM. Fila/tabela não falam SFTP; VM intermediária é o que se quer eliminar.",
+    "source": "original",
+    "tags": ["sftp", "blob", "legado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-025",
+    "domain": "storage",
+    "subdomain": "premium-blockblob",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação de trading grava milhares de pequenos blobs por segundo com latência mínima. Qual camada de blob de blocos atende alta transação?",
+    "options": [
+      { "letter": "A", "text": "Premium (block blobs Premium)" },
+      { "letter": "B", "text": "Archive com reidratação" },
+      { "letter": "C", "text": "Cool com penalidade de leitura" },
+      { "letter": "D", "text": "HDD Standard" }
+    ],
+    "correct": ["A"],
+    "explanation": "Premium dá throughput e latência para transação intensa. Archive/Cool penalizam leitura; HDD não é blob.",
+    "source": "original",
+    "tags": ["premium", "block-blob", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-026",
+    "domain": "storage",
+    "subdomain": "queue-poison",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mensagens com formato inválido falham repetidamente e bloqueiam o worker. Para onde mover automaticamente após 5 tentativas?",
+    "options": [
+      { "letter": "A", "text": "Fila poison (-poison) para análise" },
+      { "letter": "B", "text": "Exclusão imediata sem registro" },
+      { "letter": "C", "text": "Blob de blocos público" },
+      { "letter": "D", "text": "Tabela de auditoria manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Após maxDequeueCount, a mensagem vai à poison queue para triagem. Excluir perde evidência; blob público expõe; tabela manual não é automática.",
+    "source": "original",
+    "tags": ["queues", "poison", "retentativas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-027",
+    "domain": "storage",
+    "subdomain": "table-query",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Consultas por intervalo de RowKey dentro de uma partição estão lentas porque varrem partições cruzadas. Como modelar a chave para consulta eficiente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "PartitionKey por entidade lógica + RowKey ordenável (data invertida)"
+      },
+      { "letter": "B", "text": "PartitionKey única para toda a tabela" },
+      { "letter": "C", "text": "GUID aleatório como PartitionKey" },
+      { "letter": "D", "text": "Sem chaves, com scan completo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Partição por entidade + RowKey ordenável permite range eficiente. Partição única limita throughput; GUID espalha sem ordem; scan é o mais lento.",
+    "source": "original",
+    "tags": ["tables", "partitionkey", "rowkey", "modelagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-028",
+    "domain": "storage",
+    "subdomain": "files-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Compartilhamentos Azure Files precisam de snapshots agendados com retenção para ransomware. Qual backup protege Files com política?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup do Azure para Files com política e retenção"
+      },
+      { "letter": "B", "text": "Cópia manual para blob semanal" },
+      { "letter": "C", "text": "Snapshot único sem agenda" },
+      { "letter": "D", "text": "Replicação GRS como backup" }
+    ],
+    "correct": ["A"],
+    "explanation": "Backup gerenciado agenda snapshots com retenção e restauração. Cópia manual falha; snapshot único não retém; GRS replica, não versiona contra ransomware.",
+    "source": "original",
+    "tags": ["files", "backup", "snapshot", "ransomware"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-029",
+    "domain": "storage",
+    "subdomain": "conta-tipos-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "A carga usa blobs hierárquicos (Data Lake), filas e tabelas na mesma conta. Quais dois tipos de conta suportam esse conjunto? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "StorageV2 (propósito geral v2)" },
+      { "letter": "B", "text": "Premium block blobs para tudo" },
+      { "letter": "C", "text": "Premium file shares para filas" },
+      { "letter": "D", "text": "BlobStorage (blobs sem Data Lake)" }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "StorageV2 suporta blobs+Data Lake+filas+tabelas; BlobStorage suporta blobs (sem hierarchical namespace completo). Premium block blobs não tem filas/tabelas; file shares não tem filas.",
+    "source": "original",
+    "tags": ["conta", "storagev2", "tipos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-030",
+    "domain": "storage",
+    "subdomain": "sas-tipos-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Dois cenários: (1) acesso a um blob específico por horas; (2) delegação ampla por política armazenada revogável. Quais SAS atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "SAS de serviço para o blob com expiração" },
+      {
+        "letter": "B",
+        "text": "SAS de conta com política de acesso armazenada"
+      },
+      { "letter": "C", "text": "Chave da conta sem expiração" },
+      { "letter": "D", "text": "Token do Entra sem escopo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Service SAS limita ao recurso/tempo e account SAS com stored policy revoga em massa. Chave sem expiração é permanente; token sem escopo não limita.",
+    "source": "original",
+    "tags": ["sas", "servico", "conta", "politica"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-031",
+    "domain": "storage",
+    "subdomain": "rbac-dados-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Separar quem gerencia a conta de quem lê blobs, ambos via Entra ID sem chaves. Quais duas funções RBAC compõem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Colaborador da Conta de Armazenamento (gerência)"
+      },
+      { "letter": "B", "text": "Leitor de Dados de Blob (leitura de dados)" },
+      { "letter": "C", "text": "Proprietário da assinatura para tudo" },
+      { "letter": "D", "text": "Leitor clássico com chaves" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Colaborador gerencia o recurso e Leitor de Dados lê blobs via Entra, sem chaves. Proprietário mistura; leitor clássico usa chaves.",
+    "source": "original",
+    "tags": ["rbac", "dados", "entra-id", "chaves"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-032",
+    "domain": "storage",
+    "subdomain": "rehidratacao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Blobs em Archive precisam voltar ao online com prioridades distintas por urgência. Quais duas opções de reidratação existem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Prioridade Standard (até 15h)" },
+      { "letter": "B", "text": "Prioridade Alta (menos de 1h, custo maior)" },
+      { "letter": "C", "text": "Leitura direta do Archive" },
+      { "letter": "D", "text": "Exclusão e reupload" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Reidratação tem Standard e High com custo/tempo distintos. Archive não lê direto; reupload perde metadados e custa mais.",
+    "source": "original",
+    "tags": ["archive", "reidratacao", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-033",
+    "domain": "storage",
+    "subdomain": "snapshot-vs-versao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Proteção contra sobrescrita acidental e contra exclusão precisam de mecanismos distintos. Quais dois usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Versionamento contra sobrescrita" },
+      { "letter": "B", "text": "Soft delete contra exclusão" },
+      { "letter": "C", "text": "SAS sem expiração" },
+      { "letter": "D", "text": "Container público" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Versões guardam pré-escrita e soft delete retém excluídos. SAS e container público são exposição, não proteção.",
+    "source": "original",
+    "tags": ["versionamento", "soft-delete", "protecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-034",
+    "domain": "storage",
+    "subdomain": "files-tiering-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Compartilhamentos Premium com arquivos frios precisam baratear sem perder acesso. Quais duas camadas de Files atendem quente e frio? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Premium transacional para quentes" },
+      { "letter": "B", "text": "Cool/Archive via ciclo de vida para frios" },
+      { "letter": "C", "text": "Disco Ultra para arquivos" },
+      { "letter": "D", "text": "Fila para arquivos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Premium serve IOPS e lifecycle move frios a camadas baratas. Ultra não é Files; fila não guarda arquivos.",
+    "source": "original",
+    "tags": ["files", "premium", "lifecycle", "camadas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-035",
+    "domain": "storage",
+    "subdomain": "migracao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Migração de 500 GB com link livre e outra de 200 TB com link saturado exigem estratégias distintas. Quais duas usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "AzCopy online para os 500 GB" },
+      { "letter": "B", "text": "Data Box offline para os 200 TB" },
+      { "letter": "C", "text": "Portal para os 200 TB" },
+      { "letter": "D", "text": "E-mail com links para 500 GB" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "AzCopy online move os 500 GB com paralelismo e o Data Box transporta os 200 TB fisicamente. Portal não move terabytes; e-mail jamais migra dados.",
+    "source": "original",
+    "tags": ["migracao", "azcopy", "databox"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-036",
+    "domain": "storage",
+    "subdomain": "immutable-blob",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Logs financeiros não podem ser alterados nem excluídos por 7 anos por exigência legal. Qual política de imutabilidade garante WORM com retenção?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de retenção baseada em tempo (time-based) de 7 anos"
+      },
+      {
+        "letter": "B",
+        "text": "Retenção legal (legal hold) permanente sem prazo"
+      },
+      { "letter": "C", "text": "Snapshot diário sem bloqueio" },
+      { "letter": "D", "text": "SAS de leitura por 7 anos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Time-based retention trava escrita/exclusão pelo prazo e libera após. Legal hold é indefinido até remoção explícita; snapshot sem lock permite apagar; SAS não impede escrita.",
+    "source": "original",
+    "tags": ["immutable", "worm", "retencao", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-037",
+    "domain": "storage",
+    "subdomain": "private-link-storage",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A conta deve ser acessível só via IP privado com resolução automática, mantendo firewall negando todo o resto. Quais dois componentes combinam rede e nome?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint + zona privatelink vinculada"
+      },
+      { "letter": "B", "text": "Service Endpoint sem DNS" },
+      { "letter": "C", "text": "IP público com SAS" },
+      { "letter": "D", "text": "Peering sem endpoint" }
+    ],
+    "correct": ["A"],
+    "explanation": "Endpoint dá o IP privado e a zona resolve o FQDN internamente. Service Endpoint sem DNS falha resolução; IP público expõe; peering sozinho não projeta PaaS.",
+    "source": "original",
+    "tags": ["private-endpoint", "dns", "firewall"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-038",
+    "domain": "storage",
+    "subdomain": "failover-grs",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A região primária caiu e a aplicação precisa ler e escrever na secundária imediatamente, aceitando possível perda de dados recentes. Qual failover permite escrita na secundária?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Failover iniciado pelo cliente (não planejado)"
+      },
+      { "letter": "B", "text": "Aguardar failover gerenciado pela Microsoft" },
+      { "letter": "C", "text": "Trocar a connection string para LRS" },
+      { "letter": "D", "text": "Restaurar backup na secundária" }
+    ],
+    "correct": ["A"],
+    "explanation": "Customer-initiated failover promove a secundária a escrita imediatamente. Aguardar o gerenciado demora; trocar string não move dados; restore é lento.",
+    "source": "original",
+    "tags": ["failover", "grs", "secundaria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-039",
+    "domain": "storage",
+    "subdomain": "last-sync-time",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Antes do failover, você precisa estimar a perda de dados verificando até quando a secundária está sincronizada. Qual propriedade indica o ponto de sincronismo?",
+    "options": [
+      { "letter": "A", "text": "Last Sync Time da conta secundária" },
+      { "letter": "B", "text": "Métrica de transações da primária" },
+      { "letter": "C", "text": "Tamanho total da conta" },
+      { "letter": "D", "text": "Tempo de resposta do portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Last Sync Time mostra o timestamp garantido na secundária (RPO real). Transações da primária não dizem o replicado; tamanho não indica tempo; portal não mede replicação.",
+    "source": "original",
+    "tags": ["last-sync-time", "rpo", "replicacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-040",
+    "domain": "storage",
+    "subdomain": "cross-tenant-replication",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Blobs precisam ser replicados para conta em outro tenant com autenticação sem chaves compartilhadas. Qual identidade a política de replicação usa?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identidade gerenciada atribuída pelo sistema da conta origem"
+      },
+      { "letter": "B", "text": "Chave da conta destino embutida na origem" },
+      { "letter": "C", "text": "SAS pública sem expiração" },
+      { "letter": "D", "text": "Senha do administrador do tenant" }
+    ],
+    "correct": ["A"],
+    "explanation": "A conta origem usa sua identidade gerenciada com RBAC na destino, sem segredos. Chave embutida vaza; SAS aberta expõe; senha não autoriza replicação.",
+    "source": "original",
+    "tags": ["replicacao", "cross-tenant", "managed-identity"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-041",
+    "domain": "storage",
+    "subdomain": "premium-files-provisionamento",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um compartilhamento Premium precisa de 20 TB com 100k IOPS provisionados independentemente do uso. Como o provisionamento Premium funciona?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Provisiona capacidade+IOPS fixos (paga o provisionado)"
+      },
+      { "letter": "B", "text": "Cobra só pelo usado como Standard" },
+      { "letter": "C", "text": "Escala IOPS por arquivo individual" },
+      { "letter": "D", "text": "Herda IOPS do disco da VM" }
+    ],
+    "correct": ["A"],
+    "explanation": "Files Premium provisiona (capacidade, IOPS, throughput) e cobra o reservado. Standard paga uso; IOPS é do share; disco da VM não afeta Files.",
+    "source": "original",
+    "tags": ["files", "premium", "provisionamento", "iops"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-042",
+    "domain": "storage",
+    "subdomain": "defender-storage-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Malware enviado por upload e exfiltração incomum precisam de detecção na conta. Quais dois recursos do Defender for Storage atuam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Verificação de malware no upload (hash + análise)"
+      },
+      {
+        "letter": "B",
+        "text": "Detecção de ameaças com alertas de exfiltração"
+      },
+      { "letter": "C", "text": "Antivírus instalado no blob" },
+      { "letter": "D", "text": "Firewall desligado para inspeção" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Malware scanning analisa uploads e threat detection alerta padrões anômalos. Blob não executa antivírus; desligar firewall expõe.",
+    "source": "original",
+    "tags": ["defender", "malware", "threat-detection"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-043",
+    "domain": "storage",
+    "subdomain": "network-rules-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A conta deve aceitar a VNet de produção e o IP do escritório, negando todo o resto incluindo Microsoft. Quais duas regras compõem isso? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Regra de rede para a VNet/sub-rede" },
+      { "letter": "B", "text": "Regra de IP para o escritório" },
+      { "letter": "C", "text": "Exceção para serviços Microsoft confiáveis" },
+      { "letter": "D", "text": "Acesso público irrestrito" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Regras de VNet e IP liberam exatamente os dois, com default deny. Exceção Microsoft abriria mais; acesso irrestrito anula tudo.",
+    "source": "original",
+    "tags": ["firewall", "vnet", "ip-rules"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-044",
+    "domain": "storage",
+    "subdomain": "cmk-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Criptografia com chaves do cliente exige controle de acesso à chave e rotação sem downtime. Quais dois elementos compõem o CMK? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Key Vault com RBAC e purge protection" },
+      { "letter": "B", "text": "Rotação com versionamento de chave" },
+      { "letter": "C", "text": "Chave exportada por e-mail" },
+      { "letter": "D", "text": "Desabilitação do TLS" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Key Vault protegido guarda a chave e o versionamento permite rolar sem reescrever dados. E-mail vaza; sem TLS expõe trânsito.",
+    "source": "original",
+    "tags": ["cmk", "key-vault", "rotacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-045",
+    "domain": "storage",
+    "subdomain": "inventory-lifecycle-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Relatório mensal de blobs antigos e exclusão automática dos órfãos exigem dois recursos combinados. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Inventário para listar por idade" },
+      { "letter": "B", "text": "Lifecycle policy para excluir por regra" },
+      { "letter": "C", "text": "Snapshot manual de tudo" },
+      { "letter": "D", "text": "Replicação para outra conta" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "O inventário lista blobs por idade para auditoria e a lifecycle policy exclui órfãos por regra. Snapshot preserva em vez de limpar; replicação apenas copia.",
+    "source": "original",
+    "tags": ["inventory", "lifecycle", "governanca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-046",
+    "domain": "storage",
+    "subdomain": "queue-scaling-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Fila com milhões de mensagens precisa de vazão máxima e visibilidade controlada. Quais dois ajustes elevam throughput com segurança? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Batch size e paralelismo por consumidor" },
+      {
+        "letter": "B",
+        "text": "Visibility timeout calibrado por processamento"
+      },
+      { "letter": "C", "text": "Uma única thread com polling lento" },
+      { "letter": "D", "text": "Mensagens sem TTL infinito" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Lote+paralelismo elevam vazão e visibility evita reprocessamento prematuro. Thread única estrangula; sem TTL a fila cresce sem fim.",
+    "source": "original",
+    "tags": ["queues", "throughput", "visibility-timeout"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-047",
+    "domain": "storage",
+    "subdomain": "grs-leitura-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que com GRS padrão (sem RA) é possível ler dados na região secundária durante um outage da primária. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, GRS sempre permite leitura secundária" },
+      { "letter": "B", "text": "Não, leitura secundária exige RA-GRS" }
+    ],
+    "correct": ["B"],
+    "explanation": "GRS replica sem endpoint de leitura; só RA-GRS expõe a secundária. Confundir replicação com legibilidade é erro clássico.",
+    "source": "original",
+    "tags": ["grs", "ra-grs", "leitura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-048",
+    "domain": "storage",
+    "subdomain": "chave-compartilhada-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que desabilitar a autorização por chave compartilhada força todo acesso a dados via Entra ID ou SAS de delegação. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, sem chave só restam Entra ID e user-delegation SAS"
+      },
+      { "letter": "B", "text": "Não, a chave continua acessível internamente" }
+    ],
+    "correct": ["A"],
+    "explanation": "AllowSharedKeyAccess=false remove auth por chave; dados passam a exigir Entra ou SAS delegada. É o endurecimento recomendado.",
+    "source": "original",
+    "tags": ["chave-compartilhada", "entra-id", "endurecimento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-049",
+    "domain": "storage",
+    "subdomain": "redundancia-mudanca-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que é possível converter uma conta LRS existente para GRS sem recriar a conta nem migrar dados. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, a conversão LRS→GRS é suportada na conta existente"
+      },
+      { "letter": "B", "text": "Não, é preciso recriar a conta e copiar tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "O portal permite elevar LRS→GRS/RA-GRS in place (com restrições para Premium e ZRS→outros). Recriar é desnecessário.",
+    "source": "original",
+    "tags": ["redundancia", "conversao", "lrs-grs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-050",
+    "domain": "storage",
+    "subdomain": "tls-versao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um auditor afirma que configurar MinimumTlsVersion 1.2 na conta bloqueia clientes legados TLS 1.0/1.1. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, a conta recusa handshake abaixo de 1.2" },
+      { "letter": "B", "text": "Não, o mínimo é apenas recomendação" }
+    ],
+    "correct": ["A"],
+    "explanation": "MinimumTlsVersion impõe o piso criptográfico no handshake e clientes legados falham ao conectar. É controle efetivo de segurança, não mera sugestão de configuração.",
+    "source": "original",
+    "tags": ["tls", "versao-minima", "seguranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-051",
+    "domain": "storage",
+    "subdomain": "case-contoso-migracao",
+    "type": "case-study",
+    "difficulty": "medium",
+    "question": "Caso Contoso: com 40 TB e link de 200 Mbps saturado, qual estratégia move os dados em tempo viável mantendo a hierarquia de pastas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Data Box para a carga inicial + AzCopy para deltas"
+      },
+      { "letter": "B", "text": "AzCopy online de tudo pelo link saturado" },
+      { "letter": "C", "text": "Upload pelo portal em lotes manuais" },
+      { "letter": "D", "text": "E-mail com links dos arquivos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Data Box carrega o bulk offline e o AzCopy sincroniza deltas. 40 TB em 200 Mbps levaria meses; portal e e-mail não movem esse volume.",
+    "source": "original",
+    "tags": ["case", "databox", "azcopy"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-052",
+    "domain": "storage",
+    "subdomain": "case-contoso-identidade",
+    "type": "case-study",
+    "difficulty": "medium",
+    "question": "Caso Contoso: usuários do AD local devem acessar o SMB com as mesmas ACLs NTFS por departamento. O que configurar no Azure Files?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticação AD DS com permissões NTFS herdadas"
+      },
+      { "letter": "B", "text": "Chave da conta distribuída por e-mail" },
+      { "letter": "C", "text": "SAS anônima por departamento" },
+      { "letter": "D", "text": "Acesso anônimo ao compartilhamento" }
+    ],
+    "correct": ["A"],
+    "explanation": "AD DS com NTFS preserva identidade e ACLs por pasta. Chave única, SAS anônima e acesso anônimo destroem o controle por departamento.",
+    "source": "original",
+    "tags": ["case", "ad-ds", "ntfs"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-053",
+    "domain": "storage",
+    "subdomain": "case-contoso-ransomware",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Contoso: após a migração, um ransomware criptografa arquivos pelo SMB. Qual combinação permite restaurar versões anteriores por pasta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup do Azure Files com snapshots e retenção"
+      },
+      { "letter": "B", "text": "Lixeira do Windows local" },
+      { "letter": "C", "text": "Replicação GRS como versão" },
+      { "letter": "D", "text": "SAS de leitura dos arquivos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Backup com snapshots versiona por compartilhamento para restore granular. Lixeira local não existe na nuvem; GRS replica o criptografado; SAS não restaura.",
+    "source": "original",
+    "tags": ["case", "backup", "ransomware"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-054",
+    "domain": "storage",
+    "subdomain": "case-contoso-tiering",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Contoso: 70% dos arquivos não são tocados há 2 anos, mas devem continuar acessíveis. Como baratear sem quebrar o acesso SMB?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure File Sync com cloud tiering para arquivos frios"
+      },
+      { "letter": "B", "text": "Exclusão dos arquivos antigos" },
+      { "letter": "C", "text": "Mover tudo para discos Premium" },
+      { "letter": "D", "text": "Compactar manualmente por pasta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cloud tiering mantém namespace SMB com frios na nuvem barata. Excluir perde dados; Premium encarece; compactação manual não escala.",
+    "source": "original",
+    "tags": ["case", "tiering", "file-sync"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-055",
+    "domain": "storage",
+    "subdomain": "case-contoso-rede",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Contoso: o file share não pode ter endpoint público e os escritórios alcançam via VPN. Como expor o SMB só na rede privada com resolução de nomes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint + zona privatelink.file.core.windows.net"
+      },
+      { "letter": "B", "text": "IP público com firewall aberto" },
+      { "letter": "C", "text": "SAS pública distribuída" },
+      { "letter": "D", "text": "Service Endpoint sem DNS" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoint com zona resolve o FQDN para IP privado via VPN. IP público expõe; SAS não é rede; service endpoint sem DNS quebra SMB por nome.",
+    "source": "original",
+    "tags": ["case", "private-endpoint", "smb"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  }
+]

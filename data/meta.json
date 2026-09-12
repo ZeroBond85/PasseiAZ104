@@ -9,10 +9,10 @@
   },
   "countsByDomain": {
     "identidade-governanca": 50,
-    "storage": 0,
+    "storage": 55,
     "compute": 80,
     "rede-virtual": 80,
-    "monitoramento": 0
+    "monitoramento": 55
   },
   "generatedWith": null,
   "seedVersion": 1,

@@ -1,0 +1,1250 @@
+[
+  {
+    "id": "az104-mo-001",
+    "domain": "monitoramento",
+    "subdomain": "monitor-visao",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa de um painel único com métricas, logs e status de todos os recursos do Azure. Qual serviço centraliza essa observabilidade?",
+    "options": [
+      { "letter": "A", "text": "Azure Monitor como plataforma unificada" },
+      { "letter": "B", "text": "Gerenciador de Atualizações isolado" },
+      { "letter": "C", "text": "Backup com relatórios" },
+      { "letter": "D", "text": "Policy com conformidade" }
+    ],
+    "correct": ["A"],
+    "explanation": "Azure Monitor agrega métricas, logs e insights de tudo. Update Manager cuida de patch; Backup de cópias; Policy de governança.",
+    "source": "original",
+    "tags": ["monitor", "visao-geral"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-002",
+    "domain": "monitoramento",
+    "subdomain": "metricas-vs-logs",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "CPU a 95% agora precisa de alerta imediato, enquanto a análise da causa usa eventos detalhados. Qual par métrica/log atende cada necessidade?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Métrica para alertar + Logs (Log Analytics) para investigar"
+      },
+      { "letter": "B", "text": "Log para alertar + métrica para investigar" },
+      { "letter": "C", "text": "Backup para ambos" },
+      { "letter": "D", "text": "Policy para ambos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Métricas são séries numéricas rápidas para alerta; logs guardam detalhe para KQL. Inverter perde velocidade e detalhe; backup/policy não monitoram.",
+    "source": "original",
+    "tags": ["metricas", "logs", "conceito"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-003",
+    "domain": "monitoramento",
+    "subdomain": "app-insights",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um App Service tem erros 500 e lentidão em endpoints específicos. Qual recurso mostra requisições, dependências e exceções por operação?",
+    "options": [
+      { "letter": "A", "text": "Application Insights com mapa de aplicação" },
+      { "letter": "B", "text": "Métrica de CPU da VM" },
+      { "letter": "C", "text": "Log de atividade da assinatura" },
+      { "letter": "D", "text": "Backup do aplicativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "App Insights rastreia requests, dependências e exceptions com correlação. CPU não mostra código; activity log registra ARM; backup não diagnostica.",
+    "source": "original",
+    "tags": ["app-insights", "aplicacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-004",
+    "domain": "monitoramento",
+    "subdomain": "alertas",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Quando a CPU passar de 80% por 5 minutos, a equipe deve receber e-mail e SMS. Quais dois componentes compõem esse alerta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de alerta (condição) + grupo de ação (notificação)"
+      },
+      { "letter": "B", "text": "Dashboard + workbook" },
+      { "letter": "C", "text": "Política + iniciativa" },
+      { "letter": "D", "text": "Backup + snapshot" }
+    ],
+    "correct": ["A"],
+    "explanation": "Regra avalia a condição e o action group notifica/age. Dashboard/workbook visualizam; policy governa; backup protege dados.",
+    "source": "original",
+    "tags": ["alertas", "action-group"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-005",
+    "domain": "monitoramento",
+    "subdomain": "log-analytics",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Logs de 20 VMs precisam de consultas ad-hoc com linguagem poderosa e retenção configurável. Para onde enviar e com o que consultar?",
+    "options": [
+      { "letter": "A", "text": "Workspace Log Analytics com KQL" },
+      { "letter": "B", "text": "Métricas do Monitor sem consulta" },
+      { "letter": "C", "text": "Tabela de Storage sem KQL" },
+      { "letter": "D", "text": "E-mail diário com logs" }
+    ],
+    "correct": ["A"],
+    "explanation": "Workspace centraliza com KQL e retenção. Métricas não consultam texto; tabela não tem KQL; e-mail não escala.",
+    "source": "original",
+    "tags": ["log-analytics", "kql", "workspace"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-006",
+    "domain": "monitoramento",
+    "subdomain": "service-health",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Antes de investigar lentidão, você quer saber se há incidente regional do Azure afetando a região. Onde ver a saúde oficial da plataforma?",
+    "options": [
+      { "letter": "A", "text": "Service Health (status do Azure)" },
+      { "letter": "B", "text": "Resource Health do recurso" },
+      { "letter": "C", "text": "Log da aplicação" },
+      { "letter": "D", "text": "Métrica de disco local" }
+    ],
+    "correct": ["A"],
+    "explanation": "Service Health publica incidentes e manutenções da plataforma. Resource Health diz do recurso específico; log da app não mostra a nuvem; disco local é do SO.",
+    "source": "original",
+    "tags": ["service-health", "status"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-007",
+    "domain": "monitoramento",
+    "subdomain": "resource-health",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma VM específica está inacessível e você quer saber se o problema é da plataforma (host) ou do SO convidado. Qual lâmina responde isso?",
+    "options": [
+      { "letter": "A", "text": "Resource Health da VM" },
+      { "letter": "B", "text": "Service Health global" },
+      { "letter": "C", "text": "Política de conformidade" },
+      { "letter": "D", "text": "Galeria de imagens" }
+    ],
+    "correct": ["A"],
+    "explanation": "Resource Health indica disponibilidade do recurso e causa (plataforma vs convidado). Service Health é regional; policy não diagnostica; galeria guarda imagens.",
+    "source": "original",
+    "tags": ["resource-health", "vm"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-008",
+    "domain": "monitoramento",
+    "subdomain": "advisor",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "A diretoria quer recomendações de custo, segurança e confiabilidade geradas automaticamente. Qual consultor analisa os recursos e sugere?",
+    "options": [
+      { "letter": "A", "text": "Azure Advisor" },
+      { "letter": "B", "text": "Azure Policy" },
+      { "letter": "C", "text": "Defender for Cloud" },
+      { "letter": "D", "text": "Backup Center" }
+    ],
+    "correct": ["A"],
+    "explanation": "Advisor recomenda custo, segurança, confiabilidade e performance. Policy impõe; Defender foca segurança; Backup protege dados.",
+    "source": "original",
+    "tags": ["advisor", "recomendacoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-009",
+    "domain": "monitoramento",
+    "subdomain": "dashboards",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "O NOC precisa de um painel compartilhado com gráficos de CPU, erros e disponibilidade. Onde montar e compartilhar esse dashboard?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Dashboard do Azure compartilhado no grupo de recursos"
+      },
+      { "letter": "B", "text": "Portal isolado por usuário sem compartilhar" },
+      { "letter": "C", "text": "Planilha manual com prints" },
+      { "letter": "D", "text": "E-mail com métricas semanais" }
+    ],
+    "correct": ["A"],
+    "explanation": "Dashboards do Azure combinam tiles e compartilham via RBAC. Isolado não colabora; planilha desatualiza; e-mail não é tempo real.",
+    "source": "original",
+    "tags": ["dashboards", "noc", "compartilhar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-010",
+    "domain": "monitoramento",
+    "subdomain": "activity-log",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Auditoria pergunta quem excluiu um grupo de recursos ontem à noite. Qual log registra operações de gerenciamento com identidade?",
+    "options": [
+      { "letter": "A", "text": "Log de Atividade da assinatura" },
+      { "letter": "B", "text": "Log do aplicativo web" },
+      { "letter": "C", "text": "Métrica de rede da VNet" },
+      { "letter": "D", "text": "Backup do grupo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Activity Log registra operações ARM (quem, o quê, quando). Log da app é da carga; métrica de rede não identifica autor; backup não audita.",
+    "source": "original",
+    "tags": ["activity-log", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-011",
+    "domain": "monitoramento",
+    "subdomain": "kql-basico",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "No Log Analytics, você precisa listar os 10 eventos mais recentes da tabela Event com severidade Error. Qual consulta KQL retorna isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Event | where Severity == 'Error' | sort by TimeGenerated desc | take 10"
+      },
+      {
+        "letter": "B",
+        "text": "SELECT TOP 10 * FROM Event WHERE Severity='Error'"
+      },
+      { "letter": "C", "text": "Event | count by Severity" },
+      { "letter": "D", "text": "search 'Error' in Event" }
+    ],
+    "correct": ["A"],
+    "explanation": "KQL usa pipe com where, sort e take. SQL não roda no LA; count agrega sem listar; search é genérico sem ordenação.",
+    "source": "original",
+    "tags": ["kql", "consulta", "event"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-012",
+    "domain": "monitoramento",
+    "subdomain": "diagnostic-settings",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logs de um Key Vault precisam ir ao workspace com retenção de 1 ano para auditoria. O que deve ser configurado no recurso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Configuração de diagnóstico enviando AuditEvent ao workspace"
+      },
+      { "letter": "B", "text": "Métrica de disponibilidade apenas" },
+      { "letter": "C", "text": "Backup do cofre" },
+      { "letter": "D", "text": "Política de rede do cofre" }
+    ],
+    "correct": ["A"],
+    "explanation": "Diagnostic settings roteiam logs de plataforma ao destino com retenção. Métrica não guarda eventos; backup não audita acesso; rede não registra.",
+    "source": "original",
+    "tags": ["diagnostic-settings", "key-vault", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-013",
+    "domain": "monitoramento",
+    "subdomain": "alertas-log",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sempre que o texto 'OutOfMemory' aparecer nos logs do App Service, o time deve ser acionado. Qual tipo de alerta avalia consulta KQL agendada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alerta de pesquisa de logs (log search alert)"
+      },
+      { "letter": "B", "text": "Alerta de métrica de CPU" },
+      { "letter": "C", "text": "Alerta de Service Health" },
+      { "letter": "D", "text": "Grupo de ação sem regra" }
+    ],
+    "correct": ["A"],
+    "explanation": "Log alert executa KQL periodicamente e dispara por resultado. Métrica não lê texto; Service Health é da plataforma; action group sozinho não avalia.",
+    "source": "original",
+    "tags": ["alertas", "log-search", "kql"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-014",
+    "domain": "monitoramento",
+    "subdomain": "action-group-webhook",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Além de e-mail, o alerta deve abrir chamado automaticamente no ITSM e executar um runbook. Quais ações o grupo deve conter?",
+    "options": [
+      { "letter": "A", "text": "Webhook ITSM + Automação (runbook)" },
+      { "letter": "B", "text": "Apenas SMS para um celular" },
+      { "letter": "C", "text": "Dashboard atualizado" },
+      { "letter": "D", "text": "Política aplicada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Action group suporta webhook/ITSM e runbook de automação. Só SMS não abre chamado; dashboard não age; policy não é ação de alerta.",
+    "source": "original",
+    "tags": ["action-group", "webhook", "itsm", "runbook"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-015",
+    "domain": "monitoramento",
+    "subdomain": "vm-insights",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cinquenta VMs precisam de mapa de dependências entre processos e portas sem instalar agentes manualmente um a um. O que habilita o VM Insights em escala?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Agente do Azure Monitor (AMA) + regras de coleta (DCR)"
+      },
+      { "letter": "B", "text": "RDP em cada VM com netstat" },
+      { "letter": "C", "text": "Backup das VMs" },
+      { "letter": "D", "text": "Extensão de antivírus" }
+    ],
+    "correct": ["A"],
+    "explanation": "AMA com DCR coleta e o VM Insights monta mapa de processos/conexões. RDP manual não escala; backup não monitora; antivírus não mapeia.",
+    "source": "original",
+    "tags": ["vm-insights", "ama", "dcr", "mapa"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-016",
+    "domain": "monitoramento",
+    "subdomain": "container-insights",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pods com restart loop precisam de logs de stdout e métricas de nós em um só lugar. O que coleta do cluster para o workspace?",
+    "options": [
+      { "letter": "A", "text": "Container Insights com agente OMS no cluster" },
+      { "letter": "B", "text": "kubectl logs manual por pod" },
+      { "letter": "C", "text": "Métrica de CPU da VM do nó" },
+      { "letter": "D", "text": "Backup etcd do cluster" }
+    ],
+    "correct": ["A"],
+    "explanation": "Container Insights centraliza logs e métricas do cluster. kubectl manual não historica; CPU do nó não mostra pod; backup não monitora.",
+    "source": "original",
+    "tags": ["container-insights", "aks", "pods"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-017",
+    "domain": "monitoramento",
+    "subdomain": "workbooks",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O time quer um relatório interativo que mistura texto, parâmetros e gráficos KQL editáveis. Qual artefato combina narrativa e consulta?",
+    "options": [
+      { "letter": "A", "text": "Workbook do Azure Monitor" },
+      { "letter": "B", "text": "Dashboard estático de tiles" },
+      { "letter": "C", "text": "Alerta por e-mail" },
+      { "letter": "D", "text": "Exportação CSV manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Workbooks unem markdown, parâmetros e queries interativas. Dashboard é visual fixo; alerta notifica; CSV manual não interage.",
+    "source": "original",
+    "tags": ["workbooks", "relatorio", "kql"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-018",
+    "domain": "monitoramento",
+    "subdomain": "change-analysis",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O site quebrou após deploy de ontem e ninguém sabe o que mudou no App Service. Onde ver a linha do tempo de alterações do recurso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Análise de Alterações (Change Analysis) do App Service"
+      },
+      { "letter": "B", "text": "Métrica de memória atual" },
+      { "letter": "C", "text": "Backup do código" },
+      { "letter": "D", "text": "Log de acesso anônimo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Change Analysis lista mutações do recurso no tempo. Métrica atual não historica; backup não mostra o que mudou; acesso anônimo não registra config.",
+    "source": "original",
+    "tags": ["change-analysis", "mudancas", "app-service"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-019",
+    "domain": "monitoramento",
+    "subdomain": "smart-detection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Anomalias de resposta e falhas são detectadas por IA sem regra manual no App Insights. Qual recurso aprende o baseline e alerta sozinho?",
+    "options": [
+      { "letter": "A", "text": "Detecção Inteligente (Smart Detection)" },
+      { "letter": "B", "text": "Alerta de métrica com limiar fixo" },
+      { "letter": "C", "text": "Dashboard com média móvel" },
+      { "letter": "D", "text": "Log manual diário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Smart Detection usa ML sobre telemetria sem thresholds. Limiar fixo exige calibragem; dashboard não alerta; log manual é lento.",
+    "source": "original",
+    "tags": ["smart-detection", "ml", "anomalia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-020",
+    "domain": "monitoramento",
+    "subdomain": "availability-tests",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O site precisa de teste sintético de 5 em 5 minutos a partir de 3 continentes. Qual teste de disponibilidade do App Insights cobre isso?",
+    "options": [
+      { "letter": "A", "text": "Teste de ping/URL multi-etapa com locais" },
+      { "letter": "B", "text": "Métrica de CPU do plano" },
+      { "letter": "C", "text": "Ping manual do NOC" },
+      { "letter": "D", "text": "Backup do site" }
+    ],
+    "correct": ["A"],
+    "explanation": "Availability tests sondam URL de vários pontos com frequência. CPU não testa URL; ping manual não agenda; backup não monitora.",
+    "source": "original",
+    "tags": ["availability-tests", "sintetico", "ping"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-021",
+    "domain": "monitoramento",
+    "subdomain": "profiler",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um endpoint específico é lento só em produção e reproduzir localmente é impossível. Qual ferramenta captura stack de produção sob demanda?",
+    "options": [
+      { "letter": "A", "text": "Profiler do Application Insights" },
+      { "letter": "B", "text": "Reinicialização do aplicativo" },
+      { "letter": "C", "text": "Aumento de instâncias" },
+      { "letter": "D", "text": "Log de IIS local" }
+    ],
+    "correct": ["A"],
+    "explanation": "Profiler amostra stacks em produção com baixo overhead. Reiniciar mascara; escalar dilui sem identificar; log local não existe em PaaS.",
+    "source": "original",
+    "tags": ["profiler", "performance", "producao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-022",
+    "domain": "monitoramento",
+    "subdomain": "snapshot-debugger",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma exceção rara em produção precisa do estado das variáveis no momento do throw, sem parar o app. Qual depurador captura snapshots?",
+    "options": [
+      { "letter": "A", "text": "Snapshot Debugger do Application Insights" },
+      { "letter": "B", "text": "Breakpoint remoto com pausa" },
+      { "letter": "C", "text": "Console com prints em loop" },
+      { "letter": "D", "text": "Dump manual após o crash" }
+    ],
+    "correct": ["A"],
+    "explanation": "Snapshot Debugger fotografa variáveis na exceção sem interromper. Breakpoint pausa produção; prints poluem; dump pós-crash perde contexto.",
+    "source": "original",
+    "tags": ["snapshot-debugger", "excecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-023",
+    "domain": "monitoramento",
+    "subdomain": "dcr",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cinquenta VMs devem enviar apenas logs de segurança ao workspace central, excluindo verbosos. O que define o quê coletar e para onde enviar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de Coleta de Dados (DCR) com fontes e destino"
+      },
+      { "letter": "B", "text": "Agente legado sem filtro" },
+      { "letter": "C", "text": "Backup das VMs" },
+      { "letter": "D", "text": "Política de rede" }
+    ],
+    "correct": ["A"],
+    "explanation": "DCR declara fontes, filtros e destino por escopo. Agente legado coleta tudo; backup não coleta logs; rede não filtra telemetria.",
+    "source": "original",
+    "tags": ["dcr", "coleta", "ama"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-024",
+    "domain": "monitoramento",
+    "subdomain": "retencao-workspace",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria exige 1 ano de logs de segurança e 30 dias dos demais, sem dois workspaces. Como configurar retenções distintas na mesma área?",
+    "options": [
+      { "letter": "A", "text": "Retenção por tipo de tabela no workspace" },
+      { "letter": "B", "text": "Um workspace por dia do ano" },
+      { "letter": "C", "text": "Exportação manual mensal" },
+      { "letter": "D", "text": "Desabilitar a ingestão geral" }
+    ],
+    "correct": ["A"],
+    "explanation": "Retenção por tabela diferencia segurança (365d) do restante. Workspaces diários são ingovernáveis; export manual falha; sem ingestão não há log.",
+    "source": "original",
+    "tags": ["retencao", "workspace", "tabela"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-025",
+    "domain": "monitoramento",
+    "subdomain": "alerta-prometheus",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Métricas Prometheus do AKS precisam de alertas com PromQL no Azure. Qual serviço gerenciado recebe e alerta sobre essas métricas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Managed Prometheus + regras de alerta do Monitor"
+      },
+      { "letter": "B", "text": "Log Analytics sem Prometheus" },
+      { "letter": "C", "text": "Métrica de VM do nó" },
+      { "letter": "D", "text": "E-mail do kubectl" }
+    ],
+    "correct": ["A"],
+    "explanation": "Managed Prometheus ingere e alerta em PromQL nativo. LA sem remote-write não recebe; métrica do nó não tem labels de pod; kubectl não alerta.",
+    "source": "original",
+    "tags": ["prometheus", "aks", "promql", "alertas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-026",
+    "domain": "monitoramento",
+    "subdomain": "grafana",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dashboards Grafana corporativos precisam consumir métricas do Monitor com SSO do Entra. Qual serviço hospeda o Grafana gerenciado?",
+    "options": [
+      { "letter": "A", "text": "Managed Grafana com fontes do Monitor" },
+      { "letter": "B", "text": "Grafana local sem SSO" },
+      { "letter": "C", "text": "Planilha com gráficos" },
+      { "letter": "D", "text": "Portal isolado por usuário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Managed Grafana integra fontes Azure com Entra ID. Local sem SSO quebra compliance; planilha não é tempo real; portal isolado não compartilha.",
+    "source": "original",
+    "tags": ["grafana", "dashboards", "sso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-027",
+    "domain": "monitoramento",
+    "subdomain": "update-manager-relatorio",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Compliance mensal exige relatório de patches aplicados por VM com status. De onde extrair o estado de conformidade de atualizações?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gerenciador de Atualizações com avaliação e histórico"
+      },
+      { "letter": "B", "text": "Log de RDP das VMs" },
+      { "letter": "C", "text": "Métrica de disco" },
+      { "letter": "D", "text": "Backup com data" }
+    ],
+    "correct": ["A"],
+    "explanation": "Update Manager avalia, agenda e historica patches por VM. RDP não audita; disco não mostra patch; backup não lista updates.",
+    "source": "original",
+    "tags": ["update-manager", "patch", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-028",
+    "domain": "monitoramento",
+    "subdomain": "service-map",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Após migração, ninguém sabe quais VMs falam com o banco legado. Qual mapa descoberto automaticamente mostra conexões entre máquinas?",
+    "options": [
+      { "letter": "A", "text": "Mapa de serviços do VM Insights" },
+      { "letter": "B", "text": "Diagrama manual da wiki" },
+      { "letter": "C", "text": "Tabela de rotas" },
+      { "letter": "D", "text": "Lista de NSGs" }
+    ],
+    "correct": ["A"],
+    "explanation": "Service Map descobre conexões reais entre processos/máquinas. Wiki desatualiza; rotas mostram caminho, não fluxo; NSG mostra regras, não tráfego.",
+    "source": "original",
+    "tags": ["service-map", "dependencias", "vm-insights"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-029",
+    "domain": "monitoramento",
+    "subdomain": "kql-join-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Para correlacionar erros do App Service com eventos do Windows pelo mesmo OperationId, quais duas cláusulas KQL unem as tabelas? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "join kind=inner das tabelas pela chave" },
+      { "letter": "B", "text": "where com o OperationId filtrado" },
+      { "letter": "C", "text": "count isolado por tabela" },
+      { "letter": "D", "text": "take 1 sem filtro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Join une pela chave e where foca a operação. Counts isolados não correlacionam; take 1 não investiga.",
+    "source": "original",
+    "tags": ["kql", "join", "correlacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-030",
+    "domain": "monitoramento",
+    "subdomain": "alerta-dinamico-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Picos sazonais geram falsos alertas com limiar fixo. Quais dois recursos de limiar dinâmico adaptam ao padrão? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Limiares dinâmicos com ML no alerta de métrica"
+      },
+      {
+        "letter": "B",
+        "text": "Janela de avaliação com agregação (média/máx)"
+      },
+      { "letter": "C", "text": "Limiar fixo baixo para tudo" },
+      { "letter": "D", "text": "Desabilitar alertas no pico" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Dynamic thresholds aprendem sazonalidade e a agregação suaviza. Fixo baixo dispara à toa; desligar cega no pico.",
+    "source": "original",
+    "tags": ["alertas", "limiar-dinamico", "ml"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-031",
+    "domain": "monitoramento",
+    "subdomain": "dcr-escopo-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "DCRs diferentes para produção (tudo) e dev (só erros) exigem dois controles. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Associação por escopo (RG/assinatura) distinta"
+      },
+      { "letter": "B", "text": "Filtros de fonte por severidade" },
+      { "letter": "C", "text": "Um agente por log individual" },
+      { "letter": "D", "text": "Workspace único sem filtro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Escopo separa onde aplica e filtros o que coleta. Agente por log é inviável; sem filtro tudo mistura.",
+    "source": "original",
+    "tags": ["dcr", "escopo", "filtros"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-032",
+    "domain": "monitoramento",
+    "subdomain": "appmap-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O mapa de aplicação mostra frontend, API e SQL com latências por aresta. Quais dois dados o App Insights usa para montar o mapa? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Telemetria de dependência entre componentes" },
+      { "letter": "B", "text": "OperationId correlacionando requests" },
+      { "letter": "C", "text": "Backup das VMs" },
+      { "letter": "D", "text": "IP fixo dos componentes" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Dependências desenham arestas e o OperationId costura o fluxo. Backup não mapeia; IP não identifica componente lógico.",
+    "source": "original",
+    "tags": ["app-map", "dependencias", "correlacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-033",
+    "domain": "monitoramento",
+    "subdomain": "retencao-custo-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "A conta de ingestão explodiu com logs verbosos e retenção longa global. Quais duas alavancas reduzem custo sem perder auditoria? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Filtros DCR removendo verbosos na origem" },
+      {
+        "letter": "B",
+        "text": "Retenção curta global + longa só em tabelas críticas"
+      },
+      { "letter": "C", "text": "Ingerir tudo com retenção máxima" },
+      { "letter": "D", "text": "Desabilitar o workspace" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Filtrar na origem corta ingestão e reter longo só no crítico corta armazenamento. Tudo+máximo é o problema; sem workspace não há log.",
+    "source": "original",
+    "tags": ["custo", "ingestao", "retencao", "dcr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-034",
+    "domain": "monitoramento",
+    "subdomain": "sli-slo-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O contrato exige 99,9% de respostas abaixo de 500ms medidas no cliente sintético. Quais dois elementos definem e medem esse SLI? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Teste de disponibilidade como sonda SLI" },
+      { "letter": "B", "text": "Workbook calculando % dentro do alvo" },
+      { "letter": "C", "text": "Métrica de CPU do servidor" },
+      { "letter": "D", "text": "Log de deploy" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Sonda sintética mede experiência e o workbook computa o SLI/SLO. CPU não é latência percebida; deploy não mede serviço.",
+    "source": "original",
+    "tags": ["sli", "slo", "disponibilidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-035",
+    "domain": "monitoramento",
+    "subdomain": "itsm-acao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Alertas críticos devem abrir chamado com severidade e acionar automação de contenção. Quais dois passos o fluxo executa? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Conexão ITSM abrindo ticket com payload" },
+      { "letter": "B", "text": "Runbook de contenção via action group" },
+      { "letter": "C", "text": "E-mail informativo sem ação" },
+      { "letter": "D", "text": "Dashboard atualizado manualmente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "ITSM registra o chamado com severidade e o runbook executa a contenção automaticamente. Só e-mail informa sem agir; dashboard manual atrasa a resposta ao incidente.",
+    "source": "original",
+    "tags": ["itsm", "runbook", "automacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-036",
+    "domain": "monitoramento",
+    "subdomain": "log-query-performance",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Uma consulta KQL varre 30 dias e estoura timeout. Qual técnica reduz o escopo temporal e o volume antes da agregação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Filtrar TimeGenerated primeiro e projetar só colunas usadas"
+      },
+      { "letter": "B", "text": "Aumentar o take para 1 milhão" },
+      { "letter": "C", "text": "Remover todos os filtros where" },
+      { "letter": "D", "text": "Consultar sem limite de tempo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Filtrar tempo e projetar colunas poda partições antes do join/agregação. Take gigante piora; sem where varre tudo; sem limite estoura.",
+    "source": "original",
+    "tags": ["kql", "performance", "otimizacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-037",
+    "domain": "monitoramento",
+    "subdomain": "alerta-fadiga",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Centenas de alertas por noite causam fadiga e incidentes reais se perdem. Qual construção agrupa e suprime ruído correlacionado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regras de processamento com agrupamento e supressão"
+      },
+      { "letter": "B", "text": "Mais regras com limiar menor" },
+      { "letter": "C", "text": "E-mail para lista maior" },
+      { "letter": "D", "text": "Desabilitar todos os alertas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Processing rules agrupam por recurso/tempo e suprimem duplicados. Mais regras pioram; e-mail maior espalha; desligar cega.",
+    "source": "original",
+    "tags": ["alertas", "fadiga", "agrupamento", "supressao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-038",
+    "domain": "monitoramento",
+    "subdomain": "private-link-monitor",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Agentes em VNet isolada sem internet precisam enviar telemetria ao Monitor. Como conectar o workspace sem expor tráfego?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Link Privado do Monitor (AMPLS) com DNS privado"
+      },
+      { "letter": "B", "text": "Proxy público com IP fixo" },
+      { "letter": "C", "text": "Desabilitar a coleta" },
+      { "letter": "D", "text": "SAS pública do workspace" }
+    ],
+    "correct": ["A"],
+    "explanation": "AMPLS projeta ingestão via Private Link com DNS. Proxy público expõe; sem coleta cega; workspace não usa SAS pública.",
+    "source": "original",
+    "tags": ["ampls", "private-link", "telemetria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-039",
+    "domain": "monitoramento",
+    "subdomain": "exportacao-archive",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Logs com mais de 2 anos devem sair do workspace quente para storage barato, mantendo consulta eventual. Qual recurso exporta continuamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exportação de dados do workspace para Storage/Event Hub"
+      },
+      { "letter": "B", "text": "Retenção infinita no workspace quente" },
+      { "letter": "C", "text": "Exclusão após 30 dias" },
+      { "letter": "D", "text": "Cópia manual por consulta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Data export replica tabelas ao Storage barato continuamente. Retenção infinita quente custa fortuna; excluir perde; cópia manual falha.",
+    "source": "original",
+    "tags": ["exportacao", "archive", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-040",
+    "domain": "monitoramento",
+    "subdomain": "automanage",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "VMs novas precisam nascer já com monitoramento, backup e segurança aplicados por padrão. Qual serviço aplica esse baseline automaticamente?",
+    "options": [
+      { "letter": "A", "text": "Automanage com perfis de configuração" },
+      { "letter": "B", "text": "Extensões instaladas por RDP" },
+      { "letter": "C", "text": "Runbook mensal de verificação" },
+      { "letter": "D", "text": "Policy apenas de auditoria" }
+    ],
+    "correct": ["A"],
+    "explanation": "Automanage aplica e mantém baseline (monitor, backup, Defender) no ciclo de vida. RDP não escala; runbook mensal atrasa; só auditar não aplica.",
+    "source": "original",
+    "tags": ["automanage", "baseline", "vm"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-041",
+    "domain": "monitoramento",
+    "subdomain": "network-insights-multiplos",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O time de rede quer topologia, saúde de VPN/ER e fluxos em uma visão dedicada. Qual hub do Network Watcher consolida a saúde de rede?",
+    "options": [
+      { "letter": "A", "text": "Network Insights (conectividade e saúde)" },
+      { "letter": "B", "text": "Métrica de CPU das VMs" },
+      { "letter": "C", "text": "Log de aplicativo web" },
+      { "letter": "D", "text": "Backup do gateway" }
+    ],
+    "correct": ["A"],
+    "explanation": "Network Insights agrega topologia, VPN/ER e fluxos. CPU não é rede; log web não mostra túnel; backup não monitora.",
+    "source": "original",
+    "tags": ["network-insights", "saude-rede"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-042",
+    "domain": "monitoramento",
+    "subdomain": "azure-policy-monitor-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Garantir DCR em todas as VMs e diagnostic settings em Key Vaults exige imposição contínua. Quais dois efeitos de Policy aplicam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "DeployIfNotExists instalando AMA/DCR" },
+      {
+        "letter": "B",
+        "text": "DeployIfNotExists criando diagnostic settings"
+      },
+      { "letter": "C", "text": "Audit manual trimestral" },
+      { "letter": "D", "text": "Desabilitar a Policy" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "DINE instala agente e cria diagnósticos em recursos novos e existentes. Auditoria manual atrasa; desligar anula.",
+    "source": "original",
+    "tags": ["policy", "dine", "ama", "diagnostico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-043",
+    "domain": "monitoramento",
+    "subdomain": "opentelemetry-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Aplicações em várias linguagens precisam de tracing distribuído vendor-neutral até o App Insights. Quais dois elementos compõem o pipeline? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "SDKs OpenTelemetry instrumentando o código" },
+      { "letter": "B", "text": "Exportador OTLP para o Application Insights" },
+      { "letter": "C", "text": "Logs em arquivo local por host" },
+      { "letter": "D", "text": "Métricas de ping manual" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "SDKs geram spans distribuídos e o exporter OTLP envia ao Application Insights com correlação. Arquivo local fragmenta por host; ping manual não traça requisições.",
+    "source": "original",
+    "tags": ["opentelemetry", "tracing", "app-insights"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-044",
+    "domain": "monitoramento",
+    "subdomain": "data-collection-endpoint-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Telemetria de regiões distintas deve ingressar por endpoints regionais com failover. Quais dois elementos do DCE atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Data Collection Endpoints regionais" },
+      { "letter": "B", "text": "Associação DCR→DCE por região" },
+      { "letter": "C", "text": "Endpoint único global sem failover" },
+      { "letter": "D", "text": "Ingestão direta sem endpoint" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "DCEs regionais com associação por DCR dão ingresso local resiliente. Único global é ponto único; sem endpoint perde controle.",
+    "source": "original",
+    "tags": ["dce", "ingestao", "regional"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-045",
+    "domain": "monitoramento",
+    "subdomain": "livemetrics-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Durante um incidente, o time precisa de telemetria ao vivo com amostragem controlada. Quais dois recursos do Live Metrics ajudam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Stream ao vivo com filtros por operação" },
+      { "letter": "B", "text": "Amostragem ajustável no incidente" },
+      { "letter": "C", "text": "Relatório mensal estático" },
+      { "letter": "D", "text": "Desligamento da telemetria" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Live Metrics filtra ao vivo e a amostragem foca sem afogar. Relatório mensal não é incidente; desligar cega.",
+    "source": "original",
+    "tags": ["live-metrics", "incidente", "amostragem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-046",
+    "domain": "monitoramento",
+    "subdomain": "defender-cloud-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Postura de segurança dos recursos precisa de score, recomendações e proteção de workload. Quais dois pilares do Defender for Cloud entregam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "CSPM com secure score e recomendações" },
+      {
+        "letter": "B",
+        "text": "Proteção de workload (servidores, containers, storage)"
+      },
+      { "letter": "C", "text": "Backup como detecção" },
+      { "letter": "D", "text": "Policy sem recomendação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "CSPM mede postura e workload protege runtime. Backup não detecta; policy sem recomendação não prioriza.",
+    "source": "original",
+    "tags": ["defender-cloud", "cspm", "workload"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-047",
+    "domain": "monitoramento",
+    "subdomain": "retencao-legal-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que aumentar a retenção do workspace para 2 anos permite consultar qualquer dia com a mesma velocidade dos últimos 30 dias. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, retenção longa mantém performance interativa"
+      },
+      {
+        "letter": "B",
+        "text": "Não, dados antigos vão para archive com consulta mais lenta"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Retenção longa usa tabelas archive com reidratação; só o quente (até ~2 anos interativo conforme SKU) é rápido. Assumir velocidade igual é erro de custo.",
+    "source": "original",
+    "tags": ["retencao", "archive", "performance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-048",
+    "domain": "monitoramento",
+    "subdomain": "metrica-custom-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um desenvolvedor afirma que métricas customizadas via API têm a mesma latência de alerta das métricas de plataforma (cerca de 1 minuto). Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, toda métrica alerta em 1 minuto" },
+      { "letter": "B", "text": "Não, customizadas podem levar vários minutos" }
+    ],
+    "correct": ["B"],
+    "explanation": "Métricas de plataforma têm pipeline otimizado; customizadas agregam com latência maior. Assumir 1 minuto para tudo gera SLO incorreto.",
+    "source": "original",
+    "tags": ["metricas-custom", "latencia", "alertas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-049",
+    "domain": "monitoramento",
+    "subdomain": "amostragem-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que a amostragem adaptativa do Application Insights descarta erros e distorce taxas de falha. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, amostragem perde erros e corrompe métricas"
+      },
+      {
+        "letter": "B",
+        "text": "Não, a amostragem preserva itens atípicos e ajusta contagens"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Adaptive sampling mantém exceções e pondera contagens (itemCount). Achar que perde erro é o mito que impede economizar ingestão.",
+    "source": "original",
+    "tags": ["amostragem", "app-insights", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-050",
+    "domain": "monitoramento",
+    "subdomain": "action-group-limite-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que um grupo de ação pode ser reutilizado por qualquer regra de alerta da mesma assinatura sem restrições de RBAC. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, action groups são globais e livres" },
+      {
+        "letter": "B",
+        "text": "Não, o uso exige permissão e habilitação por tipo de ação"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Usar e editar action groups exige RBAC, e ações como voz/SMS/ITSM têm habilitação e limites. Tratar como livre quebra least privilege.",
+    "source": "original",
+    "tags": ["action-group", "rbac", "permissao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-051",
+    "domain": "monitoramento",
+    "subdomain": "case-fabrikam-instrumentacao",
+    "type": "case-study",
+    "difficulty": "medium",
+    "question": "Caso Fabrikam: para rastrear o checkout entre frontend, API e SQL com correlação fim-a-fim, o que instrumentar primeiro?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Application Insights com distributed tracing nos três tiers"
+      },
+      { "letter": "B", "text": "Ping manual por servidor" },
+      { "letter": "C", "text": "Backup dos bancos" },
+      { "letter": "D", "text": "Aumento de CPU das VMs" }
+    ],
+    "correct": ["A"],
+    "explanation": "Tracing distribuído correlaciona a jornada do checkout por OperationId. Ping não mostra código; backup não diagnostica; CPU não isola camada.",
+    "source": "original",
+    "tags": ["case", "app-insights", "tracing"],
+    "caseStudyId": "case-mo-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-052",
+    "domain": "monitoramento",
+    "subdomain": "case-fabrikam-alertas",
+    "type": "case-study",
+    "difficulty": "medium",
+    "question": "Caso Fabrikam: latência do checkout acima de 2s deve abrir chamado e executar contenção. O que compõe o alerta automático?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de alerta + action group com ITSM e runbook"
+      },
+      { "letter": "B", "text": "Dashboard observado pelo NOC" },
+      { "letter": "C", "text": "E-mail manual do desenvolvedor" },
+      { "letter": "D", "text": "Reinicialização agendada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Regra detecta e o action group abre ticket e contém. Dashboard sem alerta atrasa; manual não escala; restart mascara.",
+    "source": "original",
+    "tags": ["case", "alertas", "itsm"],
+    "caseStudyId": "case-mo-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-053",
+    "domain": "monitoramento",
+    "subdomain": "case-fabrikam-rede",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Fabrikam: para provar se a latência é da rede entre regiões, qual monitoramento contínuo isola o segmento de rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Connection Monitor entre as regiões com alertas"
+      },
+      { "letter": "B", "text": "Log da aplicação apenas" },
+      { "letter": "C", "text": "Métrica de disco das VMs" },
+      { "letter": "D", "text": "Backup da VNet" }
+    ],
+    "correct": ["A"],
+    "explanation": "Connection Monitor mede perda/latência do segmento com histórico. Log da app mistura camadas; disco não é rede; backup não mede.",
+    "source": "original",
+    "tags": ["case", "connection-monitor", "latencia"],
+    "caseStudyId": "case-mo-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-054",
+    "domain": "monitoramento",
+    "subdomain": "case-fabrikam-auditoria",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Fabrikam: trilhas de quem alterou recursos por 90 dias exigem logs de gerenciamento centralizados. Para onde enviar o Activity Log?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Workspace Log Analytics com retenção de 90 dias"
+      },
+      { "letter": "B", "text": "Console do portal sem retenção" },
+      { "letter": "C", "text": "Tabela local por VM" },
+      { "letter": "D", "text": "E-mail semanal de alterações" }
+    ],
+    "correct": ["A"],
+    "explanation": "Diagnostic settings do Activity Log ao workspace retêm e consultam 90 dias. Console não retém; tabela local fragmenta; e-mail não audita.",
+    "source": "original",
+    "tags": ["case", "activity-log", "auditoria"],
+    "caseStudyId": "case-mo-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-055",
+    "domain": "monitoramento",
+    "subdomain": "case-fabrikam-slo",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Fabrikam: o SLO de 99,9% do checkout precisa de medição sintética contínua a partir de várias regiões. O que mede a experiência real?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Testes de disponibilidade multi-step por região"
+      },
+      { "letter": "B", "text": "CPU média das VMs" },
+      { "letter": "C", "text": "Contagem de deploys" },
+      { "letter": "D", "text": "Tamanho do banco" }
+    ],
+    "correct": ["A"],
+    "explanation": "Availability tests simulam o checkout por região e alimentam o SLI. CPU, deploys e tamanho não medem experiência.",
+    "source": "original",
+    "tags": ["case", "slo", "availability"],
+    "caseStudyId": "case-mo-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  }
+]
