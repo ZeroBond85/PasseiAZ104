@@ -2490,5 +2490,1120 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-ig-101",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-id-objetos",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um script precisa listar todos os usuários com departamento preenchido, incluindo paginação de milhares de resultados. Qual API e padrão de consulta usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Microsoft Graph /users com $filter e $top + nextLink"
+      },
+      { "letter": "B", "text": "Portal com scroll manual" },
+      { "letter": "C", "text": "CSV exportado uma vez" },
+      { "letter": "D", "text": "DNS reverso dos UPNs" }
+    ],
+    "correct": ["A"],
+    "explanation": "Graph com OData filtra no servidor e pagina via nextLink. Portal manual não escala; CSV desatualiza; DNS não lista usuários.",
+    "source": "original",
+    "tags": ["graph", "odata", "paginacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-102",
+    "domain": "identidade-governanca",
+    "subdomain": "delta-query",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma sincronização incremental precisa buscar só usuários alterados desde a última execução. Qual recurso do Graph evita varredura completa?",
+    "options": [
+      { "letter": "A", "text": "Delta query com deltalink persistido" },
+      { "letter": "B", "text": "Listagem completa a cada ciclo" },
+      { "letter": "C", "text": "Webhook por usuário" },
+      { "letter": "D", "text": "Polling do portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Delta query retorna só mudanças desde o deltalink. Listagem completa desperdiça; webhook por usuário não escala; portal não é API.",
+    "source": "original",
+    "tags": ["graph", "delta-query", "sincronizacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-103",
+    "domain": "identidade-governanca",
+    "subdomain": "webhooks-graph",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Criação de usuários deve disparar onboarding em segundos via notificação push do Graph. O que assinar para receber mudanças?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Subscription (webhook) do Graph no recurso users"
+      },
+      { "letter": "B", "text": "Timer consultando a cada minuto" },
+      { "letter": "C", "text": "E-mail de boas-vindas como gatilho" },
+      { "letter": "D", "text": "Log manual do RH" }
+    ],
+    "correct": ["A"],
+    "explanation": "Subscriptions notificam criação/atualização em segundos. Timer atrasa; e-mail não é evento; log manual não integra.",
+    "source": "original",
+    "tags": ["graph", "webhook", "subscription"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-104",
+    "domain": "identidade-governanca",
+    "subdomain": "batch-graph",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mil atualizações de telefone precisam ser aplicadas com poucas chamadas HTTP para não estourar throttling. Como agrupar requisições Graph?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "JSON batching ($batch) com até 20 requisições"
+      },
+      { "letter": "B", "text": "Mil chamadas sequenciais" },
+      { "letter": "C", "text": "Uma chamada por dia" },
+      { "letter": "D", "text": "Portal em lote manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Batch agrupa até 20 requests por chamada, reduzindo throttling. Mil sequenciais estouram limite; uma por dia atrasa; portal não é API.",
+    "source": "original",
+    "tags": ["graph", "batch", "throttling"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-105",
+    "domain": "identidade-governanca",
+    "subdomain": "throttling-429-graph",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Chamadas Graph retornam 429 com Retry-After em picos. Qual comportamento o cliente deve implementar?",
+    "options": [
+      { "letter": "A", "text": "Backoff respeitando Retry-After" },
+      { "letter": "B", "text": "Repetir imediatamente em loop" },
+      { "letter": "C", "text": "Ignorar e seguir sem dados" },
+      { "letter": "D", "text": "Trocar para portal manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Respeitar Retry-After com backoff evita banir o app. Loop imediato piora; ignorar perde dados; portal não escala.",
+    "source": "original",
+    "tags": ["graph", "throttling", "429", "backoff"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-106",
+    "domain": "identidade-governanca",
+    "subdomain": "permissoes-least",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um script só lê nomes e e-mails de usuários. Qual permissão mínima do Graph atende sem expor o diretório inteiro?",
+    "options": [
+      { "letter": "A", "text": "User.ReadBasic.All (leitura básica)" },
+      { "letter": "B", "text": "Directory.ReadWrite.All" },
+      { "letter": "C", "text": "Global Admin na entidade" },
+      { "letter": "D", "text": "Mail.Send compartilhado" }
+    ],
+    "correct": ["A"],
+    "explanation": "ReadBasic.All limita a nome/e-mail/foto. ReadWrite.All permite alterar; Global Admin é total; Mail.Send não lê diretório.",
+    "source": "original",
+    "tags": ["graph", "permissoes", "least-privilege"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-107",
+    "domain": "identidade-governanca",
+    "subdomain": "consentimento-admin-geral",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Usuários pedem consentimento para apps que leem perfil e e-mail. Como permitir autoatendimento seguro sem abrir permissões sensíveis?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Consentimento do usuário só para permissões de baixo impacto classificadas"
+      },
+      { "letter": "B", "text": "Bloquear todo consentimento sempre" },
+      {
+        "letter": "C",
+        "text": "Permitir qualquer permissão inclusive Directory.ReadWrite"
+      },
+      { "letter": "D", "text": "Desabilitar todos os apps" }
+    ],
+    "correct": ["A"],
+    "explanation": "Classificação permite autoatendimento no baixo risco e exige admin no sensível. Bloquear tudo trava; liberar tudo expõe; desligar apps para o negócio.",
+    "source": "original",
+    "tags": ["consentimento", "classificacao", "baixo-impacto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-108",
+    "domain": "identidade-governanca",
+    "subdomain": "publisher-verification",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Apps de fornecedores devem exibir selo de editor verificado para reduzir phishing por consentimento. O que o fornecedor precisa concluir?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Verificação de editor (publisher verification) com MPN"
+      },
+      { "letter": "B", "text": "Trocar o nome do app" },
+      { "letter": "C", "text": "Remover todas as permissões" },
+      { "letter": "D", "text": "Publicar na loja pública" }
+    ],
+    "correct": ["A"],
+    "explanation": "Publisher verification valida a organização via Microsoft Partner Network e exibe o selo. Renomear não prova; sem permissões o app não funciona; loja pública não verifica editor.",
+    "source": "original",
+    "tags": ["publisher-verification", "mpn", "phishing"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-109",
+    "domain": "identidade-governanca",
+    "subdomain": "admin-units-membership",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A unidade administrativa regional deve conter automaticamente usuários com country igual a BR. Como popular a AU sem administração manual?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Associação dinâmica na unidade administrativa por regra"
+      },
+      { "letter": "B", "text": "Adição manual por RH" },
+      { "letter": "C", "text": "Grupo de recursos por região" },
+      { "letter": "D", "text": "Subscription por país" }
+    ],
+    "correct": ["A"],
+    "explanation": "AUs suportam membership dinâmica por atributos. Manual não escala; RG organiza Azure; subscription por país é antieconômico.",
+    "source": "original",
+    "tags": ["administrative-units", "dinamica", "regra"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-110",
+    "domain": "identidade-governanca",
+    "subdomain": "au-limitacoes",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O desenho prevê delegar grupos do Microsoft 365 via unidade administrativa. Qual limitação das AUs inviabiliza delegar esses grupos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "AUs não contêm grupos Microsoft 365 (só usuários, grupos de segurança e dispositivos)"
+      },
+      { "letter": "B", "text": "AUs não contêm nenhum objeto" },
+      { "letter": "C", "text": "AUs exigem licença gratuita" },
+      { "letter": "D", "text": "AUs funcionam só on-premises" }
+    ],
+    "correct": ["A"],
+    "explanation": "AUs suportam users, security groups e devices — M365 groups ficam fora. Dizer que não contêm nada é falso; exigem P1; são nuvem.",
+    "source": "original",
+    "tags": ["administrative-units", "limitacoes", "m365"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-111",
+    "domain": "identidade-governanca",
+    "subdomain": "role-assignable-groups",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Atribuir função do Entra a um grupo (em vez de a usuários) exige um tipo especial de grupo. Qual flag o grupo precisa ter desde a criação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Grupo atribuível a função (isAssignableToRole)"
+      },
+      { "letter": "B", "text": "Grupo dinâmico comum" },
+      { "letter": "C", "text": "Grupo de distribuição" },
+      { "letter": "D", "text": "Grupo com dono externo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Só grupos role-assignable recebem papéis do Entra (imutável após criação). Dinâmico comum não recebe papel; distribuição é e-mail; dono não habilita.",
+    "source": "original",
+    "tags": ["grupos", "role-assignable", "papeis"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-112",
+    "domain": "identidade-governanca",
+    "subdomain": "pim-grupos-ativacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Membros ativam o grupo privilegiado por 4 horas com MFA. Onde essa janela máxima de ativação é configurada?",
+    "options": [
+      { "letter": "A", "text": "Configurações de função do PIM para o grupo" },
+      { "letter": "B", "text": "Expiração do grupo em si" },
+      { "letter": "C", "text": "Política de senha do grupo" },
+      { "letter": "D", "text": "Licença do membro" }
+    ],
+    "correct": ["A"],
+    "explanation": "Role settings do PIM definem duração máxima, MFA e aprovação. Expiração do grupo apaga o grupo; senha não limita ativação; licença não configura tempo.",
+    "source": "original",
+    "tags": ["pim", "grupos", "duracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-113",
+    "domain": "identidade-governanca",
+    "subdomain": "access-review-grupos",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Membros de grupos privilegiados precisam de recertificação trimestral pelo dono com remoção automática. O que agenda esse ciclo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Access Review com recorrência trimestral e auto-apply"
+      },
+      { "letter": "B", "text": "E-mail trimestral do RH" },
+      { "letter": "C", "text": "Expiração manual do grupo" },
+      { "letter": "D", "text": "Auditoria anual externa" }
+    ],
+    "correct": ["A"],
+    "explanation": "Review recorrente com auto-apply remove negados sozinho. E-mail não executa; expiração manual atrasa; auditoria anual é lenta.",
+    "source": "original",
+    "tags": ["access-review", "recorrencia", "auto-apply"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-114",
+    "domain": "identidade-governanca",
+    "subdomain": "deny-vs-policy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Bloquear criação de VMs série G em toda a empresa deve aparecer em relatórios de conformidade. Por que Policy com Deny é melhor que RBAC com NotActions?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Policy avalia e reporta conformidade; RBAC só autoriza sem auditar"
+      },
+      { "letter": "B", "text": "RBAC gera relatório de conformidade" },
+      { "letter": "C", "text": "Policy não bloqueia criação" },
+      { "letter": "D", "text": "NotActions audita no Monitor" }
+    ],
+    "correct": ["A"],
+    "explanation": "Policy nega e marca compliant/non-compliant por recurso. RBAC veta sem trilha de conformidade; NotActions não reporta.",
+    "source": "original",
+    "tags": ["policy", "deny", "rbac", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-115",
+    "domain": "identidade-governanca",
+    "subdomain": "subscription-policies",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Novas subscriptions criadas por equipes devem nascer já com tag obrigatória e região restrita. O que aplica governança no momento da criação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Políticas no grupo de gerenciamento com efeito em novas subscriptions"
+      },
+      { "letter": "B", "text": "E-mail de boas práticas ao criador" },
+      { "letter": "C", "text": "Runbook mensal de correção" },
+      { "letter": "D", "text": "Bloqueio de criação de subscriptions" }
+    ],
+    "correct": ["A"],
+    "explanation": "Herança do MG aplica na criação (ex.: exigir tag, negar região). E-mail não impõe; runbook mensal atrasa; bloquear impede o negócio.",
+    "source": "original",
+    "tags": ["management-groups", "governanca", "heranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-116",
+    "domain": "identidade-governanca",
+    "subdomain": "cost-management-scope",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada departamento deve ver só seus custos com orçamento e alerta de 80%. Onde criar a visão e o orçamento por centro de custo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cost Management no escopo do RG/subscription com budgets e alertas"
+      },
+      { "letter": "B", "text": "Fatura única sem segmentação" },
+      { "letter": "C", "text": "Planilha manual de rateio" },
+      { "letter": "D", "text": "Tags sem budgets" }
+    ],
+    "correct": ["A"],
+    "explanation": "Budgets por escopo com alertas monitoram por centro de custo. Fatura única mistura; planilha desatualiza; tag sem budget não alerta.",
+    "source": "original",
+    "tags": ["cost-management", "budgets", "centro-custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-117",
+    "domain": "identidade-governanca",
+    "subdomain": "tags-governanca",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Recursos sem tag de dono e ambiente devem ser barrados na criação, não apenas auditados. Qual efeito de Policy impõe a tag obrigatória?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Negar com condição de tag ausente (ou Modify para herdar do RG)"
+      },
+      { "letter": "B", "text": "Auditar sem bloquear" },
+      { "letter": "C", "text": "Etiqueta manual após criar" },
+      { "letter": "D", "text": "Lock no grupo de recursos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Deny barra sem tag e Modify herda do RG automaticamente. Audit só observa; manual atrasa; lock não exige tag.",
+    "source": "original",
+    "tags": ["tags", "policy", "deny", "modify"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-118",
+    "domain": "identidade-governanca",
+    "subdomain": "blueprints-legado",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Modelos legados de Blueprints precisam migrar para a stack atual de IaC governada. Para quais artefatos a Microsoft direciona a migração?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Bicep/ARM + Políticas (Blueprints descontinuado)"
+      },
+      { "letter": "B", "text": "Manter Blueprints indefinidamente" },
+      { "letter": "C", "text": "Scripts locais sem versionar" },
+      { "letter": "D", "text": "Portal manual por ambiente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Blueprints foi preterido em favor de Bicep/ARM com Policy. Manter acumula dívida; scripts locais não governam; portal não versiona.",
+    "source": "original",
+    "tags": ["blueprints", "bicep", "migracao", "legado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-119",
+    "domain": "identidade-governanca",
+    "subdomain": "deployment-stacks",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Deploys precisam de ciclo de vida com limpeza de recursos órfãos ao remover a stack. Qual construção gerencia o conjunto implantado?",
+    "options": [
+      { "letter": "A", "text": "Deployment Stacks com deny-delete e limpeza" },
+      { "letter": "B", "text": "Deploys avulsos sem rastreio" },
+      { "letter": "C", "text": "Recursos manuais no portal" },
+      { "letter": "D", "text": "Backup como versionamento" }
+    ],
+    "correct": ["A"],
+    "explanation": "Stacks agrupam recursos do deploy com proteção e detach/delete gerenciados. Avulsos orfanam; portal não versiona; backup não gerencia ciclo.",
+    "source": "original",
+    "tags": ["deployment-stacks", "ciclo-vida", "iac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-120",
+    "domain": "identidade-governanca",
+    "subdomain": "template-specs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Modelos ARM aprovados precisam ser reutilizados por equipes com versionamento central. Onde publicar templates versionados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Template Specs no grupo de recursos compartilhado"
+      },
+      { "letter": "B", "text": "Arquivos soltos por estação" },
+      { "letter": "C", "text": "E-mail com anexos JSON" },
+      { "letter": "D", "text": "Portal sem versionar" }
+    ],
+    "correct": ["A"],
+    "explanation": "Template Specs versionam e compartilham via RBAC. Arquivos soltos divergem; e-mail não governa; portal não versiona.",
+    "source": "original",
+    "tags": ["template-specs", "arm", "reuso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-121",
+    "domain": "identidade-governanca",
+    "subdomain": "what-if-deploy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Antes de aplicar um template ARM em produção, você quer prever criações, alterações e exclusões. Qual operação simula o deploy?",
+    "options": [
+      { "letter": "A", "text": "What-if do deployment ARM" },
+      { "letter": "B", "text": "Deploy direto e rollback manual" },
+      { "letter": "C", "text": "Leitura do JSON a olho" },
+      { "letter": "D", "text": "Backup antes de tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "What-if prevê o plano (create/modify/delete/ignore) sem aplicar. Direto arrisca; olho não detecta tudo; backup não prevê.",
+    "source": "original",
+    "tags": ["what-if", "arm", "deploy", "previsao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-122",
+    "domain": "identidade-governanca",
+    "subdomain": "complete-mode",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Recursos fora do template devem ser removidos do grupo no deploy para combater drift. Qual modo de implantação apaga o que não está no template?",
+    "options": [
+      { "letter": "A", "text": "Modo Complete no nível do grupo de recursos" },
+      { "letter": "B", "text": "Modo Incremental padrão" },
+      { "letter": "C", "text": "What-if sem aplicar" },
+      { "letter": "D", "text": "Validação de sintaxe" }
+    ],
+    "correct": ["A"],
+    "explanation": "Complete sincroniza o grupo ao template, removendo órfãos. Incremental preserva; what-if só prevê; sintaxe não aplica.",
+    "source": "original",
+    "tags": ["complete-mode", "drift", "deploy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-123",
+    "domain": "identidade-governanca",
+    "subdomain": "bicep-vs-arm",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Equipes reclamam da verbosidade do ARM JSON e querem sintaxe enxuta que compile para ARM. Qual linguagem adotar?",
+    "options": [
+      { "letter": "A", "text": "Bicep com transpilação para ARM" },
+      { "letter": "B", "text": "JSON manual verboso" },
+      { "letter": "C", "text": "CLI imperativa sem código" },
+      { "letter": "D", "text": "Portal clicado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Bicep é DSL concisa que compila para ARM transparente. JSON verboso atrasa; CLI imperativa não versiona estado; portal não é IaC.",
+    "source": "original",
+    "tags": ["bicep", "arm", "iac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-124",
+    "domain": "identidade-governanca",
+    "subdomain": "github-actions-oidc",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pipelines do GitHub precisam implantar no Azure sem guardar segredo de cliente. Como federar o GitHub ao Entra ID?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Credencial federada OIDC na entidade + login-azure"
+      },
+      { "letter": "B", "text": "Segredo de cliente no secret do repo" },
+      { "letter": "C", "text": "Conta de usuário com senha no pipeline" },
+      { "letter": "D", "text": "Deploy manual do laptop" }
+    ],
+    "correct": ["A"],
+    "explanation": "Federação OIDC troca token do GitHub sem segredo armazenado. Segredo no repo vaza; conta com senha é frágil; manual não é pipeline.",
+    "source": "original",
+    "tags": ["github-actions", "oidc", "federacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-125",
+    "domain": "identidade-governanca",
+    "subdomain": "managed-identities-github",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O pipeline precisa ler segredos do Key Vault em runtime sem identidade armazenada. Qual cadeia sem segredo conecta GitHub ao cofre?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Federação OIDC + identidade gerenciada/RBAC no cofre"
+      },
+      { "letter": "B", "text": "Chave do cofre no secret do GitHub" },
+      { "letter": "C", "text": "SAS longa no pipeline" },
+      { "letter": "D", "text": "Cofre público sem auth" }
+    ],
+    "correct": ["A"],
+    "explanation": "OIDC autentica o workflow e a identidade acessa via RBAC, sem segredo. Chave no secret vaza; SAS longa expira mal; público expõe.",
+    "source": "original",
+    "tags": ["oidc", "key-vault", "managed-identity", "pipeline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-126",
+    "domain": "identidade-governanca",
+    "subdomain": "conditional-access-filters-apps",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A política deve atingir só aplicativos com tag de sensibilidade Alta, excluindo o app legado crítico. Quais filtros de app usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Filtro por atributo customizado do app + exclusão do legado"
+      },
+      { "letter": "B", "text": "Todas as apps sem exceção" },
+      { "letter": "C", "text": "Só o app legado" },
+      { "letter": "D", "text": "Filtro por nome do usuário" }
+    ],
+    "correct": ["A"],
+    "explanation": "Filtro por atributo do service principal mira sensíveis e a exclusão preserva o legado. Tudo trava o legado; só legado inverte; nome de usuário não filtra app.",
+    "source": "original",
+    "tags": ["conditional-access", "filtro-app", "atributo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-127",
+    "domain": "identidade-governanca",
+    "subdomain": "global-secure-access-ca",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Tráfego do Global Secure Access deve obedecer às mesmas políticas de acesso condicional dos apps. Onde o sinal do GSA entra na avaliação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Condição de rede/conformidade consumida pela política"
+      },
+      { "letter": "B", "text": "Regra separada fora do Entra" },
+      { "letter": "C", "text": "VPN ignorando CA" },
+      { "letter": "D", "text": "Sem política para GSA" }
+    ],
+    "correct": ["A"],
+    "explanation": "GSA injeta conformidade de rede/dispositivo na CA unificada. Regra externa fragmenta; VPN sem CA enfraquece; sem política não há controle.",
+    "source": "original",
+    "tags": ["global-secure-access", "conditional-access", "zero-trust"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-128",
+    "domain": "identidade-governanca",
+    "subdomain": "identity-governance-dashboard",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Auditoria pede visão única de reviews pendentes, pacotes expirando e riscos altos. Onde consolidar a governança de identidades?",
+    "options": [
+      { "letter": "A", "text": "Painel de Governança de Identidade do Entra" },
+      { "letter": "B", "text": "Planilhas por time" },
+      { "letter": "C", "text": "E-mails de alerta soltos" },
+      { "letter": "D", "text": "Logs brutos sem agregação" }
+    ],
+    "correct": ["A"],
+    "explanation": "O dashboard de Identity Governance centraliza reviews, pacotes e riscos. Planilhas desatualizam; e-mails dispersam; logs brutos não priorizam.",
+    "source": "original",
+    "tags": ["governanca", "dashboard", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-129",
+    "domain": "identidade-governanca",
+    "subdomain": "cross-tenant-sync",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Após fusão, usuários do tenant adquirido precisam existir no tenant principal com sincronização contínua. Qual recurso sincroniza identidades entre tenants?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sincronização entre tenants (cross-tenant sync)"
+      },
+      { "letter": "B", "text": "Convites B2B manuais um a um" },
+      { "letter": "C", "text": "Exportação CSV semanal" },
+      { "letter": "D", "text": "Federação sem sincronizar objetos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cross-tenant sync provisiona e mantém membros/guests entre tenants. Convite manual não escala; CSV atrasa; federação autentica sem criar objeto.",
+    "source": "original",
+    "tags": ["cross-tenant-sync", "fusao", "sincronizacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-130",
+    "domain": "identidade-governanca",
+    "subdomain": "tenant-switching",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Administradores multifuncionais alternam entre 5 tenants e confundem contextos, aplicando mudanças no tenant errado. Como isolar visualmente e auditar por tenant?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Diretórios favoritos + PIM por tenant com alertas"
+      },
+      { "letter": "B", "text": "Uma conta global admin em todos" },
+      { "letter": "C", "text": "Mesma senha em tudo" },
+      { "letter": "D", "text": "Navegador único sem perfis" }
+    ],
+    "correct": ["A"],
+    "explanation": "Favoritos/exibição por tenant + PIM com aprovação e alerta reduzem erro de contexto. Global em tudo amplia blast; mesma senha vaza; sem perfis mistura sessão.",
+    "source": "original",
+    "tags": ["multitenant", "contexto", "pim"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-131",
+    "domain": "identidade-governanca",
+    "subdomain": "gdpr-dsr",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pedidos de titular (DSR/LGPD) exigem localizar e exportar dados do usuário no Entra. Quais duas capacidades atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exportação de dados do usuário via Graph/portal"
+      },
+      { "letter": "B", "text": "Exclusão sob solicitação com trilha" },
+      { "letter": "C", "text": "Manutenção de dados após pedido" },
+      { "letter": "D", "text": "Ignorar o pedido" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "DSR exige localizar/exportar e excluir mediante pedido com evidência. Manter viola; ignorar descumpre a lei.",
+    "source": "original",
+    "tags": ["lgpd", "dsr", "privacidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-132",
+    "domain": "identidade-governanca",
+    "subdomain": "log-retention-audit-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Trilhas de login por 1 ano e de gerenciamento por 90 dias exigem destinos distintos. Quais dois destinos de diagnóstico usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Log Analytics com retenção longa para logins" },
+      { "letter": "B", "text": "Storage com imutabilidade para gerenciamento" },
+      { "letter": "C", "text": "Console volátil do portal" },
+      { "letter": "D", "text": "Memória do navegador" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "LA retém consultável por tabela e o Storage imutável arquiva barato para auditoria longa. Console do portal não retém; memória do navegador jamais audita.",
+    "source": "original",
+    "tags": ["retencao", "log-analytics", "storage", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-133",
+    "domain": "identidade-governanca",
+    "subdomain": "sso-failure-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falha de SSO em um SaaS SAML pode ser certificado expirado ou mapeamento de atributo. Quais dois pontos verificar primeiro? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Validade do certificado de assinatura SAML" },
+      { "letter": "B", "text": "Mapeamento de atributos (ex.: UPN)" },
+      { "letter": "C", "text": "Cor do portal" },
+      { "letter": "D", "text": "Tamanho da VM" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Certificado expirado quebra a assinatura SAML e atributo mapeado errado impede provisionar o usuário. Cor do portal e tamanho de VM nada têm a ver com federação.",
+    "source": "original",
+    "tags": ["sso", "saml", "troubleshooting", "certificado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-134",
+    "domain": "identidade-governanca",
+    "subdomain": "hybrid-agents-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Autenticação híbrida resiliente exige dois agentes PTA e monitoramento de sincronização. Quais dois elementos compõem a resiliência? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Dois ou mais agentes PTA distribuídos" },
+      { "letter": "B", "text": "Alertas de integridade do Connect Sync" },
+      { "letter": "C", "text": "Um agente único" },
+      { "letter": "D", "text": "Sem monitoramento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Múltiplos agentes eliminam ponto único e alertas avisam degradação. Agente único cai junto; sem monitor ninguém percebe.",
+    "source": "original",
+    "tags": ["pta", "resiliencia", "connect-sync", "ha"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-135",
+    "domain": "identidade-governanca",
+    "subdomain": "staging-mode-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Migração de servidor do Connect Sync exige standby validado sem exportar duplicado. Quais dois elementos do modo staging garantem isso? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Servidor em staging importando sem exportar" },
+      { "letter": "B", "text": "Promoção planejada com janela" },
+      { "letter": "C", "text": "Dois ativos exportando juntos" },
+      { "letter": "D", "text": "Sem validação prévia" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Staging importa e valida sem escrever; promoção troca com janela. Dois ativos duplicam; sem validar arrisca.",
+    "source": "original",
+    "tags": ["staging-mode", "migracao", "connect-sync"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-136",
+    "domain": "identidade-governanca",
+    "subdomain": "object-match-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Objetos duplicados após sincronização indicam colisão de ancoragem. Quais dois identificadores o matching usa para unir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "sourceAnchor imutável do AD" },
+      { "letter": "B", "text": "Correspondência por UPN/sufixo verificado" },
+      { "letter": "C", "text": "Nome de exibição" },
+      { "letter": "D", "text": "Foto do perfil" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Âncora imutável une com precisão e UPN/smtp auxiliam soft-match. Nome e foto não identificam unicamente.",
+    "source": "original",
+    "tags": ["matching", "sourceAnchor", "duplicados"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-137",
+    "domain": "identidade-governanca",
+    "subdomain": "password-writeback-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "SSPR deve refletir no AD local com pré-requisitos atendidos. Quais dois elementos habilitam o writeback? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Password writeback habilitado no Connect" },
+      { "letter": "B", "text": "Permissões da conta de serviço no AD" },
+      { "letter": "C", "text": "SSPR só na nuvem sem writeback" },
+      { "letter": "D", "text": "Senha anotada no chamado" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Writeback habilitado com conta de serviço permissionada grava a nova senha no AD local. Só nuvem não reflete no local; anotar senha em chamado vaza credencial.",
+    "source": "original",
+    "tags": ["password-writeback", "sspr", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-138",
+    "domain": "identidade-governanca",
+    "subdomain": "group-writeback-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Grupos criados na nuvem precisam existir no AD para ACLs legadas. Quais dois elementos do group writeback atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Writeback de grupos Microsoft 365 para distribuição"
+      },
+      { "letter": "B", "text": "OU de destino configurada no AD" },
+      { "letter": "C", "text": "Grupo só na nuvem" },
+      { "letter": "D", "text": "Distribuição manual por e-mail" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Writeback replica M365 como distribuição na OU alvo. Só nuvem não alcança legado; manual não escala.",
+    "source": "original",
+    "tags": ["group-writeback", "m365", "ad"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-139",
+    "domain": "identidade-governanca",
+    "subdomain": "device-writeback-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dispositivos Entra joined precisam de objeto no AD para GPO legada. Quais dois elementos habilitam o device writeback? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Device writeback no Connect com OU alvo" },
+      { "letter": "B", "text": "Sincronização de computadores habilitada" },
+      { "letter": "C", "text": "Dispositivo só na nuvem" },
+      { "letter": "D", "text": "GPO sem objeto" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Device writeback cria o objeto do dispositivo na OU alvo para aplicar GPO legada. Só na nuvem não recebe GPO; sem objeto não existe alvo para a política.",
+    "source": "original",
+    "tags": ["device-writeback", "gpo", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-140",
+    "domain": "identidade-governanca",
+    "subdomain": "sync-errors-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Erros de sincronização por atributo duplicado (UPN/proxy) travam objetos. Quais duas ações resolvem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Corrigir o atributo duplicado na origem" },
+      {
+        "letter": "B",
+        "text": "Reprocessar via relatório de erros do Connect"
+      },
+      { "letter": "C", "text": "Excluir o objeto na nuvem e rezar" },
+      { "letter": "D", "text": "Ignorar o erro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Corrige o atributo duplicado na origem e reprocessa pelo relatório de erros do Connect até limpar a quarentena. Excluir perde o objeto; ignorar acumula pendência.",
+    "source": "original",
+    "tags": ["sync-errors", "duplicados", "quarentena"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-141",
+    "domain": "identidade-governanca",
+    "subdomain": "cloud-sync-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Florestas desconectadas precisam de sincronização leve por agente sem SQL. Quais dois elementos do Cloud Sync atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Agentes leves por domínio/floresta" },
+      { "letter": "B", "text": "Configuração por grupo no portal" },
+      { "letter": "C", "text": "Servidor Connect monolítico" },
+      { "letter": "D", "text": "Banco local dedicado" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Cloud Sync usa agentes leves multi-floresta com config na nuvem. Monolito exige SQL; banco local complica.",
+    "source": "original",
+    "tags": ["cloud-sync", "agentes", "multifloresta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-142",
+    "domain": "identidade-governanca",
+    "subdomain": "ou-filtering-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Apenas OUs de usuários ativos devem sincronizar, excluindo service accounts legadas. Quais dois filtros aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Filtragem por OU incluída" },
+      { "letter": "B", "text": "Filtro por grupo/atributo excluindo legadas" },
+      { "letter": "C", "text": "Sincronizar a floresta inteira" },
+      { "letter": "D", "text": "Sem filtro algum" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "OU scoping limita e filtro por grupo/atributo exclui legadas. Tudo sincroniza lixo; sem filtro não governa.",
+    "source": "original",
+    "tags": ["filtragem", "ou", "grupo", "sync"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-143",
+    "domain": "identidade-governanca",
+    "subdomain": "sso-seamless-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o logon único contínuo (seamless SSO) dispensa qualquer credencial até em máquina fora do domínio corporativo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, funciona em qualquer máquina" },
+      {
+        "letter": "B",
+        "text": "Não, exige máquina ingressada na rede corporativa"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Seamless SSO usa Kerberos da máquina ingressada; fora do domínio não há ticket. Assumir ubíquo quebra o desenho.",
+    "source": "original",
+    "tags": ["seamless-sso", "kerberos", "dominio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-144",
+    "domain": "identidade-governanca",
+    "subdomain": "pta-vs-phs-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que PTA continua autenticando na nuvem mesmo com todos os agentes e o AD locais indisponíveis. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, PTA tem cache na nuvem" },
+      { "letter": "B", "text": "Não, PTA depende do local a cada login" }
+    ],
+    "correct": ["B"],
+    "explanation": "PTA valida no AD a cada login; sem agentes/AD não autentica (diferente do PHS). Assumir cache é erro de resiliência.",
+    "source": "original",
+    "tags": ["pta", "phs", "resiliencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-145",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-invite-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que convite B2B resgatado cria objeto Guest que conta na cota do diretório como qualquer objeto. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, guests contam na cota de objetos" },
+      { "letter": "B", "text": "Não, convidados são isentos de cota" }
+    ],
+    "correct": ["A"],
+    "explanation": "Guest resgatado vira objeto do diretório e consome cota como qualquer usuário. Achar convidado isento estoura o planejamento de capacidade em escala.",
+    "source": "original",
+    "tags": ["b2b", "cota", "guest"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-146",
+    "domain": "identidade-governanca",
+    "subdomain": "app-proxy-connector-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que conectores do App Proxy exigem inbound liberado no firewall local para a nuvem alcançá-los. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, inbound é obrigatório" },
+      { "letter": "B", "text": "Não, conectores só fazem outbound" }
+    ],
+    "correct": ["B"],
+    "explanation": "Conectores abrem conexões de saída e mantêm canal; nenhum inbound é necessário. Exigir inbound inverte o modelo.",
+    "source": "original",
+    "tags": ["app-proxy", "conector", "outbound"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-147",
+    "domain": "identidade-governanca",
+    "subdomain": "managed-vs-federated-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que domínios gerenciados (managed) autenticam na nuvem sem depender de federação ativa. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, managed autentica na nuvem" },
+      { "letter": "B", "text": "Não, todo domínio precisa de federação" }
+    ],
+    "correct": ["A"],
+    "explanation": "Managed usa PHS/PTA na nuvem; federated delega ao IdP. Exigir federação sempre ignora o modelo gerenciado.",
+    "source": "original",
+    "tags": ["managed", "federated", "dominio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-148",
+    "domain": "identidade-governanca",
+    "subdomain": "ca-order-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que, com várias políticas de acesso condicional, basta uma concessão de bloqueio para negar, mesmo que outras concedam acesso. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, bloqueio prevalece sobre concessões" },
+      { "letter": "B", "text": "Não, a última política criada decide" }
+    ],
+    "correct": ["A"],
+    "explanation": "Avaliação lógica: qualquer Block aplicável nega, independente de allows. Ordem de criação não decide; bloqueio vence.",
+    "source": "original",
+    "tags": ["conditional-access", "bloqueio", "precedencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-149",
+    "domain": "identidade-governanca",
+    "subdomain": "report-only-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que política em Report-only registra o resultado 'não aplicado' nos logs de login sem impactar o usuário. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, avalia e registra sem impor" },
+      { "letter": "B", "text": "Não, Report-only bloqueia em silêncio" }
+    ],
+    "correct": ["A"],
+    "explanation": "Report-only avalia e marca o resultado sem conceder/negar diferente. Achar que bloqueia confunde com On.",
+    "source": "original",
+    "tags": ["report-only", "avaliacao", "logs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-150",
+    "domain": "identidade-governanca",
+    "subdomain": "deny-rbac-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que atribuições de negação (deny assignments) podem ser criadas livremente por Proprietários para travar recursos. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, qualquer Owner cria deny" },
+      {
+        "letter": "B",
+        "text": "Não, deny assignments são gerenciadas pelo Azure (Blueprints/recursos protegidos)"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Deny assignments são criadas pelo sistema (ex.: Blueprints, Databricks); Owners não as criam diretamente. Assumir criação livre superestima o controle.",
+    "source": "original",
+    "tags": ["deny-assignments", "rbac", "sistema"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

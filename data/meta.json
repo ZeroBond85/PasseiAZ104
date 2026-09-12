@@ -8,7 +8,7 @@
     "mo": "monitoramento"
   },
   "countsByDomain": {
-    "identidade-governanca": 100,
+    "identidade-governanca": 150,
     "storage": 55,
     "compute": 80,
     "rede-virtual": 80,
