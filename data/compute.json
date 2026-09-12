@@ -1868,5 +1868,446 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-co-081",
+    "domain": "compute",
+    "subdomain": "vms-hibernacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs de dev paradas à noite perdem o estado da RAM ao desalocar, atrasando a retomada. Qual recurso preserva RAM/disco ao desalocar?",
+    "options": [
+      { "letter": "A", "text": "Hibernação da VM com disco do SO gerenciado" },
+      { "letter": "B", "text": "Desalocação simples sem hibernação" },
+      { "letter": "C", "text": "Snapshot manual antes de parar" },
+      { "letter": "D", "text": "Manter ligada 24/7" }
+    ],
+    "correct": ["A"],
+    "explanation": "Hibernação salva RAM no disco e retoma rápido sem custo de computação. Desalocar simples perde RAM; snapshot manual atrasa; ligada desperdiça.",
+    "source": "original",
+    "tags": ["vms", "hibernacao", "dev"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-082",
+    "domain": "compute",
+    "subdomain": "vms-patch-orquestracao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs críticas precisam de patch com pré e pós-scripts de quiesce do banco. Qual orquestração executa scripts ao redor da atualização?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Orquestração de patch com pré/pós-scripts do Update Manager"
+      },
+      { "letter": "B", "text": "Windows Update automático sem script" },
+      { "letter": "C", "text": "Reinicialização manual" },
+      { "letter": "D", "text": "Backup sem patch" }
+    ],
+    "correct": ["A"],
+    "explanation": "Orquestração agenda com hooks de quiesce/validação. Automático puro não quiesce banco; manual não escala; backup não aplica patch.",
+    "source": "original",
+    "tags": ["update-manager", "orquestracao", "patch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-083",
+    "domain": "compute",
+    "subdomain": "vmss-terminate-notification",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Instâncias Spot do VMSS despejadas perdem trabalho em andamento sem aviso. Como notificar a aplicação antes do despejo para drenar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Notificação de término agendada (terminate notification)"
+      },
+      { "letter": "B", "text": "Probe de saúde apenas" },
+      { "letter": "C", "text": "Log após o despejo" },
+      { "letter": "D", "text": "Reinicialização periódica" }
+    ],
+    "correct": ["A"],
+    "explanation": "Scheduled events avisam despejo/exclusão com antecedência para drenar. Probe detecta doença, não despejo; log posterior não previne; restart não avisa.",
+    "source": "original",
+    "tags": ["vmss", "spot", "terminate-notification", "drenagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-084",
+    "domain": "compute",
+    "subdomain": "app-service-deployment-center",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Deploys devem sair do GitHub para staging com troca para produção após teste. O que conecta repositório, build e swap?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Central de Implantação com Actions + slot + swap"
+      },
+      { "letter": "B", "text": "FTP manual por release" },
+      { "letter": "C", "text": "ZIP por e-mail" },
+      { "letter": "D", "text": "Deploy direto em produção" }
+    ],
+    "correct": ["A"],
+    "explanation": "Deployment Center liga repo→build→slot→swap com trilha. FTP manual erra; e-mail não implanta; direto não testa.",
+    "source": "original",
+    "tags": ["app-service", "deployment-center", "github", "swap"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-085",
+    "domain": "compute",
+    "subdomain": "functions-slots",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Nova versão da função precisa de teste com 5% do tráfego antes do swap total. O que permite canário em Functions Premium?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Slots de implantação do Function App com roteamento"
+      },
+      { "letter": "B", "text": "Duas function apps sem roteamento" },
+      { "letter": "C", "text": "Troca de código direta" },
+      { "letter": "D", "text": "Timer alternando versões" }
+    ],
+    "correct": ["A"],
+    "explanation": "Slots com percentual testam em produção e trocam sem downtime. Duas apps dividem sem roteamento; direto não testa; timer não roteia.",
+    "source": "original",
+    "tags": ["functions", "slots", "canario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-086",
+    "domain": "compute",
+    "subdomain": "aci-confidential",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres processam dados regulados exigindo isolamento de hardware com atestado. Qual variante do ACI executa em enclave confidencial?",
+    "options": [
+      { "letter": "A", "text": "ACI confidencial com atestação" },
+      { "letter": "B", "text": "ACI padrão compartilhado" },
+      { "letter": "C", "text": "VM comum sem enclave" },
+      { "letter": "D", "text": "Blob público com criptografia" }
+    ],
+    "correct": ["A"],
+    "explanation": "ACI confidencial roda em TEE com atestado. Padrão compartilha host; VM comum não atesta; blob não executa.",
+    "source": "original",
+    "tags": ["aci", "confidencial", "tee"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-087",
+    "domain": "compute",
+    "subdomain": "container-apps-vnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Container Apps precisa de IPs privados e saída controlada pelo firewall do hub. Como integrar o ambiente à VNet?",
+    "options": [
+      { "letter": "A", "text": "Ambiente com integração VNet (interno + UDR)" },
+      { "letter": "B", "text": "Ingresso público sem VNet" },
+      { "letter": "C", "text": "Peering do ambiente pronto" },
+      { "letter": "D", "text": "VPN por contêiner" }
+    ],
+    "correct": ["A"],
+    "explanation": "Ambiente VNet-integrated dá IPs privados e UDR ao firewall. Público expõe; peering não se aplica a ambiente gerenciado; VPN por contêiner não existe.",
+    "source": "original",
+    "tags": ["container-apps", "vnet", "ambiente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-088",
+    "domain": "compute",
+    "subdomain": "batch-pools-autoscale",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pool Batch deve crescer com tarefas pendentes e zerar ocioso. Qual fórmula governa o dimensionamento automático?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fórmula de autoscale por pendingTasks/activeTasks"
+      },
+      { "letter": "B", "text": "Pool fixo 24/7" },
+      { "letter": "C", "text": "Redimensionamento manual diário" },
+      { "letter": "D", "text": "Spot sem fórmula" }
+    ],
+    "correct": ["A"],
+    "explanation": "Autoscale avalia pending/running e ajusta nós. Fixo desperdiça; manual atrasa; Spot sem fórmula não escala.",
+    "source": "original",
+    "tags": ["batch", "autoscale", "pool"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-089",
+    "domain": "compute",
+    "subdomain": "vm-redeploy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VM com falha de host subjacente precisa migrar de nó mantendo discos e IPs. Qual ação move a VM para hardware saudável?",
+    "options": [
+      { "letter": "A", "text": "Reimplantar (redeploy) a VM" },
+      { "letter": "B", "text": "Reiniciar no mesmo host" },
+      { "letter": "C", "text": "Excluir e recriar do zero" },
+      { "letter": "D", "text": "Aguardar o host recuperar" }
+    ],
+    "correct": ["A"],
+    "explanation": "Redeploy move para nó saudável preservando recursos. Restart fica no host ruim; recriar perde; aguardar prolonga outage.",
+    "source": "original",
+    "tags": ["vms", "redeploy", "host", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-090",
+    "domain": "compute",
+    "subdomain": "serial-console",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VM Linux sem rede acessível precisa de terminal de emergência via portal. Qual console serial dá shell sem SSH?",
+    "options": [
+      { "letter": "A", "text": "Console serial do Azure via SAC" },
+      { "letter": "B", "text": "RDP pela internet" },
+      { "letter": "C", "text": "Bastion sem agente" },
+      { "letter": "D", "text": "Reinstalação do SO" }
+    ],
+    "correct": ["A"],
+    "explanation": "Serial console acessa o SAC/terminal da VM sem rede via portal. RDP é só Windows; Bastion exige conectividade; reinstalar apaga dados.",
+    "source": "original",
+    "tags": ["serial-console", "emergencia", "sac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-091",
+    "domain": "compute",
+    "subdomain": "vm-insights-onboard",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Duzentas VMs precisam de VM Insights com AMA e DCR sem tocar uma a uma. Como habilitar em escala com política?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Policy DeployIfNotExists instalando AMA + associando DCR"
+      },
+      { "letter": "B", "text": "Extensão manual por portal" },
+      { "letter": "C", "text": "Script por RDP em massa" },
+      { "letter": "D", "text": "Aguardar onboarding automático" }
+    ],
+    "correct": ["A"],
+    "explanation": "DINE instala agente e associa DCR em novas e existentes. Manual não escala; RDP é inviável; sem policy nada acontece.",
+    "source": "original",
+    "tags": ["vm-insights", "ama", "dcr", "policy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-092",
+    "domain": "compute",
+    "subdomain": "automanage-vm",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "VMs novas devem nascer com backup, Defender e monitoramento aplicados e desviados automaticamente. Qual serviço aplica o baseline?",
+    "options": [
+      { "letter": "A", "text": "Automanage com perfil de produção" },
+      { "letter": "B", "text": "Tags manuais por VM" },
+      { "letter": "C", "text": "Runbook trimestral" },
+      { "letter": "D", "text": "Policy só de auditoria" }
+    ],
+    "correct": ["A"],
+    "explanation": "Automanage aplica e corrige baseline continuamente. Tags não aplicam; trimestral atrasa; só auditar não corrige.",
+    "source": "original",
+    "tags": ["automanage", "baseline", "vm"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-093",
+    "domain": "compute",
+    "subdomain": "site-recovery-vm",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "VMs Tier 1 precisam de RPO de 30s e failover testado sem impacto. Qual replicação com teste de DR atende?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Site Recovery com RPO baixo + test failover isolado"
+      },
+      { "letter": "B", "text": "Backup diário como DR" },
+      { "letter": "C", "text": "Snapshot manual semanal" },
+      { "letter": "D", "text": "Segunda VM fria desligada" }
+    ],
+    "correct": ["A"],
+    "explanation": "ASR replica contínuo com RPO de segundos e testa sem afetar produção. Backup tem RPO de horas; snapshot é pontual; fria exige rebuild.",
+    "source": "original",
+    "tags": ["site-recovery", "dr", "rpo", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-094",
+    "domain": "compute",
+    "subdomain": "vmss-app-health-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Rolling upgrade seguro exige sinal de saúde da aplicação e pausa em falha. Quais dois elementos compõem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Extensão de integridade (app health) reportando"
+      },
+      { "letter": "B", "text": "Pausa automática em falha de lote" },
+      { "letter": "C", "text": "Upgrade simultâneo total" },
+      { "letter": "D", "text": "Sem probe de saúde" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Health extension sinaliza e o rolling pausa/rollback em lote doente. Simultâneo derruba; sem probe não detecta.",
+    "source": "original",
+    "tags": ["vmss", "rolling", "app-health"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-095",
+    "domain": "compute",
+    "subdomain": "confidential-vm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cargas reguladas exigem criptografia de memória e atestado de boot. Quais dois pilares das VMs confidenciais atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Criptografia de memória (SEV-SNP/TDX)" },
+      { "letter": "B", "text": "Atestado de plataforma (vTPM + boot medido)" },
+      { "letter": "C", "text": "Disco sem criptografia" },
+      { "letter": "D", "text": "Host compartilhado sem isolamento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "SEV-SNP/TDX cifra RAM em uso e o atestado prova integridade. Sem cripto vaza; sem isolamento não há TEE.",
+    "source": "original",
+    "tags": ["vm-confidencial", "sev-snp", "tdx", "attestation"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-096",
+    "domain": "compute",
+    "subdomain": "gpu-partition-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Inferência leve precisa de fração de GPU com custo proporcional. Quais duas opções fracionam GPU no Azure? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Particionamento MIG em GPUs compatíveis" },
+      { "letter": "B", "text": "VMs NVads com GPU fracionada" },
+      { "letter": "C", "text": "GPU física dedicada por job leve" },
+      { "letter": "D", "text": "CPU comum sem GPU" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "MIG fatia a GPU e NVads virtualiza frações para VDI/inferência. Dedicada desperdiça; CPU não acelera.",
+    "source": "original",
+    "tags": ["gpu", "mig", "nvads", "fracionada"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-097",
+    "domain": "compute",
+    "subdomain": "overprovision-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VMSS sobe devagar porque provisiona extras antes de validar. Quais dois efeitos do overprovision considerar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Subida mais rápida com instâncias extras temporárias"
+      },
+      { "letter": "B", "text": "Nomes/prefixos imprevisíveis durante excesso" },
+      { "letter": "C", "text": "Escala instantânea garantida" },
+      { "letter": "D", "text": "Custo zero das extras" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Overprovision acelera com sobra temporária, mas numeração varia. Não garante instantâneo; extras cobram se persistirem.",
+    "source": "original",
+    "tags": ["vmss", "overprovision", "escala"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-098",
+    "domain": "compute",
+    "subdomain": "proximity-zone-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que grupo de posicionamento por proximidade pode abranger VMs em zonas de disponibilidade distintas. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, PPG é multizona" },
+      { "letter": "B", "text": "Não, PPG limita-se a um datacenter/zona" }
+    ],
+    "correct": ["B"],
+    "explanation": "PPG co-localiza no mesmo site; multizona contraria o propósito de latência mínima. Assumir abrangência quebra o desenho.",
+    "source": "original",
+    "tags": ["ppg", "zonas", "proximidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-099",
+    "domain": "compute",
+    "subdomain": "ephemeral-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que disco de SO efêmero sobrevive a desalocação e mantém dados entre paradas. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, efêmero persiste como gerenciado" },
+      { "letter": "B", "text": "Não, deallocate apaga o disco local" }
+    ],
+    "correct": ["B"],
+    "explanation": "Disco efêmero vive no armazenamento local do host; desalocar ou destruir a VM apaga tudo. Tratar como persistente causa perda irreversível de dados.",
+    "source": "original",
+    "tags": ["ephemeral-os", "persistencia", "deallocate"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-100",
+    "domain": "compute",
+    "subdomain": "spot-eviction-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que VMs Spot recebem aviso de despejo com 30 segundos para drenar antes da remoção. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, há aviso de 30s via scheduled events" },
+      { "letter": "B", "text": "Não, o despejo é instantâneo sem aviso" }
+    ],
+    "correct": ["A"],
+    "explanation": "Scheduled events notificam Preempt com ~30s para drenar. Achar instantâneo ignora a janela de graceful shutdown.",
+    "source": "original",
+    "tags": ["spot", "despejo", "aviso", "30s"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

@@ -3605,5 +3605,675 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-ig-151",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-id-naming",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "UPNs precisam seguir o padrão nome.sobrenome@empresa.com com validação na criação. Onde impor o formato antes de provisionar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de nomenclatura + script de validação no provisionamento"
+      },
+      { "letter": "B", "text": "Aceitar qualquer formato digitado" },
+      { "letter": "C", "text": "Renomear manualmente depois" },
+      { "letter": "D", "text": "Bloquear criação de usuários" }
+    ],
+    "correct": ["A"],
+    "explanation": "Padrão documentado com validação no fluxo impede UPN fora do formato. Aceitar tudo bagunça; renomear depois quebra login; bloquear impede o negócio.",
+    "source": "original",
+    "tags": ["upn", "nomenclatura", "padrao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-152",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-invite-settings",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Qualquer funcionário convida guests sem controle e a base inchou. Como restringir quem pode convidar sem travar colaboração legítima?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restringir convites a admins/donos + fluxo de solicitação"
+      },
+      { "letter": "B", "text": "Permitir a todos sem limite" },
+      { "letter": "C", "text": "Proibir qualquer convidado" },
+      { "letter": "D", "text": "Convite só por e-mail pessoal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Configuração de colaboração restringe convite com fluxo de pedido. Livre incha; proibir trava parceiro; pessoal perde governança.",
+    "source": "original",
+    "tags": ["b2b", "convites", "restricao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-153",
+    "domain": "identidade-governanca",
+    "subdomain": "sponsors",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada convidado precisa de um responsável interno que responda pelo acesso. O que vincular ao guest no convite?",
+    "options": [
+      { "letter": "A", "text": "Patrocinador (sponsor) interno do convidado" },
+      { "letter": "B", "text": "Nenhum vínculo de responsabilidade" },
+      { "letter": "C", "text": "Senha compartilhada do time" },
+      { "letter": "D", "text": "Grupo sem dono" }
+    ],
+    "correct": ["A"],
+    "explanation": "Sponsor responde por reviews e expiração do guest. Sem vínculo ninguém recertifica; senha compartilhada vaza; grupo sem dono não revisa.",
+    "source": "original",
+    "tags": ["sponsor", "convidado", "responsabilidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-154",
+    "domain": "identidade-governanca",
+    "subdomain": "redeem-order",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Parceiros com conta corporativa e pessoal confundem qual usar no resgate do convite. Qual ordem de resgate o B2B tenta primeiro?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conta corporativa do domínio convidado, depois MSA"
+      },
+      { "letter": "B", "text": "Sempre MSA primeiro" },
+      { "letter": "C", "text": "Conta anônima" },
+      { "letter": "D", "text": "Ordem alfabética de e-mail" }
+    ],
+    "correct": ["A"],
+    "explanation": "Resgate prioriza identidade corporativa federada do e-mail convidado, caindo para MSA/one-time passcode. Sempre MSA ignora federação; anônima não autentica.",
+    "source": "original",
+    "tags": ["b2b", "resgate", "ordem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-155",
+    "domain": "identidade-governanca",
+    "subdomain": "otp-guest",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Parceiros sem Entra nem MSA precisam acessar documentos com verificação por e-mail. Qual método cobre convidados sem identidade federada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Senha de uso único por e-mail (one-time passcode)"
+      },
+      { "letter": "B", "text": "Login anônimo permanente" },
+      { "letter": "C", "text": "Senha fixa compartilhada" },
+      { "letter": "D", "text": "VPN com usuário genérico" }
+    ],
+    "correct": ["A"],
+    "explanation": "OTP por e-mail autentica sem federação, com código por acesso. Anônimo não identifica; fixa vaza; genérico perde trilha.",
+    "source": "original",
+    "tags": ["otp", "convidado", "e-mail"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-156",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-id-p1-p2",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Acesso condicional funciona, mas PIM e Identity Protection aparecem indisponíveis. O que falta no licenciamento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Upgrade de P1 para P2 (CA é P1; PIM/Protection são P2)"
+      },
+      { "letter": "B", "text": "Downgrade para gratuito" },
+      { "letter": "C", "text": "Mais subscriptions Azure" },
+      { "letter": "D", "text": "Nada, é bug do portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "CA base é P1; PIM, Identity Protection e reviews exigem P2. Downgrade piora; subscription não licencia Entra; não é bug.",
+    "source": "original",
+    "tags": ["licenca", "p1", "p2", "diferencas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-157",
+    "domain": "identidade-governanca",
+    "subdomain": "frontline-licenca",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Operários usam quiosque compartilhado só para ponto e comunicados. Qual licença cobre esse uso limitado de primeira linha?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Licença F (frontline) para trabalhadores de campo"
+      },
+      { "letter": "B", "text": "E5 completa para cada quiosque" },
+      { "letter": "C", "text": "Sem licença com conta genérica" },
+      { "letter": "D", "text": "Licença de dispositivo apenas" }
+    ],
+    "correct": ["A"],
+    "explanation": "SKU F cobre uso limitado com custo reduzido. E5 por quiosque desperdiça; genérica sem licença viola; dispositivo não licencia usuário.",
+    "source": "original",
+    "tags": ["licenca", "frontline", "f", "quiosque"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-158",
+    "domain": "identidade-governanca",
+    "subdomain": "step-up-auth",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Operações sensíveis no portal exigem reautenticação mesmo com sessão válida. Qual concessão eleva a garantia pontualmente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exigir MFA/autenticação recente (step-up) na política"
+      },
+      { "letter": "B", "text": "Sessão de 30 dias para tudo" },
+      { "letter": "C", "text": "Desabilitar MFA nas operações" },
+      { "letter": "D", "text": "Senha estática sem expiração" }
+    ],
+    "correct": ["A"],
+    "explanation": "Step-up exige auth fresca na ação sensível. Sessão longa enfraquece; sem MFA piora; estática não eleva.",
+    "source": "original",
+    "tags": ["step-up", "reautenticacao", "sensivel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-159",
+    "domain": "identidade-governanca",
+    "subdomain": "continuous-access",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Tokens vazados precisam ser revogados em minutos, não na expiração natural. Qual avaliação contínua encerra sessões após eventos críticos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Avaliação de Acesso Contínuo (CAE) com revogação imediata"
+      },
+      { "letter": "B", "text": "Token de 24h sem revogação" },
+      { "letter": "C", "text": "Sessão persistente ilimitada" },
+      { "letter": "D", "text": "Cache de token local" }
+    ],
+    "correct": ["A"],
+    "explanation": "CAE reage a senha alterada, conta desabilitada e risco em minutos. Token longo sem CAE vaza até expirar; persistente piora; cache local não revoga.",
+    "source": "original",
+    "tags": ["cae", "revogacao", "token", "continuo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-160",
+    "domain": "identidade-governanca",
+    "subdomain": "token-theft-defense",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Ataques replay de token de acesso exigem defesa além de MFA. Quais camadas combinadas mitigam roubo de token?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "CAE + token protection + conditional access por risco"
+      },
+      { "letter": "B", "text": "Apenas senha mais longa" },
+      { "letter": "C", "text": "Desabilitar refresh tokens" },
+      { "letter": "D", "text": "IP fixo por usuário" }
+    ],
+    "correct": ["A"],
+    "explanation": "CAE revoga, token protection vincula ao dispositivo e CA por risco bloqueia replay. Senha não protege token; sem refresh quebra UX; IP fixo não escala.",
+    "source": "original",
+    "tags": ["token", "roubo", "cae", "protection"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-161",
+    "domain": "identidade-governanca",
+    "subdomain": "insider-risk-policy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Download massivo pré-demissão precisa gerar alerta e bloqueio de sessão. Qual combinação de sinais e ação cobre risco interno?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sinais de risco + política de sessão com bloqueio"
+      },
+      { "letter": "B", "text": "E-mail de despedida" },
+      { "letter": "C", "text": "Acesso liberado até o último dia" },
+      { "letter": "D", "text": "Backup após a saída" }
+    ],
+    "correct": ["A"],
+    "explanation": "Risco interno (exfiltração, HR) com CA de sessão bloqueia na hora. E-mail não age; liberar até sair vaza; backup não previne.",
+    "source": "original",
+    "tags": ["insider-risk", "exfiltracao", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-162",
+    "domain": "identidade-governanca",
+    "subdomain": "verified-credentials-hr",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Admissões remotas precisam provar identidade com documento verificável antes de criar conta. Qual credencial o candidato apresenta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Credencial verificável emitida por autoridade (Verified ID)"
+      },
+      { "letter": "B", "text": "Selfie por e-mail" },
+      { "letter": "C", "text": "Senha provisória por SMS" },
+      { "letter": "D", "text": "Declaração assinada em papel" }
+    ],
+    "correct": ["A"],
+    "explanation": "Verified ID valida documento com criptografia sem expor base. Selfie por e-mail falsifica; SMS intercepta; papel não escala remoto.",
+    "source": "original",
+    "tags": ["verified-id", "admissao", "identidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-163",
+    "domain": "identidade-governanca",
+    "subdomain": "face-check",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Prova de vida com correspondência facial e documento precisa de liveness contra foto. Qual verificação combina documento e живо?",
+    "options": [
+      { "letter": "A", "text": "Face Check com liveness do Verified ID" },
+      { "letter": "B", "text": "Foto estática comparada a olho" },
+      { "letter": "C", "text": "Vídeo sem validação" },
+      { "letter": "D", "text": "Assinatura digitalizada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Face Check valida живо + documento com anti-spoof. Olho não detecta deepfake; vídeo sem liveness falsifica; assinatura não prova rosto.",
+    "source": "original",
+    "tags": ["face-check", "liveness", "prova-vida"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-164",
+    "domain": "identidade-governanca",
+    "subdomain": "workplace-join",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Dispositivos móveis pessoais precisam de gerenciamento de app sem controlar o aparelho inteiro. Qual modelo isola dados corporativos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "MAM (gerenciamento de aplicativo) sem enrollment"
+      },
+      { "letter": "B", "text": "MDM total do pessoal" },
+      { "letter": "C", "text": "Sem gerência com BYOD livre" },
+      { "letter": "D", "text": "Bloqueio de BYOD total" }
+    ],
+    "correct": ["A"],
+    "explanation": "MAM protege apps/dados corporativos sem tocar no pessoal. MDM total invade privacidade; livre vaza; bloquear trava mobilidade.",
+    "source": "original",
+    "tags": ["mam", "byod", "app-protection"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-165",
+    "domain": "identidade-governanca",
+    "subdomain": "app-protection-policy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Dados corporativos no Outlook móvel não podem ser copiados para apps pessoais nem salvos localmente. Qual política impõe isso sem MDM?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de proteção de app (PIN, criptografia, sem copy/paste)"
+      },
+      { "letter": "B", "text": "Senha do aparelho" },
+      { "letter": "C", "text": "Proibição de celular" },
+      { "letter": "D", "text": "E-mail só no desktop" }
+    ],
+    "correct": ["A"],
+    "explanation": "App protection criptografa, exige PIN e bloqueia vazamento entre apps. Senha do aparelho não isola; proibir trava; só desktop reduz mobilidade.",
+    "source": "original",
+    "tags": ["app-protection", "dlp", "movel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-166",
+    "domain": "identidade-governanca",
+    "subdomain": "conditional-launch-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Lançamento de política crítica exige validação e rota de fuga. Quais duas etapas antecedem o On? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Report-only com análise de impacto" },
+      { "letter": "B", "text": "Exclusão de emergência documentada" },
+      { "letter": "C", "text": "Ativação direta sem teste" },
+      { "letter": "D", "text": "Remoção de logs" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Report-only mede impacto real sem bloquear e a exclusão de emergência documentada salva do lockout. Ativar direto arrisca travar todos; sem log não há auditoria.",
+    "source": "original",
+    "tags": ["lancamento", "report-only", "emergencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-167",
+    "domain": "identidade-governanca",
+    "subdomain": "naming-convention-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Grupos e apps proliferam sem padrão, dificultando auditoria. Quais dois controles de nomenclatura aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de nomenclatura com prefixos por tipo"
+      },
+      { "letter": "B", "text": "Bloqueio de nomes fora do padrão" },
+      { "letter": "C", "text": "Nomes livres criativos" },
+      { "letter": "D", "text": "Renomeação manual anual" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Política com prefixos por tipo organiza o diretório e o bloqueio impõe o padrão na criação. Nomes livres bagunçam a auditoria; renomear uma vez por ano atrasa.",
+    "source": "original",
+    "tags": ["nomenclatura", "padrao", "grupos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-168",
+    "domain": "identidade-governanca",
+    "subdomain": "expiration-groups-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Grupos temporários de projeto acumulam após o fim. Quais dois mecanismos expiram e renovam com dono? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Expiração de grupo com renovação do dono" },
+      { "letter": "B", "text": "Access Review de membros" },
+      { "letter": "C", "text": "Grupo eterno sem dono" },
+      { "letter": "D", "text": "Exclusão manual pelo RH" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Expiração remove grupos sem renovação do dono e o review limpa membros órfãos. Grupo eterno acumula; exclusão manual pelo RH atrasa.",
+    "source": "original",
+    "tags": ["expiracao", "grupos", "renovacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-169",
+    "domain": "identidade-governanca",
+    "subdomain": "usage-insights-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Apps sem uso há 1 ano e contas inativas incham o diretório e a fatura. Quais dois relatórios identificam ociosos? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Atividade de aplicativos (sign-ins por app)" },
+      { "letter": "B", "text": "Contas inativas por último login" },
+      { "letter": "C", "text": "Lista de licenças compradas" },
+      { "letter": "D", "text": "Backup do diretório" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Sign-ins por app e último login revelam ociosos para remover. Compradas não mostram uso; backup não mede atividade.",
+    "source": "original",
+    "tags": ["ociosos", "atividade", "limpeza"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-170",
+    "domain": "identidade-governanca",
+    "subdomain": "stale-accounts-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Contas de ex-funcionários ativas há 6 meses são risco crítico. Quais duas ações combinam detecção e remoção? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de limpeza por inatividade com bloqueio"
+      },
+      { "letter": "B", "text": "Review de contas privilegiadas inativas" },
+      { "letter": "C", "text": "Manter ativas por precaução" },
+      { "letter": "D", "text": "Aguardar auditoria anual" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Política por inatividade bloqueia contas paradas e o review limpa privilegiadas órfãs. Manter ativas por precaução é risco; aguardar auditoria anual atrasa.",
+    "source": "original",
+    "tags": ["contas-inativas", "limpeza", "review"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-171",
+    "domain": "identidade-governanca",
+    "subdomain": "risk-based-stepup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Risco médio exige MFA e risco alto exige bloqueio, diferenciados por sinal. Quais duas concessões escalonam por nível? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "MFA para risco médio" },
+      { "letter": "B", "text": "Bloqueio para risco alto" },
+      { "letter": "C", "text": "Permitir tudo com log" },
+      { "letter": "D", "text": "Mesma ação para todos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Escalonar por nível equilibra fricção e segurança. Permitir tudo vaza; ação única erra nos extremos.",
+    "source": "original",
+    "tags": ["risco", "escalonamento", "mfa", "bloqueio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-172",
+    "domain": "identidade-governanca",
+    "subdomain": "location-spoof-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VPNs de privacidade mascaram localização burlando política por país. Quais dois sinais combinados detectam o mascaramento? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Detecção de IP anônimo/VPN" },
+      { "letter": "B", "text": "Viagem impossível entre logins" },
+      { "letter": "C", "text": "Confiar no país declarado" },
+      { "letter": "D", "text": "Ignorar geolocalização" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "IP anônimo sinaliza túnel e viagem impossível denuncia salto. Confiar no declarado aceita fraude; ignorar perde o sinal.",
+    "source": "original",
+    "tags": ["vpn", "mascaramento", "ip-anonimo", "viagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-173",
+    "domain": "identidade-governanca",
+    "subdomain": "compliant-network-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Acesso a dados sigilosos exige rede corporativa ou VPN gerenciada, nunca Wi-Fi público. Quais dois sinais de rede combinar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Localização de rede confiável" },
+      { "letter": "B", "text": "Conformidade do dispositivo/túnel" },
+      { "letter": "C", "text": "Qualquer rede com senha" },
+      { "letter": "D", "text": "Sem verificação de rede" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Rede confiável + dispositivo conforme garantem canal e ponta. Qualquer rede vaza; sem verificar não há controle.",
+    "source": "original",
+    "tags": ["rede-confiavel", "conformidade", "sigilo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-174",
+    "domain": "identidade-governanca",
+    "subdomain": "elapsed-policy-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que políticas de acesso condicional se aplicam apenas no login inicial, sem reavaliar durante a sessão. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, só no login inicial" },
+      {
+        "letter": "B",
+        "text": "Não, CAE e controles de sessão reavaliam continuamente"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "CAE e session controls reavaliam risco e conformidade ao longo da sessão. Achar pontual ignora a proteção contínua.",
+    "source": "original",
+    "tags": ["cae", "reavaliacao", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-175",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-token-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um parceiro afirma que tokens de convidado têm o mesmo tempo de vida e escopo dos tokens de membros por padrão. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, lifetimes idênticos" },
+      {
+        "letter": "B",
+        "text": "Não, políticas distintas podem encurtar sessão de guest"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "É possível (e comum) limitar sessão de guest via CA/session controls. Assumir igualdade perde endurecimento.",
+    "source": "original",
+    "tags": ["guest", "token", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-176",
+    "domain": "identidade-governanca",
+    "subdomain": "pim-duration-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um admin afirma que a duração máxima de ativação PIM é fixa globalmente e não pode variar por função. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, duração única global" },
+      { "letter": "B", "text": "Não, cada função define sua duração máxima" }
+    ],
+    "correct": ["B"],
+    "explanation": "Role settings por função definem duração, MFA e aprovação próprios. Assumir global impede calibrar por criticidade.",
+    "source": "original",
+    "tags": ["pim", "duracao", "role-settings"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-177",
+    "domain": "identidade-governanca",
+    "subdomain": "au-nesting-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que unidades administrativas podem ser aninhadas (AU dentro de AU) para hierarquia regional. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, aninhamento é suportado" },
+      { "letter": "B", "text": "Não, AUs são planas sem hierarquia" }
+    ],
+    "correct": ["B"],
+    "explanation": "AUs não aninham; hierarquia se modela com múltiplas AUs paralelas. Assumir nesting quebra o desenho.",
+    "source": "original",
+    "tags": ["administrative-units", "aninhamento", "hierarquia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-178",
+    "domain": "identidade-governanca",
+    "subdomain": "dynamic-au-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que unidade administrativa aceita regra dinâmica como grupos dinâmicos. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, AUs suportam membership dinâmica" },
+      { "letter": "B", "text": "Não, AUs só têm membros atribuídos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Unidades administrativas suportam associação dinâmica por regra de atributo (requer P1). Achar que só aceitam membros manuais desperdiça a automação nativa.",
+    "source": "original",
+    "tags": ["administrative-units", "dinamica", "regra"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-179",
+    "domain": "identidade-governanca",
+    "subdomain": "schema-ext-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um dev afirma que extensões de esquema do Graph permitem atributos customizados pesquisáveis em usuários. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, schema extensions adicionam atributos tipados"
+      },
+      { "letter": "B", "text": "Não, o esquema do Entra é imutável" }
+    ],
+    "correct": ["A"],
+    "explanation": "Schema extensions registram atributos customizados filtráveis via Graph. Achar imutável ignora a extensibilidade oficial.",
+    "source": "original",
+    "tags": ["schema-extensions", "atributos", "graph"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-180",
+    "domain": "identidade-governanca",
+    "subdomain": "dirsync-softmatch-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que soft-match por UPN une objeto local ao nuvem sem âncora imutável quando os UPNs coincidem. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, UPN coincidente une via soft-match" },
+      { "letter": "B", "text": "Não, só hard-match com sourceAnchor une" }
+    ],
+    "correct": ["A"],
+    "explanation": "Soft-match por UPN/smtp une na primeira sincronização; depois a âncora assume. Exigir sempre hard-match ignora o fluxo padrão.",
+    "source": "original",
+    "tags": ["soft-match", "upn", "sincronizacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
