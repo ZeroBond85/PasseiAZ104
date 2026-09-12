@@ -1228,5 +1228,444 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-st-056",
+    "domain": "storage",
+    "subdomain": "blob-append",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logs de aplicação com escrita sequencial contínua precisam de blob otimizado para append. Qual tipo de blob usar?",
+    "options": [
+      { "letter": "A", "text": "Blob de acréscimo (append blob)" },
+      { "letter": "B", "text": "Blob de blocos para streaming" },
+      { "letter": "C", "text": "Blob de páginas para VHD" },
+      { "letter": "D", "text": "Fila com mensagens de log" }
+    ],
+    "correct": ["A"],
+    "explanation": "Append blob otimiza escrita sequencial de logs. Blocos servem a objetos; páginas a discos; fila a mensagens.",
+    "source": "original",
+    "tags": ["append-blob", "logs", "sequencial"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-057",
+    "domain": "storage",
+    "subdomain": "blob-page",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VHDs de VM e arquivos de banco exigem escrita aleatória por páginas de 512 bytes. Qual tipo de blob sustenta isso?",
+    "options": [
+      { "letter": "A", "text": "Blob de páginas (page blob)" },
+      { "letter": "B", "text": "Blob de blocos" },
+      { "letter": "C", "text": "Blob de acréscimo" },
+      { "letter": "D", "text": "Tabela de páginas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Page blob permite escrita aleatória por página para VHDs. Blocos são imutáveis por upload; append é sequencial; tabela não é blob.",
+    "source": "original",
+    "tags": ["page-blob", "vhd", "aleatoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-058",
+    "domain": "storage",
+    "subdomain": "block-size-limits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Upload de arquivo de 200 GB precisa de paralelismo eficiente. Qual tamanho de bloco equilibra throughput e contagem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Blocos de 100 MB (limite 50k blocos por blob)"
+      },
+      { "letter": "B", "text": "Blocos de 1 KB" },
+      { "letter": "C", "text": "Bloco único de 200 GB" },
+      { "letter": "D", "text": "1 byte por bloco" }
+    ],
+    "correct": ["A"],
+    "explanation": "Blocos grandes (até 4000 MB em versões novas, 50k por blob) paralelizam bem. KB gera overhead; único estoura limite; 1 byte é absurdo.",
+    "source": "original",
+    "tags": ["block-blob", "blocos", "upload", "limites"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-059",
+    "domain": "storage",
+    "subdomain": "blob-index-tags",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Milhões de blobs precisam de busca por projeto e ano sem pastas. Como indexar por metadados consultáveis?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tags de índice de blob com consulta por filtro"
+      },
+      { "letter": "B", "text": "Pastas aninhadas por projeto/ano" },
+      { "letter": "C", "text": "Nomes de arquivo gigantes" },
+      { "letter": "D", "text": "Planilha externa de catálogo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Blob index tags permitem find por chave-valor sem hierarquia. Pastas limitam a uma dimensão; nomes gigantes quebram; planilha desatualiza.",
+    "source": "original",
+    "tags": ["blob-index", "tags", "busca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-060",
+    "domain": "storage",
+    "subdomain": "container-delete-retention",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres excluídos com milhares de blobs precisam de recuperação por 14 dias. O que retém contêineres apagados?",
+    "options": [
+      { "letter": "A", "text": "Exclusão reversível de contêiner" },
+      { "letter": "B", "text": "Soft delete só de blobs" },
+      { "letter": "C", "text": "Snapshot por blob" },
+      { "letter": "D", "text": "Lixeira do portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Container soft delete restaura contêiner e conteúdo. Blob soft delete não cobre o contêiner; snapshot por blob não escala; portal não tem lixeira.",
+    "source": "original",
+    "tags": ["container", "soft-delete", "restauracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-061",
+    "domain": "storage",
+    "subdomain": "cors-storage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "App JavaScript no navegador precisa ler blobs de outra origem sem proxy. O que liberar no Storage para CORS?",
+    "options": [
+      { "letter": "A", "text": "Regras CORS na conta com origens e métodos" },
+      { "letter": "B", "text": "SAS sem origem" },
+      { "letter": "C", "text": "Firewall liberando tudo" },
+      { "letter": "D", "text": "JSONP manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "CORS na conta autoriza origens/métodos do browser. SAS não controla origem; firewall aberto expõe; JSONP é legado inseguro.",
+    "source": "original",
+    "tags": ["cors", "navegador", "origens"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-062",
+    "domain": "storage",
+    "subdomain": "static-headers",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Arquivos do site estático precisam de cache longo no navegador, exceto o index.html sempre fresco. Como controlar cache por arquivo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cache-Control por blob (longo nos assets, no-cache no index)"
+      },
+      { "letter": "B", "text": "Mesmo cache para tudo" },
+      { "letter": "C", "text": "Sem cache em nada" },
+      { "letter": "D", "text": "Renomear arquivos a cada deploy manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cache-Control por blob diferencia assets imutáveis do index dinâmico. Uniforme quebra atualização ou performance; sem cache atrasa; renomear manual erra.",
+    "source": "original",
+    "tags": ["static-website", "cache-control", "headers"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-063",
+    "domain": "storage",
+    "subdomain": "blob-lease",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dois workers disputam o mesmo blob de controle e apenas um pode escrever por vez. Como garantir exclusão mútua distribuída?",
+    "options": [
+      { "letter": "A", "text": "Lease (concessão) exclusiva no blob" },
+      { "letter": "B", "text": "Escrita simultânea sem controle" },
+      { "letter": "C", "text": "Arquivo local de lock" },
+      { "letter": "D", "text": "E-mail de coordenação" }
+    ],
+    "correct": ["A"],
+    "explanation": "Blob lease dá lock distribuído com renovação e quebra. Simultâneo corrompe; local não coordena; e-mail não sincroniza.",
+    "source": "original",
+    "tags": ["lease", "lock", "concorrencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-064",
+    "domain": "storage",
+    "subdomain": "queue-visibility",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mensagem processada por 5 minutos não pode ser pega por outro worker nesse intervalo. Qual parâmetro oculta durante o processamento?",
+    "options": [
+      { "letter": "A", "text": "Visibility timeout de 5 minutos" },
+      { "letter": "B", "text": "TTL zero na mensagem" },
+      { "letter": "C", "text": "Exclusão imediata ao ler" },
+      { "letter": "D", "text": "Fila sem configuração" }
+    ],
+    "correct": ["A"],
+    "explanation": "Visibility timeout esconde durante o processamento e reaparece em falha. TTL zero apaga; excluir ao ler perde em crash; sem config duplica.",
+    "source": "original",
+    "tags": ["queues", "visibility-timeout", "processamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-065",
+    "domain": "storage",
+    "subdomain": "queue-ttl",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mensagens não processadas em 7 dias devem expirar automaticamente sem worker de limpeza. O que define a vida útil?",
+    "options": [
+      { "letter": "A", "text": "TTL da mensagem em 7 dias" },
+      { "letter": "B", "text": "Fila sem expiração" },
+      { "letter": "C", "text": "Deleção manual semanal" },
+      { "letter": "D", "text": "Aumento do visibility" }
+    ],
+    "correct": ["A"],
+    "explanation": "TTL da mensagem define vida útil e o serviço expira sozinho sem worker de limpeza. Sem expiração a fila acumula; deleção manual atrasa; visibility não expira.",
+    "source": "original",
+    "tags": ["queues", "ttl", "expiracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-066",
+    "domain": "storage",
+    "subdomain": "table-transactions",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Lote de entidades precisa de atomicidade (tudo ou nada) na mesma partição. Qual operação transaciona o batch?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Transação em lote (batch) na mesma PartitionKey"
+      },
+      { "letter": "B", "text": "Escritas avulsas sem transação" },
+      { "letter": "C", "text": "Transação entre partições distintas" },
+      { "letter": "D", "text": "SQL com BEGIN TRAN" }
+    ],
+    "correct": ["A"],
+    "explanation": "Batch transacional exige mesma partição e limite de 100 entidades/4MB. Avulsas não atomicizam; cross-partition não suporta; SQL não é Table.",
+    "source": "original",
+    "tags": ["tables", "transacao", "batch", "atomicidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-067",
+    "domain": "storage",
+    "subdomain": "table-secondary-index",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Consultas por e-mail do usuário são lentas porque a chave é ID numérico. Como indexar acesso por e-mail sem scan?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tabela secundária com PartitionKey igual ao e-mail"
+      },
+      { "letter": "B", "text": "Scan completo com filtro" },
+      { "letter": "C", "text": "Um registro por tabela" },
+      { "letter": "D", "text": "Exportar para CSV e grep" }
+    ],
+    "correct": ["A"],
+    "explanation": "Índice secundário (tabela espelho) resolve por e-mail em O(1). Scan é O(n); uma por tabela explode; CSV não consulta.",
+    "source": "original",
+    "tags": ["tables", "indice-secundario", "email"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-068",
+    "domain": "storage",
+    "subdomain": "files-snapshot-policy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Snapshots de Files devem ocorrer a cada 6h com retenção de 30 dias e limpeza automática. O que agenda e expira?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de snapshot com agendamento e retenção"
+      },
+      { "letter": "B", "text": "Snapshot manual quando lembrar" },
+      { "letter": "C", "text": "Cópia para blob sem agenda" },
+      { "letter": "D", "text": "Backup sem snapshots" }
+    ],
+    "correct": ["A"],
+    "explanation": "Política agenda e expira sozinha. Manual falha; cópia sem agenda atrasa; backup sem snapshot perde granularidade.",
+    "source": "original",
+    "tags": ["files", "snapshot", "politica", "retencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-069",
+    "domain": "storage",
+    "subdomain": "files-identity-entra",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "SMB precisa autenticar identidades Entra ID nativas sem AD DS. Qual integração permite Kerberos com identidades da nuvem?",
+    "options": [
+      { "letter": "A", "text": "Autenticação Kerberos do Entra ID no Files" },
+      { "letter": "B", "text": "Chave compartilhada para todos" },
+      { "letter": "C", "text": "AD DS obrigatório sempre" },
+      { "letter": "D", "text": "Acesso anônimo com SAS" }
+    ],
+    "correct": ["A"],
+    "explanation": "Kerberos do Entra autentica identidades híbridas/nuvem sem AD DS. Chave única não identifica; AD nem sempre existe; anônimo expõe.",
+    "source": "original",
+    "tags": ["files", "kerberos", "entra-id", "smb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-070",
+    "domain": "storage",
+    "subdomain": "blob-nfs31",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cargas Linux precisam de POSIX sobre blob barato com hierarquia. Qual protocolo expõe o blob como filesystem?",
+    "options": [
+      { "letter": "A", "text": "NFS 3.0 no Blob Storage" },
+      { "letter": "B", "text": "SMB com AD obrigatório" },
+      { "letter": "C", "text": "REST sem montagem" },
+      { "letter": "D", "text": "FTP legado" }
+    ],
+    "correct": ["A"],
+    "explanation": "NFS 3.0 no Blob monta o storage como filesystem POSIX para Linux. SMB exige Windows/AD; REST não monta volume; FTP é protocolo legado.",
+    "source": "original",
+    "tags": ["blob", "nfs", "posix", "linux"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-071",
+    "domain": "storage",
+    "subdomain": "hns-acl-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pastas do Data Lake precisam de leitura para analistas e escrita só para engenharia, herdadas por padrão. Quais dois níveis de ACL usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "ACL de acesso para permissões efetivas" },
+      { "letter": "B", "text": "ACL padrão (default) herdada pelos filhos" },
+      { "letter": "C", "text": "SAS única para todos" },
+      { "letter": "D", "text": "Container público" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "ACL de acesso define permissões efetivas e a default propaga aos filhos por herança. SAS única mistura acessos; container público expõe dados.",
+    "source": "original",
+    "tags": ["datalake", "acl", "heranca", "posix"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-072",
+    "domain": "storage",
+    "subdomain": "sas-ip-protocol-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "SAS para parceiro deve valer só do IP dele e só via HTTPS. Quais duas restrições aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Restrição por IP de origem" },
+      { "letter": "B", "text": "Protocolo HTTPS obrigatório" },
+      { "letter": "C", "text": "Qualquer IP com HTTP" },
+      { "letter": "D", "text": "Sem expiração" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Restrição por IP de origem mais HTTPS obrigatório vinculam origem e canal criptografado. Qualquer IP com HTTP expõe; SAS sem expiração eterniza o acesso.",
+    "source": "original",
+    "tags": ["sas", "ip", "https", "restricao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-073",
+    "domain": "storage",
+    "subdomain": "stored-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Centenas de SAS emitidas precisam de revogação central sem reemitir. Quais dois elementos da política armazenada permitem isso? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Política de acesso armazenada referenciada" },
+      { "letter": "B", "text": "Revogação alterando/excluindo a política" },
+      { "letter": "C", "text": "SAS ad-hoc sem política" },
+      { "letter": "D", "text": "Chave compartilhada por e-mail" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Política de acesso armazenada centraliza parâmetros e permite revogar centenas de SAS de uma vez. SAS ad-hoc exige reemitir uma por uma; chave por e-mail vaza.",
+    "source": "original",
+    "tags": ["sas", "stored-policy", "revogacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-074",
+    "domain": "storage",
+    "subdomain": "user-delegation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "SAS sem armazenar chave da conta, vinculada à identidade Entra com expiração curta. Quais dois elementos compõem user delegation? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Chave de delegação do usuário via Entra" },
+      { "letter": "B", "text": "SAS assinada com a chave delegada" },
+      { "letter": "C", "text": "Chave da conta embutida" },
+      { "letter": "D", "text": "Acesso anônimo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "User delegation key via Entra assina SAS sem expor chave da conta. Embutir vaza; anônimo não autentica.",
+    "source": "original",
+    "tags": ["user-delegation", "sas", "entra-id"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-075",
+    "domain": "storage",
+    "subdomain": "firewall-excecao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que marcar 'permitir serviços Microsoft confiáveis' no firewall mantém a conta acessível a qualquer serviço do Azure. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, qualquer serviço Azure acessa" },
+      {
+        "letter": "B",
+        "text": "Não, só serviços da lista de confiáveis com identidade"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A exceção vale para serviços confiáveis autenticados (ex.: Backup, Monitor), não para todo Azure. Assumir abertura geral é falha grave.",
+    "source": "original",
+    "tags": ["firewall", "excecao", "confiaveis"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

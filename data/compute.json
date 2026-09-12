@@ -3392,5 +3392,633 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-co-151",
+    "domain": "compute",
+    "subdomain": "vm-images-sig",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Imagens precisam de replicação automática para 2 regiões com 3 réplicas cada para deploy rápido. O que configura replicação e contagem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Galeria com replicação regional e replica count"
+      },
+      { "letter": "B", "text": "Imagem isolada por região" },
+      { "letter": "C", "text": "VHD avulso por região" },
+      { "letter": "D", "text": "Snapshot manual por zona" }
+    ],
+    "correct": ["A"],
+    "explanation": "Galeria replica versões com contagem configurável por região. Isolada não replica; VHD avulso não versiona; snapshot manual não distribui.",
+    "source": "original",
+    "tags": ["galeria", "replicacao", "regioes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-152",
+    "domain": "compute",
+    "subdomain": "vm-disk-caching",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Banco de dados em VM precisa de cache de leitura no SO sem risco de perda de escrita. Qual combinação de cache por disco usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ReadOnly no SO + None/ReadOnly nos dados conforme carga"
+      },
+      { "letter": "B", "text": "ReadWrite em todos os discos" },
+      { "letter": "C", "text": "Sem cache em nenhum disco" },
+      { "letter": "D", "text": "Cache de escrita no temporário" }
+    ],
+    "correct": ["A"],
+    "explanation": "ReadOnly no SO acelera boot e dados sem escrita arriscada (None ou RO). ReadWrite em dados arrisca perda; sem cache perde performance; temp não persiste.",
+    "source": "original",
+    "tags": ["discos", "cache", "readonly", "banco"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-153",
+    "domain": "compute",
+    "subdomain": "vm-write-accelerator",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Log transacional exige latência de escrita mínima em disco Premium. Qual acelerador reduz latência de escrita?",
+    "options": [
+      { "letter": "A", "text": "Write Accelerator em discos Premium M-series" },
+      { "letter": "B", "text": "Cache de leitura no log" },
+      { "letter": "C", "text": "Disco Standard com burst" },
+      { "letter": "D", "text": "Blob com tier Hot" }
+    ],
+    "correct": ["A"],
+    "explanation": "Write Accelerator zera latência de escrita em Premium suportado. Leitura não ajuda escrita; Standard não alcança; blob não é disco de VM.",
+    "source": "original",
+    "tags": ["write-accelerator", "latencia", "log"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-154",
+    "domain": "compute",
+    "subdomain": "vm-disk-striping",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Throughput além do limite de um disco é necessário para data warehouse. Como combinar discos para somar IOPS?",
+    "options": [
+      { "letter": "A", "text": "Striping (RAID 0) via Storage Spaces no SO" },
+      { "letter": "B", "text": "Um disco maior apenas" },
+      { "letter": "C", "text": "Snapshot dos discos" },
+      { "letter": "D", "text": "Backup mais frequente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Striping soma throughput dos discos no SO. Disco maior tem teto; snapshot não soma; backup não acelera.",
+    "source": "original",
+    "tags": ["striping", "raid0", "throughput"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-155",
+    "domain": "compute",
+    "subdomain": "app-service-scale-unit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Múltiplos apps precisam escalar juntos como unidade com mesmo plano sem custo por app. Como agrupar o dimensionamento?",
+    "options": [
+      { "letter": "A", "text": "Mesmo plano de serviço compartilhado" },
+      { "letter": "B", "text": "Um plano por app mínimo" },
+      { "letter": "C", "text": "Plano Gratuito por app" },
+      { "letter": "D", "text": "ASE por aplicativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Plano compartilhado escala a unidade e dilui custo. Um por app multiplica; Gratuito não escala; ASE por app é caríssimo.",
+    "source": "original",
+    "tags": ["app-service", "plano", "compartilhado", "escala"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-156",
+    "domain": "compute",
+    "subdomain": "functions-app-settings",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Strings de conexão distintas por slot (dev/teste/prod) não podem trocar no swap. Como fixar setting ao slot?",
+    "options": [
+      { "letter": "A", "text": "Marcar como slot setting (sticky)" },
+      { "letter": "B", "text": "Mesma string em todos" },
+      { "letter": "C", "text": "Hardcode no código" },
+      { "letter": "D", "text": "Variável local por dev" }
+    ],
+    "correct": ["A"],
+    "explanation": "Marcar como slot setting (sticky) fixa a string ao slot e impede a troca no swap. Mesma string em todos mistura ambientes; hardcode no código vaza segredo; variável local não publica.",
+    "source": "original",
+    "tags": ["functions", "slot-settings", "sticky"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-157",
+    "domain": "compute",
+    "subdomain": "aci-vnet-deploy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres ACI precisam de IPs privados na VNet corporativa com NSG. Como implantar o grupo na rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Perfil de rede com delegação de sub-rede ao ACI"
+      },
+      { "letter": "B", "text": "IP público com NSG aberta" },
+      { "letter": "C", "text": "Peering do ACI pronto" },
+      { "letter": "D", "text": "VPN por contêiner" }
+    ],
+    "correct": ["A"],
+    "explanation": "Delegação injeta o grupo na sub-rede com NSG. Público expõe; peering não se aplica; VPN por contêiner não existe.",
+    "source": "original",
+    "tags": ["aci", "vnet", "delegacao", "privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-158",
+    "domain": "compute",
+    "subdomain": "container-apps-ingress",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "API interna só deve ser alcançada por outros apps do ambiente, sem ingresso externo. Qual visibilidade do ingress usar?",
+    "options": [
+      { "letter": "A", "text": "Ingress interno limitado ao ambiente" },
+      { "letter": "B", "text": "Ingress externo público" },
+      { "letter": "C", "text": "Sem ingress com IP público" },
+      { "letter": "D", "text": "Load Balancer externo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Ingress internal expõe só dentro do ambiente. Externo publica; sem ingress não há rota; LB externo expõe.",
+    "source": "original",
+    "tags": ["container-apps", "ingress", "interno"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-159",
+    "domain": "compute",
+    "subdomain": "batch-job-prep",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada nó do pool precisa baixar dataset e instalar runtime antes das tarefas. O que executa preparação por nó?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tarefa de preparação do job (job preparation)"
+      },
+      { "letter": "B", "text": "Tarefa comum sem preparação" },
+      { "letter": "C", "text": "Login manual por nó" },
+      { "letter": "D", "text": "Imagem sem dados" }
+    ],
+    "correct": ["A"],
+    "explanation": "Job prep roda em cada nó antes das tarefas. Sem prep falta dado; manual não escala; sem dados quebra.",
+    "source": "original",
+    "tags": ["batch", "job-preparation", "dataset"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-160",
+    "domain": "compute",
+    "subdomain": "batch-release-task",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logs e resultados por nó precisam ser enviados ao Storage ao fim do job, mesmo com falha. O que executa a liberação?",
+    "options": [
+      { "letter": "A", "text": "Tarefa de liberação (job release) do job" },
+      { "letter": "B", "text": "Exclusão do pool sem coletar" },
+      { "letter": "C", "text": "Coleta manual por nó" },
+      { "letter": "D", "text": "Ignorar os resultados" }
+    ],
+    "correct": ["A"],
+    "explanation": "Tarefa de liberação (job release) roda ao fim do job em cada nó coletando logs e resultados. Excluir o pool sem coletar perde tudo; coleta manual não escala; ignorar desperdiça.",
+    "source": "original",
+    "tags": ["batch", "job-release", "coleta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-161",
+    "domain": "compute",
+    "subdomain": "vm-boot-time",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Boot de 8 minutos atrasa autoscale e SLA. Quais duas otimizações reduzem o tempo de provisionamento? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Imagem gerenciada otimizada sem generalização excessiva"
+      },
+      { "letter": "B", "text": "SO efêmero sem cópia remota" },
+      { "letter": "C", "text": "Imagem gigante monolítica" },
+      { "letter": "D", "text": "Custom Script de 30 minutos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Imagem gerenciada enxuta e SO efêmero local eliminam cópia remota e setup longo. Imagem monolítica atrasa o boot; custom script de 30 minutos piora ainda mais.",
+    "source": "original",
+    "tags": ["boot", "provisionamento", "otimizacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-162",
+    "domain": "compute",
+    "subdomain": "vm-agent-health-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Extensões falham silenciosamente sem telemetria do agente. Quais dois sinais monitorar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Status do agente convidado (provisionamento)" },
+      { "letter": "B", "text": "Status por extensão com substatus" },
+      { "letter": "C", "text": "Cor do portal" },
+      { "letter": "D", "text": "Tamanho do disco" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Status do agente convidado e substatus por extensão mostram saúde e erros detalhados. Cor do portal e tamanho de disco nada dizem sobre extensões.",
+    "source": "original",
+    "tags": ["agente", "extensao", "status"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-163",
+    "domain": "compute",
+    "subdomain": "extension-seq-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Duas extensões conflitam instalando juntas e corrompem config. Como ordenar a instalação? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Sequenciamento com dependsOn entre extensões" },
+      { "letter": "B", "text": "Provisionamento sequencial com espera" },
+      { "letter": "C", "text": "Instalação simultânea forçada" },
+      { "letter": "D", "text": "Remoção de ambas" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Dependência (dependsOn) ordena a instalação e a espera garante conclusão antes da próxima. Instalação simultânea forçada conflita e corrompe config; remover tudo perde a função.",
+    "source": "original",
+    "tags": ["extensao", "sequencia", "dependencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-164",
+    "domain": "compute",
+    "subdomain": "vmss-rolling-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Upgrade gradual com validação e reversão exige três parâmetros. Quais dois são essenciais? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Tamanho do lote (maxBatchInstancePercent)" },
+      { "letter": "B", "text": "Pausa e rollback em falha de saúde" },
+      { "letter": "C", "text": "Upgrade de tudo de uma vez" },
+      { "letter": "D", "text": "Sem monitoramento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Tamanho do lote limita o blast radius e a pausa/rollback em falha de saúde protege o restante. Atualizar tudo de uma vez derruba o serviço; sem monitoramento não há detecção.",
+    "source": "original",
+    "tags": ["vmss", "rolling", "lote", "rollback"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-165",
+    "domain": "compute",
+    "subdomain": "maxsurge-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Upgrade sem reduzir capacidade exige sobra temporária. Quais dois elementos do MaxSurge atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sobra (surge) acima da contagem durante upgrade"
+      },
+      { "letter": "B", "text": "Substituição gradual mantendo capacidade" },
+      { "letter": "C", "text": "Remoção prévia de metade" },
+      { "letter": "D", "text": "Parada total do serviço" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Sobra temporária (surge) acima da contagem permite substituir instâncias sem degradar capacidade. Remover metade antes reduz; parar o serviço zera disponibilidade.",
+    "source": "original",
+    "tags": ["vmss", "rolling", "lote", "rollback"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-166",
+    "domain": "compute",
+    "subdomain": "priority-mix-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Política Spot-first com fallback Regular em contenção exige dois comportamentos. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Tentar Spot primeiro pelo custo" },
+      { "letter": "B", "text": "Substituir por Regular em despejo" },
+      { "letter": "C", "text": "Travar só em Spot" },
+      { "letter": "D", "text": "Ignorar contenção" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Estratégia Spot-first economiza no excedente e o fallback para Regular garante capacidade no despejo. Travar só em Spot despeja tudo; ignorar contenção quebra o serviço.",
+    "source": "original",
+    "tags": ["spot", "fallback", "regular", "policy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-167",
+    "domain": "compute",
+    "subdomain": "allocation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Alocação entre zonas e fault domains com preço otimizado exige dois critérios. Quais combinar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Espalhamento zonal por resiliência" },
+      { "letter": "B", "text": "Preço Spot por economia" },
+      { "letter": "C", "text": "Tudo numa zona sem preço" },
+      { "letter": "D", "text": "Aleatório sem critério" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Espalhamento zonal protege de falha de datacenter e preço Spot otimiza custo. Tudo numa zona perde redundância; alocação aleatória não otimiza nada.",
+    "source": "original",
+    "tags": ["alocacao", "zonas", "preco", "spot"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-168",
+    "domain": "compute",
+    "subdomain": "recovery-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Recuperação de VM corrompida com dados intactos exige dois passos. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Anexar disco a VM de resgate" },
+      { "letter": "B", "text": "Reparo offline com chroot" },
+      { "letter": "C", "text": "Formatar o disco original" },
+      { "letter": "D", "text": "Excluir o backup" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Resgate anexa e chroot repara sem perder dados. Formatar apaga; excluir backup remove rede de segurança.",
+    "source": "original",
+    "tags": ["recuperacao", "resgate", "chroot"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-169",
+    "domain": "compute",
+    "subdomain": "serial-access-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Acesso serial de emergência exige habilitação e RBAC. Quais dois pré-requisitos configurar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Console serial habilitado na subscription" },
+      { "letter": "B", "text": "RBAC de operador serial na VM" },
+      { "letter": "C", "text": "RDP aberto à internet" },
+      { "letter": "D", "text": "Senha em branco" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Habilitação do console serial na subscription mais RBAC de operador na VM controlam o acesso de emergência. RDP aberto à internet expõe; senha em branco anula autenticação.",
+    "source": "original",
+    "tags": ["serial-console", "rbac", "emergencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-170",
+    "domain": "compute",
+    "subdomain": "boot-diag-managed-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Diagnóstico de boot sem gerenciar storage exige dois elementos gerenciados. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Boot diagnostics gerenciado pela plataforma" },
+      { "letter": "B", "text": "Conta gerenciada sem SAS" },
+      { "letter": "C", "text": "Storage próprio com chave" },
+      { "letter": "D", "text": "Sem diagnóstico" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Boot diagnostics gerenciado dispensa storage próprio usando conta da plataforma. Storage próprio exige gestão de chaves; sem diagnóstico não há console em falha.",
+    "source": "original",
+    "tags": ["boot-diagnostics", "gerenciado", "storage"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-171",
+    "domain": "compute",
+    "subdomain": "scale-set-id-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que todas as instâncias de um VMSS compartilham o mesmo ID de computador (SID/hostname). Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, instâncias são idênticas inclusive ID" },
+      { "letter": "B", "text": "Não, cada instância tem identidade única" }
+    ],
+    "correct": ["B"],
+    "explanation": "Sysprep/generalização garante SID/hostname únicos por instância. IDs iguais quebrariam domínio e Kerberos.",
+    "source": "original",
+    "tags": ["vmss", "identidade", "sysprep"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-172",
+    "domain": "compute",
+    "subdomain": "instance-name-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que nomes de instância do VMSS seguem padrão previsível com sufixo numérico sequencial. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, padrão com sufixo sequencial" },
+      { "letter": "B", "text": "Não, nomes são aleatórios" }
+    ],
+    "correct": ["A"],
+    "explanation": "Nomenclatura segue prefixo + base-36 sequencial (com overprovision pode saltar). Assumir aleatório quebra automação.",
+    "source": "original",
+    "tags": ["vmss", "nomenclatura", "instancia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-173",
+    "domain": "compute",
+    "subdomain": "single-placement-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que grupos de posicionamento único (single placement group) limitam o VMSS a 100 instâncias do mesmo SKU. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, limite de 100 por grupo único" },
+      { "letter": "B", "text": "Não, escala ilimitada em qualquer modo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Single placement group limita a ~100 VMs do mesmo tipo; múltiplos grupos escalam a milhares. Ignorar o limite trava escala.",
+    "source": "original",
+    "tags": ["vmss", "placement-group", "limite", "escala"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-174",
+    "domain": "compute",
+    "subdomain": "orchestration-mode-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o modo de orquestração do VMSS pode ser alterado livremente após a criação sem recriar. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, alterna a qualquer momento" },
+      { "letter": "B", "text": "Não, exige recriação do conjunto" }
+    ],
+    "correct": ["B"],
+    "explanation": "Modo Uniform/Flexible é definido na criação; mudança exige novo conjunto. Assumir alternância quebra planejamento.",
+    "source": "original",
+    "tags": ["vmss", "orquestracao", "modo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-175",
+    "domain": "compute",
+    "subdomain": "fault-domain-count-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que região sem zonas suporta no máximo 2 fault domains em availability set. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, máximo 2 sem zonas" },
+      { "letter": "B", "text": "Não, são 3 fault domains por padrão" }
+    ],
+    "correct": ["A"],
+    "explanation": "Região sem zonas suporta no máximo 2 fault domains por availability set; com zonas, 3. Assumir 3 FDs em toda região quebra a distribuição de racks.",
+    "source": "original",
+    "tags": ["fault-domain", "availability-set", "regiao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-176",
+    "domain": "compute",
+    "subdomain": "update-domain-count-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que availability set permite até 20 update domains configuráveis. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, até 20 UDs" },
+      { "letter": "B", "text": "Não, o máximo é 5 UDs" }
+    ],
+    "correct": ["A"],
+    "explanation": "O limite é 20 update domains por availability set. Assumir 5 (padrão) subestima a granularidade possível.",
+    "source": "original",
+    "tags": ["update-domain", "availability-set", "limite"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-177",
+    "domain": "compute",
+    "subdomain": "managed-disk-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que discos gerenciados dispensam conta de armazenamento do cliente para VHDs. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, a plataforma gerencia o storage" },
+      { "letter": "B", "text": "Não, exigem conta do cliente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Discos gerenciados abstraem a conta de armazenamento; a plataforma Microsoft gerencia o storage. Exigir conta do cliente é o modelo legado não gerenciado.",
+    "source": "original",
+    "tags": ["managed-disk", "storage", "abstracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-178",
+    "domain": "compute",
+    "subdomain": "unmanaged-retired-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que discos não gerenciados continuam recomendados para novas VMs por simplicidade. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, ainda recomendados" },
+      { "letter": "B", "text": "Não, preteridos em favor de gerenciados" }
+    ],
+    "correct": ["B"],
+    "explanation": "Discos não gerenciados foram preteridos; novas VMs devem usar gerenciados. Recomendar unmanaged para deploy novo acumula dívida técnica e perde SLA.",
+    "source": "original",
+    "tags": ["unmanaged", "preterido", "gerenciados"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-179",
+    "domain": "compute",
+    "subdomain": "temp-disk-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um dev afirma que o disco temporário (D:) da VM é seguro para pagefile e dados descartáveis, mas nunca para dados persistentes. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, temp é efêmero por definição" },
+      { "letter": "B", "text": "Não, temp persiste como gerenciado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Disco temp é local e efêmero; ideal para pagefile/swap, fatal para dados. Tratar como persistente perde dados.",
+    "source": "original",
+    "tags": ["temp-disk", "efemero", "pagefile"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-180",
+    "domain": "compute",
+    "subdomain": "os-disk-swap-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um admin afirma que é possível trocar o disco de SO de uma VM por outro disco gerenciado sem recriar a máquina. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, via swap de disco de SO" },
+      { "letter": "B", "text": "Não, exige recriação total" }
+    ],
+    "correct": ["A"],
+    "explanation": "Troca de disco de SO (swap) substitui o disco com a VM parada preservando NICs e dados. Recriar a máquina do zero é trabalho desnecessário.",
+    "source": "original",
+    "tags": ["os-disk", "swap", "troca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
