@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "az104-ig-001",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-id-usuarios",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa criar uma conta de usuário para um novo funcionário no Microsoft Entra ID. Qual tipo de conta permite autenticação com políticas de acesso condicional da organização?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conta de usuário membro (Member) no tenant da organização"
+      },
+      {
+        "letter": "B",
+        "text": "Conta Microsoft pessoal (MSA) sem convite de convidado"
+      },
+      {
+        "letter": "C",
+        "text": "Conta local do Windows no computador do funcionário"
+      },
+      {
+        "letter": "D",
+        "text": "Conta de serviço gerenciada pelo sistema operacional"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Usuários membros do tenant estão sujeitos a políticas de acesso condicional e MFA. MSA sem convite não pertence ao tenant; conta local do Windows e conta de serviço do SO ficam fora do Entra ID e não recebem as políticas.",
+    "source": "original",
+    "tags": ["entra-id", "usuarios"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-002",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-id-grupos",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa conceder acesso a um aplicativo para todos os usuários do departamento financeiro automaticamente, incluindo futuros contratados. Qual recurso do Microsoft Entra ID resolve isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Grupo de segurança dinâmico com regra baseada no atributo department"
+      },
+      {
+        "letter": "B",
+        "text": "Grupo de segurança atribuído com adição manual de membros"
+      },
+      {
+        "letter": "C",
+        "text": "Grupo do Microsoft 365 usado apenas para e-mail"
+      },
+      {
+        "letter": "D",
+        "text": "Unidade administrativa sem regras de associação"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Grupos dinâmicos avaliam regras (ex.: department igual a Finance) e adicionam/removem membros sozinhos. Grupo atribuído exige ação manual; grupo Microsoft 365 serve a colaboração; unidade administrativa organiza, não associa por regra.",
+    "source": "original",
+    "tags": ["entra-id", "grupos-dinamicos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-003",
+    "domain": "identidade-governanca",
+    "subdomain": "rbac",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um usuário precisa apenas visualizar máquinas virtuais e redes virtuais em um grupo de recursos, sem poder criar ou excluir nada. Qual função RBAC interna (built-in) concede exatamente esse acesso?",
+    "options": [
+      { "letter": "A", "text": "Leitor (Reader)" },
+      { "letter": "B", "text": "Colaborador (Contributor)" },
+      { "letter": "C", "text": "Proprietário (Owner)" },
+      {
+        "letter": "D",
+        "text": "Administrador de Acesso do Usuário (User Access Administrator)"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Leitor permite visualizar todos os recursos sem alterar nada. Colaborador cria e gerencia recursos; Proprietário ainda gerencia acesso; Administrador de Acesso gerencia atribuições de função, não é leitura simples.",
+    "source": "original",
+    "tags": ["rbac", "funcoes-built-in"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-004",
+    "domain": "identidade-governanca",
+    "subdomain": "mfa",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Sua empresa exige uma segunda verificação além da senha para todos os administradores. Qual recurso do Microsoft Entra ID implementa essa exigência?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticação multifator (MFA) do Microsoft Entra"
+      },
+      { "letter": "B", "text": "Logon único (SSO) com senha sincronizada" },
+      {
+        "letter": "C",
+        "text": "Redefinição de senha de autoatendimento (SSPR)"
+      },
+      {
+        "letter": "D",
+        "text": "Sincronização de hash de senha do Connect Sync"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "MFA exige dois ou mais fatores (senha + app/telefone). SSO facilita o login mas mantém um fator; SSPR recupera senhas; sincronização de hash replica credencial, não adiciona fator.",
+    "source": "original",
+    "tags": ["mfa", "seguranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-005",
+    "domain": "identidade-governanca",
+    "subdomain": "policy",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa impedir a criação de máquinas virtuais da série D em toda a assinatura, exibindo erro no momento da implantação. Qual serviço do Azure aplica essa regra?",
+    "options": [
+      { "letter": "A", "text": "Azure Policy com efeito Negar (Deny)" },
+      {
+        "letter": "B",
+        "text": "Bloqueio (Lock) de Exclusão no grupo de recursos"
+      },
+      { "letter": "C", "text": "Azure Blueprints sem atribuição ativa" },
+      { "letter": "D", "text": "Etiqueta (Tag) obrigatória de ambiente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Azure Policy avalia cada implantação e nega o que viola a definição. Lock de exclusão impede apagar, não criar; Blueprint sem atribuição não age; tag organiza, não bloqueia SKU.",
+    "source": "original",
+    "tags": ["policy", "governanca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-006",
+    "domain": "identidade-governanca",
+    "subdomain": "assinaturas-grupos-gerenciamento",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Sua organização tem 20 assinaturas e precisa aplicar uma mesma política de conformidade em todas elas com uma única atribuição. Onde essa atribuição deve ser feita?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "No grupo de gerenciamento que contém as 20 assinaturas"
+      },
+      {
+        "letter": "B",
+        "text": "Em cada uma das 20 assinaturas individualmente"
+      },
+      {
+        "letter": "C",
+        "text": "No grupo de recursos de cada carga de trabalho"
+      },
+      {
+        "letter": "D",
+        "text": "No tenant do Microsoft 365 sem escopo definido"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Atribuições em grupo de gerenciamento herdam para todas as assinaturas filhas de uma vez. Atribuir por assinatura multiplica esforço; grupo de recursos é escopo baixo demais; tenant sem escopo não recebe atribuição de Policy.",
+    "source": "original",
+    "tags": ["management-groups", "policy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-007",
+    "domain": "identidade-governanca",
+    "subdomain": "rbac",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um desenvolvedor precisa implantar recursos em um único grupo de recursos, mas não deve enxergar nem alterar os demais grupos da assinatura. Qual escopo de atribuição de função atende ao princípio do menor privilégio?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Atribuir Colaborador no escopo do grupo de recursos específico"
+      },
+      { "letter": "B", "text": "Atribuir Colaborador no escopo da assinatura" },
+      {
+        "letter": "C",
+        "text": "Atribuir Proprietário no grupo de gerenciamento raiz"
+      },
+      {
+        "letter": "D",
+        "text": "Atribuir Leitor na assinatura e Colaborador no tenant"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Atribuir no escopo do grupo de recursos limita o acesso exatamente onde é preciso. Escopo de assinatura expõe demais; grupo de gerenciamento raiz é o escopo mais amplo; Leitor na assinatura não permite implantar.",
+    "source": "original",
+    "tags": ["rbac", "escopo", "menor-privilegio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-008",
+    "domain": "identidade-governanca",
+    "subdomain": "sspr",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Os usuários esquecem a senha com frequência e o help desk está sobrecarregado. Qual recurso permite que eles redefinam a própria senha com segurança?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Redefinição de senha de autoatendimento (SSPR) do Microsoft Entra"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio inteligente (Smart Lockout) do Entra ID"
+      },
+      {
+        "letter": "C",
+        "text": "Proteção de senha do Entra para Active Directory"
+      },
+      { "letter": "D", "text": "Revisão de acesso (Access Review) periódica" }
+    ],
+    "correct": ["A"],
+    "explanation": "SSPR deixa o usuário redefinir a senha após verificação (MFA/perguntas). Smart Lockout bloqueia ataques de força bruta; proteção de senha veta senhas fracas; revisão de acesso recertifica acessos, não redefine senha.",
+    "source": "original",
+    "tags": ["sspr", "senhas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-009",
+    "domain": "identidade-governanca",
+    "subdomain": "locks",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um grupo de recursos de produção não pode ser excluído nem ter recursos apagados por engano, mas atualizações de configuração continuam permitidas. Qual bloqueio atende a esse requisito?",
+    "options": [
+      { "letter": "A", "text": "Bloqueio CanNotDelete no grupo de recursos" },
+      { "letter": "B", "text": "Bloqueio ReadOnly no grupo de recursos" },
+      { "letter": "C", "text": "Política de Negação em todo o tenant" },
+      {
+        "letter": "D",
+        "text": "Atribuição de função Leitor para todos os usuários"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "CanNotDelete impede exclusões mas permite leituras e atualizações. ReadOnly bloquearia também as atualizações; política de negação filtra tipos de recurso, não protege contra exclusão; Leitor não impede que outros excluam.",
+    "source": "original",
+    "tags": ["locks", "producao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-010",
+    "domain": "identidade-governanca",
+    "subdomain": "identidades-externas",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um parceiro precisa acessar um aplicativo da sua empresa por 30 dias usando a própria conta corporativa dele. Qual tipo de conta você deve provisionar no seu tenant?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Usuário convidado (Guest) via colaboração B2B"
+      },
+      { "letter": "B", "text": "Usuário membro com licença permanente" },
+      { "letter": "C", "text": "Conta de dispositivo ingressado no Entra ID" },
+      { "letter": "D", "text": "Entidade de serviço com segredo de cliente" }
+    ],
+    "correct": ["A"],
+    "explanation": "B2B cria conta Guest federada à identidade do parceiro, ideal para acesso temporário. Membro permanente é excesso de privilégio e custo; conta de dispositivo não autentica pessoa; entidade de serviço é para apps, não pessoas.",
+    "source": "original",
+    "tags": ["b2b", "convidados"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-011",
+    "domain": "identidade-governanca",
+    "subdomain": "conditional-access",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Você precisa exigir MFA apenas quando usuários acessarem o portal do Azure de redes fora do escritório, mantendo o acesso interno só com senha. Quais elementos de uma política de acesso condicional configuram isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Condição de local com redes confiáveis excluídas + controle de concessão exigindo MFA"
+      },
+      {
+        "letter": "B",
+        "text": "Condição de aplicativo cliente + concessão de sessão persistente"
+      },
+      {
+        "letter": "C",
+        "text": "Condição de risco de login + concessão de conformidade de dispositivo"
+      },
+      {
+        "letter": "D",
+        "text": "Condição de plataforma de dispositivo + concessão de aplicativo aprovado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Local com exceção das redes confiáveis isola o acesso externo, e a concessão MFA impõe o segundo fator só ali. As demais combinam sinais errados: cliente, risco e plataforma não expressam origem de rede versus concessão.",
+    "source": "original",
+    "tags": ["conditional-access", "mfa", "locations"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-012",
+    "domain": "identidade-governanca",
+    "subdomain": "pim",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Administradores mantêm função de Proprietário permanente na assinatura de produção, violando o just-in-time. Qual recurso elimina o acesso permanente mantendo a capacidade de elevação sob aprovação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Privileged Identity Management (PIM) com ativação qualificada e aprovação"
+      },
+      {
+        "letter": "B",
+        "text": "Atribuição direta permanente com revisão anual"
+      },
+      {
+        "letter": "C",
+        "text": "Grupo atribuído estático com Proprietário vitalício"
+      },
+      {
+        "letter": "D",
+        "text": "Política de bloqueio de recursos na assinatura"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "PIM torna a função qualificada: ativação temporária, com MFA, justificativa e aprovação. Atribuição permanente mantém o risco; grupo estático não impõe tempo; bloqueio protege recursos, não gerencia privilégio.",
+    "source": "original",
+    "tags": ["pim", "just-in-time"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-013",
+    "domain": "identidade-governanca",
+    "subdomain": "rbac-custom",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Nenhuma função interna atende: um operador precisa reiniciar VMs e ler discos, mas não pode criar VMs nem gerenciar rede. Qual abordagem cria exatamente esse conjunto de permissões?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Função personalizada com Actions de restart/leitura e sem permissões de escrita em rede"
+      },
+      {
+        "letter": "B",
+        "text": "Colaborador de Máquina Virtual aplicado na assinatura"
+      },
+      {
+        "letter": "C",
+        "text": "Leitor + Colaborador de Rede combinados no grupo de recursos"
+      },
+      {
+        "letter": "D",
+        "text": "Proprietário com condição de horário comercial"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Função personalizada combina só as Actions necessárias (restart, leitura) e usa NotActions para excluir o resto. Colaborador de VM permite criar; Leitor+Rede não reinicia nem cobre discos; Proprietário com condição continua amplo demais.",
+    "source": "original",
+    "tags": ["rbac", "custom-roles"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-014",
+    "domain": "identidade-governanca",
+    "subdomain": "identity-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logins de um país atípico para vários usuários foram detectados e você quer bloquear automaticamente acessos de alto risco de login. Qual política do Identity Protection aplica esse bloqueio?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de risco de login (sign-in risk) com ação Bloquear acesso"
+      },
+      {
+        "letter": "B",
+        "text": "Política de risco de usuário com redefinição de senha segura"
+      },
+      {
+        "letter": "C",
+        "text": "Política de acesso condicional por conformidade de dispositivo"
+      },
+      { "letter": "D", "text": "Política de expiração de senha a cada 30 dias" }
+    ],
+    "correct": ["A"],
+    "explanation": "Risco de login avalia cada tentativa (viagem impossível, IP anônimo) e bloqueia em tempo real. Risco de usuário trata conta comprometida com troca de senha; conformidade de dispositivo não detecta anomalia geográfica; expiração periódica não reage ao evento.",
+    "source": "original",
+    "tags": ["identity-protection", "risco-login"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-015",
+    "domain": "identidade-governanca",
+    "subdomain": "app-registrations",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um aplicativo interno precisa ler e-mails dos usuários via Microsoft Graph com consentimento de cada usuário. Qual tipo de permissão e configuração de entidade representam esse acesso delegado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Permissão delegada Mail.Read na entidade de serviço do aplicativo"
+      },
+      {
+        "letter": "B",
+        "text": "Permissão de aplicativo Mail.ReadWrite sem usuário conectado"
+      },
+      { "letter": "C", "text": "Função RBAC Leitor na assinatura do tenant" },
+      {
+        "letter": "D",
+        "text": "Chave de acesso de conta de armazenamento do aplicativo"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Permissão delegada age em nome do usuário conectado, com consentimento individual. Permissão de aplicativo age sem usuário (daemon); RBAC autoriza plano de gerenciamento do Azure, não Graph; chave de storage não autoriza Graph.",
+    "source": "original",
+    "tags": ["app-registration", "graph", "permissoes-delegadas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-016",
+    "domain": "identidade-governanca",
+    "subdomain": "managed-identity",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma VM precisa ler segredos do Key Vault sem armazenar nenhuma credencial no código ou na configuração. Qual identidade elimina o gerenciamento de segredos nesse cenário?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identidade gerenciada atribuída pelo sistema na VM"
+      },
+      {
+        "letter": "B",
+        "text": "Entidade de serviço com segredo de cliente no Key Vault"
+      },
+      {
+        "letter": "C",
+        "text": "Conta de usuário com MFA executando o serviço"
+      },
+      { "letter": "D", "text": "Chave SAS com validade de 1 ano no código" }
+    ],
+    "correct": ["A"],
+    "explanation": "Identidade gerenciada do sistema provisiona credencial automática gerenciada pelo Azure, sem segredo para guardar. Entidade de serviço exige guardar segredo; conta de usuário com MFA não serve a serviço autônomo; SAS no código é exatamente o antípadrão.",
+    "source": "original",
+    "tags": ["managed-identity", "key-vault"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-017",
+    "domain": "identidade-governanca",
+    "subdomain": "access-reviews",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Convidados B2B acumulam acesso a grupos há meses e você precisa que os donos dos grupos confirmem periodicamente quem deve permanecer. Qual recurso automatiza essa recertificação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Revisões de acesso (Access Reviews) do Microsoft Entra"
+      },
+      { "letter": "B", "text": "Política de expiração de grupo estático" },
+      { "letter": "C", "text": "Log de auditoria exportado para CSV manual" },
+      { "letter": "D", "text": "Alerta de Segurança do Defender for Cloud" }
+    ],
+    "correct": ["A"],
+    "explanation": "Access Reviews agenda revisões aos donos e remove automaticamente quem não for confirmado. Expiração de grupo apaga o grupo inteiro; CSV manual não aplica ação; Defender alerta sobre ameaças, não recertifica acesso.",
+    "source": "original",
+    "tags": ["access-reviews", "governanca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-018",
+    "domain": "identidade-governanca",
+    "subdomain": "conditional-access",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Você criou uma política de acesso condicional para pilotos e precisa medir o impacto antes de impô-la, sem bloquear nenhum usuário. Qual modo da política permite essa avaliação segura?",
+    "options": [
+      { "letter": "A", "text": "Modo Somente relatório (Report-only)" },
+      { "letter": "B", "text": "Modo Desativado (Off) com log manual" },
+      { "letter": "C", "text": "Modo Ativado (On) com exclusão de emergência" },
+      { "letter": "D", "text": "Modo Auditoria via Log Analytics sem política" }
+    ],
+    "correct": ["A"],
+    "explanation": "Report-only avalia cada login contra a política e registra o resultado sem impor controle. Off não avalia nada; On impõe de verdade e pode bloquear; não existe modo Auditoria de política sem criá-la.",
+    "source": "original",
+    "tags": ["conditional-access", "report-only"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-019",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-connect-sync",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Usuários do Active Directory local precisam entrar nos serviços em nuvem com a mesma senha, e a autenticação deve continuar funcionando mesmo se o link com a nuvem cair por minutos. Qual método de autenticação do Connect Sync atende a isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sincronização de hash de senha (PHS) com logon na nuvem"
+      },
+      {
+        "letter": "B",
+        "text": "Autenticação de passagem (PTA) com agentes locais"
+      },
+      {
+        "letter": "C",
+        "text": "Federação via AD FS sem sincronização de senha"
+      },
+      {
+        "letter": "D",
+        "text": "Sincronização apenas de grupos sem credenciais"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "PHS autentica na nuvem com o hash sincronizado, sobrevivendo a quedas de link. PTA e federação dependem da infraestrutura local a cada login; sincronizar só grupos não autentica ninguém.",
+    "source": "original",
+    "tags": ["entra-connect", "phs", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-020",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-domain-services",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma aplicação legada executada em VM do Azure exige autenticação Kerberos e LDAP, mas você não quer gerenciar controladores de domínio. Qual serviço fornece domínio gerenciado integrado ao Entra ID?",
+    "options": [
+      { "letter": "A", "text": "Microsoft Entra Domain Services" },
+      { "letter": "B", "text": "Microsoft Entra ID Protection" },
+      { "letter": "C", "text": "Azure DNS privado" },
+      { "letter": "D", "text": "Serviços de Federação (AD FS) em VMs" }
+    ],
+    "correct": ["A"],
+    "explanation": "Domain Services expõe Kerberos/LDAP gerenciados a partir das identidades do Entra. ID Protection detecta riscos; DNS privado resolve nomes; AD FS em VMs volta a exigir gerenciamento de servidores.",
+    "source": "original",
+    "tags": ["domain-services", "kerberos", "legado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-021",
+    "domain": "identidade-governanca",
+    "subdomain": "policy-initiative",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A auditoria exige dez definições de política aplicadas juntas como um pacote versionável de conformidade para todas as assinaturas. Como empacotar essas definições em uma única atribuição?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Iniciativa (initiative) agrupando as dez definições"
+      },
+      {
+        "letter": "B",
+        "text": "Dez atribuições independentes em cada assinatura"
+      },
+      {
+        "letter": "C",
+        "text": "Uma definição única com dez efeitos misturados"
+      },
+      {
+        "letter": "D",
+        "text": "Um bloqueio de leitura no grupo de gerenciamento"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Iniciativas agrupam definições em um conjunto atribuível e auditável de uma vez. Atribuições avulsas multiplicam gestão; uma definição não comporta dez lógicas distintas; bloqueio não avalia conformidade.",
+    "source": "original",
+    "tags": ["policy", "initiative"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-022",
+    "domain": "identidade-governanca",
+    "subdomain": "policy-remediation",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma política exige criptografia em contas de armazenamento e existem contas antigas sem criptografia. Além de negar novas criações, como corrigir automaticamente os recursos já existentes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Efeito DeployIfNotExists com tarefa de correção (remediation) e identidade gerenciada"
+      },
+      {
+        "letter": "B",
+        "text": "Efeito Negar aplicado retroativamente aos recursos existentes"
+      },
+      { "letter": "C", "text": "Bloqueio de exclusão nas contas antigas" },
+      {
+        "letter": "D",
+        "text": "Etiqueta manual indicando pendência de criptografia"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "DeployIfNotExists implanta a configuração ausente via tarefa de correção com identidade gerenciada. Negar só barra o novo; bloqueio impede excluir, não configura; etiqueta não altera o recurso.",
+    "source": "original",
+    "tags": ["policy", "remediation", "deployifnotexists"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-023",
+    "domain": "identidade-governanca",
+    "subdomain": "rbac-abac",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Você precisa permitir leitura de blobs apenas quando o blob tiver a etiqueta Confidencialidade=Interno e o usuário for do departamento Financeiro. Qual construção RBAC expressa essa condição por atributos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Atribuição de função com condição ABAC sobre atributos do recurso e do solicitante"
+      },
+      {
+        "letter": "B",
+        "text": "Função Leitor de Dados aplicada na conta inteira"
+      },
+      {
+        "letter": "C",
+        "text": "Chave compartilhada da conta distribuída ao Financeiro"
+      },
+      {
+        "letter": "D",
+        "text": "SAS de serviço gerada por contêiner sem restrição"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Condições ABAC filtram a atribuição por atributos (etiqueta do blob + departamento do usuário). Leitor de Dados libera tudo; chave compartilhada ignora identidade; SAS sem restrição não avalia atributos.",
+    "source": "original",
+    "tags": ["rbac", "abac", "condicoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-024",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-roles-vs-rbac",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um técnico precisa redefinir senhas de usuários e gerenciar licenças no Entra ID, mas não deve tocar em recursos do Azure como VMs. Qual tipo de função deve ser atribuído a ele?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Função de administrador do Microsoft Entra (ex.: Administrador de Senhas)"
+      },
+      { "letter": "B", "text": "Função RBAC Colaborador na assinatura" },
+      { "letter": "C", "text": "Função RBAC Leitor no grupo de gerenciamento" },
+      { "letter": "D", "text": "Função de Proprietário de Dados de Storage" }
+    ],
+    "correct": ["A"],
+    "explanation": "Funções do Entra administram identidades (senhas, licenças) sem alcançar o plano de dados do Azure. RBAC do Azure gerencia recursos, não usuários; Leitor não redefine senha; Proprietário de Storage cuida de blobs.",
+    "source": "original",
+    "tags": ["entra-roles", "rbac", "escopo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-025",
+    "domain": "identidade-governanca",
+    "subdomain": "terms-of-use",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Convidados B2B devem aceitar o termo de uso da empresa no primeiro acesso, com registro da aceitação. Qual recurso impõe e registra esse consentimento via acesso condicional?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Termos de uso (Terms of Use) como controle de concessão"
+      },
+      { "letter": "B", "text": "Política de senha do Entra ID" },
+      { "letter": "C", "text": "Marca da empresa na página de login" },
+      { "letter": "D", "text": "E-mail de boas-vindas do grupo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Terms of Use como concessão exige aceite antes do acesso e grava data, versão e identidade. Política de senha não coleta aceite; marca da empresa é visual; e-mail não bloqueia nem registra consentimento.",
+    "source": "original",
+    "tags": ["terms-of-use", "b2b"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-026",
+    "domain": "identidade-governanca",
+    "subdomain": "password-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Usuários do AD local continuam criando senhas como NomeDaEmpresa123. Como estender a lista global de senhas proibidas do Entra para os controladores locais?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Proteção de senha do Entra com proxy e agente DC + lista personalizada"
+      },
+      { "letter": "B", "text": "SSPR habilitado apenas na nuvem" },
+      { "letter": "C", "text": "Política de complexidade padrão do AD local" },
+      { "letter": "D", "text": "Bloqueio de conta após 3 tentativas no AD" }
+    ],
+    "correct": ["A"],
+    "explanation": "O agente nos DCs valida cada troca contra a lista global e a personalizada via proxy. SSPR na nuvem não alcança o AD; complexidade padrão aceita NomeDaEmpresa123; bloqueio reage a tentativas, não à qualidade da senha.",
+    "source": "original",
+    "tags": ["password-protection", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-027",
+    "domain": "identidade-governanca",
+    "subdomain": "entitlement-management",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Parceiros solicitam acesso a grupos, um aplicativo e um site do SharePoint, com aprovação do gestor e expiração em 60 dias. Qual recurso empacota tudo em um fluxo único de solicitação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Pacote de acesso (Access Package) do Gerenciamento de Direitos"
+      },
+      { "letter": "B", "text": "Três convites B2B manuais separados" },
+      { "letter": "C", "text": "Grupo dinâmico com regra de expiração" },
+      { "letter": "D", "text": "Atribuição PIM de grupo sem catálogo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Access Package junta recursos em catálogo com solicitação, aprovação e expiração automáticas. Convites manuais não expiram nem aprovam em fluxo; grupo dinâmico não aprova; PIM ativa função, não empacota recursos.",
+    "source": "original",
+    "tags": ["entitlement-management", "access-package"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-028",
+    "domain": "identidade-governanca",
+    "subdomain": "authentication-methods",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A empresa quer aposentar senhas e adotar login resistente a phishing para administradores. Qual método de autenticação do Entra atende a esse requisito?",
+    "options": [
+      { "letter": "A", "text": "Chave de segurança FIDO2 com PIN" },
+      { "letter": "B", "text": "SMS com código de seis dígitos" },
+      { "letter": "C", "text": "Senha + pergunta secreta" },
+      { "letter": "D", "text": "Ligação de voz com confirmação" }
+    ],
+    "correct": ["A"],
+    "explanation": "FIDO2 é credencial vinculada à origem (resistente a phishing) e dispensa senha. SMS, voz e pergunta secreta são fatores fracos e suscetíveis a interceptação ou engenharia social.",
+    "source": "original",
+    "tags": ["fido2", "passwordless", "phishing"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-029",
+    "domain": "identidade-governanca",
+    "subdomain": "service-principal-vs-managed",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um serviço no Azure precisa autenticar em outro tenant onde identidade gerenciada não alcança. Qual identidade de aplicativo deve ser criada nesse cenário de escopo ampliado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Entidade de serviço com certificado como credencial"
+      },
+      { "letter": "B", "text": "Identidade gerenciada atribuída pelo usuário" },
+      { "letter": "C", "text": "Conta de usuário sincronizada com senha" },
+      { "letter": "D", "text": "Chave de conta de armazenamento compartilhada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Entidade de serviço com certificado funciona entre tenants e é mais segura que segredo. Identidade gerenciada limita-se ao próprio tenant; conta de usuário não serve a serviço; chave de storage não autentica entre tenants.",
+    "source": "original",
+    "tags": ["service-principal", "certificado", "multitenant"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-030",
+    "domain": "identidade-governanca",
+    "subdomain": "deny-assignments",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mesmo Proprietários precisam ser impedidos de excluir um cofre de backup crítico, sem remover as demais permissões deles. Qual mecanismo nega especificamente a exclusão para todos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Atribuição de negação (Deny assignment) na exclusão do cofre"
+      },
+      {
+        "letter": "B",
+        "text": "Remoção da função Proprietário de todos os admins"
+      },
+      { "letter": "C", "text": "Bloqueio ReadOnly na assinatura inteira" },
+      { "letter": "D", "text": "Política de auditoria (Audit) no cofre" }
+    ],
+    "correct": ["A"],
+    "explanation": "Deny assignment veta a ação de exclusão mesmo contra permissões concedidas, preservando o resto. Remover Proprietário quebra a operação; ReadOnly na assinatura paralisa tudo; auditoria só observa.",
+    "source": "original",
+    "tags": ["deny-assignments", "backup"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-031",
+    "domain": "identidade-governanca",
+    "subdomain": "conditional-access-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Você vai proteger administradores do Azure com acesso condicional. Quais dois controles combinados garantem estação segura e segundo fator a cada acesso administrativo? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Exigir autenticação multifator" },
+      {
+        "letter": "B",
+        "text": "Exigir dispositivo em conformidade ou híbrido ingressado"
+      },
+      {
+        "letter": "C",
+        "text": "Permitir qualquer dispositivo com senha forte"
+      },
+      {
+        "letter": "D",
+        "text": "Sessão persistente de 90 dias sem reautenticação"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "MFA garante o segundo fator e dispositivo conforme garante a estação íntegra. Permitir qualquer dispositivo anula a garantia; sessão de 90 dias reduz a frequência de verificação exigida.",
+    "source": "original",
+    "tags": ["conditional-access", "admin", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-032",
+    "domain": "identidade-governanca",
+    "subdomain": "rbac-acoes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Uma função personalizada de suporte precisa permitir: iniciar VMs e ler configurações de rede, sem criar recursos nem atribuir funções. Quais permissões compõem essa função? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Microsoft.Compute/virtualMachines/start/action"
+      },
+      { "letter": "B", "text": "Microsoft.Network/virtualNetworks/read" },
+      { "letter": "C", "text": "Microsoft.Compute/virtualMachines/write" },
+      { "letter": "D", "text": "Microsoft.Authorization/roleAssignments/write" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Start/action liga a VM e read em rede permite diagnosticar sem alterar. Write em VM autoriza criar/excluir; roleAssignments/write delega acesso, violando o menor privilégio.",
+    "source": "original",
+    "tags": ["rbac", "custom-roles", "actions"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-033",
+    "domain": "identidade-governanca",
+    "subdomain": "grupos-tipos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Você precisa de um grupo para controle de acesso a recursos do Azure com associação automática por atributos. Quais duas características esse grupo deve ter? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Ser grupo de segurança (não Microsoft 365)" },
+      { "letter": "B", "text": "Ter tipo de associação dinâmica com regra" },
+      { "letter": "C", "text": "Ser grupo de distribuição de e-mail" },
+      { "letter": "D", "text": "Ter associação atribuída manualmente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Grupo de segurança autoriza acesso a recursos e o tipo dinâmico associa por regra de atributos. Grupo Microsoft 365 foca colaboração; distribuição é para e-mail; associação manual contraria a automação pedida.",
+    "source": "original",
+    "tags": ["grupos", "seguranca", "dinamicos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-034",
+    "domain": "identidade-governanca",
+    "subdomain": "pim-config",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Ao configurar PIM para a função Colaborador na assinatura, quais duas exigências reduzem o risco de elevação indevida? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Exigir MFA na ativação" },
+      { "letter": "B", "text": "Exigir justificativa e aprovação" },
+      { "letter": "C", "text": "Ativação permanente sem expiração" },
+      { "letter": "D", "text": "Desabilitar notificações de ativação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "MFA na ativação prova o solicitante e aprovação com justificativa cria trilha e controle humano. Ativação permanente anula o just-in-time; sem notificação ninguém audita a elevação.",
+    "source": "original",
+    "tags": ["pim", "aprovacao", "mfa"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-035",
+    "domain": "identidade-governanca",
+    "subdomain": "policy-efeitos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Você precisa que recursos fora de conformidade sejam impedidos na criação e que os já existentes sejam identificados para correção. Quais dois efeitos de política combinam esses objetivos? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Negar (Deny) para novas implantações" },
+      { "letter": "B", "text": "Auditar (Audit) os recursos existentes" },
+      { "letter": "C", "text": "Desabilitar a definição de política" },
+      { "letter": "D", "text": "Anexar etiqueta sem avaliar conformidade" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Deny barra a criação fora de conformidade e Audit marca o existente como não conforme para correção. Desabilitar desliga a governança; etiqueta solta não avalia nem impede.",
+    "source": "original",
+    "tags": ["policy", "deny", "audit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-036",
+    "domain": "identidade-governanca",
+    "subdomain": "privileged-access-workstations",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Administradores acessam o Azure de estações comuns vulneráveis a roubo de credencial. Além de MFA e PIM, qual controle garante que a ativação privilegiada ocorra apenas de estações endurecidas e conformes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de acesso condicional exigindo conformidade + filtro de dispositivo na ativação PIM"
+      },
+      { "letter": "B", "text": "Senha de 30 caracteres trocada semanalmente" },
+      {
+        "letter": "C",
+        "text": "VPN sempre ativa sem verificação de conformidade"
+      },
+      {
+        "letter": "D",
+        "text": "Conta de administrador compartilhada entre a equipe"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Conceder ativação só em dispositivo conforme (PAW gerenciada) fecha o roubo de sessão em estação comum. Senha longa não prova integridade da estação; VPN sem conformidade só oculta a rede; conta compartilhada destrói a trilha de auditoria.",
+    "source": "original",
+    "tags": ["paw", "conditional-access", "pim"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-037",
+    "domain": "identidade-governanca",
+    "subdomain": "cross-tenant-access",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Duas assinaturas em tenants diferentes precisam colaborar e você quer que usuários do tenant parceiro acessem recursos com as políticas de acesso condicional do SEU tenant aplicadas. Qual configuração de acesso entre tenants impõe suas políticas aos externos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Confiança nas políticas do tenant parceiro DESATIVADA nas configurações de acesso entre tenants"
+      },
+      {
+        "letter": "B",
+        "text": "Confiança total nas declarações MFA do parceiro sem avaliação local"
+      },
+      {
+        "letter": "C",
+        "text": "Sincronização de senhas entre os dois tenants"
+      },
+      { "letter": "D", "text": "Federação direta sem colaboração B2B" }
+    ],
+    "correct": ["A"],
+    "explanation": "Desativar a confiança exige que o acesso satisfaça as políticas do seu tenant (MFA, conformidade). Confiar cegamente delega a segurança; senhas não sincronizam entre tenants; federação direta não dispensa as configurações de confiança.",
+    "source": "original",
+    "tags": ["cross-tenant", "b2b", "confianca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-038",
+    "domain": "identidade-governanca",
+    "subdomain": "authentication-strengths",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A política de acesso condicional para dados sigilosos deve aceitar apenas FIDO2 ou Windows Hello, rejeitando SMS e voz mesmo com MFA habilitado. Qual construção expressa esse conjunto permitido de métodos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Força de autenticação (authentication strength) resistente a phishing na concessão"
+      },
+      {
+        "letter": "B",
+        "text": "Concessão genérica exigir MFA sem especificar método"
+      },
+      { "letter": "C", "text": "Política de senha com 16 caracteres mínimos" },
+      { "letter": "D", "text": "Bloqueio de aplicativos cliente legados" }
+    ],
+    "correct": ["A"],
+    "explanation": "Authentication strength define combinações exatas de métodos aceitos (FIDO2/Hello). Exigir MFA genérico aceita SMS/voz; senha longa não é segundo fator; bloquear legados não restringe métodos fortes entre si.",
+    "source": "original",
+    "tags": ["authentication-strength", "phishing-resistant"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-039",
+    "domain": "identidade-governanca",
+    "subdomain": "token-protection",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Tokens de sessão roubados estão sendo reproduzidos de outras máquinas. Qual recurso do acesso condicional vincula o token ao dispositivo e invalida o replay externo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Proteção de token (token protection) na sessão de acesso condicional"
+      },
+      {
+        "letter": "B",
+        "text": "Aumento do tempo de vida do token para 24 horas"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitação de refresh tokens no aplicativo"
+      },
+      { "letter": "D", "text": "Consentimento do usuário a cada login" }
+    ],
+    "correct": ["A"],
+    "explanation": "Token protection vincula criptograficamente o token ao dispositivo registrado, rejeitando replay. Aumentar a vida do token amplia a janela de abuso; sem refresh token quebra a usabilidade sem vincular; consentimento não impede replay.",
+    "source": "original",
+    "tags": ["token-protection", "sessao", "replay"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-040",
+    "domain": "identidade-governanca",
+    "subdomain": "workload-identity-federation",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um pipeline do GitHub Actions implanta no Azure e você quer eliminar completamente o segredo de cliente da entidade de serviço. Qual mecanismo permite ao pipeline obter tokens via confiança direta com o Entra ID?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Federação de identidade de carga de trabalho (workload identity federation)"
+      },
+      {
+        "letter": "B",
+        "text": "Segredo de cliente rotacionado a cada 30 dias"
+      },
+      {
+        "letter": "C",
+        "text": "Conta de usuário dedicada ao pipeline com senha"
+      },
+      {
+        "letter": "D",
+        "text": "Chave de automação armazenada em variável do pipeline"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Federação troca o token OIDC do GitHub por token do Entra sem nenhum segredo armazenado. Rotação reduz, mas mantém o segredo; conta de usuário com senha é frágil e sem MFA prático; variável de pipeline ainda expõe segredo.",
+    "source": "original",
+    "tags": ["workload-identity", "github-actions", "federacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-041",
+    "domain": "identidade-governanca",
+    "subdomain": "lifecycles-workflows",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Contratados precisam receber acesso no primeiro dia, ter revisão trimestral automática e perder tudo no desligamento, sem scripts manuais. Qual recurso executa esse ciclo de vida por fluxos de ingresso e saída?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fluxos de trabalho de ciclo de vida (Lifecycle Workflows) do Entra"
+      },
+      { "letter": "B", "text": "Runbook de automação manual sob demanda" },
+      { "letter": "C", "text": "Grupo estático com remoção semestral manual" },
+      { "letter": "D", "text": "Política de senha com expiração de 90 dias" }
+    ],
+    "correct": ["A"],
+    "explanation": "Lifecycle Workflows disparam tarefas de joiner/mover/leaver por atributos de RH, com revisões agendadas. Runbook manual exige execução humana; grupo estático não reage a eventos; expiração de senha não provisiona nem remove acesso.",
+    "source": "original",
+    "tags": ["lifecycle-workflows", "joiner-mover-leaver"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-042",
+    "domain": "identidade-governanca",
+    "subdomain": "conditional-access-avancado",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Para bloquear acessos de clientes legados que não suportam autenticação moderna em toda a organização, quais duas condições de acesso condicional identificam esse tráfego? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aplicativos cliente: clientes de autenticação legados"
+      },
+      { "letter": "B", "text": "Aplicativos cliente: navegadores modernos" },
+      {
+        "letter": "C",
+        "text": "Condição de Exchange ActiveSync para EAS legado"
+      },
+      { "letter": "D", "text": "Condição de plataforma Windows atualizada" }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Clientes legados (IMAP/POP/autenticação básica) e o EAS legado identificam o tráfego sem autenticação moderna. Navegadores modernos e Windows atualizado representam justamente o tráfego a preservar.",
+    "source": "original",
+    "tags": ["conditional-access", "legados", "modern-auth"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-043",
+    "domain": "identidade-governanca",
+    "subdomain": "key-vault-rbac",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Um cofre precisa separar quem gerencia o cofre (chaves de acesso, rede) de quem usa segredos, usando RBAC do Azure em vez de políticas de acesso legadas. Quais duas funções compõem essa separação? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Colaborador do Key Vault para gerenciar o recurso"
+      },
+      {
+        "letter": "B",
+        "text": "Usuário de Segredos do Key Vault para ler segredos"
+      },
+      { "letter": "C", "text": "Proprietário da assinatura para tudo" },
+      { "letter": "D", "text": "Leitor de Backup para restaurar segredos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Colaborador do Key Vault administra o plano de gerenciamento e Usuário de Segredos lê valores no plano de dados, sem sobreposição. Proprietário quebra a segregação; Leitor de Backup atua sobre Recovery Services, não segredos.",
+    "source": "original",
+    "tags": ["key-vault", "rbac", "segregacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-044",
+    "domain": "identidade-governanca",
+    "subdomain": "global-secure-access",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A empresa quer substituir a VPN por acesso Zero Trust do Entra para apps internos e internet, com política central. Quais dois componentes do Global Secure Access entregam esses acessos? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Acesso Privado (Private Access) para aplicativos internos"
+      },
+      {
+        "letter": "B",
+        "text": "Acesso à Internet (Internet Access) com filtragem"
+      },
+      { "letter": "C", "text": "Gateway de VPN ponto a site clássico" },
+      {
+        "letter": "D",
+        "text": "Roteamento forçado via ExpressRoute sem política"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Private Access publica apps internos sem VPN e Internet Access filtra a navegação, ambos sob acesso condicional. VPN clássica mantém o modelo a substituir; ExpressRoute sem política é conectividade, não Zero Trust.",
+    "source": "original",
+    "tags": ["global-secure-access", "zero-trust", "private-access"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-045",
+    "domain": "identidade-governanca",
+    "subdomain": "verified-id",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O RH precisa emitir credenciais verificáveis de vínculo empregatício que parceiros validem sem consultar sua base interna. Quais duas propriedades das Credenciais Verificáveis do Entra garantem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Assinatura descentralizada verificável sem contato com o emissor"
+      },
+      { "letter": "B", "text": "Revogação consultável pelo verificador" },
+      {
+        "letter": "C",
+        "text": "Senha compartilhada entre emissor e verificador"
+      },
+      { "letter": "D", "text": "Cópia integral da base de RH no parceiro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "A credencial é assinada e verificável offline contra o DID, com status de revogação público. Senha compartilhada reintroduz segredo; copiar a base viola privacidade e é desnecessário.",
+    "source": "original",
+    "tags": ["verified-id", "credenciais", "did"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-046",
+    "domain": "identidade-governanca",
+    "subdomain": "app-consent-governance",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Aplicativos de terceiros pedem permissões excessivas via consentimento do usuário. Quais duas medidas de governança de consentimento contêm esse risco? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fluxo de solicitação de consentimento do administrador"
+      },
+      {
+        "letter": "B",
+        "text": "Classificação e revisão de permissões de aplicativos"
+      },
+      {
+        "letter": "C",
+        "text": "Consentimento irrestrito do usuário para qualquer app"
+      },
+      { "letter": "D", "text": "Segredo de cliente único para todos os apps" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Consents via workflow do admin centralizam aprovação e a revisão classifica permissões arriscadas. Consentimento irrestrito é a vulnerabilidade; segredo único amplia o blast radius entre apps.",
+    "source": "original",
+    "tags": ["consentimento", "governanca-apps"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-047",
+    "domain": "identidade-governanca",
+    "subdomain": "administrative-units",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Filiais regionais precisam de administradores locais que gerenciem apenas usuários da própria região. Quais duas construções delegam esse escopo regional? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Unidades administrativas por região com membros regionais"
+      },
+      {
+        "letter": "B",
+        "text": "Função do Entra com escopo na unidade administrativa"
+      },
+      { "letter": "C", "text": "Administrador global para cada filial" },
+      { "letter": "D", "text": "Grupo de recursos do Azure por região" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Unidades administrativas particionam usuários por região e a função com esse escopo limita o admin local. Global por filial é excesso total; grupo de recursos delega plano do Azure, não diretório.",
+    "source": "original",
+    "tags": ["administrative-units", "delegacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-048",
+    "domain": "identidade-governanca",
+    "subdomain": "passwordless-conceitos",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que habilitar SSPR automaticamente converte o tenant para autenticação sem senha (passwordless) em todos os logins. Essa afirmação está correta diante do comportamento real do recurso no Entra ID?",
+    "options": [
+      { "letter": "A", "text": "Sim, SSPR elimina senhas de todos os logins" },
+      {
+        "letter": "B",
+        "text": "Não, SSPR apenas permite redefinir a senha mantendo senha como fator"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "SSPR recupera a senha esquecida, mas o login continua baseado em senha; passwordless exige métodos FIDO2, Hello ou Authenticator. Confundir recuperação com eliminação de senha é erro comum de prova.",
+    "source": "original",
+    "tags": ["sspr", "passwordless", "conceito"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-049",
+    "domain": "identidade-governanca",
+    "subdomain": "rbac-heranca",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que uma atribuição de função Negar em um grupo de recursos é automaticamente herdada pelos recursos filhos, bloqueando a ação em todo o grupo. Essa afirmação sobre herança de negação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, negações herdam para todos os recursos filhos do escopo"
+      },
+      {
+        "letter": "B",
+        "text": "Não, atribuições de negação se aplicam apenas ao escopo exato"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Deny assignments fluem por herança como as concessões: valem no escopo e em todos os filhos. A pegadinha é achar que negação precisa ser repetida por recurso; a herança já cobre.",
+    "source": "original",
+    "tags": ["deny-assignments", "heranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-050",
+    "domain": "identidade-governanca",
+    "subdomain": "locks-vs-policy",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que um bloqueio ReadOnly no grupo de recursos impede que uma política DeployIfNotExists corrija recursos fora de conformidade dentro dele. Essa afirmação sobre a interação entre lock e remediação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, ReadOnly bloqueia também a escrita da remediação"
+      },
+      {
+        "letter": "B",
+        "text": "Não, a remediação da política continua funcionando normalmente"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "ReadOnly veta qualquer escrita no escopo, inclusive a implantação corretiva do DeployIfNotExists, que falha. Por isso remediação e locks de leitura são incompatíveis no mesmo escopo.",
+    "source": "original",
+    "tags": ["locks", "policy", "remediation"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  }
+]
