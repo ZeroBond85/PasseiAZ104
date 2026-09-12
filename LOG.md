@@ -24,3 +24,12 @@
 - S2: zod 4.6.2 + tsx 4.21.0 (runner dos .mts; audit prod 0 vulns), schema §3, 5 engines TDD, validate-questions (Zod+FK+dedup FNV-1a), 50q Identidade (36 single/11 multiple/3 yes-no; 10 easy/25 medium/15 hard), validate 50/0, teste fim-a-fim. **Gate S2 ATINGIDO.**
 - S3: IDB (sessions/progress/meta/questions) + QuestionLoader ADR-001 (fetch+IDB; `public/data` é symlink → `../data`, seguido pelo Vite) + quiz UI completa (question-card, timer-bar, navigator, review, stats) + Leitner persistido + 3 e2e (quiz/offline/gate) + Lighthouse **93/100/96**. **Gate 0A (13 itens) ATINGIDO.**
 - Bugs reais pegos por teste: fixture explanation 92 chars; `??=` em expressão (biome); flag sem re-render; vitest varrendo .opencode/node_modules (include travado); e2e sob vitest (vitest.config exclude→include); seletor CSS não atravessa shadow DOM (usar getByRole).
+
+## 2026-09-12 — S4→S7 (modo contínuo)
+
+- S4: 80q Compute (56 single/20 multiple/4 yes-no; 16/40/24). Banco 130q.
+- S5: 80q Rede (mesmo mix) + pipeline: check-model.mjs (probe 3.5-lite/3.5/3) + generate-questions.mts (1req/5s, backoff 429, checkpoint duplo, --dry-run/--resume/--limit). Banco 210q.
+- S6: 50q Storage + 5 case (case-st-01 Contoso) + 50q Monitoramento + 5 case (case-mo-01 Fabrikam); case-studies.json com 2 cases. Banco 320q (ig 50 · st 55 · co 80 · rv 80 · mo 55).
+- S7: build-simulados.mts (seeded, 1 case contíguo + quotas 12/9/12/10/7) → 10 simulados oficiais fixed/100min; import-community.mts (fetch→quarentena needsReview). Validate 320/0.
+- **Gate 0B PARCIAL (máquina):** banco validado ✓ · 10 simulados ✓ · explicações ✓ · **scores no LOG: pendente HUMANO** (responder simulados no app; 2º simulado é estudo S7).
+- Próximo humano: baseline `B` (S3) + rotina 30–40q/dia + Leitner 15min + 2º simulado. S8–S13 (640q) em lotes sob demanda.
