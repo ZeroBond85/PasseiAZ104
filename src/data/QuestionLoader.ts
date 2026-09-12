@@ -19,6 +19,7 @@ export async function ensureSeeded(): Promise<{
 
   const files = [
     'identidade-governanca.json',
+    'identidade-acesso.json',
     'storage.json',
     'compute.json',
     'rede-virtual.json',

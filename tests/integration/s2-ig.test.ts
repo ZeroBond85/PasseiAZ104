@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import questions from '../../data/identidade-governanca.json'
+import acesso from '../../data/identidade-acesso.json'
+import gov from '../../data/identidade-governanca.json'
 import { QuizEngine } from '../../src/engine/QuizEngine.js'
 import { validateQuestion } from '../../src/engine/question-schema.js'
 import { scoreSession } from '../../src/engine/ScoringEngine.js'
+
+const questions = [...gov, ...acesso]
 
 // Gate S2: 50q fim-a-fim + score §5.3 + review + validate (banco cresce em S8+; usa as 50 primeiras).
 describe('S2 fim-a-fim (Identidade, 50q)', () => {
