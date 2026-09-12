@@ -1,0 +1,1069 @@
+[
+  {
+    "id": "az104-co-079",
+    "domain": "compute",
+    "subdomain": "spot-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que VMs Spot podem ser despejadas a qualquer momento com apenas 30 segundos de aviso, sendo inadequadas para qualquer carga de produção. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, Spot nunca serve a produção"
+      },
+      {
+        "letter": "B",
+        "text": "Não, com arquitetura tolerante (fila, checkpoint) Spot compõe produção"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Spot com aviso de despejo sustenta produção tolerante a falha (lotes, render, CI) com economia de até 90%. A regra é adequar a arquitetura, não banir o modelo.",
+    "source": "original",
+    "tags": ["vms", "spot", "arquitetura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-100",
+    "domain": "compute",
+    "subdomain": "spot-eviction-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que VMs Spot recebem aviso de despejo com 30 segundos para drenar antes da remoção. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, há aviso de 30s via scheduled events"
+      },
+      {
+        "letter": "B",
+        "text": "Não, o despejo é instantâneo sem aviso"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Scheduled events notificam Preempt com ~30s para drenar. Achar instantâneo ignora a janela de graceful shutdown.",
+    "source": "original",
+    "tags": ["spot", "despejo", "aviso", "30s"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-128",
+    "domain": "compute",
+    "subdomain": "spot-priority-mix-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VMSS com base garantida e pico barato precisa de composição e remoção corretas. Quais dois parâmetros definir? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Base Regular + percentual Spot no excedente"
+      },
+      {
+        "letter": "B",
+        "text": "Política de remoção com Spot primeiro"
+      },
+      {
+        "letter": "C",
+        "text": "100% Spot sem base"
+      },
+      {
+        "letter": "D",
+        "text": "Remoção aleatória sem prioridade"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Base garante e Spot barateia pico; remover Spot primeiro preserva base. 100% Spot despeja tudo; aleatório mata base.",
+    "source": "original",
+    "tags": ["vmss", "spot", "prioridade", "remocao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-167",
+    "domain": "compute",
+    "subdomain": "allocation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Alocação entre zonas e fault domains com preço otimizado exige dois critérios. Quais combinar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Espalhamento zonal por resiliência"
+      },
+      {
+        "letter": "B",
+        "text": "Preço Spot por economia"
+      },
+      {
+        "letter": "C",
+        "text": "Tudo numa zona sem preço"
+      },
+      {
+        "letter": "D",
+        "text": "Aleatório sem critério"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Espalhamento zonal protege de falha de datacenter e preço Spot otimiza custo. Tudo numa zona perde redundância; alocação aleatória não otimiza nada.",
+    "source": "original",
+    "tags": ["alocacao", "zonas", "preco", "spot"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-191",
+    "domain": "compute",
+    "subdomain": "sla-credits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "SLA descumprido gera crédito conforme faixas de disponibilidade. Como são calculados os créditos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Percentual da fatura por faixa (ex.: 10/25/100%)"
+      },
+      {
+        "letter": "B",
+        "text": "Valor fixo por minuto parado"
+      },
+      {
+        "letter": "C",
+        "text": "Crédito automático sem solicitar"
+      },
+      {
+        "letter": "D",
+        "text": "Reembolso em dinheiro"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Créditos seguem faixas percentuais da fatura mediante solicitação. Não há valor por minuto; exige claim formal; é crédito, não dinheiro.",
+    "source": "original",
+    "tags": ["sla", "creditos", "faixas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-192",
+    "domain": "compute",
+    "subdomain": "sla-claim",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Para receber crédito de SLA é preciso abrir solicitação em prazo. Qual o procedimento correto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Abrir claim com evidências dentro do prazo contratual"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar crédito automático"
+      },
+      {
+        "letter": "C",
+        "text": "Ligar para o suporte sem evidência"
+      },
+      {
+        "letter": "D",
+        "text": "Abrir chamado um ano depois"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Crédito exige solicitação formal com logs no prazo (geralmente fim do mês seguinte). Automático não existe; sem evidência nega; fora do prazo prescreve.",
+    "source": "original",
+    "tags": ["sla", "claim", "credito", "prazo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-200",
+    "domain": "compute",
+    "subdomain": "spot-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Máquinas virtuais Spot do Azure têm qual SLA de disponibilidade contratado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem SLA (sujeitas a despejo)"
+      },
+      {
+        "letter": "B",
+        "text": "99,9% igual pay-as-you-go"
+      },
+      {
+        "letter": "C",
+        "text": "99,95% com reserva"
+      },
+      {
+        "letter": "D",
+        "text": "99,99% zonal"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Spot não tem SLA por definição pois é evictable. Equiparar a pay-as-you-go ignora o despejo; reserva não se aplica a Spot.",
+    "source": "original",
+    "tags": ["sla", "spot", "sem-sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-203",
+    "domain": "compute",
+    "subdomain": "spot-quota",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Spot falha por cota separada esgotada mesmo com vCPUs regulares livres. Por que a cota Spot é independente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cotas Spot e Regular são pools distintos"
+      },
+      {
+        "letter": "B",
+        "text": "Spot usa a mesma cota sempre"
+      },
+      {
+        "letter": "C",
+        "text": "Spot não tem cota"
+      },
+      {
+        "letter": "D",
+        "text": "Cota única global"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Spot tem pool de cota próprio por região/SKU. Assumir compartilhada confunde o erro; sem cota não existiria limite; única global não existe.",
+    "source": "original",
+    "tags": ["spot", "cota", "pool"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-204",
+    "domain": "compute",
+    "subdomain": "low-priority-quota",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Batch com VMs low-priority atinge teto distinto do regular. Onde ver e pedir esse limite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cotas de baixa prioridade por região no portal"
+      },
+      {
+        "letter": "B",
+        "text": "Cota regular como proxy"
+      },
+      {
+        "letter": "C",
+        "text": "Sem limite para low-priority"
+      },
+      {
+        "letter": "D",
+        "text": "Ticket genérico sem métrica"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Low-priority tem cota própria visível e solicitável. Regular não cobre; sem limite não existe; genérico atrasa.",
+    "source": "original",
+    "tags": ["low-priority", "cota", "batch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-205",
+    "domain": "compute",
+    "subdomain": "regional-quota",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cota esgotada em Brazil South com sobra em East US. Por que a cota não transfere entre regiões?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cotas são por região, sem transferência"
+      },
+      {
+        "letter": "B",
+        "text": "Cota global compartilhada"
+      },
+      {
+        "letter": "C",
+        "text": "Transferência automática"
+      },
+      {
+        "letter": "D",
+        "text": "Sem cotas regionais"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Cada região tem teto próprio; sobra elsewhere não ajuda. Global não existe; automática não transfere; sem regional ignora o modelo.",
+    "source": "original",
+    "tags": ["cota", "regiao", "transferencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-206",
+    "domain": "compute",
+    "subdomain": "family-quota",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Família D atingiu teto mas E está livre. Por que a cota é por família de VM?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cotas por família isolam capacidade por hardware"
+      },
+      {
+        "letter": "B",
+        "text": "Cota única para todas"
+      },
+      {
+        "letter": "C",
+        "text": "Sem cota por família"
+      },
+      {
+        "letter": "D",
+        "text": "Família é só nome"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Famílias têm pools distintos por hardware subjacente. Única global não existe; sem família não haveria controle; nome reflete hardware.",
+    "source": "original",
+    "tags": ["cota", "familia", "hardware"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-207",
+    "domain": "compute",
+    "subdomain": "usage-view-quota",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Antes de pedir aumento, é preciso ver uso atual versus limite por região. Onde visualizar cotas e uso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Uso + cotas na subscription do portal"
+      },
+      {
+        "letter": "B",
+        "text": "Fatura mensal"
+      },
+      {
+        "letter": "C",
+        "text": "Log da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Métrica de CPU"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Blade de uso e cotas mostra consumo vs limite por região. Fatura não mostra teto; log e CPU não medem cota.",
+    "source": "original",
+    "tags": ["cota", "uso", "portal"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-208",
+    "domain": "compute",
+    "subdomain": "quota-request-time",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pedido urgente de cota para incidente precisa de prazo realista. Quanto tempo leva tipicamente a aprovação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Minutos a horas para automático; dias para grandes"
+      },
+      {
+        "letter": "B",
+        "text": "Sempre instantâneo"
+      },
+      {
+        "letter": "C",
+        "text": "Sempre 30 dias"
+      },
+      {
+        "letter": "D",
+        "text": "Nunca aprovado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Pequenos automatizam rápido; grandes exigem revisão de capacidade. Instantâneo sempre não existe; 30 dias exagera; nunca é falso.",
+    "source": "original",
+    "tags": ["cota", "prazo", "aprovacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-209",
+    "domain": "compute",
+    "subdomain": "alternative-region",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sem cota na região primária para o go-live de amanhã, qual alternativa imediata viabiliza?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Implantar em região pareada com cota livre"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar meses pela cota"
+      },
+      {
+        "letter": "C",
+        "text": "Usar SKU indisponível"
+      },
+      {
+        "letter": "D",
+        "text": "Cancelar o go-live"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Região pareada com capacidade resolve imediato com DR de brinde. Aguardar atrasa; indisponível falha; cancelar é extremo.",
+    "source": "original",
+    "tags": ["regiao", "alternativa", "go-live"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-210",
+    "domain": "compute",
+    "subdomain": "alternative-sku",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "SKU indisponível na região trava deploy. Qual troca equivalente destrava sem redesenhar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SKU alternativo mesma geração (ex.: Ddsv5 por Dsv5)"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar o SKU voltar"
+      },
+      {
+        "letter": "C",
+        "text": "Mudar de região e de arquitetura"
+      },
+      {
+        "letter": "D",
+        "text": "Usar série aposentada"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Equivalente mesma geração preserva vCPU/RAM e destrava. Aguardar atrasa; redesenhar é caro; aposentada pode nem existir.",
+    "source": "original",
+    "tags": ["sku", "alternativo", "equivalente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-211",
+    "domain": "compute",
+    "subdomain": "zone-balance-sku",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "SKU disponível só em 2 das 3 zonas prejudica distribuição do VMSS zonal. Como equilibrar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zone balance com SKU alternativo nas 3 zonas"
+      },
+      {
+        "letter": "B",
+        "text": "Forçar tudo nas 2 zonas"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar zonas"
+      },
+      {
+        "letter": "D",
+        "text": "Uma zona única"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "SKU presente nas 3 zonas equilibra; forçar em 2 desbalanceia; sem zonas perde SLA; única é ponto único.",
+    "source": "original",
+    "tags": ["sku", "zonas", "balanceamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-212",
+    "domain": "compute",
+    "subdomain": "capacity-constraints",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Erro de alocação (AllocationFailed) em pico regional impede scale. Quais causas verificar primeiro?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restrição de SKU/zona e cota na região"
+      },
+      {
+        "letter": "B",
+        "text": "Senha da VM"
+      },
+      {
+        "letter": "C",
+        "text": "Cor do portal"
+      },
+      {
+        "letter": "D",
+        "text": "Nome do RG"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "AllocationFailed indica falta de capacidade/cota do SKU/zona. Senha, portal e nome não afetam alocação.",
+    "source": "original",
+    "tags": ["allocationfailed", "capacidade", "cota"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-213",
+    "domain": "compute",
+    "subdomain": "allocation-workaround",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "AllocationFailed persiste no SKU/zona. Quais alternativas destravam o scale imediatamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Trocar SKU/zona ou região pareada"
+      },
+      {
+        "letter": "B",
+        "text": "Repetir o mesmo request"
+      },
+      {
+        "letter": "C",
+        "text": "Aumentar timeout do cliente"
+      },
+      {
+        "letter": "D",
+        "text": "Reiniciar o portal"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Mudar SKU/zona/região encontra capacidade livre. Repetir falha igual; timeout não cria hardware; portal não aloca.",
+    "source": "original",
+    "tags": ["allocationfailed", "workaround", "sku", "zona"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-214",
+    "domain": "compute",
+    "subdomain": "overconstrained-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Restrições excessivas (zona + SKU + PPG + Ultra) tornam alocação impossível. Quais duas flexibilizações destravam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Relaxar zona ou PPG"
+      },
+      {
+        "letter": "B",
+        "text": "Trocar Ultra por Premium"
+      },
+      {
+        "letter": "C",
+        "text": "Adicionar mais restrições"
+      },
+      {
+        "letter": "D",
+        "text": "Exigir host dedicado"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Relaxar zona/PPG amplia pool e Premium tem mais capacidade que Ultra. Mais restrição piora; dedicado restringe mais.",
+    "source": "original",
+    "tags": ["restricoes", "alocacao", "flexibilizar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-215",
+    "domain": "compute",
+    "subdomain": "retry-strategy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Deploy automatizado deve tolerar AllocationFailed transitório. Quais duas estratégias implementar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Retry com backoff em zona alternativa"
+      },
+      {
+        "letter": "B",
+        "text": "Fallback de SKU equivalente"
+      },
+      {
+        "letter": "C",
+        "text": "Loop infinito no mesmo SKU"
+      },
+      {
+        "letter": "D",
+        "text": "Falhar sem tentar"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Backoff com zona alternada e fallback de SKU contornam contenção. Loop igual desperdiça; falhar sem tentar desiste cedo.",
+    "source": "original",
+    "tags": ["retry", "backoff", "fallback", "deploy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-216",
+    "domain": "compute",
+    "subdomain": "allocation-monitor-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falhas de alocação precisam de alerta com causa (cota vs capacidade). Quais dois sinais monitorar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Erros AllocationFailed por SKU/zona"
+      },
+      {
+        "letter": "B",
+        "text": "Uso de cota vs limite"
+      },
+      {
+        "letter": "C",
+        "text": "Cor do dashboard"
+      },
+      {
+        "letter": "D",
+        "text": "Uptime do portal"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Erros por SKU/zona localizam contenção e cota vs limite distingue causa. Dashboard e portal não diagnosticam.",
+    "source": "original",
+    "tags": ["alocacao", "monitoramento", "cota"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-217",
+    "domain": "compute",
+    "subdomain": "proactive-capacity-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Picos sazonais exigem capacidade garantida com antecedência. Quais dois mecanismos proativos usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Reserva de capacidade antecipada"
+      },
+      {
+        "letter": "B",
+        "text": "Pedido de cota com folga"
+      },
+      {
+        "letter": "C",
+        "text": "Esperar o pico chegar"
+      },
+      {
+        "letter": "D",
+        "text": "Confiar no Spot"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Reserva antecipada de capacidade segura hardware e pedido de cota com folga autoriza o uso. Esperar o pico chegar atrasa; confiar no Spot despeja.",
+    "source": "original",
+    "tags": ["capacidade", "proativo", "reserva", "cota"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-218",
+    "domain": "compute",
+    "subdomain": "multi-region-active-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Carga crítica precisa de duas regiões ativas com failover automático. Quais dois elementos compor? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Deploy ativo nas duas regiões"
+      },
+      {
+        "letter": "B",
+        "text": "Front Door/Traffic Manager com health"
+      },
+      {
+        "letter": "C",
+        "text": "Uma região com backup frio"
+      },
+      {
+        "letter": "D",
+        "text": "DNS estático sem probe"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Deploy ativo nas duas regiões com Front Door/Traffic Manager e health probe faz failover em segundos. Uma região com backup frio demora; DNS estático sem probe não detecta.",
+    "source": "original",
+    "tags": ["multirregiao", "ativo-ativo", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-219",
+    "domain": "compute",
+    "subdomain": "paired-region-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "DR precisa de par regional com replicação e prioridade de recuperação. Quais dois benefícios do par usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Replicação assíncrona entre pares"
+      },
+      {
+        "letter": "B",
+        "text": "Prioridade de recuperação do par"
+      },
+      {
+        "letter": "C",
+        "text": "Regiões aleatórias sem par"
+      },
+      {
+        "letter": "D",
+        "text": "Sem replicação"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Pares replicam e têm prioridade de recuperação na Microsoft. Aleatórias perdem garantia; sem replicar não há DR.",
+    "source": "original",
+    "tags": ["regiao-pareada", "replicacao", "dr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-220",
+    "domain": "compute",
+    "subdomain": "backup-region-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups precisam de cópia fora da região primária com restore testado. Quais dois elementos garantir? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "GRS com cópia na pareada"
+      },
+      {
+        "letter": "B",
+        "text": "Teste de restore cross-region"
+      },
+      {
+        "letter": "C",
+        "text": "LRS local apenas"
+      },
+      {
+        "letter": "D",
+        "text": "Sem teste de restore"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Cópia GRS na região pareada com teste de restore cross-region prova o DR. LRS local não sai da região; sem teste de restore não há garantia.",
+    "source": "original",
+    "tags": ["backup", "grs", "cross-region", "teste"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-221",
+    "domain": "compute",
+    "subdomain": "asr-network-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Failover com ASR precisa de rede pronta na secundária com IPs preservados. Quais dois elementos de rede preparar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "VNet espelho na secundária"
+      },
+      {
+        "letter": "B",
+        "text": "Mapeamento de IPs e NSGs"
+      },
+      {
+        "letter": "C",
+        "text": "Sem rede na secundária"
+      },
+      {
+        "letter": "D",
+        "text": "IP novo sem planejamento"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "VNet espelho na secundária recebe o failover e mapeamento de IPs e NSGs preserva endereçamento. Sem rede na secundária não há para onde falhar; IP novo sem planejamento conflita.",
+    "source": "original",
+    "tags": ["asr", "rede", "failover", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-222",
+    "domain": "compute",
+    "subdomain": "test-failover-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que test failover do Site Recovery impacta a produção replicada. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, impacta produção"
+      },
+      {
+        "letter": "B",
+        "text": "Não, é isolado em rede de teste"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Test failover executa em rede isolada sem tocar a produção replicada. Achar que impacta impede testar o DR com segurança.",
+    "source": "original",
+    "tags": ["test-failover", "asr", "isolado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-223",
+    "domain": "compute",
+    "subdomain": "planned-failover-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que failover planejado zera perda de dados com sincronização final. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, com sync final e sem perda"
+      },
+      {
+        "letter": "B",
+        "text": "Não, sempre perde dados"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Planejado sincroniza o delta antes de trocar, zerando RPO. Assumir perda ignora a sincronização final.",
+    "source": "original",
+    "tags": ["planned-failover", "rpo-zero", "sync"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-224",
+    "domain": "compute",
+    "subdomain": "unplanned-failover-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que failover não planejado pode perder dados recentes até o último ponto replicado. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, perda até o RPO"
+      },
+      {
+        "letter": "B",
+        "text": "Não, nunca perde nada"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Sem sincronização final, perde-se até o RPO replicado. Assumir zero perda ignora a natureza assíncrona.",
+    "source": "original",
+    "tags": ["unplanned-failover", "rpo", "perda"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-225",
+    "domain": "compute",
+    "subdomain": "failback-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o retorno (failback) à primária exige reproteção reversa planejada. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, com reproteção reversa"
+      },
+      {
+        "letter": "B",
+        "text": "Não, volta sozinho"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Failback reprotege reverso e planeja a volta com sync. Voltar sozinho ignora o processo de reproteção.",
+    "source": "original",
+    "tags": ["failback", "reprotecao", "retorno"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-226",
+    "domain": "compute",
+    "subdomain": "commitment-tier-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que tiers de compromisso (ex.: 1000 transações/s) dão desconto com throughput reservado. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, compromisso reserva com desconto"
+      },
+      {
+        "letter": "B",
+        "text": "Não, pay-as-you-go sempre"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Commitment tiers reservam throughput com desconto por compromisso. Só PAYG ignora a economia planejada.",
+    "source": "original",
+    "tags": ["commitment-tier", "desconto", "throughput"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-227",
+    "domain": "compute",
+    "subdomain": "autoscale-schedule-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que autoscale por agenda (horário comercial) complementa regras por métrica. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, agenda + métrica combinam"
+      },
+      {
+        "letter": "B",
+        "text": "Não, só métrica vale"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Perfis agendados antecipam pico conhecido e métricas reagem ao real. Só métrica atrasa na subida programada.",
+    "source": "original",
+    "tags": ["autoscale", "agenda", "metrica"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-228",
+    "domain": "compute",
+    "subdomain": "cooldown-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que cooldown evita flapping do autoscale após cada ação. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, cooldown estabiliza"
+      },
+      {
+        "letter": "B",
+        "text": "Não, escalar sem pausa é melhor"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Cooldown aguarda o efeito antes de nova ação, evitando oscilação do autoscale. Sem pausa o sistema entra em flapping contínuo.",
+    "source": "original",
+    "tags": ["cooldown", "autoscale", "flapping"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-229",
+    "domain": "compute",
+    "subdomain": "flapping-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que flapping (sobe-desce) queima custo e gera instabilidade. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, flapping é anti-padrão"
+      },
+      {
+        "letter": "B",
+        "text": "Não, flapping é saudável"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Oscilação cria/destrói sem estabilizar, queimando custo e derrubando conexões. Tratar como saudável ignora o anti-padrão.",
+    "source": "original",
+    "tags": ["flapping", "anti-padrao", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-230",
+    "domain": "compute",
+    "subdomain": "predictive-autoscale-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que autoscale preditivo usa ML de histórico para antecipar pico. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, preditivo antecipa com ML"
+      },
+      {
+        "letter": "B",
+        "text": "Não, só reativo existe"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Predictive autoscale prevê a demanda pelo histórico com ML e pré-provisiona capacidade. Só o modo reativo atrasa na subida do pico.",
+    "source": "original",
+    "tags": ["predictive", "autoscale", "ml"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  }
+]

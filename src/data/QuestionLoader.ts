@@ -21,7 +21,9 @@ export async function ensureSeeded(): Promise<{
     'identidade-governanca.json',
     'identidade-acesso.json',
     'storage.json',
-    'compute.json',
+    'compute-vms.json',
+    'compute-apps.json',
+    'compute-platform.json',
     'rede-virtual.json',
     'monitoramento.json',
   ]

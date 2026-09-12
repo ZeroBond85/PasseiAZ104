@@ -1,0 +1,2032 @@
+[
+  {
+    "id": "az104-co-004",
+    "domain": "compute",
+    "subdomain": "app-service-planos",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você vai hospedar um aplicativo web de teste sem SLA e com custo zero. Qual plano do App Service atende a esse requisito?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Plano Gratuito (F1) em camada compartilhada"
+      },
+      {
+        "letter": "B",
+        "text": "Plano Premium v3 com zona de disponibilidade"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Isolado (ASE) com rede dedicada"
+      },
+      {
+        "letter": "D",
+        "text": "Plano Básico com slot de produção"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "O plano F1 é gratuito para testes, sem SLA. Premium e Isolado são caros e produtivos; Básico cobra e já inclui recursos pagos.",
+    "source": "original",
+    "tags": ["app-service", "planos", "f1"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-005",
+    "domain": "compute",
+    "subdomain": "functions-planos",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma função é executada poucas vezes ao dia por segundos e você quer pagar somente pelo tempo de execução. Qual plano de hospedagem do Azure Functions deve ser usado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Plano de Consumo (Consumption)"
+      },
+      {
+        "letter": "B",
+        "text": "Plano Premium com workers sempre prontos"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Dedicado (App Service) sempre ativo"
+      },
+      {
+        "letter": "D",
+        "text": "Plano Isolado com ASE"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Consumo cobra por execução e escala a zero, ideal para uso esporádico. Premium e Dedicado mantêm recursos alocados (cold start menor, custo fixo); Isolado é para rede dedicada.",
+    "source": "original",
+    "tags": ["functions", "consumption"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-009",
+    "domain": "compute",
+    "subdomain": "app-service-slots",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa testar a nova versão do site com 10% do tráfego real e reverter instantaneamente se falhar. Qual recurso do App Service permite essa troca gradual?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Slot de implantação com roteamento de teste (testing in production)"
+      },
+      {
+        "letter": "B",
+        "text": "Backup diário do aplicativo"
+      },
+      {
+        "letter": "C",
+        "text": "Escala manual do plano de serviço"
+      },
+      {
+        "letter": "D",
+        "text": "Nova implantação direta em produção"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Slots com percentual de tráfego permitem canário e swap instantâneo. Backup restaura dados, não roteia tráfego; escala não testa versão; deploy direto não permite reversão gradual.",
+    "source": "original",
+    "tags": ["app-service", "slots", "canario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-012",
+    "domain": "compute",
+    "subdomain": "container-apps",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma API em contêiner precisa escalar a zero quando ociosa e escalar por fila de mensagens, sem gerenciar Kubernetes. Qual serviço oferece esse serverless de contêineres?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure Container Apps"
+      },
+      {
+        "letter": "B",
+        "text": "AKS com node pool fixo"
+      },
+      {
+        "letter": "C",
+        "text": "VM com Docker Compose"
+      },
+      {
+        "letter": "D",
+        "text": "Service Fabric Mesh"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Container Apps escala a zero por eventos (HTTP, filas) sobre Kubernetes gerenciado. AKS fixo cobra nós ociosos; VM exige gestão; Service Fabric Mesh foi descontinuado.",
+    "source": "original",
+    "tags": ["container-apps", "serverless"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-013",
+    "domain": "compute",
+    "subdomain": "app-service-certificados",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um aplicativo App Service precisa de HTTPS com domínio personalizado www.empresa.com. O que deve ser configurado no aplicativo antes de vincular o certificado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Adicionar o nome de host personalizado e validar a propriedade do domínio"
+      },
+      {
+        "letter": "B",
+        "text": "Escalar o plano para Isolado imediatamente"
+      },
+      {
+        "letter": "C",
+        "text": "Habilitar backup com certificado incluído"
+      },
+      {
+        "letter": "D",
+        "text": "Criar um slot chamado www"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Domínio personalizado exige registrar o hostname e provar posse (TXT/CNAME) antes do binding TLS. Isolado não é pré-requisito; backup não valida domínio; slot não cria hostname externo.",
+    "source": "original",
+    "tags": ["app-service", "dominio", "tls"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-015",
+    "domain": "compute",
+    "subdomain": "functions-triggers",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma função deve executar automaticamente sempre que um novo arquivo chega a um contêiner de blob. Qual gatilho (trigger) dispara a função nesse evento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gatilho de Blob Storage"
+      },
+      {
+        "letter": "B",
+        "text": "Gatilho HTTP"
+      },
+      {
+        "letter": "C",
+        "text": "Gatilho de Temporizador (Timer)"
+      },
+      {
+        "letter": "D",
+        "text": "Gatilho manual via portal"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Blob trigger reage a criação/atualização de blobs. HTTP exige chamada; Timer agenda horário fixo; disparo manual não é automático.",
+    "source": "original",
+    "tags": ["functions", "triggers", "blob"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-017",
+    "domain": "compute",
+    "subdomain": "app-service-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um aplicativo App Service em plano Standard precisa de backup automático diário incluindo banco conectado por string de conexão. O que deve ser configurado no recurso de backup?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup agendado com banco de dados vinculado incluído"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot manual do plano de serviço"
+      },
+      {
+        "letter": "C",
+        "text": "Slot de homologação como cópia de segurança"
+      },
+      {
+        "letter": "D",
+        "text": "Exportação do perfil de publicação"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Backup agendado (Standard+) captura arquivos e, marcando a opção, o banco vinculado. Snapshot de plano não existe; slot não é backup; perfil de publicação só tem credenciais de deploy.",
+    "source": "original",
+    "tags": ["app-service", "backup"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-020",
+    "domain": "compute",
+    "subdomain": "app-service-autoscale",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um App Service em plano Premium tem pico diário às 9h e ociosidade à noite. Como escalar instâncias automaticamente por CPU mantendo mínimo de 2 para disponibilidade?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de Autoscale com mínimo 2, baseada em percentual de CPU"
+      },
+      {
+        "letter": "B",
+        "text": "Escala manual fixada em 5 instâncias"
+      },
+      {
+        "letter": "C",
+        "text": "Downgrade para plano Gratuito à noite"
+      },
+      {
+        "letter": "D",
+        "text": "Dois planos separados com troca de DNS"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Autoscale ajusta instâncias pela métrica de CPU respeitando o piso de 2. Escala fixa desperdiça à noite; plano Gratuito não tem autoscale nem SLA; dois planos com DNS é gambiarra sem métrica.",
+    "source": "original",
+    "tags": ["app-service", "autoscale"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-023",
+    "domain": "compute",
+    "subdomain": "functions-durable",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um fluxo precisa orquestrar 5 funções em sequência com espera de aprovação humana de até 48h entre etapas, mantendo estado. Qual padrão do Durable Functions modela isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Orquestração com eventos externos (fan-in/fan-out + wait for event)"
+      },
+      {
+        "letter": "B",
+        "text": "Função HTTP isolada com sleep de 48h"
+      },
+      {
+        "letter": "C",
+        "text": "Timer a cada minuto consultando banco"
+      },
+      {
+        "letter": "D",
+        "text": "Fila única sem orquestrador"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Orquestrador Durable mantém estado e aguarda eventos externos (aprovação) sem custo de espera ativa. Sleep de 48h estoura timeout e cobra; polling por timer desperdiça; fila sem orquestrador perde a sequência.",
+    "source": "original",
+    "tags": ["functions", "durable", "orquestracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-024",
+    "domain": "compute",
+    "subdomain": "app-service-vnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um App Service precisa acessar um banco SQL em VM que só tem IP privado, sem expor o banco à internet. Qual integração dá ao aplicativo rota para a rede virtual?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Integração de Rede Virtual (VNet Integration) no aplicativo"
+      },
+      {
+        "letter": "B",
+        "text": "IP público no banco com firewall aberto"
+      },
+      {
+        "letter": "C",
+        "text": "Conexão híbrida via Service Bus Relay"
+      },
+      {
+        "letter": "D",
+        "text": "Front Door na frente do banco"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "VNet Integration injeta o app na VNet para alcançar IPs privados. IP público expõe o banco; Hybrid Connections serve on-premises via relay (alternativa válida, mas a pedida é VNet); Front Door é entrada HTTP, não acesso a banco.",
+    "source": "original",
+    "tags": ["app-service", "vnet-integration"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-027",
+    "domain": "compute",
+    "subdomain": "app-service-auth",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um aplicativo App Service precisa autenticar usuários do Entra ID sem alterar o código da aplicação. Qual recurso adiciona login federado na plataforma?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticação do App Service (Easy Auth) com Entra ID"
+      },
+      {
+        "letter": "B",
+        "text": "Chave de API fixa no cabeçalho"
+      },
+      {
+        "letter": "C",
+        "text": "Certificado cliente autoassinado obrigatório"
+      },
+      {
+        "letter": "D",
+        "text": "IP restrito no web.config"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Easy Auth injeta o fluxo OpenID Connect na plataforma, sem código. Chave fixa não federa identidade; certificado cliente exige PKI; restrição de IP não autentica usuário.",
+    "source": "original",
+    "tags": ["app-service", "easy-auth", "entra-id"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-029",
+    "domain": "compute",
+    "subdomain": "functions-coldstart",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma API em Functions no plano Consumo sofre cold starts de 8s após ociosidade, inaceitável para o SLA. Qual mudança elimina o cold start mantendo escala elástica?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Migrar para plano Premium com workers pré-aquecidos"
+      },
+      {
+        "letter": "B",
+        "text": "Aumentar o timeout da função para 10 minutos"
+      },
+      {
+        "letter": "C",
+        "text": "Trocar o gatilho HTTP por Timer"
+      },
+      {
+        "letter": "D",
+        "text": "Habilitar CORS no aplicativo de funções"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Premium mantém instâncias aquecidas (always ready) com escala elástica. Timeout maior não evita partida fria; trocar gatilho muda o evento; CORS é permissão de origem, não desempenho.",
+    "source": "original",
+    "tags": ["functions", "cold-start", "premium"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-030",
+    "domain": "compute",
+    "subdomain": "aci-volumes",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um contêiner no ACI processa arquivos que devem sobreviver à reinicialização do contêiner. Onde montar o volume persistente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Compartilhamento de Arquivos do Azure montado no grupo de contêineres"
+      },
+      {
+        "letter": "B",
+        "text": "Disco temporário local do contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Variável de ambiente com o conteúdo"
+      },
+      {
+        "letter": "D",
+        "text": "Imagem do contêiner com os arquivos embutidos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Azure Files montado persiste além do ciclo de vida do contêiner. Disco local é efêmero; variável não guarda arquivos; embutir na imagem exige rebuild a cada mudança.",
+    "source": "original",
+    "tags": ["aci", "volumes", "azure-files"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-032",
+    "domain": "compute",
+    "subdomain": "app-service-custom-container",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma aplicação legada só roda em uma imagem Docker específica com dependências nativas. Como hospedá-la no App Service mantendo deploy, TLS e slots?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Web App for Containers com a imagem do ACR"
+      },
+      {
+        "letter": "B",
+        "text": "Web App Windows com runtime .NET padrão"
+      },
+      {
+        "letter": "C",
+        "text": "Function App em Consumo"
+      },
+      {
+        "letter": "D",
+        "text": "Static Web App com API"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Web App for Containers executa imagem customizada com todos os recursos da plataforma (TLS, slots, backup). Runtime padrão não aceita imagem; Functions é orientado a eventos; Static Web Apps serve front estático.",
+    "source": "original",
+    "tags": ["app-service", "containers", "acr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-034",
+    "domain": "compute",
+    "subdomain": "functions-networking",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Funções em plano Premium precisam chamar uma API interna com IP privado e ter saída com IP fixo para allowlist do parceiro. Quais dois recursos de rede resolvem entrada e saída?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Integração VNet (entrada privada) + gateway NAT com IP fixo (saída)"
+      },
+      {
+        "letter": "B",
+        "text": "Plano Consumo com IP dinâmico"
+      },
+      {
+        "letter": "C",
+        "text": "API Management em camada Consumo"
+      },
+      {
+        "letter": "D",
+        "text": "Front Door com backend público"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "VNet Integration alcança o privado e o NAT entrega saída por IP fixo previsível. Consumo não tem VNet nem IP fixo; APIM Consumo não fixa IP; Front Door não alcança IP privado interno.",
+    "source": "original",
+    "tags": ["functions", "vnet", "nat", "premium"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-036",
+    "domain": "compute",
+    "subdomain": "container-apps-jobs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um processamento em lote roda 10 minutos uma vez por dia em contêiner e deve terminar e liberar recursos. Qual construção do Container Apps executa tarefas finitas agendadas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Jobs do Container Apps com gatilho agendado"
+      },
+      {
+        "letter": "B",
+        "text": "Aplicativo HTTP sempre ativo"
+      },
+      {
+        "letter": "C",
+        "text": "ACI com restart policy Always"
+      },
+      {
+        "letter": "D",
+        "text": "Function Durable sem orquestrador"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Jobs executam até concluir (manual, agendado ou por evento) e liberam recursos. App HTTP fica servindo; ACI Always reinicia sem fim; Durable sem orquestrador perde o controle do fluxo.",
+    "source": "original",
+    "tags": ["container-apps", "jobs", "lote"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-038",
+    "domain": "compute",
+    "subdomain": "app-service-hybrid",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um App Service precisa consultar um SQL Server no datacenter local sem abrir VPN nem alterar firewall de borda. Qual conexão usa relay seguro de saída?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conexões Híbridas (Hybrid Connections) via Service Bus"
+      },
+      {
+        "letter": "B",
+        "text": "VNet Integration com gateway local"
+      },
+      {
+        "letter": "C",
+        "text": "IP público no SQL local"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação do banco para o Azure"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Hybrid Connections abrem túnel de saída pelo relay, sem inbound no firewall. VNet Integration exige VPN/ExpressRoute; IP público expõe o banco; replicar é migração, não conectividade pontual.",
+    "source": "original",
+    "tags": ["app-service", "hybrid-connections", "on-premises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-040",
+    "domain": "compute",
+    "subdomain": "acr-tarefas",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Imagens base recebem patches semanais e você quer rebuild automático das imagens da aplicação a cada atualização da base. Qual recurso do ACR observa a base e reconstrói?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tarefas do ACR (ACR Tasks) com gatilho de imagem base"
+      },
+      {
+        "letter": "B",
+        "text": "Webhook manual executado por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "docker build local e push manual"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação geográfica do registro"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "ACR Tasks com base-image trigger recompilam ao detectar nova base. Webhook por e-mail não automatiza; build local exige estação; replicação copia imagens, não reconstrói.",
+    "source": "original",
+    "tags": ["acr", "tasks", "build"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-042",
+    "domain": "compute",
+    "subdomain": "app-service-limits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um App Service em Básico precisa de 5 slots de homologação, mas o plano suporta menos. Qual é o limite de slots por camada e o que fazer?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Básico permite 3 slots; escalar para Standard (5+) ou Premium"
+      },
+      {
+        "letter": "B",
+        "text": "Básico permite slots ilimitados"
+      },
+      {
+        "letter": "C",
+        "text": "Gratuito permite 5 slots"
+      },
+      {
+        "letter": "D",
+        "text": "Slots exigem plano Isolado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Básico tem 3 slots e Standard 5 (Premium 20); escalar resolve. Gratuito não tem slots de verdade; Isolado não é exigido para slots.",
+    "source": "original",
+    "tags": ["app-service", "slots", "limites"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-044",
+    "domain": "compute",
+    "subdomain": "functions-bindings",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma função HTTP precisa gravar na fila de saída sem código de SDK, declarando a saída na configuração. Qual construção conecta a função à fila declarativamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Binding de saída (output binding) para Queue Storage"
+      },
+      {
+        "letter": "B",
+        "text": "Conexão ADO.NET aberta no código"
+      },
+      {
+        "letter": "C",
+        "text": "Chamada REST manual com HttpClient"
+      },
+      {
+        "letter": "D",
+        "text": "Gatilho de saída por e-mail"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Output binding entrega o valor de retorno à fila sem SDK. ADO.NET é para SQL; HttpClient manual perde a declaratividade; não existe gatilho de saída por e-mail.",
+    "source": "original",
+    "tags": ["functions", "bindings", "queue"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-046",
+    "domain": "compute",
+    "subdomain": "app-service-logs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Erros 500 intermitentes precisam de rastreio com logs de aplicativo e de servidor web retidos por 30 dias. Para onde enviar os logs do App Service com retenção?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conta de armazenamento (Blob) via configuração de logs"
+      },
+      {
+        "letter": "B",
+        "text": "Sistema de arquivos do plano com retenção ilimitada"
+      },
+      {
+        "letter": "C",
+        "text": "Console do Kudu sem persistência"
+      },
+      {
+        "letter": "D",
+        "text": "Application Insights sem instrumentação"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Logs em Blob retêm por dias configuráveis e sobrevivem a reinícios. Sistema de arquivos do plano é volátil e limitado; Kudu ao vivo não retém; App Insights sem SDK não coleta.",
+    "source": "original",
+    "tags": ["app-service", "logs", "diagnostico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-047",
+    "domain": "compute",
+    "subdomain": "aci-restart",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um contêiner de API no ACI deve sempre voltar após falha, mas um job de migração deve rodar uma vez e parar. Quais políticas de reinício atendem cada caso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Always para a API e Never para o job"
+      },
+      {
+        "letter": "B",
+        "text": "Never para ambos"
+      },
+      {
+        "letter": "C",
+        "text": "Always para ambos"
+      },
+      {
+        "letter": "D",
+        "text": "OnFailure para a API com porta pública"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Always mantém serviço contínuo e Never executa tarefa finita uma vez. Never na API derruba o serviço; Always no job religa sem fim; OnFailure não garante disponibilidade contínua.",
+    "source": "original",
+    "tags": ["aci", "restart-policy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-050",
+    "domain": "compute",
+    "subdomain": "app-service-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Um deploy com zero downtime e validação em produção exige dois recursos de slot. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Troca (swap) entre staging e produção"
+      },
+      {
+        "letter": "B",
+        "text": "Roteamento de percentual de tráfego para o slot"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão do slot após cada deploy"
+      },
+      {
+        "letter": "D",
+        "text": "Downgrade do plano durante o swap"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Swap troca versões sem downtime e o roteamento percentual valida em produção (canário). Excluir slot perde o ambiente; downgrade durante swap arrisca indisponibilidade.",
+    "source": "original",
+    "tags": ["app-service", "slots", "swap"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-051",
+    "domain": "compute",
+    "subdomain": "functions-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Uma função de processamento de pedidos precisa disparar por novos itens na fila e gravar o resultado no Cosmos DB sem SDK. Quais dois bindings atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gatilho de Queue Storage"
+      },
+      {
+        "letter": "B",
+        "text": "Binding de saída para Cosmos DB"
+      },
+      {
+        "letter": "C",
+        "text": "Gatilho HTTP com polling manual"
+      },
+      {
+        "letter": "D",
+        "text": "Binding de saída para envio de e-mail"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Queue trigger dispara por mensagem e o output binding grava no Cosmos declarativamente. HTTP com polling desperdiça; e-mail não persiste o pedido.",
+    "source": "original",
+    "tags": ["functions", "bindings", "cosmosdb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-055",
+    "domain": "compute",
+    "subdomain": "app-service-seguranca-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Um App Service público precisa de TLS gerenciado e bloqueio de acesso direto sem Front Door. Quais dois recursos compõem essa proteção? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Certificado gerenciado do App Service com renovação automática"
+      },
+      {
+        "letter": "B",
+        "text": "Restrição de acesso permitindo só o Front Door"
+      },
+      {
+        "letter": "C",
+        "text": "HTTP liberado sem redirect para HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "Credenciais de FTP compartilhadas"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Certificado gerenciado renova sozinho e a restrição de acesso limita origem ao Front Door. HTTP aberto anula o TLS; FTP compartilhado amplia superfície.",
+    "source": "original",
+    "tags": ["app-service", "tls", "restricao-acesso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-058",
+    "domain": "compute",
+    "subdomain": "app-service-ase",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Aplicações com compliance exigem rede totalmente isolada, IPs dedicados e escala até 100 instâncias por plano. Qual ambiente de hospedagem atende?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "App Service Environment v3 (ASE) em VNet dedicada"
+      },
+      {
+        "letter": "B",
+        "text": "Plano Premium público multitenant"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Gratuito compartilhado"
+      },
+      {
+        "letter": "D",
+        "text": "Container Instances com IP público"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "ASE v3 isola em single-tenant na sua VNet com escala ampla. Premium público compartilha infraestrutura; Gratuito não isola; ACI não é App Service nem isola rede por padrão.",
+    "source": "original",
+    "tags": ["app-service", "ase", "isolamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-060",
+    "domain": "compute",
+    "subdomain": "functions-flex",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cargas Python com dependências pesadas precisam de escala por evento, rede virtual e timeout de 30 minutos sem gerenciar workers. Qual plano atende aos três requisitos juntos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Plano Flex Consumption"
+      },
+      {
+        "letter": "B",
+        "text": "Plano Consumo tradicional"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Dedicado Básico"
+      },
+      {
+        "letter": "D",
+        "text": "Container Instances sem eventos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Flex Consumption combina escala por evento, VNet e timeouts longos. Consumo tradicional limita timeout e rede; Dedicado cobra sempre ativo; ACI não é Functions.",
+    "source": "original",
+    "tags": ["functions", "flex-consumption", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-062",
+    "domain": "compute",
+    "subdomain": "app-service-migration",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um App Service em região sem zonas precisa migrar para região com zonas com mínimo downtime, mantendo hostname e TLS. Qual estratégia preserva identidade e certificado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Clonar o app para a nova região e mover o hostname com o certificado"
+      },
+      {
+        "letter": "B",
+        "text": "Recriar do zero e pedir novo domínio aos usuários"
+      },
+      {
+        "letter": "C",
+        "text": "Exportar apenas o código sem configuração"
+      },
+      {
+        "letter": "D",
+        "text": "Trocar o plano na mesma região"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Clone copia configuração e conteúdo; hostname e certificado migram com validação. Recriar perde identidade; só código perde settings; trocar plano não muda de região.",
+    "source": "original",
+    "tags": ["app-service", "migracao", "clone", "regiao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-064",
+    "domain": "compute",
+    "subdomain": "batch-hpc",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Simulações de engenharia precisam de 500 núcleos por 6 horas com comunicação MPI de baixa latência entre nós. Qual configuração do Batch entrega HPC efêmero?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Pool Batch com VMs série H, InfiniBand e tarefa MPI"
+      },
+      {
+        "letter": "B",
+        "text": "ACI com 500 contêineres isolados"
+      },
+      {
+        "letter": "C",
+        "text": "Function App com 500 execuções"
+      },
+      {
+        "letter": "D",
+        "text": "VMSS série B com autoscale"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Batch provisiona pool HPC temporário com RDMA/InfiniBand para MPI. ACI isola sem interconexão rápida; Functions não fazem MPI; série B não tem desempenho nem rede HPC.",
+    "source": "original",
+    "tags": ["batch", "hpc", "mpi"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-067",
+    "domain": "compute",
+    "subdomain": "app-service-diagnostico-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Latência alta intermitente precisa de diagnóstico de código e de infraestrutura. Quais duas ferramentas cobrem aplicação e plataforma? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Application Insights com profiler e mapa de aplicação"
+      },
+      {
+        "letter": "B",
+        "text": "Diagnóstico do App Service (detectors) da plataforma"
+      },
+      {
+        "letter": "C",
+        "text": "Ping manual do portal"
+      },
+      {
+        "letter": "D",
+        "text": "Reinicialização agendada do plano"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "App Insights profile o código e os detectors analisam a plataforma (CPU, memória, TCP). Ping manual não diagnostica; reiniciar mascara sem identificar causa.",
+    "source": "original",
+    "tags": ["app-service", "app-insights", "diagnostico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-068",
+    "domain": "compute",
+    "subdomain": "functions-escala-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Funções com pico de 10 mil mensagens na fila precisam escalar rápido sem perder mensagens. Quais dois ajustes garantem vazão e confiabilidade? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Lote (batch size) e paralelismo calibrados por instância"
+      },
+      {
+        "letter": "B",
+        "text": "Plano Premium/Elastic com escala por evento"
+      },
+      {
+        "letter": "C",
+        "text": "Timeout mínimo de 30 segundos"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar retries da fila"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Batch/paralelismo elevam vazão por instância e o plano elástico adiciona instâncias. Timeout curto derruba longas; sem retry, falha perde mensagem.",
+    "source": "original",
+    "tags": ["functions", "escala", "fila", "batch"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-072",
+    "domain": "compute",
+    "subdomain": "app-service-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O plano de continuidade do App Service exige backup georredundante e restauração seletiva de versão anterior. Quais duas capacidades atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup com armazenamento georredundante"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshots automáticos com restauração pontual"
+      },
+      {
+        "letter": "C",
+        "text": "Slot único sem histórico"
+      },
+      {
+        "letter": "D",
+        "text": "Deploy via ZIP sem versionar"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Backup GRS sobrevive a perda regional e snapshots permitem voltar a ponto anterior. Slot único não guarda histórico; ZIP sem versão não restaura seletivamente.",
+    "source": "original",
+    "tags": ["app-service", "backup", "grs", "snapshot"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-073",
+    "domain": "compute",
+    "subdomain": "batch-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Um pipeline de renderização no Batch precisa de nós GPU efêmeros e pacotes de aplicação versionados. Quais dois elementos compõem a solução? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Pool com série N (GPU) e escala automática"
+      },
+      {
+        "letter": "B",
+        "text": "Pacotes de aplicativo do Batch versionados"
+      },
+      {
+        "letter": "C",
+        "text": "VMs série B fixas 24/7"
+      },
+      {
+        "letter": "D",
+        "text": "Instalação manual por RDP em cada nó"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Pool N com autoscale dá GPU sob demanda e pacotes versionam o renderizador. Série B não tem GPU nem escala HPC; RDP manual não escala.",
+    "source": "original",
+    "tags": ["batch", "gpu", "pacotes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-074",
+    "domain": "compute",
+    "subdomain": "functions-seguranca-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "APIs em Functions expostas à internet precisam de autenticação por chave com escopos distintos por cliente. Quais dois mecanismos de chave atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chaves de função (function keys) por função"
+      },
+      {
+        "letter": "B",
+        "text": "Chaves de host (host keys) compartilhadas por app"
+      },
+      {
+        "letter": "C",
+        "text": "Função anônima sem chave"
+      },
+      {
+        "letter": "D",
+        "text": "Chave mestra publicada na documentação"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Function keys isolam por função e host keys por aplicativo, permitindo revogação por escopo. Anônima não autentica; chave mestra exposta compromete tudo.",
+    "source": "original",
+    "tags": ["functions", "chaves", "auth-level"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-076",
+    "domain": "compute",
+    "subdomain": "container-apps-dapr-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Microserviços no Container Apps precisam de comunicação segura entre si e de bindings com filas sem SDK. Quais dois recursos Dapr entregam isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Invocação de serviço com mTLS gerenciado"
+      },
+      {
+        "letter": "B",
+        "text": "Bindings de entrada/saída para filas"
+      },
+      {
+        "letter": "C",
+        "text": "Chamadas HTTP diretas sem sidecar"
+      },
+      {
+        "letter": "D",
+        "text": "Segredos embutidos na imagem"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Service invocation do Dapr criptografa com mTLS e bindings abstraem filas sem SDK. HTTP direto perde mTLS e observabilidade; segredo na imagem vaza.",
+    "source": "original",
+    "tags": ["container-apps", "dapr", "mtls", "bindings"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-078",
+    "domain": "compute",
+    "subdomain": "slots-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um desenvolvedor afirma que as configurações de slot marcadas como slot setting acompanham o código durante o swap para a produção. Essa afirmação sobre o comportamento do swap está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, tudo do slot vai junto no swap"
+      },
+      {
+        "letter": "B",
+        "text": "Não, configurações marcadas como slot setting permanecem no slot"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Slot settings ficam presas ao slot (ex.: string de homologação não vaza para produção). O swap move código e settings comuns; marcadas como sticky, não.",
+    "source": "original",
+    "tags": ["app-service", "slots", "swap", "sticky-settings"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-080",
+    "domain": "compute",
+    "subdomain": "consumption-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que no plano Consumo do Functions a primeira execução após ociosidade pode sofrer cold start, característica inerente ao scale-to-zero. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, scale-to-zero implica possível cold start"
+      },
+      {
+        "letter": "B",
+        "text": "Não, o plano Consumo mantém workers sempre aquecidos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Escalar a zero desliga workers; a próxima execução provisiona do zero (cold start). Workers aquecidos são característica do Premium/Dedicado, não do Consumo.",
+    "source": "original",
+    "tags": ["functions", "consumption", "cold-start"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-084",
+    "domain": "compute",
+    "subdomain": "app-service-deployment-center",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Deploys devem sair do GitHub para staging com troca para produção após teste. O que conecta repositório, build e swap?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Central de Implantação com Actions + slot + swap"
+      },
+      {
+        "letter": "B",
+        "text": "FTP manual por release"
+      },
+      {
+        "letter": "C",
+        "text": "ZIP por e-mail"
+      },
+      {
+        "letter": "D",
+        "text": "Deploy direto em produção"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Deployment Center liga repo→build→slot→swap com trilha. FTP manual erra; e-mail não implanta; direto não testa.",
+    "source": "original",
+    "tags": ["app-service", "deployment-center", "github", "swap"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-085",
+    "domain": "compute",
+    "subdomain": "functions-slots",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Nova versão da função precisa de teste com 5% do tráfego antes do swap total. O que permite canário em Functions Premium?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Slots de implantação do Function App com roteamento"
+      },
+      {
+        "letter": "B",
+        "text": "Duas function apps sem roteamento"
+      },
+      {
+        "letter": "C",
+        "text": "Troca de código direta"
+      },
+      {
+        "letter": "D",
+        "text": "Timer alternando versões"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Slots com percentual testam em produção e trocam sem downtime. Duas apps dividem sem roteamento; direto não testa; timer não roteia.",
+    "source": "original",
+    "tags": ["functions", "slots", "canario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-086",
+    "domain": "compute",
+    "subdomain": "aci-confidential",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres processam dados regulados exigindo isolamento de hardware com atestado. Qual variante do ACI executa em enclave confidencial?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ACI confidencial com atestação"
+      },
+      {
+        "letter": "B",
+        "text": "ACI padrão compartilhado"
+      },
+      {
+        "letter": "C",
+        "text": "VM comum sem enclave"
+      },
+      {
+        "letter": "D",
+        "text": "Blob público com criptografia"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "ACI confidencial roda em TEE com atestado. Padrão compartilha host; VM comum não atesta; blob não executa.",
+    "source": "original",
+    "tags": ["aci", "confidencial", "tee"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-087",
+    "domain": "compute",
+    "subdomain": "container-apps-vnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Container Apps precisa de IPs privados e saída controlada pelo firewall do hub. Como integrar o ambiente à VNet?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ambiente com integração VNet (interno + UDR)"
+      },
+      {
+        "letter": "B",
+        "text": "Ingresso público sem VNet"
+      },
+      {
+        "letter": "C",
+        "text": "Peering do ambiente pronto"
+      },
+      {
+        "letter": "D",
+        "text": "VPN por contêiner"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Ambiente VNet-integrated dá IPs privados e UDR ao firewall. Público expõe; peering não se aplica a ambiente gerenciado; VPN por contêiner não existe.",
+    "source": "original",
+    "tags": ["container-apps", "vnet", "ambiente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-088",
+    "domain": "compute",
+    "subdomain": "batch-pools-autoscale",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pool Batch deve crescer com tarefas pendentes e zerar ocioso. Qual fórmula governa o dimensionamento automático?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fórmula de autoscale por pendingTasks/activeTasks"
+      },
+      {
+        "letter": "B",
+        "text": "Pool fixo 24/7"
+      },
+      {
+        "letter": "C",
+        "text": "Redimensionamento manual diário"
+      },
+      {
+        "letter": "D",
+        "text": "Spot sem fórmula"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Autoscale avalia pending/running e ajusta nós. Fixo desperdiça; manual atrasa; Spot sem fórmula não escala.",
+    "source": "original",
+    "tags": ["batch", "autoscale", "pool"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-104",
+    "domain": "compute",
+    "subdomain": "app-service-private-endpoint",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O App Service deve ser acessado só via IP privado da VNet hub, sem exposição pública. O que projeta o app para dentro da rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint do App Service + DNS privado"
+      },
+      {
+        "letter": "B",
+        "text": "IP público com restrição 0.0.0.0"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Gratuito público"
+      },
+      {
+        "letter": "D",
+        "text": "Slot público de homologação"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoint dá IP privado com resolução interna. Público com 0.0.0.0 expõe; Gratuito não tem PE; slot público vaza.",
+    "source": "original",
+    "tags": ["app-service", "private-endpoint", "privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-105",
+    "domain": "compute",
+    "subdomain": "functions-keys-rotation",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Chaves de função vazaram no log e precisam ser trocadas sem downtime, com trilha. Como rotacionar com segurança?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Renovar via chaves primária/secundária com transição"
+      },
+      {
+        "letter": "B",
+        "text": "Manter a vazada ativa"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar auth da função"
+      },
+      {
+        "letter": "D",
+        "text": "Trocar o nome da função"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Duas chaves permitem migrar clientes e revogar a vazada. Manter expõe; sem auth abre; renomear não revoga.",
+    "source": "original",
+    "tags": ["functions", "chaves", "rotacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-106",
+    "domain": "compute",
+    "subdomain": "aci-gpu",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Inferência com GPU esporádica precisa de contêiner sob demanda sem cluster. Qual SKU do ACI oferece GPU?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ACI com SKU GPU (K80 e superiores)"
+      },
+      {
+        "letter": "B",
+        "text": "ACI CPU comum"
+      },
+      {
+        "letter": "C",
+        "text": "VM D sem GPU"
+      },
+      {
+        "letter": "D",
+        "text": "Function Consumption"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "ACI GPU provisiona K80+ sob demanda por segundo. CPU não acelera; D sem GPU idem; Consumption não tem GPU.",
+    "source": "original",
+    "tags": ["aci", "gpu", "inferencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-107",
+    "domain": "compute",
+    "subdomain": "container-apps-secrets",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Segredos do Container App devem vir do Key Vault com rotação sem redeploy. De onde referenciar com atualização automática?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Referência Key Vault nos segredos do app"
+      },
+      {
+        "letter": "B",
+        "text": "Variável em texto claro no YAML"
+      },
+      {
+        "letter": "C",
+        "text": "Imagem com segredo embutido"
+      },
+      {
+        "letter": "D",
+        "text": "E-mail com segredos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Referência ao Key Vault resolve em runtime e acompanha rotação. Texto claro vaza; embutido exige rebuild; e-mail expõe.",
+    "source": "original",
+    "tags": ["container-apps", "segredos", "key-vault"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-108",
+    "domain": "compute",
+    "subdomain": "batch-tasks-deps",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tarefas do Batch têm ordem (preparar → processar → agregar) com dependências. Como modelar o DAG de tarefas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Dependências de tarefa (dependsOn) no job"
+      },
+      {
+        "letter": "B",
+        "text": "Todas paralelas sem ordem"
+      },
+      {
+        "letter": "C",
+        "text": "Manual uma após outra"
+      },
+      {
+        "letter": "D",
+        "text": "Um job por tarefa isolada"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "dependsOn ordena o DAG com faixas de conclusão. Paralelo quebra ordem; manual não escala; isolado perde dependência.",
+    "source": "original",
+    "tags": ["batch", "dependencias", "dag"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-110",
+    "domain": "compute",
+    "subdomain": "app-service-warmup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Deploys causam lentidão inicial (JIT/cache frio) nos primeiros requests. O que aquece a instância antes do swap?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Inicialização de aplicativo (warm-up) no slot"
+      },
+      {
+        "letter": "B",
+        "text": "Swap imediato sem aquecer"
+      },
+      {
+        "letter": "C",
+        "text": "Reinicialização após swap"
+      },
+      {
+        "letter": "D",
+        "text": "Escala para 1 instância"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Warm-up executa rotas antes do swap, eliminando frio. Direto expõe lentidão; restart após piora; 1 instância não aquece.",
+    "source": "original",
+    "tags": ["app-service", "warmup", "swap"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-111",
+    "domain": "compute",
+    "subdomain": "functions-scale-limits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Explosão de eventos dispara milhares de instâncias e estoura quota e custo. Como limitar o teto de escala do plano?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Limite máximo de instâncias (scale limit) no plano"
+      },
+      {
+        "letter": "B",
+        "text": "Remover todos os limites"
+      },
+      {
+        "letter": "C",
+        "text": "Timeout zero nas funções"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar o gatilho"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Scale limit impõe teto de workers controlando custo/quota. Sem limite explode; timeout zero quebra; sem gatilho para o negócio.",
+    "source": "original",
+    "tags": ["functions", "escala", "limite", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-112",
+    "domain": "compute",
+    "subdomain": "aci-liveness",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêiner travado responde ping mas não processa. Qual sonda reinicia só quando a aplicação falha?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sonda de liveness HTTP/exec no grupo"
+      },
+      {
+        "letter": "B",
+        "text": "Ping ICMP externo"
+      },
+      {
+        "letter": "C",
+        "text": "Restart manual semanal"
+      },
+      {
+        "letter": "D",
+        "text": "Sem sonda"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Liveness valida a app e reinicia o travado. Ping não vê app; manual atrasa; sem sonda acumula zumbis.",
+    "source": "original",
+    "tags": ["aci", "liveness", "sonda"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-115",
+    "domain": "compute",
+    "subdomain": "app-service-mount",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação legada lê arquivos de configuração de um share SMB dentro do App Service. Como montar o Files no app?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Montagem de armazenamento (Bring Your Own Storage) no app"
+      },
+      {
+        "letter": "B",
+        "text": "Arquivos embutidos no deploy"
+      },
+      {
+        "letter": "C",
+        "text": "Download por FTP a cada boot"
+      },
+      {
+        "letter": "D",
+        "text": "Variáveis com conteúdo dos arquivos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "BYOS monta Files via SMB no app com chaves gerenciadas. Embutir exige redeploy; FTP atrasa boot; variável não escala arquivo.",
+    "source": "original",
+    "tags": ["app-service", "montagem", "files", "byos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-116",
+    "domain": "compute",
+    "subdomain": "functions-private-endpoint",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O endpoint da Function App não pode ser público; só a VNet via DNS privado alcança. Como expor privadamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint do Function App + zona privada"
+      },
+      {
+        "letter": "B",
+        "text": "Chave de função como proteção"
+      },
+      {
+        "letter": "C",
+        "text": "IP restrito a 0.0.0.0"
+      },
+      {
+        "letter": "D",
+        "text": "Plano Consumo público"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoint dá IP privado ao Function App com resolução DNS interna. Chave de função não é controle de rede; 0.0.0.0 expõe; Consumo não oferece PE nem VNet.",
+    "source": "original",
+    "tags": ["functions", "private-endpoint", "privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-117",
+    "domain": "compute",
+    "subdomain": "batch-autoscale-formula",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Pool deve ter 0 nós ocioso, subir por pending e manter 2 dedicados em horário comercial. O que expressa essa política?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fórmula de autoscale com $PendingTasks e agenda"
+      },
+      {
+        "letter": "B",
+        "text": "Pool fixo com 10 nós"
+      },
+      {
+        "letter": "C",
+        "text": "Escala manual por turno"
+      },
+      {
+        "letter": "D",
+        "text": "Spot sem fórmula"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Fórmula avalia pending/tempo e dimensiona sozinha. Fixo desperdiça; manual atrasa; sem fórmula não escala.",
+    "source": "original",
+    "tags": ["batch", "autoscale", "formula"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-155",
+    "domain": "compute",
+    "subdomain": "app-service-scale-unit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Múltiplos apps precisam escalar juntos como unidade com mesmo plano sem custo por app. Como agrupar o dimensionamento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Mesmo plano de serviço compartilhado"
+      },
+      {
+        "letter": "B",
+        "text": "Um plano por app mínimo"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Gratuito por app"
+      },
+      {
+        "letter": "D",
+        "text": "ASE por aplicativo"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Plano compartilhado escala a unidade e dilui custo. Um por app multiplica; Gratuito não escala; ASE por app é caríssimo.",
+    "source": "original",
+    "tags": ["app-service", "plano", "compartilhado", "escala"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-156",
+    "domain": "compute",
+    "subdomain": "functions-app-settings",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Strings de conexão distintas por slot (dev/teste/prod) não podem trocar no swap. Como fixar setting ao slot?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Marcar como slot setting (sticky)"
+      },
+      {
+        "letter": "B",
+        "text": "Mesma string em todos"
+      },
+      {
+        "letter": "C",
+        "text": "Hardcode no código"
+      },
+      {
+        "letter": "D",
+        "text": "Variável local por dev"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Marcar como slot setting (sticky) fixa a string ao slot e impede a troca no swap. Mesma string em todos mistura ambientes; hardcode no código vaza segredo; variável local não publica.",
+    "source": "original",
+    "tags": ["functions", "slot-settings", "sticky"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-157",
+    "domain": "compute",
+    "subdomain": "aci-vnet-deploy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres ACI precisam de IPs privados na VNet corporativa com NSG. Como implantar o grupo na rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Perfil de rede com delegação de sub-rede ao ACI"
+      },
+      {
+        "letter": "B",
+        "text": "IP público com NSG aberta"
+      },
+      {
+        "letter": "C",
+        "text": "Peering do ACI pronto"
+      },
+      {
+        "letter": "D",
+        "text": "VPN por contêiner"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Delegação injeta o grupo na sub-rede com NSG. Público expõe; peering não se aplica; VPN por contêiner não existe.",
+    "source": "original",
+    "tags": ["aci", "vnet", "delegacao", "privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-158",
+    "domain": "compute",
+    "subdomain": "container-apps-ingress",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "API interna só deve ser alcançada por outros apps do ambiente, sem ingresso externo. Qual visibilidade do ingress usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ingress interno limitado ao ambiente"
+      },
+      {
+        "letter": "B",
+        "text": "Ingress externo público"
+      },
+      {
+        "letter": "C",
+        "text": "Sem ingress com IP público"
+      },
+      {
+        "letter": "D",
+        "text": "Load Balancer externo"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Ingress internal expõe só dentro do ambiente. Externo publica; sem ingress não há rota; LB externo expõe.",
+    "source": "original",
+    "tags": ["container-apps", "ingress", "interno"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-159",
+    "domain": "compute",
+    "subdomain": "batch-job-prep",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada nó do pool precisa baixar dataset e instalar runtime antes das tarefas. O que executa preparação por nó?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tarefa de preparação do job (job preparation)"
+      },
+      {
+        "letter": "B",
+        "text": "Tarefa comum sem preparação"
+      },
+      {
+        "letter": "C",
+        "text": "Login manual por nó"
+      },
+      {
+        "letter": "D",
+        "text": "Imagem sem dados"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Job prep roda em cada nó antes das tarefas. Sem prep falta dado; manual não escala; sem dados quebra.",
+    "source": "original",
+    "tags": ["batch", "job-preparation", "dataset"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-160",
+    "domain": "compute",
+    "subdomain": "batch-release-task",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logs e resultados por nó precisam ser enviados ao Storage ao fim do job, mesmo com falha. O que executa a liberação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tarefa de liberação (job release) do job"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão do pool sem coletar"
+      },
+      {
+        "letter": "C",
+        "text": "Coleta manual por nó"
+      },
+      {
+        "letter": "D",
+        "text": "Ignorar os resultados"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Tarefa de liberação (job release) roda ao fim do job em cada nó coletando logs e resultados. Excluir o pool sem coletar perde tudo; coleta manual não escala; ignorar desperdiça.",
+    "source": "original",
+    "tags": ["batch", "job-release", "coleta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-188",
+    "domain": "compute",
+    "subdomain": "app-service-sla",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "App Service em plano Básico ou superior com duas instâncias promete qual SLA?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "99,95% com duas ou mais instâncias"
+      },
+      {
+        "letter": "B",
+        "text": "99,99% com uma instância"
+      },
+      {
+        "letter": "C",
+        "text": "Sem SLA em qualquer plano"
+      },
+      {
+        "letter": "D",
+        "text": "99,9% com plano Gratuito"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Básico ou superior com 2+ instâncias contrata 99,95%. Uma instância não tem SLA alto; Gratuito/Compartilhado não têm SLA.",
+    "source": "original",
+    "tags": ["sla", "app-service", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-189",
+    "domain": "compute",
+    "subdomain": "functions-sla",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Function App em plano Premium/Dedicado promete qual SLA de execução?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "99,95% nos planos pagos (Premium/Dedicado)"
+      },
+      {
+        "letter": "B",
+        "text": "99,99% no Consumo"
+      },
+      {
+        "letter": "C",
+        "text": "Sem SLA em nenhum plano"
+      },
+      {
+        "letter": "D",
+        "text": "99,9% só no Flex"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Premium/Dedicado contratam 99,95%; Consumo não tem SLA de execução. 99,99% não se aplica; Flex segue regras próprias.",
+    "source": "original",
+    "tags": ["sla", "functions", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-199",
+    "domain": "compute",
+    "subdomain": "consumption-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Plano Consumo do Functions tem qual SLA de execução?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem SLA de execução"
+      },
+      {
+        "letter": "B",
+        "text": "99,95% igual ao Premium"
+      },
+      {
+        "letter": "C",
+        "text": "99,99% serverless"
+      },
+      {
+        "letter": "D",
+        "text": "99,9% com reserva"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Consumption não contrata SLA; Premium/Dedicado têm 99,95%. Equiparar ignora a diferença de compromisso entre planos.",
+    "source": "original",
+    "tags": ["sla", "consumption", "functions"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  }
+]
