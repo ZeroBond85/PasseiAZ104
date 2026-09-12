@@ -1366,5 +1366,1129 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-ig-051",
+    "domain": "identidade-governanca",
+    "subdomain": "entra-id-licencas",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Recursos como Conditional Access, PIM e Access Reviews pararam de funcionar após expiração de licenças. Qual licença habilita esses recursos de governança premium?",
+    "options": [
+      { "letter": "A", "text": "Microsoft Entra ID P2 (ou EMS E5)" },
+      { "letter": "B", "text": "Microsoft Entra ID Gratuito" },
+      { "letter": "C", "text": "Licença só do Microsoft 365 Básico" },
+      { "letter": "D", "text": "Subscription do Azure sem Entra" }
+    ],
+    "correct": ["A"],
+    "explanation": "P2 libera PIM, Identity Protection, Access Reviews e Entitlement Management. Gratuito e M365 básico não incluem; subscription sem Entra não licencia identidade.",
+    "source": "original",
+    "tags": ["licencas", "entra-p2"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-052",
+    "domain": "identidade-governanca",
+    "subdomain": "sso-saml",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um SaaS de terceiros precisa de login único federado com o Entra ID via SAML, com provisionamento automático de usuários. O que configurar no registro do aplicativo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SSO SAML + provisionamento SCIM no app corporativo"
+      },
+      { "letter": "B", "text": "Chave de API compartilhada por e-mail" },
+      { "letter": "C", "text": "Senha única sincronizada manualmente" },
+      { "letter": "D", "text": "VPN até o SaaS" }
+    ],
+    "correct": ["A"],
+    "explanation": "SSO SAML federa o login e SCIM provisiona/desprovisiona contas. Chave por e-mail não federa; senha manual não escala; VPN não autentica SaaS.",
+    "source": "original",
+    "tags": ["sso", "saml", "scim"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-053",
+    "domain": "identidade-governanca",
+    "subdomain": "provisionamento-hr",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Admissões no RH precisam criar contas no Entra automaticamente a partir do sistema de RH em nuvem. Qual provisionamento conecta RH ao Entra ID?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Provisionamento inbound do RH para o Entra (ex.: Workday/SuccessFactors)"
+      },
+      { "letter": "B", "text": "Criação manual pelo help desk" },
+      { "letter": "C", "text": "CSV importado mensalmente" },
+      { "letter": "D", "text": "Conta genérica compartilhada" }
+    ],
+    "correct": ["A"],
+    "explanation": "Provisionamento inbound sincroniza admissões/movimentações/desligamentos do RH. Manual e CSV atrasam e erram; conta genérica viola identidade individual.",
+    "source": "original",
+    "tags": ["provisionamento", "rh", "inbound"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-054",
+    "domain": "identidade-governanca",
+    "subdomain": "legacy-auth-block",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Ataques de spray de senha exploram IMAP/POP legados que não suportam MFA. Como bloquear autenticação legada em toda a organização?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de acesso condicional bloqueando clientes legados"
+      },
+      { "letter": "B", "text": "Senha mais longa para todos" },
+      { "letter": "C", "text": "Desabilitar o MFA" },
+      { "letter": "D", "text": "Liberar IMAP só no firewall" }
+    ],
+    "correct": ["A"],
+    "explanation": "Condição de client apps legados com concessão Bloquear elimina a via sem MFA. Senha longa ainda é fator único; sem MFA piora; firewall não distingue protocolo de auth.",
+    "source": "original",
+    "tags": ["legacy-auth", "conditional-access", "bloqueio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-055",
+    "domain": "identidade-governanca",
+    "subdomain": "break-glass",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Duas contas de emergência (break glass) devem sobreviver a falhas de MFA e políticas, com uso monitorado. Quais proteções aplicá-las?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Excluídas de políticas + credenciais fortes + alerta de uso"
+      },
+      { "letter": "B", "text": "MFA obrigatório e sem exclusão" },
+      { "letter": "C", "text": "Contas desabilitadas permanentemente" },
+      { "letter": "D", "text": "Senha igual para as duas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Break glass fica fora de CA/MFA (para emergência real), com senha longa e alerta a cada login. Exigir MFA anula o propósito; desabilitada não serve; senha igual duplica risco.",
+    "source": "original",
+    "tags": ["break-glass", "emergencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-056",
+    "domain": "identidade-governanca",
+    "subdomain": "session-controls",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Documentos sigilosos no SharePoint não podem ser baixados em dispositivos não gerenciados, apenas visualizados no navegador. Qual controle de sessão impõe isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Controle de sessão com acesso limitado (Defender for Cloud Apps)"
+      },
+      { "letter": "B", "text": "Bloqueio total do SharePoint" },
+      { "letter": "C", "text": "Senha de 20 caracteres" },
+      { "letter": "D", "text": "VPN obrigatória" }
+    ],
+    "correct": ["A"],
+    "explanation": "Session control via Defender for Cloud Apps permite visualizar sem baixar em dispositivo não conforme. Bloqueio total impede trabalho; senha não limita download; VPN não controla sessão.",
+    "source": "original",
+    "tags": ["session-controls", "defender-cloud-apps", "download"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-057",
+    "domain": "identidade-governanca",
+    "subdomain": "device-join-types",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Notebooks corporativos precisam de SSO primário, controle total via Intune e acesso condicional por conformidade. Qual ingresso atende Windows corporativo?",
+    "options": [
+      { "letter": "A", "text": "Ingressado no Microsoft Entra (Entra joined)" },
+      { "letter": "B", "text": "Registrado (registered) pessoal" },
+      { "letter": "C", "text": "Híbrido sem sincronização" },
+      { "letter": "D", "text": "Workgroup local" }
+    ],
+    "correct": ["A"],
+    "explanation": "Entra joined dá identidade primária, SSO e gerenciamento total. Registered é BYOD limitado; híbrido sem sync quebra; workgroup não federa.",
+    "source": "original",
+    "tags": ["devices", "entra-joined", "intune"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-058",
+    "domain": "identidade-governanca",
+    "subdomain": "compliance-device",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Acesso condicional deve exigir dispositivo conforme com SO atualizado e antivírus. Onde a conformidade do dispositivo é avaliada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de conformidade do Intune consumida pelo acesso condicional"
+      },
+      { "letter": "B", "text": "Grupo de segurança estático" },
+      { "letter": "C", "text": "Senha do dispositivo" },
+      { "letter": "D", "text": "Nome do computador" }
+    ],
+    "correct": ["A"],
+    "explanation": "Intune avalia conformidade e o CA consome o sinal. Grupo estático não mede saúde; senha e nome não atestam conformidade.",
+    "source": "original",
+    "tags": ["conformidade", "intune", "conditional-access"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-059",
+    "domain": "identidade-governanca",
+    "subdomain": "named-locations",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Faixas de IP dos escritórios e países bloqueados precisam de definição reutilizável nas políticas. Onde esses locais nomeados são criados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Locais nomeados do acesso condicional (inclui conformidade de país)"
+      },
+      { "letter": "B", "text": "NSG de cada VNet" },
+      { "letter": "C", "text": "Tabela de rotas" },
+      { "letter": "D", "text": "Grupo de recursos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Named locations centralizam IPs confiáveis e países para todas as políticas. NSG é por rede; UDR roteia; RG organiza recursos.",
+    "source": "original",
+    "tags": ["named-locations", "ips", "paises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-060",
+    "domain": "identidade-governanca",
+    "subdomain": "risk-detections",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logins com credenciais vazadas em breaches públicos devem elevar o risco do usuário automaticamente. Qual detecção do Identity Protection identifica isso?",
+    "options": [
+      { "letter": "A", "text": "Credenciais vazadas (leaked credentials)" },
+      { "letter": "B", "text": "Viagem impossível (impossible travel)" },
+      { "letter": "C", "text": "IP anônimo (Tor/VPN)" },
+      { "letter": "D", "text": "Volume de login normal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Leaked credentials cruza breaches conhecidos com seus usuários. Viagem impossível e IP anônimo são detecções de login, não de vazamento; volume normal não é risco.",
+    "source": "original",
+    "tags": ["identity-protection", "leaked-credentials"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-061",
+    "domain": "identidade-governanca",
+    "subdomain": "user-risk-remediation",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contas marcadas com alto risco de usuário precisam ser forçadas a trocar a senha com segurança antes de qualquer acesso. Qual política aplica essa remediação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de risco de usuário com troca segura de senha"
+      },
+      { "letter": "B", "text": "Política de expiração de 90 dias" },
+      { "letter": "C", "text": "Bloqueio de conta permanente" },
+      { "letter": "D", "text": "E-mail de aviso ao usuário" }
+    ],
+    "correct": ["A"],
+    "explanation": "User risk policy exige password change seguro ao detectar comprometimento. Expiração periódica não reage; bloqueio permanente impede o legítimo; e-mail não impõe.",
+    "source": "original",
+    "tags": ["user-risk", "remediacao", "senha"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-062",
+    "domain": "identidade-governanca",
+    "subdomain": "app-roles",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um SaaS interno precisa de papéis (Admin, Leitor) atribuídos a usuários e grupos dentro do aplicativo. Onde esses papéis são definidos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Funções de aplicativo (app roles) no manifesto do registro"
+      },
+      { "letter": "B", "text": "Funções RBAC da subscription" },
+      { "letter": "C", "text": "Grupos de segurança como papéis" },
+      { "letter": "D", "text": "Papéis no código sem registro" }
+    ],
+    "correct": ["A"],
+    "explanation": "App roles no manifesto expõem papéis atribuíveis via Entra. RBAC da subscription gerencia Azure; grupos sozinhos não viram claim de papel; código sem registro não integra.",
+    "source": "original",
+    "tags": ["app-roles", "manifesto", "saas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-063",
+    "domain": "identidade-governanca",
+    "subdomain": "group-licensing",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Licenças E5 devem ser atribuídas automaticamente a membros de um grupo, com erro visível quando faltar licença. Como automatizar com diagnóstico?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Licenciamento baseado em grupo com log de erros"
+      },
+      { "letter": "B", "text": "Atribuição manual por usuário" },
+      { "letter": "C", "text": "Licença por dispositivo" },
+      { "letter": "D", "text": "Planilha de controle" }
+    ],
+    "correct": ["A"],
+    "explanation": "Group licensing herda licenças e mostra erros (conflito, falta). Manual não escala; por dispositivo não licencia usuário; planilha não aplica.",
+    "source": "original",
+    "tags": ["licenciamento", "grupo", "e5"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-064",
+    "domain": "identidade-governanca",
+    "subdomain": "dynamic-membership-cost",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Regras dinâmicas em milhares de grupos estouraram o limite de consultas e há atraso na associação. Qual boa prática reduz o custo de avaliação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regras simples por atributo indexado com escopo limitado"
+      },
+      { "letter": "B", "text": "Regras com múltiplos ORs aninhados por grupo" },
+      { "letter": "C", "text": "Um grupo dinâmico para toda a empresa" },
+      { "letter": "D", "text": "Regra por usuário individual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Atributos indexados e escopo estreito avaliam rápido. ORs aninhados custam caro; grupo único gigante atrasa; regra por usuário anula a automação.",
+    "source": "original",
+    "tags": ["grupos-dinamicos", "performance", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-065",
+    "domain": "identidade-governanca",
+    "subdomain": "tenant-id-find",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um script de automação precisa do ID do tenant para autenticar via MSAL. Onde encontrar o Tenant ID de forma confiável no portal?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Microsoft Entra ID > Visão geral > ID do locatário"
+      },
+      { "letter": "B", "text": "Nome da subscription" },
+      { "letter": "C", "text": "IP do portal" },
+      { "letter": "D", "text": "Nome do grupo de recursos" }
+    ],
+    "correct": ["A"],
+    "explanation": "O overview do Entra ID exibe o Tenant ID (GUID) para MSAL e automação. Nome de subscription, IP do portal e grupo de recursos não identificam o tenant.",
+    "source": "original",
+    "tags": ["tenant-id", "msal", "automacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-066",
+    "domain": "identidade-governanca",
+    "subdomain": "custom-domain-verify",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O domínio empresa.com precisa ser usado em UPNs do Entra ID. Qual passo comprova a propriedade antes do uso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Adicionar TXT de verificação no DNS e validar"
+      },
+      { "letter": "B", "text": "Trocar o MX imediatamente" },
+      { "letter": "C", "text": "Criar usuários antes de verificar" },
+      { "letter": "D", "text": "Apontar NS para o Azure" }
+    ],
+    "correct": ["A"],
+    "explanation": "TXT comprova posse sem mexer no correio. Trocar MX quebra e-mail; criar antes impede sufixo; NS não é exigido.",
+    "source": "original",
+    "tags": ["dominio-personalizado", "txt", "upn"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-067",
+    "domain": "identidade-governanca",
+    "subdomain": "federation-vs-managed",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Após migrar do AD FS para autenticação gerenciada na nuvem, logins falham para um domínio ainda federado. O que converter o domínio para gerenciado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Converter o domínio de Federated para Managed no Entra Connect"
+      },
+      { "letter": "B", "text": "Desligar os servidores AD FS sem converter" },
+      { "letter": "C", "text": "Recriar todos os usuários na nuvem" },
+      { "letter": "D", "text": "Trocar senhas de todos" }
+    ],
+    "correct": ["A"],
+    "explanation": "A conversão muda o fluxo para nuvem (PHS/PTA) mantendo usuários. Desligar sem converter quebra; recriar perde histórico; trocar senha não muda fluxo.",
+    "source": "original",
+    "tags": ["federacao", "managed", "adfs", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-068",
+    "domain": "identidade-governanca",
+    "subdomain": "ca-whatif",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Antes de ativar uma política que pode bloquear a diretoria, você quer simular o impacto para um usuário específico. Qual ferramenta avalia sem impor?",
+    "options": [
+      { "letter": "A", "text": "What If do acesso condicional" },
+      { "letter": "B", "text": "Ativação direta em produção" },
+      { "letter": "C", "text": "Log de auditoria após o bloqueio" },
+      { "letter": "D", "text": "E-mail de teste ao usuário" }
+    ],
+    "correct": ["A"],
+    "explanation": "What If simula políticas contra usuário, app e condições sem efeito real. Ativar direto arrisca; auditoria reage depois; e-mail não avalia.",
+    "source": "original",
+    "tags": ["conditional-access", "what-if", "simulacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-069",
+    "domain": "identidade-governanca",
+    "subdomain": "token-lifetime",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sessões de quiosques compartilhados devem expirar em 30 minutos de inatividade, mas notebooks corporativos mantêm 8h. Onde diferenciar o tempo de sessão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Controles de sessão (frequência de login) por política de acesso condicional"
+      },
+      { "letter": "B", "text": "Expiração global de senha" },
+      { "letter": "C", "text": "Timeout do navegador do usuário" },
+      { "letter": "D", "text": "SLA do aplicativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Sign-in frequency por política diferencia por contexto (dispositivo/rede). Expiração de senha não limita sessão; navegador é cliente; SLA não controla tempo.",
+    "source": "original",
+    "tags": ["sessao", "sign-in-frequency", "quiosque"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-070",
+    "domain": "identidade-governanca",
+    "subdomain": "persistent-browser",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Em computadores compartilhados, o 'manter conectado' não deve persistir sessão entre reinícios do navegador. Qual controle impede a persistência?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sessão persistente de navegador negada na política"
+      },
+      { "letter": "B", "text": "Cookie de sessão com 1 ano" },
+      { "letter": "C", "text": "Senha salva no navegador" },
+      { "letter": "D", "text": "Token de 24h para todos" }
+    ],
+    "correct": ["A"],
+    "explanation": "Negar persistent browser session força reautenticação ao fechar. Cookie longo e senha salva mantêm; token longo ignora contexto.",
+    "source": "original",
+    "tags": ["sessao-persistente", "navegador", "compartilhado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-071",
+    "domain": "identidade-governanca",
+    "subdomain": "app-proxy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um ERP on-premises precisa de acesso externo com pré-autenticação do Entra sem abrir inbound no firewall. Qual serviço publica o app via conectores de saída?",
+    "options": [
+      { "letter": "A", "text": "Proxy de Aplicativo do Entra com conectores" },
+      { "letter": "B", "text": "IP público com NAT no firewall" },
+      { "letter": "C", "text": "VPN para cada usuário externo" },
+      { "letter": "D", "text": "DNS público direto ao servidor" }
+    ],
+    "correct": ["A"],
+    "explanation": "App Proxy usa conectores outbound com pré-auth Entra, sem inbound. IP público expõe; VPN por usuário não escala; DNS não autentica.",
+    "source": "original",
+    "tags": ["app-proxy", "on-premises", "pre-auth"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-072",
+    "domain": "identidade-governanca",
+    "subdomain": "kerberos-sso-proxy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O ERP publicado via App Proxy usa autenticação integrada do Windows (Kerberos) internamente. Como delegar a identidade do Entra ao backend Kerberos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SSO com Kerberos Constrained Delegation no conector"
+      },
+      { "letter": "B", "text": "Repasse de senha em texto claro" },
+      { "letter": "C", "text": "Login anônimo no backend" },
+      { "letter": "D", "text": "Certificado cliente ignorado" }
+    ],
+    "correct": ["A"],
+    "explanation": "KCD delega o ticket ao backend sem expor senha. Repasse em claro vaza; anônimo perde identidade; ignorar cert quebra mTLS.",
+    "source": "original",
+    "tags": ["kerberos", "kcd", "sso", "app-proxy"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-073",
+    "domain": "identidade-governanca",
+    "subdomain": "cba",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Operações críticas exigem certificado digital em smartcard além do MFA para administradores. Qual método de autenticação por certificado o Entra suporta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticação baseada em certificado (CBA) com regras de emissor"
+      },
+      { "letter": "B", "text": "Upload de PFX no perfil do usuário" },
+      { "letter": "C", "text": "Senha + PIN do cartão sem validação" },
+      { "letter": "D", "text": "Self-signed sem CA confiável" }
+    ],
+    "correct": ["A"],
+    "explanation": "CBA valida cadeia e mapeia o certificado à conta com regras. PFX no perfil não autentica; PIN sem validação é fraco; self-signed sem âncora não confia.",
+    "source": "original",
+    "tags": ["cba", "certificado", "smartcard"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-074",
+    "domain": "identidade-governanca",
+    "subdomain": "quota-limits",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A criação de 300 mil convidados B2B esbarrou em limite do diretório. Qual limite de objetos do Entra ID impõe teto ao tenant?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cota de objetos do diretório (padrão 300 mil, expansível)"
+      },
+      { "letter": "B", "text": "Limite de 50 usuários por tenant" },
+      { "letter": "C", "text": "Limite de 5 grupos dinâmicos" },
+      { "letter": "D", "text": "Limite de 1 aplicativo corporativo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Directory quota padrão é 300k objetos, expansível via suporte. Os demais limites citados não existem nesses valores.",
+    "source": "original",
+    "tags": ["cota", "diretorio", "limites", "b2b"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-075",
+    "domain": "identidade-governanca",
+    "subdomain": "pim-alerts",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Ativações PIM fora do horário e sem MFA precisam gerar alerta ao SOC. Qual recurso do PIM monitora uso anômalo de função?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alertas do PIM (ex.: ativação fora do expediente)"
+      },
+      { "letter": "B", "text": "Log manual de ativações" },
+      { "letter": "C", "text": "E-mail do administrador ativado" },
+      { "letter": "D", "text": "Desabilitação do PIM" }
+    ],
+    "correct": ["A"],
+    "explanation": "PIM alerts detectam padrões (fora de horário, sem MFA, papel sensível). Log manual atrasa; e-mail do ativador não alerta o SOC; desligar perde o controle.",
+    "source": "original",
+    "tags": ["pim", "alertas", "soc", "anomalia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-076",
+    "domain": "identidade-governanca",
+    "subdomain": "access-package-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Um pacote de acesso para parceiros exige aprovação em duas etapas e expiração com revisão. Quais dois elementos de política compõem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aprovação multiestágio do gestor e do dono do recurso"
+      },
+      { "letter": "B", "text": "Expiração com revisão de acesso periódica" },
+      { "letter": "C", "text": "Acesso vitalício sem revisão" },
+      { "letter": "D", "text": "Autoaprovação do solicitante" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Multi-aprovação distribui o controle e expiração com review remove órfãos. Vitalício acumula; autoaprovação anula governança.",
+    "source": "original",
+    "tags": ["access-package", "aprovacao", "expiracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-077",
+    "domain": "identidade-governanca",
+    "subdomain": "connected-org-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Vários parceiros acessam o mesmo catálogo com políticas distintas por organização. Quais dois elementos segmentam por parceiro? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Organizações conectadas por domínio parceiro" },
+      { "letter": "B", "text": "Políticas por organização conectada" },
+      { "letter": "C", "text": "Catálogo único sem distinção" },
+      { "letter": "D", "text": "Conta genérica compartilhada" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Connected orgs identificam o parceiro e políticas por org diferenciam regras. Catálogo único mistura; conta genérica perde trilha.",
+    "source": "original",
+    "tags": ["connected-org", "parceiros", "politicas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-078",
+    "domain": "identidade-governanca",
+    "subdomain": "terms-versioning-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Nova versão do termo de uso precisa de reaceite e evidência por usuário. Quais dois comportamentos o Terms of Use versionado garante? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Reaceite obrigatório na nova versão" },
+      { "letter": "B", "text": "Registro de aceite por versão e identidade" },
+      { "letter": "C", "text": "Aceite herdado sem nova leitura" },
+      { "letter": "D", "text": "Dispensa de registro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Versionamento exige novo aceite e grava evidência por versão. Herdar sem ler anula o propósito; sem registro não há prova.",
+    "source": "original",
+    "tags": ["terms-of-use", "versao", "evidencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-079",
+    "domain": "identidade-governanca",
+    "subdomain": "sso-taxonomy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dois SaaS: um legado só com SAML e um moderno com OpenID Connect. Quais dois protocolos federar, respectivamente? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "SAML para o legado" },
+      { "letter": "B", "text": "OpenID Connect para o moderno" },
+      { "letter": "C", "text": "Kerberos direto pela internet" },
+      { "letter": "D", "text": "NTLM via SaaS público" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "SAML atende legados federados e OIDC é o padrão moderno. Kerberos/NTLM não atravessam internet para SaaS.",
+    "source": "original",
+    "tags": ["sso", "saml", "oidc", "protocolos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-080",
+    "domain": "identidade-governanca",
+    "subdomain": "scim-lifecycle-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O ciclo do colaborador no SaaS exige criação na admissão e remoção imediata no desligamento. Quais dois eventos o SCIM sincroniza? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Provisionamento na admissão" },
+      { "letter": "B", "text": "Desprovisionamento no desligamento" },
+      { "letter": "C", "text": "Manutenção de conta órfã ativa" },
+      { "letter": "D", "text": "Senha anotada em planilha" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "SCIM cria, atualiza e remove contas no SaaS conforme eventos do RH, sem intervenção manual. Manter órfã ativa é risco de acesso; planilha jamais provisiona.",
+    "source": "original",
+    "tags": ["scim", "provisionamento", "ciclo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-081",
+    "domain": "identidade-governanca",
+    "subdomain": "risk-remediation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Risco de login alto em tempo real e risco de usuário persistente exigem respostas distintas. Quais duas ações correspondem a cada nível? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Bloquear o login de alto risco na hora" },
+      {
+        "letter": "B",
+        "text": "Exigir troca segura de senha no risco de usuário"
+      },
+      { "letter": "C", "text": "Ignorar ambos e auditar depois" },
+      { "letter": "D", "text": "Bloquear o usuário permanentemente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Login arriscado bloqueia a tentativa; conta comprometida remedeia com troca segura. Ignorar atrasa; bloqueio permanente impede o legítimo.",
+    "source": "original",
+    "tags": ["risco-login", "risco-usuario", "remediacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-082",
+    "domain": "identidade-governanca",
+    "subdomain": "au-pim-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Administradores regionais precisam ativar papéis só na própria unidade, com aprovação e trilha. Quais dois elementos combinam escopo e controle? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "PIM com escopo na unidade administrativa" },
+      { "letter": "B", "text": "Aprovação e MFA na ativação" },
+      { "letter": "C", "text": "Papel permanente global" },
+      { "letter": "D", "text": "Ativação sem registro" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Escopo na AU limita a região e aprovação+MFA controla a elevação. Global permanente excede; sem registro não audita.",
+    "source": "original",
+    "tags": ["pim", "administrative-units", "escopo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-083",
+    "domain": "identidade-governanca",
+    "subdomain": "device-filter-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A política deve atingir só dispositivos marcados como Compliant e excluir quiosques por nome. Quais dois filtros combinam inclusão e exclusão? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Filtro de dispositivo por conformidade (isCompliant)"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão por padrão de displayName do quiosque"
+      },
+      { "letter": "C", "text": "Filtro por cor do dispositivo" },
+      { "letter": "D", "text": "Exclusão de todos os dispositivos" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Device filter inclui por atributo de conformidade e exclui por nome. Cor não é atributo; excluir tudo anula a política.",
+    "source": "original",
+    "tags": ["device-filter", "conformidade", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-084",
+    "domain": "identidade-governanca",
+    "subdomain": "ca-backup-exclusion-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Para não se trancar para fora, a política global precisa preservar emergência e permitir teste seguro. Quais duas salvaguardas aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Excluir contas break glass de todas as políticas"
+      },
+      { "letter": "B", "text": "Validar em Report-only antes de On" },
+      { "letter": "C", "text": "Incluir break glass no bloqueio" },
+      { "letter": "D", "text": "Ativar tudo direto em produção" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Break glass excluído garante recuperação e Report-only valida impacto. Incluir emergência tranca; ativar direto arrisca lockout.",
+    "source": "original",
+    "tags": ["break-glass", "report-only", "lockout"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-085",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-expiry-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Convidados com mais de 180 dias sem revisão devem sair automaticamente, com aviso prévio. Quais dois mecanismos combinam expiração e recertificação? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Access Review recorrente dos convidados" },
+      { "letter": "B", "text": "Expiração do pacote de acesso" },
+      { "letter": "C", "text": "Conta vitalícia sem revisão" },
+      { "letter": "D", "text": "E-mail manual de cobrança" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Review recertifica e expiração remove sem confirmação. Vitalício acumula; e-mail manual não executa.",
+    "source": "original",
+    "tags": ["convidados", "expiracao", "review"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-086",
+    "domain": "identidade-governanca",
+    "subdomain": "consent-admin-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Apps que pedem Directory.ReadWrite.All devem passar por aprovação com justificativa e expiração do consentimento. Quais dois controles aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Workflow de consentimento do administrador" },
+      {
+        "letter": "B",
+        "text": "Revisão periódica de consentimentos concedidos"
+      },
+      { "letter": "C", "text": "Consentimento do usuário sem limite" },
+      { "letter": "D", "text": "Segredo único para todos os apps" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Workflow aprova com trilha e revisão revoga obsoletos. Consentimento irrestrito expõe o diretório; segredo único amplia blast radius.",
+    "source": "original",
+    "tags": ["consentimento", "workflow", "revisao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-087",
+    "domain": "identidade-governanca",
+    "subdomain": "password-rollover-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Contas de serviço legadas com senha fixa precisam de rotação sem downtime e trilha. Quais duas práticas compõem a rotação segura? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Duas senhas válidas com transição gradual" },
+      { "letter": "B", "text": "Registro de rotação com data e responsável" },
+      { "letter": "C", "text": "Senha única permanente" },
+      { "letter": "D", "text": "Compartilhamento por chat" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Duas credenciais ativas permitem transição e o registro audita. Senha única impede rotação; chat vaza.",
+    "source": "original",
+    "tags": ["senhas", "rotacao", "contas-servico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-088",
+    "domain": "identidade-governanca",
+    "subdomain": "smart-lockout-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Ataques de spray distribuídos por milhares de IPs precisam de bloqueio inteligente sem travar usuários legítimos. Quais dois comportamentos o Smart Lockout combina? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Bloqueio por familiaridade de local/dispositivo"
+      },
+      { "letter": "B", "text": "Contagem diferenciada por origem suspeita" },
+      { "letter": "C", "text": "Bloqueio global após 1 erro" },
+      { "letter": "D", "text": "Desabilitação do lockout" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Smart Lockout distingue legítimo de spray por sinais e limiares. Bloquear após 1 erro trava todos; sem lockout libera força bruta.",
+    "source": "original",
+    "tags": ["smart-lockout", "spray", "forca-bruta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-089",
+    "domain": "identidade-governanca",
+    "subdomain": "phishing-resistant-mfa-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "MFA por SMS sofre SIM swap e o Authenticator sofre MFA fatigue. Quais dois métodos resistem a phishing? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "FIDO2 com verificação de origem" },
+      { "letter": "B", "text": "Windows Hello for Business" },
+      { "letter": "C", "text": "SMS com código" },
+      { "letter": "D", "text": "Voz com confirmação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "FIDO2 e Hello vinculam à origem e dispensam segredo compartilhado. SMS e voz são interceptáveis e sofrem fatigue.",
+    "source": "original",
+    "tags": ["phishing-resistant", "fido2", "hello"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-090",
+    "domain": "identidade-governanca",
+    "subdomain": "number-matching-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A fadiga de MFA aprova pushes não solicitados. Quais dois controles eliminam o approve cego? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Number matching no Authenticator" },
+      { "letter": "B", "text": "Contexto (app e local) na notificação" },
+      { "letter": "C", "text": "Aprovação com um toque sem contexto" },
+      { "letter": "D", "text": "Push ilimitado sem expiração" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Número exibido na tela exige atenção e o contexto denuncia origem estranha. Toque cego aprova ataque; push sem expiração amplia janela.",
+    "source": "original",
+    "tags": ["number-matching", "fatigue", "authenticator"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-091",
+    "domain": "identidade-governanca",
+    "subdomain": "ca-insights-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Políticas legadas sem uso e gaps de cobertura precisam de diagnóstico antes da limpeza. Quais dois relatórios orientam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Relatório de políticas sem uso recente" },
+      { "letter": "B", "text": "Cobertura por app/usuário sem política" },
+      { "letter": "C", "text": "Exclusão aleatória de políticas" },
+      { "letter": "D", "text": "Desabilitação de logs" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Insights mostram ociosas e descobertas para consolidar. Excluir no escuro quebra; sem log não há diagnóstico.",
+    "source": "original",
+    "tags": ["ca-insights", "cobertura", "limpeza"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-092",
+    "domain": "identidade-governanca",
+    "subdomain": "privileged-groups-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Grupos com papéis privilegiados via PIM precisam de ativação temporária e auditoria de membros. Quais dois controles aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Grupo qualificado no PIM com ativação" },
+      { "letter": "B", "text": "Revisão de acesso dos membros do grupo" },
+      { "letter": "C", "text": "Membro permanente vitalício" },
+      { "letter": "D", "text": "Grupo sem dono responsável" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "PIM para grupos dá elevação temporária e review limpa membros. Permanente acumula; sem dono ninguém revisa.",
+    "source": "original",
+    "tags": ["pim", "grupos", "review"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-093",
+    "domain": "identidade-governanca",
+    "subdomain": "jit-admin-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que função PIM qualificada (eligible) concede acesso imediato sem ativação, igual à permanente. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, eligible já libera acesso direto" },
+      { "letter": "B", "text": "Não, eligible exige ativação para valer" }
+    ],
+    "correct": ["B"],
+    "explanation": "Eligible é só direito de ativar; sem ativação (com MFA/justificativa) não há acesso. Confundir com permanente anula o just-in-time.",
+    "source": "original",
+    "tags": ["pim", "eligible", "just-in-time"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-094",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-mfa-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que políticas de MFA do seu tenant se aplicam a convidados B2B mesmo que o tenant de origem não exija MFA. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, a política do tenant de recurso vale para convidados"
+      },
+      { "letter": "B", "text": "Não, convidados seguem só a origem" }
+    ],
+    "correct": ["A"],
+    "explanation": "O tenant de recurso impõe sua CA aos guests (salvo confiança explícita). Achar que origem manda sozinha deixa brecha.",
+    "source": "original",
+    "tags": ["b2b", "mfa", "convidado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-095",
+    "domain": "identidade-governanca",
+    "subdomain": "sspr-licenca-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que SSPR para todos os usuários exige licença Entra ID P1 ou P2, não funcionando no tier gratuito. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, SSPR amplo exige P1/P2" },
+      { "letter": "B", "text": "Não, o gratuito cobre SSPR ilimitado" }
+    ],
+    "correct": ["A"],
+    "explanation": "O tier gratuito limita SSPR (basicamente admins); cobertura ampla de usuários exige P1 ou P2. Assumir gratuidade total trava o projeto na implantação.",
+    "source": "original",
+    "tags": ["sspr", "licenca", "p1"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-096",
+    "domain": "identidade-governanca",
+    "subdomain": "dynamic-group-license-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que grupo dinâmico exige licença P1 para cada membro avaliado pela regra. Essa afirmação sobre licenciamento está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, membros de grupo dinâmico exigem P1" },
+      { "letter": "B", "text": "Não, grupo dinâmico é gratuito" }
+    ],
+    "correct": ["A"],
+    "explanation": "Dynamic membership é recurso P1 por usuário avaliado. Tratar como grátis gera não conformidade de licenciamento.",
+    "source": "original",
+    "tags": ["grupo-dinamico", "licenca", "p1"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-097",
+    "domain": "identidade-governanca",
+    "subdomain": "owner-vs-uam-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um engenheiro afirma que Proprietário já pode delegar acesso, tornando o Administrador de Acesso do Usuário redundante. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, Owner cobre tudo do UAA" },
+      { "letter": "B", "text": "Não, UAA delega sem dar poder de Owner" }
+    ],
+    "correct": ["B"],
+    "explanation": "User Access Administrator gerencia só RBAC, sem poder sobre recursos — delegação mínima. Owner acumula tudo; não são equivalentes.",
+    "source": "original",
+    "tags": ["owner", "user-access-admin", "delegacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-098",
+    "domain": "identidade-governanca",
+    "subdomain": "b2b-redeem-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um parceiro afirma que convite B2B aceito com conta pessoal (MSA) recebe as mesmas políticas de acesso condicional dos membros. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, MSA convidada equivale a membro" },
+      { "letter": "B", "text": "Não, guests têm escopo e políticas distintas" }
+    ],
+    "correct": ["B"],
+    "explanation": "Guests têm userType distinto e políticas próprias; MSA resgatada não vira membro. Equiparar quebra segmentação.",
+    "source": "original",
+    "tags": ["b2b", "msa", "convidado", "politicas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-099",
+    "domain": "identidade-governanca",
+    "subdomain": "policy-deny-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que efeito Negar (Deny) impede também recursos já existentes fora de conformidade, removendo-os automaticamente. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, Deny remove o existente" },
+      { "letter": "B", "text": "Não, Deny só barra novas implantações" }
+    ],
+    "correct": ["B"],
+    "explanation": "Deny avalia no PUT; existente segue non-compliant até remediação (DeployIfNotExists/audit). Achar que apaga sozinho é erro grave.",
+    "source": "original",
+    "tags": ["policy", "deny", "existente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-100",
+    "domain": "identidade-governanca",
+    "subdomain": "readonly-lock-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que bloqueio ReadOnly impede até a leitura de chaves de API do App Service pelo portal. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, ReadOnly bloqueia qualquer leitura sensível"
+      },
+      {
+        "letter": "B",
+        "text": "Não, leitura continua permitida, inclusive segredos visíveis"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "ReadOnly veta escrita; leitura (inclusive de segredos exibidos) continua. Confiar no lock para ocultar dado é falha de modelo mental.",
+    "source": "original",
+    "tags": ["readonly", "lock", "leitura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
