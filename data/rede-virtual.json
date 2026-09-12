@@ -1823,5 +1823,1049 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-rv-081",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-address-plan",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cinco VNets precisam de peering futuro sem sobreposição, reservando espaço para 4 sub-redes /24 cada. Qual bloco por VNet comporta o plano?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "10.x.0.0/21 por VNet (8x /24, 4 usadas + reserva)"
+      },
+      { "letter": "B", "text": "10.0.0.0/16 igual em todas" },
+      { "letter": "C", "text": "/30 por VNet" },
+      { "letter": "D", "text": "Mesmo /24 em todas" }
+    ],
+    "correct": ["A"],
+    "explanation": "/21 dá 8 /24 (4 em uso + reserva) com x distinto por VNet sem sobrepor. Mesmo /16 sobrepõe; /30 é insuficiente; /24 igual conflita.",
+    "source": "original",
+    "tags": ["vnet", "enderecamento", "planejamento", "cidr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-082",
+    "domain": "rede-virtual",
+    "subdomain": "reserved-ips",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sub-rede /26 precisa acomodar 40 VMs com IPs do Azure reservados. Quantos endereços restam utilizáveis?",
+    "options": [
+      { "letter": "A", "text": "59 utilizáveis (64 menos 5 reservados)" },
+      { "letter": "B", "text": "64 utilizáveis todos" },
+      { "letter": "C", "text": "40 exatos sem reserva" },
+      { "letter": "D", "text": "30 utilizáveis" }
+    ],
+    "correct": ["A"],
+    "explanation": "Azure reserva 5 por sub-rede (.0-.3 + broadcast); /26 tem 64, sobram 59. Ignorar a reserva estoura o plano.",
+    "source": "original",
+    "tags": ["subnets", "ips-reservados", "calculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-083",
+    "domain": "rede-virtual",
+    "subdomain": "static-vs-dynamic-ip",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VM crítica precisa manter o IP privado após desalocar. Qual alocação garante persistência do privado?",
+    "options": [
+      { "letter": "A", "text": "IP privado estático na NIC" },
+      { "letter": "B", "text": "IP dinâmico padrão" },
+      { "letter": "C", "text": "IP público dinâmico" },
+      { "letter": "D", "text": "Nova NIC a cada boot" }
+    ],
+    "correct": ["A"],
+    "explanation": "Estático reserva o privado além do ciclo de vida. Dinâmico pode mudar ao desalocar; público não fixa privado; nova NIC troca tudo.",
+    "source": "original",
+    "tags": ["ip-privado", "estatico", "nic"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-084",
+    "domain": "rede-virtual",
+    "subdomain": "public-ip-sku",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "IP público precisa de zona, roteamento e SLA para o LB Standard. Qual SKU atende?",
+    "options": [
+      { "letter": "A", "text": "IP Standard (zonal, com SLA)" },
+      { "letter": "B", "text": "IP Básico dinâmico" },
+      { "letter": "C", "text": "IP privado sem SKU" },
+      { "letter": "D", "text": "IP de link-local" }
+    ],
+    "correct": ["A"],
+    "explanation": "Standard dá zona, estático e SLA, combinando com LB Standard. Básico não tem zona/SLA; privado não é público; link-local não roteia.",
+    "source": "original",
+    "tags": ["ip-publico", "sku", "standard"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-085",
+    "domain": "rede-virtual",
+    "subdomain": "public-prefix",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dez serviços precisam de IPs públicos contíguos reservados de uma vez. O que reserva o bloco?",
+    "options": [
+      { "letter": "A", "text": "Prefixo de IP público (/28 com 16 endereços)" },
+      { "letter": "B", "text": "Dez IPs avulsos manuais" },
+      { "letter": "C", "text": "Um IP compartilhado" },
+      { "letter": "D", "text": "IPs dinâmicos por serviço" }
+    ],
+    "correct": ["A"],
+    "explanation": "Public prefix reserva bloco contíguo gerenciado. Avulsos fragmentam; compartilhado conflita; dinâmicos mudam.",
+    "source": "original",
+    "tags": ["prefixo-ip", "bloco", "contiguo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-086",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-bypass",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tráfego legítimo de parceiro é mitigado como flood pelo DDoS Protection. Como permitir a origem confiável?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Lista de permissões (allowlist) no plano DDoS"
+      },
+      { "letter": "B", "text": "Desabilitar a proteção" },
+      { "letter": "C", "text": "Remover o IP público" },
+      { "letter": "D", "text": "Aumentar o ataque" }
+    ],
+    "correct": ["A"],
+    "explanation": "Allowlist isenta origens confiáveis da mitigação. Desligar expõe; remover IP derruba; aumentar piora.",
+    "source": "original",
+    "tags": ["ddos", "allowlist", "falso-positivo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-087",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-telemetry",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Durante ataque, o SOC precisa de volume por protocolo e ações de mitigação em tempo real. Onde ver a telemetria?",
+    "options": [
+      { "letter": "A", "text": "Telemetria do DDoS Protection no Monitor" },
+      { "letter": "B", "text": "Log do aplicativo" },
+      { "letter": "C", "text": "Fatura do mês" },
+      { "letter": "D", "text": "E-mail do ISP" }
+    ],
+    "correct": ["A"],
+    "explanation": "Telemetria mostra vetores, volume e mitigação ao vivo. App não vê rede; fatura atrasa; ISP não tem o dado.",
+    "source": "original",
+    "tags": ["ddos", "telemetria", "soc"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-088",
+    "domain": "rede-virtual",
+    "subdomain": "waf-bot",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Bots de scraping derrubam o catálogo com milhares de requests. Qual proteção do WAF barra bots maliciosos?",
+    "options": [
+      { "letter": "A", "text": "Proteção contra bots (bot manager) do WAF" },
+      { "letter": "B", "text": "Aumentar instâncias do app" },
+      { "letter": "C", "text": "Desabilitar o WAF" },
+      { "letter": "D", "text": "Captcha em todas as páginas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Bot manager classifica e bloqueia bots ruins. Escalar absorve sem bloquear; sem WAF expõe; captcha geral degrada UX.",
+    "source": "original",
+    "tags": ["waf", "bots", "scraping"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-089",
+    "domain": "rede-virtual",
+    "subdomain": "waf-rate-limit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Login sofre força bruta distribuída com 100 tentativas/min por IP. Qual regra do WAF limita taxa por origem?",
+    "options": [
+      { "letter": "A", "text": "Limite de taxa (rate limit) por IP/janela" },
+      { "letter": "B", "text": "Bloqueio do país inteiro" },
+      { "letter": "C", "text": "Senha mais longa" },
+      { "letter": "D", "text": "Desligar o login" }
+    ],
+    "correct": ["A"],
+    "explanation": "Rate limit barra rajada por IP/janela. País inteiro bloqueia legítimos; senha não limita taxa; desligar para o negócio.",
+    "source": "original",
+    "tags": ["waf", "rate-limit", "forca-bruta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-090",
+    "domain": "rede-virtual",
+    "subdomain": "waf-geo-filter",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação só atende Brasil e sofre scans do exterior. Como restringir por geografia no WAF?",
+    "options": [
+      { "letter": "A", "text": "Filtro geográfico permitindo só BR" },
+      { "letter": "B", "text": "Bloqueio de IP único" },
+      { "letter": "C", "text": "DNS geográfico sem WAF" },
+      { "letter": "D", "text": "Desligar a internet" }
+    ],
+    "correct": ["A"],
+    "explanation": "Geo-filter permite/bloqueia por país na borda. IP único não cobre scans; DNS não bloqueia; desligar inviabiliza.",
+    "source": "original",
+    "tags": ["waf", "geo-filter", "pais"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-091",
+    "domain": "rede-virtual",
+    "subdomain": "afd-caching",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Assets estáticos precisam de cache de borda com purga sob deploy. Como configurar cache e invalidação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regras de cache + purga por caminho no deploy"
+      },
+      { "letter": "B", "text": "Sem cache com origem direta" },
+      { "letter": "C", "text": "Cache eterno sem purga" },
+      { "letter": "D", "text": "Desabilitar o Front Door" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cache rules armazenam e purga invalida no deploy. Sem cache sobrecarrega origem; eterno serve velho; sem FD perde borda.",
+    "source": "original",
+    "tags": ["front-door", "cache", "purga"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-092",
+    "domain": "rede-virtual",
+    "subdomain": "afd-health-probe",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Failover precisa detectar origem doente em segundos, não minutos. Como calibrar a sonda?",
+    "options": [
+      { "letter": "A", "text": "Probe frequente com poucas falhas toleradas" },
+      { "letter": "B", "text": "Probe a cada hora" },
+      { "letter": "C", "text": "Sem probe com failover manual" },
+      { "letter": "D", "text": "Probe no DNS apenas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Intervalo curto + threshold baixo detectam rápido. Hora atrasa; manual não escala; DNS não mede app.",
+    "source": "original",
+    "tags": ["front-door", "health-probe", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-093",
+    "domain": "rede-virtual",
+    "subdomain": "tm-performance",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Usuários devem cair no endpoint de menor latência medido em tempo real. Qual método de roteamento usar?",
+    "options": [
+      { "letter": "A", "text": "Performance (latência medida)" },
+      { "letter": "B", "text": "Prioridade fixa" },
+      { "letter": "C", "text": "Peso igual estático" },
+      { "letter": "D", "text": "Geográfico por país" }
+    ],
+    "correct": ["A"],
+    "explanation": "Performance dirige pela latência real sondada. Prioridade fixa não mede; peso não otimiza; geográfico aproxima sem medir.",
+    "source": "original",
+    "tags": ["traffic-manager", "performance", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-094",
+    "domain": "rede-virtual",
+    "subdomain": "tm-weighted",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Migração gradual precisa de 90% no antigo e 10% no novo via DNS. Qual método distribui por peso?",
+    "options": [
+      { "letter": "A", "text": "Ponderado (weighted) 90/10" },
+      { "letter": "B", "text": "Performance puro" },
+      { "letter": "C", "text": "Prioridade com failover" },
+      { "letter": "D", "text": "Geográfico por cidade" }
+    ],
+    "correct": ["A"],
+    "explanation": "Weighted divide por peso configurado para canário. Performance ignora proporção; prioridade não divide; geográfico não pondera.",
+    "source": "original",
+    "tags": ["traffic-manager", "ponderado", "canario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-095",
+    "domain": "rede-virtual",
+    "subdomain": "tm-multivalue",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Resolução DNS deve retornar múltiplos IPs saudáveis para o cliente escolher. Qual método retorna vários endpoints?",
+    "options": [
+      { "letter": "A", "text": "Multivalue com health check" },
+      { "letter": "B", "text": "Prioridade com um ativo" },
+      { "letter": "C", "text": "Geográfico com um por país" },
+      { "letter": "D", "text": "Registro A estático" }
+    ],
+    "correct": ["A"],
+    "explanation": "Multivalue retorna N IPs saudáveis. Prioridade ativa um; geográfico um por região; A estático não monitora.",
+    "source": "original",
+    "tags": ["traffic-manager", "multivalue", "dns"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-096",
+    "domain": "rede-virtual",
+    "subdomain": "tm-subnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Faixas de IP corporativas devem ir ao endpoint interno e o resto ao público. Qual método roteia por sub-rede de origem?",
+    "options": [
+      { "letter": "A", "text": "Sub-rede (subnet routing)" },
+      { "letter": "B", "text": "Performance global" },
+      { "letter": "C", "text": "Peso igual" },
+      { "letter": "D", "text": "Prioridade única" }
+    ],
+    "correct": ["A"],
+    "explanation": "Subnet routing mapeia faixa de origem a endpoint. Performance ignora origem; peso divide; prioridade não segmenta.",
+    "source": "original",
+    "tags": ["traffic-manager", "subnet", "origem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-097",
+    "domain": "rede-virtual",
+    "subdomain": "dns-alias",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Zona raiz (apex) precisa apontar ao Front Door sem CNAME (proibido no apex). Qual registro resolve o apex para o Azure?",
+    "options": [
+      { "letter": "A", "text": "Registro Alias para o recurso do Azure" },
+      { "letter": "B", "text": "CNAME no apex" },
+      { "letter": "C", "text": "Registro A com IP fixo do Front Door" },
+      { "letter": "D", "text": "TXT com o IP" }
+    ],
+    "correct": ["A"],
+    "explanation": "Alias aponta apex a recurso Azure acompanhando mudanças. CNAME no apex viola RFC; IP fixo do FD não existe; TXT não resolve.",
+    "source": "original",
+    "tags": ["dns", "alias", "apex"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-098",
+    "domain": "rede-virtual",
+    "subdomain": "dns-caa",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Somente uma CA específica pode emitir certificados para o domínio, bloqueando as demais. Qual registro autoriza a CA?",
+    "options": [
+      { "letter": "A", "text": "Registro CAA com a CA autorizada" },
+      { "letter": "B", "text": "Registro MX da CA" },
+      { "letter": "C", "text": "Registro TXT genérico" },
+      { "letter": "D", "text": "Registro A da CA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Registro CAA restringe emissão à CA listada. MX roteia e-mail; TXT genérico não autoriza emissão; A aponta endereço IP.",
+    "source": "original",
+    "tags": ["dns", "caa", "certificados"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-099",
+    "domain": "rede-virtual",
+    "subdomain": "dns-private-resolver-ruleset",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Múltiplas VNets precisam compartilhar o mesmo conjunto de regras de encaminhamento DNS. Como vincular o ruleset a várias redes?",
+    "options": [
+      { "letter": "A", "text": "Vínculo do ruleset a cada VNet" },
+      { "letter": "B", "text": "Um resolvedor por rua" },
+      { "letter": "C", "text": "Zona pública por VNet" },
+      { "letter": "D", "text": "Hosts por VM" }
+    ],
+    "correct": ["A"],
+    "explanation": "Vínculo do ruleset (ruleset link) compartilha regras entre múltiplas VNets. Um resolvedor por rua fragmenta; zona pública expõe; hosts por VM não escala.",
+    "source": "original",
+    "tags": ["dns", "ruleset", "vinculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-100",
+    "domain": "rede-virtual",
+    "subdomain": "dns-forwarding-ruleset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Regras para corp.local ao DNS local e resto ao Azure exigem dois elementos. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Regra de encaminhamento para o IP local" },
+      { "letter": "B", "text": "Resolução padrão Azure para o restante" },
+      { "letter": "C", "text": "Bloqueio de todo DNS" },
+      { "letter": "D", "text": "Zona pública para corp.local" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Regra de encaminhamento direciona o sufixo corp.local e a resolução padrão Azure resolve o restante. Bloquear todo DNS quebra; zona pública expõe o interno.",
+    "source": "original",
+    "tags": ["dns", "encaminhamento", "ruleset"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-101",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-tap-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Tráfego espelhado da VM precisa ir ao coletor para IDS sem agente. Quais dois elementos do TAP usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Configuração TAP na NIC de origem" },
+      { "letter": "B", "text": "Destino coletor (VM/LB) na mesma região" },
+      { "letter": "C", "text": "Agente instalado na origem" },
+      { "letter": "D", "text": "Espelho para internet" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Configuração TAP na NIC espelha sem agente para o coletor regional (VM/LB). Agente instalado contradiz o modelo sem-agente; espelho para internet expõe.",
+    "source": "original",
+    "tags": ["vnet-tap", "espelho", "ids"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-102",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-plan-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dez VNets precisam de proteção DDoS com custo compartilhado. Quais dois elementos do plano usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Plano DDoS associado às VNets" },
+      { "letter": "B", "text": "IPs públicos sob o plano" },
+      { "letter": "C", "text": "Plano por IP individual" },
+      { "letter": "D", "text": "Sem plano com NSG" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Plano DDoS associado às VNets protege os IPs públicos com custo diluído. Plano por IP individual multiplica; sem plano com NSG não há mitigação.",
+    "source": "original",
+    "tags": ["ddos", "plano", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-103",
+    "domain": "rede-virtual",
+    "subdomain": "bastion-host-scaling-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pico de acessos simultâneos ao Bastion exige escala sem trocar SKU. Quais dois parâmetros ajustar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Contagem de instâncias do Bastion" },
+      { "letter": "B", "text": "SKU com escala (Standard+)" },
+      { "letter": "C", "text": "Básico fixo para tudo" },
+      { "letter": "D", "text": "Desligar sessões ativas" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Contagem de instâncias escala sessões simultâneas no SKU Standard ou superior. Básico fixa sem escala; desligar sessões ativas derruba usuários.",
+    "source": "original",
+    "tags": ["bastion", "escala", "sessoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-104",
+    "domain": "rede-virtual",
+    "subdomain": "bastion-shareable-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Suporte precisa compartilhar sessão RDP com o cliente sem expor credencial. Quais dois recursos usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Link compartilhável do Bastion" },
+      { "letter": "B", "text": "Sessão sem credencial exposta" },
+      { "letter": "C", "text": "Senha por e-mail" },
+      { "letter": "D", "text": "RDP público temporário" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Link compartilhável do Bastion concede acesso ao cliente sem expor credencial. Senha por e-mail vaza; RDP público temporário expõe.",
+    "source": "original",
+    "tags": ["bastion", "compartilhar", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-105",
+    "domain": "rede-virtual",
+    "subdomain": "nat-timeout-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Conexões idle caem cedo demais e longas ocupam portas. Quais dois timeouts calibrar no NAT? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Timeout de ociosidade TCP" },
+      { "letter": "B", "text": "Timeout UDP específico" },
+      { "letter": "C", "text": "Timeout zero para tudo" },
+      { "letter": "D", "text": "Sem timeout (infinito)" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Calibrar timeout TCP e UDP equilibra queda precoce e ocupação de portas. Timeout zero para tudo derruba; infinito esgota portas SNAT.",
+    "source": "original",
+    "tags": ["nat", "timeout", "ociosidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-106",
+    "domain": "rede-virtual",
+    "subdomain": "idle-timeout-lb-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Conexões de banco ociosas caem no LB antes do timeout da app. Quais dois timeouts alinhar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Idle timeout da regra LB acima do app" },
+      { "letter": "B", "text": "Keepalive da aplicação abaixo do LB" },
+      { "letter": "C", "text": "Timeout mínimo em ambos" },
+      { "letter": "D", "text": "Sem keepalive" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Idle timeout da regra LB acima do timeout da app, com keepalive abaixo, evita corte silencioso. Mínimo em ambos derruba; sem keepalive o LB fecha.",
+    "source": "original",
+    "tags": ["lb", "idle-timeout", "keepalive"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-107",
+    "domain": "rede-virtual",
+    "subdomain": "tcp-reset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falha de backend deixa conexões penduradas sem notificação. Quais dois comportamentos do TCP reset ajudam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "RST no idle timeout do LB" },
+      { "letter": "B", "text": "RST em probe falho" },
+      { "letter": "C", "text": "Silêncio sem RST" },
+      { "letter": "D", "text": "Retry infinito do cliente" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "RST no idle timeout e em probe falho notifica o cliente para reconectar rápido. Silêncio sem RST pendura até timeout; retry infinito do cliente agrava.",
+    "source": "original",
+    "tags": ["tcp-reset", "lb", "probe"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-108",
+    "domain": "rede-virtual",
+    "subdomain": "ha-ports-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "NVA ativo-passivo precisa de todas as portas com failover rápido. Quais dois elementos da regra HA usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra HA ports (todas as portas, frontend+backend)"
+      },
+      { "letter": "B", "text": "Probe de saúde do NVA" },
+      { "letter": "C", "text": "Regra por porta individual" },
+      { "letter": "D", "text": "Sem probe" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Regra HA ports cobre todas as portas com probe de saúde para failover do NVA. Regra por porta individual não escala; sem probe não há detecção.",
+    "source": "original",
+    "tags": ["ha-ports", "nva", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-109",
+    "domain": "rede-virtual",
+    "subdomain": "gateway-sku-er-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Throughput de 10 Gbps com FastPath no ExpressRoute exige dois requisitos. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Gateway Ultra/ErGw3AZ" },
+      { "letter": "B", "text": "FastPath habilitado no peering/VNet" },
+      { "letter": "C", "text": "Gateway Básico" },
+      { "letter": "D", "text": "Sem gateway" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Gateway Ultra/ErGw3AZ suporta FastPath que faz bypass do gateway. Básico não tem o recurso; sem gateway não há ExpressRoute.",
+    "source": "original",
+    "tags": ["expressroute", "gateway", "fastpath"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-110",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-device-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Appliance local precisa de interoperabilidade validada com o Azure. Quais dois pontos conferir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Matriz de dispositivos VPN validados" },
+      { "letter": "B", "text": "Parâmetros IPsec/IKE compatíveis" },
+      { "letter": "C", "text": "Qualquer roteador doméstico" },
+      { "letter": "D", "text": "Sem criptografia" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Matriz de dispositivos validados lista appliances suportados e parâmetros IPsec/IKE alinham a proposta. Roteador doméstico não suporta; sem criptografia não há túnel.",
+    "source": "original",
+    "tags": ["vpn", "dispositivo", "interoperabilidade", "ipsec"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-111",
+    "domain": "rede-virtual",
+    "subdomain": "custom-ipsec-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Compliance exige AES-256 e DH Group 24, fora do padrão. Onde customizar a proposta IPsec? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Política IPsec/IKE customizada na conexão" },
+      { "letter": "B", "text": "Parâmetros de criptografia e PFS alinhados" },
+      { "letter": "C", "text": "Padrão DES/MD5" },
+      { "letter": "D", "text": "Sem política" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Política IPsec/IKE customizada define algoritmos e PFS alinhado. Padrão DES/MD5 viola compliance; sem política usa padrão fraco.",
+    "source": "original",
+    "tags": ["ipsec", "custom", "criptografia", "pfs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-112",
+    "domain": "rede-virtual",
+    "subdomain": "dpd-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Túnel caído precisa ser detectado e restabelecido sem manual. Quais dois mecanismos DPD usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Detecção de peer morto (DPD)" },
+      { "letter": "B", "text": "Reconexão automática do túnel" },
+      { "letter": "C", "text": "Ping manual periódico" },
+      { "letter": "D", "text": "Recriação do gateway" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "DPD detecta peer morto e o gateway restabelece o túnel sozinho. Ping manual periódico atrasa; recriar o gateway é drástico.",
+    "source": "original",
+    "tags": ["dpd", "tunel", "reconexao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-113",
+    "domain": "rede-virtual",
+    "subdomain": "nat-traversal-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Appliance atrás de NAT precisa estabelecer IPsec através da tradução. Quais dois recursos atravessam o NAT? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "NAT-T com UDP 4500" },
+      { "letter": "B", "text": "Detecção de NAT no handshake" },
+      { "letter": "C", "text": "ESP puro sem UDP" },
+      { "letter": "D", "text": "Porta 500 bloqueada" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "NAT-T encapsula IPsec em UDP 4500 após detectar NAT no handshake. ESP puro não atravessa tradução; bloquear a porta 500 impede o túnel.",
+    "source": "original",
+    "tags": ["nat-t", "ipsec", "udp-4500"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-114",
+    "domain": "rede-virtual",
+    "subdomain": "ike-versions-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Interoperabilidade exige IKEv2 com fallback controlado. Quais duas configurações usar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "IKEv2 preferencial na conexão" },
+      { "letter": "B", "text": "Fallback IKEv1 documentado" },
+      { "letter": "C", "text": "Só IKEv1 legado" },
+      { "letter": "D", "text": "Sem IKE" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "IKEv2 preferencial com fallback IKEv1 documentado cobre appliances legados. Só IKEv1 legado perde recursos; sem IKE não há túnel.",
+    "source": "original",
+    "tags": ["ikev2", "ikev1", "fallback"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-115",
+    "domain": "rede-virtual",
+    "subdomain": "pfs-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Chaves de sessão comprometidas não podem descriptografar tráfego passado. Quais dois elementos do PFS garantem isso? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Perfect Forward Secrecy habilitado" },
+      { "letter": "B", "text": "Grupos DH efêmeros por sessão" },
+      { "letter": "C", "text": "Chave estática reutilizada" },
+      { "letter": "D", "text": "Sem troca de chaves" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Perfect Forward Secrecy com grupos DH efêmeros por sessão isola o passado. Chave estática reutilizada vaza tudo; sem troca de chaves não há segredo.",
+    "source": "original",
+    "tags": ["pfs", "dh", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-116",
+    "domain": "rede-virtual",
+    "subdomain": "sa-lifetime-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Associações de segurança precisam de renovação periódica sem queda. Quais dois lifetimes calibrar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Lifetime da SA IKE (fase 1)" },
+      { "letter": "B", "text": "Lifetime da SA IPsec (fase 2)" },
+      { "letter": "C", "text": "SA permanente sem renovar" },
+      { "letter": "D", "text": "Renovação manual anual" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Lifetimes das SAs IKE (fase 1) e IPsec (fase 2) renovam sem interromper. SA permanente acumula risco; renovação manual anual atrasa.",
+    "source": "original",
+    "tags": ["sa-lifetime", "ike", "ipsec", "renovacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-117",
+    "domain": "rede-virtual",
+    "subdomain": "traffic-selector-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Túnel deve carregar só prefixos corporativos, não toda internet. Quais dois seletores restringir? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Seletores locais (prefixos on-prem)" },
+      { "letter": "B", "text": "Seletores remotos (VNets)" },
+      { "letter": "C", "text": "0.0.0.0/0 para tudo" },
+      { "letter": "D", "text": "Sem seletor" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Seletores locais (prefixos on-prem) e remotos (VNets) limitam o túnel ao necessário. Enviar 0.0.0.0/0 para tudo força internet; sem seletor não há negociação.",
+    "source": "original",
+    "tags": ["traffic-selector", "prefixos", "tunel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-118",
+    "domain": "rede-virtual",
+    "subdomain": "route-based-vs-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Múltiplos túneis com failover e BGP exigem modo de VPN específico. Quais dois motivos escolhem route-based? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Suporte a BGP e failover" },
+      { "letter": "B", "text": "Múltiplos SAs por túnel" },
+      { "letter": "C", "text": "Policy-based com um SA" },
+      { "letter": "D", "text": "Sem criptografia" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Route-based roteia com BGP e múltiplos SAs por túnel. Policy-based limita a um par; sem criptografia não há VPN.",
+    "source": "original",
+    "tags": ["route-based", "policy-based", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-119",
+    "domain": "rede-virtual",
+    "subdomain": "connection-reset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Túnel instável precisa de reset programado sem recriar gateway. Quais dois elementos resetam com segurança? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Reset da conexão VPN" },
+      { "letter": "B", "text": "Reconexão com DPD" },
+      { "letter": "C", "text": "Exclusão do gateway" },
+      { "letter": "D", "text": "Aguardar expirar sozinho" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Reset da conexão restabelece SAs e DPD reconecta automaticamente. Excluir o gateway é drástico; aguardar expirar sozinho prolonga outage.",
+    "source": "original",
+    "tags": ["reset", "conexao", "vpn"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-120",
+    "domain": "rede-virtual",
+    "subdomain": "shared-key-rotation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Chave pré-compartilhada do túnel vazou e precisa trocar sem downtime prolongado. Quais dois passos executar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Gerar nova PSK forte" },
+      { "letter": "B", "text": "Aplicar dos dois lados com janela" },
+      { "letter": "C", "text": "Manter a vazada" },
+      { "letter": "D", "text": "PSK curta simples" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Gerar nova PSK forte e aplicar dos dois lados com janela minimiza queda. Manter a vazada expõe; PSK curta simples quebra.",
+    "source": "original",
+    "tags": ["psk", "rotacao", "tunel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-121",
+    "domain": "rede-virtual",
+    "subdomain": "monitor-vpn-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Quedas de túnel precisam de alerta com diagnóstico de fase. Quais dois monitoramentos aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Métricas de túnel com alerta de bytes/fluxo" },
+      { "letter": "B", "text": "Logs de diagnóstico IKE/IPsec" },
+      { "letter": "C", "text": "Ping manual ocasional" },
+      { "letter": "D", "text": "Sem monitoramento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Métricas de túnel com alerta de bytes/fluxo detectam queda e logs IKE/IPsec diagnosticam a fase. Ping manual ocasional atrasa; sem monitoramento cega.",
+    "source": "original",
+    "tags": ["vpn", "monitoramento", "metricas", "logs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-122",
+    "domain": "rede-virtual",
+    "subdomain": "bandwidth-vpn-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que throughput VPN é garantido igual ao contratado independente de internet pública. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, garantido sempre" },
+      { "letter": "B", "text": "Não, depende da internet subjacente" }
+    ],
+    "correct": ["B"],
+    "explanation": "VPN sobre internet varia com o melhor esforço do caminho subjacente. Assumir throughput garantido igual ao contratado ignora a base pública.",
+    "source": "original",
+    "tags": ["vpn", "throughput", "internet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-123",
+    "domain": "rede-virtual",
+    "subdomain": "latency-er-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que ExpressRoute garante latência menor que VPN por usar backbone privado. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, backbone privado é mais consistente" },
+      { "letter": "B", "text": "Não, latências são idênticas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Backbone privado dedicado evita congestão pública com latência consistente e SLA. Equiparar latências ignora a diferença física entre os caminhos.",
+    "source": "original",
+    "tags": ["expressroute", "latencia", "backbone"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-124",
+    "domain": "rede-virtual",
+    "subdomain": "sla-er-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que ExpressRoute tem SLA de 99,95% com circuitos redundantes. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, com dual e operadora" },
+      { "letter": "B", "text": "Não, ER não tem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Circuito dual com operadoras distintas contrata 99,95% de SLA. Negar o contrato ignora a tabela; circuito único sem redundância não alcança.",
+    "source": "original",
+    "tags": ["expressroute", "sla", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-125",
+    "domain": "rede-virtual",
+    "subdomain": "sla-vpn-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que gateway VPN tem SLA de 99,95% em modo ativo-ativo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, ativo-ativo contrata 99,95%" },
+      { "letter": "B", "text": "Não, VPN não tem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Gateway em modo ativo-ativo contrata 99,95%; ativo-passivo fica em 99,9%. Negar qualquer SLA ignora a tabela oficial.",
+    "source": "original",
+    "tags": ["vpn", "sla", "ativo-ativo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-126",
+    "domain": "rede-virtual",
+    "subdomain": "sla-lb-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que Load Balancer Standard tem SLA 99,99% com distribuição zonal. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, zonal-redundante contrata 99,99%" },
+      { "letter": "B", "text": "Não, LB não tem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Load Balancer Standard zone-redundant contrata 99,99% de SLA. Negar ignora o contrato; o Básico de fato não tem SLA.",
+    "source": "original",
+    "tags": ["lb", "sla", "99-99"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-127",
+    "domain": "rede-virtual",
+    "subdomain": "sla-appgw-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que Application Gateway v2 tem SLA 99,95% (99,99% zonal). Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, conforme distribuição" },
+      { "letter": "B", "text": "Não, AppGW não tem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Application Gateway v2 contrata 99,95% (99,99% quando zonal). Negar ignora a tabela oficial; a v1 tem termos próprios.",
+    "source": "original",
+    "tags": ["appgw", "sla", "v2"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-128",
+    "domain": "rede-virtual",
+    "subdomain": "sla-fd-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que Front Door Standard/Premium tem SLA 99,99%. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, 99,99% global" },
+      { "letter": "B", "text": "Não, sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Front Door Standard/Premium contrata 99,99% de SLA global. Negar o contrato ignora a tabela oficial de borda.",
+    "source": "original",
+    "tags": ["front-door", "sla", "99-99"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-129",
+    "domain": "rede-virtual",
+    "subdomain": "sla-dns-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que Azure DNS (zonas públicas) tem SLA 100%. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, 100% para zonas públicas" },
+      { "letter": "B", "text": "Não, máximo 99,99%" }
+    ],
+    "correct": ["A"],
+    "explanation": "DNS público do Azure contrata 100% de disponibilidade de resposta. Achar teto de 99,99% ignora o contrato específico de DNS.",
+    "source": "original",
+    "tags": ["dns", "sla", "100"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-130",
+    "domain": "rede-virtual",
+    "subdomain": "sla-tm-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que Traffic Manager tem SLA 99,99% para resolução DNS. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, 99,99% de DNS" },
+      { "letter": "B", "text": "Não, sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Traffic Manager contrata 99,99% de resposta DNS. Negar o SLA ignora o contrato oficial do serviço de DNS global.",
+    "source": "original",
+    "tags": ["traffic-manager", "sla", "dns"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
