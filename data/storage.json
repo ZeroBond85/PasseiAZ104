@@ -1667,5 +1667,1048 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-st-076",
+    "domain": "storage",
+    "subdomain": "blob-soft-delete-pit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Ransomware criptografou blobs ontem e a restauração precisa do estado de anteontem. Até quando o soft delete permite voltar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Dentro da retenção configurada (ex.: 30 dias)"
+      },
+      { "letter": "B", "text": "Somente nas últimas 24h" },
+      { "letter": "C", "text": "Apenas com backup externo" },
+      { "letter": "D", "text": "Nunca, criptografado é final" }
+    ],
+    "correct": ["A"],
+    "explanation": "Soft delete retém versões/excluídos pelo período configurado para undelete. Limite de 24h não existe; backup externo é complementar; criptografado com retenção volta.",
+    "source": "original",
+    "tags": ["soft-delete", "retencao", "ransomware", "pit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-077",
+    "domain": "storage",
+    "subdomain": "point-in-time-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Conta inteira precisa voltar ao estado de 3 dias atrás incluindo blobs e contêineres. Qual restauração pontual atende?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restauração point-in-time da conta (com versionamento + change feed)"
+      },
+      { "letter": "B", "text": "Snapshot individual por blob" },
+      { "letter": "C", "text": "Recriação manual da conta" },
+      { "letter": "D", "text": "Failover geográfico" }
+    ],
+    "correct": ["A"],
+    "explanation": "PITR restaura a conta a ponto no passado com pré-requisitos ligados. Snapshot por blob não escala; recriar perde; failover muda região sem voltar no tempo.",
+    "source": "original",
+    "tags": ["pitr", "restauracao", "conta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-078",
+    "domain": "storage",
+    "subdomain": "operational-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs operacionais precisam de backup contínuo sem janela nem cofre separado. Qual backup nativo protege sem agendar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup operacional de blobs (contínuo, sem cofre)"
+      },
+      { "letter": "B", "text": "Backup de VM do cofre Recovery" },
+      { "letter": "C", "text": "Cópia manual para outra conta" },
+      { "letter": "D", "text": "Snapshot semanal manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Operational backup protege blobs continuamente com políticas. Cofre de VM não cobre blob; cópia manual falha; snapshot manual atrasa.",
+    "source": "original",
+    "tags": ["backup-operacional", "blobs", "continuo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-079",
+    "domain": "storage",
+    "subdomain": "vaulted-backup-files",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Files críticos exigem cópias isoladas em cofre com retenção de anos para compliance. Qual backup em cofre atende?",
+    "options": [
+      { "letter": "A", "text": "Backup em cofre (vaulted) do Azure Files" },
+      { "letter": "B", "text": "Snapshot local sem cofre" },
+      { "letter": "C", "text": "Replicação GRS como backup" },
+      { "letter": "D", "text": "Exportação CSV" }
+    ],
+    "correct": ["A"],
+    "explanation": "Vaulted backup isola cópias com retenção longa auditável. Snapshot local não isola; GRS replica sem versionar; CSV não guarda arquivos.",
+    "source": "original",
+    "tags": ["backup-cofre", "files", "retencao", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-080",
+    "domain": "storage",
+    "subdomain": "disks-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Discos de VM precisam de backup incremental sem agente com restauração pontual. Qual solução protege discos gerenciados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup de disco (snapshot incremental gerenciado)"
+      },
+      { "letter": "B", "text": "Cópia do VHD por AzCopy" },
+      { "letter": "C", "text": "Backup do SO via agente" },
+      { "letter": "D", "text": "Imagem mensal manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Disk backup usa snapshots incrementais sem agente. AzCopy copia atual sem histórico; agente adiciona gestão; imagem mensal perde RPO.",
+    "source": "original",
+    "tags": ["backup-disco", "snapshot", "incremental"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-081",
+    "domain": "storage",
+    "subdomain": "backup-center",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Backups de VMs, Files, discos e blobs precisam de visão única com conformidade. Onde centralizar a gestão?",
+    "options": [
+      { "letter": "A", "text": "Centro de Backup (Backup Center) unificado" },
+      { "letter": "B", "text": "Um cofre por recurso sem visão" },
+      { "letter": "C", "text": "Planilha de controle" },
+      { "letter": "D", "text": "E-mail de confirmação" }
+    ],
+    "correct": ["A"],
+    "explanation": "Backup Center agrega cofres, políticas e conformidade. Cofres isolados fragmentam; planilha desatualiza; e-mail não gerencia.",
+    "source": "original",
+    "tags": ["backup-center", "centralizacao", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-082",
+    "domain": "storage",
+    "subdomain": "cross-region-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restauração precisa ocorrer na região secundária durante desastre da primária. O que habilita restore cross-region?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restauração entre regiões habilitada no cofre (com GRS)"
+      },
+      { "letter": "B", "text": "Backup local apenas" },
+      { "letter": "C", "text": "Failover manual de DNS" },
+      { "letter": "D", "text": "Recriação do zero" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cross-region restore usa cópias GRS na secundária. Local não alcança outra região; DNS não restaura dados; recriar perde histórico.",
+    "source": "original",
+    "tags": ["cross-region", "restore", "dr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-083",
+    "domain": "storage",
+    "subdomain": "backup-policy-retention",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Política exige diário 30 dias, semanal 12 semanas e mensal 5 anos. Onde definir essas três camadas de retenção?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de backup com retenções diária/semanal/mensal"
+      },
+      { "letter": "B", "text": "Três cofres separados manuais" },
+      { "letter": "C", "text": "Snapshot único anual" },
+      { "letter": "D", "text": "Sem política com backup manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Política combina camadas de retenção automaticamente. Cofres manuais divergem; snapshot único não cobre; sem política falha.",
+    "source": "original",
+    "tags": ["politica", "retencao", "camadas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-084",
+    "domain": "storage",
+    "subdomain": "instant-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restauração de VM precisa voltar em minutos a partir de snapshot local antes do cofre. O que mantém cópias instantâneas?",
+    "options": [
+      { "letter": "A", "text": "Retenção de snapshot instantâneo na política" },
+      { "letter": "B", "text": "Restauração só do cofre distante" },
+      { "letter": "C", "text": "Recriação da VM" },
+      { "letter": "D", "text": "Failover geográfico" }
+    ],
+    "correct": ["A"],
+    "explanation": "Instant restore mantém snapshots locais por dias para volta rápida. Só cofre demora; recriar perde; failover muda região.",
+    "source": "original",
+    "tags": ["instant-restore", "snapshot", "rapido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-085",
+    "domain": "storage",
+    "subdomain": "backup-alerts",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Falhas de backup precisam alertar o time com severidade e contexto. De onde vêm alertas integrados ao Monitor?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alertas de backup do Backup Center ao Monitor"
+      },
+      { "letter": "B", "text": "Verificação manual diária" },
+      { "letter": "C", "text": "E-mail do operador" },
+      { "letter": "D", "text": "Log local do agente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Alertas integrados disparam action groups com contexto. Manual atrasa; e-mail do operador não escala; local não centraliza.",
+    "source": "original",
+    "tags": ["backup", "alertas", "monitor"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-086",
+    "domain": "storage",
+    "subdomain": "backup-reports",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria mensal de conformidade de backup de centenas de itens precisa de relatório agregado. Onde gerar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Relatórios de backup no Backup Center (Log Analytics)"
+      },
+      { "letter": "B", "text": "Consulta item por item" },
+      { "letter": "C", "text": "Prints do portal" },
+      { "letter": "D", "text": "E-mail do fornecedor" }
+    ],
+    "correct": ["A"],
+    "explanation": "Relatórios agregam conformidade via LA. Item a item não escala; prints não auditam; fornecedor não tem os dados.",
+    "source": "original",
+    "tags": ["backup", "relatorios", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-087",
+    "domain": "storage",
+    "subdomain": "stop-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Recurso descomissionado deve parar backup mantendo pontos existentes pelo prazo. O que interrompe sem apagar histórico?",
+    "options": [
+      { "letter": "A", "text": "Parar proteção mantendo dados retidos" },
+      { "letter": "B", "text": "Excluir o cofre inteiro" },
+      { "letter": "C", "text": "Desligar o recurso" },
+      { "letter": "D", "text": "Ignorar cobranças" }
+    ],
+    "correct": ["A"],
+    "explanation": "Stop protection with retain mantém histórico pelo prazo. Excluir cofre apaga tudo; desligar não para backup; ignorar acumula custo.",
+    "source": "original",
+    "tags": ["stop-protection", "reter", "descomissionar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-088",
+    "domain": "storage",
+    "subdomain": "resume-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Proteção pausada precisa retomar sem perder histórico nem reconfigurar tudo. O que retoma a mesma política?",
+    "options": [
+      { "letter": "A", "text": "Retomar proteção no mesmo item/cofre" },
+      { "letter": "B", "text": "Criar backup novo do zero" },
+      { "letter": "C", "text": "Novo cofre por retomada" },
+      { "letter": "D", "text": "Aguardar expiração total" }
+    ],
+    "correct": ["A"],
+    "explanation": "Resume mantém histórico e política no item. Novo do zero perde cadeia; novo cofre fragmenta; aguardar atrasa.",
+    "source": "original",
+    "tags": ["resume", "protecao", "retomar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-089",
+    "domain": "storage",
+    "subdomain": "file-restore-point",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restaurar pasta específica de 3 dias atrás sem afetar o restante. Qual granularidade o restore de Files oferece?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restauração em nível de arquivo/pasta do snapshot"
+      },
+      { "letter": "B", "text": "Restauração total obrigatória" },
+      { "letter": "C", "text": "Recriação do compartilhamento" },
+      { "letter": "D", "text": "Cópia manual do backup" }
+    ],
+    "correct": ["A"],
+    "explanation": "Item-level restore recupera pasta/arquivo do snapshot. Total afetaria o resto; recriar perde; manual atrasa.",
+    "source": "original",
+    "tags": ["restore", "arquivo", "granular", "files"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-090",
+    "domain": "storage",
+    "subdomain": "original-location-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restauração deve voltar ao local original sobrescrevendo ou para local alternativo para análise. Quais opções o restore oferece?",
+    "options": [
+      { "letter": "A", "text": "Local original ou alternativo" },
+      { "letter": "B", "text": "Apenas novo recurso" },
+      { "letter": "C", "text": "Apenas download local" },
+      { "letter": "D", "text": "Sem opção de destino" }
+    ],
+    "correct": ["A"],
+    "explanation": "Restore permite OLR (sobrescreve) ou ALR (alternativo para forense). Só novo impede retorno; só download não restaura serviço; sem destino não há restore.",
+    "source": "original",
+    "tags": ["restore", "olr", "alr", "destino"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-091",
+    "domain": "storage",
+    "subdomain": "encryption-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups precisam de criptografia com chaves próprias e imutabilidade contra ransomware. Quais dois recursos combinam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "CMK nos cofres com Key Vault" },
+      { "letter": "B", "text": "Imutabilidade (soft delete + lock) do cofre" },
+      { "letter": "C", "text": "Cofre sem proteção" },
+      { "letter": "D", "text": "Chaves compartilhadas por e-mail" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "CMK controla chaves e imutabilidade impede apagar backups. Sem proteção o ransomware limpa; e-mail vaza chaves.",
+    "source": "original",
+    "tags": ["backup", "cmk", "imutabilidade", "ransomware"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-092",
+    "domain": "storage",
+    "subdomain": "private-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Tráfego de backup não pode sair para internet e precisa de DNS privado. Quais dois elementos isolam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Private Endpoints para Backup" },
+      { "letter": "B", "text": "Zona DNS privada do backup" },
+      { "letter": "C", "text": "Endpoint público liberado" },
+      { "letter": "D", "text": "Sem DNS com IP fixo" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Private Endpoints isolam o tráfego de backup da internet e a zona DNS privada resolve internamente. Endpoint público expõe; sem DNS a resolução quebra.",
+    "source": "original",
+    "tags": ["backup", "private-endpoint", "dns"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-093",
+    "domain": "storage",
+    "subdomain": "mua-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Exclusão de backup crítica exige aprovação de segundo operador. Quais dois elementos do MUA protegem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Autorização multissuário (MUA) no cofre" },
+      { "letter": "B", "text": "Resource Guard como aprovador" },
+      { "letter": "C", "text": "Exclusão por operador único" },
+      { "letter": "D", "text": "Sem aprovação" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "MUA exige segundo aprovador via Resource Guard para ações críticas. Único exclui sozinho; sem aprovação não há controle.",
+    "source": "original",
+    "tags": ["mua", "resource-guard", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-094",
+    "domain": "storage",
+    "subdomain": "cross-sub-restore-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Restore precisa ocorrer em subscription distinta para isolamento. Quais dois requisitos permitem cross-subscription? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Permissão entre subscriptions (RBAC)" },
+      { "letter": "B", "text": "Recurso de restore cross-sub habilitado" },
+      { "letter": "C", "text": "Mesma subscription obrigatória" },
+      { "letter": "D", "text": "Sem RBAC" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Permissão RBAC entre subscriptions autoriza e o recurso de restore cross-sub habilitado permite. Exigir mesma subscription limita o DR; sem RBAC o acesso nega.",
+    "source": "original",
+    "tags": ["cross-subscription", "restore", "rbac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-095",
+    "domain": "storage",
+    "subdomain": "zone-redundant-vault-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cofre de backup precisa sobreviver a falha de zona com replicação. Quais dois elementos dão redundância zonal? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Armazenamento com redundância de zona" },
+      { "letter": "B", "text": "Cofre em região com zonas" },
+      { "letter": "C", "text": "LRS em região sem zona" },
+      { "letter": "D", "text": "Cofre único sem réplica" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "ZRS no cofre em região zonal tolera perda de datacenter. LRS sem zona não tolera; único sem réplica é ponto único.",
+    "source": "original",
+    "tags": ["cofre", "zrs", "zonas", "redundancia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-096",
+    "domain": "storage",
+    "subdomain": "backup-windows-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Janela de backup não pode impactar pico das 9h às 18h. Quais dois controles agendam fora do pico? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Agendamento noturno/madrugada" },
+      { "letter": "B", "text": "Janela de manutenção aprovada" },
+      { "letter": "C", "text": "Backup no pico" },
+      { "letter": "D", "text": "Sem janela definida" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Agendamento noturno fora do pico com janela de manutenção aprovada evita impacto. Backup no horário de pico degrada produção; sem janela definida é imprevisível.",
+    "source": "original",
+    "tags": ["janela", "agendamento", "pico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-097",
+    "domain": "storage",
+    "subdomain": "retention-lock-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Retenção legal não pode ser reduzida nem por administradores. Quais dois travamentos garantem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Bloqueio de retenção (retention lock)" },
+      { "letter": "B", "text": "MUA para alterar política" },
+      { "letter": "C", "text": "Política editável livremente" },
+      { "letter": "D", "text": "Sem retenção" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Lock impede redução e MUA exige aprovação para mudar. Editável livre viola compliance; sem retenção perde dados.",
+    "source": "original",
+    "tags": ["retention-lock", "mua", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-098",
+    "domain": "storage",
+    "subdomain": "test-restore-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups precisam de teste periódico de restaurabilidade com evidência. Quais dois elementos validam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Restore de teste em ambiente isolado" },
+      { "letter": "B", "text": "Relatório de sucesso do teste" },
+      { "letter": "C", "text": "Confiança sem testar" },
+      { "letter": "D", "text": "Restore em produção direto" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Restore de teste em ambiente isolado valida sem risco e o relatório de sucesso evidencia. Confiar sem testar cega; restaurar direto em produção arrisca.",
+    "source": "original",
+    "tags": ["teste-restore", "validacao", "isolado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-099",
+    "domain": "storage",
+    "subdomain": "airgap-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cópias precisam de isolamento lógico (air gap) contra ransomware com acesso restrito. Quais dois elementos isolam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Cofre isolado com imutabilidade" },
+      { "letter": "B", "text": "Acesso restrito com MUA" },
+      { "letter": "C", "text": "Backup na mesma conta" },
+      { "letter": "D", "text": "Acesso aberto ao cofre" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Cofre isolado com imutabilidade mais acesso restrito com MUA criam air gap lógico. Backup na mesma conta cai junto no ataque; acesso aberto ao cofre expõe.",
+    "source": "original",
+    "tags": ["air-gap", "isolamento", "imutabilidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-100",
+    "domain": "storage",
+    "subdomain": "rpo-rto-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Contrato exige RPO 1h e RTO 4h para arquivos críticos. Quais dois parâmetros da política atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Frequência horária de backup (RPO)" },
+      { "letter": "B", "text": "Restore testado dentro de 4h (RTO)" },
+      { "letter": "C", "text": "Backup semanal" },
+      { "letter": "D", "text": "Restore sem teste" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Frequência horária garante RPO e restore testado garante RTO. Semanal estoura RPO; sem teste não prova RTO.",
+    "source": "original",
+    "tags": ["rpo", "rto", "sla", "backup"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-101",
+    "domain": "storage",
+    "subdomain": "cost-optimized-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Custos de backup precisam cair sem perder RPO, com camadas baratas. Quais duas alavancas otimizam? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Camada Archive para retenções longas" },
+      { "letter": "B", "text": "Retenção ajustada por criticidade" },
+      { "letter": "C", "text": "Tudo em Premium quente" },
+      { "letter": "D", "text": "Retenção infinita geral" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Archive barateia longo prazo e retenção por criticidade evita excesso. Tudo Premium custa; infinito acumula.",
+    "source": "original",
+    "tags": ["custo", "archive", "retencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-102",
+    "domain": "storage",
+    "subdomain": "monitor-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falhas silenciosas de backup precisam de detecção com métricas e alertas. Quais dois monitoramentos aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Métricas de jobs com alerta de falha" },
+      { "letter": "B", "text": "Relatório diário de conformidade" },
+      { "letter": "C", "text": "Verificação anual manual" },
+      { "letter": "D", "text": "Sem monitoramento" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Métricas de jobs com alerta de falha detectam na hora e o relatório diário audita cobertura. Verificação anual manual atrasa meses; sem monitoramento não há detecção.",
+    "source": "original",
+    "tags": ["monitoramento", "metricas", "relatorio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-103",
+    "domain": "storage",
+    "subdomain": "network-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Tráfego de backup não pode competir com produção nem sair à internet. Quais dois controles de rede aplicar? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Private Endpoints para o tráfego" },
+      { "letter": "B", "text": "Janela fora do pico" },
+      { "letter": "C", "text": "Endpoint público no pico" },
+      { "letter": "D", "text": "Sem controle" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Private Endpoints mantêm o tráfego fora da internet e a janela fora do pico evita contenção. Endpoint público expõe dados; sem controle o backup compete com produção.",
+    "source": "original",
+    "tags": ["rede", "private-endpoint", "janela"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-104",
+    "domain": "storage",
+    "subdomain": "encryption-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups em trânsito e repouso precisam de criptografia ponta a ponta. Quais dois mecanismos garantem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "TLS no transporte" },
+      { "letter": "B", "text": "CMK no cofre em repouso" },
+      { "letter": "C", "text": "HTTP sem TLS" },
+      { "letter": "D", "text": "Sem criptografia" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "TLS protege o transporte e CMK no cofre protege o repouso com suas chaves. HTTP sem TLS expõe em trânsito; sem criptografia viola compliance.",
+    "source": "original",
+    "tags": ["criptografia", "tls", "cmk"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-105",
+    "domain": "storage",
+    "subdomain": "granular-vm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Restaurar um arquivo de VM sem voltar o disco inteiro exige dois recursos. Quais são eles? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Recuperação em nível de arquivo do backup" },
+      { "letter": "B", "text": "Montagem do ponto de recuperação" },
+      { "letter": "C", "text": "Restore total obrigatório" },
+      { "letter": "D", "text": "Formatação do disco" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Monta-se o ponto de recuperação e extrai-se apenas o arquivo necessário. Restore total obrigatório afeta o disco inteiro; formatar o disco apaga tudo.",
+    "source": "original",
+    "tags": ["granular", "arquivo", "montagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-106",
+    "domain": "storage",
+    "subdomain": "sql-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Bancos SQL em VM precisam de backup transacional com truncamento de log. Quais dois elementos compõem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Backup com workload de SQL Server" },
+      { "letter": "B", "text": "Truncamento de log após backup" },
+      { "letter": "C", "text": "Snapshot de disco sem quiesce" },
+      { "letter": "D", "text": "Cópia dos MDF com banco online" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Workload SQL garante consistência e o truncamento libera log. Snapshot sem quiesce corrompe; copiar MDF online quebra.",
+    "source": "original",
+    "tags": ["sql", "backup", "log", "truncamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-107",
+    "domain": "storage",
+    "subdomain": "sap-hana-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "HANA em VM precisa de backup certificado pela SAP com snapshots. Quais dois elementos atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Backup certificado para SAP HANA" },
+      { "letter": "B", "text": "Snapshots de armazenamento integrados" },
+      { "letter": "C", "text": "Dump manual sem certificação" },
+      { "letter": "D", "text": "Backup de arquivos genérico" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Solução certificada SAP com snapshots garante suporte. Dump manual não certifica; genérico não entende HANA.",
+    "source": "original",
+    "tags": ["sap", "hana", "backup", "certificado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-108",
+    "domain": "storage",
+    "subdomain": "dpm-mars-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Servidor físico legado precisa de backup em nuvem sem infraestrutura nova. Quais dois agentes atendem? Selecione duas.",
+    "options": [
+      { "letter": "A", "text": "Agente MARS para arquivos/pastas" },
+      { "letter": "B", "text": "DPM para cargas completas" },
+      { "letter": "C", "text": "Sem agente com cópia manual" },
+      { "letter": "D", "text": "FTP para storage" }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Agente MARS protege arquivos e pastas e o DPM cobre cargas on-prem completas. Sem agente não há backup gerenciado; FTP para storage não versiona nem agenda.",
+    "source": "original",
+    "tags": ["mars", "dpm", "legado", "on-premises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-109",
+    "domain": "storage",
+    "subdomain": "soft-delete-vm-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que excluir uma VM com soft delete no cofre permite restaurar a máquina inteira depois. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, soft delete do cofre restaura a VM" },
+      { "letter": "B", "text": "Não, é preciso backup da VM com retenção" }
+    ],
+    "correct": ["B"],
+    "explanation": "Soft delete do cofre protege backups, não cria backup de VM sem proteção. Assumir restauração sem backup é falha grave.",
+    "source": "original",
+    "tags": ["soft-delete", "vm", "conceito"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-110",
+    "domain": "storage",
+    "subdomain": "backup-now-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o backup sob demanda (Backup Now) respeita a mesma retenção da política agendada. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, segue a política vigente" },
+      { "letter": "B", "text": "Não, usa retenção própria configurada" }
+    ],
+    "correct": ["B"],
+    "explanation": "On-demand define retenção própria no disparo, distinta da agenda. Assumir igualdade estoura ou encurta guarda.",
+    "source": "original",
+    "tags": ["backup-now", "retencao", "sob-demanda"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-111",
+    "domain": "storage",
+    "subdomain": "stop-with-retain-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que parar proteção com retenção mantém os pontos existentes cobrando só armazenamento. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, retém cobrando storage" },
+      { "letter": "B", "text": "Não, parar apaga tudo imediatamente" }
+    ],
+    "correct": ["A"],
+    "explanation": "Stop with retain interrompe novos backups e guarda o histórico pelo prazo, cobrando storage. Achar que apaga impede descomissionar certo.",
+    "source": "original",
+    "tags": ["stop-protection", "reter", "cobranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-112",
+    "domain": "storage",
+    "subdomain": "delete-vault-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um admin afirma que excluir um cofre com itens protegidos é bloqueado até remover proteções e retenções. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, há travas de exclusão" },
+      { "letter": "B", "text": "Não, exclui direto com tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cofre com itens, MUA e soft delete trava exclusão até limpar. Assumir exclusão direta subestima proteções.",
+    "source": "original",
+    "tags": ["cofre", "exclusao", "travas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-113",
+    "domain": "storage",
+    "subdomain": "soft-delete-always-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o soft delete do cofre vem habilitado por padrão e não pode ser desligado em novos cofres. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, padrão e obrigatório" },
+      { "letter": "B", "text": "Não, é opcional e configurável" }
+    ],
+    "correct": ["A"],
+    "explanation": "Soft delete é padrão em cofres novos como proteção base contra ransomware. Achar opcional ignora a defesa padrão.",
+    "source": "original",
+    "tags": ["soft-delete", "padrao", "cofre"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-114",
+    "domain": "storage",
+    "subdomain": "immutable-vault-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que cofre com imutabilidade impede até administradores de excluir backups no prazo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, imutável bloqueia todos" },
+      { "letter": "B", "text": "Não, Owner sempre exclui" }
+    ],
+    "correct": ["A"],
+    "explanation": "Immutability trava exclusão/alteração até expirar, inclusive para admins. Assumir override quebra compliance.",
+    "source": "original",
+    "tags": ["imutabilidade", "cofre", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-115",
+    "domain": "storage",
+    "subdomain": "grs-restore-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que restore cross-region exige GRS com CRR habilitado no cofre. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, GRS + CRR habilitam" },
+      { "letter": "B", "text": "Não, LRS basta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Restore cross-region exige cópia GRS com CRR habilitado no cofre. LRS não sai da região primária, inviabilizando a restauração distante.",
+    "source": "original",
+    "tags": ["grs", "crr", "cross-region"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-116",
+    "domain": "storage",
+    "subdomain": "zone-restore-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que restore zonal (para outra zona) exige backup com redundância de zona. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, ZRS habilita restore zonal" },
+      { "letter": "B", "text": "Não, qualquer backup restaura em zona" }
+    ],
+    "correct": ["A"],
+    "explanation": "Restauração entre zonas precisa de cópia com redundância zonal. LRS comum não oferece alvo em outra zona para o restore.",
+    "source": "original",
+    "tags": ["zonal", "restore", "zrs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-117",
+    "domain": "storage",
+    "subdomain": "encryption-restore-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que restore de backup CMK exige acesso ao Key Vault original no momento da restauração. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, sem a chave não há restore" },
+      { "letter": "B", "text": "Não, restore dispensa a chave" }
+    ],
+    "correct": ["A"],
+    "explanation": "Dados protegidos por CMK só descriptografam com a chave do Key Vault no momento do restore. Sem cofre e chave acessíveis, a restauração falha.",
+    "source": "original",
+    "tags": ["cmk", "restore", "key-vault"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-118",
+    "domain": "storage",
+    "subdomain": "private-restore-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que restore via Private Endpoint mantém todo o tráfego fora da internet pública. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, PE isola o plano de dados" },
+      { "letter": "B", "text": "Não, restore sempre usa internet" }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Endpoints mantêm backup e restore na backbone privada sem internet pública. Assumir tráfego público ignora o isolamento de rede disponível.",
+    "source": "original",
+    "tags": ["private-endpoint", "restore", "isolamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-119",
+    "domain": "storage",
+    "subdomain": "throttled-backup-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que throughput de backup pode ser limitado para não impactar produção em horário comercial. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, via agendamento e limites" },
+      { "letter": "B", "text": "Não, backup sempre usa banda total" }
+    ],
+    "correct": ["A"],
+    "explanation": "Janelas e limites (ex.: MARS throttling) contêm impacto. Assumir banda total impede conviver com produção.",
+    "source": "original",
+    "tags": ["throttling", "backup", "banda"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-120",
+    "domain": "storage",
+    "subdomain": "backup-failure-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que falha de um backup diário inviabiliza toda a cadeia de restauração. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, perde-se tudo" },
+      { "letter": "B", "text": "Não, pontos anteriores e retry cobrem" }
+    ],
+    "correct": ["B"],
+    "explanation": "Falha isolada gera retry e pontos anteriores seguem válidos. Achar perda total ignora retenção e nova tentativa.",
+    "source": "original",
+    "tags": ["falha", "retry", "cadeia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-121",
+    "domain": "storage",
+    "subdomain": "vault-upgrade-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um admin afirma que migrar cofre clássico para Backup Center preserva políticas e históricos. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, com migração assistida" },
+      { "letter": "B", "text": "Não, perde-se todo histórico" }
+    ],
+    "correct": ["A"],
+    "explanation": "Migrar cofre clássico para o Backup Center preserva itens, políticas e histórico com fluxo assistido. Assumir perda total impede modernizar sem necessidade.",
+    "source": "original",
+    "tags": ["migracao", "cofre", "backup-center"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-122",
+    "domain": "storage",
+    "subdomain": "alert-severity-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que alertas de backup têm severidade fixa e não permitem supressão por janela. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, fixos e sempre ativos" },
+      { "letter": "B", "text": "Não, há severidade e regras de supressão" }
+    ],
+    "correct": ["B"],
+    "explanation": "Alertas de backup têm severidades Sev0-Sev4 com processing rules de supressão e agrupamento. Assumir severidade fixa gera fadiga de alerta.",
+    "source": "original",
+    "tags": ["alertas", "severidade", "supressao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-123",
+    "domain": "storage",
+    "subdomain": "report-export-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um auditor afirma que relatórios de backup podem ser exportados para CSV/Power BI para evidência. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, via Log Analytics e exportação" },
+      { "letter": "B", "text": "Não, só visual no portal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Relatórios baseados em LA exportam e alimentam Power BI. Limitar ao portal impede evidência auditável.",
+    "source": "original",
+    "tags": ["relatorios", "exportacao", "powerbi"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-124",
+    "domain": "storage",
+    "subdomain": "cross-tenant-backup-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que backup cross-tenant exige lighthouse/delegação entre tenants. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, com delegação entre tenants" },
+      { "letter": "B", "text": "Não, qualquer tenant acessa" }
+    ],
+    "correct": ["A"],
+    "explanation": "Backup cross-tenant exige delegação via Lighthouse com RBAC entre os tenants. Acesso livre de qualquer tenant violaria o isolamento de segurança.",
+    "source": "original",
+    "tags": ["cross-tenant", "lighthouse", "delegacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-125",
+    "domain": "storage",
+    "subdomain": "backup-encryption-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que backups no cofre são criptografados em repouso por padrão, mesmo sem CMK. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, criptografia padrão da plataforma" },
+      { "letter": "B", "text": "Não, sem CMK ficam em claro" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cofres criptografam por padrão com chaves Microsoft; CMK adiciona controle. Achar texto claro ignora o padrão.",
+    "source": "original",
+    "tags": ["criptografia", "padrao", "cofre"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
