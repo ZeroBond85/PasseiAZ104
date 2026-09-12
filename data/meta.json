@@ -11,8 +11,8 @@
     "identidade-governanca": 230,
     "storage": 125,
     "compute": 150,
-    "rede-virtual": 130,
-    "monitoramento": 55
+    "rede-virtual": 175,
+    "monitoramento": 60
   },
   "generatedWith": null,
   "seedVersion": 1,

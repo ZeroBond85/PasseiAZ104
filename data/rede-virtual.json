@@ -2867,5 +2867,860 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-rv-131",
+    "domain": "rede-virtual",
+    "subdomain": "sla-vwan-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que Virtual WAN Hub tem SLA 99,95%. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, 99,95% para o hub" },
+      { "letter": "B", "text": "Não, sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Virtual WAN Hub contrata 99,95% de disponibilidade. Negar o contrato ignora a tabela oficial de rede do Azure.",
+    "source": "original",
+    "tags": ["vwan", "sla", "hub"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-132",
+    "domain": "rede-virtual",
+    "subdomain": "sla-bastion-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que Azure Bastion tem SLA 99,95% em SKU Básico ou superior. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, Básico+ contrata 99,95%" },
+      { "letter": "B", "text": "Não, sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Bastion Básico ou superior contrata 99,95% de disponibilidade. Negar o contrato ignora a tabela oficial.",
+    "source": "original",
+    "tags": ["bastion", "sla", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-133",
+    "domain": "rede-virtual",
+    "subdomain": "sla-firewall-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que Azure Firewall tem SLA 99,95% (99,99% zonal). Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, conforme distribuição" },
+      { "letter": "B", "text": "Não, sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Firewall contrata 99,95%, subindo a 99,99% quando zonal. Negar o contrato ignora a tabela oficial de rede.",
+    "source": "original",
+    "tags": ["firewall", "sla", "zonal"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-134",
+    "domain": "rede-virtual",
+    "subdomain": "sla-nat-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que NAT Gateway tem SLA 99,9% com zona. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, zonal contrata 99,9%" },
+      { "letter": "B", "text": "Não, sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "NAT Gateway zonal contrata 99,9% de disponibilidade. Negar o contrato ignora a tabela; sem zona os termos diferem.",
+    "source": "original",
+    "tags": ["nat", "sla", "zonal"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-135",
+    "domain": "rede-virtual",
+    "subdomain": "sla-nsg-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que NSG tem SLA próprio de 99,99%. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, NSG contrata 99,99%" },
+      { "letter": "B", "text": "Não, NSG não tem SLA próprio" }
+    ],
+    "correct": ["B"],
+    "explanation": "NSG é construção de controle sem SLA próprio; o SLA é dos recursos protegidos. Assumir 99,99% inventa contrato inexistente.",
+    "source": "original",
+    "tags": ["nsg", "sla", "sem-sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-136",
+    "domain": "rede-virtual",
+    "subdomain": "sla-udr-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que tabela de rotas (UDR) tem SLA próprio de disponibilidade. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, UDR contrata SLA" },
+      { "letter": "B", "text": "Não, UDR não tem SLA próprio" }
+    ],
+    "correct": ["B"],
+    "explanation": "UDR é configuração de SDN sem SLA próprio. Assumir contrato inventa garantia inexistente na tabela oficial.",
+    "source": "original",
+    "tags": ["udr", "sla", "sem-sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-137",
+    "domain": "rede-virtual",
+    "subdomain": "sla-peering-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que VNet Peering tem SLA próprio de 99,9%. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, peering contrata 99,9%" },
+      { "letter": "B", "text": "Não, peering não tem SLA próprio" }
+    ],
+    "correct": ["B"],
+    "explanation": "Peering não tem SLA próprio; vale o SLA das VNets/gateways envolvidos. Assumir 99,9% inventa contrato.",
+    "source": "original",
+    "tags": ["peering", "sla", "sem-sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-138",
+    "domain": "rede-virtual",
+    "subdomain": "sla-dns-privado-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que DNS privado (zonas privadas) tem SLA de 100% igual ao público. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, 100% igual ao público" },
+      { "letter": "B", "text": "Não, 100% vale para zonas públicas" }
+    ],
+    "correct": ["B"],
+    "explanation": "Os 100% contratados valem para zonas públicas; privadas seguem termos próprios. Equiparar ignora a distinção oficial.",
+    "source": "original",
+    "tags": ["dns-privado", "sla", "publico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-139",
+    "domain": "rede-virtual",
+    "subdomain": "sla-waf-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o WAF tem SLA próprio separado do Application Gateway/Front Door. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, WAF contrata à parte" },
+      { "letter": "B", "text": "Não, segue o SLA do recurso hospedeiro" }
+    ],
+    "correct": ["B"],
+    "explanation": "WAF é recurso do gateway/borda e segue o SLA do hospedeiro. Contratar à parte inventa SLA inexistente.",
+    "source": "original",
+    "tags": ["waf", "sla", "hospedeiro"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-140",
+    "domain": "rede-virtual",
+    "subdomain": "sla-ddos-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que DDoS Protection tem SLA próprio de mitigação. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, com garantia de mitigação" },
+      { "letter": "B", "text": "Não, sem SLA próprio de mitigação" }
+    ],
+    "correct": ["B"],
+    "explanation": "DDoS Protection não contrata SLA próprio de mitigação; protege os recursos com SLA deles. Assumir garantia inventa contrato.",
+    "source": "original",
+    "tags": ["ddos", "sla", "sem-sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-141",
+    "domain": "rede-virtual",
+    "subdomain": "sla-vpn-p2s-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que VPN ponto-a-site tem o mesmo SLA do site-a-site ativo-ativo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, SLAs idênticos" },
+      { "letter": "B", "text": "Não, P2S não tem o mesmo compromisso" }
+    ],
+    "correct": ["B"],
+    "explanation": "Os 99,95% valem para gateway S2S ativo-ativo; P2S segue termos próprios sem o mesmo compromisso. Equiparar ignora a distinção.",
+    "source": "original",
+    "tags": ["vpn", "p2s", "sla", "s2s"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-142",
+    "domain": "rede-virtual",
+    "subdomain": "sla-er-direto-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que ExpressRoute Direct (porta dedicada) tem SLA distinto do padrão. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, Direct tem termos próprios" },
+      { "letter": "B", "text": "Não, idêntico em tudo" }
+    ],
+    "correct": ["A"],
+    "explanation": "ER Direct (100 Gbps dedicado) tem termos próprios de disponibilidade distintos do ER padrão. Tratar como idêntico ignora o contrato.",
+    "source": "original",
+    "tags": ["expressroute", "direct", "sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-143",
+    "domain": "rede-virtual",
+    "subdomain": "sla-local-gw-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que gateway local (representação on-premises) tem SLA no Azure. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, com 99,9%" },
+      { "letter": "B", "text": "Não, é só registro sem SLA" }
+    ],
+    "correct": ["B"],
+    "explanation": "Local network gateway é objeto de configuração sem SLA; o compromisso é do gateway Azure. Atribuir SLA ao registro inventa contrato.",
+    "source": "original",
+    "tags": ["gateway-local", "sla", "registro"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-144",
+    "domain": "rede-virtual",
+    "subdomain": "sla-connection-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o objeto de conexão VPN tem SLA próprio separado do gateway. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, conexão contrata à parte" },
+      { "letter": "B", "text": "Não, segue o SLA do gateway" }
+    ],
+    "correct": ["B"],
+    "explanation": "Conexão é configuração sobre o gateway; o SLA é do gateway. Contratar à parte inventa garantia inexistente.",
+    "source": "original",
+    "tags": ["conexao", "sla", "gateway"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-145",
+    "domain": "rede-virtual",
+    "subdomain": "sla-public-ip-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que IP público Standard tem SLA próprio de disponibilidade. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, IP Standard contrata SLA" },
+      { "letter": "B", "text": "Não, segue o recurso associado" }
+    ],
+    "correct": ["B"],
+    "explanation": "IP público não tem SLA próprio; vale o do recurso (LB, gateway, VM). Assumir contrato do IP inventa garantia.",
+    "source": "original",
+    "tags": ["ip-publico", "sla", "recurso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-146",
+    "domain": "rede-virtual",
+    "subdomain": "sla-nic-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que NIC de VM tem SLA próprio de disponibilidade. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, NIC contrata SLA" },
+      { "letter": "B", "text": "Não, segue o SLA da VM" }
+    ],
+    "correct": ["B"],
+    "explanation": "NIC é componente da VM sem SLA próprio; vale o contrato da máquina. Assumir SLA da NIC inventa garantia inexistente.",
+    "source": "original",
+    "tags": ["nic", "sla", "vm"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-147",
+    "domain": "rede-virtual",
+    "subdomain": "sla-vnet-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que a VNet em si tem SLA de 99,99% como tecido de rede. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, VNet contrata 99,99%" },
+      { "letter": "B", "text": "Não, VNet não tem SLA próprio" }
+    ],
+    "correct": ["B"],
+    "explanation": "VNet é construção lógica sem SLA próprio; valem SLAs de gateway, LB e VMs. Assumir 99,99% inventa contrato.",
+    "source": "original",
+    "tags": ["vnet", "sla", "tecido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-148",
+    "domain": "rede-virtual",
+    "subdomain": "sla-subnet-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que sub-rede tem SLA proporcional ao prefixo. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, maior prefixo maior SLA" },
+      { "letter": "B", "text": "Não, sub-rede não tem SLA" }
+    ],
+    "correct": ["B"],
+    "explanation": "Sub-rede é segmentação lógica sem contrato; prefixo dimensiona endereços, não garantia. Vincular SLA a CIDR inventa regra.",
+    "source": "original",
+    "tags": ["subnet", "sla", "prefixo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-149",
+    "domain": "rede-virtual",
+    "subdomain": "sla-route-table-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que tabela de rotas com BGP tem SLA maior que estática. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, BGP eleva o SLA" },
+      { "letter": "B", "text": "Não, tabela não tem SLA" }
+    ],
+    "correct": ["B"],
+    "explanation": "UDR não tem SLA em nenhuma forma; BGP melhora resiliência real sem contrato. Confundir resiliência com SLA erra o conceito.",
+    "source": "original",
+    "tags": ["udr", "bgp", "sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-150",
+    "domain": "rede-virtual",
+    "subdomain": "sla-dependencia-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que indisponibilidade causada por dependência do cliente (ISP local) gera crédito. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, qualquer indisponibilidade credita" },
+      { "letter": "B", "text": "Não, fatores fora do Azure são excluídos" }
+    ],
+    "correct": ["B"],
+    "explanation": "SLA exclui fatores fora do controle Microsoft (ISP, energia do cliente). Qualquer indisponibilidade creditada ignora as exclusões.",
+    "source": "original",
+    "tags": ["sla", "exclusoes", "dependencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-151",
+    "domain": "rede-virtual",
+    "subdomain": "sla-preview-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que recursos em preview têm SLA reduzido proporcional. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, SLA reduzido em preview" },
+      { "letter": "B", "text": "Não, preview não tem SLA" }
+    ],
+    "correct": ["B"],
+    "explanation": "Preview/beta não têm SLA; o contrato nasce no GA. Assumir reduzido planeja sobre garantia inexistente.",
+    "source": "original",
+    "tags": ["preview", "sla", "ga"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-152",
+    "domain": "rede-virtual",
+    "subdomain": "sla-gratuito-geral-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que nenhum serviço gratuito do Azure tem SLA. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, grátis nunca tem SLA" },
+      { "letter": "B", "text": "Não, há exceções pontuais" }
+    ],
+    "correct": ["A"],
+    "explanation": "Serviços/tiers gratuitos não contratam SLA por definição. Buscar exceção ignora a regra geral da tabela oficial.",
+    "source": "original",
+    "tags": ["gratuito", "sla", "regra"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-153",
+    "domain": "rede-virtual",
+    "subdomain": "sla-reivindicacao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o crédito de SLA é automático na fatura seguinte sem ação. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, automático sempre" },
+      { "letter": "B", "text": "Não, exige solicitação com evidência" }
+    ],
+    "correct": ["B"],
+    "explanation": "Crédito de SLA exige solicitação formal com evidências dentro do prazo contratual. Automático sem ação não existe no processo oficial.",
+    "source": "original",
+    "tags": ["credito", "claim", "evidencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-154",
+    "domain": "rede-virtual",
+    "subdomain": "sla-mensal-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que o SLA é medido por mês-calendário com minutos totais do mês. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, ciclo mensal-calendário" },
+      { "letter": "B", "text": "Não, medido por hora corrida" }
+    ],
+    "correct": ["A"],
+    "explanation": "SLAs de disponibilidade usam o mês-calendário como janela de medição. Medir por hora corrida fragmentaria o cálculo oficial.",
+    "source": "original",
+    "tags": ["sla", "mensal", "janela"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-155",
+    "domain": "rede-virtual",
+    "subdomain": "sla-minutos-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que fevereiro (28 dias) permite menos minutos de downtime que meses de 31 dias no mesmo SLA. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, proporcional aos minutos do mês" },
+      { "letter": "B", "text": "Não, o valor é fixo por SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Downtime permitido deriva dos minutos do mês-calendário; fevereiro tem menos. Valor fixo ignoraria o calendário.",
+    "source": "original",
+    "tags": ["sla", "minutos", "fevereiro", "calculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-156",
+    "domain": "rede-virtual",
+    "subdomain": "sla-erro-medicao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que sondas do cliente contam como medição oficial de downtime para claim. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, qualquer sonda vale" },
+      { "letter": "B", "text": "Não, vale a telemetria oficial Microsoft" }
+    ],
+    "correct": ["B"],
+    "explanation": "Downtime oficial usa medição Microsoft; sondas do cliente são evidência auxiliar. Aceitar qualquer sonda abriria disputa infinita.",
+    "source": "original",
+    "tags": ["sla", "medicao", "sonda", "oficial"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-157",
+    "domain": "rede-virtual",
+    "subdomain": "sla-degradacao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que degradação parcial (lentidão sem queda) conta como downtime integral. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, qualquer lentidão é downtime" },
+      { "letter": "B", "text": "Não, SLA define erro/down por serviço" }
+    ],
+    "correct": ["B"],
+    "explanation": "Cada SLA define o que é erro elegível (ex.: >5% falho); lentidão genérica nem sempre qualifica. Tratar tudo como down superestima claim.",
+    "source": "original",
+    "tags": ["sla", "degradacao", "elegivel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-158",
+    "domain": "rede-virtual",
+    "subdomain": "sla-janela-manutencao-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que manutenção de emergência sem aviso conta como downtime. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, sem aviso conta" },
+      { "letter": "B", "text": "Não, emergências são excluídas" }
+    ],
+    "correct": ["A"],
+    "explanation": "Só manutenção planejada anunciada é excluída; emergencial sem aviso conta como indisponibilidade. Generalizar a exclusão ignora a regra.",
+    "source": "original",
+    "tags": ["sla", "emergencia", "aviso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-159",
+    "domain": "rede-virtual",
+    "subdomain": "sla-forca-maior-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que desastres naturais e atos de terceiros excluem crédito de SLA. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, força maior é excluída" },
+      { "letter": "B", "text": "Não, tudo gera crédito" }
+    ],
+    "correct": ["A"],
+    "explanation": "Força maior e fatores externos estão nas exclusões padrão. Creditamento universal ignora as cláusulas.",
+    "source": "original",
+    "tags": ["sla", "forca-maior", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-160",
+    "domain": "rede-virtual",
+    "subdomain": "sla-ataque-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que indisponibilidade causada por ataque DDoS ao cliente gera crédito automaticamente. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, ataque sempre credita" },
+      { "letter": "B", "text": "Não, depende de proteção contratada e causa" }
+    ],
+    "correct": ["B"],
+    "explanation": "Ataques externos podem cair em exclusões ou exigir proteção contratada; não há crédito automático universal. Generalizar ignora as cláusulas.",
+    "source": "original",
+    "tags": ["sla", "ddos", "ataque"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-161",
+    "domain": "rede-virtual",
+    "subdomain": "sla-config-cliente-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que erro de configuração do próprio cliente anula direito a crédito. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, mau uso é excluído" },
+      { "letter": "B", "text": "Não, cliente sempre recebe" }
+    ],
+    "correct": ["A"],
+    "explanation": "Mau uso e configuração errada do cliente estão nas exclusões padrão. Creditamento universal ignoraria a responsabilidade compartilhada.",
+    "source": "original",
+    "tags": ["sla", "mau-uso", "cliente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-162",
+    "domain": "rede-virtual",
+    "subdomain": "sla-terceiros-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que falha de software de terceiro rodando na VM gera crédito do Azure. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, qualquer falha credita" },
+      { "letter": "B", "text": "Não, terceiros são excluídos" }
+    ],
+    "correct": ["B"],
+    "explanation": "Software de terceiros foge ao controle Microsoft e é excluído. Creditamento universal ignoraria a fronteira de responsabilidade.",
+    "source": "original",
+    "tags": ["sla", "terceiros", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-163",
+    "domain": "rede-virtual",
+    "subdomain": "sla-beta-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que recursos em beta têm SLA proporcional ao tempo em preview. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, proporcional ao preview" },
+      { "letter": "B", "text": "Não, beta não tem SLA" }
+    ],
+    "correct": ["B"],
+    "explanation": "Beta/preview não contratam SLA em nenhuma proporção. Proporcionalidade inventa contrato inexistente.",
+    "source": "original",
+    "tags": ["beta", "sla", "preview"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-164",
+    "domain": "rede-virtual",
+    "subdomain": "sla-suporte-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que abrir chamado de suporte é suficiente para receber o crédito automaticamente. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, chamado basta" },
+      { "letter": "B", "text": "Não, exige claim formal de SLA" }
+    ],
+    "correct": ["B"],
+    "explanation": "Suporte resolve incidente; crédito exige processo próprio de claim com evidências. Confundir os fluxos perde o prazo.",
+    "source": "original",
+    "tags": ["suporte", "claim", "processo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-165",
+    "domain": "rede-virtual",
+    "subdomain": "sla-evidencia-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que sem logs e evidências o claim de SLA é negado. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, evidência é obrigatória" },
+      { "letter": "B", "text": "Não, basta alegar" }
+    ],
+    "correct": ["A"],
+    "explanation": "Claim exige comprovação de indisponibilidade elegível no período. Alegação sem dado é negada no processo oficial.",
+    "source": "original",
+    "tags": ["evidencia", "claim", "logs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-166",
+    "domain": "rede-virtual",
+    "subdomain": "sla-prazo-claim-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que o claim prescreve se aberto meses após o incidente. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, há prazo para solicitar" },
+      { "letter": "B", "text": "Não, pode pedir a qualquer tempo" }
+    ],
+    "correct": ["A"],
+    "explanation": "O processo define janela para solicitação após o mês do incidente. Pedir a qualquer tempo ignora a prescrição oficial.",
+    "source": "original",
+    "tags": ["prazo", "claim", "prescricao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-167",
+    "domain": "rede-virtual",
+    "subdomain": "sla-max-credito-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que o crédito máximo equivale a 100% da fatura dos serviços afetados. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, teto de 100% do afetado" },
+      { "letter": "B", "text": "Não, sem teto definido" }
+    ],
+    "correct": ["A"],
+    "explanation": "As faixas culminam em 100% do valor dos serviços afetados no mês. Sem teto ignora a tabela de créditos.",
+    "source": "original",
+    "tags": ["credito-maximo", "teto", "fatura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-168",
+    "domain": "rede-virtual",
+    "subdomain": "sla-dinheiro-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que o crédito sai como reembolso em dinheiro na conta bancária. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, dinheiro de volta" },
+      { "letter": "B", "text": "Não, crédito na fatura Azure" }
+    ],
+    "correct": ["B"],
+    "explanation": "Crédito abate faturas futuras do serviço afetado, sem reembolso bancário. Esperar dinheiro ignora a mecânica oficial.",
+    "source": "original",
+    "tags": ["credito", "fatura", "reembolso"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-169",
+    "domain": "rede-virtual",
+    "subdomain": "sla-composto-paralelo-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que dois componentes redundantes em paralelo elevam o SLA combinado acima do individual. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, paralelo eleva (1-(1-a)(1-b))" },
+      { "letter": "B", "text": "Não, paralelo reduz" }
+    ],
+    "correct": ["A"],
+    "explanation": "Redundância em paralelo multiplica indisponibilidades (não disponibilidades), elevando o combinado. Achar que reduz inverte a matemática.",
+    "source": "original",
+    "tags": ["sla", "paralelo", "redundancia", "calculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-170",
+    "domain": "rede-virtual",
+    "subdomain": "sla-dependencia-serie-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que cada dependência em série reduz o SLA total do sistema. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, série multiplica para baixo" },
+      { "letter": "B", "text": "Não, série mantém o maior" }
+    ],
+    "correct": ["A"],
+    "explanation": "Cadeia em série multiplica disponibilidades, sempre abaixo do elo mais fraco. Manter o maior ignora a composição.",
+    "source": "original",
+    "tags": ["sla", "serie", "dependencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-171",
+    "domain": "rede-virtual",
+    "subdomain": "sla-desacoplar-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que desacoplar com filas e cache eleva o SLA percebido mesmo com componentes frágeis. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, desacoplamento isola falhas" },
+      { "letter": "B", "text": "Não, acoplamento não afeta SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Filas/cache absorvem falhas parciais mantendo resposta. Negar ignora resiliência por desacoplamento.",
+    "source": "original",
+    "tags": ["sla", "desacoplamento", "resiliencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-172",
+    "domain": "rede-virtual",
+    "subdomain": "sla-testes-caos-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que testes de caos validam o SLA real além do papel. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, caos valida resiliência" },
+      { "letter": "B", "text": "Não, caos invalida o SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "Testes de caos (Chaos Studio) provocam falhas controladas e validam resiliência real. Achar que invalida o SLA confunde validação com violação.",
+    "source": "original",
+    "tags": ["caos", "sla", "validacao", "chaos-studio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-173",
+    "domain": "rede-virtual",
+    "subdomain": "sla-drill-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um técnico afirma que simulados de DR medem RTO real para calibrar o SLA interno. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, drill mede RTO" },
+      { "letter": "B", "text": "Não, drill é só teatro" }
+    ],
+    "correct": ["A"],
+    "explanation": "Simulados de DR cronometram failover real e calibram o RTO interno da operação. Chamar de teatro ignora a medição de prontidão.",
+    "source": "original",
+    "tags": ["drill", "dr", "rto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-174",
+    "domain": "rede-virtual",
+    "subdomain": "sla-runbook-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um colega afirma que runbooks de failover automatizados reduzem MTTR e sustentam SLA interno. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, automação reduz MTTR" },
+      { "letter": "B", "text": "Não, manual é mais rápido" }
+    ],
+    "correct": ["A"],
+    "explanation": "Runbooks executam em segundos o que manual leva minutos. Defender manual ignora a matemática do MTTR.",
+    "source": "original",
+    "tags": ["runbook", "mttr", "automacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-175",
+    "domain": "rede-virtual",
+    "subdomain": "sla-observabilidade-conceito",
+    "type": "yes-no",
+    "difficulty": "hard",
+    "question": "Um arquiteto afirma que sem observabilidade não há como comprovar nem defender SLA. Essa afirmação está correta?",
+    "options": [
+      { "letter": "A", "text": "Sim, evidência exige telemetria" },
+      { "letter": "B", "text": "Não, palavra basta" }
+    ],
+    "correct": ["A"],
+    "explanation": "Claims e defesa de SLA exigem métricas e logs como prova. Palavra sem dado não sustenta processo oficial.",
+    "source": "original",
+    "tags": ["observabilidade", "sla", "evidencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]

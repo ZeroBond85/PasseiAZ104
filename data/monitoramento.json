@@ -1246,5 +1246,110 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-mo-056",
+    "domain": "monitoramento",
+    "subdomain": "action-group-sms",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alertas críticos precisam acordar o plantonista por SMS e voz em minutos. Quais canais o action group oferece para isso?",
+    "options": [
+      { "letter": "A", "text": "SMS e chamada de voz do Monitor" },
+      { "letter": "B", "text": "Dashboard atualizado" },
+      { "letter": "C", "text": "E-mail semanal" },
+      { "letter": "D", "text": "Log arquivado" }
+    ],
+    "correct": ["A"],
+    "explanation": "Action groups disparam SMS/voz/push em segundos. Dashboard não acorda; semanal atrasa; log não notifica.",
+    "source": "original",
+    "tags": ["action-group", "sms", "voz", "plantao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-057",
+    "domain": "monitoramento",
+    "subdomain": "action-group-push",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Engenheiros precisam receber alertas no app móvel do Azure com confirmação. Qual notificação push o action group envia?",
+    "options": [
+      { "letter": "A", "text": "Notificação push no aplicativo móvel" },
+      { "letter": "B", "text": "SMS para fixo" },
+      { "letter": "C", "text": "Carta registrada" },
+      { "letter": "D", "text": "Mensagem no portal web" }
+    ],
+    "correct": ["A"],
+    "explanation": "Push no app Azure com ack integra plantão. Fixo não recebe SMS; carta atrasa meses; portal exige estar olhando.",
+    "source": "original",
+    "tags": ["action-group", "push", "movel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-058",
+    "domain": "monitoramento",
+    "subdomain": "webhook-custom",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alerta deve acionar endpoint HTTPS interno com payload customizado e autenticação. O que o action group chama?",
+    "options": [
+      { "letter": "A", "text": "Webhook seguro com payload e headers" },
+      { "letter": "B", "text": "E-mail sem autenticação" },
+      { "letter": "C", "text": "SMS com JSON" },
+      { "letter": "D", "text": "Ligação com DTMF" }
+    ],
+    "correct": ["A"],
+    "explanation": "Webhook seguro entrega JSON com auth configurável. E-mail não integra; SMS não leva payload; voz não automatiza.",
+    "source": "original",
+    "tags": ["webhook", "payload", "automacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-059",
+    "domain": "monitoramento",
+    "subdomain": "logic-app-connector",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alerta deve criar card no Teams, chamado no ITSM e postar no canal. Qual ação orquestra múltiplos destinos?",
+    "options": [
+      { "letter": "A", "text": "Logic App com conectores (Teams, ITSM)" },
+      { "letter": "B", "text": "E-mail único" },
+      { "letter": "C", "text": "SMS único" },
+      { "letter": "D", "text": "Dashboard estático" }
+    ],
+    "correct": ["A"],
+    "explanation": "Logic App com conectores ramifica o alerta para Teams, ITSM e canal com lógica. E-mail ou SMS isolados são ponto único; dashboard estático não age.",
+    "source": "original",
+    "tags": ["logic-app", "conectores", "teams", "itsm"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-060",
+    "domain": "monitoramento",
+    "subdomain": "automation-runbook-alert",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Disco cheio deve disparar limpeza automática via script antes de acordar humano. O que o alerta executa primeiro?",
+    "options": [
+      { "letter": "A", "text": "Runbook de automação com remediação" },
+      { "letter": "B", "text": "Página direta ao plantão" },
+      { "letter": "C", "text": "E-mail informativo" },
+      { "letter": "D", "text": "Nada, aguarda manual" }
+    ],
+    "correct": ["A"],
+    "explanation": "Runbook limpa e só escala se falhar. Paginar direto desperta à toa; e-mail atrasa; nada acumula incidente.",
+    "source": "original",
+    "tags": ["runbook", "remediacao", "disco"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
