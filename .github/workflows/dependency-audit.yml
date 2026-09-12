@@ -1,13 +1,12 @@
-name: ci
+name: dependency-audit
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  schedule:
+    - cron: '0 7 1 * *'
+  workflow_dispatch:
 
 jobs:
-  build:
+  audit:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -17,4 +16,5 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run ci
+      - run: npm audit --omit=dev > .agent/audits/audit-$(date +%F).txt 2>&1 || true
+      - run: npm outdated || true

@@ -1,8 +1,8 @@
-# Dia 1: guard mínimo (<10s). Guards completos (§9) entram em D5.
-# SECRET GUARD: bloqueia .env com segredo (permite .env.example)
+# D5: SECRET → LINT(staged) → SIZE. VALIDATE entra em S2 (quando validate-questions existir).
 staged=$(git diff --cached --name-only)
 echo "$staged" | grep -qx '\.env' && { echo 'BLOQUEADO: .env no stage'; exit 1; }
-# SIZE GUARD: data/*.json <= 200KB
+echo "$staged" | grep -qE 'sk-[A-Za-z0-9]{10,}|AIza[A-Za-z0-9_-]{10,}|ghp_[A-Za-z0-9]{10,}' && { echo 'BLOQUEADO: possível segredo no stage'; exit 1; }
+echo "$staged" | grep -qE '\.(ts|js|mts|json|css)$' && npx lint-staged
 for f in $(echo "$staged" | grep '^data/.*\.json$' || true); do
   [ -f "$f" ] && [ "$(wc -c < "$f")" -gt 204800 ] && { echo "BLOQUEADO: $f > 200KB (§9)"; exit 1; }
 done
