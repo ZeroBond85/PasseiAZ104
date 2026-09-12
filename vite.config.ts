@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
+import { defineConfig } from 'vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   base: '/PasseiAZ104/',
@@ -17,10 +17,20 @@ export default defineConfig({
         theme_color: '#0a0e14',
         background_color: '#0a0e14',
         icons: [
-          { src: 'icons/source.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
-          { src: 'icons/source.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          {
+            src: 'icons/source.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'icons/source.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
         ],
       },
     }),
   ],
-});
+})
