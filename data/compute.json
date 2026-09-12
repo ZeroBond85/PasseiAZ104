@@ -4131,5 +4131,326 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-co-186",
+    "domain": "compute",
+    "subdomain": "vm-sla-single",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma VM única com SSD Premium promete qual SLA de conectividade segundo o contrato do Azure?",
+    "options": [
+      { "letter": "A", "text": "99,9% para VM única com disco Premium" },
+      { "letter": "B", "text": "99,95% como availability set" },
+      { "letter": "C", "text": "99,99% como zonas" },
+      { "letter": "D", "text": "Sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "VM única com Premium/Ultra contrata 99,9%. 99,95% exige availability set; 99,99% exige zonas; sem Premium não há SLA de VM única.",
+    "source": "original",
+    "tags": ["sla", "vm-unica", "99-9"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-187",
+    "domain": "compute",
+    "subdomain": "vm-sla-zones",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Duas VMs em zonas distintas com discos gerenciados prometem qual SLA?",
+    "options": [
+      { "letter": "A", "text": "99,99% para VMs zonais" },
+      { "letter": "B", "text": "99,95% como availability set" },
+      { "letter": "C", "text": "99,9% de VM única" },
+      { "letter": "D", "text": "99,5% sem contrato" }
+    ],
+    "correct": ["A"],
+    "explanation": "Duas ou mais VMs em zonas distintas com discos gerenciados contratam 99,99%. Availability set dá 99,95%; única 99,9%; 99,5% não existe no contrato.",
+    "source": "original",
+    "tags": ["sla", "zonas", "99-99"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-188",
+    "domain": "compute",
+    "subdomain": "app-service-sla",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "App Service em plano Básico ou superior com duas instâncias promete qual SLA?",
+    "options": [
+      { "letter": "A", "text": "99,95% com duas ou mais instâncias" },
+      { "letter": "B", "text": "99,99% com uma instância" },
+      { "letter": "C", "text": "Sem SLA em qualquer plano" },
+      { "letter": "D", "text": "99,9% com plano Gratuito" }
+    ],
+    "correct": ["A"],
+    "explanation": "Básico ou superior com 2+ instâncias contrata 99,95%. Uma instância não tem SLA alto; Gratuito/Compartilhado não têm SLA.",
+    "source": "original",
+    "tags": ["sla", "app-service", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-189",
+    "domain": "compute",
+    "subdomain": "functions-sla",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Function App em plano Premium/Dedicado promete qual SLA de execução?",
+    "options": [
+      { "letter": "A", "text": "99,95% nos planos pagos (Premium/Dedicado)" },
+      { "letter": "B", "text": "99,99% no Consumo" },
+      { "letter": "C", "text": "Sem SLA em nenhum plano" },
+      { "letter": "D", "text": "99,9% só no Flex" }
+    ],
+    "correct": ["A"],
+    "explanation": "Premium/Dedicado contratam 99,95%; Consumo não tem SLA de execução. 99,99% não se aplica; Flex segue regras próprias.",
+    "source": "original",
+    "tags": ["sla", "functions", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-190",
+    "domain": "compute",
+    "subdomain": "vmss-sla",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMSS com duas ou mais instâncias em availability set promete qual SLA?",
+    "options": [
+      { "letter": "A", "text": "99,95% para o conjunto" },
+      { "letter": "B", "text": "99,99% automático" },
+      { "letter": "C", "text": "99,9% de instância única" },
+      { "letter": "D", "text": "Sem SLA" }
+    ],
+    "correct": ["A"],
+    "explanation": "VMSS com 2+ instâncias contrata 99,95% (zonas elevam a 99,99%). Automático 99,99% só com zonas; única não é conjunto.",
+    "source": "original",
+    "tags": ["sla", "vmss", "99-95"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-191",
+    "domain": "compute",
+    "subdomain": "sla-credits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "SLA descumprido gera crédito conforme faixas de disponibilidade. Como são calculados os créditos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Percentual da fatura por faixa (ex.: 10/25/100%)"
+      },
+      { "letter": "B", "text": "Valor fixo por minuto parado" },
+      { "letter": "C", "text": "Crédito automático sem solicitar" },
+      { "letter": "D", "text": "Reembolso em dinheiro" }
+    ],
+    "correct": ["A"],
+    "explanation": "Créditos seguem faixas percentuais da fatura mediante solicitação. Não há valor por minuto; exige claim formal; é crédito, não dinheiro.",
+    "source": "original",
+    "tags": ["sla", "creditos", "faixas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-192",
+    "domain": "compute",
+    "subdomain": "sla-claim",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Para receber crédito de SLA é preciso abrir solicitação em prazo. Qual o procedimento correto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Abrir claim com evidências dentro do prazo contratual"
+      },
+      { "letter": "B", "text": "Aguardar crédito automático" },
+      { "letter": "C", "text": "Ligar para o suporte sem evidência" },
+      { "letter": "D", "text": "Abrir chamado um ano depois" }
+    ],
+    "correct": ["A"],
+    "explanation": "Crédito exige solicitação formal com logs no prazo (geralmente fim do mês seguinte). Automático não existe; sem evidência nega; fora do prazo prescreve.",
+    "source": "original",
+    "tags": ["sla", "claim", "credito", "prazo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-193",
+    "domain": "compute",
+    "subdomain": "composite-sla",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "App com App Service (99,95%) + SQL (99,99%) em série tem qual SLA composto aproximado?",
+    "options": [
+      { "letter": "A", "text": "Produto dos SLAs (~99,94%)" },
+      { "letter": "B", "text": "Maior dos dois (99,99%)" },
+      { "letter": "C", "text": "Menor dos dois (99,95%)" },
+      { "letter": "D", "text": "Soma dos dois" }
+    ],
+    "correct": ["A"],
+    "explanation": "Composição em série multiplica disponibilidades (0,9995x0,9999≈0,9994). Maior/menor isolados ignoram a cadeia; soma passa de 100%.",
+    "source": "original",
+    "tags": ["sla", "composto", "serie", "calculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-194",
+    "domain": "compute",
+    "subdomain": "downtime-math",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "SLA 99,9% permite quantos minutos de downtime mensal (30 dias)?",
+    "options": [
+      { "letter": "A", "text": "Cerca de 43 minutos" },
+      { "letter": "B", "text": "Cerca de 4 minutos" },
+      { "letter": "C", "text": "Cerca de 7 horas" },
+      { "letter": "D", "text": "Zero minuto" }
+    ],
+    "correct": ["A"],
+    "explanation": "0,1% de 43.200 minutos ≈ 43 min de downtime. 4 min seria 99,99%; 7h seria 99%; zero downtime não existe em nenhum SLA.",
+    "source": "original",
+    "tags": ["sla", "downtime", "calculo", "99-9"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-195",
+    "domain": "compute",
+    "subdomain": "nines-table",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "99,95% mensal equivale a quanto downtime aproximado?",
+    "options": [
+      { "letter": "A", "text": "Cerca de 22 minutos" },
+      { "letter": "B", "text": "Cerca de 43 minutos" },
+      { "letter": "C", "text": "Cerca de 4 minutos" },
+      { "letter": "D", "text": "Cerca de 8 horas" }
+    ],
+    "correct": ["A"],
+    "explanation": "0,05% de 43.200 ≈ 22 min de downtime mensal. 43 min equivalem a 99,9%; 4 min a 99,99%; 8h seria cerca de 98%.",
+    "source": "original",
+    "tags": ["sla", "downtime", "99-95", "calculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-196",
+    "domain": "compute",
+    "subdomain": "planned-maintenance-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Janelas de manutenção planejada contam como downtime no SLA?",
+    "options": [
+      { "letter": "A", "text": "Não, manutenções anunciadas são excluídas" },
+      { "letter": "B", "text": "Sim, tudo conta sempre" },
+      { "letter": "C", "text": "Conta o dobro" },
+      { "letter": "D", "text": "Conta só em feriado" }
+    ],
+    "correct": ["A"],
+    "explanation": "SLAs excluem manutenção planejada anunciada do cálculo. Contar tudo ignora a cláusula; dobro não existe; feriado é irrelevante.",
+    "source": "original",
+    "tags": ["sla", "manutencao", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-197",
+    "domain": "compute",
+    "subdomain": "external-factors-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Falha causada por configuração errada do cliente (NSG bloqueando probe) gera crédito de SLA?",
+    "options": [
+      { "letter": "A", "text": "Não, causas do cliente são excluídas" },
+      { "letter": "B", "text": "Sim, sempre gera" },
+      { "letter": "C", "text": "Gera o dobro" },
+      { "letter": "D", "text": "Gera se reclamar alto" }
+    ],
+    "correct": ["A"],
+    "explanation": "SLA exclui mau uso, força maior e causas do cliente. Gerar sempre ignora exclusões; dobrar não existe; reclamar não cria direito.",
+    "source": "original",
+    "tags": ["sla", "exclusoes", "cliente"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-198",
+    "domain": "compute",
+    "subdomain": "free-tier-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Planos Gratuitos e Compartilhados do App Service têm qual SLA?",
+    "options": [
+      { "letter": "A", "text": "Nenhum SLA" },
+      { "letter": "B", "text": "99,95% igual ao Básico" },
+      { "letter": "C", "text": "99,9% reduzido" },
+      { "letter": "D", "text": "99,99% promocional" }
+    ],
+    "correct": ["A"],
+    "explanation": "Planos Free e Shared não têm SLA contratual. Equiparar ao plano Básico ignora a tabela oficial de SLAs do App Service.",
+    "source": "original",
+    "tags": ["sla", "gratuito", "compartilhado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-199",
+    "domain": "compute",
+    "subdomain": "consumption-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Plano Consumo do Functions tem qual SLA de execução?",
+    "options": [
+      { "letter": "A", "text": "Sem SLA de execução" },
+      { "letter": "B", "text": "99,95% igual ao Premium" },
+      { "letter": "C", "text": "99,99% serverless" },
+      { "letter": "D", "text": "99,9% com reserva" }
+    ],
+    "correct": ["A"],
+    "explanation": "Consumption não contrata SLA; Premium/Dedicado têm 99,95%. Equiparar ignora a diferença de compromisso entre planos.",
+    "source": "original",
+    "tags": ["sla", "consumption", "functions"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-200",
+    "domain": "compute",
+    "subdomain": "spot-sla",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Máquinas virtuais Spot do Azure têm qual SLA de disponibilidade contratado?",
+    "options": [
+      { "letter": "A", "text": "Sem SLA (sujeitas a despejo)" },
+      { "letter": "B", "text": "99,9% igual pay-as-you-go" },
+      { "letter": "C", "text": "99,95% com reserva" },
+      { "letter": "D", "text": "99,99% zonal" }
+    ],
+    "correct": ["A"],
+    "explanation": "Spot não tem SLA por definição pois é evictable. Equiparar a pay-as-you-go ignora o despejo; reserva não se aplica a Spot.",
+    "source": "original",
+    "tags": ["sla", "spot", "sem-sla"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
   }
 ]
