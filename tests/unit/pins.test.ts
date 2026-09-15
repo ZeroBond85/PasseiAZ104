@@ -14,6 +14,7 @@ const PINS: Record<string, string> = {
   'lint-staged': '17.5.0',
   zod: '4.6.2',
   tsx: '4.21.0',
+  lighthouse: '13.4.1',
 }
 
 describe('pins §1', () => {

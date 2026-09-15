@@ -1,9 +1,9 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-// S15: zero violações axe em home + quiz.
+// S15: zero violações axe em home + quiz (bypass ?local=1: sem sessão, sem gate).
 test('axe: home sem violações', async ({ page }) => {
-  await page.goto('./')
+  await page.goto('./?local=1')
   const results = await new AxeBuilder({ page }).analyze()
   expect(results.violations).toEqual([])
 })
