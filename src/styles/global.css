@@ -10,14 +10,40 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
   overflow-x: hidden;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
+
+h1,
+h2,
+h3 {
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Números tabulares: timer e placar não "dançam" */
+strong,
+.timer-sticky,
+.stats-dashboard {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Transições vivem nos componentes sob prefers-reduced-motion: no-preference. */
 
 @supports (min-height: 100dvh) {
   body {

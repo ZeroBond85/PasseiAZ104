@@ -328,6 +328,9 @@ export class AppShell extends LitElement {
       ></navigator-grid>
       <main>
         <h1 class="sr-only">Simulado</h1>
+        <p class="progress" aria-live="polite">
+          Questão ${this.current + 1} de ${this.quiz.length}
+        </p>
         <question-card
           .question=${q}
           .selected=${this.engine.answers.get(q.id) ?? []}
@@ -426,6 +429,11 @@ export class AppShell extends LitElement {
       margin-top: 12px;
       flex-wrap: wrap;
     }
+    .progress {
+      color: var(--text-dim);
+      font-size: var(--fs-sm);
+      margin: 0 0 12px;
+    }
     nav {
       display: flex;
       position: sticky;
@@ -442,14 +450,18 @@ export class AppShell extends LitElement {
       cursor: pointer;
       border-radius: var(--radius-sm);
       margin: 6px 4px;
-      transition:
-        background-color 0.15s ease,
-        color 0.15s ease;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      nav button {
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
     }
     nav button[aria-current='page'] {
-      color: #93c5fd;
+      color: var(--progress-ink);
       background-color: var(--surface-raised);
-      outline: 1px solid #93c5fd;
+      outline: 1px solid var(--progress-ink);
     }
     @media (min-width: 768px) {
       nav {

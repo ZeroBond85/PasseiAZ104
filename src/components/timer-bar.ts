@@ -51,11 +51,16 @@ export class TimerBar extends LitElement {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 8px 16px 4px;
+      padding: 8px 16px 6px;
+    }
+    strong {
+      font-family: var(--font-mono);
+      font-size: var(--fs-lg);
+      letter-spacing: 0.02em;
     }
     .saved {
       color: var(--brand-green);
-      font-size: 13px;
+      font-size: var(--fs-xs);
     }
     .bar {
       height: 6px;
