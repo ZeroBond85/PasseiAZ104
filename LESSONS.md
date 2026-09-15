@@ -17,6 +17,13 @@
 - **Regressão permanente:** `.gitleaks.toml` com allowlist de `\.opencode/` + este registro.
 - **Regra:** segredos reais só em `.env.local` (gitignored) e GitHub Secrets; nada no repo.
 
+## 2026-09-15 — `gh secret set` gravou secrets VAZIOS (v6.0)
+
+- **O quê:** builds de deploy sem env (login gate inativo em produção); step de verificação contava linhas (`grep -c ""` casa tudo → falso verde 599).
+- **Causa-raiz:** `set -a && . .env.local` + pipe para `gh secret set` não propagou valores (stdin vazio = secret vazio, sem erro).
+- **Correção:** recriar via `sed -n 's/^VAR=//p' .env.local | gh secret set VAR`; verificação fail-closed (lengths + `exit 1` se count=0) em `deploy.yml`.
+- **Regressão permanente:** nunca confiar em `gh secret list` (mostra nomes, não valores); todo secret novo exige verificação de consumo no CI.
+
 ## 2026-09-11 — heredoc via wsl.exe corrompeu LOG.md (Dia 1)
 
 - **O quê:** append via `wsl.exe -d Debian -- bash -c "...heredoc com backticks..."` — o Git Bash do Windows executou os backticks ANTES de repassar ao Debian, gravando linhas vazias no `LOG.md` (commit cf835b0; corrigido em e0621a9).
