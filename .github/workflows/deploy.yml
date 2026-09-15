@@ -29,8 +29,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: verify supabase env baked in (count only, value stays masked)
+      - name: verify supabase env baked in (lengths only, never values)
         run: |
+          echo "URL length: ${#VITE_SUPABASE_URL}, ANON length: ${#VITE_SUPABASE_ANON_KEY}"
           COUNT=$(grep -c "${{ secrets.VITE_SUPABASE_URL }}" dist/assets/*.js || true)
           echo "bundles containing backend URL: $COUNT"
           if [ "$COUNT" -eq 0 ]; then echo "FATAL: backend env missing from build"; exit 1; fi
