@@ -25,6 +25,13 @@ playwright-report
 *.sln
 *.sw?
 
+# .opencode gerenciado pelo ambiente (skills injetadas/rotacionadas) — só a nossa é versionada
+.opencode/*
+!.opencode/skills/
+.opencode/skills/*
+!.opencode/skills/accessibility/
+!.opencode/skills/accessibility/*
+
 # segredos (gitleaks cobre no CI)
 .env
 .env.*
