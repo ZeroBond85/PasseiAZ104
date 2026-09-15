@@ -2,6 +2,13 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-15 — vite preview sem `--host` quebra no runner (IPv6)
+
+- **O quê:** estreia do job `e2e` no CI + `perf.yml`: `ERR_CONNECTION_REFUSED` em 127.0.0.1 em todos os testes/lighthouse, mesmo funcionando local.
+- **Causa-raiz:** `vite preview` escuta em `localhost` (no runner resolve para ::1); cliente pede 127.0.0.1 explícito → refused.
+- **Correção:** `--host 127.0.0.1` no `webServer` de `playwright.config.ts` e no step de preview do `perf.yml`.
+- **Regressão permanente:** todo servidor local de teste usa host IPv4 explícito; estreia de workflow novo exige acompanhar o 1º run verde (não assumir).
+
 ## 2026-09-15 — CSS global não entra no shadow DOM (marca/botões sem estilo)
 
 - **O quê:** botões `.btn-primary` cinzas sem estilo, `.card` invisível, `label.sr-only` visível, `.hero` desalinhado — mesmo com as regras existindo em `components.css`.
