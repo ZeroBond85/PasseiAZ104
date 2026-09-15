@@ -13,15 +13,15 @@ const report = JSON.parse(readFileSync(reportPath, 'utf8'))
 const budget = JSON.parse(
   readFileSync(new URL('../lighthouse-budget.json', import.meta.url), 'utf8'),
 )
-const items =
-  report.audits?.['resource-summary']?.details?.items ?? []
+const items = report.audits?.['resource-summary']?.details?.items ?? []
 const byType = new Map(items.map((i) => [i.resourceType, i.transferSize ?? 0]))
 
 let failed = false
 for (const [type, max] of Object.entries(budget)) {
-  const got = type === 'total'
-    ? [...byType.values()].reduce((a, b) => a + b, 0)
-    : (byType.get(type) ?? 0)
+  const got =
+    type === 'total'
+      ? [...byType.values()].reduce((a, b) => a + b, 0)
+      : (byType.get(type) ?? 0)
   const ok = got <= max
   if (!ok) failed = true
   console.log(
