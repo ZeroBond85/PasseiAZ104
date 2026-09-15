@@ -10,6 +10,13 @@
 - **Perda:** `LogoPasseiAz104.png` sem backup (verificado: Downloads/Desktop/Documents/Pictures/home WSL). **Pendente re-upload do original.**
 - **Regressão permanente:** Gate Dia 1 + §16 exigem ordem passo 0 → 1 (só .git) → 2 (docs/assets).
 
+## 2026-09-15 — gitleaks falhou no CI com falso positivo (RPR)
+
+- **O quê:** `generic-api-key` em `.opencode/skills/*/references/*.md` (docs de terceiros vendorizados).
+- **Teste que reproduz:** o próprio run do `security.yml` (exit 2).
+- **Regressão permanente:** `.gitleaks.toml` com allowlist de `\.opencode/` + este registro.
+- **Regra:** segredos reais só em `.env.local` (gitignored) e GitHub Secrets; nada no repo.
+
 ## 2026-09-11 — heredoc via wsl.exe corrompeu LOG.md (Dia 1)
 
 - **O quê:** append via `wsl.exe -d Debian -- bash -c "...heredoc com backticks..."` — o Git Bash do Windows executou os backticks ANTES de repassar ao Debian, gravando linhas vazias no `LOG.md` (commit cf835b0; corrigido em e0621a9).

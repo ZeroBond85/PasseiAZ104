@@ -1,0 +1,7 @@
+# Gitleaks allowlist — PasseiAZ-104 (RPR 15/set/2026)
+# Falso positivo: skills de terceiros vendorizadas em .opencode/ (docs com
+# exemplos) disparam generic-api-key. Segredos reais: só .env.local (gitignored)
+# + GitHub Secrets; nunca no repo.
+[allowlist]
+description = "skills de terceiros vendorizadas (docs)"
+paths = ['''\\.opencode/''']

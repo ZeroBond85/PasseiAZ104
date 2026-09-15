@@ -271,7 +271,7 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/header-112.png" alt="Passei AZ-104" width="56" height="56" />
+        <img src="icons/header-112.png" alt="Passei AZ-104" width="112" height="56" />
         <div class="brand">
           <strong>Passei AZ-104</strong>
           <span>Simulado + revisão espaçada</span>
@@ -301,7 +301,7 @@ export class AppShell extends LitElement {
     return html`
       <main>
         <section class="card hero">
-          <img src="icons/icon-192.png" alt="" width="96" height="96" aria-hidden="true" />
+          <img src="icons/hero-wide.png" alt="" width="320" height="203" aria-hidden="true" />
           <h1>Passei AZ-104</h1>
           <p>950 questões validadas · 50 por simulado · 100 min · corte 700.<br />Estude offline, revise com Leitner, sincronize entre dispositivos.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
@@ -390,9 +390,9 @@ export class AppShell extends LitElement {
       border-bottom: 1px solid var(--border);
     }
     header img {
-      width: 56px;
+      width: auto;
       height: 56px;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 2px 10px rgb(0 0 0 / 0.4);
     }
     .brand {
