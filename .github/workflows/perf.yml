@@ -20,6 +20,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - run: (npm run preview -- --port 4173 --strictPort >/tmp/preview.log 2>&1 &) && sleep 5
+      - run: (npm run preview -- --port 4173 --strictPort --host 127.0.0.1 >/tmp/preview.log 2>&1 &) && sleep 5
       - run: npx lighthouse http://127.0.0.1:4173/PasseiAZ104/?local=1 --preset=desktop --chrome-flags="--no-sandbox --headless=new" --output=json --output-path=/tmp/lh.json --max-wait-for-load=30000 --quiet
       - run: node scripts/check-lh.mjs /tmp/lh.json
