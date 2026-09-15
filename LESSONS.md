@@ -2,6 +2,21 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-15 — CSS global não entra no shadow DOM (marca/botões sem estilo)
+
+- **O quê:** botões `.btn-primary` cinzas sem estilo, `.card` invisível, `label.sr-only` visível, `.hero` desalinhado — mesmo com as regras existindo em `components.css`.
+- **Causa-raiz:** componentes Lit usam shadow DOM; CSS global nunca atravessa. As regras "compartilhadas" eram globais de mentira.
+- **Correção:** `src/styles/shared.ts` (card/btn/sr-only como `CSSResult`) composto no `static styles` de cada componente; `.hero` movido para dentro do `app-shell`.
+- **Bônus do gate:** com o estilo aplicado de verdade, o axe pegou contraste insuficiente (branco sobre `--progress` 3.7<4.5) → token `--btn-primary-bg` (AA).
+- **Regressão permanente:** regra nova de componente visual exige classe usada dentro do shadow estar no `shared.ts` ou no próprio `static styles`; e2e axe cobre as superfícies.
+
+## 2026-09-15 — SVG via `<img>` não carrega sub-recursos externos
+
+- **O quê:** `brand.svg` com `<image href="emblem.svg">` renderizou só o texto (emblema sumiu) no app, mesmo com o arquivo presente em `dist/icons/`.
+- **Causa-raiz:** SVG em contexto `<img>` roda em "secure static mode": referências externas são bloqueadas.
+- **Correção:** `scripts/render-icons.mts` REGENERA `brand.svg` com o emblema inline (extrai `<defs>`+`<rect>`+`<g id="mark">` de `emblem.svg`, fonte da verdade). Editar `brand.svg` à mão é proibido.
+- **Regressão permanente:** todo SVG exibido via `<img>` deve ser autocontido; o script falha se `emblem.svg` perder `defs/rect/#mark`.
+
 ## 2026-09-11 — scaffold apagou o diretório (Dia 1)
 
 - **O quê:** `npm create vite@latest . -- --template lit-ts --force` → `Operation cancelled` (create-vite 9.x não aceita `--force`). Com `--overwrite`, o scaffold **removeu todos os arquivos pré-existentes** (`PLAN.md`, `LogoPasseiAz104.png`, guard-rails).

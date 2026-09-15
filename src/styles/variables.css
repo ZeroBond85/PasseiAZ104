@@ -12,6 +12,9 @@
   --brand-green: oklch(0.7 0.18 145); /* acerto / maestria (box 5, ring 100%) */
   --progress: oklch(0.62 0.19 255); /* azul progresso */
   --progress-ink: oklch(0.8 0.12 255); /* texto sobre fundo escuro (AA) */
+  --btn-primary-bg: oklch(
+    0.5 0.17 255
+  ); /* fundo de botão primário: AA (≥4.5) com texto branco */
   --warning: oklch(0.75 0.15 85); /* dourado streaks */
   --danger: oklch(0.62 0.2 25);
   --info: var(--progress);

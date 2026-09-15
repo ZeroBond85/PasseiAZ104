@@ -6,6 +6,7 @@ import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question } from '../engine/question-schema.js'
 import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
+import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
 import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
   loadAllProgress,
@@ -271,7 +272,7 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/header-112.png" alt="Passei AZ-104" width="112" height="56" />
+        <img src="icons/emblem.svg" alt="Passei AZ-104" width="48" height="48" />
         <div class="brand">
           <strong>Passei AZ-104</strong>
           <span>Simulado + revisão espaçada</span>
@@ -301,9 +302,9 @@ export class AppShell extends LitElement {
     return html`
       <main>
         <section class="card hero">
-          <img src="icons/hero-wide.png" alt="" width="320" height="203" aria-hidden="true" />
-          <h1>Passei AZ-104</h1>
-          <p>950 questões validadas · 50 por simulado · 100 min · corte 700.<br />Estude offline, revise com Leitner, sincronize entre dispositivos.</p>
+          <img src="icons/brand.svg" alt="" width="720" height="200" aria-hidden="true" />
+          <h1 class="sr-only">Passei AZ-104</h1>
+          <p>950 questões · simulados de 50 questões em 100 minutos · nota de corte 700.<br />Estude offline, revise no ritmo certo e continue em qualquer dispositivo.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
         </section>
       </main>
@@ -376,6 +377,28 @@ export class AppShell extends LitElement {
   }
 
   static styles = css`
+    ${cardStyles}
+    ${btnStyles}
+    ${srOnlyStyles}
+    .hero {
+      text-align: center;
+      padding: 32px 24px;
+    }
+    .hero img {
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgb(0 0 0 / 0.45);
+      width: min(360px, 100%);
+      height: auto;
+    }
+    .hero h1 {
+      margin: 16px 0 8px;
+      font-size: 28px;
+    }
+    .hero p {
+      color: var(--text-dim);
+      margin: 0 0 20px;
+      line-height: 1.6;
+    }
     :host {
       display: flex;
       flex-direction: column;
@@ -391,7 +414,7 @@ export class AppShell extends LitElement {
     }
     header img {
       width: auto;
-      height: 56px;
+      height: 48px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgb(0 0 0 / 0.4);
     }

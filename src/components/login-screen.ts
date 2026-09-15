@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
 import { signInWithEmail } from '../sync/auth.js'
 import { isSyncEnabled } from '../sync/supabase.js'
 
@@ -46,9 +47,9 @@ export class LoginScreen extends LitElement {
     return html`
       <main class="login">
         <section class="card login-card">
-          <img src="icons/icon-512.png" alt="Passei AZ-104" width="180" height="180" />
-          <h1>Passei AZ-104</h1>
-          <p class="sub">Simulado + revisão espaçada. Entre para sincronizar entre dispositivos.</p>
+          <img src="icons/brand.svg" alt="Passei AZ-104" width="720" height="200" />
+          <h1 class="sr-only">Passei AZ-104</h1>
+          <p class="sub">Simulado + revisão espaçada. Entre para levar seu progresso a qualquer dispositivo.</p>
           ${
             this.sent
               ? html`<p class="ok" role="status">Link enviado! Abra o e-mail e clique para entrar. ✅</p>`
@@ -84,6 +85,9 @@ export class LoginScreen extends LitElement {
   }
 
   static styles = css`
+    ${cardStyles}
+    ${btnStyles}
+    ${srOnlyStyles}
     .login {
       display: flex;
       align-items: center;
@@ -99,8 +103,8 @@ export class LoginScreen extends LitElement {
       padding: 32px 24px;
     }
     .login-card img {
-      width: 180px;
-      height: 180px;
+      width: min(300px, 80%);
+      height: auto;
     }
     h1 {
       margin: 12px 0 4px;

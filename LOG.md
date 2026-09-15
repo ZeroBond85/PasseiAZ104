@@ -40,3 +40,11 @@
 - **BANCO: 950/950 validadas, 0 erros** (ig 230 · st 170 · co 230 · rv 175 · mo 145). Partições SIZE GUARD: identidade-acesso + compute-vms/apps/platform (todas <200KB).
 - 10 simulados oficiais rebuildados sobre o banco final. Teste S2 tolerante a banco crescente. Isca `ro-226` rejeitada pelo validate (gate provado).
 - **Gate 1 (validate + 57/57 + totais §4): ATINGIDO na parte executável.** Restante humano: estudo, média-5, agendamento §12.
+
+## 2026-09-15 — v6.0 cont. (marca vetorial + copy + QA no CI)
+
+- Marca: emblem.svg (capelo+check, fonte da verdade) + brand.svg (lockup grande, gerado por render-icons.mts) + PNGs PWA re-renderizados via Chromium; hero-wide/header PNGs removidos. Login/hero usam brand grande; header usa emblema 48px; h1 vira sr-only (fim da triplicação do nome).
+- Copy (ux-writing): sem "Leitner"/"validadas"/"corte 700" — agora "revise no ritmo certo", "950 questões", "nota de corte 700". Fontes: system-ui nativa (mantida, zero download).
+- Bug sistêmico: CSS global não atravessa shadow DOM (botões/cards/sr-only sem estilo) — corrigido via src/styles/shared.ts; axe pegou contraste 3.7<4.5 no btn-primary — novo token --btn-primary-bg (AA). Detalhe em LESSONS.md.
+- QA no CI: job e2e no ci.yml (chromium + secrets; login.spec com skip condicional sem env + axe na tela de login; axe home agora com bypass local); check-budget.mjs (JS 140KB / CSS 10KB gzip); perf.yml (lighthouse 13.4.1 desktop + check-lh.mjs vs lighthouse-budget.json); lighthouse no PINS (32 asserts).
+- Local: unit 32/32, e2e 6/6, budget OK, lint OK.

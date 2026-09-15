@@ -29,7 +29,7 @@ export class UserMenu extends LitElement {
   }
 
   render() {
-    if (!isSyncEnabled()) return html``
+    if (!isSyncEnabled() || !this.email) return html``
     const initial = (this.email[0] ?? '?').toUpperCase()
     return html`
       <div class="user" title=${this.email}>
@@ -49,7 +49,7 @@ export class UserMenu extends LitElement {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: var(--progress);
+      background: var(--btn-primary-bg);
       color: #fff;
       display: inline-flex;
       align-items: center;

@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit'
 import type { ScoreResult } from '../engine/ScoringEngine.js'
+import { cardStyles } from '../styles/shared.js'
 
 export class StatsDashboard extends LitElement {
   static properties = {
@@ -38,6 +39,7 @@ export class StatsDashboard extends LitElement {
   }
 
   static styles = css`
+    ${cardStyles}
     h2 {
       margin: 0 0 12px;
     }
