@@ -1,9 +1,12 @@
-# PLAN.md — PasseiAZ-104 v5.0 FINAL
+# PLAN.md — PasseiAZ-104 v6.0 FINAL
 
 > Endereço canônico: `\\wsl.localhost\Debian\home\ericsf\projects\PasseiSimuladosTI\AZ104`
 > (no WSL: `~/projects/PasseiSimuladosTI/AZ104`)
 > Meta primária: passar no AZ-104 (≥700/1000), sem data — agenda nas 3 condições do §12.
 > Meta secundária: PWA production-ready. Custo: **$0**. Gates mandam. Qualidade sobre volume.
+> **v6.0 (multi-filho):** PasseiSimuladosTI = projeto pai; AZ-104 = 1º filho (`az104_`). Backend Supabase free
+> (auth magic link + sync), login com logo, UX polida. Regra dura: senha de BD nunca em chat/repo —
+> incidente registrado em `LESSONS.md`.
 
 ---
 
@@ -330,7 +333,28 @@ git add . && git commit -m "chore: scaffold Vite 8 + Lit + TS 6 + docs base" && 
 | 22 conta fecha: marcos somam 950 = meta §4 (por domínio) | §4, §11 |
 | 23 FK caseStudyId em validate + writer único de sessão | §3, §5 |
 | 24 verdades externas: Pages soft-limits, TS 7 GA, modelos Gemini atuais | §1, §7 |
+| 25 backend free multi-filho: prefixo `az104_`, RLS, sync last-write-wins | §17 |
+| 26 login magic link + gate + `?local=1` só p/ e2e | §17 |
+| 27 UX: logo 180 login / 40 header, ícones PWA reais, polish sem telas novas | §6, §17 |
+| 28 axe 0 + Lighthouse 98/100/100 | §14 |
 
 ---
 
-*PLAN.md v5.0 FINAL — endereço `~/projects/PasseiSimuladosTI/AZ104`.*
+## 17. BACKEND MULTI-FILHO (v6.0 — Supabase free, $0)
+
+PasseiSimuladosTI = pai; cada certificação = filho com prefixo de tabelas (`az104_progress`,
+`az104_sessions`; próximos: `dp900_*`, …). Um login serve todos os filhos.
+
+- **Auth:** magic link (sem senha de app). Gate: com sync habilitado e sem sessão → `login-screen`.
+- **Credenciais:** `.env.local` (gitignored) com `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY`
+  (pública por design; proteção real = RLS). **Senha do Postgres nunca em chat/repo/env.**
+- **Sync:** IDB = fonte de leitura (offline-first intacto); Supabase = espelho. Push/pull com
+  last-write-wins por `updatedAt`; `box` usa `max()` (Leitner nunca regride).
+- **Migrations:** `supabase/migrations/001_*.sql` (tabelas + RLS `auth.uid() = user_id` + índices).
+  Execução no SQL Editor do dashboard (dono do projeto).
+- **Deploy:** `VITE_*` via GitHub Secrets (`deploy.yml`); build sem env = modo 100% local.
+- **e2e:** `?local=1` desliga o gate (test-only, nunca em produção); `login.spec.ts` cobre gate + validação.
+
+---
+
+*PLAN.md v6.0 FINAL — endereço `~/projects/PasseiSimuladosTI/AZ104`.*

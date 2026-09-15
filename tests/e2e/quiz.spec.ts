@@ -6,7 +6,7 @@ test('quiz: responde, flag, finaliza, revisa', async ({ page }) => {
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('dialog', (d) => void d.accept())
 
-  await page.goto('./')
+  await page.goto('./?local=1')
   await page.getByRole('button', { name: 'Simulado', exact: true }).click()
   await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
 

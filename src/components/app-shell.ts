@@ -6,13 +6,18 @@ import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question } from '../engine/question-schema.js'
 import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
+import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
   loadAllProgress,
   loadSession,
   saveProgress,
   saveSession,
 } from '../sync/IndexedDB.js'
+import { pushProgress, pushSession, syncNow } from '../sync/SyncEngine.js'
+import { isSyncEnabled } from '../sync/supabase.js'
+import './login-screen.js'
 import './navigator-grid.js'
+import './user-menu.js'
 import './question-card.js'
 import './review-card.js'
 import './stats-dashboard.js'
@@ -37,6 +42,9 @@ export class AppShell extends LitElement {
     result: { type: Object },
     savedFlash: { type: Boolean },
     loading: { type: Boolean },
+    userId: { type: String },
+    authReady: { type: Boolean },
+    syncing: { type: Boolean },
   }
 
   declare tab: TabId
@@ -45,6 +53,10 @@ export class AppShell extends LitElement {
   declare result: ScoreResult | null
   declare savedFlash: boolean
   declare loading: boolean
+  declare userId: string | null
+  declare authReady: boolean
+  declare syncing: boolean
+  private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
   private timer = new TimerEngine(100)
@@ -59,17 +71,57 @@ export class AppShell extends LitElement {
     this.result = null
     this.savedFlash = false
     this.loading = false
+    this.userId = null
+    this.authReady = false
+    this.syncing = false
   }
 
   connectedCallback() {
     super.connectedCallback()
     window.addEventListener('keydown', this.onKey)
+    void getUserId().then((id) => {
+      this.userId = id
+      this.authReady = true
+      if (id) void this.syncFromCloud()
+    })
+    this.unsubAuth = onAuthChange((id) => {
+      const was = this.userId
+      this.userId = id
+      if (id && !was) void this.syncFromCloud()
+      if (!id) this.requestUpdate()
+    })
   }
 
   disconnectedCallback() {
     super.disconnectedCallback()
     window.removeEventListener('keydown', this.onKey)
+    this.unsubAuth()
     this.stopLoops()
+  }
+
+  get needsLogin() {
+    if (
+      typeof location !== 'undefined' &&
+      new URLSearchParams(location.search).has('local')
+    ) {
+      return false // bypass de teste e2e (?local=1) — nunca em produção
+    }
+    return isSyncEnabled() && this.authReady && !this.userId
+  }
+
+  private async syncFromCloud() {
+    if (!this.userId) return
+    this.syncing = true
+    try {
+      await syncNow(this.userId, SIM_ID).catch(() => undefined)
+      // Se a sessão remota era mais nova, o IDB foi atualizado — recarrega estado
+      const saved = await loadSession(SIM_ID).catch(() => undefined)
+      if (saved && saved.answers.length > 0 && this.quiz.length === 0) {
+        this.requestUpdate()
+      }
+    } finally {
+      this.syncing = false
+    }
   }
 
   private onKey = (e: KeyboardEvent) => {
@@ -148,6 +200,9 @@ export class AppShell extends LitElement {
       timerRemaining: this.timer.remaining,
       updatedAt: Date.now(),
     }).catch(() => undefined)
+    if (this.userId) {
+      await pushSession(this.userId, SIM_ID).catch(() => undefined)
+    }
     this.savedFlash = true
     setTimeout(() => {
       this.savedFlash = false
@@ -205,15 +260,22 @@ export class AppShell extends LitElement {
       }).catch(() => undefined)
     }
     this.engine.finish()
+    if (this.userId) {
+      await pushProgress(this.userId).catch(() => undefined)
+      await pushSession(this.userId, SIM_ID).catch(() => undefined)
+    }
     this.tab = 'review'
   }
 
   render() {
+    if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/source.png" alt="Passei AZ-104" width="32" height="32" />
+        <img src="icons/header-64.png" alt="Passei AZ-104" width="40" height="40" />
         <strong>Passei AZ-104</strong>
         <span class="spacer"></span>
+        ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
+        <user-menu @logout=${() => this.requestUpdate()}></user-menu>
         <theme-toggle></theme-toggle>
       </header>
       ${this.tab === 'quiz' ? this.renderQuiz() : ''}
@@ -261,6 +323,7 @@ export class AppShell extends LitElement {
         }}
       ></navigator-grid>
       <main>
+        <h1 class="sr-only">Simulado</h1>
         <question-card
           .question=${q}
           .selected=${this.engine.answers.get(q.id) ?? []}
@@ -320,8 +383,12 @@ export class AppShell extends LitElement {
       border-bottom: 1px solid var(--border);
     }
     header img {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
+    }
+    .sync {
+      color: var(--text-dim);
+      font-size: 13px;
     }
     .spacer {
       flex: 1;

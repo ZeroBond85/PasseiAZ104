@@ -4,6 +4,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
 }
 
 .btn {
@@ -18,12 +19,28 @@
   background-color: var(--surface-raised);
   color: var(--text);
   cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn-primary {
   background-color: var(--progress);
   border-color: transparent;
   color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
 }
 
 .btn-success {
@@ -38,4 +55,13 @@
   z-index: 10;
   background-color: var(--surface);
   border-bottom: 1px solid var(--border);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

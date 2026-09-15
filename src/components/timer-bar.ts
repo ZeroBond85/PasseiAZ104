@@ -27,15 +27,22 @@ export class TimerBar extends LitElement {
   render() {
     const pct = Math.max(0, Math.min(100, (this.remaining / this.total) * 100))
     return html`
-      <div class="timer-sticky">
+      <section class="timer-sticky" aria-label="Tempo restante">
         <div class="row">
           <strong aria-live="polite">${this.fmt(this.remaining)}</strong>
           ${this.saved ? html`<span class="saved">progresso salvo ✓</span>` : html``}
         </div>
-        <div class="bar" role="progressbar" aria-valuenow=${pct} aria-valuemin="0" aria-valuemax="100">
+        <div
+          class="bar"
+          role="progressbar"
+          aria-label="Tempo restante de prova"
+          aria-valuenow=${pct}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
           <div class="fill" style="width:${pct}%"></div>
         </div>
-      </div>
+      </section>
     `
   }
 

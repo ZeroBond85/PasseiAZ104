@@ -22,3 +22,9 @@
 - **Causa-raiz:** script destrutivo (write in-place) sem backup e sem dry-run, rodado direto no banco.
 - **Recuperação:** `git checkout -- data/compute.json` (HEAD tinha 185 íntegras) + reescrita das 15 perdidas (186-200) + `check-seq.mjs` (contagem/dup/sequência) como verificação permanente.
 - **Regressão permanente:** (1) todo script que reescreve `data/` faz backup `.bak` antes; (2) `check-seq.mjs <arquivo> <prefixo>` roda após qualquer edição em massa de banco; (3) teste de sanidade: contagem esperada antes do commit.
+
+## 2026-09-15 — senha de banco colada no chat (v6.0)
+
+- **O quê:** credencial Postgres do Supabase colada em chat pelo dono do projeto.
+- **Tratamento:** senha tratada como comprometida (rotação exigida no dashboard); app desenhado para NUNCA precisar dela (migrations via SQL Editor pelo dono; frontend usa só anon key pública + RLS).
+- **Regra travada:** senha de BD nunca em chat/env/repo (PLAN §17 + `docs/multi-filho.md`); anon key pode ir a `.env.local` (gitignored) e GitHub Secrets — é pública por design.

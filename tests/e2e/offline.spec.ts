@@ -8,7 +8,7 @@ test('offline: recarrega questões do IDB sem rede', async ({
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
 
-  await page.goto('./')
+  await page.goto('./?local=1')
   await page.getByRole('button', { name: 'Simulado', exact: true }).click()
   await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
 

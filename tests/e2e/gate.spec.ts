@@ -6,7 +6,7 @@ test('tema persiste, timer 100min, score e flag', async ({ page }) => {
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('dialog', (d) => void d.accept())
 
-  await page.goto('./')
+  await page.goto('./?local=1')
   // Tema: alterna para light, recarrega, continua light
   await page.getByRole('button', { name: /Alternar para tema/ }).click()
   await expect(page.locator('html[data-theme="light"]')).toHaveCount(1)
