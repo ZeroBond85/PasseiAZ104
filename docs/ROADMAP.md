@@ -1,17 +1,21 @@
 # ROADMAP.md — PasseiAZ-104
 
-> Pós-prova (S17+): Supabase + v1.0.0 · quarentena · gamificação · push · analytics · loja ($25/$99 ano).
+> Estado: banco 950/950 + backend v6.0 no ar. Falta: estudo (humano) + iOS físico.
 
 ## Antes da prova (restante)
 
-- S14: revisão opcional · S15–16: Lighthouse ≥95 + axe 0 + iOS · Estudo até média-5 ≥750 + 3 condições §12.
+- S14: revisão opcional · iOS físico · Estudo até média-5 ≥750 + 3 condições §12.
+
+## Feito na v6.0 (antecipado do pós-prova)
+
+- [x] Supabase + Auth magic link + sync multi-dispositivo
+- [x] Lighthouse 98/100/100 + axe 0 · UX 2026 (OKLCH, radiogroup, aria-live)
 
 ## Pós-prova
 
-- [ ] Supabase (sync multi-dispositivo, Fase 4)
 - [ ] Reavaliar TS 7 (pin atual 6.0.3) e lista de modelos §7
 - [ ] Quarentena community (fontes pós-prova: RoodneyMoraes, Anki 4k, Study-Guide)
-- [ ] Gamificação extra · push · analytics externo · loja
+- [ ] v1.0.0 · Gamificação extra · push · analytics externo · loja
 - [ ] `ordering` de volta se fonte exigir (§15)
 
 ## Não fazer (cortes §15)

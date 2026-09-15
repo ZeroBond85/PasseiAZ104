@@ -1,7 +1,7 @@
 # Passei AZ-104 🎯
 
 > Simulado + revisão espaçada para o exame **Microsoft AZ-104** — 50 questões / 100 min / corte 700.
-> PWA offline-first, custo **$0**. Sem conta, sem backend: seu progresso fica no seu navegador.
+> PWA offline-first, custo **$0**. Login simples (link mágico) com sincronização entre dispositivos; offline continua 100% funcional.
 
 ![logo](public/icons/source.png)
 
@@ -20,6 +20,7 @@ Um app de estudos que simula a prova real (formato Pearson VUE) e usa **repetiç
 - **Correção por domínio** — breakdown com % por área + pontos fracos (<70%)
 - **Revisão espaçada** — caixas 1/2/4/8/16 dias; o app cobra primeiro o que você mais erra
 - **Funciona offline** — baixa o banco uma vez, estuda sem internet (PWA instalável)
+- **Login + sync** — entra com link mágico no e-mail e continua de onde parou em outro dispositivo (Supabase free, offline-first mantido)
 - **Teclado + toque** — `1–4` responde, `←/→` navega, `⚑` marca para revisão
 - **Tema escuro/claro** — escuro por padrão, preferência salva
 
@@ -76,9 +77,9 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 ├── docs/                           # arquitetura, estudo, deploy, API, troubleshooting, roadmap
 ├── src/
 │   ├── engine/   # Quiz, Timer, Scoring (determinístico), Leitner, Selector, schemas Zod
-│   ├── sync/     # IndexedDB (sessões, progresso, questões)
+│   ├── sync/     # IndexedDB (sessões, progresso, questões) + Supabase (auth, SyncEngine espelho)
 │   ├── data/     # carregador fetch → precache → IDB (bundle nunca embute o banco)
-│   └── components/  # Lit sem decorators: shell, questão, timer, navegador, revisão, stats, tema
+│   └── components/  # Lit sem decorators: shell, login, questão, timer, navegador, revisão, stats, tema, usuário
 ├── data/         # banco particionado por subdomínio (≤200KB/arquivo) + 10 simulados + meta
 ├── scripts/      # validate, generate (IA), check-model, build-simulados, import-community
 └── tests/        # unit, integração, e2e (Playwright + axe)

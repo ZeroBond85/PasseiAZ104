@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — PasseiAZ-104
 
-> Decisões (ADRs) + mapa do sistema. Fonte da verdade: `PLAN.md` v5.0.
+> Decisões (ADRs) + mapa do sistema. Fonte da verdade: `PLAN.md` v6.0.
 
 ## ADR-001 — QuestionLoader: fetch + precache SW + IDB primeiro
 
@@ -21,10 +21,19 @@
 
 - Fisher-Yates + mulberry32 (seed do simulado); quotas por domínio via largest-remainder; exclui últimas 100/domínio; `usageCount` ASC.
 
+## ADR-005 — Backend espelho (v6.0, Supabase free)
+
+- IDB = fonte de leitura (offline-first intacto); Supabase = espelho (`az104_progress`, `az104_sessions`).
+- Auth magic link; gate sem sessão → `login-screen`. RLS `auth.uid() = user_id` em tudo.
+- Merge: last-write-wins por `updatedAt`; `box` usa `max()` (Leitner nunca regride).
+- Build sem env = modo 100% local; deploy usa GitHub Secrets. `?local=1` = bypass só p/ e2e.
+
 ## Mapa
 
-- `src/engine/`: Quiz, Timer, Scoring, Leitner (1/2/4/8/16d, cap 50), Selector, schemas Zod, Explanation (só lê).
-- `src/sync/`: IDB (sessions/progress/meta/questions) + tipos.
-- `src/data/`: QuestionLoader (ADR-001).
-- `src/components/`: app-shell, question-card, timer-bar, navigator-grid, review-card, stats-dashboard, theme-toggle.
+- `src/engine/`: Quiz, Timer, Scoring, Leitner (1/2/4/8/16d, cap 50), Selector, `question-schema.ts` (Zod §3), Explanation (só lê).
+- `src/sync/`: IDB (sessions/progress/meta/questions) + tipos + `supabase.ts` + `auth.ts` + `SyncEngine.ts`.
+- `src/data/`: QuestionLoader (ADR-001; 8 arquivos particionados).
+- `src/components/`: app-shell (gate+header 56), login-screen (logo 180), user-menu, question-card (radiogroup), timer-bar, navigator-grid, review-card, stats-dashboard, theme-toggle.
+- `src/styles/`: tokens OKLCH + escala fluida (variables), global, components, dark.
 - `scripts/`: validate (Zod+FK+dedup FNV-1a), generate (IA + checkpoint), check-model (probe), build-simulados (seeded), import-community (quarentena).
+- `supabase/migrations/`: 001 (tabelas + RLS + índices).

@@ -11,10 +11,12 @@
 - `gradeCard(card, ok, now)`, `getDue(cards, now, limite=50) → { due, truncated }`; intervalos 1/2/4/8/16d
 - `validateQuestion(q) → SafeParseResult` (Zod + superRefine §3)
 
-## Sync (IDB `passei-az104` v1)
+## Sync (IDB `passei-az104` v1 + espelho Supabase v6.0)
 
 - `saveSession/loadSession(id)` · `saveProgress/loadAllProgress()` · `seedQuestions/loadAllQuestions/questionsCount()`
 - `ensureSeeded() → { seeded, count }` · `getQuestionPool()`
+- `supabase` (null sem env) · `isSyncEnabled()` · `getUserId/signInWithEmail/signOut/onAuthChange`
+- `pushProgress/pullProgress(userId)` · `pushSession/pullSession(userId, simuladoId)` · `syncNow(userId, simuladoId?)` (pull-merge depois push; box usa `max()`)
 
 ## Scripts
 

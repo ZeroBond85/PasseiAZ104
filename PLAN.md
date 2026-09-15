@@ -33,9 +33,9 @@
 
 ## 1. STACK (free — pins reconfirmados no Dia 1)
 
-Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleResolution: bundler`, `target: es2025`, `types: []`) · Lit **3.3.3** sem decorators · Zod **4.x** (pt-BR) · Biome **2.5.12** · `idb` **8.0.3** · `vite-plugin-pwa` **1.3.0** (sem `sw.ts`, sem `workbox-cli`) · `@google/genai` **2.21.0** + pré-voo de modelos (§7) · Vitest/Playwright/axe latest-pinned · Husky **9.1.7** · lint-staged **17.5.0** · Learn MCP (free) · GH Pages (soft limits: 100GB/mês banda, 10 builds/h, 1GB site — folgado para este uso) · Supabase **só Fase 4**.
+Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleResolution: bundler`, `target: es2025`, `types: []`) · Lit **3.3.3** sem decorators · Zod **4.6.2** · Biome **2.5.12** · `idb` **8.0.3** · `vite-plugin-pwa` **1.3.0** (sem `sw.ts`, sem `workbox-cli`) · `@google/genai` **2.21.0** + pré-voo de modelos (§7) · `@supabase/supabase-js` **2.116.0** (auth + sync, §17) · Vitest **5.0.0**/Playwright **1.63.0**/axe **4.13.0** · Husky **9.1.7** · lint-staged **17.5.0** · tsx **4.21.0** (runner `.mts`) · Learn MCP (free) · GH Pages (soft limits: 100GB/mês banda, 10 builds/h, 1GB site — folgado para este uso) · Supabase free (Auth 50k MAU + 500MB, §17).
 
-**Notas de versão (v5.0):** TS 7 já é estável/GA — ficamos em 6.0.3 por pin de stack (reavaliação pós-prova, ROADMAP). Se no Dia 1 `npm view <pkg> version` retornar versão MAIS NOVA que os pins acima, os pins do plano são atualizados no próprio Dia 1 antes do commit (lockfile manda; o plano nunca declara versão mentirosa).
+**Notas de versão (v6.0):** TS 7 já é estável/GA — ficamos em 6.0.3 por pin de stack (reavaliação pós-prova, ROADMAP). Lockfile manda; o plano nunca declara versão mentirosa. Pins v6.0 conferidos em `tests/unit/pins.test.ts` (11 asserts).
 
 **Lei de versões:** `.npmrc` `save-exact=true` criado **antes** de qualquer `npm install` (§16 passo 0) · sem `^`/`~` · `package-lock.json` fonte da verdade · `npm install` em workflow só com pin · Actions consistentes.
 
@@ -45,41 +45,45 @@ Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleRes
 
 ```
 ~/projects/PasseiSimuladosTI/AZ104/
-├── PLAN.md  README.md (hero: logo1)  CONTRIBUTING.md  LICENSE (MIT)  SECURITY.md
+├── PLAN.md (v6.0)  README.md  CONTRIBUTING.md  LICENSE (MIT)  SECURITY.md
 ├── TUTOR.md  LOG.md  LESSONS.md (RPR)  REGRAS.md (RPR+WSL+pin)
 ├── AGENTS.md (TBD + gatilhos)
-├── package.json (exato)  package-lock.json  .npmrc  tsconfig.json
+├── package.json (exato)  package-lock.json  .npmrc  tsconfig.json  vitest.config.ts  playwright.config.ts
 ├── vite.config.ts (VitePWA, base /PasseiAZ104/)  biome.json  .gitattributes  .gitignore
-├── .env  .env.example  .nvmrc (24)
-├── public/icons/source.png  ← logo2
+├── .env.local (gitignored: SUPABASE_URL + ANON)  .env.example  .nvmrc (24)
+├── public/icons/ source.png (logo2) + icon-192/512/maskable + apple-touch + favicon-32 + header-64/112
+├── supabase/migrations/ 001_az104_progress_sessions.sql (tabelas + RLS)
 ├── src/
 │   ├── main.ts
-│   ├── styles/ variables.css (+--brand-green)  global.css  components.css  dark.css
-│   ├── components/ (Lit)  app-shell.ts  question-card.ts  timer-bar.ts
-│   │   stats-dashboard.ts  progress-ring.ts (check 100%)  theme-toggle.ts
-│   │   review-card.ts  navigator-grid.ts  case-study-panel.ts
+│   ├── styles/ variables.css (OKLCH + escala fluida)  global.css  components.css  dark.css
+│   ├── components/ (Lit, sem decorators)  app-shell.ts  login-screen.ts  user-menu.ts
+│   │   question-card.ts (radiogroup)  timer-bar.ts  stats-dashboard.ts  theme-toggle.ts
+│   │   review-card.ts  navigator-grid.ts
 │   ├── engine/ QuizEngine.ts (writer único §5)  TimerEngine.ts  ScoringEngine.ts (§5)
-│   │   LeitnerEngine.ts (cap §5)  QuestionSelector.ts  ExplanationEngine.ts (só lê)
-│   ├── data/ QuestionLoader.ts (ADR-001)
-│   ├── sync/ IndexedDB.ts  types.ts  migrations.ts  SyncEngine.ts (mínima Fase 4)
+│   │   LeitnerEngine.ts (cap §5)  QuestionSelector.ts  question-schema.ts (Zod §3)
+│   │   ExplanationEngine.ts (só lê)
+│   ├── data/ QuestionLoader.ts (ADR-001: fetch + precache + IDB)
+│   ├── sync/ IndexedDB.ts  types.ts  supabase.ts  auth.ts  SyncEngine.ts (espelho §17)
 │   └── utils/ azure-glossary.ts (→tooltip)  i18n.ts  questions-hash.ts (FNV-1a 64)  export.ts (só backup)
-├── data/ identidade-governanca.json  storage.json  compute.json  rede-virtual.json
-│   monitoramento.json  case-studies.json (10×5)  simulados.json (§3)  meta.json (códigos)
-├── labs/README.md
+├── data/ identidade-governanca.json + identidade-acesso.json  storage.json
+│   compute-vms.json + compute-apps.json + compute-platform.json  rede-virtual.json
+│   monitoramento.json  case-studies.json (2 cases)  simulados.json (10 oficiais §3)  meta.json
 ├── scripts/ validate-questions.mts  generate-questions.mts  check-model.mjs
-│   import-community.mts  audit-secrets.ts  deploy-pages.mjs
-├── tests/ unit/ (5)  integration/ (IDB)  e2e/ (quiz, offline, review + axe Fase 3)
+│   build-simulados.mts  import-community.mts  audit-secrets.ts  deploy-pages.mjs
+├── check-seq.mjs (sanidade do banco: contagem/dup/sequência)
+├── tests/ unit/ (pins, schema, scoring, selector, engines)  integration/ (S2 fim-a-fim)
+│   e2e/ (quiz, offline, gate, login, axe)
 ├── docs/ ARCHITECTURE.md (+ADRs)  STUDY-PLAN.md  DEPLOY.md  API-REF.md
-│   QUESTION-GUIDELINES.md (SKILL.md + códigos)  TROUBLESHOOTING.md (+restore)
-│   ROADMAP.md  wsl-environment.md
+│   QUESTION-GUIDELINES.md  TROUBLESHOOTING.md (+restore)  ROADMAP.md  wsl-environment.md
+│   multi-filho.md (receita p/ novos filhos)
 ├── .agent/audits/ (.gitkeep; reports datados; proibido report na raiz)
 ├── .github/ ISSUE_TEMPLATE/  PULL_REQUEST_TEMPLATE.md
-│   workflows/ ci.yml  deploy.yml  security.yml  dependency-audit.yml  e2e-only.yml
+│   workflows/ ci.yml  deploy.yml (Secrets VITE_*)  security.yml  dependency-audit.yml  e2e-only.yml
 ├── .husky/ pre-commit (<10s)  pre-push (ci completo)
 └── .opencode/skills/ accessibility/ (paleta logo2)
 ```
 
-**v5.0:** removidos da árvore `check-env-parity.mjs` e `sync-docs.mjs` (órfãos — reintroduzir com definição se surgir necessidade real; `doc-sync` cobre sincronização de docs).
+**v6.0:** árvore real acima (idêntica ao disco). Removidos: `check-env-parity.mjs`, `sync-docs.mjs`, `progress-ring.ts`, `case-study-panel.ts`, labs, utils não criados (reintroduzir com necessidade real).
 
 ---
 
@@ -190,16 +194,16 @@ Exemplo canônico (50q: 10 easy + 25 medium + 15 hard): `maxRaw=10×15+25×20+15
 
 ## 6. UX + MARCA
 
-**`logo2`:** `public/icons/source.png` → 192/512/maskable/favicon/apple-touch (padding `#0a0e14`). Manifest `Passei AZ-104`/`PasseiAZ104`, `education`, PT-BR, theme/bg `#0a0e14`. Header 32px em container `--surface`. `logo1`: hero README + Sobre.
-**Cor→significado:** azul progresso · verde `--brand-green #4CAF50` acerto/maestria (box 5; ring→check 100%) · dourado `--warning` streaks · dark `#0a0e14`, light opt-in.
-**UX:** timer sticky + "progresso salvo ✓" · Simulado Oficial=Pearson VUE · pulo livre + pausa + confirmação ("X sem responder") · 1 questão/tela · glossário→tooltip · ≥44px · **tabs bottom mobile / top desktop** · `viewport-fit=cover`+`safe-area`+`100dvh` · prompt install + offline · WCAG AA.
+**`logo2` (`source.png`):** derivados gerados — `icon-192/512`, `icon-maskable-512` (fundo `#0a0e14`), `apple-touch-icon`, `favicon-32`, `header-64/112`. Manifest `Passei AZ-104`/`PasseiAZ104`, `education`, PT-BR, theme/bg `#0a0e14`. Header 56px + marca (título + subtítulo). Login com logo 180px.
+**Cor→significado (OKLCH, Baseline 2026):** azul progresso · verde `--brand-green` acerto/maestria (box 5; ring→check 100%) · dourado `--warning` streaks · `--progress-ink` p/ texto AA sobre escuro · dark, light opt-in.
+**UX:** timer sticky mono tabular + "progresso salvo ✓" + "sincronizando ☁" · Simulado Oficial=Pearson VUE · pulo livre + pausa + confirmação ("X sem responder") · 1 questão/tela · pergunta `--fs-xl` 650 > opções 48px em chip · `radiogroup` + `aria-checked` · progresso "Questão X de 50" com `aria-live` · `@starting-style` + transições sob `no-preference` · ≥44px · **tabs bottom mobile / top desktop** (pill ativa AA) · `viewport-fit=cover`+`safe-area`+`100dvh` · prompt install + offline · WCAG AA + axe 0 · Lighthouse 98/100/100.
 
 ---
 
 ## 7. MODELO IA
 
 `check-model.mjs`: chave? → probe (1 token, 20s) sobre lista de candidatos **em ordem de preferência** → 1º 200 = modelo → `meta.json.generatedWith`. 404→próximo · 401→troque a chave · 429→backoff 60s→5min→30min; pausa diária só após 3×429 seguidos (checkpoint intacto + `generate --resume`).
-**Candidatos (v5.0, set/2026): `["gemini-3.5-flash-lite", "gemini-3.5-flash", "gemini-3-flash"]`.** Modelos 2.5-flash / 2.5-flash-lite têm desligamento anunciado na Gemini Developer API (out/2026) e 3-flash-preview é preview migrável — **fora da lista**. Design absorve depreciação: trocar a lista ≠ reescrever código; lista re-verificada pelo probe a cada execução e re-revisada em todo `dependency-audit.yml` mensal.
+**Candidatos (v6.0, set/2026): `["gemini-3.5-flash-lite", "gemini-3.5-flash", "gemini-3-flash"]`.** Modelos 2.5-flash / 2.5-flash-lite têm desligamento anunciado na Gemini Developer API (out/2026) e 3-flash-preview é preview migrável — **fora da lista**. Design absorve depreciação: trocar a lista ≠ reescrever código; lista re-verificada pelo probe a cada execução e re-revisada em todo `dependency-audit.yml` mensal.
 Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `data/.generation-state.json` (gitignored) + espelho `~/.az104-gen-state.json` + restore testado em S2 (TROUBLESHOOTING) · grounding MCP · `source:"ai-generated"`+modelo+data; `needsReview:true` se grounding falhar (entra no WIP §4).
 
 ---
@@ -225,16 +229,16 @@ Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `d
 
 ---
 
-## 11. MILESTONES (ordem, sem datas; fecha a conta de §4 = ~950)
+## 11. MILESTONES (status real — banco 950/950 fechado em 12/set/2026)
 
-**S1 — Fundação** (12–16h). D1 repo+remote · D2 `lit-ts`+deps+configs+`.gitattributes` · D3 design system · D4 shell+toggle+main · D5 Husky+workflows. **Fim:** PLAN.md + README + AGENTS(TBD+gatilhos) + REGRAS + LOG + LESSONS + `wsl-environment.md` + `.agent/audits/.gitkeep` + skills globais + `accessibility` + `source.png`. Push → Pages.
-**Gate S1:** 4 tabs · dark · CI verde · zero console-error · PLAN.md no projeto.
-**S2 — Engines TDD + 50q Identidade (ig: 50)** (16–20h). **Gate:** 50q fim-a-fim + score §5 + review + validate. **Estudo:** ≥70%.
-**S3 — Persistência+Leitner+offline+Lighthouse ≥90+e2e** (14–18h). **Gate 0A (13):** (1) 4 tabs teclado+toque · (2) tema persiste · (3) 50q/100min · (4) flags · (5) score+breakdown · (6) review total · (7) Leitner c/ cap · (8) IDB reload · (9) kill server funciona · (10) validate · (11) CI · (12) Pages · (13) Lighthouse ≥90/90/90. **Estudo: baseline `B`.**
-**S4 — 80q Compute (co: 80) · S5 — 80q Rede (rv: 80) + generate · S6 — 50q Storage + 50q Monitoramento (st: 50, mo: 50) + 2 cases.** **Estudo:** 30–40q/dia + Leitner 15min + labs.
-**S7 — 10 simulados + import fontes 1–3.** **Estudo:** 2º simulado. **Gate 0B:** banco validado · 10 simulados · explicações · scores no LOG.
-**S8–S13 — meio-do-banco (lotes de 50q, ~640q) + 8 cases + 57/57.** Distribuição dos lotes segue déficit por domínio até fechar §4: ig +180 · st +120 · co +150 · rv +95 · mo +95 (=640; totais ig 230 · st 170 · co 230 · rv 175 · mo 145 = 950). **Gate:** validate + cobertura 57/57 + totais dentro da tolerância §4. Volume = qualidade, Gate 0B impõe ritmo.
-**S14 — opcional/revisão. S15–16 —** ≥95 + axe 0 + iOS. **S17+ (pós-prova):** Supabase + v1.0.0 · quarentena · gamificação · push · analytics · loja ($25/$99 ano).
+**S1 — Fundação ✅.** D1→D5 executados. **Gate S1 ✅.**
+**S2 — Engines TDD + 50q Identidade ✅. Gate ✅.**
+**S3 — Persistência+Leitner+offline+e2e ✅. Gate 0A 13/13 ✅** (Lighthouse 98/100/100; baseline `B` = estudo humano pendente).
+**S4 ✅ (80q Compute) · S5 ✅ (80q Rede + pipeline IA) · S6 ✅ (55q Storage + 55q Monitoramento + 2 cases).**
+**S7 ✅ (10 simulados oficiais + import). Gate 0B parcial (máquina):** banco ✓ · simulados ✓ · explicações ✓ · scores = estudo humano.
+**S8–S13 ✅ (banco 950/950).** Lotes por déficit até fechar §4: ig 230 · st 170 · co 230 · rv 175 · mo 145. Partições SIZE GUARD: identidade-acesso, compute-vms/apps/platform.
+**S14 — opcional/revisão (aberto). S15–16 — parcial:** axe 0 ✅ + Lighthouse 98/100/100 ✅ · iOS físico pendente (humano).
+**S17+ (pós-prova):** Supabase/Auth/sync **antecipados na v6.0** (backend multi-filho no ar) · falta: quarentena community · gamificação · push · analytics · loja.
 
 ---
 
@@ -261,7 +265,7 @@ Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `d
 
 ## 15. CORTES
 
-`sw.ts`, `workbox-cli`, TS 7 (GA, reavaliação pós-prova), auth pré-prova, OpenRouter/runtime, cascata multi-provider, sync-docs classifier, Capacitor garantido, gamificação extra, push, analytics externo, loja, changelog separado, reports na raiz, migration/rollback, **`weight`**, **`ordering` (volta pós-prova se fonte exigir)**, **`check-env-parity.mjs` + `sync-docs.mjs` (órfãos)**. **`export.ts` = só backup progresso.**
+`sw.ts`, `workbox-cli`, TS 7 (GA, reavaliação pós-prova), OpenRouter/runtime, cascata multi-provider, sync-docs classifier, Capacitor garantido, gamificação extra, push, analytics externo, loja, changelog separado, reports na raiz, migration/rollback, **`weight`**, **`ordering` (volta pós-prova se fonte exigir)**, **`check-env-parity.mjs` + `sync-docs.mjs` (órfãos)**. **`export.ts` = só backup progresso.** (Auth entrou na v6.0 — corte "auth pré-prova" consumido.)
 
 ---
 
@@ -290,7 +294,7 @@ npm install --save-exact -D @biomejs/biome@2.5.12 vite-plugin-pwa@1.3.0 @google/
 npx husky init
 
 # 2. docs + marca + skills (DEPOIS do scaffold, nunca antes)
-# PLAN.md (v5.0, este documento) + README + AGENTS + REGRAS + LOG + LESSONS + wsl-environment.md
+# PLAN.md (v6.0, este documento) + README + AGENTS + REGRAS + LOG + LESSONS + wsl-environment.md
 # + .agent/audits/.gitkeep
 # skills: 5 globais + accessibility + cp ~/az104-stash/<logo>.png public/icons/source.png
 
@@ -299,13 +303,13 @@ git branch -M main
 git add . && git commit -m "chore: scaffold Vite 8 + Lit + TS 6 + docs base" && git push -u origin main
 ```
 
-**Gate Dia 1:** repo + CI verde + Pages (base `/PasseiAZ104/`) + PLAN.md v5.0 + skills. Sem componente — proposital.
+**Gate Dia 1:** repo + CI verde + Pages (base `/PasseiAZ104/`) + PLAN.md v6.0 + skills. Sem componente — proposital.
 
 **⚠️ LESSONS (11/set/2026, incidente real):** `npm create vite --force` (sintaxe v8) foi rejeitado pelo create-vite 9.x (`Operation cancelled` com stdin fechado); a flag correta é `--overwrite` — que **apaga todo o conteúdo pré-existente** (perdemos `LogoPasseiAz104.png`, restaurado via re-upload; `PLAN.md` reescrito do registro aprovado). Lição travada: scaffold SEMPRE em dir contendo só `.git`; docs/assets entram no passo 2.
 
 ---
 
-## Mapa das 24 resoluções (v5.0)
+## Mapa das 31 resoluções (v6.0)
 
 | # | Onde |
 |---|---|
@@ -335,8 +339,11 @@ git add . && git commit -m "chore: scaffold Vite 8 + Lit + TS 6 + docs base" && 
 | 24 verdades externas: Pages soft-limits, TS 7 GA, modelos Gemini atuais | §1, §7 |
 | 25 backend free multi-filho: prefixo `az104_`, RLS, sync last-write-wins | §17 |
 | 26 login magic link + gate + `?local=1` só p/ e2e | §17 |
-| 27 UX: logo 180 login / 40 header, ícones PWA reais, polish sem telas novas | §6, §17 |
+| 27 UX: logo 180 login / 56 header, ícones PWA reais, polish sem telas novas | §6, §17 |
 | 28 axe 0 + Lighthouse 98/100/100 | §14 |
+| 29 UX 2026: OKLCH, radiogroup, progresso aria-live, @starting-style, tipografia fluida | §6 |
+| 30 pins reais no teste (zod 4.6.2, tsx, supabase 2.116.0) + vitest.config | §1 |
+| 31 check-seq.mjs: sanidade do banco (contagem/dup/sequência) | §4 |
 
 ---
 
