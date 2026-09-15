@@ -271,8 +271,11 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/header-64.png" alt="Passei AZ-104" width="40" height="40" />
-        <strong>Passei AZ-104</strong>
+        <img src="icons/header-112.png" alt="Passei AZ-104" width="56" height="56" />
+        <div class="brand">
+          <strong>Passei AZ-104</strong>
+          <span>Simulado + revisão espaçada</span>
+        </div>
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
         <user-menu @logout=${() => this.requestUpdate()}></user-menu>
@@ -297,9 +300,10 @@ export class AppShell extends LitElement {
   private renderHome() {
     return html`
       <main>
-        <section class="card">
-          <h1>Início</h1>
-          <p>50 questões de Identidade e Governança. Abra a aba Simulado.</p>
+        <section class="card hero">
+          <img src="icons/icon-192.png" alt="" width="96" height="96" aria-hidden="true" />
+          <h1>Passei AZ-104</h1>
+          <p>950 questões validadas · 50 por simulado · 100 min · corte 700.<br />Estude offline, revise com Leitner, sincronize entre dispositivos.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
         </section>
       </main>
@@ -377,14 +381,29 @@ export class AppShell extends LitElement {
     header {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      background-color: var(--surface);
+      gap: 12px;
+      padding: 10px 16px;
+      background: linear-gradient(180deg, var(--surface-raised), var(--surface));
       border-bottom: 1px solid var(--border);
     }
     header img {
-      width: 40px;
-      height: 40px;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.4);
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .brand strong {
+      font-size: 20px;
+      letter-spacing: 0.2px;
+    }
+    .brand span {
+      font-size: 12px;
+      color: var(--text-dim);
     }
     .sync {
       color: var(--text-dim);
@@ -421,9 +440,16 @@ export class AppShell extends LitElement {
       border: none;
       color: var(--text-dim);
       cursor: pointer;
+      border-radius: var(--radius-sm);
+      margin: 6px 4px;
+      transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
     }
     nav button[aria-current='page'] {
-      color: var(--progress);
+      color: #93c5fd;
+      background-color: var(--surface-raised);
+      outline: 1px solid #93c5fd;
     }
     @media (min-width: 768px) {
       nav {
