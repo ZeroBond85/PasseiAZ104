@@ -272,7 +272,7 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/emblem.svg" alt="Passei AZ-104" width="48" height="48" />
+        <img src="icons/header-112.png" alt="Passei AZ-104" width="112" height="71" />
         <div class="brand">
           <strong>Passei AZ-104</strong>
           <span>Simulado + revisão espaçada</span>
@@ -302,7 +302,7 @@ export class AppShell extends LitElement {
     return html`
       <main>
         <section class="card hero">
-          <img src="icons/brand.svg" alt="" width="720" height="200" aria-hidden="true" />
+          <img src="icons/hero-wide.png" alt="" width="640" height="406" aria-hidden="true" />
           <h1 class="sr-only">Passei AZ-104</h1>
           <p>950 questões · simulados de 50 questões em 100 minutos · nota de corte 700.<br />Estude offline, revise no ritmo certo e continue em qualquer dispositivo.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>

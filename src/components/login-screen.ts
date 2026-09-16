@@ -47,7 +47,7 @@ export class LoginScreen extends LitElement {
     return html`
       <main class="login">
         <section class="card login-card">
-          <img src="icons/brand.svg" alt="Passei AZ-104" width="720" height="200" />
+          <img src="icons/hero-wide.png" alt="Passei AZ-104" width="640" height="406" />
           <h1 class="sr-only">Passei AZ-104</h1>
           <p class="sub">Simulado + revisão espaçada. Entre para levar seu progresso a qualquer dispositivo.</p>
           ${
