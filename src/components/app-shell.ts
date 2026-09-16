@@ -5,23 +5,45 @@ import { selectQuestions } from '../engine/QuestionSelector.js'
 import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question } from '../engine/question-schema.js'
 import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
+import { analyzeAttempt, type StudyGuideResult } from '../engine/StudyGuide.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
 import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
 import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
+  loadAllAttempts,
   loadAllProgress,
+  loadDoubt,
   loadSession,
+  markActivity,
+  saveAttempt,
+  saveDoubt,
   saveProgress,
   saveSession,
+  saveSuggestion,
 } from '../sync/IndexedDB.js'
-import { pushProgress, pushSession, syncNow } from '../sync/SyncEngine.js'
-import { isSyncEnabled } from '../sync/supabase.js'
+import {
+  getProfileRole,
+  pushPlatform,
+  pushProgress,
+  pushSession,
+  syncNow,
+  upsertOwnProfile,
+} from '../sync/SyncEngine.js'
+import { isSyncEnabled, supabase } from '../sync/supabase.js'
+import type {
+  AttemptRecord,
+  ErrorTag,
+  StudyGuidePayload,
+} from '../sync/types.js'
+import './admin-panel.js'
 import './login-screen.js'
 import './navigator-grid.js'
+import './progress-panel.js'
 import './user-menu.js'
 import './question-card.js'
 import './review-card.js'
 import './stats-dashboard.js'
+import './study-guide.js'
 import './timer-bar.js'
 
 const TABS = [
@@ -31,9 +53,29 @@ const TABS = [
   { id: 'stats', label: 'Stats' },
 ] as const
 
-type TabId = (typeof TABS)[number]['id']
+type TabId = (typeof TABS)[number]['id'] | 'progress' | 'admin'
 
 const SIM_ID = 'sim-ig-01'
+
+function localDate(d = new Date()) {
+  return d.toISOString().slice(0, 10)
+}
+
+function toPayload(g: StudyGuideResult): StudyGuidePayload {
+  return {
+    score: g.score,
+    passed: g.passed,
+    weakDomains: g.weakDomains,
+    byType: g.byType,
+    byDifficulty: g.byDifficulty,
+    topErrors: g.topErrors.map((t) => ({
+      questionId: t.question.id,
+      domain: t.question.domain,
+      subdomain: t.question.subdomain,
+    })),
+    tips: g.tips,
+  }
+}
 
 export class AppShell extends LitElement {
   static properties = {
@@ -46,6 +88,7 @@ export class AppShell extends LitElement {
     userId: { type: String },
     authReady: { type: Boolean },
     syncing: { type: Boolean },
+    isAdmin: { type: Boolean },
   }
 
   declare tab: TabId
@@ -57,12 +100,15 @@ export class AppShell extends LitElement {
   declare userId: string | null
   declare authReady: boolean
   declare syncing: boolean
+  declare isAdmin: boolean
+  declare lastGuide: StudyGuideResult | null
   private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
   private timer = new TimerEngine(100)
   private timerId = 0
   private persistId = 0
+  private startedAt = 0
 
   constructor() {
     super()
@@ -75,6 +121,8 @@ export class AppShell extends LitElement {
     this.userId = null
     this.authReady = false
     this.syncing = false
+    this.isAdmin = false
+    this.lastGuide = null
   }
 
   connectedCallback() {
@@ -83,14 +131,33 @@ export class AppShell extends LitElement {
     void getUserId().then((id) => {
       this.userId = id
       this.authReady = true
-      if (id) void this.syncFromCloud()
+      if (id) {
+        void this.ensureProfile(id)
+        void this.syncFromCloud()
+      }
+      this.requestUpdate()
     })
     this.unsubAuth = onAuthChange((id) => {
       const was = this.userId
       this.userId = id
-      if (id && !was) void this.syncFromCloud()
-      if (!id) this.requestUpdate()
+      if (id && !was) {
+        void this.ensureProfile(id)
+        void this.syncFromCloud()
+      }
+      if (!id) this.isAdmin = false
+      this.requestUpdate()
     })
+  }
+
+  private async ensureProfile(id: string) {
+    if (!isSyncEnabled() || !supabase) return
+    const { data } = await supabase.auth.getUser()
+    if (data.user?.email) {
+      await upsertOwnProfile(id, data.user.email).catch(() => undefined)
+    }
+    const role = await getProfileRole(id)
+    this.isAdmin = role === 'admin'
+    this.requestUpdate()
   }
 
   disconnectedCallback() {
@@ -174,6 +241,7 @@ export class AppShell extends LitElement {
     }
     this.current = this.engine.index
     this.timer.start()
+    this.startedAt = Date.now()
     this.timerId = window.setInterval(() => {
       this.timer.tick(1)
       if (this.timer.expired) void this.finish(true)
@@ -259,11 +327,62 @@ export class AppShell extends LitElement {
       }).catch(() => undefined)
     }
     this.engine.finish()
+    // v7.0 P2/P3: grava attempt + dia ativo + estudo guiado (local, idempotente)
+    await this.recordAttempt(now)
     if (this.userId) {
       await pushProgress(this.userId).catch(() => undefined)
       await pushSession(this.userId, SIM_ID).catch(() => undefined)
+      await pushPlatform(this.userId).catch(() => undefined)
     }
     this.tab = 'review'
+  }
+
+  private async recordAttempt(now: number) {
+    const answers = new Map(this.engine.answers)
+    const result = scoreSession(this.quiz, answers)
+    const userId = this.userId ?? 'local'
+    const attempt: AttemptRecord = {
+      id: crypto.randomUUID(),
+      userId,
+      kind: 'simulado',
+      simuladoId: SIM_ID,
+      startedAt: this.startedAt || now,
+      finishedAt: now,
+      durationSeconds: Math.max(0, Math.round((now - this.startedAt) / 1000)),
+      questions: this.quiz.length,
+      score: result.score,
+      passed: result.passed,
+      answers: this.quiz.map((q) => {
+        const given = answers.get(q.id) ?? []
+        const expected = q.correct
+        const g = new Set(given)
+        const e = new Set(expected)
+        const correct = e.size === g.size && [...e].every((l) => g.has(l))
+        return { questionId: q.id, correct, given, expected }
+      }),
+      byDomain: result.byDomain,
+      errorTags: {},
+      createdAt: now,
+    }
+    await saveAttempt(attempt).catch(() => undefined)
+    await markActivity(localDate(new Date(now)), 'simulado').catch(
+      () => undefined,
+    )
+    // Estudo guiado recalculado (client-side) + snapshot
+    const guide = analyzeAttempt(
+      this.quiz,
+      answers,
+      await loadAllProgress().catch(() => []),
+    )
+    this.lastGuide = guide
+    if (userId !== 'local') {
+      await saveSuggestion({
+        id: crypto.randomUUID(),
+        userId,
+        generatedAt: now,
+        payload: toPayload(guide),
+      }).catch(() => undefined)
+    }
   }
 
   render() {
@@ -284,8 +403,10 @@ export class AppShell extends LitElement {
       ${this.tab === 'home' ? this.renderHome() : ''}
       ${this.tab === 'review' ? this.renderReview() : ''}
       ${this.tab === 'stats' ? this.renderStats() : ''}
+      ${this.tab === 'progress' ? this.renderProgress() : ''}
+      ${this.tab === 'admin' ? this.renderAdmin() : ''}
       <nav aria-label="Navegação principal">
-        ${TABS.map(
+        ${this.navTabs.map(
           (t) => html`
             <button type="button" aria-current=${this.tab === t.id ? 'page' : 'false'} @click=${() => this.select(t.id)}>
               ${t.label}
@@ -294,6 +415,13 @@ export class AppShell extends LitElement {
         )}
       </nav>
     `
+  }
+
+  private get navTabs() {
+    const tabs: { id: TabId; label: string }[] = [...TABS]
+    tabs.push({ id: 'progress', label: 'Progresso' })
+    if (this.isAdmin) tabs.push({ id: 'admin', label: 'Admin' })
+    return tabs
   }
 
   private renderHome() {
@@ -389,13 +517,58 @@ export class AppShell extends LitElement {
     return html`
       <main>
         <stats-dashboard .result=${this.result}></stats-dashboard>
+        ${
+          this.lastGuide
+            ? html`<study-guide .guide=${this.lastGuide} .questions=${this.quiz}></study-guide>`
+            : ''
+        }
         ${this.quiz.map(
           (q) => html`
-            <review-card .question=${q} .given=${this.engine.answers.get(q.id) ?? []}></review-card>
+            <review-card
+              .question=${q}
+              .given=${this.engine.answers.get(q.id) ?? []}
+              @tag-selected=${this.onTagSelected}
+            ></review-card>
           `,
         )}
       </main>
     `
+  }
+
+  private renderProgress() {
+    return html`<progress-panel></progress-panel>`
+  }
+
+  private renderAdmin() {
+    if (!this.isAdmin) return html`<main><p>Acesso restrito.</p></main>`
+    return html`<admin-panel></admin-panel>`
+  }
+
+  private onTagSelected(e: Event) {
+    const d = (e as CustomEvent<{ questionId: string; tag: ErrorTag }>).detail
+    const userId = this.userId ?? 'local'
+    void (async () => {
+      const attempts = await loadAllAttempts().catch(() => [])
+      const latest = attempts
+        .filter((a) => a.userId === userId && a.kind === 'simulado')
+        .slice(0, 5)
+      for (const a of latest) {
+        if (!a.errorTags[d.questionId]) {
+          a.errorTags[d.questionId] = d.tag
+          await saveAttempt(a).catch(() => undefined)
+        }
+      }
+      const doubt = await loadDoubt(d.questionId).catch(() => undefined)
+      await saveDoubt({
+        questionId: d.questionId,
+        note: doubt?.note ?? '',
+        tag: d.tag,
+        resolved: doubt?.resolved ?? false,
+        createdAt: doubt?.createdAt ?? Date.now(),
+        updatedAt: Date.now(),
+      }).catch(() => undefined)
+      void pushPlatform(userId).catch(() => undefined)
+    })()
   }
 
   private renderStats() {
