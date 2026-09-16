@@ -14,6 +14,10 @@ test('tema persiste, timer 100min, score e flag', async ({ page }) => {
   await expect(page.locator('html[data-theme="light"]')).toHaveCount(1)
 
   await page.getByRole('button', { name: 'Simulado', exact: true }).click()
+  await expect(
+    page.getByRole('button', { name: 'Começar simulado' }),
+  ).toBeVisible()
+  await page.getByRole('button', { name: 'Começar simulado' }).click()
   await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
   // Timer 100min conta de 100:00
   await expect(page.locator('timer-bar strong')).toContainText('100:', {

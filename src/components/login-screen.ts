@@ -49,7 +49,7 @@ export class LoginScreen extends LitElement {
         <section class="card login-card">
           <img src="icons/hero-wide.png" alt="Passei AZ-104" width="640" height="406" />
           <h1 class="sr-only">Passei AZ-104</h1>
-          <p class="sub">Simulado + revisão espaçada. Entre para levar seu progresso a qualquer dispositivo.</p>
+          <p class="sub">950 questões no formato, tempo e nota da prova Azure Administrator Associate (AZ-104) — com explicações, revisão e análise do seu progresso. Entre para levar tudo a qualquer dispositivo.</p>
           ${
             this.sent
               ? html`<p class="ok" role="status">Link enviado! Abra o e-mail e clique para entrar. ✅</p>`

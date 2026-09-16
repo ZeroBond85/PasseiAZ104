@@ -141,8 +141,6 @@ export class AppShell extends LitElement {
 
   private select(tab: TabId) {
     this.tab = tab
-    if (tab === 'quiz' && this.quiz.length === 0 && !this.loading)
-      void this.startQuiz()
   }
 
   private async startQuiz() {
@@ -272,10 +270,10 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/header-112.png" alt="Passei AZ-104" width="112" height="71" />
+        <img src="icons/header-112.png" alt="Passei AZ-104" width="75" height="48" />
         <div class="brand">
           <strong>Passei AZ-104</strong>
-          <span>Simulado + revisão espaçada</span>
+          <span>Estudo para o exame AZ-104</span>
         </div>
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
@@ -304,8 +302,42 @@ export class AppShell extends LitElement {
         <section class="card hero">
           <img src="icons/hero-wide.png" alt="" width="640" height="406" aria-hidden="true" />
           <h1 class="sr-only">Passei AZ-104</h1>
-          <p>950 questões · simulados de 50 questões em 100 minutos · nota de corte 700.<br />Estude offline, revise no ritmo certo e continue em qualquer dispositivo.</p>
+          <p>950 questões com explicação em 5 domínios: identidade e governança, storage, computação, rede e monitoramento. Simulados no mesmo formato, tempo de prova e pontuação do exame Azure Administrator Associate (AZ-104). Estude offline, anote suas dúvidas e continue de onde parou em qualquer dispositivo.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
+        </section>
+      </main>
+    `
+  }
+
+  private renderOrientation() {
+    return html`
+      <main>
+        <section class="card orientation">
+          <h1 class="sr-only">Orientação do simulado</h1>
+          <h2>Simulado oficial — antes de começar</h2>
+          <p>
+            Este simulado usa o mesmo formato do exame <strong>Azure
+            Administrator Associate (AZ-104)</strong>: 50 questões, 100 minutos,
+            nota de corte <strong>700</strong>. Nenhuma pausa é permitida após
+            o início, então garanta tempo e foco antes de começar.
+          </p>
+          <ul class="checks">
+            <li><strong>50 questões</strong> — escolha única, múltipla escolha,
+            cenários (case studies) e verdadeiro/falso.</li>
+            <li><strong>100 minutos</strong> — cronômetro regressivo visível
+            durante toda a prova.</li>
+            <li><strong>Nota de corte 700</strong> — aprovado quem chega a
+            700/1000, no mesmo critério da prova oficial.</li>
+            <li><strong>Pular</strong> questões com as setas ← → e voltar a
+            qualquer momento pelo mapa de questões.</li>
+            <li><strong>Marcar revisão</strong> (⚑) em qualquer questão para
+            revisá-la antes de finalizar.</li>
+            <li>Ao final, veja a <strong>revisão completa</strong>: sua resposta,
+            a correta e a explicação de cada questão.</li>
+          </ul>
+          <button type="button" class="btn btn-primary" @click=${() => void this.startQuiz()}>
+            Começar simulado
+          </button>
         </section>
       </main>
     `
@@ -313,6 +345,8 @@ export class AppShell extends LitElement {
 
   private renderQuiz() {
     if (this.loading) return html`<main><p>Carregando questões…</p></main>`
+    if (this.quiz.length === 0 && this.engine.state !== 'active')
+      return this.renderOrientation()
     const q = this.quiz[this.current]
     if (!q) return html`<main><p>Nenhuma questão carregada.</p></main>`
     const idxById = new Map(this.quiz.map((x, i) => [x.id, i]))
@@ -456,6 +490,38 @@ export class AppShell extends LitElement {
       color: var(--text-dim);
       font-size: var(--fs-sm);
       margin: 0 0 12px;
+    }
+    .orientation {
+      text-align: center;
+      padding: 28px 24px;
+    }
+    .orientation h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+    .orientation > p {
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+    .orientation .checks {
+      list-style: none;
+      margin: 0 auto 20px;
+      padding: 0;
+      max-width: 560px;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .orientation .checks li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+    }
+    .orientation .checks li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--progress-ink);
+      font-weight: 700;
     }
     nav {
       display: flex;
