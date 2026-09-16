@@ -1,6 +1,6 @@
 import { css, html, LitElement } from 'lit'
 import { readiness } from '../engine/StudyGuide.js'
-import { btnStyles, cardStyles } from '../styles/shared.js'
+import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
 import { getUserId } from '../sync/auth.js'
 import {
   loadAllActivity,
@@ -65,6 +65,7 @@ export class ProgressPanel extends LitElement {
     if (!this.loaded) return html`<main><p>Carregando…</p></main>`
     return html`
       <main>
+        <h1 class="sr-only">Seu progresso</h1>
         <section class="card">
           <h2>Seu progresso</h2>
           <div class="kpis">
@@ -187,6 +188,7 @@ export class ProgressPanel extends LitElement {
   static styles = css`
     ${cardStyles}
     ${btnStyles}
+    ${srOnlyStyles}
     .card {
       margin-bottom: 16px;
     }

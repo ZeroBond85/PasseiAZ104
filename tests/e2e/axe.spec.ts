@@ -19,3 +19,13 @@ test('axe: quiz sem violações', async ({ page }) => {
   const results = await new AxeBuilder({ page }).analyze()
   expect(results.violations).toEqual([])
 })
+
+test('axe: progresso sem violações', async ({ page }) => {
+  await page.goto('./?local=1')
+  await page.getByRole('button', { name: 'Progresso', exact: true }).click()
+  await expect(
+    page.getByRole('heading', { name: 'Seu progresso', level: 1 }),
+  ).toBeVisible()
+  const results = await new AxeBuilder({ page }).analyze()
+  expect(results.violations).toEqual([])
+})
