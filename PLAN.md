@@ -1,12 +1,14 @@
-# PLAN.md — PasseiAZ-104 v6.0 FINAL
+# PLAN.md — PasseiAZ-104 v7.0 FINAL
 
 > Endereço canônico: `\\wsl.localhost\Debian\home\ericsf\projects\PasseiSimuladosTI\AZ104`
 > (no WSL: `~/projects/PasseiSimuladosTI/AZ104`)
 > Meta primária: passar no AZ-104 (≥700/1000), sem data — agenda nas 3 condições do §12.
 > Meta secundária: PWA production-ready. Custo: **$0**. Gates mandam. Qualidade sobre volume.
-> **v6.0 (multi-filho):** PasseiSimuladosTI = projeto pai; AZ-104 = 1º filho (`az104_`). Backend Supabase free
-> (auth magic link + sync), login com logo, UX polida. Regra dura: senha de BD nunca em chat/repo —
-> incidente registrado em `LESSONS.md`.
+> **v7.0 (plataforma por usuário):** PasseiSimuladosTI = projeto pai; AZ-104 = 1º filho (`az104_`).
+> Backend Supabase free (auth magic link + sync), marca revertida para o `source.png` do dono,
+> cópia final + tela de Orientação (corte 700), experiência por usuário (histórico, streak,
+> weak-map, dúvidas, resume, painel §12), Study Guide pós-simulado, tags de erro ×5, aba Admin.
+> Regra dura: senha de BD nunca em chat/repo — incidente registrado em `LESSONS.md`.
 
 ---
 
@@ -45,25 +47,26 @@ Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleRes
 
 ```
 ~/projects/PasseiSimuladosTI/AZ104/
-├── PLAN.md (v6.0)  README.md  CONTRIBUTING.md  LICENSE (MIT)  SECURITY.md
+├── PLAN.md (v7.0)  README.md  CONTRIBUTING.md  LICENSE (MIT)  SECURITY.md
 ├── TUTOR.md  LOG.md  LESSONS.md (RPR)  REGRAS.md (RPR+WSL+pin)
 ├── AGENTS.md (TBD + gatilhos)
 ├── package.json (exato)  package-lock.json  .npmrc  tsconfig.json  vitest.config.ts  playwright.config.ts
 ├── vite.config.ts (VitePWA, base /PasseiAZ104/)  biome.json  .gitattributes  .gitignore
 ├── .env.local (gitignored: SUPABASE_URL + ANON)  .env.example  .nvmrc (24)
-├── public/icons/ source.png (origem) + emblem.svg (fonte) + brand.svg (gerado) + icon-192/512/maskable + apple-touch + favicon-32
-├── supabase/migrations/ 001_az104_progress_sessions.sql (tabelas + RLS)
+├── public/icons/ source.png (origem do dono) + derivados letterbox #0a0e14 (icon-192/512, icon-maskable-512, apple-touch, favicon-32, header-112, hero-wide)
+├── supabase/migrations/ 001_az104_progress_sessions.sql (tabelas + RLS)  002_az104_platform_user_admin.sql (per-user + admin)
 ├── src/
 │   ├── main.ts
 │   ├── styles/ variables.css (OKLCH + escala fluida)  global.css  components.css  dark.css  shared.ts (primitivos p/ shadow DOM)
-│   ├── components/ (Lit, sem decorators)  app-shell.ts  login-screen.ts  user-menu.ts
-│   │   question-card.ts (radiogroup)  timer-bar.ts  stats-dashboard.ts  theme-toggle.ts
-│   │   review-card.ts  navigator-grid.ts
+│   ├── components/ (Lit, sem decorators)  app-shell.ts  login-screen.ts  user-menu.ts  theme-toggle.ts
+│   │   question-card.ts (radiogroup)  timer-bar.ts  stats-dashboard.ts  navigator-grid.ts  review-card.ts (tags de erro §17)
+│   │   study-guide.ts (P3)  progress-panel.ts (P2: streak/weak-map/dúvidas/§12)  admin-panel.ts (P5)
 │   ├── engine/ QuizEngine.ts (writer único §5)  TimerEngine.ts  ScoringEngine.ts (§5)
 │   │   LeitnerEngine.ts (cap §5)  QuestionSelector.ts  question-schema.ts (Zod §3)
-│   │   ExplanationEngine.ts (só lê)
+│   │   ExplanationEngine.ts (só lê)  StudyGuide.ts (P3: analyzeAttempt + readiness §12)
 │   ├── data/ QuestionLoader.ts (ADR-001: fetch + precache + IDB)
-│   ├── sync/ IndexedDB.ts  types.ts  supabase.ts  auth.ts  SyncEngine.ts (espelho §17)
+│   ├── sync/ IndexedDB.ts (v2: sessions/progress/meta/questions/attempts/doubts/activity/suggestions)
+│   │   types.ts  supabase.ts  auth.ts  SyncEngine.ts (espelho §17: push/pull platform + admin)
 │   └── utils/ azure-glossary.ts (→tooltip)  i18n.ts  questions-hash.ts (FNV-1a 64)  export.ts (só backup)
 ├── data/ identidade-governanca.json + identidade-acesso.json  storage.json
 │   compute-vms.json + compute-apps.json + compute-platform.json  rede-virtual.json
@@ -83,7 +86,7 @@ Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleRes
 └── .opencode/skills/ accessibility/ (paleta logo2)
 ```
 
-**v6.0:** árvore real acima (idêntica ao disco). Removidos: `check-env-parity.mjs`, `sync-docs.mjs`, `progress-ring.ts`, `case-study-panel.ts`, labs, utils não criados (reintroduzir com necessidade real).
+**v7.0:** árvore real acima (idêntica ao disco). Removidos: `check-env-parity.mjs`, `sync-docs.mjs`, `progress-ring.ts`, `case-study-panel.ts`, `emblem.svg`+`brand.svg` (marca reverteu para `source.png`), labs, utils não criados (reintroduzir com necessidade real).
 
 ---
 
@@ -194,7 +197,7 @@ Exemplo canônico (50q: 10 easy + 25 medium + 15 hard): `maxRaw=10×15+25×20+15
 
 ## 6. UX + MARCA
 
-**`logo2` (`source.png`):** derivados gerados — `icon-192/512`, `icon-maskable-512` (fundo `#0a0e14`), `apple-touch-icon`, `favicon-32`, `header-64/112`. Manifest `Passei AZ-104`/`PasseiAZ104`, `education`, PT-BR, theme/bg `#0a0e14`. Header 56px + marca (título + subtítulo). Login com logo 180px.
+**Marca v7.0:** `source.png` do dono (revertido em 9a93f98) — derivados letterbox `#0a0e14`: `icon-192/512`, `icon-maskable-512` (arte ≤62%), `apple-touch-icon`, `favicon-32`, `header-112.png` (176×112), `hero-wide.png` (1024×650). Manifest `Passei AZ-104`/`PasseiAZ104`, `education`, PT-BR, theme/bg `#0a0e14`. Header + login com hero. **Copy final (1da4e70):** "Estudo para o exame AZ-104" (tagline), hero sem jargão (sem "corte 700"/"revisão espaçada"), **"corte 700" só na tela de Orientação** junto a 50q/100min/regras. H1 `sr-only`.
 **Cor→significado (OKLCH, Baseline 2026):** azul progresso · verde `--brand-green` acerto/maestria (box 5; ring→check 100%) · dourado `--warning` streaks · `--progress-ink` p/ texto AA sobre escuro · dark, light opt-in.
 **UX:** timer sticky mono tabular + "progresso salvo ✓" + "sincronizando ☁" · Simulado Oficial=Pearson VUE · pulo livre + pausa + confirmação ("X sem responder") · 1 questão/tela · pergunta `--fs-xl` 650 > opções 48px em chip · `radiogroup` + `aria-checked` · progresso "Questão X de 50" com `aria-live` · `@starting-style` + transições sob `no-preference` · ≥44px · **tabs bottom mobile / top desktop** (pill ativa AA) · `viewport-fit=cover`+`safe-area`+`100dvh` · prompt install + offline · WCAG AA + axe 0 · Lighthouse 98/100/100.
 
@@ -238,7 +241,11 @@ Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `d
 **S7 ✅ (10 simulados oficiais + import). Gate 0B parcial (máquina):** banco ✓ · simulados ✓ · explicações ✓ · scores = estudo humano.
 **S8–S13 ✅ (banco 950/950).** Lotes por déficit até fechar §4: ig 230 · st 170 · co 230 · rv 175 · mo 145. Partições SIZE GUARD: identidade-acesso, compute-vms/apps/platform.
 **S14 — opcional/revisão (aberto). S15–16 — parcial:** axe 0 ✅ + Lighthouse 98/100/100 ✅ · iOS físico pendente (humano).
-**S17+ (pós-prova):** Supabase/Auth/sync **antecipados na v6.0** (backend multi-filho no ar) · falta: quarentena community · gamificação · push · analytics · loja.
+**S17+ — PÓS-PROVA ANTECIPADO (v6.0/v7.0 NO AR ✅):** backend multi-filho (backend v6.0 na nuvem) +
+**plataforma por usuário v7.0** (16/set/2026): migration 002, IDB v2, Study Guide, tags de erro, aba Admin,
+Progresso com streak/§12 — **QA local ✅ (e2e 9/9, axe 0, CI verde)**, commit 36d69ef+4571609. Falta:
+execução manual da migration 002 no Supabase (dono) + validação 2 usuários · iOS físico (humano) ·
+quarentena community · gamificação · push · analytics · loja.
 
 ---
 
@@ -246,6 +253,7 @@ Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `d
 
 **Rotina:** 15min Leitner (cap, Caixa 1) + bloco do tema. Errou → explanation + LOG. <70% 2 sessões → prioridade seguinte. S1: guide + Assessment diagnóstico.
 **Checkpoints:** S3=`B` · S7=`B+150` (abaixo: +1 sem reforço) · S11=`B+250` · **FIM: média-5 ≥750.**
+**Painel de prontidão (aba Progresso, v7.0 P2):** `readiness()` computa em client-side as 3 condições — média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10 — e vira checkmark list. Streak = dias ativos consecutivos (simulado finalizado OU ≥10 questões OU ≥1 dúvida resolvida).
 **Agendar (cumulativas):** média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10 → agenda com ~2 semanas. Horário real + flashcards; 2 dias descanso.
 
 ---
@@ -309,7 +317,7 @@ git add . && git commit -m "chore: scaffold Vite 8 + Lit + TS 6 + docs base" && 
 
 ---
 
-## Mapa das 31 resoluções (v6.0)
+## Mapa das resoluções (v7.0)
 
 | # | Onde |
 |---|---|
@@ -344,24 +352,45 @@ git add . && git commit -m "chore: scaffold Vite 8 + Lit + TS 6 + docs base" && 
 | 29 UX 2026: OKLCH, radiogroup, progresso aria-live, @starting-style, tipografia fluida | §6 |
 | 30 pins reais no teste (zod 4.6.2, tsx, supabase 2.116.0) + vitest.config | §1 |
 | 31 check-seq.mjs: sanidade do banco (contagem/dup/sequência) | §4 |
+| 32 marca: reverter para source.png, derivados letterbox + hero-wide | §6 |
+| 33 copy final sem jargão + tela de Orientação ("corte 700" só lá) | §6 |
+| 34 migration 002: profiles(role+email)/attempts/doubts/activity_log/study_suggestions/admin_logs + az104_is_admin() RLS | §17 |
+| 35 IDB v2 + SyncEngine push/pull platform (LWW por updatedAt/createdAt) | §17 |
+| 36 Study Guide pós-simulado (analyzeAttempt) + snapshot diário em suggestions | §17, §12 |
+| 37 tags de erro ×5 no review (concept_gap/silly_mistake/misread/trap/timeout) → attempts.error_tags + doubts | §17 |
+| 38 aba Admin (KPIs, usuários, analytics por questão c/ distrator, CSV, fila dúvidas; só role admin) | §17 |
+| 39 axe em toda aba (h1 sr-only por tela acionável) | §14 |
 
 ---
 
-## 17. BACKEND MULTI-FILHO (v6.0 — Supabase free, $0)
+## 17. BACKEND MULTI-FILHO (v7.0 — Supabase free, $0)
 
-PasseiSimuladosTI = pai; cada certificação = filho com prefixo de tabelas (`az104_progress`,
-`az104_sessions`; próximos: `dp900_*`, …). Um login serve todos os filhos.
+PasseiSimuladosTI = pai; cada certificação = filho com prefixo de tabelas (`az104_*`;
+próximos: `dp900_*`, …). Um login serve todos os filhos.
 
 - **Auth:** magic link (sem senha de app). Gate: com sync habilitado e sem sessão → `login-screen`.
 - **Credenciais:** `.env.local` (gitignored) com `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY`
   (pública por design; proteção real = RLS). **Senha do Postgres nunca em chat/repo/env.**
 - **Sync:** IDB = fonte de leitura (offline-first intacto); Supabase = espelho. Push/pull com
-  last-write-wins por `updatedAt`; `box` usa `max()` (Leitner nunca regride).
-- **Migrations:** `supabase/migrations/001_*.sql` (tabelas + RLS `auth.uid() = user_id` + índices).
-  Execução no SQL Editor do dashboard (dono do projeto).
+  LWW: progressos por `updatedAt` + `box` usa `max()` (Leitner nunca regride); attempts/suggestions
+  append-only (merge por id); doubts por `updatedAt`; activity por chave `(date,kind)` `createdAt`.
+- **Migrations:** `001_*.sql` (tabelas + RLS `auth.uid() = user_id`); **`002_az104_platform_user_admin.sql`**
+  — `az104_profiles` (role check user/admin + email), `az104_attempts` (answers/by_domain/error_tags jsonb,
+  duration_seconds), `az104_doubts` (1 por questão + tag), `az104_activity_log` (PK user+date+kind),
+  `az104_study_suggestions`, `az104_admin_logs`; função `az104_is_admin()` SECURITY DEFINER comandando as RLS
+  (próprio registro vs. admin logado). **Execução manual no SQL Editor pelo dono; validar com 2 usuários
+  antes de habilitar o front em produção** (instrução no cabeçalho do SQL).
+- **Admin (v7.0 P5):** aba visível só para `role='admin'` (`getProfileRole` + `upsertOwnProfile` grava
+  email; role só owner promove por SQL). RLS filtra tudo; `admin-panel.ts` lê via Supabase e agrega em
+  client-side (KPIs, drill por questão com distrator mais escolhido, CSV sem depender de server).
+- **Experiência por usuário (P2/P3/P4):** aba Progresso (histórico, streak por `activity_log`, weak-map
+  SVG por domínio, CRUD leve de dúvidas, prontidão §12), Study Guide pós-simulado (`analyzeAttempt`,
+  `topErrors` + sourceUrl, tips, ação "treinar domínio fraco"; snapshot em `az104_study_suggestions`),
+  tags de erro ×5 nos `review-card` alimentando `attempts.error_tags` + `az104_doubts`.
 - **Deploy:** `VITE_*` via GitHub Secrets (`deploy.yml`); build sem env = modo 100% local.
-- **e2e:** `?local=1` desliga o gate (test-only, nunca em produção); `login.spec.ts` cobre gate + validação.
+- **e2e:** `?local=1` desliga o gate (test-only, nunca em produção); `login.spec.ts` cobre gate + validação;
+  `progress.spec.ts` cobre attempt→IDB→streak/dúvida e ausência da aba Admin sem role.
 
 ---
 
-*PLAN.md v6.0 FINAL — endereço `~/projects/PasseiSimuladosTI/AZ104`.*
+*PLAN.md v7.0 FINAL — endereço `~/projects/PasseiSimuladosTI/AZ104`.*

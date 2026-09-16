@@ -1,10 +1,21 @@
 # ROADMAP.md — PasseiAZ-104
 
-> Estado: banco 950/950 + backend v6.0 no ar. Falta: estudo (humano) + iOS físico.
+> Estado: banco 950/950 + plataforma v7.0 no ar (QA local ✅). Falta: migration 002 no Supabase (dono) +
+> validação 2 usuários · estudo (humano) · iOS físico.
 
 ## Antes da prova (restante)
 
+- **Aplicar migration 002 no Supabase SQL Editor** + validar admin/RLS com 2 usuários (habilitar aba Admin em prod)
 - S14: revisão opcional · iOS físico · Estudo até média-5 ≥750 + 3 condições §12.
+
+## Feito na v7.0 (16/set/2026)
+
+- [x] Marca revertida para source.png do dono + derivados letterbox
+- [x] Copy final + tela de Orientação (corte 700 só lá)
+- [x] Migration 002: profiles/attempts/doubts/activity_log/study_suggestions/admin_logs + `az104_is_admin()`
+- [x] Experiência por usuário: Progresso (histórico, streak, weak-map, dúvidas, prontidão §12)
+- [x] Study Guide pós-simulado + tags de erro ×5 + aba Admin (analytics por questão c/ distrator, CSV)
+- [x] IDB v2 + SyncEngine push/pull platform · e2e 9/9 · axe 0 · CI verde
 
 ## Feito na v6.0 (antecipado do pós-prova)
 

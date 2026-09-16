@@ -2,6 +2,14 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-16 — `keyPath: 'date:kind'` inválido aborteu o upgrade do IDB v2
+
+- **O quê:** após adicionar o store `activity` no IDB v2, TODOS os e2e que iniciavam simulado quebraram presos em "Carregando questões…" (4/4 falhos).
+- **Teste que reproduz:** `npx playwright test quiz` — em `pageerror`: `Failed to execute 'createObjectStore' on 'IDBDatabase': The keyPath option is not a valid key path` + `Version change transaction was aborted`.
+- **Causa-raiz:** `createObjectStore('activity', { keyPath: 'date:kind' })` — **IndexedDB não aceita `:` em key path** (só identificadores `[A-Za-z0-9_$]` e arrays); o upgrade ab-roda a transação, `openDB()` rejeita e `ensureSeeded()`/seed penduram sem nunca resolver.
+- **Correção:** store com `keyPath: 'key'`; `ActivityRecord.key = 'YYYY-MM-DD:kind'` explícito no `markActivity` e no pull do `SyncEngine` (LWW continua por `createdAt`).
+- **Regressão permanente:** key path de store IDB nunca contém `:`; upgrade v2+ exige rodar o e2e completo (seed passa por `openDB`) — passar só `tsc`/unit não pega esse tipo de erro de runtime.
+
 ## 2026-09-15 — vite preview sem `--host` quebra no runner (IPv6)
 
 - **O quê:** estreia do job `e2e` no CI + `perf.yml`: `ERR_CONNECTION_REFUSED` em 127.0.0.1 em todos os testes/lighthouse, mesmo funcionando local.
