@@ -88,6 +88,7 @@ export class AppShell extends LitElement {
     userId: { type: String },
     authReady: { type: Boolean },
     syncing: { type: Boolean },
+    syncFail: { type: Number },
     isAdmin: { type: Boolean },
   }
 
@@ -100,6 +101,7 @@ export class AppShell extends LitElement {
   declare userId: string | null
   declare authReady: boolean
   declare syncing: boolean
+  declare syncFail: number
   declare isAdmin: boolean
   declare lastGuide: StudyGuideResult | null
   private unsubAuth: () => void = () => undefined
@@ -121,6 +123,7 @@ export class AppShell extends LitElement {
     this.userId = null
     this.authReady = false
     this.syncing = false
+    this.syncFail = 0
     this.isAdmin = false
     this.lastGuide = null
   }
@@ -153,7 +156,9 @@ export class AppShell extends LitElement {
     if (!isSyncEnabled() || !supabase) return
     const { data } = await supabase.auth.getUser()
     if (data.user?.email) {
-      await upsertOwnProfile(id, data.user.email).catch(() => undefined)
+      await upsertOwnProfile(id, data.user.email).catch((err) =>
+        console.warn('[sync] falha ao salvar perfil', err),
+      )
     }
     const role = await getProfileRole(id)
     this.isAdmin = role === 'admin'
@@ -181,12 +186,24 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      await syncNow(this.userId, SIM_ID).catch(() => undefined)
+      const res = await syncNow(this.userId, SIM_ID).catch(() => undefined)
+      this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
       // Se a sessão remota era mais nova, o IDB foi atualizado — recarrega estado
       const saved = await loadSession(SIM_ID).catch(() => undefined)
       if (saved && saved.answers.length > 0 && this.quiz.length === 0) {
         this.requestUpdate()
       }
+    } finally {
+      this.syncing = false
+    }
+  }
+
+  private async retrySync() {
+    if (!this.userId) return
+    this.syncing = true
+    try {
+      const res = await syncNow(this.userId, SIM_ID).catch(() => undefined)
+      this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
     } finally {
       this.syncing = false
     }
@@ -332,7 +349,11 @@ export class AppShell extends LitElement {
     if (this.userId) {
       await pushProgress(this.userId).catch(() => undefined)
       await pushSession(this.userId, SIM_ID).catch(() => undefined)
-      await pushPlatform(this.userId).catch(() => undefined)
+      const res = await pushPlatform(this.userId).catch(() => ({
+        pushed: 0,
+        failed: 0,
+      }))
+      this.syncFail = res.failed
     }
     this.tab = 'review'
   }
@@ -396,6 +417,7 @@ export class AppShell extends LitElement {
         </div>
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
+        ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>sync falhou (${this.syncFail}) — tocar para repetir ↻</button>` : ''}
         <user-menu @logout=${() => this.requestUpdate()}></user-menu>
         <theme-toggle></theme-toggle>
       </header>
@@ -567,7 +589,11 @@ export class AppShell extends LitElement {
         createdAt: doubt?.createdAt ?? Date.now(),
         updatedAt: Date.now(),
       }).catch(() => undefined)
-      void pushPlatform(userId).catch(() => undefined)
+      const res = await pushPlatform(userId).catch(() => ({
+        pushed: 0,
+        failed: 0,
+      }))
+      if (res.failed > 0) this.syncFail = res.failed
     })()
   }
 
@@ -641,6 +667,14 @@ export class AppShell extends LitElement {
     .sync {
       color: var(--text-dim);
       font-size: 13px;
+    }
+    .sync.warn {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: var(--warning);
+      text-decoration: underline;
     }
     .spacer {
       flex: 1;

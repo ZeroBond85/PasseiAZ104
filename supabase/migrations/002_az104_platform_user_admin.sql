@@ -51,6 +51,14 @@ drop policy if exists "profiles admin update" on public.az104_profiles;
 create policy "profiles admin update" on public.az104_profiles
   for update using (public.az104_is_admin()) with check (public.az104_is_admin());
 
+-- Re-login de usuario comum: upsert (ON CONFLICT DO UPDATE) do proprio profile
+-- exige policy de UPDATE; apenas a de admin nao bastava (403 silencioso no app).
+-- with check role='user' mantém a promocao trancada (nunca auto-promove).
+drop policy if exists "profiles self update email" on public.az104_profiles;
+create policy "profiles self update email" on public.az104_profiles
+  for update using (auth.uid() = user_id)
+  with check (auth.uid() = user_id and role = 'user');
+
 -- -------------------------------------------------------------------------
 -- 2. az104_attempts — histórico de simulados finalizados (append-only).
 --    answers: [{questionId, correct, given, expected}]

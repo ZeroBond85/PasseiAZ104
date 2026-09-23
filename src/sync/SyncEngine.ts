@@ -132,9 +132,13 @@ export async function syncNow(userId: string, simuladoId?: string) {
     }
   }
   await pushProgress(userId)
-  await pushPlatform(userId)
+  const pushed = await pushPlatform(userId)
   if (simuladoId) await pushSession(userId, simuladoId)
-  return { enabled: true as const, pulled: pulledCount }
+  return {
+    enabled: true as const,
+    pulled: pulledCount,
+    pushFailed: pushed.failed,
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -147,86 +151,112 @@ export async function syncNow(userId: string, simuladoId?: string) {
 const A = (t: string) => `az104_${t}`
 
 export async function pushPlatform(userId: string) {
-  if (!isSyncEnabled() || !supabase) return { pushed: 0 }
+  if (!isSyncEnabled() || !supabase) return { pushed: 0, failed: 0 }
   const started = Date.now()
   let pushed = 0
+  const failed: string[] = []
+
+  const fail = (where: string, err: unknown) => {
+    failed.push(`${where}: ${err instanceof Error ? err.message : String(err)}`)
+  }
 
   const attempts = await loadAttemptsForUser(userId)
   for (const a of attempts) {
-    const { error } = await supabase.from(A('attempts')).upsert(
-      {
-        id: a.id,
-        user_id: userId,
-        kind: a.kind,
-        simulado_id: a.simuladoId,
-        started_at: a.startedAt,
-        finished_at: a.finishedAt,
-        duration_seconds: a.durationSeconds,
-        questions: a.questions,
-        score: a.score,
-        passed: a.passed,
-        answers: a.answers,
-        by_domain: a.byDomain,
-        error_tags: a.errorTags,
-      },
-      { onConflict: 'id' },
-    )
-    if (error) throw new Error(`push attempts: ${error.message}`)
-    pushed++
+    try {
+      const { error } = await supabase.from(A('attempts')).upsert(
+        {
+          id: a.id,
+          user_id: userId,
+          kind: a.kind,
+          simulado_id: a.simuladoId,
+          started_at: a.startedAt,
+          finished_at: a.finishedAt,
+          duration_seconds: a.durationSeconds,
+          questions: a.questions,
+          score: a.score,
+          passed: a.passed,
+          answers: a.answers,
+          by_domain: a.byDomain,
+          error_tags: a.errorTags,
+        },
+        { onConflict: 'id' },
+      )
+      if (error) fail('attempts', error)
+      else pushed++
+    } catch (err) {
+      fail('attempts', err)
+    }
   }
 
   const doubts = await loadAllDoubts()
   for (const d of doubts) {
-    const { error } = await supabase.from(A('doubts')).upsert(
-      {
-        user_id: userId,
-        question_id: d.questionId,
-        note: d.note,
-        tag: d.tag,
-        resolved: d.resolved,
-        created_at: d.createdAt,
-        updated_at: d.updatedAt,
-        resolved_at: d.resolved ? d.updatedAt : null,
-      },
-      { onConflict: 'user_id,question_id' },
-    )
-    if (error) throw new Error(`push doubts: ${error.message}`)
-    pushed++
+    try {
+      const { error } = await supabase.from(A('doubts')).upsert(
+        {
+          user_id: userId,
+          question_id: d.questionId,
+          note: d.note,
+          tag: d.tag,
+          resolved: d.resolved,
+          created_at: d.createdAt,
+          updated_at: d.updatedAt,
+          resolved_at: d.resolved ? d.updatedAt : null,
+        },
+        { onConflict: 'user_id,question_id' },
+      )
+      if (error) fail('doubts', error)
+      else pushed++
+    } catch (err) {
+      fail('doubts', err)
+    }
   }
 
   const activity = await loadAllActivity()
   for (const act of activity) {
-    const { error } = await supabase.from(A('activity_log')).upsert(
-      {
-        user_id: userId,
-        activity_date: act.date,
-        kind: act.kind,
-        created_at: act.createdAt,
-      },
-      { onConflict: 'user_id,activity_date,kind' },
-    )
-    if (error) throw new Error(`push activity: ${error.message}`)
-    pushed++
+    try {
+      const { error } = await supabase.from(A('activity_log')).upsert(
+        {
+          user_id: userId,
+          activity_date: act.date,
+          kind: act.kind,
+          created_at: act.createdAt,
+        },
+        { onConflict: 'user_id,activity_date,kind' },
+      )
+      if (error) fail('activity_log', error)
+      else pushed++
+    } catch (err) {
+      fail('activity_log', err)
+    }
   }
 
   const suggestions = await loadAllSuggestions()
   for (const s of suggestions) {
     if (s.userId !== userId) continue
-    const { error } = await supabase.from(A('study_suggestions')).upsert(
-      {
-        id: s.id,
-        user_id: userId,
-        generated_at: s.generatedAt,
-        payload: s.payload,
-      },
-      { onConflict: 'id' },
-    )
-    if (error) throw new Error(`push suggestions: ${error.message}`)
-    pushed++
+    try {
+      const { error } = await supabase.from(A('study_suggestions')).upsert(
+        {
+          id: s.id,
+          user_id: userId,
+          generated_at: s.generatedAt,
+          payload: s.payload,
+        },
+        { onConflict: 'id' },
+      )
+      if (error) fail('study_suggestions', error)
+      else pushed++
+    } catch (err) {
+      fail('study_suggestions', err)
+    }
   }
 
-  // avg attempts é barato: retorna quantos foram tocados nesta viagem
-  return { pushed, ms: Date.now() - started }
+  if (failed.length > 0) {
+    console.warn(
+      `[sync] pushPlatform: ${failed.length} falha(s)`,
+      failed.slice(0, 5),
+    )
+  }
+  return { pushed, failed: failed.length, ms: Date.now() - started }
 }
 
 export async function pullPlatform(userId: string) {
