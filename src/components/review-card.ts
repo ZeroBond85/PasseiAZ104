@@ -52,6 +52,38 @@ export class ReviewCard extends LitElement {
       <article class="card ${ok ? 'ok' : 'miss'}">
         <p class="qid">${q.id} · ${ok ? '✅' : '❌'} sua: ${[...given].join(',') || '—'} · certa: ${[...expected].join(',')}</p>
         <h3>${q.question}</h3>
+        ${
+          q.options && q.options.length > 0
+            ? html`<div class="options" role="list" aria-label="Alternativas">
+              ${q.options.map(
+                (opt) => html`
+                  <div
+                    class="opt ${expected.has(opt.letter) ? 'correct' : ''} ${
+                      given.has(opt.letter) && !expected.has(opt.letter)
+                        ? 'wrong'
+                        : ''
+                    }"
+                    role="listitem"
+                    aria-label="${opt.letter}: ${opt.text} ${expected.has(opt.letter) ? ' (correta)' : given.has(opt.letter) ? ' (sua resposta)' : ''}"
+                  >
+                    <span class="letter">${opt.letter}</span>
+                    <span class="text">${opt.text}</span>
+                    ${
+                      expected.has(opt.letter)
+                        ? html`<span class="badge correct" aria-hidden="true">✓</span>`
+                        : ''
+                    }
+                    ${
+                      given.has(opt.letter) && !expected.has(opt.letter)
+                        ? html`<span class="badge wrong" aria-hidden="true">✗</span>`
+                        : ''
+                    }
+                  </div>
+                `,
+              )}
+            </div>`
+            : ''
+        }
         <p class="exp">${q.explanation}</p>
         ${
           ok
@@ -127,6 +159,60 @@ export class ReviewCard extends LitElement {
       background: var(--brand);
       color: var(--brand-contrast);
       border-color: var(--brand);
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    .opt {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface-raised);
+    }
+    .opt.correct {
+      border-color: var(--brand-green);
+      background: color-mix(in srgb, var(--brand-green) 12%, var(--surface-raised));
+    }
+    .opt.wrong {
+      border-color: var(--danger);
+      background: color-mix(in srgb, var(--danger) 12%, var(--surface-raised));
+    }
+    .opt .letter {
+      flex: 0 0 28px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    .opt.correct .letter {
+      color: var(--brand-green);
+    }
+    .opt.wrong .letter {
+      color: var(--danger);
+    }
+    .opt .text {
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+    .badge.correct {
+      background: var(--brand-green);
+      color: var(--brand-green-contrast);
+    }
+    .badge.wrong {
+      background: var(--danger);
+      color: var(--danger-contrast);
     }
   `
 }

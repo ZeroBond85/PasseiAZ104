@@ -68,15 +68,27 @@ export function selectQuestions(
     picked.push(...candidates.slice(0, quota))
   }
 
-  // Shuffle final Fisher-Yates (cases ficam contíguos em etapa posterior — S2 usa mix simples)
-  for (let i = picked.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1))
-    ;[picked[i], picked[j]] = [picked[j], picked[i]]
-  }
-  return picked.slice(0, opts.count)
+  // Agrupa cases (caseStudyId) contiguamente preservando embaralhamento determinístico
+  return groupCases(picked).slice(0, opts.count)
 }
 
-// Sim pluralizado fixo: preserva a ordem do array de ids (sim oficiais).
+// Agrupa questões de mesmo caseStudyId contiguamente (ordem original do pool preservada).
+function groupCases(arr: Question[]): Question[] {
+  const byCase = new Map<string, Question[]>()
+  const singles: Question[] = []
+  for (const q of arr) {
+    if (q.caseStudyId) {
+      const list = byCase.get(q.caseStudyId) ?? []
+      list.push(q)
+      byCase.set(q.caseStudyId, list)
+    } else {
+      singles.push(q)
+    }
+  }
+  const out: Question[] = [...singles]
+  for (const [, group] of byCase) out.push(...group)
+  return out
+}
 export function pickByIds<T extends { id: string }>(
   pool: T[],
   ids: string[],

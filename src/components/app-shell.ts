@@ -2,7 +2,7 @@ import { css, html, LitElement } from 'lit'
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
 import { PROPORTIONS, SIMULADOS } from '../data/simulados.js'
 import { toggleSelection } from '../engine/keyboard.js'
-import { gradeCard } from '../engine/LeitnerEngine.js'
+import { getDue, gradeCard } from '../engine/LeitnerEngine.js'
 import {
   domainQuotas,
   pickByIds,
@@ -58,15 +58,22 @@ import './review-card.js'
 import './stats-dashboard.js'
 import './study-guide.js'
 import './timer-bar.js'
+import './estudo-card.js'
 
 const TABS = [
   { id: 'home', label: 'Início' },
   { id: 'quiz', label: 'Simulado' },
+  { id: 'estudo', label: 'Estudo' },
   { id: 'review', label: 'Revisão' },
   { id: 'stats', label: 'Stats' },
 ] as const
 
-type TabId = (typeof TABS)[number]['id'] | 'progress' | 'admin' | 'catalog'
+type TabId =
+  | (typeof TABS)[number]['id']
+  | 'progress'
+  | 'admin'
+  | 'catalog'
+  | 'estudo'
 
 // Sessão default: 1º simulado oficial (nav "Simulado" direto, sem catálogo).
 const DEFAULT_SIM_ID = SIMULADOS[0]?.id ?? 'sim-oficial-01'
@@ -540,6 +547,7 @@ export class AppShell extends LitElement {
       ${this.tab === 'quiz' ? this.renderQuiz() : ''}
       ${this.tab === 'home' ? this.renderHome() : ''}
       ${this.tab === 'catalog' ? this.renderCatalog() : ''}
+      ${this.tab === 'estudo' ? this.renderEstudo() : ''}
       ${this.tab === 'review' ? this.renderReview() : ''}
       ${this.tab === 'stats' ? this.renderStats() : ''}
       ${this.tab === 'progress' ? this.renderProgress() : ''}
@@ -701,6 +709,42 @@ export class AppShell extends LitElement {
     return html`<progress-panel></progress-panel>`
   }
 
+  private async renderEstudo() {
+    const now = Date.now()
+    const allProgress = await loadAllProgress().catch(
+      hushArr('data', 'estudo: load progress falhou'),
+    )
+    const { due, truncated } = getDue(allProgress, now, 50)
+
+    if (due.length === 0) {
+      return html`
+        <main class="center">
+          <p class="empty">Nenhuma questão pendente para revisão. 🎉</p>
+          <p class="hint">Termine um simulado ou aguarde o próximo ciclo.</p>
+        </main>
+      `
+    }
+
+    return html`
+      <main>
+        <header class="estudo-header">
+          <h2>Estudo espaçado (Leitner)</h2>
+          ${truncated ? html`<p class="hint">Mostrando as 50 mais urgentes de ${due.length} pendentes.</p>` : ''}
+        </header>
+        ${due.map(
+          (card) => html`
+            <estudo-card
+              .questionId=${card.questionId}
+              .box=${card.box}
+              .dueAt=${card.dueAt}
+              @grade=${this.onGradeEstudo}
+            ></estudo-card>
+          `,
+        )}
+      </main>
+    `
+  }
+
   private renderAdmin() {
     if (!this.isAdmin) return html`<main><p>Acesso restrito.</p></main>`
     return html`<admin-panel></admin-panel>`
@@ -745,6 +789,34 @@ export class AppShell extends LitElement {
         hushSync('sync', 'tag de erro: pushPlatform falhou'),
       )
       if (res.failed > 0) this.syncFail = res.failed
+    })()
+  }
+
+  private onGradeEstudo(e: Event) {
+    const d = (e as CustomEvent<{ questionId: string; quality: number }>).detail
+    const now = Date.now()
+    void (async () => {
+      const allProgress = await loadAllProgress().catch(
+        hushArr('data', 'grade: load falhou'),
+      )
+      const prev = allProgress.find((p) => p.questionId === d.questionId)
+      const card = gradeCard(
+        {
+          questionId: d.questionId,
+          box: prev?.box ?? 0,
+          dueAt: prev?.dueAt ?? 0,
+        },
+        d.quality >= 3, // Good (3) e Easy (4) = correto; Again (0), Hard (1) = incorreto
+        now,
+      )
+      await saveProgress({
+        questionId: d.questionId,
+        box: card.box,
+        dueAt: card.dueAt,
+        usageCount: (prev?.usageCount ?? 0) + 1,
+        lastSeenAt: now,
+      }).catch(hush('data', 'grade: saveProgress falhou'))
+      this.requestUpdate()
     })()
   }
 
