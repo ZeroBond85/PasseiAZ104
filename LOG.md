@@ -65,3 +65,10 @@
 - Re-executado o script completo → **sucesso**. Validação externa via PostgREST (anon): `az104_profiles`, `az104_attempts`, `az104_doubts`, `az104_activity_log`, `az104_study_suggestions`, `az104_admin_logs` — todas `200` (antes: `404`).
 - Admin: SQL de promoção do `zerobond@gmail.com` → `role='admin'` fornecido (idempotente). **Próximo humano:** criar 2º usuário (janela anônima) e testar aba Admin (admin vê / user não) + 1 simulado como user; depois veredito "admin em produção OK".
 - **Code review v7.0 aplicado:** (1) policy `profiles self update email` (delta `003_*.sql` p/ produção + atualizado no 002) — corrige 403 silencioso no re-login de usuário comum via `upsertOwnProfile`; (2) `pushPlatform` agora faz fail-continue por linha e retorna `{pushed, failed}` — aba/sync não morrem no 1º erro; banner "sync falhou (N) — tocar para repetir" no header com retry (app-shell). QA: CI · 34/34 · validate 950 · budget OK · e2e 9/9. `console.warn` substitui o `.catch` mudo do perfil.
+
+## 2026-09-23 — UI login/home (logo real + copy C)
+
+- **Feedback do dono:** tela inicial "sem logo, feia, texto péssimo". Diagnóstico por amostragem de pixels (Playwright): `source.png` (logo real) = 1426×905, fundo transparente, arte ~11%; `hero-wide.png` = caixa 100% preenchida `#0a0e14` → "tijolo escuro" — o letterbox é que lia como "sem logo".
+- **Fix:** login e home agora usam `source.png` **direto** (transparente, sem letterbox): logo visível, `alt=""` decorativo + H1 `sr-only` (acessibilidade preservada). `hero-wide.png` vira legado (não usado no app).
+- **Copy (ux-writing, opção C aprovada):** "Do seu jeito, até a aprovação: simule a prova real, revise o que errou e estude no seu ritmo — em qualquer dispositivo." + microcopy no formulário "Você receberá um link de acesso no e-mail."
+- **e2e:** spec login atualizado (logo decorativo → seletor `.logo` em vez de `img[alt="Passei AZ-104"]`). QA: lint · tsc · 34/34 · budget OK · e2e 9/9.

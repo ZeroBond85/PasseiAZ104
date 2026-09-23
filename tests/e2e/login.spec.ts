@@ -14,9 +14,7 @@ test('login: gate aparece e valida e-mail', async ({ page }) => {
     test.skip(true, 'sync desativado neste ambiente (sem Supabase)')
   }
   await expect(page.locator('login-screen h1')).toBeVisible({ timeout: 15000 })
-  await expect(
-    page.locator('login-screen img[alt="Passei AZ-104"]'),
-  ).toBeVisible()
+  await expect(page.locator('login-screen .logo')).toBeVisible()
 
   const results = await new AxeBuilder({ page }).analyze()
   expect(results.violations).toEqual([])

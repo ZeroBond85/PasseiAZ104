@@ -47,9 +47,18 @@ export class LoginScreen extends LitElement {
     return html`
       <main class="login">
         <section class="card login-card">
-          <img src="icons/hero-wide.png" alt="Passei AZ-104" width="640" height="406" />
+          <img
+            class="logo"
+            src="icons/source.png"
+            alt=""
+            width="320"
+            height="203"
+          />
           <h1 class="sr-only">Passei AZ-104</h1>
-          <p class="sub">950 questões no formato, tempo e nota da prova Azure Administrator Associate (AZ-104) — com explicações, revisão e análise do seu progresso. Entre para levar tudo a qualquer dispositivo.</p>
+          <p class="sub">
+            Do seu jeito, até a aprovação: simule a prova real, revise o que
+            errou e estude no seu ritmo — em qualquer dispositivo.
+          </p>
           ${
             this.sent
               ? html`<p class="ok" role="status">Link enviado! Abra o e-mail e clique para entrar. ✅</p>`
@@ -66,10 +75,14 @@ export class LoginScreen extends LitElement {
                       this.email = (e.target as HTMLInputElement).value
                     }}
                     ?disabled=${this.sending}
+                    aria-describedby="email-hint"
                   />
                   <button type="submit" class="btn btn-primary" ?disabled=${this.sending}>
                     ${this.sending ? 'Enviando…' : 'Entrar com link mágico'}
                   </button>
+                  <p id="email-hint" class="hint">
+                    Você receberá um link de acesso no e-mail.
+                  </p>
                 </form>
               `
           }
@@ -100,18 +113,21 @@ export class LoginScreen extends LitElement {
       text-align: center;
       max-width: 420px;
       width: 100%;
-      padding: 32px 24px;
+      padding: 32px 24px 28px;
     }
-    .login-card img {
-      width: min(300px, 80%);
+    .logo {
+      width: min(280px, 72%);
       height: auto;
+      display: block;
+      margin: 0 auto 20px;
     }
     h1 {
       margin: 12px 0 4px;
     }
     .sub {
       color: var(--text-dim);
-      margin: 0 0 20px;
+      margin: 0 0 24px;
+      line-height: 1.55;
     }
     form {
       display: flex;
@@ -126,6 +142,11 @@ export class LoginScreen extends LitElement {
       color: var(--text);
       padding: 0 14px;
       font: inherit;
+    }
+    .hint {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--text-dim);
     }
     .ok {
       color: var(--brand-green);

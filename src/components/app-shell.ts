@@ -450,7 +450,7 @@ export class AppShell extends LitElement {
     return html`
       <main>
         <section class="card hero">
-          <img src="icons/hero-wide.png" alt="" width="640" height="406" aria-hidden="true" />
+          <img src="icons/source.png" alt="" width="600" height="381" aria-hidden="true" class="hero-logo" />
           <h1 class="sr-only">Passei AZ-104</h1>
           <p>950 questões com explicação em 5 domínios: identidade e governança, storage, computação, rede e monitoramento. Simulados no mesmo formato, tempo de prova e pontuação do exame Azure Administrator Associate (AZ-104). Estude offline, anote suas dúvidas e continue de onde parou em qualquer dispositivo.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
@@ -617,11 +617,11 @@ export class AppShell extends LitElement {
       text-align: center;
       padding: 32px 24px;
     }
-    .hero img {
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgb(0 0 0 / 0.45);
-      width: min(360px, 100%);
+    .hero img.hero-logo {
+      width: min(320px, 80%);
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
     .hero h1 {
       margin: 16px 0 8px;
