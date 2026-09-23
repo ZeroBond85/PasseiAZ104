@@ -95,7 +95,7 @@ export class LoginScreen extends LitElement {
           </div>
           <h1 class="sr-only">Passei AZ-104</h1>
           <p class="sub">
-            Do seu jeito, até a aprovação no AZ-104: simule a prova real, revise o que
+            Do seu jeito, até a aprovação no AZ‑104: simule a prova real, revise o que
             errou e estude no seu ritmo — em qualquer dispositivo.
           </p>
           ${

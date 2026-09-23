@@ -454,7 +454,7 @@ export class AppShell extends LitElement {
             <img src="icons/source-logo.webp" alt="" width="1008" height="309" aria-hidden="true" class="hero-logo" />
           </div>
           <h1 class="sr-only">Passei AZ-104</h1>
-          <p>950 questões com explicação em 5 domínios: identidade e governança, storage, computação, rede e monitoramento. Simulados no mesmo formato, tempo de prova e pontuação do exame Azure Administrator Associate (AZ-104). Estude offline, anote suas dúvidas e continue de onde parou em qualquer dispositivo.</p>
+          <p>950 questões e simulados no formato, tempo e nota do exame AZ‑104. Estude offline e continue de qualquer dispositivo.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
         </section>
       </main>
@@ -469,7 +469,7 @@ export class AppShell extends LitElement {
           <h2>Simulado oficial — antes de começar</h2>
           <p>
             Este simulado usa o mesmo formato do exame <strong>Azure
-            Administrator Associate (AZ-104)</strong>: 50 questões, 100 minutos,
+            Administrator Associate (AZ‑104)</strong>: 50 questões, 100 minutos,
             nota de corte <strong>700</strong>. Nenhuma pausa é permitida após
             o início, então garanta tempo e foco antes de começar.
           </p>
@@ -681,6 +681,19 @@ export class AppShell extends LitElement {
     .brand span {
       font-size: 12px;
       color: var(--text-dim);
+    }
+    @media (max-width: 520px) {
+      header {
+        gap: 10px;
+        padding: 10px 12px;
+      }
+      .brand strong {
+        font-size: 18px;
+        white-space: nowrap;
+      }
+      .brand span {
+        display: none;
+      }
     }
     .sync {
       color: var(--text-dim);
