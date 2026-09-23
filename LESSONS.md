@@ -2,6 +2,13 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-23 — Trocar asset por `source.png` ao vivo estourou o budget do perf (lh total 900KB)
+
+- **O quê:** deploy do redesign do logo (`384ec10`) com `source.png` (387KB, PNG 1426×905 transparente) direto no login/home. Lighthouse **total 1003.6KB / teto 900KB → falhou**; `security`/`ci`/`deploy` verdes não pegaram (image budget 500KB também OK — o estouro é no total).
+- **Causa-raiz:** `hero-wide.png` renderizado (162KB) foi substituído pelo PNG master **387KB** — o asset "certo" em visual, errado em peso; budget de imagem (500KB) deu falso-verde para peso de total.
+- **Correção:** `render-icons.mts` deriva **`source-logo.webp` transparente** (140KB, mesma arte; master `source.png` preservada) e login/home o exibem. Perf re-rodado até verde.
+- **Regressão permanente:** (1) `source.png` é só master — display sempre por derivado otimizado; (2) trocar asset de UI = **rodar perf até verde**, não basta deploy/security verde; (3) ao trocar asset, conferir o **total** do Lighthouse, não só o budget individual do asset.
+
 ## 2026-09-23 — migration SQL falhou: função `language sql` exige tabela existir antes
 
 - **O quê:** 1º run da migration 002 no Supabase erro `42P01` (relation "public.az104_profiles" does not exist) na criação da função `az104_is_admin()`.

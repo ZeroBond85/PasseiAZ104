@@ -72,3 +72,4 @@
 - **Fix:** login e home agora usam `source.png` **direto** (transparente, sem letterbox): logo visível, `alt=""` decorativo + H1 `sr-only` (acessibilidade preservada). `hero-wide.png` vira legado (não usado no app).
 - **Copy (ux-writing, opção C aprovada):** "Do seu jeito, até a aprovação: simule a prova real, revise o que errou e estude no seu ritmo — em qualquer dispositivo." + microcopy no formulário "Você receberá um link de acesso no e-mail."
 - **e2e:** spec login atualizado (logo decorativo → seletor `.logo` em vez de `img[alt="Passei AZ-104"]`). QA: lint · tsc · 34/34 · budget OK · e2e 9/9.
+- **Perf pegou regressão (por isso push acompanhado até verde):** Lighthouse budget **total 1003.6KB / teto 900KB → ESTOUROU** — `source.png` ao vivo (387KB) no lugar do `hero-wide.png` (162KB). Fix: `render-icons.mts` deriva **`source-logo.webp` transparente** (140KB, mesma arte, master preservada); login/home passam a usá-lo. Detalhe em LESSONS.md.

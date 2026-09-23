@@ -450,7 +450,7 @@ export class AppShell extends LitElement {
     return html`
       <main>
         <section class="card hero">
-          <img src="icons/source.png" alt="" width="600" height="381" aria-hidden="true" class="hero-logo" />
+          <img src="icons/source-logo.webp" alt="" width="600" height="381" aria-hidden="true" class="hero-logo" />
           <h1 class="sr-only">Passei AZ-104</h1>
           <p>950 questões com explicação em 5 domínios: identidade e governança, storage, computação, rede e monitoramento. Simulados no mesmo formato, tempo de prova e pontuação do exame Azure Administrator Associate (AZ-104). Estude offline, anote suas dúvidas e continue de onde parou em qualquer dispositivo.</p>
           <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>

@@ -49,7 +49,7 @@ export class LoginScreen extends LitElement {
         <section class="card login-card">
           <img
             class="logo"
-            src="icons/source.png"
+            src="icons/source-logo.webp"
             alt=""
             width="320"
             height="203"

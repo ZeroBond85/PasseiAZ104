@@ -62,11 +62,38 @@ await shot(
 )
 
 // Hero/login wide: logo em alta resolução (aspect real) para exibição grande.
+// NÃO usado no app — mantido como referência (legado).
 await shot(
   `<div id="w" style="width:1024px;height:650px;display:flex;align-items:center;justify-content:center;background:#0a0e14">${logo(1024)}</div>`,
   '#w',
   'hero-wide.png',
 )
+
+// Logo de exibição (login/home): WebP transparente na resolução nativa da
+// fonte — PNG de 387KB seria ~2x o peso do hero-wide antigo (guard: perf/lh total 900KB).
+async function shotWebp(out: string) {
+  const page = await browser.newPage()
+  await page.setContent(
+    `<img id="l" src="${DATA}" style="width:1px;height:auto">`,
+  )
+  await page.locator('#l').waitFor()
+  const dataUrl = await page.evaluate(async () => {
+    const img = document.getElementById('l') as HTMLImageElement
+    const c = document.createElement('canvas')
+    c.width = img.naturalWidth
+    c.height = img.naturalHeight
+    const x = c.getContext('2d')
+    if (!x) return ''
+    x.drawImage(img, 0, 0)
+    return c.toDataURL('image/webp', 0.86)
+  })
+  writeFileSync(
+    new URL(out, ROOT),
+    Buffer.from(dataUrl.split(',')[1] ?? '', 'base64'),
+  )
+  await page.close()
+}
+await shotWebp('source-logo.webp')
 
 await browser.close()
 console.log(
