@@ -7,7 +7,12 @@ import type { Question } from '../engine/question-schema.js'
 import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
 import { analyzeAttempt, type StudyGuideResult } from '../engine/StudyGuide.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
-import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
+import {
+  btnStyles,
+  cardStyles,
+  controlStyles,
+  srOnlyStyles,
+} from '../styles/shared.js'
 import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
   loadAllAttempts,
@@ -615,6 +620,7 @@ export class AppShell extends LitElement {
     ${cardStyles}
     ${btnStyles}
     ${srOnlyStyles}
+    ${controlStyles}
     .hero {
       text-align: center;
       padding: 32px 24px;

@@ -2,6 +2,13 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-23 — Botões em Arial 13px: UA stylesheet vence dentro do shadow DOM
+
+- **O quê:** botões crus (nav, theme-toggle, opções do quiz, tags de erro, "Sair", mapa de questões) renderizavam em **Arial 13.3px** em vez de system-ui — medido via `getComputedStyle` no Chromium.
+- **Causa-raiz:** a UA impõe `font: 400 13.3333px Arial` em `button/input/select`; o `button { font: inherit }` do `global.css` **não atravessa shadow DOM** (mesma lição do CSS global, 15/set). Só `.btn` (btnStyles) e o input do login (regra local) escapavam.
+- **Correção:** `controlStyles` em `shared.ts` (`button,input,select,textarea { font: inherit; color: inherit }`), composto nos 7 componentes com controles crus (app-shell, question-card, review-card, navigator-grid, progress-panel, user-menu, theme-toggle). Verificado: nav e opções agora system-ui.
+- **Regressão permanente:** componente novo com button/input/select sempre compõe `controlStyles`; em review de UI conferir **família computada**, não só tamanho (13px Arial ≈ 16px system-ui no olho desatento).
+
 ## 2026-09-23 — Trocar asset por `source.png` ao vivo estourou o budget do perf (lh total 900KB)
 
 - **O quê:** deploy do redesign do logo (`384ec10`) com `source.png` (387KB, PNG 1426×905 transparente) direto no login/home. Lighthouse **total 1003.6KB / teto 900KB → falhou**; `security`/`ci`/`deploy` verdes não pegaram (image budget 500KB também OK — o estouro é no total).

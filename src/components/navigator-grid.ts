@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { controlStyles } from '../styles/shared.js'
 
 export class NavigatorGrid extends LitElement {
   static properties = {
@@ -55,6 +56,7 @@ export class NavigatorGrid extends LitElement {
   }
 
   static styles = css`
+    ${controlStyles}
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));

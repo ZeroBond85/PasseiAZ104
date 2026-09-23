@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { controlStyles } from '../styles/shared.js'
 import { signOut } from '../sync/auth.js'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 
@@ -40,6 +41,7 @@ export class UserMenu extends LitElement {
   }
 
   static styles = css`
+    ${controlStyles}
     .user {
       display: flex;
       align-items: center;

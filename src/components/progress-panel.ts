@@ -1,6 +1,11 @@
 import { css, html, LitElement } from 'lit'
 import { readiness } from '../engine/StudyGuide.js'
-import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
+import {
+  btnStyles,
+  cardStyles,
+  controlStyles,
+  srOnlyStyles,
+} from '../styles/shared.js'
 import { getUserId } from '../sync/auth.js'
 import {
   loadAllActivity,
@@ -189,6 +194,7 @@ export class ProgressPanel extends LitElement {
     ${cardStyles}
     ${btnStyles}
     ${srOnlyStyles}
+    ${controlStyles}
     .card {
       margin-bottom: 16px;
     }

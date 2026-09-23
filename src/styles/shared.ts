@@ -49,3 +49,16 @@ export const srOnlyStyles = css`
     white-space: nowrap;
   }
 `
+
+// Controles herdarem a tipografia: a UA impõe `font: 400 13px Arial` em
+// button/input/select, e o CSS global não atravessa shadow DOM — sem isto,
+// cada botão cru dentro de componente cai em Arial.
+export const controlStyles = css`
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+`

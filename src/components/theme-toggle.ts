@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { controlStyles } from '../styles/shared.js'
 
 const KEY = 'az104-theme'
 
@@ -35,6 +36,7 @@ export class ThemeToggle extends LitElement {
   }
 
   static styles = css`
+    ${controlStyles}
     button {
       background: none;
       border: 1px solid var(--border);
