@@ -7,6 +7,21 @@
 -- Nomenclatura: prefixo az104_ + RLS "own rows" + admin via is_admin().
 
 -- -------------------------------------------------------------------------
+-- 1. az104_profiles — papel por usuário. Seed do dono: UPDATE manual depois.
+--    ORDEM OBRIGATÓRIA: tabela antes da função (FUNCTION é "language sql" e o
+--    CREATE valida referências na hora; com função antes ⇒ erro 42P01).
+-- -------------------------------------------------------------------------
+create table if not exists public.az104_profiles (
+  user_id uuid not null references auth.users (id) on delete cascade,
+  role text not null default 'user' check (role in ('user', 'admin')),
+  email text not null default '',
+  created_at timestamptz not null default now(),
+  primary key (user_id)
+);
+
+alter table public.az104_profiles enable row level security;
+
+-- -------------------------------------------------------------------------
 -- 0. Helper de admin (SECURITY DEFINER: roda como owner, sem recursão de RLS).
 --    is_admin() é usado nas policies "own + admin". NUNCA como guard de UI.
 -- -------------------------------------------------------------------------
@@ -22,19 +37,6 @@ as $$
     where user_id = auth.uid() and role = 'admin'
   );
 $$;
-
--- -------------------------------------------------------------------------
--- 1. az104_profiles — papel por usuário. Seed do dono: UPDATE manual depois.
--- -------------------------------------------------------------------------
-create table if not exists public.az104_profiles (
-  user_id uuid not null references auth.users (id) on delete cascade,
-  role text not null default 'user' check (role in ('user', 'admin')),
-  email text not null default '',
-  created_at timestamptz not null default now(),
-  primary key (user_id)
-);
-
-alter table public.az104_profiles enable row level security;
 
 drop policy if exists "profiles own or admin" on public.az104_profiles;
 create policy "profiles own or admin" on public.az104_profiles

@@ -2,6 +2,13 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-23 — migration SQL falhou: função `language sql` exige tabela existir antes
+
+- **O quê:** 1º run da migration 002 no Supabase erro `42P01` (relation "public.az104_profiles" does not exist) na criação da função `az104_is_admin()`.
+- **Causa-raiz:** ordem do script criava a FUNCTION primeiro; **`language sql` valida o corpo (parse/analyze) no CREATE** — como a função referenciava `az104_profiles`, a tabela tinha que existir antes (funções `plpgsql` adiam a validação; `sql` não).
+- **Correção:** tabela `az104_profiles` passou a vir antes da função + comentário-guia "ORDEM OBRIGATÓRIA" no arquivo. Idempotência preservada (nada havia sido criado: o script aborta no 1º erro).
+- **Regressão permanente:** ao adicionar migration com function `language sql` que referencia table nova → criar a table ANTES; roda sempre no SQL Editor do Supabase (owner) e valida `select` pós-run via PostgREST (`404` = tabela não existe).
+
 ## 2026-09-16 — `keyPath: 'date:kind'` inválido aborteu o upgrade do IDB v2
 
 - **O quê:** após adicionar o store `activity` no IDB v2, TODOS os e2e que iniciavam simulado quebraram presos em "Carregando questões…" (4/4 falhos).

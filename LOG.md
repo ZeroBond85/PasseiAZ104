@@ -58,3 +58,9 @@
 - **Fase Q** (`4571609`): progress.spec (attempt→stats/streak/dúvida + estudo guiado + admin sem role), axe na aba Progresso (h1 sr-only). e2e 9/9, axe 0, CI+budget verdes.
 - **Bug raiz:** `keyPath: 'date:kind'` inválido no IndexedDB (`:` não é key path) abortava o upgrade v2 e pendurava o seed → "Carregando questões…". Corrigido com campo `key` explícito. Detalhe em `LESSONS.md`.
 - **Docs:** PLAN v7.0 (estrutura, §6, §12 painel, §17, mapa 32–39, milestones), ARCHITECTURE ADR-006/007. **Pendente humano:** aplicar migration 002 + validar 2 usuários · iOS físico · estudo (média-5 ≥750 + 3 condições §12).
+
+## 2026-09-23 — Migration 002 APLICADA no Supabase (produção)
+
+- 1º run do SQL falhou com `42P01` na função `az104_is_admin()` (relation az104_profiles does not exist): **função `language sql` valida o corpo no CREATE** — corpo referencia a tabela, que vinha depois. Corrigida a ordem (tabela BEFORE função) + comentário-guia no arquivo. Detalhe em `LESSONS.md` (2026-09-23).
+- Re-executado o script completo → **sucesso**. Validação externa via PostgREST (anon): `az104_profiles`, `az104_attempts`, `az104_doubts`, `az104_activity_log`, `az104_study_suggestions`, `az104_admin_logs` — todas `200` (antes: `404`).
+- Admin: SQL de promoção do `zerobond@gmail.com` → `role='admin'` fornecido (idempotente). **Próximo humano:** criar 2º usuário (janela anônima) e testar aba Admin (admin vê / user não) + 1 simulado como user; depois veredito "admin em produção OK".
