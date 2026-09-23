@@ -6,13 +6,16 @@ import { isSyncEnabled, supabase } from '../sync/supabase.js'
 export class UserMenu extends LitElement {
   static properties = {
     email: { type: String },
+    isAdmin: { type: Boolean },
   }
 
   declare email: string
+  declare isAdmin: boolean
 
   constructor() {
     super()
     this.email = ''
+    this.isAdmin = false
     void this.load()
   }
 
@@ -35,6 +38,7 @@ export class UserMenu extends LitElement {
     return html`
       <div class="user" title=${this.email}>
         <span class="avatar" aria-hidden="true">${initial}</span>
+        ${this.isAdmin ? html`<span class="admin-badge">Admin</span>` : ''}
         <button type="button" @click=${this.logout} aria-label="Sair (${this.email})">Sair</button>
       </div>
     `
@@ -57,6 +61,16 @@ export class UserMenu extends LitElement {
       align-items: center;
       justify-content: center;
       font-weight: 600;
+    }
+    .admin-badge {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--brand-green);
+      border: 1px solid var(--brand-green);
+      border-radius: var(--radius-sm);
+      padding: 2px 8px;
     }
     button {
       background: none;

@@ -40,6 +40,7 @@ import type {
   ErrorTag,
   StudyGuidePayload,
 } from '../sync/types.js'
+import { logger } from '../utils/logger.js'
 import './admin-panel.js'
 import './login-screen.js'
 import './navigator-grid.js'
@@ -65,6 +66,28 @@ const SIM_ID = 'sim-ig-01'
 function localDate(d = new Date()) {
   return d.toISOString().slice(0, 10)
 }
+
+// Falhas best-effort (IDB local) viram debug log em vez de silêncio:
+// console limpo por padrão, buffer guarda p/ diagnóstico (?debug=1).
+type HushScope = 'sync' | 'quiz' | 'data'
+const hush =
+  (scope: HushScope, msg: string) =>
+  (err: unknown): undefined => {
+    logger.debug(scope, msg, err instanceof Error ? err.message : String(err))
+    return undefined
+  }
+const hushArr =
+  (scope: HushScope, msg: string) =>
+  (err: unknown): never[] => {
+    logger.debug(scope, msg, err instanceof Error ? err.message : String(err))
+    return []
+  }
+const hushSync =
+  (scope: HushScope, msg: string) =>
+  (err: unknown): { pushed: number; failed: number } => {
+    logger.debug(scope, msg, err instanceof Error ? err.message : String(err))
+    return { pushed: 0, failed: 0 }
+  }
 
 function toPayload(g: StudyGuideResult): StudyGuidePayload {
   return {
@@ -159,15 +182,28 @@ export class AppShell extends LitElement {
 
   private async ensureProfile(id: string) {
     if (!isSyncEnabled() || !supabase) return
-    const { data } = await supabase.auth.getUser()
-    if (data.user?.email) {
-      await upsertOwnProfile(id, data.user.email).catch((err) =>
-        console.warn('[sync] falha ao salvar perfil', err),
+    try {
+      const { data } = await supabase.auth.getUser()
+      if (data.user?.email) {
+        await upsertOwnProfile(id, data.user.email).catch((err) =>
+          logger.warn(
+            'sync',
+            'falha ao salvar perfil',
+            err instanceof Error ? err.message : err,
+          ),
+        )
+      }
+      const role = await getProfileRole(id)
+      this.isAdmin = role === 'admin'
+      logger.info('sync', 'perfil verificado', { isAdmin: this.isAdmin })
+      this.requestUpdate()
+    } catch (err) {
+      logger.warn(
+        'sync',
+        'ensureProfile falhou',
+        err instanceof Error ? err.message : err,
       )
     }
-    const role = await getProfileRole(id)
-    this.isAdmin = role === 'admin'
-    this.requestUpdate()
   }
 
   disconnectedCallback() {
@@ -191,10 +227,14 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      const res = await syncNow(this.userId, SIM_ID).catch(() => undefined)
+      const res = await syncNow(this.userId, SIM_ID).catch(
+        hush('sync', 'syncFromCloud: syncNow falhou (best-effort)'),
+      )
       this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
       // Se a sessão remota era mais nova, o IDB foi atualizado — recarrega estado
-      const saved = await loadSession(SIM_ID).catch(() => undefined)
+      const saved = await loadSession(SIM_ID).catch(
+        hush('data', 'syncFromCloud: leitura de sessão falhou'),
+      )
       if (saved && saved.answers.length > 0 && this.quiz.length === 0) {
         this.requestUpdate()
       }
@@ -207,7 +247,9 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      const res = await syncNow(this.userId, SIM_ID).catch(() => undefined)
+      const res = await syncNow(this.userId, SIM_ID).catch(
+        hush('sync', 'retrySync: syncNow falhou (banner mantido)'),
+      )
       this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
     } finally {
       this.syncing = false
@@ -249,7 +291,9 @@ export class AppShell extends LitElement {
     })
 
     // Restaura sessão anterior se existir
-    const saved = await loadSession(SIM_ID).catch(() => undefined)
+    const saved = await loadSession(SIM_ID).catch(
+      hush('data', 'startQuiz: restauração de sessão falhou'),
+    )
     this.engine.load(picked)
     this.quiz = picked
     if (saved && saved.answers.length > 0) {
@@ -288,9 +332,11 @@ export class AppShell extends LitElement {
       flagged: snap.flagged,
       timerRemaining: this.timer.remaining,
       updatedAt: Date.now(),
-    }).catch(() => undefined)
+    }).catch(hush('data', 'persist: saveSession falhou'))
     if (this.userId) {
-      await pushSession(this.userId, SIM_ID).catch(() => undefined)
+      await pushSession(this.userId, SIM_ID).catch(
+        hush('sync', 'persist: pushSession falhou'),
+      )
     }
     this.savedFlash = true
     setTimeout(() => {
@@ -327,7 +373,14 @@ export class AppShell extends LitElement {
     // Leitner: grava progresso (acerto = todas certas, sem erro)
     const now = Date.now()
     const prior = new Map(
-      (await loadAllProgress().catch(() => [])).map((p) => [p.questionId, p]),
+      (
+        await loadAllProgress().catch(
+          hushArr(
+            'data',
+            'finish: leitura de progresso falhou; Leitner sem histórico',
+          ),
+        )
+      ).map((p) => [p.questionId, p]),
     )
     for (const q of this.quiz) {
       const given = new Set(answers.get(q.id) ?? [])
@@ -346,18 +399,21 @@ export class AppShell extends LitElement {
         dueAt: card.dueAt,
         usageCount: (prev?.usageCount ?? 0) + 1,
         lastSeenAt: now,
-      }).catch(() => undefined)
+      }).catch(hush('data', 'finish: saveProgress falhou'))
     }
     this.engine.finish()
     // v7.0 P2/P3: grava attempt + dia ativo + estudo guiado (local, idempotente)
     await this.recordAttempt(now)
     if (this.userId) {
-      await pushProgress(this.userId).catch(() => undefined)
-      await pushSession(this.userId, SIM_ID).catch(() => undefined)
-      const res = await pushPlatform(this.userId).catch(() => ({
-        pushed: 0,
-        failed: 0,
-      }))
+      await pushProgress(this.userId).catch(
+        hush('sync', 'finish: pushProgress falhou'),
+      )
+      await pushSession(this.userId, SIM_ID).catch(
+        hush('sync', 'finish: pushSession falhou'),
+      )
+      const res = await pushPlatform(this.userId).catch(
+        hushSync('sync', 'finish: pushPlatform falhou'),
+      )
       this.syncFail = res.failed
     }
     this.tab = 'review'
@@ -390,15 +446,23 @@ export class AppShell extends LitElement {
       errorTags: {},
       createdAt: now,
     }
-    await saveAttempt(attempt).catch(() => undefined)
+    await saveAttempt(attempt).catch((err) =>
+      logger.warn(
+        'data',
+        'recordAttempt: saveAttempt falhou (attempt perdido)',
+        err instanceof Error ? err.message : err,
+      ),
+    )
     await markActivity(localDate(new Date(now)), 'simulado').catch(
-      () => undefined,
+      hush('data', 'recordAttempt: markActivity falhou'),
     )
     // Estudo guiado recalculado (client-side) + snapshot
     const guide = analyzeAttempt(
       this.quiz,
       answers,
-      await loadAllProgress().catch(() => []),
+      await loadAllProgress().catch(
+        hushArr('data', 'recordAttempt: progresso p/ guia falhou'),
+      ),
     )
     this.lastGuide = guide
     if (userId !== 'local') {
@@ -407,7 +471,7 @@ export class AppShell extends LitElement {
         userId,
         generatedAt: now,
         payload: toPayload(guide),
-      }).catch(() => undefined)
+      }).catch(hush('data', 'recordAttempt: saveSuggestion falhou'))
     }
   }
 
@@ -423,7 +487,7 @@ export class AppShell extends LitElement {
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
         ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>sync falhou (${this.syncFail}) — tocar para repetir ↻</button>` : ''}
-        <user-menu @logout=${() => this.requestUpdate()}></user-menu>
+        <user-menu .isAdmin=${this.isAdmin} @logout=${() => this.requestUpdate()}></user-menu>
         <theme-toggle></theme-toggle>
       </header>
       ${this.tab === 'quiz' ? this.renderQuiz() : ''}
@@ -577,17 +641,23 @@ export class AppShell extends LitElement {
     const d = (e as CustomEvent<{ questionId: string; tag: ErrorTag }>).detail
     const userId = this.userId ?? 'local'
     void (async () => {
-      const attempts = await loadAllAttempts().catch(() => [])
+      const attempts = await loadAllAttempts().catch(
+        hushArr('data', 'tag de erro: leitura de attempts falhou'),
+      )
       const latest = attempts
         .filter((a) => a.userId === userId && a.kind === 'simulado')
         .slice(0, 5)
       for (const a of latest) {
         if (!a.errorTags[d.questionId]) {
           a.errorTags[d.questionId] = d.tag
-          await saveAttempt(a).catch(() => undefined)
+          await saveAttempt(a).catch(
+            hush('data', 'tag de erro: saveAttempt falhou'),
+          )
         }
       }
-      const doubt = await loadDoubt(d.questionId).catch(() => undefined)
+      const doubt = await loadDoubt(d.questionId).catch(
+        hush('data', 'tag de erro: loadDoubt falhou'),
+      )
       await saveDoubt({
         questionId: d.questionId,
         note: doubt?.note ?? '',
@@ -595,11 +665,16 @@ export class AppShell extends LitElement {
         resolved: doubt?.resolved ?? false,
         createdAt: doubt?.createdAt ?? Date.now(),
         updatedAt: Date.now(),
-      }).catch(() => undefined)
-      const res = await pushPlatform(userId).catch(() => ({
-        pushed: 0,
-        failed: 0,
-      }))
+      }).catch((err) =>
+        logger.warn(
+          'data',
+          'tag de erro: saveDoubt falhou (dúvida perdida)',
+          err instanceof Error ? err.message : err,
+        ),
+      )
+      const res = await pushPlatform(userId).catch(
+        hushSync('sync', 'tag de erro: pushPlatform falhou'),
+      )
       if (res.failed > 0) this.syncFail = res.failed
     })()
   }

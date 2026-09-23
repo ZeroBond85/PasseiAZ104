@@ -2,6 +2,7 @@ import { css, html, LitElement } from 'lit'
 import { btnStyles, cardStyles, srOnlyStyles } from '../styles/shared.js'
 import { signInWithEmail } from '../sync/auth.js'
 import { isSyncEnabled } from '../sync/supabase.js'
+import { logger } from '../utils/logger.js'
 
 export class LoginScreen extends LitElement {
   static properties = {
@@ -66,8 +67,10 @@ export class LoginScreen extends LitElement {
     try {
       await signInWithEmail(this.email.trim())
       this.sent = true
+      logger.info('auth', 'magic link enviado')
     } catch (err) {
       const msg = err instanceof Error ? err.message : ''
+      logger.warn('auth', 'envio de magic link falhou', msg)
       // Supabase 429 (built-in SMTP: poucas msgs/hora + janela 60s por usuário).
       this.error = /rate limit|429|too many/i.test(msg)
         ? 'Muitas tentativas de envio. Aguarde alguns minutos e tente de novo.'

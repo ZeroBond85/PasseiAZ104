@@ -1,3 +1,4 @@
+import { logger } from '../utils/logger.js'
 import {
   loadAllActivity,
   loadAllDoubts,
@@ -251,8 +252,9 @@ export async function pushPlatform(userId: string) {
   }
 
   if (failed.length > 0) {
-    console.warn(
-      `[sync] pushPlatform: ${failed.length} falha(s)`,
+    logger.warn(
+      'sync',
+      `pushPlatform: ${failed.length} falha(s)`,
       failed.slice(0, 5),
     )
   }
@@ -373,12 +375,22 @@ export async function getProfileRole(
   userId: string,
 ): Promise<'admin' | 'user'> {
   if (!isSyncEnabled() || !supabase) return 'user'
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from(A('profiles'))
     .select('role')
     .eq('user_id', userId)
     .maybeSingle()
-  return data?.role === 'admin' ? 'admin' : 'user'
+  if (error) {
+    logger.warn('sync', 'leitura de role falhou', { message: error.message })
+    return 'user'
+  }
+  if (!data) {
+    logger.info('sync', 'perfil ausente no Supabase; role=user')
+    return 'user'
+  }
+  const role = data.role === 'admin' ? 'admin' : 'user'
+  logger.info('sync', 'role lido', { role })
+  return role
 }
 
 export async function upsertOwnProfile(userId: string, email: string) {
