@@ -140,3 +140,5 @@ export const SimuladoSchema = z.discriminatedUnion('mode', [
     timeLimitMinutes: z.literal(100),
   }),
 ])
+
+export type SimuladoSpec = z.infer<typeof SimuladoSchema>

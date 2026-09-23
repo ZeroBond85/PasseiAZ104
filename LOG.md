@@ -83,3 +83,19 @@
 - **"email rate limit exceeded" (429 do Supabase):** SMTP built-in tem cota mínima (poucas msgs/hora no projeto + janela de 60s por usuário no OTP) — os testes repetidos de login de hoje esgotaram. Ação imediata: **aguardar ~1h e não reenviar em sequência** (cada clique queima cota); manter a sessão (persiste, não precisa relogar). Produção: configurar **SMTP próprio** (ex.: Resend) em Authentication → SMTP. App agora traduz o 429: "Muitas tentativas de envio. Aguarde alguns minutos e tente de novo." QA: lint · tsc · 34/34 · budget OK · e2e 9/9.
 - **Risco tratado como problema real:** login 100% dependente do SMTP embutido = qualquer rajada trava todos (sem fallback de senha). Camada app: **cooldown de 60s no botão do magic link com contagem visível** ("Aguarde Ns…") após qualquer tentativa — evita queimar cota e cair na janela anti-abuso. Camada infra (humano): plugar **SMTP próprio** no Supabase antes do uso real (config no dashboard, zero código). QA: lint · tsc · 34/34 · budget OK · e2e 9/9.
 - **SMTP próprio (pesquisa tiers free 2026):** Brevo 300/dia permanente sem cartão e **sem exigir domínio próprio** (verifica o e-mail remetente via link) → **recomendado**. Resend 3k/mês (100/dia) ótimo, mas **exige domínio verificado p/ enviar a terceiros** — descartado (sem domínio próprio). Gmail+app password = plano B imediato (500/dia). Postmark 100/mês (pouco), SendGrid trial 60d, SES sandbox+cartão → descartados. **Detalhe crítico:** ao ativar SMTP próprio o Supabase impõe 30/hr — subir em Authentication → Rate Limits. Zero código; config no dashboard (humano) + teste de magic link pós-reset da cota.
+
+## 2026-09-23 — PLAN 2 Fase A (P0): fidelidade ao exame (catálogo + quotas + teclado + dúvida)
+
+- **Objetivo:** corrigir 4 bugs reais da auditoria: monodomínio (2.2), oficiais órfãos (2.2b), botão dúvida morto (2.3), teclado multi-select+A–D (2.4).
+- **Entregas:**
+  - `src/data/simulados.ts`: `PROPORTIONS` + `SIMULADOS` (10 oficiais validados por Zod `min 1`) + `getSimuladoById`.
+  - `src/engine/QuestionSelector.ts`: novo `pickByIds(pool, ids)` (ordem JSON, ignora ausentes) — usado no modo `fixed`.
+  - `src/engine/keyboard.ts`: `toggleSelection(current, letter, isMultiple)` — suporte a multi-select via teclado.
+  - `src/components/catalog-screen.ts` (novo): lista 10 oficiais + "Simulado Dinâmico" (seed `Date.now()%100000`); evento `start` com `SimuladoSpec`.
+  - `src/components/app-shell.ts`: `startQuiz(spec)` com `mode==='fixed'→pickByIds` / `seed→domainQuotas(count, PROPORTIONS)`; `simId`/`pendingSpec` por sessão; teclado `1–4` + letras `A–D` via `toggleSelection`; aba `catalog` via home CTA + link orientação; orientação dinâmica com título do sim + "Escolher outro simulado".
+  - `src/components/progress-panel.ts` (A2): `@click=${() => this.toggleResolve(d.questionId)}` — fix do `dataset.qid`→closure.
+  - **Mobile overflow 6px pré-existente** (botão "Progresso" no nav esticava 396>390): fix `nav button { min-width:0; overflow:hidden; text-overflow:ellipsis }` — home/catalog/orientation 390=390.
+  - **Axe:** catalog 0 violações, orientation 0 violações.
+- **Testes novos:** `simulados.test.ts` (4: 10 sims/50 únicos, quotas exatas ig12·st9·co12·rv10·mo7, pickByIds ordem, ausentes ignorados), `keyboard.test.ts` (3), `catalog.spec.ts` (2: dinâmico cobre 5 domínios, oficial-01 50 q).
+- **Resultados:** unit **45/45** (+7), e2e **11/11** (+2), validate 950/0, build OK, JS gz **109.3KB / 140KB**, lint/tsc clean.
+- **Próximo:** Fase B (P1) — review-card com opções, navigator colapsável, sessão Leitner, cases em bloco.

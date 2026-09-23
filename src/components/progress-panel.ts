@@ -136,9 +136,7 @@ export class ProgressPanel extends LitElement {
                       <li class="${d.resolved ? 'done' : ''}">
                         <p><strong>${d.questionId}</strong> · ${lang}</p>
                         ${d.note ? html`<p class="note">${d.note}</p>` : ''}
-                        <button type="button" .data-qid=${d.questionId} @click=${(
-                          e: Event,
-                        ) => this.toggleResolve(e)}>
+                        <button type="button" @click=${() => this.toggleResolve(d.questionId)}>
                           ${d.resolved ? 'Reabrir' : 'Resolver'}
                         </button>
                       </li>
@@ -179,9 +177,7 @@ export class ProgressPanel extends LitElement {
     return d.tag ? (map[d.tag ?? ''] ?? d.tag) : ''
   }
 
-  private async toggleResolve(e: Event) {
-    const qid = (e.currentTarget as HTMLButtonElement).dataset.qid
-    if (!qid) return
+  private async toggleResolve(qid: string) {
     const doubt = this.doubts.find((d) => d.questionId === qid)
     if (!doubt) return
     doubt.resolved = !doubt.resolved

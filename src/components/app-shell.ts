@@ -1,9 +1,15 @@
 import { css, html, LitElement } from 'lit'
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
+import { PROPORTIONS, SIMULADOS } from '../data/simulados.js'
+import { toggleSelection } from '../engine/keyboard.js'
 import { gradeCard } from '../engine/LeitnerEngine.js'
-import { selectQuestions } from '../engine/QuestionSelector.js'
+import {
+  domainQuotas,
+  pickByIds,
+  selectQuestions,
+} from '../engine/QuestionSelector.js'
 import { QuizEngine } from '../engine/QuizEngine.js'
-import type { Question } from '../engine/question-schema.js'
+import type { Question, SimuladoSpec } from '../engine/question-schema.js'
 import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
 import { analyzeAttempt, type StudyGuideResult } from '../engine/StudyGuide.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
@@ -42,6 +48,7 @@ import type {
 } from '../sync/types.js'
 import { logger } from '../utils/logger.js'
 import './admin-panel.js'
+import './catalog-screen.js'
 import './login-screen.js'
 import './navigator-grid.js'
 import './progress-panel.js'
@@ -59,9 +66,10 @@ const TABS = [
   { id: 'stats', label: 'Stats' },
 ] as const
 
-type TabId = (typeof TABS)[number]['id'] | 'progress' | 'admin'
+type TabId = (typeof TABS)[number]['id'] | 'progress' | 'admin' | 'catalog'
 
-const SIM_ID = 'sim-ig-01'
+// Sessão default: 1º simulado oficial (nav "Simulado" direto, sem catálogo).
+const DEFAULT_SIM_ID = SIMULADOS[0]?.id ?? 'sim-oficial-01'
 
 function localDate(d = new Date()) {
   return d.toISOString().slice(0, 10)
@@ -139,6 +147,8 @@ export class AppShell extends LitElement {
   private timerId = 0
   private persistId = 0
   private startedAt = 0
+  private simId = DEFAULT_SIM_ID
+  private pendingSpec: SimuladoSpec | null = null
 
   constructor() {
     super()
@@ -227,12 +237,12 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      const res = await syncNow(this.userId, SIM_ID).catch(
+      const res = await syncNow(this.userId, this.simId).catch(
         hush('sync', 'syncFromCloud: syncNow falhou (best-effort)'),
       )
       this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
       // Se a sessão remota era mais nova, o IDB foi atualizado — recarrega estado
-      const saved = await loadSession(SIM_ID).catch(
+      const saved = await loadSession(this.simId).catch(
         hush('data', 'syncFromCloud: leitura de sessão falhou'),
       )
       if (saved && saved.answers.length > 0 && this.quiz.length === 0) {
@@ -247,7 +257,7 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      const res = await syncNow(this.userId, SIM_ID).catch(
+      const res = await syncNow(this.userId, this.simId).catch(
         hush('sync', 'retrySync: syncNow falhou (banner mantido)'),
       )
       this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
@@ -256,17 +266,37 @@ export class AppShell extends LitElement {
     }
   }
 
+  private keyToLetter(key: string): string | null {
+    const idx = Number(key) - 1
+    if (Number.isInteger(idx) && idx >= 0 && idx < 4)
+      return String.fromCharCode(65 + idx)
+    if (/^[a-dA-D]$/.test(key)) return key.toUpperCase()
+    return null
+  }
+
   private onKey = (e: KeyboardEvent) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return
     if (this.tab !== 'quiz' || this.engine.state !== 'active') return
     const q = this.quiz[this.current]
     if (!q) return
     if (e.key === 'ArrowRight')
       this.current = Math.min(this.current + 1, this.quiz.length - 1)
     else if (e.key === 'ArrowLeft') this.current = Math.max(this.current - 1, 0)
-    else if (['1', '2', '3', '4'].includes(e.key)) {
-      const idx = Number(e.key) - 1
-      const opt = q.options[idx]
-      if (opt) this.onAnswer([opt.letter])
+    else {
+      const letter = this.keyToLetter(e.key)
+      const opt = letter
+        ? q.options.find((o) => o.letter === letter)
+        : undefined
+      if (opt) {
+        const isMultiple = q.type === 'multiple'
+        this.onAnswer(
+          toggleSelection(
+            this.engine.answers.get(q.id) ?? [],
+            opt.letter,
+            isMultiple,
+          ),
+        )
+      }
     }
   }
 
@@ -274,28 +304,44 @@ export class AppShell extends LitElement {
     this.tab = tab
   }
 
-  private async startQuiz() {
+  private async startQuiz(spec: SimuladoSpec) {
     this.loading = true
     await ensureSeeded()
     const pool = (await getQuestionPool()) as Question[]
-    const progress = await loadAllProgress()
+    const progress = await loadAllProgress().catch(
+      hushArr('data', 'startQuiz: leitura de progresso falhou'),
+    )
     const usage = new Map(progress.map((p) => [p.questionId, p.usageCount]))
-    const picked = selectQuestions(pool, {
-      seed: Date.now() % 100000,
-      count: Math.min(50, pool.length),
-      quotas: {
-        [pool[0]?.domain ?? 'identidade-governanca']: Math.min(50, pool.length),
-      },
-      recentIds: new Set(),
-      usageCount: usage,
-    })
+    const picked =
+      spec.mode === 'fixed'
+        ? pickByIds(pool, spec.questionIds)
+        : selectQuestions(pool, {
+            seed: spec.seed,
+            count: Math.min(spec.questionCount, pool.length),
+            quotas: domainQuotas(
+              Math.min(spec.questionCount, pool.length),
+              PROPORTIONS,
+            ),
+            recentIds: new Set(),
+            usageCount: usage,
+          })
+    this.pendingSpec = spec
+    this.simId = spec.id
+    if (picked.length === 0) {
+      this.loading = false
+      this.tab = 'catalog'
+      logger.warn('quiz', 'startQuiz: nenhuma questão selecionável')
+      return
+    }
 
-    // Restaura sessão anterior se existir
-    const saved = await loadSession(SIM_ID).catch(
+    // Restaura sessão anterior do MESMO sim (cada sim persiste separado)
+    const saved = await loadSession(spec.id).catch(
       hush('data', 'startQuiz: restauração de sessão falhou'),
     )
     this.engine.load(picked)
     this.quiz = picked
+    this.current = this.engine.index
+    this.timer = new TimerEngine(spec.timeLimitMinutes)
     if (saved && saved.answers.length > 0) {
       this.engine.restore({
         state: saved.state as never,
@@ -304,8 +350,8 @@ export class AppShell extends LitElement {
         flagged: saved.flagged,
       })
       this.timer.remaining = saved.timerRemaining
+      this.current = this.engine.index
     }
-    this.current = this.engine.index
     this.timer.start()
     this.startedAt = Date.now()
     this.timerId = window.setInterval(() => {
@@ -315,6 +361,7 @@ export class AppShell extends LitElement {
     }, 1000)
     this.persistId = window.setInterval(() => void this.persist(), 30000)
     this.loading = false
+    logger.info('quiz', 'simulado iniciado', { id: spec.id })
   }
 
   private stopLoops() {
@@ -325,7 +372,7 @@ export class AppShell extends LitElement {
   private async persist() {
     const snap = this.engine.snapshot()
     await saveSession({
-      id: SIM_ID,
+      id: this.simId,
       state: snap.state,
       index: snap.index,
       answers: snap.answers,
@@ -334,7 +381,7 @@ export class AppShell extends LitElement {
       updatedAt: Date.now(),
     }).catch(hush('data', 'persist: saveSession falhou'))
     if (this.userId) {
-      await pushSession(this.userId, SIM_ID).catch(
+      await pushSession(this.userId, this.simId).catch(
         hush('sync', 'persist: pushSession falhou'),
       )
     }
@@ -408,7 +455,7 @@ export class AppShell extends LitElement {
       await pushProgress(this.userId).catch(
         hush('sync', 'finish: pushProgress falhou'),
       )
-      await pushSession(this.userId, SIM_ID).catch(
+      await pushSession(this.userId, this.simId).catch(
         hush('sync', 'finish: pushSession falhou'),
       )
       const res = await pushPlatform(this.userId).catch(
@@ -427,7 +474,7 @@ export class AppShell extends LitElement {
       id: crypto.randomUUID(),
       userId,
       kind: 'simulado',
-      simuladoId: SIM_ID,
+      simuladoId: this.simId,
       startedAt: this.startedAt || now,
       finishedAt: now,
       durationSeconds: Math.max(0, Math.round((now - this.startedAt) / 1000)),
@@ -492,6 +539,7 @@ export class AppShell extends LitElement {
       </header>
       ${this.tab === 'quiz' ? this.renderQuiz() : ''}
       ${this.tab === 'home' ? this.renderHome() : ''}
+      ${this.tab === 'catalog' ? this.renderCatalog() : ''}
       ${this.tab === 'review' ? this.renderReview() : ''}
       ${this.tab === 'stats' ? this.renderStats() : ''}
       ${this.tab === 'progress' ? this.renderProgress() : ''}
@@ -515,6 +563,18 @@ export class AppShell extends LitElement {
     return tabs
   }
 
+  private renderCatalog() {
+    return html`<catalog-screen
+      @start=${(e: CustomEvent<SimuladoSpec>) => this.onCatalogStart(e.detail)}
+    ></catalog-screen>`
+  }
+
+  private onCatalogStart(spec: SimuladoSpec) {
+    this.pendingSpec = spec
+    this.simId = spec.id
+    this.tab = 'quiz'
+  }
+
   private renderHome() {
     return html`
       <main>
@@ -524,18 +584,22 @@ export class AppShell extends LitElement {
           </div>
           <h1 class="sr-only">Passei AZ-104</h1>
           <p>950 questões e simulados no formato, tempo e nota do exame AZ‑104. Estude offline e continue de qualquer dispositivo.</p>
-          <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
+            <button type="button" class="btn" @click=${() => this.select('catalog')}>Escolher um simulado</button>
+          </div>
         </section>
       </main>
     `
   }
 
   private renderOrientation() {
+    const title = this.pendingSpec?.title ?? SIMULADOS[0]?.title ?? 'Simulado'
     return html`
       <main>
         <section class="card orientation">
           <h1 class="sr-only">Orientação do simulado</h1>
-          <h2>Simulado oficial — antes de começar</h2>
+          <h2>${title} — antes de começar</h2>
           <p>
             Este simulado usa o mesmo formato do exame <strong>Azure
             Administrator Associate (AZ‑104)</strong>: 50 questões, 100 minutos,
@@ -556,9 +620,14 @@ export class AppShell extends LitElement {
             <li>Ao final, veja a <strong>revisão completa</strong>: sua resposta,
             a correta e a explicação de cada questão.</li>
           </ul>
-          <button type="button" class="btn btn-primary" @click=${() => void this.startQuiz()}>
-            Começar simulado
-          </button>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" @click=${() => void this.startQuiz(this.pendingSpec ?? SIMULADOS[0])}>
+              Começar simulado
+            </button>
+            <button type="button" class="btn" @click=${() => this.select('catalog')}>
+              Escolher outro simulado
+            </button>
+          </div>
         </section>
       </main>
     `
@@ -724,6 +793,12 @@ export class AppShell extends LitElement {
       margin: 0 0 20px;
       line-height: 1.6;
     }
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
     :host {
       display: flex;
       flex-direction: column;
@@ -852,12 +927,16 @@ export class AppShell extends LitElement {
     }
     nav button {
       flex: 1;
+      min-width: 0;
       background: none;
       border: none;
       color: var(--text-dim);
       cursor: pointer;
       border-radius: var(--radius-sm);
       margin: 6px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     @media (prefers-reduced-motion: no-preference) {
       nav button {

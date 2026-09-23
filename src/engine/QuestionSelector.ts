@@ -75,3 +75,17 @@ export function selectQuestions(
   }
   return picked.slice(0, opts.count)
 }
+
+// Sim pluralizado fixo: preserva a ordem do array de ids (sim oficiais).
+export function pickByIds<T extends { id: string }>(
+  pool: T[],
+  ids: string[],
+): T[] {
+  const byId = new Map(pool.map((q) => [q.id, q]))
+  const out: T[] = []
+  for (const id of ids) {
+    const q = byId.get(id)
+    if (q) out.push(q)
+  }
+  return out
+}
