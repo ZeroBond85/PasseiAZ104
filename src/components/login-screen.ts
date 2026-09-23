@@ -9,12 +9,16 @@ export class LoginScreen extends LitElement {
     sending: { type: Boolean },
     sent: { type: Boolean },
     error: { type: String },
+    coolUntil: { type: Number },
   }
 
   declare email: string
   declare sending: boolean
   declare sent: boolean
   declare error: string
+  declare coolUntil: number
+
+  private cooldownTimer = 0
 
   constructor() {
     super()
@@ -22,6 +26,33 @@ export class LoginScreen extends LitElement {
     this.sending = false
     this.sent = false
     this.error = ''
+    this.coolUntil = 0
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback()
+    window.clearInterval(this.cooldownTimer)
+    this.cooldownTimer = 0
+  }
+
+  private get cooling(): boolean {
+    return Date.now() < this.coolUntil
+  }
+
+  private get cooldownSecs(): number {
+    return Math.max(0, Math.ceil((this.coolUntil - Date.now()) / 1000))
+  }
+
+  private startCooldown() {
+    this.coolUntil = Date.now() + 60_000
+    window.clearInterval(this.cooldownTimer)
+    this.cooldownTimer = window.setInterval(() => {
+      if (!this.cooling) {
+        window.clearInterval(this.cooldownTimer)
+        this.cooldownTimer = 0
+      }
+      this.requestUpdate()
+    }, 1000)
   }
 
   private async submit(e: Event) {
@@ -43,6 +74,9 @@ export class LoginScreen extends LitElement {
         : msg || 'Falha ao enviar o link.'
     } finally {
       this.sending = false
+      // Cooldown 60s após qualquer tentativa: evita queimar a cota do SMTP
+      // e cair na janela anti-abuso do Supabase.
+      this.startCooldown()
     }
   }
 
@@ -82,8 +116,8 @@ export class LoginScreen extends LitElement {
                     ?disabled=${this.sending}
                     aria-describedby="email-hint"
                   />
-                  <button type="submit" class="btn btn-primary" ?disabled=${this.sending}>
-                    ${this.sending ? 'Enviando…' : 'Entrar com link mágico'}
+                  <button type="submit" class="btn btn-primary" ?disabled=${this.sending || this.cooling}>
+                    ${this.sending ? 'Enviando…' : this.cooling ? `Aguarde ${this.cooldownSecs}s…` : 'Entrar com link mágico'}
                   </button>
                   <p id="email-hint" class="hint">
                     Você receberá um link de acesso no e-mail.
