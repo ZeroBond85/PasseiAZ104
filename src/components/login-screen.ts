@@ -36,8 +36,11 @@ export class LoginScreen extends LitElement {
       await signInWithEmail(this.email.trim())
       this.sent = true
     } catch (err) {
-      this.error =
-        err instanceof Error ? err.message : 'Falha ao enviar o link.'
+      const msg = err instanceof Error ? err.message : ''
+      // Supabase 429 (built-in SMTP: poucas msgs/hora + janela 60s por usuário).
+      this.error = /rate limit|429|too many/i.test(msg)
+        ? 'Muitas tentativas de envio. Aguarde alguns minutos e tente de novo.'
+        : msg || 'Falha ao enviar o link.'
     } finally {
       this.sending = false
     }
