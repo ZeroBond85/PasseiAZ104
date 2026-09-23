@@ -69,8 +69,10 @@ await shot(
   'hero-wide.png',
 )
 
-// Logo de exibição (login/home): WebP transparente na resolução nativa da
-// fonte — PNG de 387KB seria ~2x o peso do hero-wide antigo (guard: perf/lh total 900KB).
+// Logo de exibição (login/home): WebP recortado nas margens transparentes
+// (a arte ocupa ~1/3 do quadro — crop deixa o logo ~3x maior na mesma largura)
+// + fundo transparente preservado. PNG de 387KB seria ~2x o peso do hero-wide
+// antigo (guard: perf/lh total 900KB).
 async function shotWebp(out: string) {
   const page = await browser.newPage()
   await page.setContent(
@@ -79,13 +81,41 @@ async function shotWebp(out: string) {
   await page.locator('#l').waitFor()
   const dataUrl = await page.evaluate(async () => {
     const img = document.getElementById('l') as HTMLImageElement
-    const c = document.createElement('canvas')
-    c.width = img.naturalWidth
-    c.height = img.naturalHeight
-    const x = c.getContext('2d')
-    if (!x) return ''
-    x.drawImage(img, 0, 0)
-    return c.toDataURL('image/webp', 0.86)
+    const src = document.createElement('canvas')
+    src.width = img.naturalWidth
+    src.height = img.naturalHeight
+    const sx = src.getContext('2d')
+    if (!sx) return ''
+    sx.drawImage(img, 0, 0)
+    // bbox dos pixels visíveis (alpha > 10) + respiro de 24px
+    const d = sx.getImageData(0, 0, src.width, src.height).data
+    let minX = src.width,
+      minY = src.height,
+      maxX = 0,
+      maxY = 0
+    for (let y = 0; y < src.height; y++)
+      for (let x = 0; x < src.width; x++) {
+        if (d[(y * src.width + x) * 4 + 3] > 10) {
+          if (x < minX) minX = x
+          if (x > maxX) maxX = x
+          if (y < minY) minY = y
+          if (y > maxY) maxY = y
+        }
+      }
+    const pad = 24
+    minX = Math.max(0, minX - pad)
+    minY = Math.max(0, minY - pad)
+    maxX = Math.min(src.width - 1, maxX + pad)
+    maxY = Math.min(src.height - 1, maxY + pad)
+    const w = maxX - minX + 1,
+      h = maxY - minY + 1
+    const dst = document.createElement('canvas')
+    dst.width = w
+    dst.height = h
+    const dx = dst.getContext('2d')
+    if (!dx) return ''
+    dx.drawImage(src, minX, minY, w, h, 0, 0, w, h)
+    return dst.toDataURL('image/webp', 0.9)
   })
   writeFileSync(
     new URL(out, ROOT),

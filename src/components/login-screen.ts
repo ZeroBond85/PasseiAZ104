@@ -47,16 +47,18 @@ export class LoginScreen extends LitElement {
     return html`
       <main class="login">
         <section class="card login-card">
-          <img
-            class="logo"
-            src="icons/source-logo.webp"
-            alt=""
-            width="320"
-            height="203"
-          />
+          <div class="logo-wrap">
+            <img
+              class="logo"
+              src="icons/source-logo.webp"
+              alt=""
+              width="1040"
+              height="341"
+            />
+          </div>
           <h1 class="sr-only">Passei AZ-104</h1>
           <p class="sub">
-            Do seu jeito, até a aprovação: simule a prova real, revise o que
+            Do seu jeito, até a aprovação no AZ-104: simule a prova real, revise o que
             errou e estude no seu ritmo — em qualquer dispositivo.
           </p>
           ${
@@ -115,11 +117,20 @@ export class LoginScreen extends LitElement {
       width: 100%;
       padding: 32px 24px 28px;
     }
+    .logo-wrap {
+      background: #ffffff;
+      border: 1px solid rgb(0 0 0 / 0.08);
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgb(0 0 0 / 0.35);
+      padding: 18px 22px;
+      width: min(340px, 86%);
+      margin: 0 auto 22px;
+      box-sizing: border-box;
+    }
     .logo {
-      width: min(280px, 72%);
+      width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 20px;
     }
     h1 {
       margin: 12px 0 4px;
