@@ -87,7 +87,8 @@ async function shotWebp(out: string) {
     const sx = src.getContext('2d')
     if (!sx) return ''
     sx.drawImage(img, 0, 0)
-    // bbox dos pixels visíveis (alpha > 10) + respiro de 24px
+    // bbox dos pixels visíveis (alpha > 10) + respiro mínimo de 8px
+    // (painel branco justo à arte; padding visual fica no CSS)
     const d = sx.getImageData(0, 0, src.width, src.height).data
     let minX = src.width,
       minY = src.height,
@@ -102,7 +103,7 @@ async function shotWebp(out: string) {
           if (y > maxY) maxY = y
         }
       }
-    const pad = 24
+    const pad = 8
     minX = Math.max(0, minX - pad)
     minY = Math.max(0, minY - pad)
     maxX = Math.min(src.width - 1, maxX + pad)

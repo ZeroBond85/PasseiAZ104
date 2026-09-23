@@ -410,7 +410,7 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <span class="logo-chip"><img src="icons/source-logo.webp" alt="" width="1040" height="341" /></span>
+        <span class="logo-chip"><img src="icons/source-logo.webp" alt="" width="1008" height="309" /></span>
         <div class="brand">
           <strong>Passei AZ-104</strong>
           <span>Estudo para o exame AZ-104</span>
@@ -451,7 +451,7 @@ export class AppShell extends LitElement {
       <main>
         <section class="card hero">
           <div class="logo-wrap">
-            <img src="icons/source-logo.webp" alt="" width="1040" height="341" aria-hidden="true" class="hero-logo" />
+            <img src="icons/source-logo.webp" alt="" width="1008" height="309" aria-hidden="true" class="hero-logo" />
           </div>
           <h1 class="sr-only">Passei AZ-104</h1>
           <p>950 questões com explicação em 5 domínios: identidade e governança, storage, computação, rede e monitoramento. Simulados no mesmo formato, tempo de prova e pontuação do exame Azure Administrator Associate (AZ-104). Estude offline, anote suas dúvidas e continue de onde parou em qualquer dispositivo.</p>
@@ -622,9 +622,9 @@ export class AppShell extends LitElement {
     .hero .logo-wrap {
       background: #ffffff;
       border: 1px solid rgb(0 0 0 / 0.08);
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: 0 8px 28px rgb(0 0 0 / 0.35);
-      padding: 16px 20px;
+      padding: 10px 12px;
       width: min(340px, 86%);
       margin: 0 auto;
       box-sizing: border-box;
