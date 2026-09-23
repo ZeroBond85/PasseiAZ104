@@ -99,3 +99,14 @@
 - **Testes novos:** `simulados.test.ts` (4: 10 sims/50 únicos, quotas exatas ig12·st9·co12·rv10·mo7, pickByIds ordem, ausentes ignorados), `keyboard.test.ts` (3), `catalog.spec.ts` (2: dinâmico cobre 5 domínios, oficial-01 50 q).
 - **Resultados:** unit **45/45** (+7), e2e **11/11** (+2), validate 950/0, build OK, JS gz **109.3KB / 140KB**, lint/tsc clean.
 - **Próximo:** Fase B (P1) — review-card com opções, navigator colapsável, sessão Leitner, cases em bloco.
+
+## 2026-09-23 — PLAN 2 Fase B (P1): UX de estudo (review-card, navigator, Leitner, cases)
+
+- **Objetivo:** melhorar a experiência de estudo e revisão.
+- **Entregas:**
+  - **B1 review-card opções:** exibe alternativas (A–D) com badges ✓ verde (correta) / ✗ vermelho (sua errada) + explicação preservada.
+  - **B2 navigator colapsável:** em ≤520px mostra toggle "Questões (N/50)" com `aria-expanded`; desktop mantém grade visível.
+  - **B3 aba Estudo (Leitner):** nova tab "Estudo" → `getDue` (50 mais urgentes) → `estudo-card` com autoavaliação Again/Hard/Good/Easy (SM-2 simplificado) → `gradeCard` → `saveProgress`; pergunta revelada após grade + botões mantidos p/ reavaliação.
+  - **B3.5 cases contíguos:** `selectQuestions` agrupa questões de mesmo `caseStudyId` juntas (ordem original do pool preservada).
+- **Testes:** unit 45/45, e2e 11/11, validate 950/0, build OK, JS gz 111.4KB / 140KB, lint clean.
+- **Próximo:** Fase C (P2) — modo local/offline, treino por domínio, pausa só treino.

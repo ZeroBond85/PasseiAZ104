@@ -131,12 +131,34 @@ export class LoginScreen extends LitElement {
           ${this.error ? html`<p class="err" role="alert">${this.error}</p>` : ''}
           ${
             isSyncEnabled()
-              ? ''
+              ? html`
+                  <button
+                    type="button"
+                    class="btn btn-secondary local-mode-btn"
+                    @click=${this.emitLocalMode}
+                    ?disabled=${this.sending}
+                  >
+                    Continuar sem conta (modo local)
+                  </button>
+                  <p class="hint local-hint">
+                    Seus dados ficam salvos apenas neste navegador. Pode sincronizar depois.
+                  </p>
+                `
               : html`<p class="warn">Sync desativado neste ambiente (sem Supabase). O app funciona 100% local.</p>`
           }
         </section>
       </main>
     `
+  }
+
+  private emitLocalMode() {
+    this.dispatchEvent(
+      new CustomEvent('local-mode', {
+        bubbles: true,
+        composed: true,
+        detail: {},
+      }),
+    )
   }
 
   static styles = css`

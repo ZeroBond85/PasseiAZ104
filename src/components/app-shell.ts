@@ -10,6 +10,7 @@ import {
 } from '../engine/QuestionSelector.js'
 import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question, SimuladoSpec } from '../engine/question-schema.js'
+import { CODE_BY_DOMAIN } from '../engine/question-schema.js'
 import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
 import { analyzeAttempt, type StudyGuideResult } from '../engine/StudyGuide.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
@@ -63,6 +64,7 @@ import './estudo-card.js'
 const TABS = [
   { id: 'home', label: 'Início' },
   { id: 'quiz', label: 'Simulado' },
+  { id: 'treino', label: 'Treino' },
   { id: 'estudo', label: 'Estudo' },
   { id: 'review', label: 'Revisão' },
   { id: 'stats', label: 'Stats' },
@@ -73,6 +75,7 @@ type TabId =
   | 'progress'
   | 'admin'
   | 'catalog'
+  | 'treino'
   | 'estudo'
 
 // Sessão default: 1º simulado oficial (nav "Simulado" direto, sem catálogo).
@@ -147,6 +150,12 @@ export class AppShell extends LitElement {
   declare syncFail: number
   declare isAdmin: boolean
   declare lastGuide: StudyGuideResult | null
+  declare localMode: boolean
+  declare treinoDomain: string | null
+  declare treinoPaused: boolean
+  declare treinoQuiz: Question[]
+  declare treinoCurrent: number
+  declare treinoEngine: QuizEngine
   private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
@@ -171,11 +180,18 @@ export class AppShell extends LitElement {
     this.syncFail = 0
     this.isAdmin = false
     this.lastGuide = null
+    this.localMode = false
+    this.treinoDomain = null
+    this.treinoPaused = false
+    this.treinoQuiz = []
+    this.treinoCurrent = 0
+    this.treinoEngine = new QuizEngine()
   }
 
   connectedCallback() {
     super.connectedCallback()
     window.addEventListener('keydown', this.onKey)
+    this.addEventListener('local-mode', this.onLocalMode)
     void getUserId().then((id) => {
       this.userId = id
       this.authReady = true
@@ -195,6 +211,21 @@ export class AppShell extends LitElement {
       if (!id) this.isAdmin = false
       this.requestUpdate()
     })
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback()
+    window.removeEventListener('keydown', this.onKey)
+    this.removeEventListener('local-mode', this.onLocalMode)
+    this.unsubAuth()
+    this.stopLoops()
+  }
+
+  private onLocalMode = () => {
+    this.localMode = true
+    this.userId = 'local'
+    this.authReady = true
+    this.requestUpdate()
   }
 
   private async ensureProfile(id: string) {
@@ -223,14 +254,8 @@ export class AppShell extends LitElement {
     }
   }
 
-  disconnectedCallback() {
-    super.disconnectedCallback()
-    window.removeEventListener('keydown', this.onKey)
-    this.unsubAuth()
-    this.stopLoops()
-  }
-
   get needsLogin() {
+    if (this.localMode) return false
     if (
       typeof location !== 'undefined' &&
       new URLSearchParams(location.search).has('local')
@@ -547,6 +572,7 @@ export class AppShell extends LitElement {
       ${this.tab === 'quiz' ? this.renderQuiz() : ''}
       ${this.tab === 'home' ? this.renderHome() : ''}
       ${this.tab === 'catalog' ? this.renderCatalog() : ''}
+      ${this.tab === 'treino' ? this.renderTreino() : ''}
       ${this.tab === 'estudo' ? this.renderEstudo() : ''}
       ${this.tab === 'review' ? this.renderReview() : ''}
       ${this.tab === 'stats' ? this.renderStats() : ''}
@@ -743,6 +769,146 @@ export class AppShell extends LitElement {
         )}
       </main>
     `
+  }
+
+  private renderTreino() {
+    if (this.treinoDomain) {
+      return this.renderTreinoQuiz()
+    }
+    return html`
+      <main>
+        <header class="treino-header">
+          <h2>Treino por domínio</h2>
+          <p class="hint">Escolha um domínio para praticar questões focadas.</p>
+        </header>
+        <div class="treino-grid">
+          ${Object.entries(CODE_BY_DOMAIN).map(
+            ([domain, code]) => html`
+              <button
+                type="button"
+                class="treino-btn"
+                @click=${() => void this.startTreino(domain)}
+              >
+                <span class="code">${code.toUpperCase()}</span>
+                <span class="label">${domain}</span>
+              </button>
+            `,
+          )}
+        </div>
+      </main>
+    `
+  }
+
+  private async startTreino(domain: string) {
+    const pool = await getQuestionPool()
+    const domainQuestions = pool.filter((q) => q.domain === domain)
+    if (domainQuestions.length === 0) return
+
+    // Pick 20 questions from this domain
+    const picked = domainQuestions.sort(() => Math.random() - 0.5).slice(0, 20)
+
+    this.treinoDomain = domain
+    this.treinoQuiz = picked
+    this.treinoCurrent = 0
+    this.treinoEngine = new QuizEngine()
+    this.treinoPaused = false
+    this.requestUpdate()
+  }
+
+  private renderTreinoQuiz() {
+    const q = this.treinoQuiz[this.treinoCurrent]
+    if (!q) return html`<main><p>Nenhuma questão.</p></main>`
+    const progress = `${this.treinoCurrent + 1} / ${this.treinoQuiz.length}`
+    return html`
+      <main>
+        <header class="treino-quiz-header">
+          <h2>Treino: ${this.treinoDomain}</h2>
+          <div class="treino-progress">
+            <span>${progress}</span>
+            ${
+              !this.treinoPaused
+                ? html`<button type="button" class="btn" @click=${() => this.pauseTreino()}>Pausar</button>`
+                : html`<button type="button" class="btn btn-primary" @click=${() => this.resumeTreino()}>Continuar</button>`
+            }
+            <button type="button" class="btn btn-secondary" @click=${() => this.exitTreino()}>Sair</button>
+          </div>
+        </header>
+        <p class="progress" aria-live="polite">Questão ${progress}</p>
+        <question-card
+          .question=${q}
+          .selected=${this.treinoEngine.answers.get(q.id) ?? []}
+          @answer=${(e: CustomEvent) => this.onTreinoAnswer(e.detail)}
+        ></question-card>
+        <div class="actions">
+          <button
+            type="button"
+            class="btn"
+            @click=${() => this.onTreinoFlag(q.id)}
+            ?disabled=${this.treinoPaused}
+          >
+            ${this.treinoEngine.flagged.has(q.id) ? '⚑ Desmarcar' : '⚑ Marcar'}
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click=${() => void this.finishTreino()}
+            ?disabled=${this.treinoPaused}
+          >
+            Finalizar
+          </button>
+        </div>
+      </main>
+    `
+  }
+
+  private onTreinoAnswer(ans: string[]) {
+    if (this.treinoPaused) return
+    this.treinoEngine.answer(this.treinoQuiz[this.treinoCurrent].id, ans)
+    this.requestUpdate()
+  }
+
+  private onTreinoFlag(qid: string) {
+    if (this.treinoPaused) return
+    if (this.treinoEngine.flagged.has(qid)) {
+      this.treinoEngine.flagged.delete(qid)
+    } else {
+      this.treinoEngine.flagged.add(qid)
+    }
+    this.requestUpdate()
+  }
+
+  private pauseTreino() {
+    this.treinoPaused = true
+    this.requestUpdate()
+  }
+
+  private resumeTreino() {
+    this.treinoPaused = false
+    this.requestUpdate()
+  }
+
+  private exitTreino() {
+    this.treinoDomain = null
+    this.treinoQuiz = []
+    this.treinoCurrent = 0
+    this.treinoPaused = false
+    this.requestUpdate()
+  }
+
+  private finishTreino() {
+    if (this.treinoPaused) return
+    const correct = this.treinoQuiz.filter((q) => {
+      const given = this.treinoEngine.answers.get(q.id) ?? []
+      const expected = new Set(q.correct)
+      return (
+        given.length === expected.size &&
+        [...expected].every((l) => given.includes(l))
+      )
+    }).length
+    const total = this.treinoQuiz.length
+    const pct = Math.round((correct / total) * 100)
+    alert(`Treino concluído: ${correct}/${total} (${pct}%)`)
+    this.exitTreino()
   }
 
   private renderAdmin() {
@@ -1034,6 +1200,67 @@ export class AppShell extends LitElement {
         flex: 0 1 auto;
         padding: 0 24px;
       }
+    }
+    .treino-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .treino-header h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+    .treino-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .treino-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface-raised);
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .treino-btn:hover {
+      border-color: var(--brand);
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.2);
+    }
+    .treino-btn .code {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    .treino-btn .label {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .treino-quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .treino-quiz-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .treino-progress {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .treino-progress .btn {
+      font-size: 13px;
+      padding: 6px 12px;
     }
   `
 }
