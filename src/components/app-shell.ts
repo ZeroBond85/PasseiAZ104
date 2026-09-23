@@ -410,7 +410,7 @@ export class AppShell extends LitElement {
     if (this.needsLogin) return html`<login-screen></login-screen>`
     return html`
       <header>
-        <img src="icons/header-112.png" alt="Passei AZ-104" width="75" height="48" />
+        <span class="logo-chip"><img src="icons/source-logo.webp" alt="" width="1040" height="341" /></span>
         <div class="brand">
           <strong>Passei AZ-104</strong>
           <span>Estudo para o exame AZ-104</span>
@@ -656,11 +656,18 @@ export class AppShell extends LitElement {
       background: linear-gradient(180deg, var(--surface-raised), var(--surface));
       border-bottom: 1px solid var(--border);
     }
-    header img {
-      width: auto;
-      height: 48px;
+    header .logo-chip {
+      background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgb(0 0 0 / 0.4);
+      padding: 5px 8px;
+      display: inline-flex;
+      align-items: center;
+    }
+    header .logo-chip img {
+      width: auto;
+      height: 38px;
+      display: block;
     }
     .brand {
       display: flex;
