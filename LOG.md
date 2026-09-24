@@ -110,3 +110,14 @@
   - **B3.5 cases contíguos:** `selectQuestions` agrupa questões de mesmo `caseStudyId` juntas (ordem original do pool preservada).
 - **Testes:** unit 45/45, e2e 11/11, validate 950/0, build OK, JS gz 111.4KB / 140KB, lint clean.
 - **Próximo:** Fase C (P2) — modo local/offline, treino por domínio, pausa só treino.
+
+## 2026-09-23 — PLAN 2 Fase C (P2): modo local/offline + treino por domínio
+
+- **Objetivo:** permitir uso sem login + treino focado por domínio.
+- **Entregas:**
+  - **C1 modo local/offline:** botão "Continuar sem conta (modo local)" na tela de login → define `localMode=true`, `userId='local'`, `authReady=true`; toda persistência em IDB (sessão, progresso, tentativas); sync opcional posterior.
+  - **C2 aba Treino:** nova tab "Treino" → grade 5 domínios (IG/ST/CO/RV/MO) → 20 questões aleatórias do domínio → quiz com pause/continue/exit → pause/resume **só no treino** (simulado oficial não permite pausa).
+  - UI: header com progresso + botões Pausar/Continuar/Sair; question-card reutilizado; flag/marcar revisão; finalização com score percentual.
+  - Persistência: usa `QuizEngine` separado (`treinoEngine`) para não interferir no simulado oficial.
+- **Testes:** unit 45/45, e2e 11/11, validate 950/0, build OK, JS gz **112.4KB / 140KB**, lint clean.
+- **Próximo:** Fase D (P3) — modal finalização, card vitória, polish visual, axe catalog/orientation.

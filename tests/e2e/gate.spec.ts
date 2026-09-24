@@ -29,6 +29,11 @@ test('tema persiste, timer 100min, score e flag', async ({ page }) => {
   await expect(page.getByRole('button', { name: /marcada/ })).toHaveCount(1)
 
   await page.getByRole('button', { name: /Finalizar/ }).click()
+  // Confirmar no modal customizado (dialog acessível via role)
+  await page
+    .getByRole('dialog', { name: 'Finalizar simulado?' })
+    .getByRole('button', { name: 'Finalizar' })
+    .click()
   await expect(page.locator('stats-dashboard h2')).toContainText('/ 1000')
   expect(errors).toEqual([])
 })

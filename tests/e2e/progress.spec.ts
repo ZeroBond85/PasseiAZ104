@@ -19,6 +19,11 @@ test('progresso: attempt vira stats + diamond de estudo guiado + dúvida', async
   await page.keyboard.press('2')
   // Finaliza (49 sem responder → dialog aceito)
   await page.getByRole('button', { name: /Finalizar/ }).click()
+  // Confirmar no modal customizado (dialog acessível via role)
+  await page
+    .getByRole('dialog', { name: 'Finalizar simulado?' })
+    .getByRole('button', { name: 'Finalizar' })
+    .click()
   await expect(page.locator('stats-dashboard h2')).toBeVisible({
     timeout: 10000,
   })

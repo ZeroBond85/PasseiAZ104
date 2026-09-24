@@ -60,6 +60,7 @@ import './stats-dashboard.js'
 import './study-guide.js'
 import './timer-bar.js'
 import './estudo-card.js'
+import './modal-dialog.js'
 
 const TABS = [
   { id: 'home', label: 'Início' },
@@ -124,6 +125,10 @@ function toPayload(g: StudyGuideResult): StudyGuidePayload {
 }
 
 export class AppShell extends LitElement {
+  protected createRenderRoot() {
+    return this // light DOM for shadow-piercing selectors in tests
+  }
+
   static properties = {
     tab: { type: String },
     quiz: { type: Object },
@@ -136,6 +141,8 @@ export class AppShell extends LitElement {
     syncing: { type: Boolean },
     syncFail: { type: Number },
     isAdmin: { type: Boolean },
+    finishConfirmOpen: { type: Boolean },
+    victoryOpen: { type: Boolean },
   }
 
   declare tab: TabId
@@ -156,6 +163,9 @@ export class AppShell extends LitElement {
   declare treinoQuiz: Question[]
   declare treinoCurrent: number
   declare treinoEngine: QuizEngine
+  declare finishConfirmOpen: boolean
+  declare finishResolve: ((v: boolean) => void) | null
+  declare victoryOpen: boolean
   private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
@@ -186,6 +196,9 @@ export class AppShell extends LitElement {
     this.treinoQuiz = []
     this.treinoCurrent = 0
     this.treinoEngine = new QuizEngine()
+    this.finishConfirmOpen = false
+    this.finishResolve = null
+    this.victoryOpen = false
   }
 
   connectedCallback() {
@@ -439,12 +452,17 @@ export class AppShell extends LitElement {
 
   private async finish(auto = false) {
     const missing = this.engine.unansweredCount()
-    if (
-      !auto &&
-      missing > 0 &&
-      !confirm(`${missing} sem responder. Finalizar mesmo assim?`)
-    )
-      return
+    if (!auto && missing > 0) {
+      this.finishConfirmOpen = true
+      this.requestUpdate()
+      await this.updateComplete
+      const confirmed = await new Promise<boolean>((resolve) => {
+        this.finishResolve = resolve
+      })
+      this.finishConfirmOpen = false
+      this.finishResolve = null
+      if (!confirmed) return
+    }
     this.stopLoops()
     this.engine.submit()
     const answers = new Map(this.engine.answers)
@@ -494,6 +512,9 @@ export class AppShell extends LitElement {
         hushSync('sync', 'finish: pushPlatform falhou'),
       )
       this.syncFail = res.failed
+    }
+    if (this.result.passed) {
+      this.victoryOpen = true
     }
     this.tab = 'review'
   }
@@ -587,6 +608,23 @@ export class AppShell extends LitElement {
           `,
         )}
       </nav>
+      <modal-dialog
+        .open=${this.finishConfirmOpen}
+        title="Finalizar simulado?"
+        message="${this.engine.unansweredCount()} questão(ões) sem responder. Tem certeza que deseja finalizar?"
+        confirmText="Finalizar"
+        cancelText="Voltar"
+        @confirm=${this.onFinishConfirm}
+        @cancel=${this.onFinishCancel}
+      ></modal-dialog>
+      <modal-dialog
+        .open=${this.victoryOpen}
+        variant="success"
+        title="Parabéns! 🎉"
+        message="Você foi aprovado no simulado! Pontuação: ${this.result?.score ?? 0}/1000"
+        confirmText="Ver revisão"
+        @confirm=${this.onVictoryClose}
+      ></modal-dialog>
     `
   }
 
@@ -984,6 +1022,18 @@ export class AppShell extends LitElement {
       }).catch(hush('data', 'grade: saveProgress falhou'))
       this.requestUpdate()
     })()
+  }
+
+  private onFinishConfirm() {
+    this.finishResolve?.(true)
+  }
+
+  private onFinishCancel() {
+    this.finishResolve?.(false)
+  }
+
+  private onVictoryClose() {
+    this.victoryOpen = false
   }
 
   private renderStats() {

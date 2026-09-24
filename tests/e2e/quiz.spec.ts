@@ -26,6 +26,11 @@ test('quiz: responde, flag, finaliza, revisa', async ({ page }) => {
 
   // Finaliza (há 48 sem responder → dialog aceito acima)
   await page.getByRole('button', { name: /Finalizar/ }).click()
+  // Confirmar no modal customizado (dialog acessível via role)
+  await page
+    .getByRole('dialog', { name: 'Finalizar simulado?' })
+    .getByRole('button', { name: 'Finalizar' })
+    .click()
   await expect(page.locator('stats-dashboard h2')).toBeVisible({
     timeout: 10000,
   })
