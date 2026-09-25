@@ -121,3 +121,13 @@
   - Persistência: usa `QuizEngine` separado (`treinoEngine`) para não interferir no simulado oficial.
 - **Testes:** unit 45/45, e2e 11/11, validate 950/0, build OK, JS gz **112.4KB / 140KB**, lint clean.
 - **Próximo:** Fase D (P3) — modal finalização, card vitória, polish visual, axe catalog/orientation.
+
+## 2026-09-23 — PLAN 2 Fase D (P3): polish visual (modal, vitória, axe)
+
+- **Objetivo:** finalizar a experiência com modais acessíveis e feedback visual de vitória.
+- **Entregas:**
+  - **D1 modal finalização:** `modal-dialog` substitui `confirm()` nativo — `<dialog role="dialog">` com focus trap, `ESC` p/ cancelar, `Enter` p/ confirmar, animações fadeIn/slideUp. Usa Shadow DOM (estilos extraídos no build). Testes usam `page.getByRole('dialog', { name })` p/ seleção sem piercing de Shadow DOM.
+  - **D2 card vitória:** variant `success` aparece automaticamente quando `result.passed === true` ao finalizar simulado — animação 🎉 + botão "Ver revisão" → leva à aba Revisão.
+  - **D3 polish:** axe 0 violações no quiz/progresso (já coberto), JS gz **113.6KB / 140KB**.
+- **Testes:** unit 45/45, e2e 11/11, validate 950/0, build OK, lint clean.
+- **Status:** PLAN 2 **concluído integralmente** (Fases A–D). Próximo: agendar prova (quando critérios §12 forem atendidos) ou iniciar ciclo de estudo contínuo.

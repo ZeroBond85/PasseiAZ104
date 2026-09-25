@@ -38,4 +38,4 @@ commit+push+fase verde nos **4 workflows** (ci/perf/deploy/security). Docs: `LOG
 - [x] FASE A — P0 (bugs de fidelidade ao exame)
 - [x] FASE B — P1 (UX de estudo)
 - [x] FASE C — P2 (entrada + offline + treino)
-- [ ] FASE D — P3 (polimento)
+- [x] FASE D — P3 (polimento)
