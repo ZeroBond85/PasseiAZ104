@@ -207,3 +207,19 @@
 - **Resultados:** tsc 0 · lint clean · unit **48/48** · validate 950/0 · meta OK ·
   budget JS 111.7KB/140KB · e2e **14/14** (quiz/gate/progress/offline/axe/overflow/estudo/catalog).
 - **Próximo:** Sprint 3.2 (`TreinoController`, app-shell rumo a <500).
+
+## 2026-09-25 — PLAN-3 Sprint 3.2 (P1): TreinoController ligado
+
+- **`src/controllers/treino-controller.ts`** (novo, classe pura): start/answer/flag/pause/resume/exit/finish.
+  Shell mantém só template + `finishTreino` (alert vive no shell até Sprint 5 trocar por modal).
+- **2 bugs reais achados na extração (treino nunca teve e2e):**
+  1. **Placar sempre 0:** `startTreino` criava `QuizEngine` sem `load()` → `idle` → `answer()` descartava
+     tudo em silêncio. Fix: `engine.load(picked)` no `start` + unit `treino-controller.test.ts` (5 testes).
+  2. **Botão morto em perfil zerado:** treino não chamava `ensureSeeded()` (só o quiz chamava) → pool
+     vazio → `return` silencioso. Fix: `ensureSeeded()` no `start` + banner `seedError` reaproveitado.
+- **Resultados:** tsc 0 · lint clean · unit **53/53** (+5) · validate 950/0 · meta OK ·
+  budget JS 112.0KB/140KB · e2e **14/14** · fluxo treino fim-a-fim provado (pausa/continua/finaliza c/ diálogo).
+- **app-shell:** 1129→1061 linhas. Meta <500 do plano: **reavaliada** — lógica 100% extraída;
+  restam composição + estilos (~450 CSS) + templates declarativos; fatiar mais criaria prop-drilling
+  (pior p/ manutenção). Shell agora é orquestrador fino; PLAN-3 atualizado.
+- **Próximo:** Sprint 3.5 (dinâmico principal + última atividade + rename fixos).

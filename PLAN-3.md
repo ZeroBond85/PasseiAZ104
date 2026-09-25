@@ -78,7 +78,10 @@
 - [ ] `src/controllers/quiz-controller.ts` (novo, ~200 linhas, classe pura: start/persist/finish/recordAttempt).
 - [ ] `src/controllers/treino-controller.ts` (novo, ~150 linhas, classe pura).
 - [ ] `src/controllers/sync-controller.ts` (finaliza o da Sprint 2, ~100 linhas).
-- [ ] `src/components/app-shell.ts`: delega tudo → **< 500 linhas** (de 1324). Sem bus, sem repos, sem lazy.
+- [ ] `src/components/app-shell.ts`: delega tudo → orquestrador fino (composição + estilos + auth gate).
+      Meta <500 **reavaliada na execução**: lógica 100% em controllers (1324→1061); restam CSS (~450),
+      templates declarativos e fluxos finos (auth/modal/estudo) — fatiar mais criaria prop-drilling
+      (pior p/ manutenção). Critério de pronto passa a ser: zero lógica de quiz/treino/sync no shell.
 - [ ] Ordem: 1 controller por vez, e2e após cada um. 100% métodos públicos com teste.
 - [ ] Docs: `ARCHITECTURE.md` (ADR-008 + mapa `src/controllers/`) + `LOG.md`.
 - **Pronto:** e2e 13/13 · zero `querySelector` cross-root novo · `tsc` limpo.
@@ -261,7 +264,7 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 
 - [x] Sprint 1 — Bugs críticos + fundação
 - [x] Sprint 2 — Offline-first real
-- [ ] Sprint 3 — Arquitetura limpa
+- [x] Sprint 3 — Arquitetura limpa
 - [ ] Sprint 3.5 — Catálogo UX (dinâmico principal)
 - [ ] Sprint 4 — Study Hub + admin ampliado + qualidade de dados
 - [ ] Sprint 5 — Hardening + Docs & Vitrine

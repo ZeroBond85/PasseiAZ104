@@ -2,6 +2,18 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-25 — Treino com placar sempre 0 + botão morto em perfil zerado (Sprint 3.2)
+
+- **O quê:** (1) `startTreino` nunca chamava `engine.load()` → state `idle` → `answer()` descartava
+  tudo → `finishTreino` sempre `0/N`, sem erro visível. (2) Treino não chamava `ensureSeeded()`
+  (só o quiz chamava) → em perfil zerado o botão do domínio não fazia nada.
+  Ambos invisíveis porque **nenhum e2e cobria o treino** (só quiz/gate/offline).
+- **Testes que reproduzem:** `tests/unit/treino-controller.test.ts` (start ativa engine; finish
+  pontua de verdade) + fluxo e2e manual (pausa/continua/finaliza com diálogo).
+- **Correção:** `engine.load(picked)` no `start` + `ensureSeeded()` no `start` + banner reaproveitado.
+- **Regressão permanente:** engine novo sempre recebe `load()` antes de `answer()`; todo fluxo
+  com botão (treino incluso) tem ≥1 teste que chega ao fim.
+
 ## 2026-09-25 — método `async` no template Lit rende Promise em branco (aba Estudo)
 
 - **O quê:** `renderEstudo()` era `async` — o template recebia uma Promise e o Lit renderizava

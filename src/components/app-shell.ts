@@ -1,15 +1,11 @@
 import { css, html, LitElement } from 'lit'
 import { QuizController } from '../controllers/quiz-controller.js'
 import { SyncController } from '../controllers/sync-controller.js'
-import {
-  ensureSeeded,
-  getBankLine,
-  getQuestionPool,
-} from '../data/QuestionLoader.js'
+import { TreinoController } from '../controllers/treino-controller.js'
+import { ensureSeeded, getBankLine } from '../data/QuestionLoader.js'
 import { SIMULADOS } from '../data/simulados.js'
 import { getDue, gradeCard } from '../engine/LeitnerEngine.js'
-import { QuizEngine } from '../engine/QuizEngine.js'
-import type { Question, SimuladoSpec } from '../engine/question-schema.js'
+import type { SimuladoSpec } from '../engine/question-schema.js'
 import { CODE_BY_DOMAIN } from '../engine/question-schema.js'
 import {
   btnStyles,
@@ -101,11 +97,6 @@ export class AppShell extends LitElement {
   declare syncFail: number
   declare isAdmin: boolean
   declare localMode: boolean
-  declare treinoDomain: string | null
-  declare treinoPaused: boolean
-  declare treinoQuiz: Question[]
-  declare treinoCurrent: number
-  declare treinoEngine: QuizEngine
   declare finishConfirmOpen: boolean
   declare finishResolve: ((v: boolean) => void) | null
   declare victoryOpen: boolean
@@ -118,6 +109,7 @@ export class AppShell extends LitElement {
     () => this.requestUpdate(),
     () => this.userId,
   )
+  private treinoCtl = new TreinoController(() => this.requestUpdate())
   private syncCtl = new SyncController()
   private pendingSpec: SimuladoSpec | null = null
 
@@ -130,11 +122,6 @@ export class AppShell extends LitElement {
     this.syncFail = 0
     this.isAdmin = false
     this.localMode = false
-    this.treinoDomain = null
-    this.treinoPaused = false
-    this.treinoQuiz = []
-    this.treinoCurrent = 0
-    this.treinoEngine = new QuizEngine()
     this.finishConfirmOpen = false
     this.finishResolve = null
     this.victoryOpen = false
@@ -610,7 +597,7 @@ export class AppShell extends LitElement {
   }
 
   private renderTreino() {
-    if (this.treinoDomain) {
+    if (this.treinoCtl.domain) {
       return this.renderTreinoQuiz()
     }
     return html`
@@ -638,60 +625,56 @@ export class AppShell extends LitElement {
   }
 
   private async startTreino(domain: string) {
-    const pool = await getQuestionPool()
-    const domainQuestions = pool.filter((q) => q.domain === domain)
-    if (domainQuestions.length === 0) return
-
-    // Pick 20 questions from this domain
-    const picked = domainQuestions.sort(() => Math.random() - 0.5).slice(0, 20)
-
-    this.treinoDomain = domain
-    this.treinoQuiz = picked
-    this.treinoCurrent = 0
-    this.treinoEngine = new QuizEngine()
-    this.treinoPaused = false
-    this.requestUpdate()
+    this.seedError = null
+    try {
+      await this.treinoCtl.start(domain)
+    } catch (err) {
+      this.seedError =
+        err instanceof Error ? err.message : 'Falha ao carregar o banco.'
+      logger.warn('quiz', 'startTreino: seed incompleto', this.seedError)
+    }
   }
 
   private renderTreinoQuiz() {
-    const q = this.treinoQuiz[this.treinoCurrent]
+    const ctl = this.treinoCtl
+    const q = ctl.currentQuestion
     if (!q)
       return html`<main><p>Não há questões aqui. Volte e escolha um domínio para começar.</p></main>`
-    const progress = `${this.treinoCurrent + 1} / ${this.treinoQuiz.length}`
+    const progress = `${ctl.current + 1} / ${ctl.quiz.length}`
     return html`
       <main>
         <header class="treino-quiz-header">
-          <h2>Treino: ${this.treinoDomain ? ptLabels(this.treinoDomain) : ''}</h2>
+          <h2>Treino: ${ctl.domain ? ptLabels(ctl.domain) : ''}</h2>
           <div class="treino-progress">
             <span>${progress}</span>
             ${
-              !this.treinoPaused
-                ? html`<button type="button" class="btn" @click=${() => this.pauseTreino()}>Pausar</button>`
-                : html`<button type="button" class="btn btn-primary" @click=${() => this.resumeTreino()}>Continuar</button>`
+              !ctl.paused
+                ? html`<button type="button" class="btn" @click=${() => ctl.pause()}>Pausar</button>`
+                : html`<button type="button" class="btn btn-primary" @click=${() => ctl.resume()}>Continuar</button>`
             }
-            <button type="button" class="btn btn-secondary" @click=${() => this.exitTreino()}>Sair</button>
+            <button type="button" class="btn btn-secondary" @click=${() => ctl.exit()}>Sair</button>
           </div>
         </header>
         <p class="progress" aria-live="polite">Questão ${progress}</p>
         <question-card
           .question=${q}
-          .selected=${this.treinoEngine.answers.get(q.id) ?? []}
-          @answer=${(e: CustomEvent) => this.onTreinoAnswer(e.detail)}
+          .selected=${ctl.answerOf(q.id)}
+          @answer=${(e: CustomEvent) => ctl.answer(e.detail)}
         ></question-card>
         <div class="actions">
           <button
             type="button"
             class="btn"
-            @click=${() => this.onTreinoFlag(q.id)}
-            ?disabled=${this.treinoPaused}
+            @click=${() => ctl.toggleFlag()}
+            ?disabled=${ctl.paused}
           >
-            ${this.treinoEngine.flagged.has(q.id) ? '⚑ Desmarcar' : '⚑ Marcar revisão'}
+            ${ctl.isFlagged(q.id) ? '⚑ Desmarcar' : '⚑ Marcar revisão'}
           </button>
           <button
             type="button"
             class="btn btn-primary"
-            @click=${() => void this.finishTreino()}
-            ?disabled=${this.treinoPaused}
+            @click=${() => this.finishTreino()}
+            ?disabled=${ctl.paused}
           >
             Finalizar
           </button>
@@ -700,54 +683,12 @@ export class AppShell extends LitElement {
     `
   }
 
-  private onTreinoAnswer(ans: string[]) {
-    if (this.treinoPaused) return
-    this.treinoEngine.answer(this.treinoQuiz[this.treinoCurrent].id, ans)
-    this.requestUpdate()
-  }
-
-  private onTreinoFlag(qid: string) {
-    if (this.treinoPaused) return
-    if (this.treinoEngine.flagged.has(qid)) {
-      this.treinoEngine.flagged.delete(qid)
-    } else {
-      this.treinoEngine.flagged.add(qid)
-    }
-    this.requestUpdate()
-  }
-
-  private pauseTreino() {
-    this.treinoPaused = true
-    this.requestUpdate()
-  }
-
-  private resumeTreino() {
-    this.treinoPaused = false
-    this.requestUpdate()
-  }
-
-  private exitTreino() {
-    this.treinoDomain = null
-    this.treinoQuiz = []
-    this.treinoCurrent = 0
-    this.treinoPaused = false
-    this.requestUpdate()
-  }
-
   private finishTreino() {
-    if (this.treinoPaused) return
-    const correct = this.treinoQuiz.filter((q) => {
-      const given = this.treinoEngine.answers.get(q.id) ?? []
-      const expected = new Set(q.correct)
-      return (
-        given.length === expected.size &&
-        [...expected].every((l) => given.includes(l))
-      )
-    }).length
-    const total = this.treinoQuiz.length
-    const pct = Math.round((correct / total) * 100)
-    alert(`Treino concluído: ${correct}/${total} (${pct}%)`)
-    this.exitTreino()
+    const r = this.treinoCtl.finish()
+    if (!r) return
+    // Sprint 5: trocar alert por modal-dialog (consistência com o simulado).
+    alert(`Treino concluído: ${r.correct}/${r.total} (${r.pct}%)`)
+    this.treinoCtl.exit()
   }
 
   private renderAdmin() {
