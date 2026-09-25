@@ -101,6 +101,10 @@ export class LoginScreen extends LitElement {
             Do seu jeito, até a aprovação no AZ‑104: simule a prova real, revise o que
             errou e estude no seu ritmo — em qualquer dispositivo.
           </p>
+          <p class="cert">
+            Simulado e guia de estudo em português para o Exame AZ-104 —
+            Administrador de Azure Associado (Microsoft).
+          </p>
           ${
             this.sent
               ? html`<p class="ok" role="status">Link enviado! Abra o e-mail e clique para entrar. ✅</p>`
@@ -199,8 +203,14 @@ export class LoginScreen extends LitElement {
     }
     .sub {
       color: var(--text-dim);
-      margin: 0 0 24px;
+      margin: 0 0 8px;
       line-height: 1.55;
+    }
+    .cert {
+      color: var(--text-dim);
+      font-size: 13px;
+      margin: 0 0 24px;
+      line-height: 1.5;
     }
     form {
       display: flex;
