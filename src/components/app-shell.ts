@@ -139,6 +139,8 @@ export class AppShell extends LitElement {
     isAdmin: { type: Boolean },
     finishConfirmOpen: { type: Boolean },
     victoryOpen: { type: Boolean },
+    seedError: { type: String },
+    online: { type: Boolean },
   }
 
   declare tab: TabId
@@ -162,6 +164,8 @@ export class AppShell extends LitElement {
   declare finishConfirmOpen: boolean
   declare finishResolve: ((v: boolean) => void) | null
   declare victoryOpen: boolean
+  declare seedError: string | null
+  declare online: boolean
   private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
@@ -195,11 +199,15 @@ export class AppShell extends LitElement {
     this.finishConfirmOpen = false
     this.finishResolve = null
     this.victoryOpen = false
+    this.seedError = null
+    this.online = typeof navigator !== 'undefined' ? navigator.onLine : true
   }
 
   connectedCallback() {
     super.connectedCallback()
     window.addEventListener('keydown', this.onKey)
+    window.addEventListener('online', this.onNet)
+    window.addEventListener('offline', this.onNet)
     this.addEventListener('local-mode', this.onLocalMode)
     void getUserId().then((id) => {
       this.userId = id
@@ -225,6 +233,8 @@ export class AppShell extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback()
     window.removeEventListener('keydown', this.onKey)
+    window.removeEventListener('online', this.onNet)
+    window.removeEventListener('offline', this.onNet)
     this.removeEventListener('local-mode', this.onLocalMode)
     this.unsubAuth()
     this.stopLoops()
@@ -234,6 +244,28 @@ export class AppShell extends LitElement {
     this.localMode = true
     this.userId = 'local'
     this.authReady = true
+    this.requestUpdate()
+  }
+
+  private onNet = () => {
+    this.online = navigator.onLine
+  }
+
+  private async retrySeed() {
+    try {
+      localStorage.removeItem('az104-seed-version')
+    } catch {
+      // sem localStorage: tenta o seed direto mesmo assim
+    }
+    this.seedError = null
+    this.requestUpdate()
+    try {
+      await ensureSeeded()
+    } catch (err) {
+      this.seedError =
+        err instanceof Error ? err.message : 'Falha ao carregar o banco.'
+      logger.warn('quiz', 'retrySeed: seed ainda incompleto', this.seedError)
+    }
     this.requestUpdate()
   }
 
@@ -347,7 +379,16 @@ export class AppShell extends LitElement {
 
   private async startQuiz(spec: SimuladoSpec) {
     this.loading = true
-    await ensureSeeded()
+    this.seedError = null
+    try {
+      await ensureSeeded()
+    } catch (err) {
+      this.loading = false
+      this.seedError =
+        err instanceof Error ? err.message : 'Falha ao carregar o banco.'
+      logger.warn('quiz', 'startQuiz: seed incompleto', this.seedError)
+      return
+    }
     const pool = (await getQuestionPool()) as Question[]
     const progress = await loadAllProgress().catch(
       hushArr('data', 'startQuiz: leitura de progresso falhou'),
@@ -583,6 +624,8 @@ export class AppShell extends LitElement {
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
         ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>sync falhou (${this.syncFail}) — tocar para repetir ↻</button>` : ''}
+        ${!this.online ? html`<span class="sync warn" role="status">🔴 offline — dados salvos localmente</span>` : ''}
+        ${this.seedError ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySeed()}>⚠ Banco incompleto — tocar para recarregar</button>` : ''}
         <user-menu .isAdmin=${this.isAdmin} @logout=${() => this.requestUpdate()}></user-menu>
         <theme-toggle></theme-toggle>
       </header>

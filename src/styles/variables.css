@@ -51,3 +51,14 @@
   --text: oklch(0.22 0.03 260);
   --text-dim: oklch(0.45 0.04 260);
 }
+
+/* Respeita quem prefere movimento reduzido: mata animações/transições globalmente.
+   Componentes já escopam transições sob `no-preference`; isto é a rede de segurança. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -2,6 +2,34 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-25 — Seed parcial silencioso no QuestionLoader (Sprint 1 P0)
+
+- **O quê:** `ensureSeeded()` engolia falha de fetch por arquivo (`continue` mudo) e marcava
+  `localStorage SEED_VERSION` incondicionalmente — usuário com 1 arquivo falhando na 1ª carga
+  ficava com um domínio faltando para sempre, sem erro visível e sem retry na UI.
+- **Teste que reproduz:** `tests/unit/question-loader.test.ts` — mock fetch 7 OK + 1 falha 500
+  (e variante com `throw` de rede) → `rejects.toThrow(/seed parcial: 7\/8/)` + seed NÃO marcado.
+- **Correção:** track `ok/failures` por arquivo, `warn` via logger por falha, `throw` se
+  `ok !== files.length` (nunca marca incompleto) + botão "⚠ Banco incompleto — tocar para
+  recarregar" no header (`retrySeed()` limpa `VERSION_KEY` e tenta de novo).
+- **Regressão permanente:** seed só marca 100% OK; toda falha de seed tem log + retry visível.
+
+## 2026-09-25 — meta.json com drift silencioso (Sprint 1)
+
+- **O quê:** `countsByDomain` dizia storage 125 / compute 150; o banco real tinha 170 / 230.
+  Ninguém atualizava `meta.json` ao fechar lotes — fonte da verdade mentia.
+- **Correção:** `scripts/bump-bank-meta.mjs` regenera counts + `updatedAt` do real;
+  `npm run meta:check` (`--check`) no `ci` falha o build em drift (fail-closed no PR).
+- **Regressão permanente:** `data/*.json` mudou → `meta.json` acompanha ou o CI quebra.
+
+## 2026-09-25 — SRI descartado com motivo (Sprint 1)
+
+- **O quê:** plano previa SRI nos assets; análise mostrou N/A — zero sub-recursos third-party
+  (sem CDN scripts/fontes); injeção pós-build de `integrity` invalidaria a revisão do precache
+  Workbox para `index.html` (offline quebraria); CSP `script-src 'self'` + filenames com hash
+  já cobrem o modelo de ameaça.
+- **Regra:** SRI só entra se surgir sub-recurso cross-origin; reavaliar nesse PR.
+
 ## 2026-09-25 — `createRenderRoot() { return this }` mata os `static styles` (QA visual)
 
 - **O quê:** no mobile (390px) TODAS as telas estouravam para ~1029px de largura — logo `source-logo.webp` (1008px) em tamanho intrínseco no header e no hero. Visível só lendo screenshots (e2e/axe passavam verdes).

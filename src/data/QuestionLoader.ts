@@ -4,6 +4,7 @@ import {
   questionsCount,
   seedQuestions,
 } from '../sync/IndexedDB.js'
+import { logger } from '../utils/logger.js'
 
 const VERSION_KEY = 'az104-seed-version'
 export const SEED_VERSION = '1'
@@ -29,13 +30,18 @@ export async function ensureSeeded(): Promise<{
   ]
   const base = import.meta.env.BASE_URL
   let total = 0
+  let ok = 0
+  const failures: string[] = []
   for (const f of files) {
     let arr: unknown[]
     try {
       const res = await fetch(`${base}data/${f}`)
-      if (!res.ok) continue
+      if (!res.ok) throw new Error(`${f}: HTTP ${res.status}`)
       arr = await res.json()
-    } catch {
+    } catch (err) {
+      const msg = `${f}: ${err instanceof Error ? err.message : String(err)}`
+      failures.push(msg)
+      logger.warn('data', 'falha carregando arquivo do banco', msg)
       continue
     }
     const valid = (Array.isArray(arr) ? arr : []).filter(
@@ -48,6 +54,13 @@ export async function ensureSeeded(): Promise<{
       })),
     )
     total += valid.length
+    ok++
+  }
+  if (ok !== files.length) {
+    throw new Error(
+      `seed parcial: ${ok}/${files.length} arquivos — ${failures.join('; ')}. ` +
+        `Banco incompleto NÃO foi marcado como seeded; tente "Recarregar banco".`,
+    )
   }
   localStorage.setItem(VERSION_KEY, SEED_VERSION)
   return { seeded: true, count: total }

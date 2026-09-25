@@ -14,11 +14,17 @@ const dir = new URL('../dist/assets/', import.meta.url)
 let failed = false
 for (const { ext, gzipMax, label } of BUDGETS) {
   const files = readdirSync(dir).filter((f) => f.endsWith(ext))
-  const total = files.reduce(
-    (n, f) => n + gzipSync(readFileSync(new URL(f, dir))).length,
-    0,
-  )
-  const raw = files.reduce((n, f) => n + statSync(new URL(f, dir)).size, 0)
+  let total = 0
+  let raw = 0
+  for (const f of files) {
+    const buf = readFileSync(new URL(f, dir))
+    const gz = gzipSync(buf).length
+    total += gz
+    raw += statSync(new URL(f, dir)).size
+    console.log(
+      `  budget ${label} ${f}: gzip ${(gz / 1024).toFixed(1)}KB (raw ${(buf.length / 1024).toFixed(0)}KB)`,
+    )
+  }
   const ok = total <= gzipMax
   if (!ok) failed = true
   console.log(

@@ -140,3 +140,19 @@
 - **Prova:** `tests/e2e/overflow.spec.ts` (novo, RPR permanente) + screenshots pós-fix (home/quiz/review/nav mobile OK, zero `pageerror`).
 - **Resultados:** lint · build · unit 45/45 · validate 950/0 · budget JS 110.1KB/140KB · e2e **12/12** (11 + overflow).
 - **Pendente humano (inalterado):** validar admin com 2 usuários · iOS físico · SMTP próprio (Brevo) · estudo até 3 condições §12.
+
+## 2026-09-25 — PLAN-3 registrado + Sprint 1 (P0, CSP, meta, quick wins)
+
+- **PLAN-3.md v7.1** (215 linhas + §9 pós-prova/descartes): Study Hub + arquitetura limpa + vitrine.
+  Commit `d7b24e0` + `b5a38ac`, 4 workflows verdes.
+- **Sprint 1 executado:**
+  - **P0** `QuestionLoader.ensureSeeded`: falha por arquivo vira `throw seed parcial N/8` (nunca marca
+    incompleto) + botão retry no header; teste RPR `question-loader.test.ts` (3 testes: HTTP 500, throw rede, 8/8 OK).
+  - **P3** CSP meta tag (`connect` só `*.supabase.co`); e2e 12/12 sem violação.
+  - **Meta-fix** `bump-bank-meta.mjs` + `meta:check` no `ci`: drift storage 125→170 / compute 150→230 corrigido,
+    `updatedAt` verdadeiro, total 950.
+  - **QW** budget por chunk no log · `prefers-reduced-motion` global · indicador 🔴 offline inline no header.
+  - **SRI descartado** (zero third-party; quebraria precache Workbox) — LESSONS.
+- **Resultados:** lint 87 arquivos · build OK · unit **48/48** (+3) · validate 950/0 · meta OK ·
+  budget JS 110.1KB/140KB · e2e **12/12**.
+- **Próximo:** Sprint 2 (P2 runtimeCaching + SyncController retry/rate-limit).
