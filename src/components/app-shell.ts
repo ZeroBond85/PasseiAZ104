@@ -39,6 +39,8 @@ import './review-card.js'
 import './stats-dashboard.js'
 import './timer-bar.js'
 import './estudo-card.js'
+import { isEnabled } from '../config/flags.js'
+import './study-hub-panel.js'
 import './modal-dialog.js'
 
 const TABS = [
@@ -555,6 +557,13 @@ export class AppShell extends LitElement {
     if (due.length === 0) {
       return html`
         ${this.renderGuideCard()}
+        ${
+          isEnabled('study-hub')
+            ? html`<study-hub-panel
+              .userId=${this.userId ?? 'local'}
+            ></study-hub-panel>`
+            : ''
+        }
         <main class="center">
           <p class="empty">Nada para revisar agora. 🎉</p>
           <p class="hint">Termine um simulado e volte aqui para fixar o que errou.</p>
@@ -565,6 +574,13 @@ export class AppShell extends LitElement {
     return html`
       <main>
         ${this.renderGuideCard()}
+        ${
+          isEnabled('study-hub')
+            ? html`<study-hub-panel
+              .userId=${this.userId ?? 'local'}
+            ></study-hub-panel>`
+            : ''
+        }
         <header class="estudo-header">
           <h2>Fixe o que errou</h2>
           ${truncated ? html`<p class="hint">Mostrando 50 de ${due.length} para revisar — comece pela primeira.</p>` : ''}

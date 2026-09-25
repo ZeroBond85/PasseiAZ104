@@ -239,3 +239,19 @@
 - **Resultados:** lint clean · tsc 0 · unit **53/53** · validate 950/0 · meta OK ·
   budget JS ~112KB/140KB · e2e **14/14** · screenshot mobile lido e aprovado.
 - **Próximo:** Sprint 4 (Study Hub + admin ampliado + IRT + heatmap + drill + syllabus-gap + flags).
+
+## 2026-09-25 — PLAN-3 Sprint 4.2: Study Hub engine + UI + links pós-simulado
+
+- **Engine** (`src/study/`): `topics.ts` (Supabase c/ fallback JSON + `matchTopic` por prefixo) ·
+  `study-profile.ts` (localStorage por usuário + sync) · `study-hub.ts` (`generateStudyPlan`:
+  fracos <70% nos últimos 5 simulados → links curados top 10 + `buildStudyLinks` p/ erros) ·
+  `src/sync/study-sync.ts` (push/pull LWW) · `src/config/flags.ts` (`study-hub`/`drill` ON).
+- **UI:** `study-link-card.ts` (usado no hub e no pós-simulado; `showSeen` esconde toggle sem perfil) ·
+  `study-hub-panel.ts` (fracos + links + "lido" persistido) montado na aba Estudo atrás de flag ·
+  `study-guide.ts` seção "Estude no Microsoft Learn" (links por questão errada, dedup, cap 8).
+- **2 fixes no caminho:** domínios sem respostas não entram como fracos (0% fantasma) ·
+  labels PT em fracos/links (raw `storage` → "Storage").
+- **Testes:** unit `studyhub.test.ts` (3: fracos+links, vazio, match prefixo) · e2e `estudo.spec.ts`
+  (guia + hub com dados via fluxo real) — screenshot mobile lido e aprovado.
+- **Resultados:** tsc 0 · lint clean · unit **56/56** · validate 950/0 · meta OK · e2e **15/15**.
+- **Próximo:** Sprint 4.3 (IRT + heatmap + drill + syllabus-gap + admin ampliado).

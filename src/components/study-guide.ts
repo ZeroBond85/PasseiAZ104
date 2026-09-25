@@ -1,7 +1,9 @@
 import { css, html, LitElement } from 'lit'
 import type { Question } from '../engine/question-schema.js'
 import type { StudyGuideResult } from '../engine/StudyGuide.js'
+import { buildStudyLinks, type StudyLinkRef } from '../study/study-hub.js'
 import { btnStyles, cardStyles } from '../styles/shared.js'
+import './study-link-card.js'
 
 export function labels(d: string) {
   const map: Record<string, string> = {
@@ -25,14 +27,26 @@ export class StudyGuide extends LitElement {
   static properties = {
     guide: { type: Object },
     questions: { type: Array },
+    links: { type: Array },
   }
 
   declare guide: StudyGuideResult
   declare questions: Question[]
+  declare links: StudyLinkRef[]
 
   constructor() {
     super()
     this.questions = []
+    this.links = []
+  }
+
+  protected updated(changed: Map<string, unknown>) {
+    if (changed.has('guide')) void this.loadLinks()
+  }
+
+  private async loadLinks() {
+    const missed = (this.guide?.topErrors ?? []).map((t) => t.question)
+    this.links = await buildStudyLinks(missed).catch(() => [])
   }
 
   render() {
@@ -105,6 +119,24 @@ export class StudyGuide extends LitElement {
         <ul class="tips">
           ${(g.tips ?? []).map((t) => html`<li>${t}</li>`)}
         </ul>
+        ${
+          this.links.length > 0
+            ? html`<h3>Estude no Microsoft Learn</h3>
+            ${this.links.map(
+              (l) => html`<study-link-card
+                .link=${{
+                  topicId: l.url,
+                  domain: l.domain,
+                  label: l.label,
+                  url: l.url,
+                  priority: 'medium' as const,
+                  seen: false,
+                }}
+                .showSeen=${false}
+              ></study-link-card>`,
+            )}`
+            : ''
+        }
         ${
           'leitnerTip' in g && g.leitnerTip
             ? html`<p class="leitner">${g.leitnerTip}</p>`
