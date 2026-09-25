@@ -5,6 +5,7 @@ import { btnStyles, cardStyles } from '../styles/shared.js'
 import { getUserId } from '../sync/auth.js'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 import type { AttemptRecord, DoubtRecord } from '../sync/types.js'
+import { labels as ptLabels } from './study-guide.js'
 
 interface RowUser {
   userId: string
@@ -24,14 +25,6 @@ interface QStat {
   distractor: { letter: string; count: number } | null
   errorTags: Record<string, number>
   needsReview: boolean
-}
-
-const DOMAIN_LABEL: Record<string, string> = {
-  'identidade-governanca': 'Identidade e governança',
-  storage: 'Storage',
-  compute: 'Computação',
-  'rede-virtual': 'Rede virtual',
-  monitoramento: 'Monitoramento',
 }
 
 export class AdminPanel extends LitElement {
@@ -223,10 +216,6 @@ export class AdminPanel extends LitElement {
     URL.revokeObjectURL(url)
   }
 
-  private label(d: string) {
-    return DOMAIN_LABEL[d] ?? d
-  }
-
   render() {
     if (!this.loaded) return html`<main><p>Carregando…</p></main>`
     if (this.error) return html`<main><p class="err">${this.error}</p></main>`
@@ -271,15 +260,15 @@ export class AdminPanel extends LitElement {
 
         <section class="card">
           <h2>Analytics por questão</h2>
-          <p class="dim">← casos com menor precisão primeiro; distractor = opção errada mais escolhida.</p>
+          <p class="dim">← casos com menor precisão primeiro; distrator = alternativa errada mais marcada.</p>
           <table>
-            <thead><tr><th>Questão</th><th>Domínio</th><th>Troca</th><th>Acerto</th><th>Distractor</th><th>Erros por motivo</th></tr></thead>
+            <thead><tr><th>Questão</th><th>Domínio</th><th>Tentativas</th><th>Acerto</th><th>Distrator</th><th>Erros por motivo</th></tr></thead>
             <tbody>
               ${this.qStats.slice(0, 60).map(
                 (s) => html`
                   <tr>
                     <td>${s.questionId}</td>
-                    <td>${this.label(s.domain)}</td>
+                    <td>${ptLabels(s.domain)}</td>
                     <td>${s.attempts}</td>
                     <td>${s.pct}%</td>
                     <td>${s.distractor ? `${s.distractor.letter} (${s.distractor.count})` : '—'}</td>

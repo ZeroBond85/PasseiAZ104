@@ -1,6 +1,10 @@
 import { css, html, LitElement } from 'lit'
 import { SyncController } from '../controllers/sync-controller.js'
-import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
+import {
+  ensureSeeded,
+  getBankLine,
+  getQuestionPool,
+} from '../data/QuestionLoader.js'
 import { PROPORTIONS, SIMULADOS } from '../data/simulados.js'
 import { toggleSelection } from '../engine/keyboard.js'
 import { getDue, gradeCard } from '../engine/LeitnerEngine.js'
@@ -56,9 +60,9 @@ import './navigator-grid.js'
 import './progress-panel.js'
 import './user-menu.js'
 import './question-card.js'
+import { labels as ptLabels } from './study-guide.js'
 import './review-card.js'
 import './stats-dashboard.js'
-import './study-guide.js'
 import './timer-bar.js'
 import './estudo-card.js'
 import './modal-dialog.js'
@@ -69,7 +73,7 @@ const TABS = [
   { id: 'treino', label: 'Treino' },
   { id: 'estudo', label: 'Estudo' },
   { id: 'review', label: 'Revisão' },
-  { id: 'stats', label: 'Stats' },
+  { id: 'stats', label: 'Notas' },
 ] as const
 
 type TabId =
@@ -142,6 +146,7 @@ export class AppShell extends LitElement {
     victoryOpen: { type: Boolean },
     seedError: { type: String },
     online: { type: Boolean },
+    bankLine: { type: String },
   }
 
   declare tab: TabId
@@ -167,6 +172,7 @@ export class AppShell extends LitElement {
   declare victoryOpen: boolean
   declare seedError: string | null
   declare online: boolean
+  declare bankLine: string
   private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
@@ -203,6 +209,7 @@ export class AppShell extends LitElement {
     this.victoryOpen = false
     this.seedError = null
     this.online = typeof navigator !== 'undefined' ? navigator.onLine : true
+    this.bankLine = ''
   }
 
   connectedCallback() {
@@ -211,6 +218,9 @@ export class AppShell extends LitElement {
     window.addEventListener('online', this.onNet)
     window.addEventListener('offline', this.onNet)
     this.addEventListener('local-mode', this.onLocalMode)
+    void getBankLine().then((t) => {
+      this.bankLine = t
+    })
     void getUserId().then((id) => {
       this.userId = id
       this.authReady = true
@@ -381,6 +391,7 @@ export class AppShell extends LitElement {
 
   private select(tab: TabId) {
     this.tab = tab
+    if (tab === 'estudo') void this.loadEstudo()
   }
 
   private async startQuiz(spec: SimuladoSpec) {
@@ -657,7 +668,7 @@ export class AppShell extends LitElement {
       <modal-dialog
         .open=${this.finishConfirmOpen}
         title="Finalizar simulado?"
-        message="${this.engine.unansweredCount()} questão(ões) sem responder. Tem certeza que deseja finalizar?"
+        message="${this.finishMessage()}"
         confirmText="Finalizar"
         cancelText="Voltar"
         @confirm=${this.onFinishConfirm}
@@ -701,7 +712,11 @@ export class AppShell extends LitElement {
             <img src="icons/source-logo.webp" alt="" width="1008" height="309" aria-hidden="true" class="hero-logo" />
           </div>
           <h1 class="sr-only">Passei AZ-104</h1>
-          <p>950 questões e simulados no formato, tempo e nota do exame AZ‑104. Estude offline e continue de qualquer dispositivo.</p>
+          <p>Do seu jeito, até a aprovação no AZ‑104: simule a prova real, revise o que
+            errou e estude no seu ritmo — em qualquer dispositivo.</p>
+          <p class="cert">Simulado e guia de estudo em português para o Exame AZ-104 —
+            Administrador de Azure Associado (Microsoft).</p>
+          ${this.bankLine ? html`<p class="bank">${this.bankLine}</p>` : ''}
           <div class="hero-actions">
             <button type="button" class="btn btn-primary" @click=${() => this.select('quiz')}>Começar simulado</button>
             <button type="button" class="btn" @click=${() => this.select('catalog')}>Escolher um simulado</button>
@@ -719,8 +734,8 @@ export class AppShell extends LitElement {
           <h1 class="sr-only">Orientação do simulado</h1>
           <h2>${title} — antes de começar</h2>
           <p>
-            Este simulado usa o mesmo formato do exame <strong>Azure
-            Administrator Associate (AZ‑104)</strong>: 50 questões, 100 minutos,
+            Este simulado usa o mesmo formato do exame de <strong>Administrador de
+            Azure Associado (AZ‑104)</strong>: 50 questões, 100 minutos,
             nota de corte <strong>700</strong>. Nenhuma pausa é permitida após
             o início, então garanta tempo e foco antes de começar.
           </p>
@@ -756,7 +771,8 @@ export class AppShell extends LitElement {
     if (this.quiz.length === 0 && this.engine.state !== 'active')
       return this.renderOrientation()
     const q = this.quiz[this.current]
-    if (!q) return html`<main><p>Nenhuma questão carregada.</p></main>`
+    if (!q)
+      return html`<main><p>Não foi possível carregar as questões. Toque em “Recarregar banco” no topo e tente de novo.</p></main>`
     const idxById = new Map(this.quiz.map((x, i) => [x.id, i]))
     return html`
       <timer-bar .remaining=${this.timer.remaining} .total=${this.timer.totalSeconds} .saved=${this.savedFlash}></timer-bar>
@@ -819,27 +835,45 @@ export class AppShell extends LitElement {
     return html`<progress-panel></progress-panel>`
   }
 
-  private async renderEstudo() {
+  private estudoDue: { questionId: string; box: number; dueAt: number }[] = []
+  private estudoTruncated = false
+  private estudoLoaded = false
+
+  private async loadEstudo() {
+    this.estudoLoaded = false
     const now = Date.now()
     const allProgress = await loadAllProgress().catch(
       hushArr('data', 'estudo: load progress falhou'),
     )
     const { due, truncated } = getDue(allProgress, now, 50)
+    this.estudoDue = due
+    this.estudoTruncated = truncated
+    this.estudoLoaded = true
+    this.requestUpdate()
+  }
+
+  private renderEstudo() {
+    if (!this.estudoLoaded)
+      return html`<main><p>Carregando revisões…</p></main>`
+    const due = this.estudoDue
+    const truncated = this.estudoTruncated
 
     if (due.length === 0) {
       return html`
+        ${this.renderGuideCard()}
         <main class="center">
-          <p class="empty">Nenhuma questão pendente para revisão. 🎉</p>
-          <p class="hint">Termine um simulado ou aguarde o próximo ciclo.</p>
+          <p class="empty">Nada para revisar agora. 🎉</p>
+          <p class="hint">Termine um simulado e volte aqui para fixar o que errou.</p>
         </main>
       `
     }
 
     return html`
       <main>
+        ${this.renderGuideCard()}
         <header class="estudo-header">
-          <h2>Estudo espaçado (Leitner)</h2>
-          ${truncated ? html`<p class="hint">Mostrando as 50 mais urgentes de ${due.length} pendentes.</p>` : ''}
+          <h2>Fixe o que errou</h2>
+          ${truncated ? html`<p class="hint">Mostrando 50 de ${due.length} para revisar — comece pela primeira.</p>` : ''}
         </header>
         ${due.map(
           (card) => html`
@@ -855,6 +889,23 @@ export class AppShell extends LitElement {
     `
   }
 
+  private renderGuideCard() {
+    return html`
+      <section class="card guide-official">
+        <h2>Guia oficial da Microsoft</h2>
+        <p>O roteiro oficial do Exame AZ-104: o que esperar da prova, os tópicos
+          cobrados e links de estudo — em português.</p>
+        <a
+          class="btn"
+          href="https://learn.microsoft.com/pt-br/credentials/certifications/resources/study-guides/az-104"
+          target="_blank"
+          rel="noopener"
+          >Abrir guia oficial ↗</a
+        >
+      </section>
+    `
+  }
+
   private renderTreino() {
     if (this.treinoDomain) {
       return this.renderTreinoQuiz()
@@ -863,7 +914,7 @@ export class AppShell extends LitElement {
       <main>
         <header class="treino-header">
           <h2>Treino por domínio</h2>
-          <p class="hint">Escolha um domínio para praticar questões focadas.</p>
+          <p class="hint">Escolha um domínio para praticar com 20 questões focadas.</p>
         </header>
         <div class="treino-grid">
           ${Object.entries(CODE_BY_DOMAIN).map(
@@ -874,7 +925,7 @@ export class AppShell extends LitElement {
                 @click=${() => void this.startTreino(domain)}
               >
                 <span class="code">${code.toUpperCase()}</span>
-                <span class="label">${domain}</span>
+                <span class="label">${ptLabels(domain)}</span>
               </button>
             `,
           )}
@@ -901,12 +952,13 @@ export class AppShell extends LitElement {
 
   private renderTreinoQuiz() {
     const q = this.treinoQuiz[this.treinoCurrent]
-    if (!q) return html`<main><p>Nenhuma questão.</p></main>`
+    if (!q)
+      return html`<main><p>Não há questões aqui. Volte e escolha um domínio para começar.</p></main>`
     const progress = `${this.treinoCurrent + 1} / ${this.treinoQuiz.length}`
     return html`
       <main>
         <header class="treino-quiz-header">
-          <h2>Treino: ${this.treinoDomain}</h2>
+          <h2>Treino: ${this.treinoDomain ? ptLabels(this.treinoDomain) : ''}</h2>
           <div class="treino-progress">
             <span>${progress}</span>
             ${
@@ -930,7 +982,7 @@ export class AppShell extends LitElement {
             @click=${() => this.onTreinoFlag(q.id)}
             ?disabled=${this.treinoPaused}
           >
-            ${this.treinoEngine.flagged.has(q.id) ? '⚑ Desmarcar' : '⚑ Marcar'}
+            ${this.treinoEngine.flagged.has(q.id) ? '⚑ Desmarcar' : '⚑ Marcar revisão'}
           </button>
           <button
             type="button"
@@ -996,7 +1048,8 @@ export class AppShell extends LitElement {
   }
 
   private renderAdmin() {
-    if (!this.isAdmin) return html`<main><p>Acesso restrito.</p></main>`
+    if (!this.isAdmin)
+      return html`<main><p>Área restrita — só para administradores.</p></main>`
     return html`<admin-panel></admin-panel>`
   }
 
@@ -1082,13 +1135,20 @@ export class AppShell extends LitElement {
     this.victoryOpen = false
   }
 
+  private finishMessage(): string {
+    const n = this.engine.unansweredCount()
+    const q =
+      n === 1 ? '1 questão sem responder' : `${n} questões sem responder`
+    return `${q}. Tem certeza que deseja finalizar?`
+  }
+
   private renderStats() {
     return html`
       <main>
         ${
           this.result
             ? html`<stats-dashboard .result=${this.result}></stats-dashboard>`
-            : html`<section class="card"><p>Sem resultados ainda.</p></section>`
+            : html`<section class="card"><p>Sem resultados ainda. Finalize um simulado e seu desempenho aparece aqui.</p></section>`
         }
       </main>
     `
@@ -1124,8 +1184,32 @@ export class AppShell extends LitElement {
     }
     .hero p {
       color: var(--text-dim);
-      margin: 0 0 20px;
+      margin: 0 0 12px;
       line-height: 1.6;
+    }
+    .hero .cert {
+      color: var(--text-dim);
+      font-size: var(--fs-sm);
+      margin: 0 0 8px;
+      line-height: 1.5;
+    }
+    .hero .bank {
+      color: var(--text-dim);
+      font-size: 13px;
+      margin: 0 0 20px;
+      line-height: 1.5;
+    }
+    .guide-official {
+      margin-bottom: 16px;
+    }
+    .guide-official p {
+      color: var(--text-dim);
+      font-size: var(--fs-sm);
+      line-height: 1.55;
+      margin: 0 0 12px;
+    }
+    .guide-official a.btn {
+      text-decoration: none;
     }
     .hero-actions {
       display: flex;

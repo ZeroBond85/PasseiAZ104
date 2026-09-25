@@ -2,6 +2,17 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-25 — método `async` no template Lit rende Promise em branco (aba Estudo)
+
+- **O quê:** `renderEstudo()` era `async` — o template recebia uma Promise e o Lit renderizava
+  nada: aba Estudo 100% em branco em produção, sem nenhum e2e cobrir (só descoberto em screenshot manual).
+- **Teste que reproduz:** `tests/e2e/estudo.spec.ts` — guia oficial visível + estado vazio com ação
+  (nota: `innerText` não atravessa shadow DOM nem no `body`; medir em elemento interno).
+- **Correção:** render síncrono sobre estado (`estudoDue/estudoTruncated/estudoLoaded`) +
+  `loadEstudo()` disparado no `select('estudo')`.
+- **Regressão permanente:** toda aba/view tem ≥1 e2e afirmando conteúdo visível; método de render
+  nunca `async` (async só em loaders com flag de estado).
+
 ## 2026-09-25 — workbox-build ignora `urlPattern` função no runtimeCaching (Sprint 2)
 
 - **O quê:** `runtimeCaching` com `urlPattern: ({ url }) => ...` gerou `sw.js` SEM a rota

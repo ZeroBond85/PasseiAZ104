@@ -119,8 +119,7 @@ function buildTips(
       )
   }
   const due = progress.filter((p) => p.dueAt <= Date.now()).length
-  if (due >= 10)
-    out.push(`Você tem ${due} revisões vencidas no Leitner — priorize hoje.`)
+  if (due >= 10) out.push(`Você tem ${due} revisões vencidas — priorize hoje.`)
   if (out.length === 0)
     out.push('Bom desempenho — mantenha o ritmo e revise os erros abaixo.')
   return out.slice(0, 5)
@@ -131,7 +130,7 @@ function leitnerTip(progress: ProgressRecord[]): string | null {
     (p) => p.box === 0 && p.dueAt <= Date.now(),
   ).length
   if (box1 >= 10)
-    return `Caixa 1 com ${box1} itens vencidos — faça 15 minutos de revisão.`
+    return `Você tem ${box1} revisões vencidas — faça 15 minutos de revisão hoje.`
   return null
 }
 
@@ -165,7 +164,7 @@ export function readiness(
   const needed: string[] = []
   if (!avg5Ok) needed.push('média das 5 últimas provas ≥ 750')
   if (!domainsOk) needed.push('todos os domínios ≥ 70%')
-  if (!leitnerOk) needed.push('Caixa 1 com menos de 10 itens')
+  if (!leitnerOk) needed.push('menos de 10 itens para revisar')
   return {
     avg5,
     domainsOk,

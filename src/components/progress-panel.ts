@@ -15,14 +15,7 @@ import {
   saveDoubt,
 } from '../sync/IndexedDB.js'
 import type { DoubtRecord } from '../sync/types.js'
-
-const DOMAIN_LABEL: Record<string, string> = {
-  'identidade-governanca': 'Identidade e governança',
-  storage: 'Storage',
-  compute: 'Computação',
-  'rede-virtual': 'Rede virtual',
-  monitoramento: 'Monitoramento',
-}
+import { labels as ptLabels } from './study-guide.js'
 
 export class ProgressPanel extends LitElement {
   static properties = {
@@ -62,10 +55,6 @@ export class ProgressPanel extends LitElement {
     this.requestUpdate()
   }
 
-  private label(d: string) {
-    return DOMAIN_LABEL[d] ?? d
-  }
-
   render() {
     if (!this.loaded) return html`<main><p>Carregando…</p></main>`
     return html`
@@ -98,13 +87,13 @@ export class ProgressPanel extends LitElement {
               ${this.ready.domainsOk ? '✓' : '✗'} Todos os domínios ≥ 70%
             </li>
             <li class="${this.ready.leitnerOk ? 'ok' : 'no'}">
-              ${this.ready.leitnerOk ? '✓' : '✗'} Caixa 1 com menos de 10 itens
+              ${this.ready.leitnerOk ? '✓' : '✗'} Revisão em dia (menos de 10 itens pendentes)
             </li>
           </ul>
         </section>
 
         <section class="card">
-          <h2>Dificuldade por domínio</h2>
+          <h2>Desempenho por domínio</h2>
           ${
             Object.keys(this.byDomain).length === 0
               ? html`<p class="dim">Finalize simulados para ver o mapa de dificuldade.</p>`
@@ -114,7 +103,7 @@ export class ProgressPanel extends LitElement {
                     .map(
                       ([d, pct]) => html`
                         <li>
-                          <span>${this.label(d)}</span>
+                          <span>${ptLabels(d)}</span>
                           <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
                           <span>${pct}%</span>
                         </li>
@@ -147,10 +136,10 @@ export class ProgressPanel extends LitElement {
         </section>
 
         <section class="card">
-          <h2>Resumo de notas</h2>
+          <h2>Suas notas</h2>
           ${
             this.lastScores.length === 0
-              ? html`<p class="dim">Nenhum simulado finalizado.</p>`
+              ? html`<p class="dim">Você ainda não finalizou nenhum simulado. Comece pelo Simulado Dinâmico no catálogo.</p>`
               : html`<ol class="scores">
                   ${this.lastScores
                     .slice(0, 10)

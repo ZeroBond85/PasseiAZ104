@@ -99,7 +99,13 @@
 - [ ] `data/simulados.json`: **NÃO mexe** (títulos "Simulado Oficial N" preservados).
 - [ ] Demais specs (quiz/gate/progress/offline/axe/overflow): sem mudança (dinâmico também 50q/100min).
 - [ ] Docs: `LOG.md` + screenshot mobile do catálogo novo (leitura visual).
-- **Pronto:** e2e 13/13 · catálogo mobile legível · dinâmico gera set novo a cada clique.
+- [x] **Copy UX PT-BR** (executado junto): home hero (copy aprovada + linha certificação) +
+      catálogo (bloco cert + link guia oficial direto + linha frescor do banco via `getBankLine()`) +
+      empties com recuperação + jargão fora (Leitner/Caixa 1/"Stats"/keys cruas/"(ões)"/"Fracos") +
+      labels PT consolidados em 1 export (`study-guide.ts`).
+- [x] **Frescor visível**: home + catálogo exibem `Banco de N questões em português · atualizado em {mês/ano}`
+      lido de `meta.json` em runtime (sempre verdadeiro, sem edição manual).
+- **Pronto:** e2e 13/13 · catálogo mobile legível · dinâmico gera set novo a cada clique · zero jargão visível.
 
 ### Sprint 4 — Study Hub + qualidade de dados
 
@@ -109,6 +115,11 @@
       Humano: rodar 1× no SQL Editor.
 - [ ] **`data/study-topics.json`**: ~35 tópicos curados PT-BR (URLs oficiais MS Learn).
       Única curadoria manual pesada do plano (2-3h, uma vez; CI mantém depois).
+      Fontes reais já coletadas (usar estas, não inventar URLs): guia oficial
+      `.../resources/study-guides/az-104` (atualizado 23/03/2026) · página da certificação
+      (atualizada 09/07/2026) · skills outline vigente desde 17/04/2026 (pesos
+      20-25/15-20/20-25/15-20/10-15) · prova oferecida em Português (Brasil) ·
+      corte 700 e 100 min confirmados.
 - [ ] **`data/exam-syllabus.json`**: snapshot do outline oficial (30 min, uma vez).
 - [ ] `src/study/topics.ts` + `src/study/study-hub.ts` (`generateStudyPlan`: score composto
       weak×3 + due×2 + distractor×2 + recência×1) + `src/study/study-profile.ts` (CRUD) +
@@ -143,7 +154,8 @@
 
 ### Sprint 5 — Hardening + Docs & Vitrine
 
-- [ ] **P4** `scripts/update-readme-test-count.mjs` + `test:count` no `ci`.
+- [ ] **P4** `scripts/update-readme-test-count.mjs` + `test:count` no `ci` (cobre test count
+      + bloco frescor auto: data do banco + verificação topics + outline vigente).
 - [ ] **2.7** `navigator-grid.ts` (+`btnStyles`) · `study-guide.ts` (+`cardStyles`,`btnStyles`) ·
       `admin-panel.ts` (+`controlStyles`) · treino `alert()` → `modal-dialog` variant info.
 - [ ] `scripts/validate-migration-types.mjs` (offline, migration↔types) no `ci`.

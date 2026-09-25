@@ -83,7 +83,7 @@ export class EstudoCard extends LitElement {
       <article class="card">
         <header class="card-header">
           <p class="qid">${q.id} · ${q.subdomain} · ${q.difficulty}</p>
-          <span class="box-info">Caixa ${this.box} · Próxima: ${boxLabels[this.box]}</span>
+          <span class="box-info">${this.box === 0 ? 'Questão nova' : `Revisar em ${boxLabels[this.box]}`}</span>
         </header>
         <h3>${q.question}</h3>
         ${

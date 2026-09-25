@@ -170,3 +170,29 @@
 - **Resultados:** lint 88 arquivos · build OK · unit **48/48** · validate 950/0 · meta OK ·
   budget JS 110.6KB/140KB · e2e **13/13** (+1 SW cache).
 - **Próximo:** Sprint 3 (P1: quiz/treino controllers + flags).
+
+## 2026-09-25 — Copy UX PT-BR + guia MS + frescor (auditoria total de textos)
+
+- **Direção do dono:** frisar "guia de estudo para a certificação", menos genérico, sem tecnicês,
+  foco em quem faz a prova em PT-BR, termos reais da Microsoft (skill `ux-writing-content-design`).
+- **Home:** hero com copy aprovada + linha certificação (termos oficiais MS) + linha frescor do banco
+  (`getBankLine()` lê `meta.json` em runtime: "Banco de 950 questões em português · atualizado em ...").
+- **Catálogo:** bloco cert + link direto do guia oficial
+  (`.../resources/study-guides/az-104`, trocado do aka.ms) + linha frescor; sub sem "corte 700"
+  (regra PLAN §6); dinâmica "Sempre diferentes: 50 questões · 100 min".
+- **Jargão removido do visível:** "Estudo espaçado (Leitner)"→"Fixe o que errou" (evita choque com aba Revisão) ·
+  "Stats"→"Notas" · keys cruas → labels PT (treino, stats) · modal "(ões)"→plural certo ·
+  "Fracos"→"Para reforçar" · "Dificuldade"→"Desempenho" · "Resumo"→"Suas notas" · "Caixa 1"→texto plano
+  (progress + engine tips) · "Caixa N"→"Questão nova/Revisar em N dias" · admin "Troca"→"Tentativas",
+  "Distractor"→"Distrator" · treino '⚑ Marcar'→'⚑ Marcar revisão' · empties com ação/recuperação.
+- **Duplicações auditadas:** Do-seu-jeito login+home (intencional, momentos distintos) · cert home+catalog
+  (ênfase pedida) · mapas PT ×3 consolidados em 1 export · qid crus mantidos (IDs funcionais p/ revisão).
+- **Exceção documentada:** "abaixo do corte 700" no pós-resultado (número necessário no contexto; regra §6 mira marketing).
+- **Fatos MS coletados p/ Sprint 4** (guia atualizado 23/03/2026 · cert page 09/07/2026 · skills desde 17/04/2026 ·
+  prova oferecida em Português (Brasil) · 700/100min confirmados · pesos oficiais).
+- **Guia oficial no app:** card na aba Estudo + link no catálogo (mesma URL direta).
+- **Testes:** unit 48/48, e2e **14/14** (+estudo), validate 950/0, meta OK, budget JS 110.6KB/140KB,
+  screenshots home/catalog/estudo mobile lidos e aprovados.
+- **Bug real achado no caminho:** aba Estudo em branco (`renderEstudo` async → Promise no template) —
+  fix render síncrono + `estudo.spec.ts` (RPR) + LESSONS.
+- **Próximo:** Sprint 3.1 (ligar `QuizController` no app-shell).

@@ -3,7 +3,7 @@ import type { Question } from '../engine/question-schema.js'
 import type { StudyGuideResult } from '../engine/StudyGuide.js'
 import { btnStyles, cardStyles } from '../styles/shared.js'
 
-function labels(d: string) {
+export function labels(d: string) {
   const map: Record<string, string> = {
     'identidade-governanca': 'Identidade e governança',
     storage: 'Storage',
@@ -68,7 +68,7 @@ export class StudyGuide extends LitElement {
         <h3>Onde errou mais</h3>
         ${
           domainAgg.size === 0
-            ? html`<p class="empty">Sem dados.</p>`
+            ? html`<p class="empty">Sem dados deste simulado.</p>`
             : html`<ul class="domains">
                 ${[...domainAgg.entries()].map(([d, s]) => {
                   const pct = s.total

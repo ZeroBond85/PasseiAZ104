@@ -1,6 +1,7 @@
 import { css, html, LitElement } from 'lit'
 import type { ScoreResult } from '../engine/ScoringEngine.js'
 import { cardStyles } from '../styles/shared.js'
+import { labels as ptLabels } from './study-guide.js'
 
 export class StatsDashboard extends LitElement {
   static properties = {
@@ -23,7 +24,7 @@ export class StatsDashboard extends LitElement {
         ${Object.entries(r.byDomain).map(
           ([d, v]) => html`
             <div class="row">
-              <span>${d}</span>
+              <span>${ptLabels(d)}</span>
               <div class="bar"><div class="fill" style="width:${v.pct}%"></div></div>
               <span>${v.pct}%</span>
             </div>
@@ -31,7 +32,7 @@ export class StatsDashboard extends LitElement {
         )}
         ${
           r.weakAreas.length > 0
-            ? html`<p class="weak">Fracos (&lt;70%): ${r.weakAreas.join(', ')}</p>`
+            ? html`<p class="weak">Para reforçar (&lt;70%): ${r.weakAreas.join(', ')}</p>`
             : html`<p class="weak ok">Nenhum domínio abaixo de 70%.</p>`
         }
       </section>

@@ -70,3 +70,49 @@ export async function getQuestionPool() {
   const rows = await loadAllQuestions()
   return rows.map((r) => JSON.parse(r.json))
 }
+
+export interface BankMeta {
+  updatedAt: string
+  total: number
+}
+
+let bankMetaCache: BankMeta | null = null
+
+// Metadados do banco p/ sinal de frescor na UI ("atualizado em ...").
+// Lê data/meta.json (gerado por bump-bank-meta.mjs); nunca falha visível.
+export async function getBankMeta(): Promise<BankMeta | null> {
+  if (bankMetaCache) return bankMetaCache
+  try {
+    const res = await fetch(`${import.meta.env.BASE_URL}data/meta.json`)
+    if (!res.ok) return null
+    const meta = await res.json()
+    const raw: Record<string, unknown> = meta?.countsByDomain ?? {}
+    const counts: Record<string, number> = {}
+    for (const [k, v] of Object.entries(raw))
+      if (typeof v === 'number') counts[k] = v
+    const total = Object.values(counts).reduce((n, v) => n + v, 0)
+    bankMetaCache = { updatedAt: String(meta?.updatedAt ?? ''), total }
+    return bankMetaCache
+  } catch {
+    return null
+  }
+}
+
+// "2026-09-25T..." → "set de 2026" (pt-BR, curto, sem ponto).
+export function formatBankDate(iso: string): string {
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return ''
+  return d
+    .toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' })
+    .replace('.', '')
+}
+
+// Linha pronta p/ UI ("Banco de 950 questões em português · atualizado em set de 2026").
+// '' = não exibir (falha silenciosa; IDB continua fonte de leitura).
+export async function getBankLine(): Promise<string> {
+  const m = await getBankMeta()
+  if (!m || m.total <= 0) return ''
+  const when = formatBankDate(m.updatedAt)
+  if (!when) return ''
+  return `Banco de ${m.total} questões em português · atualizado em ${when}`
+}
