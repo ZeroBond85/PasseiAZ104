@@ -14,16 +14,16 @@ test('catalogo: lista oficiais e dinamico; dinamico cobre 5 dominios', async ({
   for (let i = 1; i <= 10; i++) {
     await expect(
       page.getByRole('button', {
-        name: `Simulado Oficial ${i} 50 questões · 100 min`,
+        name: new RegExp(`^Simulado Oficial ${i} `),
       }),
     ).toBeVisible()
   }
   await expect(
-    page.getByRole('button', { name: /^Simulado Dinâmico/ }),
+    page.getByRole('button', { name: /^Começar agora/ }),
   ).toBeVisible()
 
   // Dinâmico: inicia e verifica distribuição nos 5 domínios do enunciado
-  await page.getByRole('button', { name: /^Simulado Dinâmico/ }).click()
+  await page.getByRole('button', { name: /^Começar agora/ }).click()
   await expect(
     page.getByRole('button', { name: 'Começar simulado' }),
   ).toBeVisible()
@@ -49,9 +49,7 @@ test('catalogo: oficial-01 carrega 50 questoes', async ({ page }) => {
 
   await page.goto('./?local=1')
   await page.getByRole('button', { name: 'Escolher um simulado' }).click()
-  await page
-    .getByRole('button', { name: 'Simulado Oficial 1 50 questões · 100 min' })
-    .click()
+  await page.getByRole('button', { name: /^Simulado Oficial 1 / }).click()
   await page.getByRole('button', { name: 'Começar simulado' }).click()
   await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
   await expect(page.locator('.progress')).toContainText('Questão 1 de 50')

@@ -1,6 +1,11 @@
 import { css, html, LitElement } from 'lit'
 import { getBankLine } from '../data/QuestionLoader.js'
-import { PROPORTIONS, SIMULADOS } from '../data/simulados.js'
+import {
+  buildDynamicSpec,
+  DYNAMIC_ID,
+  PROPORTIONS,
+  SIMULADOS,
+} from '../data/simulados.js'
 import type { SimuladoSpec } from '../engine/question-schema.js'
 import {
   btnStyles,
@@ -8,8 +13,7 @@ import {
   controlStyles,
   srOnlyStyles,
 } from '../styles/shared.js'
-
-const DYNAMIC_ID = 'sim-dinamico'
+import { loadAllAttempts } from '../sync/IndexedDB.js'
 
 export class CatalogScreen extends LitElement {
   static properties = {
@@ -19,6 +23,7 @@ export class CatalogScreen extends LitElement {
 
   declare busy: boolean
   declare bankLine: string
+  private lastBySim = new Map<string, { score: number; at: number }>()
 
   constructor() {
     super()
@@ -31,6 +36,26 @@ export class CatalogScreen extends LitElement {
     void getBankLine().then((t) => {
       this.bankLine = t
     })
+    void this.loadLastActivity()
+  }
+
+  private async loadLastActivity() {
+    const attempts = await loadAllAttempts().catch(() => [])
+    for (const a of attempts) {
+      const cur = this.lastBySim.get(a.simuladoId)
+      if (!cur || a.finishedAt > cur.at)
+        this.lastBySim.set(a.simuladoId, { score: a.score, at: a.finishedAt })
+    }
+    this.requestUpdate()
+  }
+
+  private lastText(simId: string): string {
+    const last = this.lastBySim.get(simId)
+    if (!last) return 'nunca feito'
+    const date = new Date(last.at)
+      .toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' })
+      .replace('.', '')
+    return `última: ${last.score} em ${date}`
   }
 
   private start(spec: SimuladoSpec) {
@@ -42,17 +67,6 @@ export class CatalogScreen extends LitElement {
         composed: true,
       }),
     )
-  }
-
-  private dynamicSpec(): SimuladoSpec {
-    return {
-      mode: 'seed',
-      id: DYNAMIC_ID,
-      title: 'Simulado Dinâmico',
-      seed: Date.now() % 100000,
-      questionCount: 50,
-      timeLimitMinutes: 100,
-    }
   }
 
   private noteDistribution() {
@@ -71,9 +85,23 @@ export class CatalogScreen extends LitElement {
         <p class="cert-link"><a href="https://learn.microsoft.com/pt-br/credentials/certifications/resources/study-guides/az-104" target="_blank" rel="noopener">Guia de estudo oficial do Exame AZ-104 ↗</a></p>
         ${this.bankLine ? html`<p class="bank">${this.bankLine}</p>` : ''}
 
+        <section class="card dynamic">
+          <h2>Simulado Dinâmico <span class="rec">★ Recomendado</span></h2>
+          <p class="sub">Um simulado novo a cada clique — 50 questões · 100 min.</p>
+          <button
+            type="button"
+            class="row"
+            ?disabled=${this.busy}
+            @click=${() => this.start(buildDynamicSpec())}
+          >
+            <span class="t">Começar agora</span>
+            <span class="meta">${this.noteDistribution()} · ${this.lastText(DYNAMIC_ID)}</span>
+          </button>
+        </section>
+
         <section class="card">
-          <h2>Simulados oficiais</h2>
-          <p class="sub">50 questões · 100 minutos — mesmo formato do exame AZ‑104.</p>
+          <h2>Simulados fixos</h2>
+          <p class="sub">10 provas prontas — mesmas 50 questões toda vez · 100 minutos.</p>
           <ul class="list">
             ${oficiais.map(
               (s) => html`
@@ -85,25 +113,12 @@ export class CatalogScreen extends LitElement {
                     @click=${() => this.start(s)}
                   >
                     <span class="t">${s.title}</span>
-                    <span class="meta">${s.mode === 'fixed' ? '50 questões · 100 min' : ''}</span>
+                    <span class="meta">50 questões · 100 min · ${this.lastText(s.id)}</span>
                   </button>
                 </li>
               `,
             )}
           </ul>
-        </section>
-
-        <section class="card">
-          <h2>Outros modos</h2>
-          <button
-            type="button"
-            class="row"
-            ?disabled=${this.busy}
-            @click=${() => this.start(this.dynamicSpec())}
-          >
-            <span class="t">Simulado Dinâmico</span>
-            <span class="meta">Sempre diferentes: 50 questões · 100 min · ${this.noteDistribution()}</span>
-          </button>
         </section>
       </main>
     `
@@ -124,6 +139,16 @@ export class CatalogScreen extends LitElement {
     h2 {
       margin: 0 0 6px;
       font-size: 20px;
+    }
+    .rec {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brand-green);
+      border: 1px solid var(--brand-green);
+      border-radius: 999px;
+      padding: 1px 10px;
+      margin-left: 8px;
+      white-space: nowrap;
     }
     .sub {
       margin: 0 0 12px;

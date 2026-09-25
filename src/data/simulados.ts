@@ -27,3 +27,18 @@ export const SIMULADOS: SimuladoSpec[] = (() => {
 export function getSimuladoById(id: string): SimuladoSpec | undefined {
   return SIMULADOS.find((s) => s.id === id)
 }
+
+// Simulado Dinâmico: mesmo id sempre, seed novo a cada chamada (cada clique
+// gera um set diferente). Fonte única — catalog-screen e app-shell usam este.
+export const DYNAMIC_ID = 'sim-dinamico'
+
+export function buildDynamicSpec(): SimuladoSpec {
+  return {
+    mode: 'seed',
+    id: DYNAMIC_ID,
+    title: 'Simulado Dinâmico',
+    seed: Date.now() % 100000,
+    questionCount: 50,
+    timeLimitMinutes: 100,
+  }
+}

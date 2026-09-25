@@ -3,7 +3,7 @@ import { QuizController } from '../controllers/quiz-controller.js'
 import { SyncController } from '../controllers/sync-controller.js'
 import { TreinoController } from '../controllers/treino-controller.js'
 import { ensureSeeded, getBankLine } from '../data/QuestionLoader.js'
-import { SIMULADOS } from '../data/simulados.js'
+import { buildDynamicSpec, SIMULADOS } from '../data/simulados.js'
 import { getDue, gradeCard } from '../engine/LeitnerEngine.js'
 import type { SimuladoSpec } from '../engine/question-schema.js'
 import { CODE_BY_DOMAIN } from '../engine/question-schema.js'
@@ -282,6 +282,10 @@ export class AppShell extends LitElement {
 
   private select(tab: TabId) {
     this.tab = tab
+    // Aba Simulado abre sempre um dinâmico novo (seed fresco a cada clique),
+    // exceto quando o usuário escolheu um fixo no catálogo (pendingSpec).
+    if (tab === 'quiz' && !this.pendingSpec)
+      this.pendingSpec = buildDynamicSpec()
     if (tab === 'estudo') void this.loadEstudo()
   }
 

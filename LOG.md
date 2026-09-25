@@ -208,6 +208,8 @@
   budget JS 111.7KB/140KB · e2e **14/14** (quiz/gate/progress/offline/axe/overflow/estudo/catalog).
 - **Próximo:** Sprint 3.2 (`TreinoController`, app-shell rumo a <500).
 
+- **Próximo:** Sprint 3.2 (`TreinoController`, app-shell rumo a <500).
+
 ## 2026-09-25 — PLAN-3 Sprint 3.2 (P1): TreinoController ligado
 
 - **`src/controllers/treino-controller.ts`** (novo, classe pura): start/answer/flag/pause/resume/exit/finish.
@@ -223,3 +225,17 @@
   restam composição + estilos (~450 CSS) + templates declarativos; fatiar mais criaria prop-drilling
   (pior p/ manutenção). Shell agora é orquestrador fino; PLAN-3 atualizado.
 - **Próximo:** Sprint 3.5 (dinâmico principal + última atividade + rename fixos).
+
+## 2026-09-25 — PLAN-3 Sprint 3.5: catálogo UX (dinâmico principal)
+
+- **Dinâmico como principal:** aba Simulado e "Começar simulado" abrem orientação do dinâmico
+  (seed fresco a cada entrada via `select()`); fixo só se escolhido no catálogo (`pendingSpec`).
+  `buildDynamicSpec()` virou fonte única (`data/simulados.ts`) — catalog + shell usam o mesmo.
+- **Catálogo:** dinâmico no topo com selo "★ Recomendado" + CTA "Começar agora";
+  seção renomeada "Simulados oficiais"→**"Simulados fixos"** (+ sub explicando);
+  cada linha mostra última atividade (`última: 720 em 12/set` / `nunca feito`, via attempts).
+- **Sessão:** restore só p/ `mode==='fixed'` (seed novo = restore antigo não faz sentido).
+- **Testes:** `catalog.spec.ts` seletores → regex (nome ganhou sufixo de atividade).
+- **Resultados:** lint clean · tsc 0 · unit **53/53** · validate 950/0 · meta OK ·
+  budget JS ~112KB/140KB · e2e **14/14** · screenshot mobile lido e aprovado.
+- **Próximo:** Sprint 4 (Study Hub + admin ampliado + IRT + heatmap + drill + syllabus-gap + flags).

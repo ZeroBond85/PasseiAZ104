@@ -170,10 +170,14 @@ export class QuizController {
       return false
     }
 
-    // Restaura sessão anterior do MESMO sim (cada sim persiste separado)
-    const saved = await loadSession(spec.id).catch(
-      hush('data', 'startQuiz: restauração de sessão falhou'),
-    )
+    // Restaura sessão anterior só de simulado fixo: dinâmico tem seed novo a
+    // cada clique, então restaurar respostas/timer antigos não faz sentido.
+    const saved =
+      spec.mode === 'fixed'
+        ? await loadSession(spec.id).catch(
+            hush('data', 'startQuiz: restauração de sessão falhou'),
+          )
+        : null
     this.engine.load(picked)
     this.quiz = picked
     this.current = this.engine.index
