@@ -224,8 +224,8 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 
 ## 8. Status
 
-- [ ] Sprint 1 — Bugs críticos + fundação
-- [ ] Sprint 2 — Offline-first real
+- [x] Sprint 1 — Bugs críticos + fundação
+- [x] Sprint 2 — Offline-first real
 - [ ] Sprint 3 — Arquitetura limpa
 - [ ] Sprint 4 — Study Hub + qualidade de dados
 - [ ] Sprint 5 — Hardening + Docs & Vitrine

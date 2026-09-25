@@ -6,6 +6,24 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        // ADR-001 (Sprint 2): banco data/*.json em runtime cache — primeira visita
+        // exige rede; depois, StaleWhileRevalidate serve do SW mesmo sem rede.
+        runtimeCaching: [
+          {
+            // RegExp (não função): workbox-build serializa p/ o sw.js gerado.
+            urlPattern: /\/data\/.*\.json$/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'az104-questions',
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+            },
+          },
+        ],
+      },
       manifest: {
         name: 'Passei AZ-104',
         short_name: 'PasseiAZ104',

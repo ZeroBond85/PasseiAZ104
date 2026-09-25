@@ -2,10 +2,15 @@
 
 > Decisões (ADRs) + mapa do sistema. Fonte da verdade: `PLAN.md` v7.0.
 
-## ADR-001 — QuestionLoader: fetch + precache SW + IDB primeiro
+## ADR-001 — QuestionLoader: fetch + SW runtime cache + IDB primeiro (rev. Sprint 2)
 
 - Banco em `data/*.json` (particionado ≤200KB, §9). `public/data` é symlink → `../data`, seguido pelo Vite para `dist/data`.
-- 1ª carga: `fetch()` valida (Zod) e semeia o IDB; seguintes: IDB primeiro (`seedVersion` em `meta.json` dispara reseed).
+- 1ª carga (online): `fetch()` valida (Zod) e semeia o IDB; seguintes: IDB primeiro.
+- **SW participa de verdade desde a Sprint 2:** `workbox.runtimeCaching` StaleWhileRevalidate
+  p/ `/data/*.json` (cache `az104-questions`, 20 entradas, 30 dias, só `response.ok`) —
+  sem rede, o seed volta do SW mesmo com IDB limpo (provado em `offline.spec.ts`).
+  Antes da Sprint 2 o SW só fazia precache do shell (o nome antigo do ADR era enganoso).
+- Falha parcial de seed nunca marca versão (throw + retry na UI, LESSONS 2026-09-25).
 - Bundle nunca embute o banco.
 
 ## ADR-002 — Writer único de sessão

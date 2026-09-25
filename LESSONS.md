@@ -2,6 +2,20 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-25 — workbox-build ignora `urlPattern` função no runtimeCaching (Sprint 2)
+
+- **O quê:** `runtimeCaching` com `urlPattern: ({ url }) => ...` gerou `sw.js` SEM a rota
+  (só `precacheAndRoute` + navegação) — teste `offline: seed volta do cache do SW` falhava
+  com timeout, sem erro explícito no build.
+- **Teste que reproduz:** `tests/e2e/offline.spec.ts` (2º teste) + probe de `caches.keys()`
+  (só `workbox-precache-v2`, sem `az104-questions`) + `grep -c az104-questions dist/sw.js` = 0.
+- **Causa-raiz:** o `generateSW` do workbox-build serializa a config p/ o `sw.js`; função como
+  `urlPattern` não sobrevive à serialização e a rota é descartada em silêncio.
+- **Correção:** `urlPattern: /\/data\/.*\.json$/` (RegExp serializa). Prova: `grep -c` = 1 +
+  `StaleWhileRevalidate` presente + teste e2e verde.
+- **Regressão permanente:** regra nova de runtimeCaching sempre RegExp/string; estreia exige
+  `grep <cacheName> dist/sw.js` + teste e2e que aborte a rede e prove o cache.
+
 ## 2026-09-25 — Seed parcial silencioso no QuestionLoader (Sprint 1 P0)
 
 - **O quê:** `ensureSeeded()` engolia falha de fetch por arquivo (`continue` mudo) e marcava

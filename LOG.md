@@ -156,3 +156,17 @@
 - **Resultados:** lint 87 arquivos · build OK · unit **48/48** (+3) · validate 950/0 · meta OK ·
   budget JS 110.1KB/140KB · e2e **12/12**.
 - **Próximo:** Sprint 2 (P2 runtimeCaching + SyncController retry/rate-limit).
+
+## 2026-09-25 — PLAN-3 Sprint 2 (P2): offline-first real
+
+- **SW com runtimeCaching de verdade:** `workbox.runtimeCaching` StaleWhileRevalidate p/
+  `/data/*.json` (20 entradas, 30 dias, só `response.ok`). ADR-001 reescrito (nome antigo era enganoso).
+- **SyncController** (`src/controllers/sync-controller.ts`, classe pura): retry automático no evento
+  `online` + token bucket cliente (10 ops/60s; sem token agenda em vez de tomar 429) + backoff
+  30s→300s. `app-shell.retrySync` delega; attach/detach no ciclo auth; simId acompanha o quiz ativo.
+- **Teste novo** `offline.spec.ts`: IDB limpo + `data/*.json` abortado → seed volta do cache do SW.
+- **Achado real:** `urlPattern` função é descartado em silêncio pelo workbox-build (`grep -c`=0 no sw.js) —
+  fix RegExp + LESSONS. Prova: cache `az104-questions` existe + e2e verde.
+- **Resultados:** lint 88 arquivos · build OK · unit **48/48** · validate 950/0 · meta OK ·
+  budget JS 110.6KB/140KB · e2e **13/13** (+1 SW cache).
+- **Próximo:** Sprint 3 (P1: quiz/treino controllers + flags).

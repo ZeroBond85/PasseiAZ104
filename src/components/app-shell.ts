@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { SyncController } from '../controllers/sync-controller.js'
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
 import { PROPORTIONS, SIMULADOS } from '../data/simulados.js'
 import { toggleSelection } from '../engine/keyboard.js'
@@ -169,6 +170,7 @@ export class AppShell extends LitElement {
   private unsubAuth: () => void = () => undefined
 
   private engine = new QuizEngine()
+  private syncCtl = new SyncController()
   private timer = new TimerEngine(100)
   private timerId = 0
   private persistId = 0
@@ -215,6 +217,7 @@ export class AppShell extends LitElement {
       if (id) {
         void this.ensureProfile(id)
         void this.syncFromCloud()
+        this.syncCtl.attach(id, this.simId)
       }
       this.requestUpdate()
     })
@@ -224,8 +227,12 @@ export class AppShell extends LitElement {
       if (id && !was) {
         void this.ensureProfile(id)
         void this.syncFromCloud()
+        this.syncCtl.attach(id, this.simId)
       }
-      if (!id) this.isAdmin = false
+      if (!id) {
+        this.isAdmin = false
+        this.syncCtl.detach()
+      }
       this.requestUpdate()
     })
   }
@@ -237,6 +244,7 @@ export class AppShell extends LitElement {
     window.removeEventListener('offline', this.onNet)
     this.removeEventListener('local-mode', this.onLocalMode)
     this.unsubAuth()
+    this.syncCtl.detach()
     this.stopLoops()
   }
 
@@ -330,10 +338,8 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      const res = await syncNow(this.userId, this.simId).catch(
-        hush('sync', 'retrySync: syncNow falhou (banner mantido)'),
-      )
-      this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
+      this.syncCtl.attach(this.userId, this.simId)
+      this.syncFail = await this.syncCtl.flush()
     } finally {
       this.syncing = false
     }
@@ -409,6 +415,7 @@ export class AppShell extends LitElement {
           })
     this.pendingSpec = spec
     this.simId = spec.id
+    if (this.userId) this.syncCtl.attach(this.userId, spec.id)
     if (picked.length === 0) {
       this.loading = false
       this.tab = 'catalog'
