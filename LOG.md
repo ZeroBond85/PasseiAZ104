@@ -196,3 +196,14 @@
 - **Bug real achado no caminho:** aba Estudo em branco (`renderEstudo` async → Promise no template) —
   fix render síncrono + `estudo.spec.ts` (RPR) + LESSONS.
 - **Próximo:** Sprint 3.1 (ligar `QuizController` no app-shell).
+
+## 2026-09-25 — PLAN-3 Sprint 3.1 (P1): QuizController ligado
+
+- **`src/controllers/quiz-controller.ts`** (novo, 443 linhas, classe pura): start/persist/finish/recordAttempt,
+  tagError, teclado, timer expiry callback; recebe `notify` + `getUserId`, sem DOM.
+- **`app-shell.ts` 1324→1129 linhas** (-195): métodos viram delegação fina
+  (`quizCtl.start/answer/toggleFlag/goTo/complete/tagError/handleKey`); template lê `quizCtl.*`;
+  imports mortos removidos (tsc guiou: 19 unused).
+- **Resultados:** tsc 0 · lint clean · unit **48/48** · validate 950/0 · meta OK ·
+  budget JS 111.7KB/140KB · e2e **14/14** (quiz/gate/progress/offline/axe/overflow/estudo/catalog).
+- **Próximo:** Sprint 3.2 (`TreinoController`, app-shell rumo a <500).

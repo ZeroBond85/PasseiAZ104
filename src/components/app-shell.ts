@@ -1,24 +1,16 @@
 import { css, html, LitElement } from 'lit'
+import { QuizController } from '../controllers/quiz-controller.js'
 import { SyncController } from '../controllers/sync-controller.js'
 import {
   ensureSeeded,
   getBankLine,
   getQuestionPool,
 } from '../data/QuestionLoader.js'
-import { PROPORTIONS, SIMULADOS } from '../data/simulados.js'
-import { toggleSelection } from '../engine/keyboard.js'
+import { SIMULADOS } from '../data/simulados.js'
 import { getDue, gradeCard } from '../engine/LeitnerEngine.js'
-import {
-  domainQuotas,
-  pickByIds,
-  selectQuestions,
-} from '../engine/QuestionSelector.js'
 import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question, SimuladoSpec } from '../engine/question-schema.js'
 import { CODE_BY_DOMAIN } from '../engine/question-schema.js'
-import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
-import { analyzeAttempt, type StudyGuideResult } from '../engine/StudyGuide.js'
-import { TimerEngine } from '../engine/TimerEngine.js'
 import {
   btnStyles,
   cardStyles,
@@ -27,31 +19,17 @@ import {
 } from '../styles/shared.js'
 import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
-  loadAllAttempts,
   loadAllProgress,
-  loadDoubt,
   loadSession,
-  markActivity,
-  saveAttempt,
-  saveDoubt,
   saveProgress,
-  saveSession,
-  saveSuggestion,
 } from '../sync/IndexedDB.js'
 import {
   getProfileRole,
-  pushPlatform,
-  pushProgress,
-  pushSession,
   syncNow,
   upsertOwnProfile,
 } from '../sync/SyncEngine.js'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
-import type {
-  AttemptRecord,
-  ErrorTag,
-  StudyGuidePayload,
-} from '../sync/types.js'
+import type { ErrorTag } from '../sync/types.js'
 import { logger } from '../utils/logger.js'
 import './admin-panel.js'
 import './catalog-screen.js'
@@ -85,14 +63,8 @@ type TabId =
   | 'estudo'
 
 // Sessão default: 1º simulado oficial (nav "Simulado" direto, sem catálogo).
-const DEFAULT_SIM_ID = SIMULADOS[0]?.id ?? 'sim-oficial-01'
+// (O id default vive no QuizController.)
 
-function localDate(d = new Date()) {
-  return d.toISOString().slice(0, 10)
-}
-
-// Falhas best-effort (IDB local) viram debug log em vez de silêncio:
-// console limpo por padrão, buffer guarda p/ diagnóstico (?debug=1).
 type HushScope = 'sync' | 'quiz' | 'data'
 const hush =
   (scope: HushScope, msg: string) =>
@@ -106,37 +78,10 @@ const hushArr =
     logger.debug(scope, msg, err instanceof Error ? err.message : String(err))
     return []
   }
-const hushSync =
-  (scope: HushScope, msg: string) =>
-  (err: unknown): { pushed: number; failed: number } => {
-    logger.debug(scope, msg, err instanceof Error ? err.message : String(err))
-    return { pushed: 0, failed: 0 }
-  }
-
-function toPayload(g: StudyGuideResult): StudyGuidePayload {
-  return {
-    score: g.score,
-    passed: g.passed,
-    weakDomains: g.weakDomains,
-    byType: g.byType,
-    byDifficulty: g.byDifficulty,
-    topErrors: g.topErrors.map((t) => ({
-      questionId: t.question.id,
-      domain: t.question.domain,
-      subdomain: t.question.subdomain,
-    })),
-    tips: g.tips,
-  }
-}
 
 export class AppShell extends LitElement {
   static properties = {
     tab: { type: String },
-    quiz: { type: Object },
-    current: { type: Number },
-    result: { type: Object },
-    savedFlash: { type: Boolean },
-    loading: { type: Boolean },
     userId: { type: String },
     authReady: { type: Boolean },
     syncing: { type: Boolean },
@@ -150,17 +95,11 @@ export class AppShell extends LitElement {
   }
 
   declare tab: TabId
-  declare quiz: Question[]
-  declare current: number
-  declare result: ScoreResult | null
-  declare savedFlash: boolean
-  declare loading: boolean
   declare userId: string | null
   declare authReady: boolean
   declare syncing: boolean
   declare syncFail: number
   declare isAdmin: boolean
-  declare lastGuide: StudyGuideResult | null
   declare localMode: boolean
   declare treinoDomain: string | null
   declare treinoPaused: boolean
@@ -175,29 +114,21 @@ export class AppShell extends LitElement {
   declare bankLine: string
   private unsubAuth: () => void = () => undefined
 
-  private engine = new QuizEngine()
+  private quizCtl = new QuizController(
+    () => this.requestUpdate(),
+    () => this.userId,
+  )
   private syncCtl = new SyncController()
-  private timer = new TimerEngine(100)
-  private timerId = 0
-  private persistId = 0
-  private startedAt = 0
-  private simId = DEFAULT_SIM_ID
   private pendingSpec: SimuladoSpec | null = null
 
   constructor() {
     super()
     this.tab = 'home'
-    this.quiz = []
-    this.current = 0
-    this.result = null
-    this.savedFlash = false
-    this.loading = false
     this.userId = null
     this.authReady = false
     this.syncing = false
     this.syncFail = 0
     this.isAdmin = false
-    this.lastGuide = null
     this.localMode = false
     this.treinoDomain = null
     this.treinoPaused = false
@@ -210,6 +141,7 @@ export class AppShell extends LitElement {
     this.seedError = null
     this.online = typeof navigator !== 'undefined' ? navigator.onLine : true
     this.bankLine = ''
+    this.quizCtl.onExpire(() => void this.finish(true))
   }
 
   connectedCallback() {
@@ -227,7 +159,7 @@ export class AppShell extends LitElement {
       if (id) {
         void this.ensureProfile(id)
         void this.syncFromCloud()
-        this.syncCtl.attach(id, this.simId)
+        this.syncCtl.attach(id, this.quizCtl.simId)
       }
       this.requestUpdate()
     })
@@ -237,7 +169,7 @@ export class AppShell extends LitElement {
       if (id && !was) {
         void this.ensureProfile(id)
         void this.syncFromCloud()
-        this.syncCtl.attach(id, this.simId)
+        this.syncCtl.attach(id, this.quizCtl.simId)
       }
       if (!id) {
         this.isAdmin = false
@@ -255,7 +187,7 @@ export class AppShell extends LitElement {
     this.removeEventListener('local-mode', this.onLocalMode)
     this.unsubAuth()
     this.syncCtl.detach()
-    this.stopLoops()
+    this.quizCtl.stopLoops()
   }
 
   private onLocalMode = () => {
@@ -328,15 +260,15 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      const res = await syncNow(this.userId, this.simId).catch(
+      const res = await syncNow(this.userId, this.quizCtl.simId).catch(
         hush('sync', 'syncFromCloud: syncNow falhou (best-effort)'),
       )
       this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
       // Se a sessão remota era mais nova, o IDB foi atualizado — recarrega estado
-      const saved = await loadSession(this.simId).catch(
+      const saved = await loadSession(this.quizCtl.simId).catch(
         hush('data', 'syncFromCloud: leitura de sessão falhou'),
       )
-      if (saved && saved.answers.length > 0 && this.quiz.length === 0) {
+      if (saved && saved.answers.length > 0 && this.quizCtl.quiz.length === 0) {
         this.requestUpdate()
       }
     } finally {
@@ -348,45 +280,17 @@ export class AppShell extends LitElement {
     if (!this.userId) return
     this.syncing = true
     try {
-      this.syncCtl.attach(this.userId, this.simId)
+      this.syncCtl.attach(this.userId, this.quizCtl.simId)
       this.syncFail = await this.syncCtl.flush()
     } finally {
       this.syncing = false
     }
   }
 
-  private keyToLetter(key: string): string | null {
-    const idx = Number(key) - 1
-    if (Number.isInteger(idx) && idx >= 0 && idx < 4)
-      return String.fromCharCode(65 + idx)
-    if (/^[a-dA-D]$/.test(key)) return key.toUpperCase()
-    return null
-  }
-
   private onKey = (e: KeyboardEvent) => {
     if (e.ctrlKey || e.metaKey || e.altKey) return
-    if (this.tab !== 'quiz' || this.engine.state !== 'active') return
-    const q = this.quiz[this.current]
-    if (!q) return
-    if (e.key === 'ArrowRight')
-      this.current = Math.min(this.current + 1, this.quiz.length - 1)
-    else if (e.key === 'ArrowLeft') this.current = Math.max(this.current - 1, 0)
-    else {
-      const letter = this.keyToLetter(e.key)
-      const opt = letter
-        ? q.options.find((o) => o.letter === letter)
-        : undefined
-      if (opt) {
-        const isMultiple = q.type === 'multiple'
-        this.onAnswer(
-          toggleSelection(
-            this.engine.answers.get(q.id) ?? [],
-            opt.letter,
-            isMultiple,
-          ),
-        )
-      }
-    }
+    if (this.tab !== 'quiz') return
+    this.quizCtl.handleKey(e)
   }
 
   private select(tab: TabId) {
@@ -395,118 +299,22 @@ export class AppShell extends LitElement {
   }
 
   private async startQuiz(spec: SimuladoSpec) {
-    this.loading = true
+    this.pendingSpec = spec
     this.seedError = null
     try {
-      await ensureSeeded()
+      const ok = await this.quizCtl.start(spec)
+      if (!ok) this.tab = 'catalog'
     } catch (err) {
-      this.loading = false
       this.seedError =
         err instanceof Error ? err.message : 'Falha ao carregar o banco.'
       logger.warn('quiz', 'startQuiz: seed incompleto', this.seedError)
       return
     }
-    const pool = (await getQuestionPool()) as Question[]
-    const progress = await loadAllProgress().catch(
-      hushArr('data', 'startQuiz: leitura de progresso falhou'),
-    )
-    const usage = new Map(progress.map((p) => [p.questionId, p.usageCount]))
-    const picked =
-      spec.mode === 'fixed'
-        ? pickByIds(pool, spec.questionIds)
-        : selectQuestions(pool, {
-            seed: spec.seed,
-            count: Math.min(spec.questionCount, pool.length),
-            quotas: domainQuotas(
-              Math.min(spec.questionCount, pool.length),
-              PROPORTIONS,
-            ),
-            recentIds: new Set(),
-            usageCount: usage,
-          })
-    this.pendingSpec = spec
-    this.simId = spec.id
     if (this.userId) this.syncCtl.attach(this.userId, spec.id)
-    if (picked.length === 0) {
-      this.loading = false
-      this.tab = 'catalog'
-      logger.warn('quiz', 'startQuiz: nenhuma questão selecionável')
-      return
-    }
-
-    // Restaura sessão anterior do MESMO sim (cada sim persiste separado)
-    const saved = await loadSession(spec.id).catch(
-      hush('data', 'startQuiz: restauração de sessão falhou'),
-    )
-    this.engine.load(picked)
-    this.quiz = picked
-    this.current = this.engine.index
-    this.timer = new TimerEngine(spec.timeLimitMinutes)
-    if (saved && saved.answers.length > 0) {
-      this.engine.restore({
-        state: saved.state as never,
-        index: saved.index,
-        answers: saved.answers,
-        flagged: saved.flagged,
-      })
-      this.timer.remaining = saved.timerRemaining
-      this.current = this.engine.index
-    }
-    this.timer.start()
-    this.startedAt = Date.now()
-    this.timerId = window.setInterval(() => {
-      this.timer.tick(1)
-      if (this.timer.expired) void this.finish(true)
-      this.requestUpdate()
-    }, 1000)
-    this.persistId = window.setInterval(() => void this.persist(), 30000)
-    this.loading = false
-    logger.info('quiz', 'simulado iniciado', { id: spec.id })
-  }
-
-  private stopLoops() {
-    clearInterval(this.timerId)
-    clearInterval(this.persistId)
-  }
-
-  private async persist() {
-    const snap = this.engine.snapshot()
-    await saveSession({
-      id: this.simId,
-      state: snap.state,
-      index: snap.index,
-      answers: snap.answers,
-      flagged: snap.flagged,
-      timerRemaining: this.timer.remaining,
-      updatedAt: Date.now(),
-    }).catch(hush('data', 'persist: saveSession falhou'))
-    if (this.userId) {
-      await pushSession(this.userId, this.simId).catch(
-        hush('sync', 'persist: pushSession falhou'),
-      )
-    }
-    this.savedFlash = true
-    setTimeout(() => {
-      this.savedFlash = false
-    }, 2000)
-  }
-
-  private onAnswer(letters: string[]) {
-    const q = this.quiz[this.current]
-    if (!q) return
-    this.engine.answer(q.id, letters)
-    this.requestUpdate()
-  }
-
-  private onFlag() {
-    const q = this.quiz[this.current]
-    if (!q) return
-    this.engine.toggleFlag(q.id)
-    this.requestUpdate()
   }
 
   private async finish(auto = false) {
-    const missing = this.engine.unansweredCount()
+    const missing = this.quizCtl.unansweredCount()
     if (!auto && missing > 0) {
       this.finishConfirmOpen = true
       this.requestUpdate()
@@ -518,116 +326,12 @@ export class AppShell extends LitElement {
       this.finishResolve = null
       if (!confirmed) return
     }
-    this.stopLoops()
-    this.engine.submit()
-    const answers = new Map(this.engine.answers)
-    this.result = scoreSession(this.quiz, answers)
-    // Leitner: grava progresso (acerto = todas certas, sem erro)
-    const now = Date.now()
-    const prior = new Map(
-      (
-        await loadAllProgress().catch(
-          hushArr(
-            'data',
-            'finish: leitura de progresso falhou; Leitner sem histórico',
-          ),
-        )
-      ).map((p) => [p.questionId, p]),
-    )
-    for (const q of this.quiz) {
-      const given = new Set(answers.get(q.id) ?? [])
-      const expected = new Set(q.correct)
-      const ok =
-        given.size === expected.size && [...expected].every((l) => given.has(l))
-      const prev = prior.get(q.id)
-      const card = gradeCard(
-        { questionId: q.id, box: prev?.box ?? 0, dueAt: 0 },
-        ok,
-        now,
-      )
-      await saveProgress({
-        questionId: q.id,
-        box: card.box,
-        dueAt: card.dueAt,
-        usageCount: (prev?.usageCount ?? 0) + 1,
-        lastSeenAt: now,
-      }).catch(hush('data', 'finish: saveProgress falhou'))
-    }
-    this.engine.finish()
-    // v7.0 P2/P3: grava attempt + dia ativo + estudo guiado (local, idempotente)
-    await this.recordAttempt(now)
-    if (this.userId) {
-      await pushProgress(this.userId).catch(
-        hush('sync', 'finish: pushProgress falhou'),
-      )
-      await pushSession(this.userId, this.simId).catch(
-        hush('sync', 'finish: pushSession falhou'),
-      )
-      const res = await pushPlatform(this.userId).catch(
-        hushSync('sync', 'finish: pushPlatform falhou'),
-      )
-      this.syncFail = res.failed
-    }
-    if (this.result.passed) {
+    const { result, syncFailed } = await this.quizCtl.complete()
+    if (this.userId) this.syncFail = syncFailed
+    if (result.passed) {
       this.victoryOpen = true
     }
     this.tab = 'review'
-  }
-
-  private async recordAttempt(now: number) {
-    const answers = new Map(this.engine.answers)
-    const result = scoreSession(this.quiz, answers)
-    const userId = this.userId ?? 'local'
-    const attempt: AttemptRecord = {
-      id: crypto.randomUUID(),
-      userId,
-      kind: 'simulado',
-      simuladoId: this.simId,
-      startedAt: this.startedAt || now,
-      finishedAt: now,
-      durationSeconds: Math.max(0, Math.round((now - this.startedAt) / 1000)),
-      questions: this.quiz.length,
-      score: result.score,
-      passed: result.passed,
-      answers: this.quiz.map((q) => {
-        const given = answers.get(q.id) ?? []
-        const expected = q.correct
-        const g = new Set(given)
-        const e = new Set(expected)
-        const correct = e.size === g.size && [...e].every((l) => g.has(l))
-        return { questionId: q.id, correct, given, expected }
-      }),
-      byDomain: result.byDomain,
-      errorTags: {},
-      createdAt: now,
-    }
-    await saveAttempt(attempt).catch((err) =>
-      logger.warn(
-        'data',
-        'recordAttempt: saveAttempt falhou (attempt perdido)',
-        err instanceof Error ? err.message : err,
-      ),
-    )
-    await markActivity(localDate(new Date(now)), 'simulado').catch(
-      hush('data', 'recordAttempt: markActivity falhou'),
-    )
-    // Estudo guiado recalculado (client-side) + snapshot
-    const guide = analyzeAttempt(
-      this.quiz,
-      answers,
-      await loadAllProgress().catch(
-        hushArr('data', 'recordAttempt: progresso p/ guia falhou'),
-      ),
-    )
-    this.lastGuide = guide
-    if (userId !== 'local') {
-      await saveSuggestion({
-        id: crypto.randomUUID(),
-        userId,
-        generatedAt: now,
-        payload: toPayload(guide),
-      }).catch(hush('data', 'recordAttempt: saveSuggestion falhou'))
-    }
   }
 
   render() {
@@ -678,7 +382,7 @@ export class AppShell extends LitElement {
         .open=${this.victoryOpen}
         variant="success"
         title="Parabéns! 🎉"
-        message="Você foi aprovado no simulado! Pontuação: ${this.result?.score ?? 0}/1000"
+        message="Você foi aprovado no simulado! Pontuação: ${this.quizCtl.result?.score ?? 0}/1000"
         confirmText="Ver revisão"
         @confirm=${this.onVictoryClose}
       ></modal-dialog>
@@ -700,7 +404,6 @@ export class AppShell extends LitElement {
 
   private onCatalogStart(spec: SimuladoSpec) {
     this.pendingSpec = spec
-    this.simId = spec.id
     this.tab = 'quiz'
   }
 
@@ -767,40 +470,39 @@ export class AppShell extends LitElement {
   }
 
   private renderQuiz() {
-    if (this.loading) return html`<main><p>Carregando questões…</p></main>`
-    if (this.quiz.length === 0 && this.engine.state !== 'active')
-      return this.renderOrientation()
-    const q = this.quiz[this.current]
+    const ctl = this.quizCtl
+    if (ctl.loading) return html`<main><p>Carregando questões…</p></main>`
+    if (ctl.quiz.length === 0 && !ctl.isActive) return this.renderOrientation()
+    const q = ctl.currentQuestion
     if (!q)
       return html`<main><p>Não foi possível carregar as questões. Toque em “Recarregar banco” no topo e tente de novo.</p></main>`
-    const idxById = new Map(this.quiz.map((x, i) => [x.id, i]))
     return html`
-      <timer-bar .remaining=${this.timer.remaining} .total=${this.timer.totalSeconds} .saved=${this.savedFlash}></timer-bar>
+      <timer-bar .remaining=${ctl.timer.remaining} .total=${ctl.timer.totalSeconds} .saved=${ctl.savedFlash}></timer-bar>
       <navigator-grid
-        .total=${this.quiz.length}
-        .current=${this.current}
-        .answered=${[...this.engine.answers.keys()].map((id) => idxById.get(id) ?? -1)}
-        .flagged=${[...this.engine.flagged].map((id) => idxById.get(id) ?? -1)}
+        .total=${ctl.quiz.length}
+        .current=${ctl.current}
+        .answered=${ctl.answeredIndexes()}
+        .flagged=${ctl.flaggedIndexes()}
         @goto=${(e: CustomEvent) => {
-          this.current = e.detail
+          ctl.goTo(e.detail)
         }}
       ></navigator-grid>
       <main>
         <h1 class="sr-only">Simulado</h1>
         <p class="progress" aria-live="polite">
-          Questão ${this.current + 1} de ${this.quiz.length}
+          Questão ${ctl.current + 1} de ${ctl.quiz.length}
         </p>
         <question-card
           .question=${q}
-          .selected=${this.engine.answers.get(q.id) ?? []}
-          @answer=${(e: CustomEvent) => this.onAnswer(e.detail)}
+          .selected=${ctl.answerOf(q.id)}
+          @answer=${(e: CustomEvent) => ctl.answer(e.detail)}
         ></question-card>
         <div class="actions">
-          <button type="button" class="btn" @click=${() => this.onFlag()}>
-            ${this.engine.flagged.has(q.id) ? '⚑ Desmarcar' : '⚑ Marcar revisão'}
+          <button type="button" class="btn" @click=${() => ctl.toggleFlag()}>
+            ${ctl.isFlagged(q.id) ? '⚑ Desmarcar' : '⚑ Marcar revisão'}
           </button>
           <button type="button" class="btn btn-primary" @click=${() => void this.finish()}>
-            Finalizar (${this.engine.unansweredCount()} sem responder)
+            Finalizar (${ctl.unansweredCount()} sem responder)
           </button>
         </div>
       </main>
@@ -808,21 +510,22 @@ export class AppShell extends LitElement {
   }
 
   private renderReview() {
-    if (!this.result)
+    const ctl = this.quizCtl
+    if (!ctl.result)
       return html`<main><p>Finalize um simulado para ver a revisão.</p></main>`
     return html`
       <main>
-        <stats-dashboard .result=${this.result}></stats-dashboard>
+        <stats-dashboard .result=${ctl.result}></stats-dashboard>
         ${
-          this.lastGuide
-            ? html`<study-guide .guide=${this.lastGuide} .questions=${this.quiz}></study-guide>`
+          ctl.lastGuide
+            ? html`<study-guide .guide=${ctl.lastGuide} .questions=${ctl.quiz}></study-guide>`
             : ''
         }
-        ${this.quiz.map(
+        ${ctl.quiz.map(
           (q) => html`
             <review-card
               .question=${q}
-              .given=${this.engine.answers.get(q.id) ?? []}
+              .given=${ctl.answerOf(q.id)}
               @tag-selected=${this.onTagSelected}
             ></review-card>
           `,
@@ -1055,43 +758,9 @@ export class AppShell extends LitElement {
 
   private onTagSelected(e: Event) {
     const d = (e as CustomEvent<{ questionId: string; tag: ErrorTag }>).detail
-    const userId = this.userId ?? 'local'
     void (async () => {
-      const attempts = await loadAllAttempts().catch(
-        hushArr('data', 'tag de erro: leitura de attempts falhou'),
-      )
-      const latest = attempts
-        .filter((a) => a.userId === userId && a.kind === 'simulado')
-        .slice(0, 5)
-      for (const a of latest) {
-        if (!a.errorTags[d.questionId]) {
-          a.errorTags[d.questionId] = d.tag
-          await saveAttempt(a).catch(
-            hush('data', 'tag de erro: saveAttempt falhou'),
-          )
-        }
-      }
-      const doubt = await loadDoubt(d.questionId).catch(
-        hush('data', 'tag de erro: loadDoubt falhou'),
-      )
-      await saveDoubt({
-        questionId: d.questionId,
-        note: doubt?.note ?? '',
-        tag: d.tag,
-        resolved: doubt?.resolved ?? false,
-        createdAt: doubt?.createdAt ?? Date.now(),
-        updatedAt: Date.now(),
-      }).catch((err) =>
-        logger.warn(
-          'data',
-          'tag de erro: saveDoubt falhou (dúvida perdida)',
-          err instanceof Error ? err.message : err,
-        ),
-      )
-      const res = await pushPlatform(userId).catch(
-        hushSync('sync', 'tag de erro: pushPlatform falhou'),
-      )
-      if (res.failed > 0) this.syncFail = res.failed
+      const failed = await this.quizCtl.tagError(d.questionId, d.tag)
+      if (failed > 0) this.syncFail = failed
     })()
   }
 
@@ -1136,18 +805,19 @@ export class AppShell extends LitElement {
   }
 
   private finishMessage(): string {
-    const n = this.engine.unansweredCount()
+    const n = this.quizCtl.unansweredCount()
     const q =
       n === 1 ? '1 questão sem responder' : `${n} questões sem responder`
     return `${q}. Tem certeza que deseja finalizar?`
   }
 
   private renderStats() {
+    const result = this.quizCtl.result
     return html`
       <main>
         ${
-          this.result
-            ? html`<stats-dashboard .result=${this.result}></stats-dashboard>`
+          result
+            ? html`<stats-dashboard .result=${result}></stats-dashboard>`
             : html`<section class="card"><p>Sem resultados ainda. Finalize um simulado e seu desempenho aparece aqui.</p></section>`
         }
       </main>
