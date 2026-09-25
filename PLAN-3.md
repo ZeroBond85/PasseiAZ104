@@ -66,6 +66,9 @@
       (cache `az104-questions`, 20 entradas, 30 dias, só cacheia `response.ok`).
 - [ ] `src/controllers/sync-controller.ts` (novo): retry automático no evento `online`
       (backoff exponencial) + `flushQueue()` ligado ao `retrySync()`.
+- [ ] **Rate-limit cliente** (token bucket em `sync-controller.ts`): `syncNow`/`pushPlatform`
+      consomem tokens (ex.: 10/60s por operação); sem token → agenda retry em vez de
+      disparar e tomar 429 do Supabase. Evita queimar cota em burst (rajada pós-offline).
 - [ ] `tests/e2e/offline.spec.ts`: reload com `data/*.json` abortado → quiz carrega do cache.
 - [ ] Docs: `ARCHITECTURE.md` (ADR-001 reescrito, sem "precache SW" enganoso) + `LOG.md`.
 - **Pronto:** offline reload OK · retry automático · budget mantido.
@@ -76,6 +79,9 @@
 - [ ] `src/controllers/treino-controller.ts` (novo, ~150 linhas, classe pura).
 - [ ] `src/controllers/sync-controller.ts` (finaliza o da Sprint 2, ~100 linhas).
 - [ ] `src/components/app-shell.ts`: delega tudo → **< 500 linhas** (de 1324). Sem bus, sem repos, sem lazy.
+- [ ] **Feature flags** `src/config/flags.ts` (novo, ~20 linhas): `isEnabled('drill' | 'study-hub' | 'gamification')`
+      lido de `localStorage` (default por flag); app-shell só renderiza aba/CTA se flag ON.
+      Permite mergear Sprint 4 incompleta sem quebrar `main`.
 - [ ] Ordem: 1 controller por vez, e2e após cada um. 100% métodos públicos com teste.
 - [ ] Docs: `ARCHITECTURE.md` (ADR-008 + mapa `src/controllers/`) + `LOG.md`.
 - **Pronto:** e2e 12/12 · zero `querySelector` cross-root novo · `tsc` limpo.
@@ -118,9 +124,19 @@
 - [ ] **2.7** `navigator-grid.ts` (+`btnStyles`) · `study-guide.ts` (+`cardStyles`,`btnStyles`) ·
       `admin-panel.ts` (+`controlStyles`) · treino `alert()` → `modal-dialog` variant info.
 - [ ] `scripts/validate-migration-types.mjs` (offline, migration↔types) no `ci`.
+- [ ] **Zod fonte única**: `src/engine/question-schema.ts` passa a gerar os tipos
+      (`type Question = z.infer<...>` já existe — estender p/ `AttemptRecord`/`DoubtRecord`/
+      `ProgressRecord` via schemas Zod em `src/sync/types.ts`); o validador migration↔types
+      compara SQL × Zod × TS em um só passo. Elimina drift em 3 fontes.
+- [ ] **`scripts/new-question.mts`** (interativo): pergunta domínio/subdomínio/tipo/dificuldade,
+      monta o JSON no schema, roda `validate` no item, imprime o bloco pronto p/ colar no
+      `data/*.json` + checklist `QUESTION-GUIDELINES.md`. Guia contribuição sem adivinhação.
 - [ ] **3 CIs novos**: `study-links.yml` · `question-curation.yml` · `exam-watch.yml`
       (molde `dependency-audit`: cron mensal dia 1 + `workflow_dispatch`; relatório em
       `.agent/audits/`; auto-PR mecânico / auto-issue com contexto).
+- [ ] **Backup Supabase semanal** `.github/workflows/backup.yml` (novo): `pg_dump` (schema+data,
+      via `supabase` CLI ou `postgres` URL de *leitura* em secret dedicado) → artifact do run
+      (retenção 90 dias). Só leitura, nunca expõe senha em log (mask). Restaura manual via SQL Editor.
 - [ ] **README.md** reescrito: descrição oficial A+Microsoft · PT-BR como diferencial ·
       badges (ci, deploy, security, perf, license MIT) · 3 screenshots · Study Hub ·
       números reais (57 testes, 950 questões, data do banco) · estrutura nova ·
@@ -191,10 +207,10 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 | Sprint | Métrica | Alvo |
 |--------|---------|------|
 | 1 | seed parcial impossível · CSP limpo · meta verdadeiro · budget no CI | teste unit + console + gate + job |
-| 2 | offline reload · retry no `online` | `offline.spec` + listener |
-| 3 | app-shell < 500 linhas · controllers cobertos | `wc -l` + coverage + e2e 12/12 |
+| 2 | offline reload · retry no `online` · rate-limit sem 429 em burst | `offline.spec` + listener + bucket |
+| 3 | app-shell < 500 linhas · controllers cobertos · flags isolam features | `wc -l` + coverage + e2e 12/12 |
 | 4 | links persistidos/sync · IRT gate · heatmap · drill E2E · gap válido | profile + log + UI + teste + relatório |
-| 5 | README auto · migration↔types · 3 CIs mensais · review assinado | script + job + PR + doc |
+| 5 | README auto · migration↔Zod↔TS · 3 CIs mensais + backup semanal · review assinado | script + job + PR + doc |
 
 ## 7. Riscos e mitigações
 
@@ -213,3 +229,22 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 - [ ] Sprint 3 — Arquitetura limpa
 - [ ] Sprint 4 — Study Hub + qualidade de dados
 - [ ] Sprint 5 — Hardening + Docs & Vitrine
+
+## 9. Fora do v7.1 (registrado para não ressuscitar sem motivo)
+
+**Pós-prova (ROADMAP, só após §12):** e2e em device físico (BrowserStack/farm) ·
+push notifications (Web Push + VAPID) · app badge (`navigator.setAppBadge`) ·
+periodic background sync · gamificação extra · analytics externo · loja ·
+`ordering` de volta se fonte exigir · quarentena community (RoodneyMoraes, Anki 4k).
+
+**Descartados com motivo:** soft delete + audit log dedicado (`attempts` já é append-only
+imutável; `az104_admin_logs` existe) · COOP/COEP headers (só servem p/
+`SharedArrayBuffer`, que o app não usa) · CSP report-only faseado (app pequeno:
+enforce direto + teste local basta) · SW custom + Background Sync API (retry-cliente
+cobre; `generateSW` testado) · Repository Pattern (6 classes só delegariam
+`IndexedDB.ts`) · Event Bus (`CustomEvent` + delegação direta bastam) ·
+lazy load + manualChunks (113KB gz ≪ teto 140KB; gatilho futuro: se JS gz > 130KB,
+fatiar `admin-panel` primeiro) · visual regression no CI (flaky; prática manual
+documentada em `docs/TESTING.md`) · mutation testing no CI (trimestral manual só em
+`ScoringEngine`/`QuestionSelector`/`LeitnerEngine`, meta ≥80%) · contract tests via
+`supabase gen types` (exigiria credencial no CI; validador offline migration↔Zod↔TS no lugar).
