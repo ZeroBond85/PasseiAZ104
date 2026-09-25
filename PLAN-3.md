@@ -79,12 +79,27 @@
 - [ ] `src/controllers/treino-controller.ts` (novo, ~150 linhas, classe pura).
 - [ ] `src/controllers/sync-controller.ts` (finaliza o da Sprint 2, ~100 linhas).
 - [ ] `src/components/app-shell.ts`: delega tudo → **< 500 linhas** (de 1324). Sem bus, sem repos, sem lazy.
-- [ ] **Feature flags** `src/config/flags.ts` (novo, ~20 linhas): `isEnabled('drill' | 'study-hub' | 'gamification')`
-      lido de `localStorage` (default por flag); app-shell só renderiza aba/CTA se flag ON.
-      Permite mergear Sprint 4 incompleta sem quebrar `main`.
 - [ ] Ordem: 1 controller por vez, e2e após cada um. 100% métodos públicos com teste.
 - [ ] Docs: `ARCHITECTURE.md` (ADR-008 + mapa `src/controllers/`) + `LOG.md`.
-- **Pronto:** e2e 12/12 · zero `querySelector` cross-root novo · `tsc` limpo.
+- **Pronto:** e2e 13/13 · zero `querySelector` cross-root novo · `tsc` limpo.
+- **Nota:** `src/config/flags.ts` movido p/ Sprint 4 (só faz sentido com o primeiro consumidor real: study-hub).
+
+### Sprint 3.5 — Catálogo UX (dinâmico principal + última atividade + rename)
+
+> Pedido do dono: dinâmico como principal; fixos como opção secundária; última atividade visível.
+- [ ] `src/components/app-shell.ts`: helper `dynamicSpec()` (seed novo a cada clique);
+      orientação default = dinâmico (fixo só se escolhido no catálogo via `pendingSpec`);
+      home "Começar simulado" → orientação do dinâmico; `startQuiz` pula restore p/
+      `mode==='seed'` (seed novo = restore de sessão antiga não faz sentido).
+- [ ] `src/components/catalog-screen.ts`: seção dinâmica no topo (destaque "Recomendado");
+      heading "Simulados oficiais" → **"Simulados fixos"** (+ sub "mesmas 50 questões toda vez");
+      cada linha mostra última atividade (`loadAllAttempts()` → por `simuladoId`:
+      `última: 720 em 12/set` ou `nunca feito`).
+- [ ] `tests/e2e/catalog.spec.ts`: 2 seletores → regex (nome acessível ganha sufixo "última: ...").
+- [ ] `data/simulados.json`: **NÃO mexe** (títulos "Simulado Oficial N" preservados).
+- [ ] Demais specs (quiz/gate/progress/offline/axe/overflow): sem mudança (dinâmico também 50q/100min).
+- [ ] Docs: `LOG.md` + screenshot mobile do catálogo novo (leitura visual).
+- **Pronto:** e2e 13/13 · catálogo mobile legível · dinâmico gera set novo a cada clique.
 
 ### Sprint 4 — Study Hub + qualidade de dados
 
@@ -110,6 +125,14 @@
       (seção "📚 Estude no Microsoft Learn" com cards clicáveis).
 - [ ] `scripts/syllabus-gap.mts` (falta × sobra; saída pronta p/ corpo de issue).
 - [ ] `build-simulados.mts`: pular questões com tag `deprecated` (1 linha + teste).
+- [ ] **`src/config/flags.ts`** (novo, ~20 linhas): `isEnabled('study-hub' | 'drill' | 'gamification')`
+      lido de `localStorage` (default por flag); primeiro consumidor real: study-hub
+      (permite mergear Sprint 4 incompleta sem quebrar `main`).
+- [ ] **Admin ampliado** `src/components/admin-panel.ts`: promover/rebaixar `role` na tabela
+      de usuários (RLS já permite `admin update`; elimina o SQL manual p/ sempre) ·
+      fila `needsReview` acionável (botão "aprovar" tira a flag) ·
+      top 10 piores questões + sparkline SVG de score por usuário ·
+      viewer `az104_admin_logs` (tabela existe, sem UI até hoje).
 - [ ] Docs: `docs/STUDY-LINKS.md` (curadoria + CI mensal + RLS topics) +
       `ARCHITECTURE.md` (ADR-009 study hub, ADR-010 IRT gate, mapa `src/study/`,
       `src/analytics/`, migration 004) + `docs/ROADMAP.md` +
@@ -209,7 +232,7 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 | 1 | seed parcial impossível · CSP limpo · meta verdadeiro · budget no CI | teste unit + console + gate + job |
 | 2 | offline reload · retry no `online` · rate-limit sem 429 em burst | `offline.spec` + listener + bucket |
 | 3 | app-shell < 500 linhas · controllers cobertos · flags isolam features | `wc -l` + coverage + e2e 12/12 |
-| 4 | links persistidos/sync · IRT gate · heatmap · drill E2E · gap válido | profile + log + UI + teste + relatório |
+| 4 | links persistidos/sync · IRT gate · heatmap · drill E2E · gap válido · admin (roles, needsReview, top10, logs) · flags | profile + log + UI + teste + relatório |
 | 5 | README auto · migration↔Zod↔TS · 3 CIs mensais + backup semanal · review assinado | script + job + PR + doc |
 
 ## 7. Riscos e mitigações
@@ -227,7 +250,8 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 - [x] Sprint 1 — Bugs críticos + fundação
 - [x] Sprint 2 — Offline-first real
 - [ ] Sprint 3 — Arquitetura limpa
-- [ ] Sprint 4 — Study Hub + qualidade de dados
+- [ ] Sprint 3.5 — Catálogo UX (dinâmico principal)
+- [ ] Sprint 4 — Study Hub + admin ampliado + qualidade de dados
 - [ ] Sprint 5 — Hardening + Docs & Vitrine
 
 ## 9. Fora do v7.1 (registrado para não ressuscitar sem motivo)
