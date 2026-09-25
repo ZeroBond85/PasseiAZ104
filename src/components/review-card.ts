@@ -1,6 +1,6 @@
 import { css, html, LitElement } from 'lit'
 import type { Question } from '../engine/question-schema.js'
-import { controlStyles } from '../styles/shared.js'
+import { cardStyles, controlStyles } from '../styles/shared.js'
 import type { ErrorTag } from '../sync/types.js'
 
 const TAGS: { id: ErrorTag; label: string }[] = [
@@ -109,6 +109,7 @@ export class ReviewCard extends LitElement {
   }
 
   static styles = css`
+    ${cardStyles}
     ${controlStyles}
     .card {
       margin-bottom: 12px;

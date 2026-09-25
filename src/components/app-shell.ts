@@ -125,10 +125,6 @@ function toPayload(g: StudyGuideResult): StudyGuidePayload {
 }
 
 export class AppShell extends LitElement {
-  protected createRenderRoot() {
-    return this // light DOM for shadow-piercing selectors in tests
-  }
-
   static properties = {
     tab: { type: String },
     quiz: { type: Object },
@@ -1237,6 +1233,17 @@ export class AppShell extends LitElement {
       color: var(--progress-ink);
       background-color: var(--surface-raised);
       outline: 1px solid var(--progress-ink);
+    }
+    @media (max-width: 520px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      nav button {
+        flex: 1 1 30%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+      }
     }
     @media (min-width: 768px) {
       nav {

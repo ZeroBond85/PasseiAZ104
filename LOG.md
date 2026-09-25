@@ -131,3 +131,12 @@
   - **D3 polish:** axe 0 violações no quiz/progresso (já coberto), JS gz **113.6KB / 140KB**.
 - **Testes:** unit 45/45, e2e 11/11, validate 950/0, build OK, lint clean.
 - **Status:** PLAN 2 **concluído integralmente** (Fases A–D). Próximo: agendar prova (quando critérios §12 forem atendidos) ou iniciar ciclo de estudo contínuo.
+
+## 2026-09-25 — QA visual (modelo com visão): light DOM matava os estilos do app-shell
+
+- **Achado:** screenshots desktop/mobile lidos de verdade (6 + 4 pós-fix): mobile estourava para ~1029px — logo 1008px intrínseco no header e no hero. Desktop OK; modal com backdrop correto (`rgba(0,0,0,.5)` sutil sobre tema escuro — não-bug).
+- **Raiz:** `app-shell` em light DOM → `static styles` nunca aplicados (0 `<style>`, regra fora de stylesheet nenhum). Premissa do override ("seletores atravessarem nos testes") falsa — Playwright atravessa shadow aberto.
+- **Fix:** app-shell volta ao shadow DOM default + `cardStyles` no `review-card` (usava `.card` sem o base) + nav mobile `flex-wrap` (estilos reais reativados truncavam 7 abas em siglas `Ini…`).
+- **Prova:** `tests/e2e/overflow.spec.ts` (novo, RPR permanente) + screenshots pós-fix (home/quiz/review/nav mobile OK, zero `pageerror`).
+- **Resultados:** lint · build · unit 45/45 · validate 950/0 · budget JS 110.1KB/140KB · e2e **12/12** (11 + overflow).
+- **Pendente humano (inalterado):** validar admin com 2 usuários · iOS físico · SMTP próprio (Brevo) · estudo até 3 condições §12.

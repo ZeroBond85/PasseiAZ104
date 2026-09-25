@@ -2,6 +2,14 @@
 
 > Registro RPR. Cada falha vira regressão + lição travada no plano.
 
+## 2026-09-25 — `createRenderRoot() { return this }` mata os `static styles` (QA visual)
+
+- **O quê:** no mobile (390px) TODAS as telas estouravam para ~1029px de largura — logo `source-logo.webp` (1008px) em tamanho intrínseco no header e no hero. Visível só lendo screenshots (e2e/axe passavam verdes).
+- **Teste que reproduz:** `tests/e2e/overflow.spec.ts` — viewport 390, home + quiz, `document.documentElement.scrollWidth <= 390` (falhava: 1029/1008).
+- **Causa-raiz:** `app-shell` sobrescrevia `createRenderRoot()` retornando `this` (light DOM "para seletores atravessarem nos testes") — **o Lit não injeta `static styles` em render root de light DOM**: 0 `<style>`, regra `header .logo-chip img` existia no código mas em stylesheet nenhum (provado via `matches()=true` + `scrollWidth` + varredura de `document.styleSheets`). Todo o bloco `static styles` do app-shell (~250 linhas: hero, header, brand, nav, media queries) era código morto; o que parecia estilizado vinha do CSS global (`.btn`/`.card`). A premissa do override também era falsa: o Playwright atravessa shadow root aberto sozinho (só o combinador legado `>>>` não funciona).
+- **Correção:** override removido (shadow DOM default) + `cardStyles` que faltava no `review-card` (usava `.card` com só `controlStyles`) + nav mobile com `flex-wrap` (os estilos reais reativados mostravam 7 siglas `Ini…/Si…` em 1 linha — wrap devolve 2–3 linhas legíveis).
+- **Regressão permanente:** (1) componente novo usa shadow DOM default; light DOM só com justificativa + prova de que os estilos aplicam (screenshot); (2) classe compartilhada usada no template exige o bloco correspondente no `static styles` (auditoria `.btn`/`.card`/`.sr-only` × composição); (3) `overflow.spec.ts` trava scroll horizontal em 390px.
+
 ## 2026-09-23 — Botões em Arial 13px: UA stylesheet vence dentro do shadow DOM
 
 - **O quê:** botões crus (nav, theme-toggle, opções do quiz, tags de erro, "Sair", mapa de questões) renderizavam em **Arial 13.3px** em vez de system-ui — medido via `getComputedStyle` no Chromium.
