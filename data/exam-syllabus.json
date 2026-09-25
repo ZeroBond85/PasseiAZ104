@@ -1,0 +1,31 @@
+{
+  "examCode": "AZ-104",
+  "certTitlePt": "Microsoft Certificação: Administrador de Azure Associado",
+  "guideUrl": "https://learn.microsoft.com/pt-br/credentials/certifications/resources/study-guides/az-104",
+  "certUrl": "https://learn.microsoft.com/pt-br/credentials/certifications/azure-administrator/",
+  "skillsOutlineDate": "2026-04-17",
+  "guideUpdated": "2026-03-23",
+  "certPageUpdated": "2026-07-09",
+  "lastChecked": "2026-09-25T00:00:00.000Z",
+  "weights": {
+    "identidade-governanca": [20, 25],
+    "storage": [15, 20],
+    "compute": [20, 25],
+    "rede-virtual": [15, 20],
+    "monitoramento": [10, 15]
+  },
+  "languages": [
+    "Inglês",
+    "Chinês (Simplificado)",
+    "Coreano",
+    "Japonês",
+    "Francês",
+    "Espanhol",
+    "Alemão",
+    "Português (Brasil)",
+    "Chinês (Tradicional)",
+    "Italiano"
+  ],
+  "passingScore": 700,
+  "durationMinutes": 100
+}

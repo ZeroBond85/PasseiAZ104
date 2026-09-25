@@ -43,7 +43,13 @@ try {
 const files = readdirSync(DATA).filter(
   (f) =>
     f.endsWith('.json') &&
-    !['simulados.json', 'meta.json', 'case-studies.json'].includes(f),
+    ![
+      'simulados.json',
+      'meta.json',
+      'case-studies.json',
+      'study-topics.json',
+      'exam-syllabus.json',
+    ].includes(f),
 )
 for (const f of files) {
   const arr = JSON.parse(readFileSync(join(DATA.pathname, f), 'utf8'))
