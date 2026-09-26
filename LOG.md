@@ -288,6 +288,14 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-26 — Incidente: senha de banco em chat (teste do dono)
+
+- Credencial com formato de senha Postgres colada no chat ("teste", segundo o dono).
+  Tratada como comprometida conforme gatilho AGENTS.md: **não utilizada nem armazenada** —
+  foi exigida rotação imediata no dashboard antes de qualquer uso.
+- Ação requerida do dono: reset da senha (Database Settings) + `gh secret set SUPABASE_DB_URL`
+  local com a nova senha (entrada oculta) + aviso "secret criado" (sem colar valor).
+
 ## 2026-09-26 — Seed SQL dos topics + veredito SUPABASE_DB_URL
 
 - `supabase/seed-study-topics.sql` (novo, versionado): 34 INSERTs gerados de
