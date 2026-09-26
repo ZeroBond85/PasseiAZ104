@@ -298,6 +298,13 @@
   e gravar via `gh secret set SUPABASE_DB_URL` localmente. **Nunca colar senha em chat**
   (gatilho AGENTS.md: rotacionar + nunca repetir).
 
+## 2026-09-26 — Migration 004 aplicada (tabelas existem)
+
+- PostgREST (anon, respeitando RLS): `az104_study_topics` e `az104_study_profile` agora
+  retornam 200 (antes: 404) — migration 004 aplicada pelo dono. ✅
+- Falta confirmar: seed (34 rows — rodar `select count(*) from public.az104_study_topics;`)
+  + promoção admin + reload com selo "Admin".
+
 ## 2026-09-26 — Pendências humanas: triagem executável (Env só tem anon)
 
 - **Env auditado (só nomes):** `.env.local` tem apenas `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY`.
