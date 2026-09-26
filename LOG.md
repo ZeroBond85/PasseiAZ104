@@ -288,6 +288,18 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-26 — Pendências humanas: triagem executável (Env só tem anon)
+
+- **Env auditado (só nomes):** `.env.local` tem apenas `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY`.
+  Sem service_role/senha Postgres → DDL, promoção admin e criação de usuários **impossíveis p/ agente** (por design).
+- **Diagnóstico Supabase (anon, respeitando RLS):** `az104_attempts` 200 + `az104_profiles` 200-vazio
+  (migration 002 aplicada, RLS fail-closed OK); `az104_study_topics`/`az104_study_profile` **404**
+  (migration 004 pendente — SQL Editor).
+- **GitHub executado via `gh`:** About + site + 10 topics · labels `automated`/`study-links`/`question-item` ·
+  Discussions ON · auto-merge permitido · proteção `main` já correta (require `build`, strict — verificado).
+- **Social preview:** sem endpoint de API (confirmado `usesCustomOpenGraphImage: false`) — upload só na web.
+- **Fica p/ humano:** migration 004 (SQL Editor, 5 min) · promoção admin (SQL owner + reload; RLS impede via app de propósito) · 2 usuários · `SUPABASE_DB_URL` (backup pula sem ele) · Brevo SMTP · iOS · social preview upload.
+
 ## 2026-09-26 — Revisão PT-BR do portal (tom natural)
 
 - Auditoria completa de microcopy com skill `ux-writing-content-design`: 9 trocas
