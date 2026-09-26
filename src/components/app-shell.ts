@@ -345,7 +345,7 @@ export class AppShell extends LitElement {
         </div>
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
-        ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>sync falhou (${this.syncFail}) — tocar para repetir ↻</button>` : ''}
+        ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>Falha ao sincronizar (${this.syncFail}) — tentar de novo ↻</button>` : ''}
         ${!this.online ? html`<span class="sync warn" role="status">🔴 offline — dados salvos localmente</span>` : ''}
         ${this.seedError ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySeed()}>⚠ Banco incompleto — tocar para recarregar</button>` : ''}
         <user-menu .isAdmin=${this.isAdmin} @logout=${() => this.requestUpdate()}></user-menu>
@@ -483,7 +483,7 @@ export class AppShell extends LitElement {
     if (ctl.quiz.length === 0 && !ctl.isActive) return this.renderOrientation()
     const q = ctl.currentQuestion
     if (!q)
-      return html`<main><p>Não foi possível carregar as questões. Toque em “Recarregar banco” no topo e tente de novo.</p></main>`
+      return html`<main><p>Não foi possível carregar as questões. Use “Recarregar banco” no topo e tente de novo.</p></main>`
     return html`
       <timer-bar .remaining=${ctl.timer.remaining} .total=${ctl.timer.totalSeconds} .saved=${ctl.savedFlash}></timer-bar>
       <navigator-grid

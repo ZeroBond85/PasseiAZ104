@@ -288,6 +288,16 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-26 — Revisão PT-BR do portal (tom natural)
+
+- Auditoria completa de microcopy com skill `ux-writing-content-design`: 9 trocas
+  (README "acompanhamento de prontidão"→painel de pronto; admin Role→Perfil,
+  Analytics→Desempenho; catálogo "provas prontas"→frase direta; distribuição com
+  acentos via `ptLabels`; `extra`→`complementar`; "Sync"→"Sincronização";
+  "Toque/tocar"→verbos neutros). Mantidos por motivo: tags de erro (e2e + compreensível),
+  "Distrator" (termo técnico correto), "Por que errei?" (existe na UI).
+- Verificado: lint 0 erros · build · 67 unit · 16 e2e · screenshot catálogo lido.
+
 ## 2026-09-26 — SEO/descoberta PT-BR + procedência real das questões
 
 - **Correção do dono:** sem "autoria própria" isolada — questões **elaboradas em PT-BR a partir de

@@ -69,7 +69,7 @@ export class StudyLinkCard extends LitElement {
             <strong>${l.label}</strong>
             <span class="meta">${ptLabels(l.domain)}</span>
           </div>
-          <span class="tag">${l.priority === 'high' ? 'prioridade' : 'extra'}</span>
+          <span class="tag">${l.priority === 'high' ? 'prioridade' : 'complementar'}</span>
         </div>
         <div class="actions">
           <a

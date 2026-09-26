@@ -119,7 +119,8 @@ Leia `CONTRIBUTING.md`, `REGRAS.md` e `docs/QUESTION-GUIDELINES.md`. Resumo: que
 
 Para quem vai fazer a **prova oficial AZ-104 em português** (Microsoft Azure Administrator
 Associate): simulado no formato real da prova, 950 questões em PT-BR, revisão espaçada,
-guia de estudo com links oficiais da Microsoft e acompanhamento de prontidão. Grátis e offline.
+guia de estudo com links oficiais da Microsoft — e um painel que mostra quando você
+está pronto para marcar a prova. Grátis e offline.
 
 ## Licença
 

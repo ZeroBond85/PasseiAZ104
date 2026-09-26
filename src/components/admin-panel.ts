@@ -57,7 +57,7 @@ export class AdminPanel extends LitElement {
 
   private async load() {
     if (!isSyncEnabled() || !supabase) {
-      this.error = 'Sync desativado — admin exige backend.'
+      this.error = 'Sincronização desativada — admin exige backend.'
       this.loaded = true
       this.requestUpdate()
       return
@@ -306,7 +306,7 @@ export class AdminPanel extends LitElement {
         <section class="card">
           <h2>Usuários e últimas atividades</h2>
           <table>
-            <thead><tr><th>E-mail</th><th>Role</th><th>Simulados</th><th>Média</th><th>Evolução</th><th>Última atividade</th></tr></thead>
+            <thead><tr><th>E-mail</th><th>Perfil</th><th>Simulados</th><th>Média</th><th>Evolução</th><th>Última atividade</th></tr></thead>
             <tbody>
               ${this.users.map(
                 (u) => html`
@@ -337,7 +337,7 @@ export class AdminPanel extends LitElement {
         </section>
 
         <section class="card">
-          <h2>Analytics por questão</h2>
+          <h2>Desempenho por questão</h2>
           <p class="dim">← casos com menor precisão primeiro; distrator = alternativa errada mais marcada.</p>
           <table>
             <thead><tr><th>Questão</th><th>Domínio</th><th>Tentativas</th><th>Acerto</th><th>Distrator</th><th>Erros por motivo</th></tr></thead>

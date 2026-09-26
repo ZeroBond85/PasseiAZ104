@@ -14,6 +14,7 @@ import {
   srOnlyStyles,
 } from '../styles/shared.js'
 import { loadAllAttempts } from '../sync/IndexedDB.js'
+import { labels as ptLabels } from './study-guide.js'
 
 export class CatalogScreen extends LitElement {
   static properties = {
@@ -71,7 +72,7 @@ export class CatalogScreen extends LitElement {
 
   private noteDistribution() {
     return PROPORTIONS.map(
-      (p) => `${p.domain.split('-').join(' ')} ${Math.round(p.share * 100)}%`,
+      (p) => `${ptLabels(p.domain)} ${Math.round(p.share * 100)}%`,
     ).join(' · ')
   }
 
@@ -101,7 +102,7 @@ export class CatalogScreen extends LitElement {
 
         <section class="card">
           <h2>Simulados fixos</h2>
-          <p class="sub">10 provas prontas — mesmas 50 questões toda vez · 100 minutos.</p>
+          <p class="sub">10 simulados com as mesmas 50 questões · 100 minutos.</p>
           <ul class="list">
             ${oficiais.map(
               (s) => html`

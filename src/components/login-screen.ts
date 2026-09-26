@@ -148,7 +148,7 @@ export class LoginScreen extends LitElement {
                     Seus dados ficam salvos apenas neste navegador. Pode sincronizar depois.
                   </p>
                 `
-              : html`<p class="warn">Sync desativado neste ambiente (sem Supabase). O app funciona 100% local.</p>`
+              : html`<p class="warn">Sincronização desativada neste ambiente (sem Supabase). O app funciona 100% local.</p>`
           }
         </section>
       </main>
