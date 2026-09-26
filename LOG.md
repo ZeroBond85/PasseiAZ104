@@ -288,6 +288,16 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-26 — SEO/descoberta PT-BR + procedência real das questões
+
+- **Correção do dono:** sem "autoria própria" isolada — questões **elaboradas em PT-BR a partir de
+  simulados, cursos especializados e docs oficiais** (PLAN §8: exam-simulator MIT, AzureCertPrep,
+  timothywarner + grounding MS Learn); dado confirma 950/950 `source: "original"`, 0 URLs (sem cópias).
+- **Descoberta (Google/Git):** title SEO (`Simulado da prova oficial em português`) + JSON-LD
+  (WebApplication, pt-BR, preço 0) + `sitemap.xml`/`robots.txt` no ar + keywords PT no package.json +
+  seção "Para quem é" no README (casa busca `prova oficial AZ-104 em português`).
+- **Git restante (humano, Settings):** About + topics + social preview upload (arquivo pronto).
+
 ## 2026-09-26 — Correção factual: prova existe em PT-BR + procedência do banco
 
 - **Correção do dono:** a prova oficial **existe em Português (Brasil)** — este portal foi feito para ela.

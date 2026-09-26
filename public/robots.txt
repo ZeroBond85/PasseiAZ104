@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zerobond85.github.io/PasseiAZ104/sitemap.xml

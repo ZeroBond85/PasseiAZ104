@@ -48,8 +48,9 @@ Níveis: fácil 20% · médio 50% · difícil 30%.
 
 Cada questão passa por validação automática (schema + regras por tipo + anti-duplicata) antes de entrar no banco.
 
-Procedência honesta: as 950 são **autoria própria** (`source: original`), escritas em PT-BR e mapeadas
-1:1 para o outline oficial vigente (skills 17/04/2026 — `syllabus-gap` prova cobertura total, sem gaps).
+Procedência: questões **elaboradas em PT-BR** a partir de simulados, cursos especializados
+e da documentação oficial da Microsoft, mapeadas 1:1 para o outline oficial vigente
+(skills 17/04/2026 — `syllabus-gap` prova cobertura total, sem gaps).
 Não são cópias de questões da prova; explicações e Study Hub apontam para a documentação oficial.
 
 ## Como estudar (rotina sugerida)
@@ -113,6 +114,12 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 ## Contribuindo
 
 Leia `CONTRIBUTING.md`, `REGRAS.md` e `docs/QUESTION-GUIDELINES.md`. Resumo: questão nova via `npx tsx scripts/new-question.mts` + checklist de qualidade + `validate` limpo; falha no CI vira teste de regressão + lição no `LESSONS.md`.
+
+## Para quem é
+
+Para quem vai fazer a **prova oficial AZ-104 em português** (Microsoft Azure Administrator
+Associate): simulado no formato real da prova, 950 questões em PT-BR, revisão espaçada,
+guia de estudo com links oficiais da Microsoft e acompanhamento de prontidão. Grátis e offline.
 
 ## Licença
 
