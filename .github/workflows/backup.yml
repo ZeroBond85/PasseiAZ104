@@ -34,9 +34,21 @@ jobs:
               echo "present=true" >> $GITHUB_OUTPUT
               echo "Formato OK (postgresql://...)."
               ;;
+            https://*)
+              echo "present=false" >> $GITHUB_OUTPUT
+              echo "::error::Valor é a URL da API (https://...), não a URI Postgres. Use Dashboard → Database → Connection string (aba URI), que começa com postgresql://."
+              exit 1
+              ;;
             *)
               echo "present=false" >> $GITHUB_OUTPUT
-              echo "::error::SUPABASE_DB_URL não é uma URI Postgres (precisa começar com postgresql://). Pegue em Dashboard → Database → Connection string (aba URI) e atualize o secret."
+              stripped=$(printf '%s' "$SUPABASE_DB_URL" | tr -d "[:space:]'\"")
+              if [ "$stripped" != "$SUPABASE_DB_URL" ]; then
+                echo "::error::Valor com aspas ou espaços sobrando. Cole a URI pura, sem aspas e sem espaços no início/fim."
+              elif printf '%s' "$SUPABASE_DB_URL" | grep -q '://'; then
+                echo "::error::Formato desconhecido. A URI precisa começar exatamente com postgresql://."
+              else
+                echo "::error::Valor parece ser só a senha, sem a URI completa. Copie a Connection string inteira (postgresql://postgres:...)."
+              fi
               exit 1
               ;;
           esac
