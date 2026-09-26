@@ -288,6 +288,14 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-26 — Correção factual: prova existe em PT-BR + procedência do banco
+
+- **Correção do dono:** a prova oficial **existe em Português (Brasil)** — este portal foi feito para ela.
+  Removida a afirmação contrária no README + registro da decisão no PLAN-3.
+- **Auditoria de procedência (dado real, não achismo):** 950/950 questões com `source: "original"`,
+  0 com `sourceUrl` — banco 100% autoral em PT-BR, mapeado ao outline oficial (gap 0).
+  Não são cópias de simulado oficial; registrado como "procedência honesta" no README.
+
 ## 2026-09-26 — PLAN-3 Sprint 5a+5b: hardening código + CIs mensais
 
 - **Treino sem alert:** `modal-dialog` ganhou ramo `info` (botão único) + `finishTreino` abre modal;

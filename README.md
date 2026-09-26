@@ -33,7 +33,7 @@ Um app de estudos em **português (Brasil)** que simula a prova real (formato Pe
 
 ## Banco de questões
 
-**950 questões validadas em PT-BR** (a prova oficial é em inglês — aqui você estuda no seu idioma), com explicação do porquê de cada erro, distribuídas como a prova:
+**950 questões autorais em PT-BR** (a prova oficial existe em Português (Brasil) — este portal foi feito para ela), com explicação do porquê de cada erro, distribuídas como a prova:
 
 | Domínio | Questões |
 |---|---|
@@ -47,6 +47,10 @@ Tipos: escolha única (60%) · múltipla escolha (20%) · case study (15%, em bl
 Níveis: fácil 20% · médio 50% · difícil 30%.
 
 Cada questão passa por validação automática (schema + regras por tipo + anti-duplicata) antes de entrar no banco.
+
+Procedência honesta: as 950 são **autoria própria** (`source: original`), escritas em PT-BR e mapeadas
+1:1 para o outline oficial vigente (skills 17/04/2026 — `syllabus-gap` prova cobertura total, sem gaps).
+Não são cópias de questões da prova; explicações e Study Hub apontam para a documentação oficial.
 
 ## Como estudar (rotina sugerida)
 

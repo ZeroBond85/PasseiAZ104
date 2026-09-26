@@ -19,7 +19,7 @@
 | # | Decisão | Valor final |
 |---|---------|-------------|
 | 1 | Descrição oficial | `Passe no AZ-104 treinando de verdade: simulados iguais à prova, revisão no ritmo certo e guia com links oficiais da Microsoft. Grátis, funciona offline.` (About usa versão enxuta se truncar: `Passe no AZ-104: simulados iguais à prova, revisão no ritmo certo e links oficiais da Microsoft. Grátis, offline.`) |
-| 2 | PT-BR como diferencial | Padrão — README "Banco de questões": `**950 questões validadas em PT-BR** (a prova oficial é em inglês — aqui você estuda no seu idioma), com explicação do porquê de cada erro...` |
+| 2 | PT-BR como diferencial | Padrão — README "Banco de questões": `**950 questões autorais em PT-BR** (a prova oficial existe em Português (Brasil) — este portal foi feito para ela), ...` |
 | 3 | Tagline do app | Mantida — `login-screen.ts` inalterado |
 | 4 | Data do banco | `meta.json.updatedAt` como fonte única; visível na home + README |
 | 5 | Curadoria × aquisição | Curadoria audita o existente; aquisição só via pipeline §8 (manual → IA → comunidade). Banco fechado em 950/950 pré-prova; só sai obsoleta |
