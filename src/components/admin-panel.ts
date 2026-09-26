@@ -1,4 +1,4 @@
-import { css, html, LitElement } from 'lit'
+import { css, html, LitElement, svg } from 'lit'
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
 import type { Question } from '../engine/question-schema.js'
 import { btnStyles, cardStyles } from '../styles/shared.js'
@@ -14,6 +14,14 @@ interface RowUser {
   attempts: number
   lastActivity: string
   avgScore: number | null
+  history: number[]
+}
+
+interface AdminLog {
+  actor: string
+  action: string
+  target: string
+  at: string
 }
 
 interface QStat {
@@ -36,6 +44,9 @@ export class AdminPanel extends LitElement {
   private users: RowUser[] = []
   private qStats: QStat[] = []
   private doubts: (DoubtRecord & { email: string })[] = []
+  private logs: AdminLog[] = []
+  private reviewQueue: Question[] = []
+  private confirmRole: string | null = null
   private error = ''
 
   constructor() {
@@ -54,16 +65,32 @@ export class AdminPanel extends LitElement {
     const userId = await getUserId()
     if (!userId) return
     try {
-      const [attempts, doubts, profiles, questions] = await Promise.all([
+      const [attempts, doubts, profiles, questions, logs] = await Promise.all([
         supabase.from('az104_attempts').select('*'),
         supabase.from('az104_doubts').select('*'),
         supabase.from('az104_profiles').select('*'),
         ensureSeeded().then(() => getQuestionPool()),
+        supabase
+          .from('az104_admin_logs')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(30),
       ])
       const pool = (questions ?? []) as Question[]
       const attemptsRows = (attempts.data ?? []) as Record<string, unknown>[]
       const doubtsRows = (doubts.data ?? []) as Record<string, unknown>[]
       const profilesRows = (profiles.data ?? []) as Record<string, unknown>[]
+      this.buildUsers(attemptsRows, profilesRows)
+      this.buildQuestions(attemptsRows, pool)
+      this.reviewQueue = pool.filter((q) => q.needsReview).slice(0, 20)
+      this.logs = ((logs.data ?? []) as Record<string, unknown>[]).map((l) => ({
+        actor: String(l.actor_id ?? '').slice(0, 8),
+        action: String(l.action ?? ''),
+        target: [l.target_type, l.target_id].filter(Boolean).join(':') || '—',
+        at: String(l.created_at ?? '')
+          .slice(0, 16)
+          .replace('T', ' '),
+      }))
       this.buildUsers(attemptsRows, profilesRows)
       this.buildQuestions(attemptsRows, pool)
       this.doubts = doubtsRows.map((d) => {
@@ -100,9 +127,13 @@ export class AdminPanel extends LitElement {
         attempts: 0,
         lastActivity: '',
         avgScore: null,
+        history: [],
       })
     }
-    for (const a of attempts) {
+    const ordered = [...attempts].sort(
+      (a, b) => Number(a.finished_at ?? 0) - Number(b.finished_at ?? 0),
+    )
+    for (const a of ordered) {
       const uid = String(a.user_id)
       const u = byUser.get(uid) ?? {
         userId: uid,
@@ -111,6 +142,7 @@ export class AdminPanel extends LitElement {
         attempts: 0,
         lastActivity: '',
         avgScore: null,
+        history: [],
       }
       u.attempts++
       const score = Number(a.score ?? 0)
@@ -118,6 +150,7 @@ export class AdminPanel extends LitElement {
         u.avgScore === null
           ? score
           : Math.round((u.avgScore * (u.attempts - 1) + score) / u.attempts)
+      u.history = [...u.history, score].slice(-10)
       const at = new Date(
         Number(a.finished_at ?? 0) || Number(a.created_at ?? 0),
       )
@@ -126,6 +159,38 @@ export class AdminPanel extends LitElement {
       byUser.set(uid, u)
     }
     this.users = [...byUser.values()].sort((a, b) => b.attempts - a.attempts)
+  }
+
+  private sparkline(scores: number[]) {
+    const w = 80
+    const h = 24
+    if (scores.length < 2)
+      return svg`<svg width="${w}" height="${h}" aria-hidden="true"></svg>`
+    const pts = scores
+      .map((s, i) => {
+        const x = (i / (scores.length - 1)) * w
+        const y = h - (Math.min(Math.max(s, 0), 1000) / 1000) * (h - 4) - 2
+        return `${x.toFixed(1)},${y.toFixed(1)}`
+      })
+      .join(' ')
+    return svg`<svg width="${w}" height="${h}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="2"/></svg>`
+  }
+
+  private async setRole(userId: string, role: 'admin' | 'user') {
+    if (!supabase) return
+    this.confirmRole = null
+    const { error } = await supabase
+      .from('az104_profiles')
+      .update({ role })
+      .eq('user_id', userId)
+    if (error) {
+      this.error = `Falha ao alterar role: ${error.message}`
+    } else {
+      this.loaded = false
+      await this.load()
+      return
+    }
+    this.requestUpdate()
   }
 
   private buildQuestions(
@@ -241,15 +306,28 @@ export class AdminPanel extends LitElement {
         <section class="card">
           <h2>Usuários e últimas atividades</h2>
           <table>
-            <thead><tr><th>E-mail</th><th>Role</th><th>Simulados</th><th>Média</th><th>Última atividade</th></tr></thead>
+            <thead><tr><th>E-mail</th><th>Role</th><th>Simulados</th><th>Média</th><th>Evolução</th><th>Última atividade</th></tr></thead>
             <tbody>
               ${this.users.map(
                 (u) => html`
                   <tr>
                     <td>${u.email || u.userId.slice(0, 8)}</td>
-                    <td>${u.role}</td>
+                    <td>
+                      ${u.role}
+                      ${
+                        this.confirmRole === u.userId
+                          ? html`<button type="button" class="btn" @click=${() => void this.setRole(u.userId, u.role === 'admin' ? 'user' : 'admin')}>Confirmar</button>
+                            <button type="button" class="btn" @click=${() => {
+                              this.confirmRole = null
+                            }}>X</button>`
+                          : html`<button type="button" class="btn" @click=${() => {
+                              this.confirmRole = u.userId
+                            }}>${u.role === 'admin' ? 'Rebaixar' : 'Tornar admin'}</button>`
+                      }
+                    </td>
                     <td>${u.attempts}</td>
                     <td>${u.avgScore ?? '—'}</td>
+                    <td>${this.sparkline(u.history)}</td>
                     <td title=${u.lastActivity}>${u.lastActivity ? u.lastActivity.slice(0, 16) : '—'}</td>
                   </tr>
                 `,
@@ -288,6 +366,23 @@ export class AdminPanel extends LitElement {
         </section>
 
         <section class="card">
+          <h2>Fila de revisão (${this.reviewQueue.length})</h2>
+          <p class="dim">Questões com <code>needsReview</code> — aprovação acontece via PR
+            (checklist + <code>validate</code>), nunca por clique.</p>
+          ${
+            this.reviewQueue.length === 0
+              ? html`<p class="dim">Fila vazia. 🎉</p>`
+              : html`<ol class="queue">
+                ${this.reviewQueue.map(
+                  (q) => html`
+                    <li><strong>${q.id}</strong> · ${q.subdomain}</li>
+                  `,
+                )}
+              </ol>`
+          }
+        </section>
+
+        <section class="card">
           <h2>Fila de dúvidas</h2>
           ${
             this.doubts.length === 0
@@ -302,6 +397,21 @@ export class AdminPanel extends LitElement {
                     `,
                   )}
                 </ol>`
+          }
+        </section>
+
+        <section class="card">
+          <h2>Auditoria</h2>
+          ${
+            this.logs.length === 0
+              ? html`<p class="dim">Nenhum evento administrativo registrado.</p>`
+              : html`<ol class="queue">
+                ${this.logs.map(
+                  (l) => html`
+                    <li><strong>${l.action}</strong> · ${l.target} · ${l.actor} · ${l.at}</li>
+                  `,
+                )}
+              </ol>`
           }
         </section>
       </main>

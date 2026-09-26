@@ -255,3 +255,20 @@
   (guia + hub com dados via fluxo real) — screenshot mobile lido e aprovado.
 - **Resultados:** tsc 0 · lint clean · unit **56/56** · validate 950/0 · meta OK · e2e **15/15**.
 - **Próximo:** Sprint 4.3 (IRT + heatmap + drill + syllabus-gap + admin ampliado).
+
+## 2026-09-25 — PLAN-3 Sprint 4.3: IRT + heatmap + drill + gap + admin
+
+- **IRT 1PL** (`src/engine/irt.ts` + `scripts/calibrate-irt.mts` CSV/JSON→`irt-params.json`):
+  gate `n>=30` (sem amostra = fora); unit 3 testes; selector integra quando houver dados reais.
+- **Drill** (`drill-controller.ts` `buildDrillPool`/`buildDrillQuestions` + `TreinoController.startCustom`):
+  score fraco×3+erro×2+due×2+distrator×1 → "🎯 Treinar meus erros" no hub → roda no treino ("Meus erros").
+  Unit 4 testes.
+- **Heatmap** (`analytics/heatmap.ts` + `distractor.ts` + seção "Onde você mais erra" no Progresso
+  com tendência ↗→↘): unit 4 testes; screenshot mobile lido e aprovado.
+- **`syllabus-gap.mts`**: outline × banco × topics → pesos + tópicos sem cobertura (hoje: 0 gaps).
+- **Admin ampliado:** promover/rebaixar role na UI (RLS já permitia; confirmação em 2 cliques) ·
+  fila `needsReview` (leitura + regra "aprovação via PR") · sparkline SVG por usuário ·
+  viewer `az104_admin_logs`.
+- **Resultados:** tsc 0 · lint clean · unit **67/67** · validate 950/0 · meta OK ·
+  budget JS 120.9KB/140KB · e2e **15/15**.
+- **Próximo:** Sprint 5 (Hardening + Docs & Vitrine + CODE-REVIEW.md).

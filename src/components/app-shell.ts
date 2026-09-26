@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { buildDrillQuestions } from '../controllers/drill-controller.js'
 import { QuizController } from '../controllers/quiz-controller.js'
 import { SyncController } from '../controllers/sync-controller.js'
 import { TreinoController } from '../controllers/treino-controller.js'
@@ -561,6 +562,7 @@ export class AppShell extends LitElement {
           isEnabled('study-hub')
             ? html`<study-hub-panel
               .userId=${this.userId ?? 'local'}
+              @start-drill=${() => void this.onStartDrill()}
             ></study-hub-panel>`
             : ''
         }
@@ -578,6 +580,7 @@ export class AppShell extends LitElement {
           isEnabled('study-hub')
             ? html`<study-hub-panel
               .userId=${this.userId ?? 'local'}
+              @start-drill=${() => void this.onStartDrill()}
             ></study-hub-panel>`
             : ''
         }
@@ -614,6 +617,13 @@ export class AppShell extends LitElement {
         >
       </section>
     `
+  }
+
+  private async onStartDrill() {
+    const qs = await buildDrillQuestions(this.userId ?? 'local').catch(() => [])
+    if (qs.length === 0) return
+    await this.treinoCtl.startCustom(qs, 'Meus erros')
+    this.tab = 'treino'
   }
 
   private renderTreino() {

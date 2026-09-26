@@ -6,7 +6,7 @@ import {
   markSeen,
   saveProfile,
 } from '../study/study-profile.js'
-import { cardStyles } from '../styles/shared.js'
+import { btnStyles, cardStyles } from '../styles/shared.js'
 import { labels as ptLabels } from './study-guide.js'
 import './study-link-card.js'
 
@@ -43,6 +43,12 @@ export class StudyHubPanel extends LitElement {
     this.plan = await generateStudyPlan(this.userId).catch(() => null)
     this.loaded = true
     this.requestUpdate()
+  }
+
+  private startDrill() {
+    this.dispatchEvent(
+      new CustomEvent('start-drill', { bubbles: true, composed: true }),
+    )
   }
 
   private onToggleSeen(e: Event) {
@@ -88,12 +94,16 @@ export class StudyHubPanel extends LitElement {
         ${plan.links.map(
           (l) => html`<study-link-card .link=${l}></study-link-card>`,
         )}
+        <button type="button" class="btn btn-primary" @click=${this.startDrill}>
+          🎯 Treinar meus erros
+        </button>
       </main>
     `
   }
 
   static styles = css`
     ${cardStyles}
+    ${btnStyles}
     .card {
       margin-bottom: 16px;
     }

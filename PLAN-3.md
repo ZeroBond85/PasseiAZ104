@@ -266,7 +266,7 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 - [x] Sprint 2 — Offline-first real
 - [x] Sprint 3 — Arquitetura limpa
 - [x] Sprint 3.5 — Catálogo UX (dinâmico principal)
-- [ ] Sprint 4 — Study Hub + admin ampliado + qualidade de dados
+- [x] Sprint 4 — Study Hub + admin ampliado + qualidade de dados
 - [ ] Sprint 5 — Hardening + Docs & Vitrine
 
 ## 9. Fora do v7.1 (registrado para não ressuscitar sem motivo)

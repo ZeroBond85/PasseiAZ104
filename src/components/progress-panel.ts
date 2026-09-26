@@ -1,4 +1,6 @@
 import { css, html, LitElement } from 'lit'
+import { computeHeatmap, type HeatCell } from '../analytics/heatmap.js'
+import { getQuestionPool } from '../data/QuestionLoader.js'
 import { readiness } from '../engine/StudyGuide.js'
 import {
   btnStyles,
@@ -29,6 +31,7 @@ export class ProgressPanel extends LitElement {
   private byDomain: Record<string, number> = {}
   private lastScores: { score: number }[] = []
   private ready = readiness([], {}, [])
+  private heat: HeatCell[] = []
 
   constructor() {
     super()
@@ -38,11 +41,12 @@ export class ProgressPanel extends LitElement {
 
   private async load() {
     const userId = await getUserId()
-    const [attempts, doubts, progress, activity] = await Promise.all([
+    const [attempts, doubts, progress, activity, pool] = await Promise.all([
       loadAllAttempts(),
       loadAllDoubts(),
       loadAllProgress(),
       loadAllActivity(),
+      getQuestionPool().catch(() => []),
     ])
     const mine = userId ? attempts.filter((a) => a.userId === userId) : attempts
     this.attempts = mine.length
@@ -51,6 +55,7 @@ export class ProgressPanel extends LitElement {
     this.streak = computeStreak(activity)
     this.byDomain = aggregateDomains(mine)
     this.ready = readiness(this.lastScores, this.byDomain, progress)
+    this.heat = computeHeatmap(mine, pool).slice(0, 8)
     this.loaded = true
     this.requestUpdate()
   }
@@ -96,7 +101,7 @@ export class ProgressPanel extends LitElement {
           <h2>Desempenho por domínio</h2>
           ${
             Object.keys(this.byDomain).length === 0
-              ? html`<p class="dim">Finalize simulados para ver o mapa de dificuldade.</p>`
+              ? html`<p class="dim">Finalize simulados para ver o mapa de desempenho.</p>`
               : html`<ul class="domains">
                   ${Object.entries(this.byDomain)
                     .sort((a, b) => a[1] - b[1])
@@ -112,6 +117,26 @@ export class ProgressPanel extends LitElement {
                 </ul>`
           }
         </section>
+
+        ${
+          this.heat.length > 0
+            ? html`<section class="card">
+              <h2>Onde você mais erra</h2>
+              <p class="dim">Piores combinações de assunto, tipo e nível — seta mostra a tendência.</p>
+              <ul class="heat">
+                ${this.heat.map(
+                  (c) => html`
+                    <li>
+                      <span>${c.subdomain.split('-').join(' ')}</span>
+                      <span class="dim">${ptLabels(c.type)} · ${ptLabels(c.difficulty)}</span>
+                      <span>${c.pct}% ${c.trend === 'up' ? '↗' : c.trend === 'down' ? '↘' : '→'}</span>
+                    </li>
+                  `,
+                )}
+              </ul>
+            </section>`
+            : ''
+        }
 
         <section class="card">
           <h2>Suas dúvidas</h2>
@@ -224,6 +249,27 @@ export class ProgressPanel extends LitElement {
       list-style: none;
       margin: 0;
       padding: 0;
+    }
+    .heat {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .heat li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .heat li span:first-child {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .heat .dim {
+      flex-shrink: 0;
     }
     .domains li {
       display: flex;

@@ -43,11 +43,19 @@ export class TreinoController {
     const pool = await getQuestionPool()
     const candidates = pool.filter((q) => q.domain === domain)
     if (candidates.length === 0) return false
-    const picked = [...candidates].sort(() => Math.random() - 0.5).slice(0, 20)
-    this.domain = domain
-    this.quiz = picked
+    return this.startCustom(
+      [...candidates].sort(() => Math.random() - 0.5).slice(0, 20),
+      domain,
+    )
+  }
+
+  /** Sessão sobre pool pronto (drill): label livre p/ o header. */
+  async startCustom(pool: Question[], label: string): Promise<boolean> {
+    if (pool.length === 0) return false
+    this.domain = label
+    this.quiz = pool.slice(0, 20)
     this.current = 0
-    this.engine.load(picked)
+    this.engine.load(this.quiz)
     this.paused = false
     this.notify()
     return true
