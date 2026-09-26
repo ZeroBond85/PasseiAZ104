@@ -26,9 +26,20 @@ jobs:
           if [ -z "$SUPABASE_DB_URL" ]; then
             echo "present=false" >> $GITHUB_OUTPUT
             echo "Secret SUPABASE_DB_URL ausente — backup pulado (configure em Settings → Secrets)."
-          else
-            echo "present=true" >> $GITHUB_OUTPUT
+            exit 0
           fi
+          # Valida FORMATO sem exibir valor: tem que ser URI postgres, não URL https nem só senha.
+          case "$SUPABASE_DB_URL" in
+            postgresql://*)
+              echo "present=true" >> $GITHUB_OUTPUT
+              echo "Formato OK (postgresql://...)."
+              ;;
+            *)
+              echo "present=false" >> $GITHUB_OUTPUT
+              echo "::error::SUPABASE_DB_URL não é uma URI Postgres (precisa começar com postgresql://). Pegue em Dashboard → Database → Connection string (aba URI) e atualize o secret."
+              exit 1
+              ;;
+          esac
       - name: pg_dump (schema+data, sem owner)
         if: steps.gate.outputs.present == 'true'
         env:
