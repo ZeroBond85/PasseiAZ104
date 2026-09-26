@@ -288,6 +288,16 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-26 — Seed SQL dos topics + veredito SUPABASE_DB_URL
+
+- `supabase/seed-study-topics.sql` (novo, versionado): 34 INSERTs gerados de
+  `data/study-topics.json` (escape `'`→`''`, `ON CONFLICT (domain, topic) DO UPDATE`,
+  verificação `count(*)=34` no rodapé). Rodar no SQL Editor **após** a migration 004.
+- `SUPABASE_DB_URL`: **não existe** em `.env.local` (só URL+anon) nem em GitHub Secrets
+  (só as 2 VITE_*). Não inventável — pegar no dashboard (Database → Connection string)
+  e gravar via `gh secret set SUPABASE_DB_URL` localmente. **Nunca colar senha em chat**
+  (gatilho AGENTS.md: rotacionar + nunca repetir).
+
 ## 2026-09-26 — Pendências humanas: triagem executável (Env só tem anon)
 
 - **Env auditado (só nomes):** `.env.local` tem apenas `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY`.
