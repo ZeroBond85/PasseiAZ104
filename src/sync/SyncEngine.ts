@@ -21,6 +21,7 @@ import type {
   ProgressRecord,
   SessionRecord,
 } from './types.js'
+import { ProfileRowSchema } from './types.js'
 
 // Sync L2: IDB é fonte de leitura (offline-first). Supabase é espelho.
 // Conflito: updatedAt maior vence; box de Leitner usa max() (nunca regride).
@@ -395,10 +396,11 @@ export async function getProfileRole(
 
 export async function upsertOwnProfile(userId: string, email: string) {
   if (!isSyncEnabled() || !supabase) return
+  const row = ProfileRowSchema.parse({ user_id: userId, email })
   const { error } = await supabase.from(A('profiles')).upsert(
     {
-      user_id: userId,
-      email,
+      user_id: row.user_id,
+      email: row.email,
       // role NÃO é tocado aqui (só admin/owner promovem) — upsert preserva.
     },
     { onConflict: 'user_id' },

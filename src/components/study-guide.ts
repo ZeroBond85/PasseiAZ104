@@ -2,7 +2,7 @@ import { css, html, LitElement } from 'lit'
 import type { Question } from '../engine/question-schema.js'
 import type { StudyGuideResult } from '../engine/StudyGuide.js'
 import { buildStudyLinks, type StudyLinkRef } from '../study/study-hub.js'
-import { btnStyles, cardStyles } from '../styles/shared.js'
+import { cardStyles } from '../styles/shared.js'
 import './study-link-card.js'
 
 export function labels(d: string) {
@@ -148,7 +148,6 @@ export class StudyGuide extends LitElement {
 
   static styles = css`
     ${cardStyles}
-    ${btnStyles}
     .guide {
       margin-bottom: 16px;
     }

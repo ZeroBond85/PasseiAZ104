@@ -1,0 +1,57 @@
+name: study-links
+
+# Valida mensalmente as URLs do Study Hub (Sprint 5, PLAN-3).
+# - redirect 301/308 → atualiza data/study-topics.json + abre PR (merge humano, 1 clique)
+# - URL morta → abre issue (humano escolhe substituta)
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - id: check
+        run: |
+          node scripts/validate-study-links.mjs --fix --out /tmp/links.json
+          echo "dead=$(node -p "JSON.parse(require('fs').readFileSync('/tmp/links.json','utf8')).dead.length")" >> $GITHUB_OUTPUT
+          echo "redirected=$(node -p "JSON.parse(require('fs').readFileSync('/tmp/links.json','utf8')).redirected.length")" >> $GITHUB_OUTPUT
+          git diff --quiet -- data/study-topics.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+      - name: PR com redirects aplicados
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="chore/study-links-$(date +%F)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data/study-topics.json
+          git commit -m "chore(study): atualiza links Microsoft Learn com redirect [automated]"
+          git push -u origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "chore(study): atualiza links Microsoft Learn [automated]" \
+            --label automated \
+            --body "Redirects 301/308 detectados pelo validador mensal e aplicados em \`data/study-topics.json`. Revisar diff e mergear. Relatório: \`node scripts/validate-study-links.mjs\`."
+      - name: Issue para URLs mortas
+        if: steps.check.outputs.dead != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "study-links: URLs mortas detectadas ($(date +%F))" \
+            --label automated,study-links \
+            --body "O validador mensal encontrou URLs sem resposta. Escolher substitutas em \`data/study-topics.json\` e rodar o validador local antes do PR. Detalhes no log do run."

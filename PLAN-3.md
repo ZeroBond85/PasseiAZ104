@@ -157,24 +157,17 @@
 
 ### Sprint 5 — Hardening + Docs & Vitrine
 
-- [ ] **P4** `scripts/update-readme-test-count.mjs` + `test:count` no `ci` (cobre test count
-      + bloco frescor auto: data do banco + verificação topics + outline vigente).
-- [ ] **2.7** `navigator-grid.ts` (+`btnStyles`) · `study-guide.ts` (+`cardStyles`,`btnStyles`) ·
-      `admin-panel.ts` (+`controlStyles`) · treino `alert()` → `modal-dialog` variant info.
-- [ ] `scripts/validate-migration-types.mjs` (offline, migration↔types) no `ci`.
-- [ ] **Zod fonte única**: `src/engine/question-schema.ts` passa a gerar os tipos
-      (`type Question = z.infer<...>` já existe — estender p/ `AttemptRecord`/`DoubtRecord`/
-      `ProgressRecord` via schemas Zod em `src/sync/types.ts`); o validador migration↔types
-      compara SQL × Zod × TS em um só passo. Elimina drift em 3 fontes.
-- [ ] **`scripts/new-question.mts`** (interativo): pergunta domínio/subdomínio/tipo/dificuldade,
-      monta o JSON no schema, roda `validate` no item, imprime o bloco pronto p/ colar no
-      `data/*.json` + checklist `QUESTION-GUIDELINES.md`. Guia contribuição sem adivinhação.
-- [ ] **3 CIs novos**: `study-links.yml` · `question-curation.yml` · `exam-watch.yml`
-      (molde `dependency-audit`: cron mensal dia 1 + `workflow_dispatch`; relatório em
-      `.agent/audits/`; auto-PR mecânico / auto-issue com contexto).
-- [ ] **Backup Supabase semanal** `.github/workflows/backup.yml` (novo): `pg_dump` (schema+data,
-      via `supabase` CLI ou `postgres` URL de *leitura* em secret dedicado) → artifact do run
-      (retenção 90 dias). Só leitura, nunca expõe senha em log (mask). Restaura manual via SQL Editor.
+- [x] **P4** `scripts/update-readme-test-count.mjs` + `test:count` no `ci` (67 unit + 15 e2e).
+- [x] **2.7 revisto por evidência:** `study-guide.ts` tinha `btnStyles` morto (removido);
+  `navigator-grid`/`admin-panel` verificados sem ação (só classes próprias/`.btn` — bloco extra seria morto);
+  treino `alert()` → `modal-dialog` variant info (+ ramo `info` com botão único + e2e `treino.spec.ts` sem dialog nativo).
+- [x] `scripts/validate-migration-types.mts` (offline, migration↔Zod↔TS) no `ci` + guard em `supabase.ts` p/ tsx.
+- [x] **Zod fonte única**: `src/sync/types.ts` + `src/study/topics.ts` viraram schemas (`z.infer` idêntico —
+  `tsc` prova, zero mudança em consumidores) + `ProfileRowSchema.parse` no `upsertOwnProfile`.
+- [x] **`scripts/new-question.mts`** (interativo + modo lote p/ testes/CI): monta JSON, valida Zod+FK,
+  imprime bloco + checklist; AbortError tratado.
+- [x] **3 CIs novos**: `study-links.yml` (validador HEAD + PR auto p/ redirect + issue p/ morta; 34/34 OK após corrigir `logs-kql` p/ `log-analytics-overview`) · `question-curation.yml` (validate + meta + curadoria; issue em anomalia) · `exam-watch.yml` (detecta outline via `check-exam-outline.mjs` + gap report; issue só com mudança real).
+- [x] **Backup Supabase semanal** `.github/workflows/backup.yml`: `pg_dump` schema+data → artifact 90d; pula sem `SUPABASE_DB_URL` (secret a configurar).
 - [ ] **README.md** reescrito: descrição oficial A+Microsoft · PT-BR como diferencial ·
       badges (ci, deploy, security, perf, license MIT) · 3 screenshots · Study Hub ·
       números reais (57 testes, 950 questões, data do banco) · estrutura nova ·

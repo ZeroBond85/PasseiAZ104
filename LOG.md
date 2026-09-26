@@ -272,3 +272,20 @@
 - **Resultados:** tsc 0 · lint clean · unit **67/67** · validate 950/0 · meta OK ·
   budget JS 120.9KB/140KB · e2e **15/15**.
 - **Próximo:** Sprint 5 (Hardening + Docs & Vitrine + CODE-REVIEW.md).
+
+## 2026-09-26 — PLAN-3 Sprint 5a+5b: hardening código + CIs mensais
+
+- **Treino sem alert:** `modal-dialog` ganhou ramo `info` (botão único) + `finishTreino` abre modal;
+  e2e `treino.spec.ts` prova zero dialog nativo. RPR: specs temporários não cobriam treino.
+- **2.7 por evidência:** `study-guide` tinha `btnStyles` morto (removido); navigator/admin sem ação.
+- **P4:** `update-readme-test-count.mjs` (67 unit + 15 e2e) + `test:count --check` no `ci`.
+- **Zod fonte única:** `types.ts` + `topics.ts` viraram schemas (`z.infer` idêntico, tsc prova);
+  `ProfileRowSchema.parse` no upsert; `supabase.ts` com guard p/ tsx.
+- **`validate-migration-types.mts`** (SQL×Zod×TS, 10 tabelas) no `ci`.
+- **`new-question.mts`** interativo + modo lote (testado fim-a-fim; AbortError tratado).
+- **3 CIs mensais + backup:** `study-links` (achou 1 URL 404 real → corrigida p/ `log-analytics-overview`;
+  retry em falha de rede; PR auto/issue), `question-curation` (limpo: needsReview=0), `exam-watch`
+  (outline 2026-04-17 = snapshot; gap 0), `backup.yml` semanal (pula sem secret).
+- **Resultados:** tsc 0 · lint 0 · unit **67/67** · e2e **16/16** · validate 950/0 · meta + migration OK ·
+  budget JS 123.5KB/140KB (Zod no bundle, folga 16.5KB).
+- **Próximo:** Sprint 5c (docs + vitrine) e 5d (commit único + CODE-REVIEW.md).

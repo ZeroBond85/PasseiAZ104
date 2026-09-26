@@ -1,22 +1,25 @@
+import { z } from 'zod'
 import bundled from '../../data/study-topics.json'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 
-export interface StudyTopic {
-  id?: string
-  domain: string
-  topic: string
-  label: string
-  url: string
-  source: string
-  match: string[]
-  order_idx: number
-  is_active?: boolean
-}
+export const StudyTopicSchema = z.object({
+  id: z.string().optional(),
+  domain: z.string(),
+  topic: z.string(),
+  label: z.string(),
+  url: z.string(),
+  source: z.string(),
+  match: z.array(z.string()),
+  order_idx: z.number(),
+  is_active: z.boolean().optional(),
+})
+export type StudyTopic = z.infer<typeof StudyTopicSchema>
 
 let cache: StudyTopic[] | null = null
 
 function fromJson(): StudyTopic[] {
-  return (bundled as Omit<StudyTopic, 'id'>[]).map((t) => ({ ...t }))
+  // Fail-fast: seed corrompido quebra no load, não no meio do estudo.
+  return z.array(StudyTopicSchema).parse(bundled)
 }
 
 // Fonte: Supabase (curadoria admin, se sync + linhas ativas) com fallback

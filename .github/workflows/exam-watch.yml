@@ -1,0 +1,54 @@
+name: exam-watch
+
+# Vigia mensal do outline oficial + gap banco×tópicos (Sprint 5, PLAN-3).
+# - Outline mudou (data detectada ≠ snapshot) → issue com checklist de refresh.
+# - Gap encontrado (tópico sem cobertura) → issue com relatório do syllabus-gap.
+# - Página ilegível/offline → só relatório, sem issue (evita ruído).
+on:
+  schedule:
+    - cron: '0 8 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - id: outline
+        run: |
+          node scripts/check-exam-outline.mjs | tee /tmp/outline.txt
+          echo "changed=$(grep OUTLINE_CHANGED /tmp/outline.txt | cut -d= -f2)" >> $GITHUB_OUTPUT
+          echo "detected=$(grep DETECTED_DATE /tmp/outline.txt | cut -d= -f2)" >> $GITHUB_OUTPUT
+      - id: gap
+        run: |
+          npx tsx scripts/syllabus-gap.mts --md > /tmp/gap.md 2>&1 || echo "GAP_RUN_FAILED=true" >> $GITHUB_OUTPUT
+          echo "missing=$(grep -c '^- .*/.* — ' /tmp/gap.md || true)" >> $GITHUB_OUTPUT
+      - name: Issue — outline mudou
+        if: steps.outline.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          URL=$(gh issue create \
+            --title "exam-watch: outline oficial atualizado (${{ steps.outline.outputs.detected }})" \
+            --label automated \
+            --body "A data do outline detectada (${{ steps.outline.outputs.detected }}) difere do snapshot. Checklist: [ ] aprovar refresh [ ] gerar lote (grounding) [ ] review [ ] rebuild simulados [ ] bump-bank-meta. Gap atual no comentário abaixo.")
+          gh issue comment "${URL##*/}" --body-file /tmp/gap.md
+      - name: Issue — gap sem mudança de outline
+        if: steps.outline.outputs.changed != 'true' && steps.gap.outputs.missing != '0' && steps.gap.outputs.missing != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "exam-watch: tópicos sem cobertura ($(date +%F))" \
+            --label automated \
+            --body-file /tmp/gap.md

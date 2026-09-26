@@ -748,7 +748,7 @@
     "domain": "monitoramento",
     "topic": "logs-kql",
     "label": "Log Analytics e KQL",
-    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/logs/",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/logs/log-analytics-overview",
     "source": "mslearn",
     "match": ["log-analytics", "kql", "syslog", "data-ingestion"],
     "order_idx": 2

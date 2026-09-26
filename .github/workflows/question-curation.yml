@@ -1,0 +1,38 @@
+name: question-curation
+
+# Auditoria mensal do banco de questões (Sprint 5, PLAN-3).
+# Roda validate + meta:check + curadoria (needsReview, sourceUrl, totais).
+# Anomalia (needsReview>50, URLs mortas) → abre issue com o relatório.
+on:
+  schedule:
+    - cron: '0 7 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run meta:check
+      - id: curate
+        run: node scripts/question-curation.mjs
+      - name: Issue em caso de anomalia
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "curadoria: anomalia no banco ($(date +%F))" \
+            --label automated \
+            --body "A curadoria mensal falhou (needsReview>50, sourceUrl mortos ou validate/meta com erro). Ver o log do run. Ação típica: pausar \`generate\`, focar review (gatilho AGENTS.md)."

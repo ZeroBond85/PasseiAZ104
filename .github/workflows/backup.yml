@@ -1,0 +1,46 @@
+name: backup
+
+# Backup semanal do Supabase (Sprint 5, PLAN-3).
+# Requer secret SUPABASE_DB_URL (connection string postgres de leitura).
+# Sem o secret: pula silenciosamente (exit 0) — sem ruído.
+# Restaura manual via SQL Editor.
+on:
+  schedule:
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checar secret
+        id: gate
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          if [ -z "$SUPABASE_DB_URL" ]; then
+            echo "present=false" >> $GITHUB_OUTPUT
+            echo "Secret SUPABASE_DB_URL ausente — backup pulado (configure em Settings → Secrets)."
+          else
+            echo "present=true" >> $GITHUB_OUTPUT
+          fi
+      - name: pg_dump (schema+data, sem owner)
+        if: steps.gate.outputs.present == 'true'
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          pg_dump "$SUPABASE_DB_URL" --no-owner --no-privileges \
+            --file "supabase-backup-$(date +%F).sql"
+          ls -la supabase-backup-*.sql
+      - name: Upload artifact (retenção 90 dias)
+        if: steps.gate.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: supabase-backup-$(date +%F)
+          path: supabase-backup-*.sql
+          retention-days: 90

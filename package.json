@@ -12,7 +12,9 @@
     "validate": "tsx scripts/validate-questions.mts",
     "budget": "node scripts/check-budget.mjs",
     "meta:check": "node scripts/bump-bank-meta.mjs --check",
-    "ci": "npm run lint && npm run build && npm run test && npm run validate && npm run meta:check",
+    "test:count": "node scripts/update-readme-test-count.mjs --check",
+    "migration:check": "npx tsx scripts/validate-migration-types.mts",
+    "ci": "npm run lint && npm run build && npm run test && npm run test:count && npm run validate && npm run meta:check && npm run migration:check",
     "prepare": "husky"
   },
   "dependencies": {

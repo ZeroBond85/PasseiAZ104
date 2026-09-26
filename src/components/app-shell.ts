@@ -88,6 +88,8 @@ export class AppShell extends LitElement {
     isAdmin: { type: Boolean },
     finishConfirmOpen: { type: Boolean },
     victoryOpen: { type: Boolean },
+    treinoResultOpen: { type: Boolean },
+    treinoResultMsg: { type: String },
     seedError: { type: String },
     online: { type: Boolean },
     bankLine: { type: String },
@@ -103,6 +105,8 @@ export class AppShell extends LitElement {
   declare finishConfirmOpen: boolean
   declare finishResolve: ((v: boolean) => void) | null
   declare victoryOpen: boolean
+  declare treinoResultOpen: boolean
+  declare treinoResultMsg: string
   declare seedError: string | null
   declare online: boolean
   declare bankLine: string
@@ -128,6 +132,8 @@ export class AppShell extends LitElement {
     this.finishConfirmOpen = false
     this.finishResolve = null
     this.victoryOpen = false
+    this.treinoResultOpen = false
+    this.treinoResultMsg = ''
     this.seedError = null
     this.online = typeof navigator !== 'undefined' ? navigator.onLine : true
     this.bankLine = ''
@@ -379,6 +385,14 @@ export class AppShell extends LitElement {
         message="Você foi aprovado no simulado! Pontuação: ${this.quizCtl.result?.score ?? 0}/1000"
         confirmText="Ver revisão"
         @confirm=${this.onVictoryClose}
+      ></modal-dialog>
+      <modal-dialog
+        .open=${this.treinoResultOpen}
+        variant="info"
+        title="Treino concluído"
+        message="${this.treinoResultMsg}"
+        confirmText="OK"
+        @confirm=${this.onTreinoResultConfirm}
       ></modal-dialog>
     `
   }
@@ -716,8 +730,12 @@ export class AppShell extends LitElement {
   private finishTreino() {
     const r = this.treinoCtl.finish()
     if (!r) return
-    // Sprint 5: trocar alert por modal-dialog (consistência com o simulado).
-    alert(`Treino concluído: ${r.correct}/${r.total} (${r.pct}%)`)
+    this.treinoResultMsg = `Treino concluído: ${r.correct}/${r.total} (${r.pct}%)`
+    this.treinoResultOpen = true
+  }
+
+  private onTreinoResultConfirm() {
+    this.treinoResultOpen = false
     this.treinoCtl.exit()
   }
 

@@ -77,7 +77,7 @@ export class ModalDialog extends LitElement {
         </div>
         <footer class="modal-footer">
           ${
-            this.variant === 'success'
+            this.variant === 'success' || this.variant === 'info'
               ? html`
                 <button type="button" class="btn btn-primary" @click=${this.onConfirm} data-testid="modal-confirm">
                   ${this.confirmText}
