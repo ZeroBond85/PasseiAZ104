@@ -1,12 +1,14 @@
 # Passei AZ-104 🎯
 
-> Simulado + revisão espaçada para o exame **Microsoft AZ-104** — 50 questões / 100 min / corte 700.
-> PWA offline-first, custo **$0**. Login simples (link mágico) com sincronização entre dispositivos; offline continua 100% funcional.
+> Passe no AZ-104 treinando de verdade: simulados iguais à prova, revisão no ritmo certo e guia com links oficiais da Microsoft. Grátis, funciona offline.
 
 ![logo](public/icons/source.png)
 
 [![ci](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/ci.yml/badge.svg)](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/ci.yml)
 [![deploy](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/deploy.yml/badge.svg)](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/deploy.yml)
+[![security](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/security.yml/badge.svg)](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/security.yml)
+[![perf](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/perf.yml/badge.svg)](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/perf.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **👉 Use agora:** https://zerobond85.github.io/PasseiAZ104/
 
@@ -14,19 +16,24 @@
 
 ## O que é
 
-Um app de estudos que simula a prova real (formato Pearson VUE) e usa **repetição espaçada (Leitner)** para fixar o conteúdo:
+Um app de estudos em **português (Brasil)** que simula a prova real (formato Pearson VUE), mostra **o que estudar** com links oficiais e usa **repetição espaçada (Leitner)** para fixar o conteúdo:
 
 - **Simulado oficial** — 50 questões em 100 minutos, nota de 0–1000, aprovado com ≥700
-- **Correção por domínio** — breakdown com % por área + pontos fracos (<70%)
+- **Simulado dinâmico** — sempre diferente, mesmas proporções da prova
+- **Study Hub** — domínios fracos + links Microsoft Learn priorizados + 🎯 Treinar meus erros
 - **Revisão espaçada** — caixas 1/2/4/8/16 dias; o app cobra primeiro o que você mais erra
+- **Treino por domínio** — 20 questões focadas, com pausa
 - **Funciona offline** — baixa o banco uma vez, estuda sem internet (PWA instalável)
-- **Login + sync** — entra com link mágico no e-mail e continua de onde parou em outro dispositivo (Supabase free, offline-first mantido)
+- **Login + sync** — entra com link mágico no e-mail e continua de onde parou em outro dispositivo (Supabase free, offline-first mantido); ou use sem conta (modo local)
 - **Teclado + toque** — `1–4` responde, `←/→` navega, `⚑` marca para revisão
 - **Tema escuro/claro** — escuro por padrão, preferência salva
 
+![home](docs/screenshots/home-desktop.png)
+![quiz no celular](docs/screenshots/quiz-mobile.png)
+
 ## Banco de questões
 
-**950 questões validadas** (PT-BR, com explicação do porquê de cada erro), distribuídas como a prova:
+**950 questões validadas em PT-BR** (a prova oficial é em inglês — aqui você estuda no seu idioma), com explicação do porquê de cada erro, distribuídas como a prova:
 
 | Domínio | Questões |
 |---|---|
@@ -46,6 +53,7 @@ Cada questão passa por validação automática (schema + regras por tipo + anti
 1. **15 min de Revisão** (o app já prioriza a Caixa 1)
 2. **Bloco de 30–40 questões** no Simulado
 3. **Errou → lê a explicação** (ela diz por que cada alternativa errada está errada)
+4. **Abra o Study Hub** (aba Estudo) e siga os links oficiais dos seus pontos fracos
 
 **Quando marcar a prova:** média dos últimos 5 simulados ≥750 **e** nenhum domínio <70% **e** Caixa 1 com <10 cards. Detalhes em `docs/STUDY-PLAN.md` e `TUTOR.md`.
 
@@ -72,30 +80,35 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 ## Estrutura
 
 ```
-├── PLAN.md / LOG.md / LESSONS.md   # plano, diário e lições (gates mandam, sem prazo)
+├── PLAN.md / PLAN-3.md / LOG.md / LESSONS.md  # planos, diário e lições
 ├── AGENTS.md / REGRAS.md           # instruções operacionais
-├── docs/                           # arquitetura, estudo, deploy, API, troubleshooting, roadmap
+├── docs/                           # arquitetura, componentes, testes, estudo, deploy, API, troubleshooting, roadmap
 ├── src/
-│   ├── engine/   # Quiz, Timer, Scoring (determinístico), Leitner, Selector, schemas Zod
+│   ├── engine/   # Quiz, Timer, Scoring (determinístico), Leitner, Selector, IRT, schemas Zod
+│   ├── controllers/  # Quiz, Treino, Sync, Drill (classes puras, sem DOM)
+│   ├── analytics/  # heatmap + distratores
+│   ├── study/    # topics, hub, profile + flags
 │   ├── sync/     # IndexedDB (sessões, progresso, questões) + Supabase (auth, SyncEngine espelho)
-│   ├── data/     # carregador fetch → precache → IDB (bundle nunca embute o banco)
-│   └── components/  # Lit sem decorators: shell, login, questão, timer, navegador, revisão, stats, tema, usuário
-├── data/         # banco particionado por subdomínio (≤200KB/arquivo) + 10 simulados + meta
-├── scripts/      # validate, generate (IA), check-model, build-simulados, import-community
+│   ├── data/     # carregador fetch → SW cache → IDB (bundle nunca embute o banco)
+│   └── components/  # Lit sem decorators: shell, login, questão, timer, navegador, revisão, stats, tema, usuário, hub
+├── data/         # banco particionado por subdomínio (≤200KB/arquivo) + 10 simulados + meta + topics + syllabus
+├── scripts/      # validate, generate (IA), new-question, check-model, build-simulados, import-community, curadoria
+├── supabase/migrations/  # 001 tabelas+RLS · 002 plataforma+admin · 003 self-update · 004 study hub
 └── tests/        # unit, integração, e2e (Playwright + axe)
 ```
 
 ## Qualidade (números verificáveis)
 
 - `npm run ci` verde: lint (Biome) + `tsc` + 67 testes unit + validate 950/0
-- e2e (16 specs): quiz fim-a-fim, offline (kill-server via IDB), tema/flags/timer, **axe 0 violações**
-- Lighthouse ≥90/90/90 (perf/a11y/boas práticas)
+- e2e (16 specs): quiz fim-a-fim, treino (sem `alert`), offline (IDB + SW cache), tema/flags/timer, **axe 0 violações**
+- Lighthouse ≥90/90/90 (perf/a11y/boas práticas) · JS 123.5KB/teto 140KB gzip
 - Hooks: pre-commit <10s (segredos, lint, tamanho) · pre-push roda o CI completo
-- Segurança: `.env` nunca commitado (gitleaks), segredos só em `scripts/`, sem backend
+- Segurança: `.env` nunca commitado (gitleaks), senha Postgres nunca em chat/repo, RLS como fronteira, CSP via meta tag
+- Curadoria mensal automática: links MS Learn, banco, outline oficial + backup semanal
 
 ## Contribuindo
 
-Leia `CONTRIBUTING.md`, `REGRAS.md` e `docs/QUESTION-GUIDELINES.md`. Resumo: questão nova só entra cumprindo o checklist de qualidade + `validate` limpo; falha no CI vira teste de regressão + lição no `LESSONS.md`.
+Leia `CONTRIBUTING.md`, `REGRAS.md` e `docs/QUESTION-GUIDELINES.md`. Resumo: questão nova via `npx tsx scripts/new-question.mts` + checklist de qualidade + `validate` limpo; falha no CI vira teste de regressão + lição no `LESSONS.md`.
 
 ## Licença
 

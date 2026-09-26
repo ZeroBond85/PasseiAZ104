@@ -273,6 +273,21 @@
   budget JS 120.9KB/140KB · e2e **15/15**.
 - **Próximo:** Sprint 5 (Hardening + Docs & Vitrine + CODE-REVIEW.md).
 
+## 2026-09-26 — PLAN-3 Sprint 5: hardening + docs + vitrine (v7.1 fechada)
+
+- **5a código:** treino sem `alert` (modal `info` + e2e sem dialog nativo) · `study-guide` sem CSS morto ·
+  `test:count` fail-closed no `ci` (pegou e2e 15→16 no primeiro run) · Zod fonte única (`types.ts`+`topics.ts`,
+  `tsc` prova equivalência) · `validate-migration-types` (10 tabelas, no `ci`) · `new-question.mts`
+  (interativo + lote testado fim-a-fim) · guard `supabase.ts` p/ tsx.
+- **5b CIs:** `study-links` (achou 1 URL 404 real → corrigida; retry anti-transiente), `question-curation`
+  (limpo), `exam-watch` (outline = snapshot), `backup` semanal (pula sem secret). YAML validado.
+- **5c vitrine:** README reescrito (badges, screenshots lidos, números reais) · COMPONENTS/TESTING/STUDY-LINKS ·
+  SECURITY/ROADMAP/ARCHITECTURE(Mermaid+ADRs)/API-REF/TROUBLESHOOTING/TUTOR/CONTRIBUTING reais ·
+  package.json completo · templates issue/PR · OG/Twitter + social-preview · `LogoPasseiAz104.png`
+  removido (duplicata `cmp`) · CODE-REVIEW.md (APROVADO P/ PRODUÇÃO com ressalvas humanas).
+- **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
+  iOS · GitHub Settings · estudo até §12.
+
 ## 2026-09-26 — PLAN-3 Sprint 5a+5b: hardening código + CIs mensais
 
 - **Treino sem alert:** `modal-dialog` ganhou ramo `info` (botão único) + `finishTreino` abre modal;

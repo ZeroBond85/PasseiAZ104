@@ -2,7 +2,30 @@
   "name": "az104",
   "private": true,
   "version": "0.0.0",
+  "description": "Simulado AZ-104 no formato oficial + revisão espaçada + Study Hub com Microsoft Learn. PWA offline-first, custo $0.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZeroBond85/PasseiAZ104.git"
+  },
+  "homepage": "https://zerobond85.github.io/PasseiAZ104/",
+  "bugs": {
+    "url": "https://github.com/ZeroBond85/PasseiAZ104/issues"
+  },
+  "author": "ZeroBond85",
+  "license": "MIT",
+  "keywords": [
+    "az-104",
+    "azure",
+    "certification",
+    "pwa",
+    "offline-first",
+    "lit",
+    "supabase",
+    "spaced-repetition",
+    "typescript",
+    "vite"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

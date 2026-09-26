@@ -21,6 +21,10 @@
 - `pushProgress/pullProgress(userId)` · `pushSession/pullSession(userId, simuladoId)` · `syncNow(userId, simuladoId?)` (pull-merge depois push; box usa `max()`)
 - **Plataforma (P2/P3/P5):** `pushPlatform/pullPlatform/syncNowPlatform(userId)` (attempts/suggestions append-only por id; doubts LWW por updatedAt; activity por createdAt) · `getProfileRole(userId) → 'admin'|'user'` · `upsertOwnProfile(userId, email)` (nunca toca `role`)
 - **StudyGuide (P3):** `analyzeAttempt(questions, answers, progress) → { score, passed, weakDomains, byType, byDifficulty, topErrors, tips, leitnerTip }` · `readiness(lastScores, byDomain, progress) → { avg5, domainsOk, leitnerOk, ready, needed }` (§12)
+- **IRT (Sprint 4):** `estimateItem(correct, total, id)` (null se n<30) · `estimateBank(attempts)` · `calibrate-irt.mts --csv|--json` → `data/irt-params.json`
+- **Analytics (Sprint 4):** `computeHeatmap(attempts, pool)` (subdomain×tipo×dificuldade + trend) · `analyzeDistractors(attempts)` (>40%)
+- **Study Hub (Sprint 4):** `loadStudyTopics()` (Supabase c/ fallback JSON) · `matchTopic(topics, domain, subdomain)` · `generateStudyPlan(userId)` (fracos + top 10 links + Leitner due) · `buildStudyLinks(missed)` (pós-simulado, dedup, cap 8) · profile: `loadProfile/saveProfile/markSeen/isSeen` (localStorage por usuário) · `isEnabled(flag)` (`study-hub`, `drill` ON)
+- **Controllers (Sprint 3):** `QuizController(notify, getUserId)` (start/answer/flag/goTo/complete/tagError) · `TreinoController(notify)` (start/startCustom/pause/resume/exit/finish) · `SyncController` (attach/detach/flush, token bucket 10/60s, backoff 30s→300s) · `buildDrillQuestions(userId)` (score fraco×3+erro×2+due×2+distrator×1)
 
 ## Scripts
 
@@ -30,3 +34,11 @@
 - `npx tsx scripts/build-simulados.mts [N]` — N oficiais fixed/100min
 - `npx tsx scripts/import-community.mts --url ...` — quarentena com `needsReview:true`
 - `node check-seq.mjs <arquivo> <prefixo>` — contagem/dup/sequência do banco
+- `node scripts/bump-bank-meta.mjs [--check]` — regenera `countsByDomain`+`updatedAt` do real
+- `npx tsx scripts/validate-migration-types.mts` — colunas SQL × chaves Zod (fail-closed no `ci`)
+- `node scripts/update-readme-test-count.mjs [--check]` — sincroniza contagem no README
+- `npx tsx scripts/new-question.mts` — guia interativo (+modo lote sem TTY)
+- `node scripts/validate-study-links.mjs [--fix] [--out r.json]` — HEAD nas 34 URLs
+- `node scripts/question-curation.mjs` — needsReview + sourceUrl + relatório `.agent/audits/`
+- `node scripts/check-exam-outline.mjs` — detecta outline novo (`OUTLINE_CHANGED=true/false`)
+- `npx tsx scripts/syllabus-gap.mts [--md]` — faltas × cobertura

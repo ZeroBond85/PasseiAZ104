@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Dúvida de estudo (conteúdo AZ-104)
+    url: https://github.com/ZeroBond85/PasseiAZ104/discussions
+    about: Perguntas sobre a matéria — use as Discussions (podem virar questões).
+  - name: Guia de contribuição
+    url: https://github.com/ZeroBond85/PasseiAZ104/blob/main/CONTRIBUTING.md
+    about: Leia antes de propor código ou questões.

@@ -168,25 +168,19 @@
   imprime bloco + checklist; AbortError tratado.
 - [x] **3 CIs novos**: `study-links.yml` (validador HEAD + PR auto p/ redirect + issue p/ morta; 34/34 OK após corrigir `logs-kql` p/ `log-analytics-overview`) · `question-curation.yml` (validate + meta + curadoria; issue em anomalia) · `exam-watch.yml` (detecta outline via `check-exam-outline.mjs` + gap report; issue só com mudança real).
 - [x] **Backup Supabase semanal** `.github/workflows/backup.yml`: `pg_dump` schema+data → artifact 90d; pula sem `SUPABASE_DB_URL` (secret a configurar).
-- [ ] **README.md** reescrito: descrição oficial A+Microsoft · PT-BR como diferencial ·
+- [x] **README.md** reescrito: descrição oficial A+Microsoft · PT-BR como diferencial ·
       badges (ci, deploy, security, perf, license MIT) · 3 screenshots · Study Hub ·
-      números reais (57 testes, 950 questões, data do banco) · estrutura nova ·
-      test count auto.
-- [ ] **docs novos**: `docs/COMPONENTS.md` (catálogo Lit: props/eventos/estados/a11y) ·
-      `docs/TESTING.md` (pirâmide, RPR, visual-manual, mutation trimestral) ·
-      (`docs/STUDY-LINKS.md` se pendente da Sprint 4).
-- [ ] **docs atualizados**: `SECURITY.md` (modelo real: Supabase+RLS+anon+CSP/SRI) ·
-      `docs/ROADMAP.md` (estado real + Sprints 1-5) · `docs/ARCHITECTURE.md` (mapa final + Mermaid) ·
-      `docs/API-REF.md` (study/controllers/profile/topics) · `docs/TROUBLESHOOTING.md`
-      (seed parcial, CSP, links 404) · `TUTOR.md` (rotina com Study Hub + Drill) ·
-      `CONTRIBUTING.md` (templates + `test:count`); remover `LogoPasseiAz104.png` se `cmp` confirmar duplicata.
-- [ ] **package.json**: description / repository / homepage / bugs / author (ZeroBond85) / license MIT / keywords.
-- [ ] **.github**: `ISSUE_TEMPLATE/` (bug-report, feature-request, question-item, config.yml) +
-      `PULL_REQUEST_TEMPLATE.md` (o que muda + testes + screenshots + checklist ci/budget/axe).
-- [ ] **index.html**: description + OG/Twitter tags + `public/icons/social-preview.png` 1280×640
-      (gerado via spec Playwright temporário, deletado no run).
-- [ ] Screenshots `docs/screenshots/` (home-desktop, quiz-mobile, study-hub-desktop, review-mobile; <300KB total).
-- [ ] `CODE-REVIEW.md` final (verdict por área + riscos residuais).
+      números reais (67 unit + 16 e2e, 950 questões) · estrutura nova · test count auto.
+- [x] **docs novos**: `docs/COMPONENTS.md` · `docs/TESTING.md` · `docs/STUDY-LINKS.md`.
+- [x] **docs atualizados**: `SECURITY.md` (modelo real) · `docs/ROADMAP.md` (Sprints 1-5) ·
+      `docs/ARCHITECTURE.md` (ADR-008/009/010 + Mermaid) · `docs/API-REF.md` (study/controllers) ·
+      `docs/TROUBLESHOOTING.md` (seed/CSP/links/treino-0) · `TUTOR.md` (Study Hub + Drill) ·
+      `CONTRIBUTING.md` (new-question + ci completo); `LogoPasseiAz104.png` removido (duplicata `cmp`).
+- [x] **package.json**: description / repository / homepage / bugs / author / license MIT / keywords.
+- [x] **.github**: `ISSUE_TEMPLATE/` (bug, feature, question-item, config) + `PULL_REQUEST_TEMPLATE.md`.
+- [x] **index.html**: description + OG/Twitter tags + `social-preview.png` 1280×640 (spec temporário).
+- [x] Screenshots `docs/screenshots/` (home-desktop, quiz-mobile, study-hub-desktop, review-mobile; lidos).
+- [x] `CODE-REVIEW.md` final (verdict por área + riscos residuais).
 - [ ] Commit único `docs: vitrine v7.1` → push → workflows verdes.
 - [ ] **Humano (15 min, uma vez)** — checklist GitHub Settings:
       About (descrição oficial + site + topics `az-104 azure certification pwa offline-first lit supabase spaced-repetition typescript vite`) ·
@@ -260,7 +254,7 @@ alerta Leitner. "Marcar lido" sincroniza (`seen_at`). Zero config: o plano se re
 - [x] Sprint 3 — Arquitetura limpa
 - [x] Sprint 3.5 — Catálogo UX (dinâmico principal)
 - [x] Sprint 4 — Study Hub + admin ampliado + qualidade de dados
-- [ ] Sprint 5 — Hardening + Docs & Vitrine
+- [x] Sprint 5 — Hardening + Docs & Vitrine
 
 ## 9. Fora do v7.1 (registrado para não ressuscitar sem motivo)
 

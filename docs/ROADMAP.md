@@ -1,12 +1,31 @@
 # ROADMAP.md — PasseiAZ-104
 
-> Estado: banco 950/950 + plataforma v7.0 no ar (QA local ✅). Falta: migration 002 no Supabase (dono) +
-> validação 2 usuários · estudo (humano) · iOS físico.
+> Estado: banco 950/950 + PLAN-3 executado (Sprints 1–5, QA local ✅).
+> Falta (humano): migration 004 no Supabase · validar admin com 2 usuários ·
+> SMTP próprio · estudo até §12 · iOS físico · checklist GitHub Settings (Sprint 5d).
+
+## Antes da prova (restante)
+
+- **Aplicar migration 004 no Supabase SQL Editor** + validar admin/RLS com 2 usuários
+- **SMTP próprio** (Brevo) — magic link sem rate-limit
+- Estudo até média-5 ≥750 + 3 condições §12 · iOS físico
+
+## Feito na v7.1 (PLAN-3, set/2026)
 
 ## Antes da prova (restante)
 
 - **Aplicar migration 002 no Supabase SQL Editor** + validar admin/RLS com 2 usuários (habilitar aba Admin em prod)
 - S14: revisão opcional · iOS físico · Estudo até média-5 ≥750 + 3 condições §12.
+
+## Feito na v7.1 (PLAN-3, set/2026)
+
+- [x] Sprint 1: seed parcial nunca marca versão + retry UI · CSP · `meta:check` anti-drift · budget por chunk
+- [x] Sprint 2: SW `runtimeCaching` p/ `data/*.json` (provado) + `SyncController` (retry auto + token bucket)
+- [x] Sprint 3: `QuizController` + `TreinoController` (bugs placar-0 e seed-treino achados na extração)
+- [x] Sprint 3.5: dinâmico principal + última atividade + "Simulados fixos"
+- [x] Sprint 4: Study Hub (34 tópicos MS + perfil + hub + links pós-simulado) · IRT 1PL · heatmap · drill · `syllabus-gap` · admin ampliado
+- [x] Sprint 5: Zod fonte única · validators no CI · 3 CIs mensais + backup · `test:count` · treino sem `alert`
+- [x] Copy UX PT-BR + guia oficial MS + frescor do banco visível
 
 ## Feito na v7.0 (16/set/2026)
 

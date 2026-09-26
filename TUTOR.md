@@ -9,6 +9,15 @@
 3. Marque `⚑` nas dúvidas; finalize e leia a **Revisão** (cada erro explica o porquê).
 4. Volte em **Revisão** nos dias seguintes — o app cobra primeiro o que você mais erra (Caixa 1).
 
+## O que estudar (Study Hub)
+
+- Aba **Estudo**: "O que estudar agora" lista seus domínios fracos + links oficiais
+  Microsoft Learn. "Marcar lido" registra o progresso.
+- **🎯 Treinar meus erros**: sessão de 10 questões montada com seus erros, Leitner vencido
+  e pegadinhas frequentes — roda no Treino.
+- Pós-simulado: seção **"Estude no Microsoft Learn"** com links das questões que você errou.
+- **Guia oficial da Microsoft** (aba Estudo): roteiro oficial do Exame AZ-104 em português.
+
 ## Regras de ouro
 
 - Timer de 100min: treine com ele desde o dia 1 (a prova real tem pressão de tempo).
