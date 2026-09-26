@@ -83,7 +83,7 @@ async function main() {
     lines.push('', '## sourceUrl mortos')
     for (const d of dead) lines.push(`- ${d.url} (${d.error})`)
   }
-  writeFileSync(`.agent/audits/curation-${date}.md`, lines.join('\n') + '\n')
+  writeFileSync(`.agent/audits/curation-${date}.md`, `${lines.join('\n')}\n`)
   console.log(
     `needsReview=${needsReview} deadUrls=${dead.length} total=${total}`,
   )

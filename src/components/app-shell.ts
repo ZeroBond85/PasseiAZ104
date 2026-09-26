@@ -347,7 +347,7 @@ export class AppShell extends LitElement {
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
         ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>Falha ao sincronizar (${this.syncFail}) — tentar de novo ↻</button>` : ''}
         ${!this.online ? html`<span class="sync warn" role="status">🔴 offline — dados salvos localmente</span>` : ''}
-        ${this.seedError ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySeed()}>⚠ Banco incompleto — tocar para recarregar</button>` : ''}
+        ${this.seedError ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySeed()}>⚠ Banco incompleto — recarregar</button>` : ''}
         <user-menu .isAdmin=${this.isAdmin} @logout=${() => this.requestUpdate()}></user-menu>
         <theme-toggle></theme-toggle>
       </header>
@@ -452,7 +452,7 @@ export class AppShell extends LitElement {
           </p>
           <ul class="checks">
             <li><strong>50 questões</strong> — escolha única, múltipla escolha,
-            cenários (case studies) e verdadeiro/falso.</li>
+            estudos de caso e verdadeiro/falso.</li>
             <li><strong>100 minutos</strong> — cronômetro regressivo visível
             durante toda a prova.</li>
             <li><strong>Nota de corte 700</strong> — aprovado quem chega a

@@ -69,9 +69,9 @@ async function main() {
   }
 
   if (fix && dirty)
-    writeFileSync(TOPICS, JSON.stringify(topics, null, 2) + '\n')
+    writeFileSync(TOPICS, `${JSON.stringify(topics, null, 2)}\n`)
   const json = JSON.stringify(summary, null, 2)
-  if (outFile) writeFileSync(outFile, json + '\n')
+  if (outFile) writeFileSync(outFile, `${json}\n`)
   console.log(json)
 }
 

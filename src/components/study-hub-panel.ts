@@ -67,7 +67,7 @@ export class StudyHubPanel extends LitElement {
     if (!this.loaded) return html`<main><p>Montando seu plano…</p></main>`
     const plan = this.plan
     // Sem attempts: não renderiza nada (a aba já tem estado vazio próprio)
-    if (!plan || !plan.hasData) return html``
+    if (plan?.hasData !== true) return html``
     return html`
       <main @toggle-seen=${this.onToggleSeen}>
         ${

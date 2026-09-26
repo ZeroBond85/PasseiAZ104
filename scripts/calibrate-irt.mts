@@ -58,7 +58,7 @@ function main() {
   }
   writeFileSync(
     new URL('../data/irt-params.json', import.meta.url),
-    JSON.stringify(out, null, 2) + '\n',
+    `${JSON.stringify(out, null, 2)}\n`,
   )
   console.log(
     `irt: ${Object.keys(out).length} questões calibradas, ${skipped} sem amostra (n<30)`,

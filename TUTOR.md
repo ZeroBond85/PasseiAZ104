@@ -13,7 +13,7 @@
 
 - Aba **Estudo**: "O que estudar agora" lista seus domínios fracos + links oficiais
   Microsoft Learn. "Marcar lido" registra o progresso.
-- **🎯 Treinar meus erros**: sessão de 10 questões montada com seus erros, Leitner vencido
+- **🎯 Treinar meus erros**: sessão de 10 questões montada com seus erros, revisões vencidas
   e pegadinhas frequentes — roda no Treino.
 - Pós-simulado: seção **"Estude no Microsoft Learn"** com links das questões que você errou.
 - **Guia oficial da Microsoft** (aba Estudo): roteiro oficial do Exame AZ-104 em português.
@@ -21,6 +21,6 @@
 ## Regras de ouro
 
 - Timer de 100min: treine com ele desde o dia 1 (a prova real tem pressão de tempo).
-- Não decore letra — decore o *porquê* da explanation.
+- Não decore letra — decore o *porquê* da explicação.
 - Domínio <70% duas vezes seguidas = estude só ele na próxima sessão.
 - Meta: média dos últimos 5 ≥750, nenhum domínio <70%, Caixa 1 <10 → agenda a prova.

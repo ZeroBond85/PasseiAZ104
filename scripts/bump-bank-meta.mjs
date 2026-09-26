@@ -46,6 +46,6 @@ if (process.argv.includes('--check')) {
 } else {
   meta.countsByDomain = ordered
   meta.updatedAt = new Date().toISOString()
-  writeFileSync(META, JSON.stringify(meta, null, 2) + '\n')
+  writeFileSync(META, `${JSON.stringify(meta, null, 2)}\n`)
   console.log(`meta atualizado: ${after} (total ${total}) @ ${meta.updatedAt}`)
 }

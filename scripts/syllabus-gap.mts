@@ -1,5 +1,5 @@
 // syllabus-gap.mts — cruza outline oficial × banco × tópicos curados.
-// Uso: npx tsx scripts/syllabus-gap.mts [--md]
+// Uso: npx tsx scripts/syllabus-gap.mts
 // Saída: faltas (prefixo de tópico sem cobertura no banco) + pesos por domínio.
 // Roda manual após alerta do exam-watch.yml, ou sob demanda.
 import { readdirSync, readFileSync } from 'node:fs'
@@ -41,7 +41,6 @@ for (const f of readdirSync(DATA).filter(
   }
 }
 
-const md = process.argv.includes('--md')
 const out: string[] = []
 const line = (s: string) => out.push(s)
 

@@ -122,7 +122,7 @@ export class ProgressPanel extends LitElement {
           this.heat.length > 0
             ? html`<section class="card">
               <h2>Onde você mais erra</h2>
-              <p class="dim">Piores combinações de assunto, tipo e nível — seta mostra a tendência.</p>
+              <p class="dim">Os assuntos, tipos e níveis onde você mais erra — a seta mostra a tendência.</p>
               <ul class="heat">
                 ${this.heat.map(
                   (c) => html`

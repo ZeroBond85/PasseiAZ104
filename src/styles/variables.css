@@ -58,7 +58,11 @@
   *,
   *::before,
   *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: kill-switch de acessibilidade —
+       precisa vencer qualquer `animation`/`transition` de componente (ex.: modal).
+       Uso textbook de !important; remover quebra WCAG 2.3.3. */
     animation-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: idem acima. */
     transition-duration: 0.01ms !important;
   }
 }
