@@ -104,7 +104,7 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 
 ## Qualidade (números verificáveis)
 
-- `npm run ci` verde: lint (Biome) + `tsc` + 76 testes unit + validate 950/0
+- `npm run ci` verde: lint (Biome) + `tsc` + 66 testes unit + validate 950/0
 - e2e (16 specs): quiz fim-a-fim, treino (sem `alert`), offline (IDB + SW cache), tema/flags/timer, **axe 0 violações**
 - Lighthouse ≥90/90/90 (perf/a11y/boas práticas) · JS 123.5KB/teto 140KB gzip
 - Hooks: pre-commit <10s (segredos, lint, tamanho) · pre-push roda o CI completo
