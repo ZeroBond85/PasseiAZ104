@@ -288,6 +288,15 @@
 - **Pendente humano:** migration 004 · promoção admin · `SUPABASE_DB_URL` · Brevo · 2 usuários ·
   iOS · GitHub Settings · estudo até §12.
 
+## 2026-09-27 — Incidente: connection string completa em chat (real)
+
+- URI Postgres **com senha real** colada no chat (formato válido, pooler us-east-1).
+  Diferente do teste anterior: desta vez o valor é plausivelmente verdadeiro.
+- **Não utilizada nem armazenada em lugar nenhum** (sem comandos, sem arquivos, sem secrets).
+  Exigida rotação imediata no dashboard antes de qualquer uso — regra AGENTS.md sem exceção,
+  inclusive para "era teste" ou ordem direta (precedentes 11/set e 26/set).
+- Backup segue bloqueado até `gh secret set` local com a NOVA senha + re-disparo validado.
+
 ## 2026-09-26 — Incidente: senha de banco em chat (teste do dono)
 
 - Credencial com formato de senha Postgres colada no chat ("teste", segundo o dono).
@@ -369,3 +378,74 @@
 - **Resultados:** tsc 0 · lint 0 · unit **67/67** · e2e **16/16** · validate 950/0 · meta + migration OK ·
   budget JS 123.5KB/140KB (Zod no bundle, folga 16.5KB).
 - **Próximo:** Sprint 5c (docs + vitrine) e 5d (commit único + CODE-REVIEW.md).
+
+## 2026-09-26 — PLAN-4 A1 (P0): LWW do Study Profile corrigido com RPR
+
+- **Bug:** `saveProfile` (`src/study/study-profile.ts:63`) carimbava `updatedAt` incondicional; `pullStudyProfile`
+  (`src/sync/study-sync.ts:54`) chamava `saveProfile` com o objeto remoto já montado → o remoto era sobrescrito
+  pelo relógio local e o guard `pull:38` descartava atualização de outro aparelho (perda silenciosa entre dispositivos).
+- **RPR:** `tests/unit/study-profile-sync.test.ts` escrito **antes** do fix — 4/4 falharam
+  (`expected 900, received 1000000`); após o fix, 4/4 verdes.
+- **Fix (4 pontos):** `saveProfile` só persiste · `study-hub.ts:90` e `study-hub-panel.ts:59` carimbam no
+  call site que muta · `study-sync.ts` mantém `remoteAt` e perde o `setItem` redundante (import `profileKey` removido).
+- **Lição:** `LESSONS.md` 2026-09-26 — função `save*` nunca carimba tempo.
+- **Gates:** `npm run ci` (tsc 0 · lint 0 · unit **71/71** · validate 950/0 · meta + migration OK) ·
+  `npm run budget` JS 123.5KB/140KB · README recount 71 unit + 16 e2e.
+- **Contexto:** `PLAN-4.md` gravado (Track A 10 achados + Track B banco 1000 + Track R grounding 950/950
+  + Track C visibilidade), com o outline oficial de 17/abr/2026 (15 grupos funcionais / 82 bullets) e os
+  5 grupos com mudança *minor* como alvo das +50.
+- **Próximo:** PLAN-4 A2 (auditoria admin grava `role.change`, sem migration) e A6–A10.
+
+## 2026-09-26 — PLAN-4 A2 (P1): Auditoria admin grava `role.change` sem migration
+
+- **Gap:** `admin-panel.ts` tinha UI de Auditoria mas `az104_admin_logs` nunca era escrita — `setRole` alterava a role
+  sem inserir log. RLS `for all` (migration 002) ja permite insert de admin.
+- **RPR:** `tests/unit/admin-log.test.ts` (6 casos: row shape, insert ok, insert falha silencioso,
+  changeUserRole update+audit, update falha sem audit, audit falha sem quebrar role). 6/6 falharam antes do modulo,
+  6/6 verdes apos.
+- **Fix:** `src/sync/admin.ts` (`adminLogRow`, `recordAdminLog`, `changeUserRole`) — falha de auditoria
+  nunca desfaz a role (best-effort, `logger.warn('sync', ...)`). `setRole` delega para `changeUserRole(actorId, userId, role)`.
+- **Docs:** migration 002 comentario stale corrigido (agora diz "Escrita pelo app").
+- **Gates:** `npm run ci` (tsc 0 · lint 0 · unit **77/77** · validate 950/0 · meta + migration OK) ·
+  `npm run budget` 123.8KB/140KB · README recount 77 unit + 16 e2e.
+- **Verificacao humana pendente:** 2 usuarios (admin promove -> recarrega -> linha aparece em Auditoria; user nao ve).
+- **Próximo:** PLAN-4 A3–A10 (gates e tooling) + B/R/C.
+
+## 2026-09-26 — PLAN-4 A3–A10: Track A completo (10 achados corrigidos)
+
+- **A3 (code-splitting):** admin-panel lazy-loaded via `import('./admin-panel.js')` na 1ª abertura da aba Admin.
+  Bundle main **122.0 KB gzip** (era 123.8 KB) + chunk admin-panel **3.8 KB** = **125.7 KB / 140 KB** (89.8%).
+  Gamificação (Study Hub) fica para quando a flag `gamification: true` entrar (PLAN §15).
+- **A4 (shuffle Treino):** `src/controllers/treino-controller.ts:47` corrigido de `sort(() => Math.random()-0.5)`
+  para Fisher-Yates in-place com `mulberry32(Date.now())` (reuso do `QuestionSelector.ts`). Unit
+  `tests/unit/treino-controller.test.ts` (4 casos: sem dup, count correto, pool preservado, startCustom intocada).
+- **A5 (ADR-001 exceção):** `docs/ARCHITECTURE.md` ADR-001 agora documenta a exceção do
+  `study-topics.json` embutido (~20 KB) — fail-fast intencional, refactor opcional pós-prova.
+- **A6 (budget no ci):** `package.json:45` `ci` agora inclui `npm run budget` — gate local = CI.
+- **A7 (validate no pre-commit):** `.husky/pre-commit` roda `npm run validate` quando mexe em
+  `data/*.json`, `question-schema.ts` ou `validate-questions.mts` (~0.9s, dentro do teto 10s §9).
+- **A8 (check-seq --domain):** novo modo `node check-seq.mjs --domain <ig|st|co|rv|mo>` concatena
+  arquivos do dominio, valida dup global de ID + gaps de sequencia + count vs `meta.json`.
+  Todos os 5 dominios verdes (0 dup, 0 gaps, count bate).
+- **A9 (docs CLI):** `QUESTION-GUIDELINES.md:22`, `API-REF.md:36`, `TROUBLESHOOTING.md:20` corrigidos
+  para o novo `--domain` e modo legado `<arquivo> <prefixo>`.
+- **A10 (.gitignore):** `.agent/audits/` adicionado ao `.gitignore` (artefatos de curadoria/grounding).
+- **Gates globais:** `npm run ci` (tsc 0 · lint 0 · unit **76/76** · validate 950/0 · meta + migration OK) ·
+  `npm run budget` **125.7 KB / 140 KB** (main 122.0 KB + admin 3.8 KB) · README recount 76 unit + 16 e2e.
+- **Próximo:** Track B (B3 fase 0 auditoria real → B1 exam-skills.json → B2 +50 → B4/B5 integração) +
+  Track R (R0 grounding-map → R1 check-grounding → R2 validação → R3 retrofit 950/950) + Track C.
+
+## 2026-09-26 — PLAN-4 A2 (P1): Auditoria admin grava `role.change` sem migration
+
+- **Gap:** `admin-panel.ts` tinha UI de Auditoria mas `az104_admin_logs` nunca era escrita — `setRole` alterava a role
+  sem inserir log. RLS `for all` (migration 002) ja permite insert de admin.
+- **RPR:** `tests/unit/admin-log.test.ts` (6 casos: row shape, insert ok, insert falha silencioso,
+  changeUserRole update+audit, update falha sem audit, audit falha sem quebrar role). 6/6 falharam antes do modulo,
+  6/6 verdes apos.
+- **Fix:** `src/sync/admin.ts` (`adminLogRow`, `recordAdminLog`, `changeUserRole`) — falha de auditoria
+  nunca desfaz a role (best-effort, `logger.warn('sync', ...)`). `setRole` delega para `changeUserRole(actorId, userId, role)`.
+- **Docs:** migration 002 comentario stale corrigido (agora diz "Escrita pelo app").
+- **Gates:** `npm run ci` (tsc 0 · lint 0 · unit **77/77** · validate 950/0 · meta + migration OK) ·
+  `npm run budget` 123.8KB/140KB · README recount 77 unit + 16 e2e.
+- **Verificacao humana pendente:** 2 usuarios (admin promove -> recarrega -> linha aparece em Auditoria; user nao ve).
+- **Próximo:** A3–A10 (gates e tooling) + B/R/C.

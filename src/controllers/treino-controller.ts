@@ -1,6 +1,16 @@
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
+import { mulberry32 } from '../engine/QuestionSelector.js'
 import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question } from '../engine/question-schema.js'
+
+// Fisher-Yates in-place (determinista para seed, uniforme).
+function shuffleFisherYates<T>(arr: T[], rand: () => number): T[] {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
 
 export interface TreinoResult {
   correct: number
@@ -43,10 +53,9 @@ export class TreinoController {
     const pool = await getQuestionPool()
     const candidates = pool.filter((q) => q.domain === domain)
     if (candidates.length === 0) return false
-    return this.startCustom(
-      [...candidates].sort(() => Math.random() - 0.5).slice(0, 20),
-      domain,
-    )
+    const rand = mulberry32(Date.now())
+    const shuffled = shuffleFisherYates([...candidates], rand)
+    return this.startCustom(shuffled.slice(0, 20), domain)
   }
 
   /** Sessão sobre pool pronto (drill): label livre p/ o header. */
