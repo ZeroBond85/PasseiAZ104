@@ -97,7 +97,7 @@
     "source": "mslearn",
     "tags": ["vms", "availability-set", "sla"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T23:13:18.558Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
@@ -131,7 +131,7 @@
     "source": "mslearn",
     "tags": ["containers", "aci"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -162,11 +162,12 @@
     ],
     "correct": ["B"],
     "explanation": "Desalocar libera o hardware e zera o custo de computação (discos continuam cobrados). Shutdown pelo SO mantém alocação e custo; reiniciar não economiza; redimensionar para cima piora.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "custo", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-008",
@@ -198,7 +199,7 @@
     "source": "mslearn",
     "tags": ["vmss", "autoscale"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -263,11 +264,12 @@
     ],
     "correct": ["D"],
     "explanation": "Spot usa capacidade ociosa com desconto de até 90% em troca de despejo. Pay-as-you-go garante sem desconto; reserva exige compromisso e uso estável; host dedicado é o mais caro.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "spot", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-014",
@@ -296,11 +298,12 @@
     ],
     "correct": ["D"],
     "explanation": "Imagem generalizada remove identidade (SID/hostname) permitindo clonar N VMs. Snapshot sem generalizar duplica identidade; backup restaura a mesma VM; modelo ARM replica configuração, não o software instalado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "imagens", "sysprep"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-016",
@@ -329,11 +332,12 @@
     ],
     "correct": ["B"],
     "explanation": "Zonas são datacenters fisicamente separados na região; distribuir entre elas tolera perda de um site. Fault domain protege de rack, não de datacenter; mesma zona concentra o risco.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "zonas", "alta-disponibilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-018",
@@ -362,11 +366,12 @@
     ],
     "correct": ["A"],
     "explanation": "Update Manager agenda janelas, aplica patches em escala e reporta conformidade. RDP manual não escala nem audita; antivírus não aplica patch de SO; backup protege dados, não atualiza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "update-manager", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-019",
@@ -398,7 +403,7 @@
     "source": "mslearn",
     "tags": ["vmss", "rolling-upgrade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -429,11 +434,12 @@
     ],
     "correct": ["D"],
     "explanation": "Bastion publica RDP/SSH via TLS no portal, sem expor portas. Liberar 3389 viola a política; IP público mantém exposição; VPN por VM é cara e complexa para acesso ocasional.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "bastion", "rdp"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-022",
@@ -462,11 +468,12 @@
     ],
     "correct": ["B"],
     "explanation": "A Galeria versiona, replica entre regiões e compartilha imagens via RBAC. Imagem isolada não replica; VHD avulso não versiona; ACR guarda contêineres, não imagens de VM.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "galeria", "imagens"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-025",
@@ -495,11 +502,12 @@
     ],
     "correct": ["C"],
     "explanation": "PPG co-localiza VMs no mesmo rack/cluster para latência mínima. Zonas e regiões aumentam a distância; availability set distribui (oposto do pedido).",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "ppg", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-026",
@@ -531,7 +539,7 @@
     "source": "mslearn",
     "tags": ["vmss", "load-balancer", "probe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -562,11 +570,12 @@
     ],
     "correct": ["A"],
     "explanation": "Reserva de 3 anos dá o maior desconto para carga estável 24/7. Spot pode despejar produção; desalocar quebra disponibilidade; downgrade reduz capacidade, não preço unitário.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "reservas", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-031",
@@ -595,11 +604,12 @@
     ],
     "correct": ["C"],
     "explanation": "Boot Diagnostics grava screenshot e log serial na storage para análise offline. Backup restaura, não diagnostica; alerta de CPU não mostra console; DNS não exibe boot.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "boot-diagnostics"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-033",
@@ -631,7 +641,7 @@
     "source": "mslearn",
     "tags": ["vmss", "spot", "prioridade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -665,7 +675,7 @@
     "source": "mslearn",
     "tags": ["vms", "ultra-disk", "iops"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -696,11 +706,12 @@
     ],
     "correct": ["D"],
     "explanation": "Maintenance control agenda a janela e Scheduled Events avisam antes para preparar. Desligar alertas cega a operação; trocar assinatura não muda o host; update domains protegem de manutenção, não a reagendam.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "manutencao", "scheduled-events"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-039",
@@ -729,11 +740,12 @@
     ],
     "correct": ["A"],
     "explanation": "Dv3/Ev3+ expõem extensões de virtualização ao convidado. B e A não suportam aninhamento; tipo de disco não habilita Hyper-V aninhado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "nested-virtualization", "lab"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-041",
@@ -762,11 +774,12 @@
     ],
     "correct": ["A"],
     "explanation": "Disk Encryption usa BitLocker/DM-Crypt com chaves do seu Key Vault. Criptografia padrão usa chaves Microsoft; BitLocker manual não escala nem audita; TLS protege tráfego, não disco.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "disk-encryption", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-043",
@@ -798,7 +811,7 @@
     "source": "mslearn",
     "tags": ["vmss", "flexible", "orquestracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -863,11 +876,12 @@
     ],
     "correct": ["D"],
     "explanation": "Capacity Reservation segura o hardware físico; quota só eleva o limite lógico. Reserved Instance desconta preço sem garantir hardware; Spot pode ser despejado no pico.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "capacity-reservation", "cota"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-049",
@@ -896,11 +910,12 @@
     ],
     "correct": ["C", "A"],
     "explanation": "Fault domains isolam falha de rack e update domains sequenciam manutenção sem derrubar tudo. VM única não protege; snapshot é recuperação, não disponibilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "fault-domain", "update-domain"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-052",
@@ -932,7 +947,7 @@
     "source": "mslearn",
     "tags": ["vmss", "autoscale", "zonas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -997,11 +1012,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "Política com retenção longa guarda o histórico e soft delete recupera itens excluídos por 14 dias. Snapshot manual não agenda; desabilitar backup elimina a proteção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "backup", "retencao", "soft-delete"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-056",
@@ -1030,11 +1046,12 @@
     ],
     "correct": ["A", "C"],
     "explanation": "Identidade por VM separa o principal de segurança e o RBAC diferencia as permissões. Entidade única com segredo mistura acessos e exige guardar segredo; chave compartilhada idem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "managed-identity", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-057",
@@ -1066,7 +1083,7 @@
     "source": "mslearn",
     "tags": ["vmss", "scale-in-protection", "stateful"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -1097,11 +1114,12 @@
     ],
     "correct": ["C"],
     "explanation": "SO efêmero usa o disco local do host: provisiona rápido e descarta no deallocate. Discos remotos copiam pela rede; Ultra é para persistência extrema; snapshot por build é lento.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "ephemeral-os", "build"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-061",
@@ -1130,11 +1148,12 @@
     ],
     "correct": ["A"],
     "explanation": "Host Dedicado isola fisicamente e Hybrid Benefit aproveita licenças com SA. Multitenant não isola; Spot não garante nem aceita bem BYOL; reserva de capacidade sem HUB não reduz licença.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["host-dedicado", "hybrid-benefit", "licenciamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption"
   },
   {
     "id": "az104-co-063",
@@ -1163,11 +1182,12 @@
     ],
     "correct": ["C"],
     "explanation": "Image Builder executa pipeline declarativo (customize, validate, distribute) integrado à Galeria. Sysprep manual não audita; snapshot não customiza; backup não gera imagem nova.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["image-builder", "golden-image", "galeria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-065",
@@ -1196,11 +1216,12 @@
     ],
     "correct": ["D", "C"],
     "explanation": "Backup garante pontos de restauração e Site Recovery replica para failover rápido entre zonas. Snapshot avulso não agenda; desalocar piora disponibilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "backup", "site-recovery"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-066",
@@ -1229,11 +1250,12 @@
     ],
     "correct": ["A", "D"],
     "explanation": "AKS entrega autoscaling, deploys graduais e governança integrada. Manifestos continuam necessários; plano de controle é grátis mas nós custam.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["aks", "orquestracao", "comparativo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-069",
@@ -1262,11 +1284,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Trusted Launch atesta integridade do boot e Disk Encryption protege dados com sua chave. IP exposto e conta compartilhada violam o compliance.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "trusted-launch", "encryption"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-070",
@@ -1332,7 +1355,7 @@
     "source": "mslearn",
     "tags": ["vmss", "automatic-repairs", "health-probe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -1363,11 +1386,12 @@
     ],
     "correct": ["C", "D"],
     "explanation": "Defender detecta ameaças e a regra com runbook reage sozinha (isolar, reiniciar). Log mensal é lento; sem agente não há telemetria.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "defender", "alertas", "runbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-077",
@@ -1388,11 +1412,12 @@
     ],
     "correct": ["B"],
     "explanation": "Desalocar libera o hardware (fim do custo de computação), mas discos, IPs e outros recursos alocados continuam cobrados. Achar que tudo zera é erro clássico de custo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "custo", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-081",
@@ -1421,11 +1446,12 @@
     ],
     "correct": ["B"],
     "explanation": "Hibernação salva RAM no disco e retoma rápido sem custo de computação. Desalocar simples perde RAM; snapshot manual atrasa; ligada desperdiça.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "hibernacao", "dev"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-082",
@@ -1454,11 +1480,12 @@
     ],
     "correct": ["A"],
     "explanation": "Orquestração agenda com hooks de quiesce/validação. Automático puro não quiesce banco; manual não escala; backup não aplica patch.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["update-manager", "orquestracao", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-083",
@@ -1490,7 +1517,7 @@
     "source": "mslearn",
     "tags": ["vmss", "spot", "terminate-notification", "drenagem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -1521,11 +1548,12 @@
     ],
     "correct": ["A"],
     "explanation": "Redeploy move para nó saudável preservando recursos. Restart fica no host ruim; recriar perde; aguardar prolonga outage.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "redeploy", "host", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-090",
@@ -1554,11 +1582,12 @@
     ],
     "correct": ["B"],
     "explanation": "Serial console acessa o SAC/terminal da VM sem rede via portal. RDP é só Windows; Bastion exige conectividade; reinstalar apaga dados.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["serial-console", "emergencia", "sac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-091",
@@ -1587,11 +1616,12 @@
     ],
     "correct": ["A"],
     "explanation": "DINE instala agente e associa DCR em novas e existentes. Manual não escala; RDP é inviável; sem policy nada acontece.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vm-insights", "ama", "dcr", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-092",
@@ -1620,11 +1650,12 @@
     ],
     "correct": ["B"],
     "explanation": "Automanage aplica e corrige baseline continuamente. Tags não aplicam; trimestral atrasa; só auditar não corrige.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["automanage", "baseline", "vm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-093",
@@ -1653,11 +1684,12 @@
     ],
     "correct": ["A"],
     "explanation": "ASR replica contínuo com RPO de segundos e testa sem afetar produção. Backup tem RPO de horas; snapshot é pontual; fria exige rebuild.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["site-recovery", "dr", "rpo", "failover"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-094",
@@ -1689,7 +1721,7 @@
     "source": "mslearn",
     "tags": ["vmss", "rolling", "app-health"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -1754,11 +1786,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "MIG fatia a GPU e NVads virtualiza frações para VDI/inferência. Dedicada desperdiça; CPU não acelera.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["gpu", "mig", "nvads", "fracionada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-097",
@@ -1787,11 +1820,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Overprovision acelera com sobra temporária, mas numeração varia. Não garante instantâneo; extras cobram se persistirem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vmss", "overprovision", "escala"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-098",
@@ -1812,11 +1846,12 @@
     ],
     "correct": ["A"],
     "explanation": "PPG co-localiza no mesmo site; multizona contraria o propósito de latência mínima. Assumir abrangência quebra o desenho.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["ppg", "zonas", "proximidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-099",
@@ -1837,11 +1872,12 @@
     ],
     "correct": ["A"],
     "explanation": "Disco efêmero vive no armazenamento local do host; desalocar ou destruir a VM apaga tudo. Tratar como persistente causa perda irreversível de dados.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["ephemeral-os", "persistencia", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-101",
@@ -1904,11 +1940,12 @@
     ],
     "correct": ["A"],
     "explanation": "AADLogin autentica via Entra com MFA e RBAC (login/admin). Conta local não centraliza; vazia/anônima expõem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vms", "aad-login", "entra-id", "rbac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-103",
@@ -1940,7 +1977,7 @@
     "source": "mslearn",
     "tags": ["vmss", "custom-script", "bootstrap"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -1974,7 +2011,7 @@
     "source": "mslearn",
     "tags": ["discos", "bursting", "iops"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -2005,11 +2042,12 @@
     ],
     "correct": ["C"],
     "explanation": "Gallery sharing com RBAC (inclusive cross-tenant) controla acesso. VHD público expõe IP; SAS eterna vaza; cópia manual diverge.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["galeria", "compartilhar", "rbac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-114",
@@ -2038,11 +2076,12 @@
     ],
     "correct": ["A"],
     "explanation": "Restore point agrupa discos num ponto crash-consistent rápido. Backup é lento e externo; snapshots manuais dispersam; generalizar destrói identidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["restore-point", "vm", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-118",
@@ -2074,7 +2113,7 @@
     "source": "mslearn",
     "tags": ["vmss", "rolling", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -2105,11 +2144,12 @@
     ],
     "correct": ["D"],
     "explanation": "Probe HTTP da app detecta trava lógica e tira do pool. Ping vê SO; disco não é saúde; boot é pontual.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["lb", "app-health", "probe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-120",
@@ -2138,11 +2178,12 @@
     ],
     "correct": ["B"],
     "explanation": "Attestation emite claims verificáveis do TEE/boot. Declaração não prova; log falsifica; TLS prova canal, não ambiente.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["attestation", "tee", "convidado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-121",
@@ -2171,11 +2212,12 @@
     ],
     "correct": ["C"],
     "explanation": "Secure Boot valida assinaturas e vTPM ancora medições. Legado não mede; senha não atesta; antivírus age tarde.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["secure-boot", "vtpm", "boot-medido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption"
   },
   {
     "id": "az104-co-122",
@@ -2207,7 +2249,7 @@
     "source": "mslearn",
     "tags": ["ade", "cmk", "key-vault", "extensao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -2238,11 +2280,12 @@
     ],
     "correct": ["B"],
     "explanation": "Encryption at host cifra temp/cache com chaves da plataforma. Desligar perde performance; maior não cifra; snapshot não protege.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["encryption-at-host", "cache", "temporario"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption"
   },
   {
     "id": "az104-co-124",
@@ -2274,7 +2317,7 @@
     "source": "mslearn",
     "tags": ["confidential-os-disk", "vtpm", "vm-confidencial"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -2305,11 +2348,12 @@
     ],
     "correct": ["D"],
     "explanation": "Shared disks permitem multi-attach com reservas SCSI para cluster. Exclusivo não compartilha; blob não é bloco; SMB não serve a cluster de disco.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["shared-disk", "cluster", "failover"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/managed-disks-overview"
   },
   {
     "id": "az104-co-126",
@@ -2338,11 +2382,12 @@
     ],
     "correct": ["D", "B"],
     "explanation": "Ultra exige zonal e é incompatível com availability set; usa-se VM zonal/VMSS flex. Assumir Ultra em avset quebra deploy; Standard não dá IOPS.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["ultra-disk", "availability-set", "limitacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/managed-disks-overview"
   },
   {
     "id": "az104-co-127",
@@ -2371,11 +2416,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "PPG aproxima e pode incluir avset para distribuir fault domains. PPG não é multizona nem multirregião.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["ppg", "availability-set", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-129",
@@ -2396,11 +2442,12 @@
     ],
     "correct": ["B"],
     "explanation": "Em contenção, Spot é despejado primeiro preservando Regular. Inverter a premissa quebra o desenho de base garantida.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vmss", "regular", "spot", "prioridade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-130",
@@ -2421,11 +2468,12 @@
     ],
     "correct": ["A"],
     "explanation": "Eviction Delete remove a VM (discos conforme config) e Deallocate libera mantendo discos. Assumir igualdade perde dados ou desperdiça.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["spot", "eviction", "delete", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-131",
@@ -2446,11 +2494,12 @@
     ],
     "correct": ["B"],
     "explanation": "Spot despeja por capacidade independente de preço; teto só limita custo. Confiar só no preço ignora contenção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["spot", "preco-maximo", "capacidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-132",
@@ -2471,11 +2520,12 @@
     ],
     "correct": ["B"],
     "explanation": "Capacidade Spot excedente flutua por região, SKU e horário do dia. Assumir oferta ilimitada quebra o planejamento de escala e causa indisponibilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["spot", "capacidade", "disponibilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-133",
@@ -2496,11 +2546,12 @@
     ],
     "correct": ["A"],
     "explanation": "É possível validar tolerância com eviction simulada e monitorar preço. Migrar às cegas arrisca produção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["spot", "simulacao", "teste"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-134",
@@ -2521,11 +2572,12 @@
     ],
     "correct": ["B"],
     "explanation": "Spot não preserva estado da aplicação; a carga precisa de checkpoint e lógica de retomada. Assumir preservação automática perde todo o trabalho.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["spot", "checkpoint", "estado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-135",
@@ -2554,11 +2606,12 @@
     ],
     "correct": ["C"],
     "explanation": "az vm repair orquestra resgate, correção e troca de SO. Excluir perde; RDP não alcança disco morto; aguardar não repara.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vm-repair", "cli", "resgate", "linux"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-136",
@@ -2587,11 +2640,12 @@
     ],
     "correct": ["D"],
     "explanation": "Run Command em escala via CLI executa e agrega saída. Individual não escala; e-mail não executa; desligar destrói evidência.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["run-command", "escala", "logs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-137",
@@ -2620,11 +2674,12 @@
     ],
     "correct": ["D"],
     "explanation": "State Configuration aplica MOF idempotente e corrige drift. Script único diverge; imagem por mudança é lenta; manual não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["automation", "dsc", "baseline", "drift"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-138",
@@ -2653,11 +2708,12 @@
     ],
     "correct": ["D"],
     "explanation": "Rings graduam exposição com validação entre ondas. Tudo junto derruba; alfabeto não é risco; aleatório não controla.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["update-rings", "canario", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-139",
@@ -2686,11 +2742,12 @@
     ],
     "correct": ["D"],
     "explanation": "Hotpatch aplica em memória sem reboot em SKUs suportados. Normal reinicia; desligar vulnerabiliza; snapshot não evita boot.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["hotpatch", "sem-reboot", "windows"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption"
   },
   {
     "id": "az104-co-140",
@@ -2719,11 +2776,12 @@
     ],
     "correct": ["A"],
     "explanation": "AutomaticByPlatform orquestra pelo Azure com janela. Manual não agenda; desligado vulnerabiliza; WSUS local é legado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["guest-patching", "automatic-by-platform", "janela"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption"
   },
   {
     "id": "az104-co-141",
@@ -2752,11 +2810,12 @@
     ],
     "correct": ["D", "C"],
     "explanation": "Assessment lista pendências e o relatório prioriza. Instalar direto pula avaliação; sem agente não há dado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["assessment", "avaliacao", "relatorio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-142",
@@ -2785,11 +2844,12 @@
     ],
     "correct": ["B", "C"],
     "explanation": "Janela contém o impacto e aviso/exceção respeitam negócio. Imediato quebra horário; silêncio surpreende.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["agendamento", "janela", "notificacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-143",
@@ -2818,11 +2878,12 @@
     ],
     "correct": ["C", "D"],
     "explanation": "Ordem por dependência (pre/post) sequencia os reboots e o health check pausa em falha. Reboot simultâneo derruba tudo; sem validação o erro se propaga.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["reboot", "ordem", "health-check"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-144",
@@ -2851,11 +2912,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Restore point volta estado e rollback de versão registra. Reinstalar demora; aguardar prolonga outage.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["rollback", "restore-point", "reversao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-145",
@@ -2876,11 +2938,12 @@
     ],
     "correct": ["B"],
     "explanation": "Hotpatch exige Datacenter Azure Edition em SKUs suportados com canal habilitado. Assumir cobertura universal quebra o planejamento de janelas.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["hotpatch", "requisitos", "sku"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-146",
@@ -2901,11 +2964,12 @@
     ],
     "correct": ["B"],
     "explanation": "Assessment lista sem instalar; instalação exige deployment. Confundir avalia com aplica gera janela inesperada.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["assessment", "avaliacao", "instalacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-147",
@@ -2926,11 +2990,12 @@
     ],
     "correct": ["A"],
     "explanation": "Classificações (security, critical, outros) filtram o escopo. Achar tudo-ou-nada impede janelas cirúrgicas.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["patch", "classificacao", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-148",
@@ -2951,11 +3016,12 @@
     ],
     "correct": ["B"],
     "explanation": "Hotpatch e pacotes sem componente de kernel dispensam reboot. Generalizar que tudo reinicia paralisa operações sem necessidade técnica.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["reboot", "hotpatch", "excecao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-149",
@@ -2976,11 +3042,12 @@
     ],
     "correct": ["B"],
     "explanation": "Orquestração executa dentro da janela aprovada; sem ela, reboot cai em horário crítico. Automatizar não dispensa governança.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["orquestracao", "janela", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-150",
@@ -3001,11 +3068,12 @@
     ],
     "correct": ["B"],
     "explanation": "Sem escopo/DSC, drift só cresce; convergência exige aplicação contínua. Assumir auto-cura deixa dívida.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["drift", "escopo", "convergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-151",
@@ -3034,11 +3102,12 @@
     ],
     "correct": ["C"],
     "explanation": "Galeria replica versões com contagem configurável por região. Isolada não replica; VHD avulso não versiona; snapshot manual não distribui.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["galeria", "replicacao", "regioes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-152",
@@ -3070,7 +3139,7 @@
     "source": "mslearn",
     "tags": ["discos", "cache", "readonly", "banco"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -3101,11 +3170,12 @@
     ],
     "correct": ["C"],
     "explanation": "Write Accelerator zera latência de escrita em Premium suportado. Leitura não ajuda escrita; Standard não alcança; blob não é disco de VM.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["write-accelerator", "latencia", "log"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/managed-disks-overview"
   },
   {
     "id": "az104-co-154",
@@ -3137,7 +3207,7 @@
     "source": "mslearn",
     "tags": ["striping", "raid0", "throughput"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -3168,11 +3238,12 @@
     ],
     "correct": ["A", "B"],
     "explanation": "Imagem gerenciada enxuta e SO efêmero local eliminam cópia remota e setup longo. Imagem monolítica atrasa o boot; custom script de 30 minutos piora ainda mais.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["boot", "provisionamento", "otimizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-162",
@@ -3201,11 +3272,12 @@
     ],
     "correct": ["D", "C"],
     "explanation": "Status do agente convidado e substatus por extensão mostram saúde e erros detalhados. Cor do portal e tamanho de disco nada dizem sobre extensões.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["agente", "extensao", "status"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-163",
@@ -3234,11 +3306,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Dependência (dependsOn) ordena a instalação e a espera garante conclusão antes da próxima. Instalação simultânea forçada conflita e corrompe config; remover tudo perde a função.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["extensao", "sequencia", "dependencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-164",
@@ -3270,7 +3343,7 @@
     "source": "mslearn",
     "tags": ["vmss", "rolling", "lote", "rollback"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -3301,11 +3374,12 @@
     ],
     "correct": ["C", "D"],
     "explanation": "Sobra temporária (surge) acima da contagem permite substituir instâncias sem degradar capacidade. Remover metade antes reduz; parar o serviço zera disponibilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vmss", "rolling", "lote", "rollback"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-166",
@@ -3334,11 +3408,12 @@
     ],
     "correct": ["D", "C"],
     "explanation": "Estratégia Spot-first economiza no excedente e o fallback para Regular garante capacidade no despejo. Travar só em Spot despeja tudo; ignorar contenção quebra o serviço.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["spot", "fallback", "regular", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-168",
@@ -3367,11 +3442,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "Resgate anexa e chroot repara sem perder dados. Formatar apaga; excluir backup remove rede de segurança.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["recuperacao", "resgate", "chroot"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-169",
@@ -3400,11 +3476,12 @@
     ],
     "correct": ["A", "D"],
     "explanation": "Habilitação do console serial na subscription mais RBAC de operador na VM controlam o acesso de emergência. RDP aberto à internet expõe; senha em branco anula autenticação.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["serial-console", "rbac", "emergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-170",
@@ -3433,11 +3510,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "Boot diagnostics gerenciado dispensa storage próprio usando conta da plataforma. Storage próprio exige gestão de chaves; sem diagnóstico não há console em falha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["boot-diagnostics", "gerenciado", "storage"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-171",
@@ -3458,11 +3536,12 @@
     ],
     "correct": ["B"],
     "explanation": "Sysprep/generalização garante SID/hostname únicos por instância. IDs iguais quebrariam domínio e Kerberos.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vmss", "identidade", "sysprep"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-172",
@@ -3483,11 +3562,12 @@
     ],
     "correct": ["A"],
     "explanation": "Nomenclatura segue prefixo + base-36 sequencial (com overprovision pode saltar). Assumir aleatório quebra automação.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vmss", "nomenclatura", "instancia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-173",
@@ -3508,11 +3588,12 @@
     ],
     "correct": ["A"],
     "explanation": "Single placement group limita a ~100 VMs do mesmo tipo; múltiplos grupos escalam a milhares. Ignorar o limite trava escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vmss", "placement-group", "limite", "escala"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-174",
@@ -3633,11 +3714,12 @@
     ],
     "correct": ["A"],
     "explanation": "Discos não gerenciados foram preteridos; novas VMs devem usar gerenciados. Recomendar unmanaged para deploy novo acumula dívida técnica e perde SLA.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["unmanaged", "preterido", "gerenciados"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-179",
@@ -3658,11 +3740,12 @@
     ],
     "correct": ["A"],
     "explanation": "Disco temp é local e efêmero; ideal para pagefile/swap, fatal para dados. Tratar como persistente perde dados.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["temp-disk", "efemero", "pagefile"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-180",
@@ -3683,11 +3766,12 @@
     ],
     "correct": ["A"],
     "explanation": "Troca de disco de SO (swap) substitui o disco com a VM parada preservando NICs e dados. Recriar a máquina do zero é trabalho desnecessário.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["drift", "escopo", "convergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-181",
@@ -3716,11 +3800,12 @@
     ],
     "correct": ["D"],
     "explanation": "Mapa mostra quem, flow logs mostram volume/destino e processo identifica o binário. Desligar destrói evidência; ignorar é negligência; reinstalar apaga trilha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vm-insights", "dependencias", "investigacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-182",
@@ -3749,11 +3834,12 @@
     ],
     "correct": ["A"],
     "explanation": "Live migration copia RAM iterativamente e transfere em milissegundos. Desligar interrompe; snapshot não migra viva; DNS não move VM.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["live-migration", "host", "manutencao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-183",
@@ -3782,11 +3868,12 @@
     ],
     "correct": ["C"],
     "explanation": "Memory-preserving update mantém guests vivos no host atualizado. Reboot interrompe; pausa degrada; manual não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["host-update", "memoria", "zero-downtime"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption"
   },
   {
     "id": "az104-co-184",
@@ -3815,11 +3902,12 @@
     ],
     "correct": ["A"],
     "explanation": "CAU move roles, atualiza e valida mantendo quórum. Simultâneo derruba; desligar zera; aleatório quebra ordem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cluster-aware", "quorum", "update"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.191Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-185",
@@ -3848,11 +3936,12 @@
     ],
     "correct": ["C"],
     "explanation": "Availability set com discos gerenciados contrata 99,95%. 99,99% exige zonas; 99,9% é VM única Premium; 100% não existe.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "availability-set", "99-95"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-186",
@@ -3881,11 +3970,12 @@
     ],
     "correct": ["D"],
     "explanation": "VM única com Premium/Ultra contrata 99,9%. 99,95% exige availability set; 99,99% exige zonas; sem Premium não há SLA de VM única.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "vm-unica", "99-9"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-187",
@@ -3917,7 +4007,7 @@
     "source": "mslearn",
     "tags": ["sla", "zonas", "99-99"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -3951,7 +4041,7 @@
     "source": "mslearn",
     "tags": ["sla", "vmss", "99-95"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.153Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -3982,11 +4072,12 @@
     ],
     "correct": ["A"],
     "explanation": "Composição em série multiplica disponibilidades (0,9995x0,9999≈0,9994). Maior/menor isolados ignoram a cadeia; soma passa de 100%.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "composto", "serie", "calculo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-194",
@@ -4015,11 +4106,12 @@
     ],
     "correct": ["C"],
     "explanation": "0,1% de 43.200 minutos ≈ 43 min de downtime. 4 min seria 99,99%; 7h seria 99%; zero downtime não existe em nenhum SLA.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "downtime", "calculo", "99-9"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-195",
@@ -4048,11 +4140,12 @@
     ],
     "correct": ["C"],
     "explanation": "0,05% de 43.200 ≈ 22 min de downtime mensal. 43 min equivalem a 99,9%; 4 min a 99,99%; 8h seria cerca de 98%.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "downtime", "99-95", "calculo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-196",
@@ -4081,11 +4174,12 @@
     ],
     "correct": ["B"],
     "explanation": "SLAs excluem manutenção planejada anunciada do cálculo. Contar tudo ignora a cláusula; dobro não existe; feriado é irrelevante.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "manutencao", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-197",
@@ -4114,11 +4208,12 @@
     ],
     "correct": ["B"],
     "explanation": "SLA exclui mau uso, força maior e causas do cliente. Gerar sempre ignora exclusões; dobrar não existe; reclamar não cria direito.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "exclusoes", "cliente"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-198",
@@ -4147,11 +4242,12 @@
     ],
     "correct": ["C"],
     "explanation": "Planos Free e Shared não têm SLA contratual. Equiparar ao plano Básico ignora a tabela oficial de SLAs do App Service.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "gratuito", "compartilhado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-201",
@@ -4183,7 +4279,7 @@
     "source": "mslearn",
     "tags": ["skus", "capacidade", "regiao", "cli"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "updatedAt": "2026-10-02T22:54:35.191Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
@@ -4214,10 +4310,11 @@
     ],
     "correct": ["C"],
     "explanation": "Quota increase formal eleva o limite com aprovação. Nova sub por VM fragmenta; Spot tem cota própria; reduzir sem pedir não resolve o teto.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cota", "vcpu", "limite", "aumento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.568Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   }
 ]

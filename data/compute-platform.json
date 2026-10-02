@@ -5,24 +5,25 @@
     "subdomain": "spot-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que VMs Spot podem ser despejadas a qualquer momento com apenas 30 segundos de aviso, sendo inadequadas para qualquer carga de produ\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um arquiteto afirma que VMs Spot podem ser despejadas a qualquer momento com apenas 30 segundos de aviso, sendo inadequadas para qualquer carga de produção. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "N\u00e3o, com arquitetura tolerante (fila, checkpoint) Spot comp\u00f5e produ\u00e7\u00e3o"
+        "text": "Não, com arquitetura tolerante (fila, checkpoint) Spot compõe produção"
       },
       {
         "letter": "B",
-        "text": "Sim, Spot nunca serve a produ\u00e7\u00e3o"
+        "text": "Sim, Spot nunca serve a produção"
       }
     ],
     "correct": ["A"],
-    "explanation": "Spot com aviso de despejo sustenta produ\u00e7\u00e3o tolerante a falha (lotes, render, CI) com economia de at\u00e9 90%. A regra \u00e9 adequar a arquitetura, n\u00e3o banir o modelo.",
-    "source": "original",
+    "explanation": "Spot com aviso de despejo sustenta produção tolerante a falha (lotes, render, CI) com economia de até 90%. A regra é adequar a arquitetura, não banir o modelo.",
+    "source": "mslearn",
     "tags": ["vms", "spot", "arquitetura"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.197Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-100",
@@ -30,24 +31,25 @@
     "subdomain": "spot-eviction-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que VMs Spot recebem aviso de despejo com 30 segundos para drenar antes da remo\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um arquiteto afirma que VMs Spot recebem aviso de despejo com 30 segundos para drenar antes da remoção. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, h\u00e1 aviso de 30s via scheduled events"
+        "text": "Sim, há aviso de 30s via scheduled events"
       },
       {
         "letter": "B",
-        "text": "N\u00e3o, o despejo \u00e9 instant\u00e2neo sem aviso"
+        "text": "Não, o despejo é instantâneo sem aviso"
       }
     ],
     "correct": ["A"],
-    "explanation": "Scheduled events notificam Preempt com ~30s para drenar. Achar instant\u00e2neo ignora a janela de graceful shutdown.",
-    "source": "original",
+    "explanation": "Scheduled events notificam Preempt com ~30s para drenar. Achar instantâneo ignora a janela de graceful shutdown.",
+    "source": "mslearn",
     "tags": ["spot", "despejo", "aviso", "30s"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.197Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-128",
@@ -55,7 +57,7 @@
     "subdomain": "spot-priority-mix-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "VMSS com base garantida e pico barato precisa de composi\u00e7\u00e3o e remo\u00e7\u00e3o corretas. Quais dois par\u00e2metros definir? Selecione duas.",
+    "question": "VMSS com base garantida e pico barato precisa de composição e remoção corretas. Quais dois parâmetros definir? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -63,11 +65,11 @@
       },
       {
         "letter": "B",
-        "text": "Remo\u00e7\u00e3o aleat\u00f3ria sem prioridade"
+        "text": "Remoção aleatória sem prioridade"
       },
       {
         "letter": "C",
-        "text": "Pol\u00edtica de remo\u00e7\u00e3o com Spot primeiro"
+        "text": "Política de remoção com Spot primeiro"
       },
       {
         "letter": "D",
@@ -75,12 +77,13 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Base garante e Spot barateia pico; remover Spot primeiro preserva base. 100% Spot despeja tudo; aleat\u00f3rio mata base.",
-    "source": "original",
+    "explanation": "Base garante e Spot barateia pico; remover Spot primeiro preserva base. 100% Spot despeja tudo; aleatório mata base.",
+    "source": "mslearn",
     "tags": ["vmss", "spot", "prioridade", "remocao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-167",
@@ -88,32 +91,33 @@
     "subdomain": "allocation-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Aloca\u00e7\u00e3o entre zonas e fault domains com pre\u00e7o otimizado exige dois crit\u00e9rios. Quais combinar? Selecione duas.",
+    "question": "Alocação entre zonas e fault domains com preço otimizado exige dois critérios. Quais combinar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Pre\u00e7o Spot por economia"
+        "text": "Preço Spot por economia"
       },
       {
         "letter": "B",
-        "text": "Tudo numa zona sem pre\u00e7o"
+        "text": "Tudo numa zona sem preço"
       },
       {
         "letter": "C",
-        "text": "Espalhamento zonal por resili\u00eancia"
+        "text": "Espalhamento zonal por resiliência"
       },
       {
         "letter": "D",
-        "text": "Aleat\u00f3rio sem crit\u00e9rio"
+        "text": "Aleatório sem critério"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Espalhamento zonal protege de falha de datacenter e pre\u00e7o Spot otimiza custo. Tudo numa zona perde redund\u00e2ncia; aloca\u00e7\u00e3o aleat\u00f3ria n\u00e3o otimiza nada.",
-    "source": "original",
+    "explanation": "Espalhamento zonal protege de falha de datacenter e preço Spot otimiza custo. Tudo numa zona perde redundância; alocação aleatória não otimiza nada.",
+    "source": "mslearn",
     "tags": ["alocacao", "zonas", "preco", "spot"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-191",
@@ -121,7 +125,7 @@
     "subdomain": "sla-credits",
     "type": "single",
     "difficulty": "medium",
-    "question": "SLA descumprido gera cr\u00e9dito conforme faixas de disponibilidade. Como s\u00e3o calculados os cr\u00e9ditos?",
+    "question": "SLA descumprido gera crédito conforme faixas de disponibilidade. Como são calculados os créditos?",
     "options": [
       {
         "letter": "A",
@@ -133,7 +137,7 @@
       },
       {
         "letter": "C",
-        "text": "Cr\u00e9dito autom\u00e1tico sem solicitar"
+        "text": "Crédito automático sem solicitar"
       },
       {
         "letter": "D",
@@ -141,12 +145,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Cr\u00e9ditos seguem faixas percentuais da fatura mediante solicita\u00e7\u00e3o. N\u00e3o h\u00e1 valor por minuto; exige claim formal; \u00e9 cr\u00e9dito, n\u00e3o dinheiro.",
-    "source": "original",
+    "explanation": "Créditos seguem faixas percentuais da fatura mediante solicitação. Não há valor por minuto; exige claim formal; é crédito, não dinheiro.",
+    "source": "mslearn",
     "tags": ["sla", "creditos", "faixas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-192",
@@ -154,7 +159,7 @@
     "subdomain": "sla-claim",
     "type": "single",
     "difficulty": "medium",
-    "question": "Para receber cr\u00e9dito de SLA \u00e9 preciso abrir solicita\u00e7\u00e3o em prazo. Qual o procedimento correto?",
+    "question": "Para receber crédito de SLA é preciso abrir solicitação em prazo. Qual o procedimento correto?",
     "options": [
       {
         "letter": "A",
@@ -162,24 +167,25 @@
       },
       {
         "letter": "B",
-        "text": "Aguardar cr\u00e9dito autom\u00e1tico"
+        "text": "Aguardar crédito automático"
       },
       {
         "letter": "C",
-        "text": "Abrir claim com evid\u00eancias dentro do prazo contratual"
+        "text": "Abrir claim com evidências dentro do prazo contratual"
       },
       {
         "letter": "D",
-        "text": "Ligar para o suporte sem evid\u00eancia"
+        "text": "Ligar para o suporte sem evidência"
       }
     ],
     "correct": ["C"],
-    "explanation": "Cr\u00e9dito exige solicita\u00e7\u00e3o formal com logs no prazo (geralmente fim do m\u00eas seguinte). Autom\u00e1tico n\u00e3o existe; sem evid\u00eancia nega; fora do prazo prescreve.",
-    "source": "original",
+    "explanation": "Crédito exige solicitação formal com logs no prazo (geralmente fim do mês seguinte). Automático não existe; sem evidência nega; fora do prazo prescreve.",
+    "source": "mslearn",
     "tags": ["sla", "claim", "credito", "prazo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-200",
@@ -187,7 +193,7 @@
     "subdomain": "spot-sla",
     "type": "single",
     "difficulty": "hard",
-    "question": "M\u00e1quinas virtuais Spot do Azure t\u00eam qual SLA de disponibilidade contratado?",
+    "question": "Máquinas virtuais Spot do Azure têm qual SLA de disponibilidade contratado?",
     "options": [
       {
         "letter": "A",
@@ -207,12 +213,13 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Spot n\u00e3o tem SLA por defini\u00e7\u00e3o pois \u00e9 evictable. Equiparar a pay-as-you-go ignora o despejo; reserva n\u00e3o se aplica a Spot.",
-    "source": "original",
+    "explanation": "Spot não tem SLA por definição pois é evictable. Equiparar a pay-as-you-go ignora o despejo; reserva não se aplica a Spot.",
+    "source": "mslearn",
     "tags": ["sla", "spot", "sem-sla"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-203",
@@ -220,11 +227,11 @@
     "subdomain": "spot-quota",
     "type": "single",
     "difficulty": "medium",
-    "question": "Spot falha por cota separada esgotada mesmo com vCPUs regulares livres. Por que a cota Spot \u00e9 independente?",
+    "question": "Spot falha por cota separada esgotada mesmo com vCPUs regulares livres. Por que a cota Spot é independente?",
     "options": [
       {
         "letter": "A",
-        "text": "Cota \u00fanica global"
+        "text": "Cota única global"
       },
       {
         "letter": "B",
@@ -232,20 +239,21 @@
       },
       {
         "letter": "C",
-        "text": "Cotas Spot e Regular s\u00e3o pools distintos"
+        "text": "Cotas Spot e Regular são pools distintos"
       },
       {
         "letter": "D",
-        "text": "Spot n\u00e3o tem cota"
+        "text": "Spot não tem cota"
       }
     ],
     "correct": ["C"],
-    "explanation": "Spot tem pool de cota pr\u00f3prio por regi\u00e3o/SKU. Assumir compartilhada confunde o erro; sem cota n\u00e3o existiria limite; \u00fanica global n\u00e3o existe.",
-    "source": "original",
+    "explanation": "Spot tem pool de cota próprio por região/SKU. Assumir compartilhada confunde o erro; sem cota não existiria limite; única global não existe.",
+    "source": "mslearn",
     "tags": ["spot", "cota", "pool"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-204",
@@ -261,11 +269,11 @@
       },
       {
         "letter": "B",
-        "text": "Ticket gen\u00e9rico sem m\u00e9trica"
+        "text": "Ticket genérico sem métrica"
       },
       {
         "letter": "C",
-        "text": "Cotas de baixa prioridade por regi\u00e3o no portal"
+        "text": "Cotas de baixa prioridade por região no portal"
       },
       {
         "letter": "D",
@@ -273,12 +281,13 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Low-priority tem cota pr\u00f3pria vis\u00edvel e solicit\u00e1vel. Regular n\u00e3o cobre; sem limite n\u00e3o existe; gen\u00e9rico atrasa.",
-    "source": "original",
+    "explanation": "Low-priority tem cota própria visível e solicitável. Regular não cobre; sem limite não existe; genérico atrasa.",
+    "source": "mslearn",
     "tags": ["low-priority", "cota", "batch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-205",
@@ -286,15 +295,15 @@
     "subdomain": "regional-quota",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cota esgotada em Brazil South com sobra em East US. Por que a cota n\u00e3o transfere entre regi\u00f5es?",
+    "question": "Cota esgotada em Brazil South com sobra em East US. Por que a cota não transfere entre regiões?",
     "options": [
       {
         "letter": "A",
-        "text": "Transfer\u00eancia autom\u00e1tica"
+        "text": "Transferência automática"
       },
       {
         "letter": "B",
-        "text": "Cotas s\u00e3o por regi\u00e3o, sem transfer\u00eancia"
+        "text": "Cotas são por região, sem transferência"
       },
       {
         "letter": "C",
@@ -306,12 +315,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Cada regi\u00e3o tem teto pr\u00f3prio; sobra elsewhere n\u00e3o ajuda. Global n\u00e3o existe; autom\u00e1tica n\u00e3o transfere; sem regional ignora o modelo.",
-    "source": "original",
+    "explanation": "Cada região tem teto próprio; sobra elsewhere não ajuda. Global não existe; automática não transfere; sem regional ignora o modelo.",
+    "source": "mslearn",
     "tags": ["cota", "regiao", "transferencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-206",
@@ -319,32 +329,33 @@
     "subdomain": "family-quota",
     "type": "single",
     "difficulty": "medium",
-    "question": "Fam\u00edlia D atingiu teto mas E est\u00e1 livre. Por que a cota \u00e9 por fam\u00edlia de VM?",
+    "question": "Família D atingiu teto mas E está livre. Por que a cota é por família de VM?",
     "options": [
       {
         "letter": "A",
-        "text": "Cotas por fam\u00edlia isolam capacidade por hardware"
+        "text": "Cotas por família isolam capacidade por hardware"
       },
       {
         "letter": "B",
-        "text": "Fam\u00edlia \u00e9 s\u00f3 nome"
+        "text": "Família é só nome"
       },
       {
         "letter": "C",
-        "text": "Cota \u00fanica para todas"
+        "text": "Cota única para todas"
       },
       {
         "letter": "D",
-        "text": "Sem cota por fam\u00edlia"
+        "text": "Sem cota por família"
       }
     ],
     "correct": ["A"],
-    "explanation": "Fam\u00edlias t\u00eam pools distintos por hardware subjacente. \u00danica global n\u00e3o existe; sem fam\u00edlia n\u00e3o haveria controle; nome reflete hardware.",
-    "source": "original",
+    "explanation": "Famílias têm pools distintos por hardware subjacente. Única global não existe; sem família não haveria controle; nome reflete hardware.",
+    "source": "mslearn",
     "tags": ["cota", "familia", "hardware"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-207",
@@ -352,7 +363,7 @@
     "subdomain": "usage-view-quota",
     "type": "single",
     "difficulty": "medium",
-    "question": "Antes de pedir aumento, \u00e9 preciso ver uso atual versus limite por regi\u00e3o. Onde visualizar cotas e uso?",
+    "question": "Antes de pedir aumento, é preciso ver uso atual versus limite por região. Onde visualizar cotas e uso?",
     "options": [
       {
         "letter": "A",
@@ -360,7 +371,7 @@
       },
       {
         "letter": "B",
-        "text": "M\u00e9trica de CPU"
+        "text": "Métrica de CPU"
       },
       {
         "letter": "C",
@@ -372,12 +383,13 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Blade de uso e cotas mostra consumo vs limite por regi\u00e3o. Fatura n\u00e3o mostra teto; log e CPU n\u00e3o medem cota.",
-    "source": "original",
+    "explanation": "Blade de uso e cotas mostra consumo vs limite por região. Fatura não mostra teto; log e CPU não medem cota.",
+    "source": "mslearn",
     "tags": ["cota", "uso", "portal"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-208",
@@ -385,11 +397,11 @@
     "subdomain": "quota-request-time",
     "type": "single",
     "difficulty": "medium",
-    "question": "Pedido urgente de cota para incidente precisa de prazo realista. Quanto tempo leva tipicamente a aprova\u00e7\u00e3o?",
+    "question": "Pedido urgente de cota para incidente precisa de prazo realista. Quanto tempo leva tipicamente a aprovação?",
     "options": [
       {
         "letter": "A",
-        "text": "Sempre instant\u00e2neo"
+        "text": "Sempre instantâneo"
       },
       {
         "letter": "B",
@@ -397,7 +409,7 @@
       },
       {
         "letter": "C",
-        "text": "Minutos a horas para autom\u00e1tico; dias para grandes"
+        "text": "Minutos a horas para automático; dias para grandes"
       },
       {
         "letter": "D",
@@ -405,12 +417,13 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Pequenos automatizam r\u00e1pido; grandes exigem revis\u00e3o de capacidade. Instant\u00e2neo sempre n\u00e3o existe; 30 dias exagera; nunca \u00e9 falso.",
-    "source": "original",
+    "explanation": "Pequenos automatizam rápido; grandes exigem revisão de capacidade. Instantâneo sempre não existe; 30 dias exagera; nunca é falso.",
+    "source": "mslearn",
     "tags": ["cota", "prazo", "aprovacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-209",
@@ -418,11 +431,11 @@
     "subdomain": "alternative-region",
     "type": "single",
     "difficulty": "medium",
-    "question": "Sem cota na regi\u00e3o prim\u00e1ria para o go-live de amanh\u00e3, qual alternativa imediata viabiliza?",
+    "question": "Sem cota na região primária para o go-live de amanhã, qual alternativa imediata viabiliza?",
     "options": [
       {
         "letter": "A",
-        "text": "Implantar em regi\u00e3o pareada com cota livre"
+        "text": "Implantar em região pareada com cota livre"
       },
       {
         "letter": "B",
@@ -434,16 +447,17 @@
       },
       {
         "letter": "D",
-        "text": "Usar SKU indispon\u00edvel"
+        "text": "Usar SKU indisponível"
       }
     ],
     "correct": ["A"],
-    "explanation": "Regi\u00e3o pareada com capacidade resolve imediato com DR de brinde. Aguardar atrasa; indispon\u00edvel falha; cancelar \u00e9 extremo.",
-    "source": "original",
+    "explanation": "Região pareada com capacidade resolve imediato com DR de brinde. Aguardar atrasa; indisponível falha; cancelar é extremo.",
+    "source": "mslearn",
     "tags": ["regiao", "alternativa", "go-live"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-210",
@@ -451,15 +465,15 @@
     "subdomain": "alternative-sku",
     "type": "single",
     "difficulty": "medium",
-    "question": "SKU indispon\u00edvel na regi\u00e3o trava deploy. Qual troca equivalente destrava sem redesenhar?",
+    "question": "SKU indisponível na região trava deploy. Qual troca equivalente destrava sem redesenhar?",
     "options": [
       {
         "letter": "A",
-        "text": "SKU alternativo mesma gera\u00e7\u00e3o (ex.: Ddsv5 por Dsv5)"
+        "text": "SKU alternativo mesma geração (ex.: Ddsv5 por Dsv5)"
       },
       {
         "letter": "B",
-        "text": "Mudar de regi\u00e3o e de arquitetura"
+        "text": "Mudar de região e de arquitetura"
       },
       {
         "letter": "C",
@@ -467,16 +481,17 @@
       },
       {
         "letter": "D",
-        "text": "Usar s\u00e9rie aposentada"
+        "text": "Usar série aposentada"
       }
     ],
     "correct": ["A"],
-    "explanation": "Equivalente mesma gera\u00e7\u00e3o preserva vCPU/RAM e destrava. Aguardar atrasa; redesenhar \u00e9 caro; aposentada pode nem existir.",
-    "source": "original",
+    "explanation": "Equivalente mesma geração preserva vCPU/RAM e destrava. Aguardar atrasa; redesenhar é caro; aposentada pode nem existir.",
+    "source": "mslearn",
     "tags": ["sku", "alternativo", "equivalente"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-211",
@@ -484,11 +499,11 @@
     "subdomain": "zone-balance-sku",
     "type": "single",
     "difficulty": "hard",
-    "question": "SKU dispon\u00edvel s\u00f3 em 2 das 3 zonas prejudica distribui\u00e7\u00e3o do VMSS zonal. Como equilibrar?",
+    "question": "SKU disponível só em 2 das 3 zonas prejudica distribuição do VMSS zonal. Como equilibrar?",
     "options": [
       {
         "letter": "A",
-        "text": "Uma zona \u00fanica"
+        "text": "Uma zona única"
       },
       {
         "letter": "B",
@@ -500,16 +515,17 @@
       },
       {
         "letter": "D",
-        "text": "For\u00e7ar tudo nas 2 zonas"
+        "text": "Forçar tudo nas 2 zonas"
       }
     ],
     "correct": ["C"],
-    "explanation": "SKU presente nas 3 zonas equilibra; for\u00e7ar em 2 desbalanceia; sem zonas perde SLA; \u00fanica \u00e9 ponto \u00fanico.",
-    "source": "original",
+    "explanation": "SKU presente nas 3 zonas equilibra; forçar em 2 desbalanceia; sem zonas perde SLA; única é ponto único.",
+    "source": "mslearn",
     "tags": ["sku", "zonas", "balanceamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-212",
@@ -517,7 +533,7 @@
     "subdomain": "capacity-constraints",
     "type": "single",
     "difficulty": "hard",
-    "question": "Erro de aloca\u00e7\u00e3o (AllocationFailed) em pico regional impede scale. Quais causas verificar primeiro?",
+    "question": "Erro de alocação (AllocationFailed) em pico regional impede scale. Quais causas verificar primeiro?",
     "options": [
       {
         "letter": "A",
@@ -529,7 +545,7 @@
       },
       {
         "letter": "C",
-        "text": "Restri\u00e7\u00e3o de SKU/zona e cota na regi\u00e3o"
+        "text": "Restrição de SKU/zona e cota na região"
       },
       {
         "letter": "D",
@@ -537,7 +553,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "AllocationFailed indica falta de capacidade/cota do SKU/zona. Senha, portal e nome n\u00e3o afetam aloca\u00e7\u00e3o.",
+    "explanation": "AllocationFailed indica falta de capacidade/cota do SKU/zona. Senha, portal e nome não afetam alocação.",
     "source": "mslearn",
     "tags": ["allocationfailed", "capacidade", "cota"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -567,16 +583,17 @@
       },
       {
         "letter": "D",
-        "text": "Trocar SKU/zona ou regi\u00e3o pareada"
+        "text": "Trocar SKU/zona ou região pareada"
       }
     ],
     "correct": ["D"],
-    "explanation": "Mudar SKU/zona/regi\u00e3o encontra capacidade livre. Repetir falha igual; timeout n\u00e3o cria hardware; portal n\u00e3o aloca.",
-    "source": "original",
+    "explanation": "Mudar SKU/zona/região encontra capacidade livre. Repetir falha igual; timeout não cria hardware; portal não aloca.",
+    "source": "mslearn",
     "tags": ["allocationfailed", "workaround", "sku", "zona"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-214",
@@ -584,7 +601,7 @@
     "subdomain": "overconstrained-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Restri\u00e7\u00f5es excessivas (zona + SKU + PPG + Ultra) tornam aloca\u00e7\u00e3o imposs\u00edvel. Quais duas flexibiliza\u00e7\u00f5es destravam? Selecione duas.",
+    "question": "Restrições excessivas (zona + SKU + PPG + Ultra) tornam alocação impossível. Quais duas flexibilizações destravam? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -600,16 +617,17 @@
       },
       {
         "letter": "D",
-        "text": "Adicionar mais restri\u00e7\u00f5es"
+        "text": "Adicionar mais restrições"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Relaxar zona/PPG amplia pool e Premium tem mais capacidade que Ultra. Mais restri\u00e7\u00e3o piora; dedicado restringe mais.",
-    "source": "original",
+    "explanation": "Relaxar zona/PPG amplia pool e Premium tem mais capacidade que Ultra. Mais restrição piora; dedicado restringe mais.",
+    "source": "mslearn",
     "tags": ["restricoes", "alocacao", "flexibilizar"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-215",
@@ -617,7 +635,7 @@
     "subdomain": "retry-strategy-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Deploy automatizado deve tolerar AllocationFailed transit\u00f3rio. Quais duas estrat\u00e9gias implementar? Selecione duas.",
+    "question": "Deploy automatizado deve tolerar AllocationFailed transitório. Quais duas estratégias implementar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -637,12 +655,13 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Backoff com zona alternada e fallback de SKU contornam conten\u00e7\u00e3o. Loop igual desperdi\u00e7a; falhar sem tentar desiste cedo.",
-    "source": "original",
+    "explanation": "Backoff com zona alternada e fallback de SKU contornam contenção. Loop igual desperdiça; falhar sem tentar desiste cedo.",
+    "source": "mslearn",
     "tags": ["retry", "backoff", "fallback", "deploy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-216",
@@ -650,7 +669,7 @@
     "subdomain": "allocation-monitor-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Falhas de aloca\u00e7\u00e3o precisam de alerta com causa (cota vs capacidade). Quais dois sinais monitorar? Selecione duas.",
+    "question": "Falhas de alocação precisam de alerta com causa (cota vs capacidade). Quais dois sinais monitorar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -670,12 +689,13 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Erros por SKU/zona localizam conten\u00e7\u00e3o e cota vs limite distingue causa. Dashboard e portal n\u00e3o diagnosticam.",
-    "source": "original",
+    "explanation": "Erros por SKU/zona localizam contenção e cota vs limite distingue causa. Dashboard e portal não diagnosticam.",
+    "source": "mslearn",
     "tags": ["alocacao", "monitoramento", "cota"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-217",
@@ -683,7 +703,7 @@
     "subdomain": "proactive-capacity-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Picos sazonais exigem capacidade garantida com anteced\u00eancia. Quais dois mecanismos proativos usar? Selecione duas.",
+    "question": "Picos sazonais exigem capacidade garantida com antecedência. Quais dois mecanismos proativos usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -704,11 +724,12 @@
     ],
     "correct": ["C", "D"],
     "explanation": "Reserva antecipada de capacidade segura hardware e pedido de cota com folga autoriza o uso. Esperar o pico chegar atrasa; confiar no Spot despeja.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["capacidade", "proativo", "reserva", "cota"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
   },
   {
     "id": "az104-co-218",
@@ -716,15 +737,15 @@
     "subdomain": "multi-region-active-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Carga cr\u00edtica precisa de duas regi\u00f5es ativas com failover autom\u00e1tico. Quais dois elementos compor? Selecione duas.",
+    "question": "Carga crítica precisa de duas regiões ativas com failover automático. Quais dois elementos compor? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "DNS est\u00e1tico sem probe"
+        "text": "DNS estático sem probe"
       },
       {
         "letter": "B",
-        "text": "Deploy ativo nas duas regi\u00f5es"
+        "text": "Deploy ativo nas duas regiões"
       },
       {
         "letter": "C",
@@ -732,16 +753,17 @@
       },
       {
         "letter": "D",
-        "text": "Uma regi\u00e3o com backup frio"
+        "text": "Uma região com backup frio"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Deploy ativo nas duas regi\u00f5es com Front Door/Traffic Manager e health probe faz failover em segundos. Uma regi\u00e3o com backup frio demora; DNS est\u00e1tico sem probe n\u00e3o detecta.",
-    "source": "original",
+    "explanation": "Deploy ativo nas duas regiões com Front Door/Traffic Manager e health probe faz failover em segundos. Uma região com backup frio demora; DNS estático sem probe não detecta.",
+    "source": "mslearn",
     "tags": ["multirregiao", "ativo-ativo", "failover"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-219",
@@ -749,32 +771,33 @@
     "subdomain": "paired-region-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "DR precisa de par regional com replica\u00e7\u00e3o e prioridade de recupera\u00e7\u00e3o. Quais dois benef\u00edcios do par usar? Selecione duas.",
+    "question": "DR precisa de par regional com replicação e prioridade de recuperação. Quais dois benefícios do par usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Regi\u00f5es aleat\u00f3rias sem par"
+        "text": "Regiões aleatórias sem par"
       },
       {
         "letter": "B",
-        "text": "Prioridade de recupera\u00e7\u00e3o do par"
+        "text": "Prioridade de recuperação do par"
       },
       {
         "letter": "C",
-        "text": "Replica\u00e7\u00e3o ass\u00edncrona entre pares"
+        "text": "Replicação assíncrona entre pares"
       },
       {
         "letter": "D",
-        "text": "Sem replica\u00e7\u00e3o"
+        "text": "Sem replicação"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Pares replicam e t\u00eam prioridade de recupera\u00e7\u00e3o na Microsoft. Aleat\u00f3rias perdem garantia; sem replicar n\u00e3o h\u00e1 DR.",
-    "source": "original",
+    "explanation": "Pares replicam e têm prioridade de recuperação na Microsoft. Aleatórias perdem garantia; sem replicar não há DR.",
+    "source": "mslearn",
     "tags": ["regiao-pareada", "replicacao", "dr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-220",
@@ -782,11 +805,11 @@
     "subdomain": "backup-region-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Backups precisam de c\u00f3pia fora da regi\u00e3o prim\u00e1ria com restore testado. Quais dois elementos garantir? Selecione duas.",
+    "question": "Backups precisam de cópia fora da região primária com restore testado. Quais dois elementos garantir? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "GRS com c\u00f3pia na pareada"
+        "text": "GRS com cópia na pareada"
       },
       {
         "letter": "B",
@@ -802,12 +825,13 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "C\u00f3pia GRS na regi\u00e3o pareada com teste de restore cross-region prova o DR. LRS local n\u00e3o sai da regi\u00e3o; sem teste de restore n\u00e3o h\u00e1 garantia.",
-    "source": "original",
+    "explanation": "Cópia GRS na região pareada com teste de restore cross-region prova o DR. LRS local não sai da região; sem teste de restore não há garantia.",
+    "source": "mslearn",
     "tags": ["backup", "grs", "cross-region", "teste"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-221",
@@ -815,15 +839,15 @@
     "subdomain": "asr-network-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Failover com ASR precisa de rede pronta na secund\u00e1ria com IPs preservados. Quais dois elementos de rede preparar? Selecione duas.",
+    "question": "Failover com ASR precisa de rede pronta na secundária com IPs preservados. Quais dois elementos de rede preparar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "VNet espelho na secund\u00e1ria"
+        "text": "VNet espelho na secundária"
       },
       {
         "letter": "B",
-        "text": "Sem rede na secund\u00e1ria"
+        "text": "Sem rede na secundária"
       },
       {
         "letter": "C",
@@ -835,12 +859,13 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "VNet espelho na secund\u00e1ria recebe o failover e mapeamento de IPs e NSGs preserva endere\u00e7amento. Sem rede na secund\u00e1ria n\u00e3o h\u00e1 para onde falhar; IP novo sem planejamento conflita.",
-    "source": "original",
+    "explanation": "VNet espelho na secundária recebe o failover e mapeamento de IPs e NSGs preserva endereçamento. Sem rede na secundária não há para onde falhar; IP novo sem planejamento conflita.",
+    "source": "mslearn",
     "tags": ["asr", "rede", "failover", "vnet"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-222",
@@ -848,24 +873,25 @@
     "subdomain": "test-failover-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que test failover do Site Recovery impacta a produ\u00e7\u00e3o replicada. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um colega afirma que test failover do Site Recovery impacta a produção replicada. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "N\u00e3o, \u00e9 isolado em rede de teste"
+        "text": "Não, é isolado em rede de teste"
       },
       {
         "letter": "B",
-        "text": "Sim, impacta produ\u00e7\u00e3o"
+        "text": "Sim, impacta produção"
       }
     ],
     "correct": ["A"],
-    "explanation": "Test failover executa em rede isolada sem tocar a produ\u00e7\u00e3o replicada. Achar que impacta impede testar o DR com seguran\u00e7a.",
-    "source": "original",
+    "explanation": "Test failover executa em rede isolada sem tocar a produção replicada. Achar que impacta impede testar o DR com segurança.",
+    "source": "mslearn",
     "tags": ["test-failover", "asr", "isolado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-223",
@@ -873,7 +899,7 @@
     "subdomain": "planned-failover-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que failover planejado zera perda de dados com sincroniza\u00e7\u00e3o final. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um arquiteto afirma que failover planejado zera perda de dados com sincronização final. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
@@ -881,16 +907,17 @@
       },
       {
         "letter": "B",
-        "text": "N\u00e3o, sempre perde dados"
+        "text": "Não, sempre perde dados"
       }
     ],
     "correct": ["A"],
-    "explanation": "Planejado sincroniza o delta antes de trocar, zerando RPO. Assumir perda ignora a sincroniza\u00e7\u00e3o final.",
-    "source": "original",
+    "explanation": "Planejado sincroniza o delta antes de trocar, zerando RPO. Assumir perda ignora a sincronização final.",
+    "source": "mslearn",
     "tags": ["planned-failover", "rpo-zero", "sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-224",
@@ -898,24 +925,25 @@
     "subdomain": "unplanned-failover-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um t\u00e9cnico afirma que failover n\u00e3o planejado pode perder dados recentes at\u00e9 o \u00faltimo ponto replicado. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um técnico afirma que failover não planejado pode perder dados recentes até o último ponto replicado. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, perda at\u00e9 o RPO"
+        "text": "Sim, perda até o RPO"
       },
       {
         "letter": "B",
-        "text": "N\u00e3o, nunca perde nada"
+        "text": "Não, nunca perde nada"
       }
     ],
     "correct": ["A"],
-    "explanation": "Sem sincroniza\u00e7\u00e3o final, perde-se at\u00e9 o RPO replicado. Assumir zero perda ignora a natureza ass\u00edncrona.",
-    "source": "original",
+    "explanation": "Sem sincronização final, perde-se até o RPO replicado. Assumir zero perda ignora a natureza assíncrona.",
+    "source": "mslearn",
     "tags": ["unplanned-failover", "rpo", "perda"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-225",
@@ -923,24 +951,25 @@
     "subdomain": "failback-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que o retorno (failback) \u00e0 prim\u00e1ria exige reprote\u00e7\u00e3o reversa planejada. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um colega afirma que o retorno (failback) à primária exige reproteção reversa planejada. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, com reprote\u00e7\u00e3o reversa"
+        "text": "Sim, com reproteção reversa"
       },
       {
         "letter": "B",
-        "text": "N\u00e3o, volta sozinho"
+        "text": "Não, volta sozinho"
       }
     ],
     "correct": ["A"],
-    "explanation": "Failback reprotege reverso e planeja a volta com sync. Voltar sozinho ignora o processo de reprote\u00e7\u00e3o.",
-    "source": "original",
+    "explanation": "Failback reprotege reverso e planeja a volta com sync. Voltar sozinho ignora o processo de reproteção.",
+    "source": "mslearn",
     "tags": ["failback", "reprotecao", "retorno"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
   },
   {
     "id": "az104-co-226",
@@ -948,11 +977,11 @@
     "subdomain": "commitment-tier-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que tiers de compromisso (ex.: 1000 transa\u00e7\u00f5es/s) d\u00e3o desconto com throughput reservado. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um arquiteto afirma que tiers de compromisso (ex.: 1000 transações/s) dão desconto com throughput reservado. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "N\u00e3o, pay-as-you-go sempre"
+        "text": "Não, pay-as-you-go sempre"
       },
       {
         "letter": "B",
@@ -960,12 +989,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Commitment tiers reservam throughput com desconto por compromisso. S\u00f3 PAYG ignora a economia planejada.",
-    "source": "original",
+    "explanation": "Commitment tiers reservam throughput com desconto por compromisso. Só PAYG ignora a economia planejada.",
+    "source": "mslearn",
     "tags": ["commitment-tier", "desconto", "throughput"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-227",
@@ -973,24 +1003,25 @@
     "subdomain": "autoscale-schedule-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um t\u00e9cnico afirma que autoscale por agenda (hor\u00e1rio comercial) complementa regras por m\u00e9trica. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um técnico afirma que autoscale por agenda (horário comercial) complementa regras por métrica. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, agenda + m\u00e9trica combinam"
+        "text": "Sim, agenda + métrica combinam"
       },
       {
         "letter": "B",
-        "text": "N\u00e3o, s\u00f3 m\u00e9trica vale"
+        "text": "Não, só métrica vale"
       }
     ],
     "correct": ["A"],
-    "explanation": "Perfis agendados antecipam pico conhecido e m\u00e9tricas reagem ao real. S\u00f3 m\u00e9trica atrasa na subida programada.",
-    "source": "original",
+    "explanation": "Perfis agendados antecipam pico conhecido e métricas reagem ao real. Só métrica atrasa na subida programada.",
+    "source": "mslearn",
     "tags": ["autoscale", "agenda", "metrica"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-228",
@@ -998,11 +1029,11 @@
     "subdomain": "cooldown-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que cooldown evita flapping do autoscale ap\u00f3s cada a\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um colega afirma que cooldown evita flapping do autoscale após cada ação. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "N\u00e3o, escalar sem pausa \u00e9 melhor"
+        "text": "Não, escalar sem pausa é melhor"
       },
       {
         "letter": "B",
@@ -1010,12 +1041,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Cooldown aguarda o efeito antes de nova a\u00e7\u00e3o, evitando oscila\u00e7\u00e3o do autoscale. Sem pausa o sistema entra em flapping cont\u00ednuo.",
-    "source": "original",
+    "explanation": "Cooldown aguarda o efeito antes de nova ação, evitando oscilação do autoscale. Sem pausa o sistema entra em flapping contínuo.",
+    "source": "mslearn",
     "tags": ["cooldown", "autoscale", "flapping"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-229",
@@ -1023,24 +1055,25 @@
     "subdomain": "flapping-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que flapping (sobe-desce) queima custo e gera instabilidade. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um arquiteto afirma que flapping (sobe-desce) queima custo e gera instabilidade. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "N\u00e3o, flapping \u00e9 saud\u00e1vel"
+        "text": "Não, flapping é saudável"
       },
       {
         "letter": "B",
-        "text": "Sim, flapping \u00e9 anti-padr\u00e3o"
+        "text": "Sim, flapping é anti-padrão"
       }
     ],
     "correct": ["B"],
-    "explanation": "Oscila\u00e7\u00e3o cria/destr\u00f3i sem estabilizar, queimando custo e derrubando conex\u00f5es. Tratar como saud\u00e1vel ignora o anti-padr\u00e3o.",
-    "source": "original",
+    "explanation": "Oscilação cria/destrói sem estabilizar, queimando custo e derrubando conexões. Tratar como saudável ignora o anti-padrão.",
+    "source": "mslearn",
     "tags": ["flapping", "anti-padrao", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.197Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-230",
@@ -1048,7 +1081,7 @@
     "subdomain": "predictive-autoscale-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um t\u00e9cnico afirma que autoscale preditivo usa ML de hist\u00f3rico para antecipar pico. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "question": "Um técnico afirma que autoscale preditivo usa ML de histórico para antecipar pico. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
@@ -1056,16 +1089,17 @@
       },
       {
         "letter": "B",
-        "text": "N\u00e3o, s\u00f3 reativo existe"
+        "text": "Não, só reativo existe"
       }
     ],
     "correct": ["A"],
-    "explanation": "Predictive autoscale prev\u00ea a demanda pelo hist\u00f3rico com ML e pr\u00e9-provisiona capacidade. S\u00f3 o modo reativo atrasa na subida do pico.",
-    "source": "original",
+    "explanation": "Predictive autoscale prevê a demanda pelo histórico com ML e pré-provisiona capacidade. Só o modo reativo atrasa na subida do pico.",
+    "source": "mslearn",
     "tags": ["predictive", "autoscale", "ml"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.574Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-231",
@@ -1073,7 +1107,7 @@
     "subdomain": "vm-trusted-launch",
     "type": "single",
     "difficulty": "easy",
-    "question": "VM nova precisa de boot seguro e vTPM contra rootkits, sem agente extra. Qual tipo de seguran\u00e7a escolher na cria\u00e7\u00e3o?",
+    "question": "VM nova precisa de boot seguro e vTPM contra rootkits, sem agente extra. Qual tipo de segurança escolher na criação?",
     "options": [
       {
         "letter": "A",
@@ -1093,7 +1127,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "A est\u00e1 correta: Trusted Launch exige imagem Gen2 e liga secure boot + vTPM sem agente. B est\u00e1 incorreta: Standard n\u00e3o oferece vTPM. C est\u00e1 incorreta: VM confidencial \u00e9 outro SKU com isolamento de hardware, overkill para secure boot. D est\u00e1 incorreta: ADE cifra disco via extens\u00e3o, n\u00e3o protege o boot.",
+    "explanation": "A está correta: Trusted Launch exige imagem Gen2 e liga secure boot + vTPM sem agente. B está incorreta: Standard não oferece vTPM. C está incorreta: VM confidencial é outro SKU com isolamento de hardware, overkill para secure boot. D está incorreta: ADE cifra disco via extensão, não protege o boot.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/trusted-launch",
     "tags": ["vm", "trusted-launch", "secure-boot", "co-vms"],
@@ -1111,7 +1145,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Na extens\u00e3o ADE de cada VM"
+        "text": "Na extensão ADE de cada VM"
       },
       {
         "letter": "B",
@@ -1127,7 +1161,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "B est\u00e1 correta: CMK no host e no storage exige DES referenciando a chave do cofre com purge protection. A est\u00e1 incorreta: extens\u00e3o ADE \u00e9 BitLocker/DM-Crypt de convidado, outro modelo. D est\u00e1 incorreta: chave da conta autoriza acesso, n\u00e3o cifra. C est\u00e1 incorreta: SAS delega acesso, n\u00e3o gerencia chave.",
+    "explanation": "B está correta: CMK no host e no storage exige DES referenciando a chave do cofre com purge protection. A está incorreta: extensão ADE é BitLocker/DM-Crypt de convidado, outro modelo. D está incorreta: chave da conta autoriza acesso, não cifra. C está incorreta: SAS delega acesso, não gerencia chave.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption",
     "tags": ["vm", "host-encryption", "cmk", "des", "co-vms"],
@@ -1141,11 +1175,11 @@
     "subdomain": "vm-mover-rg-assinatura",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Recursos precisam trocar de grupo e uma VM precisa trocar de regi\u00e3o. Quais mecanismos usar? Selecione dois.",
+    "question": "Recursos precisam trocar de grupo e uma VM precisa trocar de região. Quais mecanismos usar? Selecione dois.",
     "options": [
       {
         "letter": "A",
-        "text": "Backup e restaura\u00e7\u00e3o entre regi\u00f5es quaisquer"
+        "text": "Backup e restauração entre regiões quaisquer"
       },
       {
         "letter": "B",
@@ -1157,11 +1191,11 @@
       },
       {
         "letter": "D",
-        "text": "Site Recovery com replica\u00e7\u00e3o para outra regi\u00e3o"
+        "text": "Site Recovery com replicação para outra região"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "C est\u00e1 correta: move valida e transfere grupo/assinatura no mesmo tenant. D est\u00e1 correta: regi\u00e3o exige replica\u00e7\u00e3o e novo deploy via Site Recovery. A est\u00e1 incorreta: backup restaura em geral na mesma regi\u00e3o/conta, n\u00e3o migra entre regi\u00f5es arbitr\u00e1rias. B est\u00e1 incorreta: snapshot n\u00e3o cruza tenant nem move identidade e recursos.",
+    "explanation": "C está correta: move valida e transfere grupo/assinatura no mesmo tenant. D está correta: região exige replicação e novo deploy via Site Recovery. A está incorreta: backup restaura em geral na mesma região/conta, não migra entre regiões arbitrárias. B está incorreta: snapshot não cruza tenant nem move identidade e recursos.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
     "tags": ["vm", "mover", "assinatura", "regiao", "co-vms"],
@@ -1175,15 +1209,15 @@
     "subdomain": "vms-tamanhos",
     "type": "single",
     "difficulty": "easy",
-    "question": "VM de banco precisa de discos SSD Premium. Qual s\u00e9rie de VM suporta armazenamento Premium?",
+    "question": "VM de banco precisa de discos SSD Premium. Qual série de VM suporta armazenamento Premium?",
     "options": [
       {
         "letter": "A",
-        "text": "S\u00e9rie B b\u00e1sica"
+        "text": "Série B básica"
       },
       {
         "letter": "B",
-        "text": "Qualquer s\u00e9rie, inclusive sem suporte"
+        "text": "Qualquer série, inclusive sem suporte"
       },
       {
         "letter": "C",
@@ -1191,11 +1225,11 @@
       },
       {
         "letter": "D",
-        "text": "S\u00e9rie A av1"
+        "text": "Série A av1"
       }
     ],
     "correct": ["C"],
-    "explanation": "C est\u00e1 correta: DS/DSv2 (e as s\u00e9ries ES/Fs) t\u00eam cache local e suporte declarado a Premium Storage. B est\u00e1 incorreta: qualquer s\u00e9rie, inclusive sem suporte, \u00e9 falso \u2014 nem toda s\u00e9rie aceita Premium Storage. D est\u00e1 incorreta: s\u00e9rie A av1 \u00e9 legada e n\u00e3o aceita Premium Storage. A est\u00e1 incorreta: s\u00e9rie B b\u00e1sica \u00e9 burstable, de armazenamento tempor\u00e1rio, e n\u00e3o aceita Premium Storage.",
+    "explanation": "C está correta: DS/DSv2 (e as séries ES/Fs) têm cache local e suporte declarado a Premium Storage. B está incorreta: qualquer série, inclusive sem suporte, é falso — nem toda série aceita Premium Storage. D está incorreta: série A av1 é legada e não aceita Premium Storage. A está incorreta: série B básica é burstable, de armazenamento temporário, e não aceita Premium Storage.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
     "tags": ["vm", "tamanhos", "premium-ssd", "co-vms"],
@@ -1209,7 +1243,7 @@
     "subdomain": "vms-discos",
     "type": "single",
     "difficulty": "medium",
-    "question": "Discos de produ\u00e7\u00e3o precisam sobreviver \u00e0 falha de um datacenter com r\u00e9plica s\u00edncrona entre zonas. Qual redund\u00e2ncia de disco usar?",
+    "question": "Discos de produção precisam sobreviver à falha de um datacenter com réplica síncrona entre zonas. Qual redundância de disco usar?",
     "options": [
       {
         "letter": "A",
@@ -1217,7 +1251,7 @@
       },
       {
         "letter": "B",
-        "text": "Disco n\u00e3o gerenciado com replica\u00e7\u00e3o manual"
+        "text": "Disco não gerenciado com replicação manual"
       },
       {
         "letter": "C",
@@ -1225,11 +1259,11 @@
       },
       {
         "letter": "D",
-        "text": "GRS ass\u00edncrona entre regi\u00f5es"
+        "text": "GRS assíncrona entre regiões"
       }
     ],
     "correct": ["C"],
-    "explanation": "C est\u00e1 correta: ZRS replica sincronamente em 3 zonas da regi\u00e3o. A est\u00e1 incorreta: LRS fica num datacenter. D est\u00e1 incorreta: GRS \u00e9 ass\u00edncrona entre regi\u00f5es (RPO maior que zero), n\u00e3o atende r\u00e9plica s\u00edncrona zonal. B est\u00e1 incorreta: n\u00e3o gerenciado \u00e9 legado sem esse recurso.",
+    "explanation": "C está correta: ZRS replica sincronamente em 3 zonas da região. A está incorreta: LRS fica num datacenter. D está incorreta: GRS é assíncrona entre regiões (RPO maior que zero), não atende réplica síncrona zonal. B está incorreta: não gerenciado é legado sem esse recurso.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disks-redundancy",
     "tags": ["vm", "discos", "zrs", "co-vms"],
@@ -1243,11 +1277,11 @@
     "subdomain": "vms-zonas",
     "type": "single",
     "difficulty": "easy",
-    "question": "Carga precisa de resili\u00eancia de zona sem escolher zona 1, 2 ou 3 manualmente. Qual tipo de recurso usar?",
+    "question": "Carga precisa de resiliência de zona sem escolher zona 1, 2 ou 3 manualmente. Qual tipo de recurso usar?",
     "options": [
       {
         "letter": "A",
-        "text": "Recurso com redund\u00e2ncia de zona (a plataforma distribui)"
+        "text": "Recurso com redundância de zona (a plataforma distribui)"
       },
       {
         "letter": "B",
@@ -1263,13 +1297,13 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "A est\u00e1 correta: zone-redundant dispensa pinning \u2014 a plataforma espalha entre zonas. C est\u00e1 incorreta: zonal exige escolha e cai com a zona. D est\u00e1 incorreta: regional sem zona n\u00e3o sobrevive \u00e0 falha de datacenter. B est\u00e1 incorreta: set protege em escopo menor, dentro do datacenter.",
+    "explanation": "A está correta: zone-redundant dispensa pinning — a plataforma espalha entre zonas. C está incorreta: zonal exige escolha e cai com a zona. D está incorreta: regional sem zona não sobrevive à falha de datacenter. B está incorreta: set protege em escopo menor, dentro do datacenter.",
     "source": "mslearn",
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
     "tags": ["vm", "zonas", "zone-redundant", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
-    "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.197Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-237",
@@ -1277,11 +1311,11 @@
     "subdomain": "vmss-auto-os-upgrade",
     "type": "single",
     "difficulty": "hard",
-    "question": "VMSS de web precisa de patches do SO sem trocar a imagem nem derrubar inst\u00e2ncias saud\u00e1veis. Qual atualiza\u00e7\u00e3o usar?",
+    "question": "VMSS de web precisa de patches do SO sem trocar a imagem nem derrubar instâncias saudáveis. Qual atualização usar?",
     "options": [
       {
         "letter": "A",
-        "text": "Upgrade manual simult\u00e2neo"
+        "text": "Upgrade manual simultâneo"
       },
       {
         "letter": "B",
@@ -1293,11 +1327,11 @@
       },
       {
         "letter": "D",
-        "text": "Atualiza\u00e7\u00f5es autom\u00e1ticas do SO com probe de integridade"
+        "text": "Atualizações automáticas do SO com probe de integridade"
       }
     ],
     "correct": ["D"],
-    "explanation": "D est\u00e1 correta: automatic OS upgrades aplicam patches in place respeitando sa\u00fade via probe. B est\u00e1 incorreta: rolling com nova imagem \u00e9 para mudan\u00e7a de vers\u00e3o, overkill para patch. A est\u00e1 incorreta: simult\u00e2neo derruba tudo. C est\u00e1 incorreta: recriar zera estado e causa indisponibilidade.",
+    "explanation": "D está correta: automatic OS upgrades aplicam patches in place respeitando saúde via probe. B está incorreta: rolling com nova imagem é para mudança de versão, overkill para patch. A está incorreta: simultâneo derruba tudo. C está incorreta: recriar zera estado e causa indisponibilidade.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade",
     "tags": ["vmss", "auto-os-upgrade", "patch", "co-vms"],
@@ -1311,7 +1345,7 @@
     "subdomain": "acr-geo-replicacao",
     "type": "single",
     "difficulty": "medium",
-    "question": "Filiais na Europa e \u00c1sia puxam imagens com lat\u00eancia alta do registro no Brasil. Como aproximar as imagens sem gerenciar r\u00e9plicas manuais?",
+    "question": "Filiais na Europa e Ásia puxam imagens com latência alta do registro no Brasil. Como aproximar as imagens sem gerenciar réplicas manuais?",
     "options": [
       {
         "letter": "A",
@@ -1319,19 +1353,19 @@
       },
       {
         "letter": "B",
-        "text": "Docker Hub p\u00fablico espelhado \u00e0 m\u00e3o"
+        "text": "Docker Hub público espelhado à mão"
       },
       {
         "letter": "C",
-        "text": "Georreplica\u00e7\u00e3o do ACR Premium"
+        "text": "Georreplicação do ACR Premium"
       },
       {
         "letter": "D",
-        "text": "Uma VM com disco compartilhado por regi\u00e3o"
+        "text": "Uma VM com disco compartilhado por região"
       }
     ],
     "correct": ["C"],
-    "explanation": "C est\u00e1 correta: georreplica\u00e7\u00e3o Premium replica para regi\u00f5es escolhidas com pull local. A est\u00e1 incorreta: Basic n\u00e3o tem georreplica\u00e7\u00e3o e o pull cruza o oceano. B est\u00e1 incorreta: espelho manual perde proced\u00eancia e automa\u00e7\u00e3o. D est\u00e1 incorreta: disco compartilhado n\u00e3o \u00e9 registro.",
+    "explanation": "C está correta: georreplicação Premium replica para regiões escolhidas com pull local. A está incorreta: Basic não tem georreplicação e o pull cruza o oceano. B está incorreta: espelho manual perde procedência e automação. D está incorreta: disco compartilhado não é registro.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-geo-replication",
     "tags": ["acr", "geo-replicacao", "premium", "co-containers"],
@@ -1345,7 +1379,7 @@
     "subdomain": "aci-identity-pull",
     "type": "single",
     "difficulty": "medium",
-    "question": "ACI acessa registro privado sem credencial de administrador no manifesto. Qual autentica\u00e7\u00e3o usar?",
+    "question": "ACI acessa registro privado sem credencial de administrador no manifesto. Qual autenticação usar?",
     "options": [
       {
         "letter": "A",
@@ -1353,7 +1387,7 @@
       },
       {
         "letter": "B",
-        "text": "Identidade gerenciada com fun\u00e7\u00e3o de pull no registro"
+        "text": "Identidade gerenciada com função de pull no registro"
       },
       {
         "letter": "C",
@@ -1361,11 +1395,11 @@
       },
       {
         "letter": "D",
-        "text": "Chave SSH do n\u00f3"
+        "text": "Chave SSH do nó"
       }
     ],
     "correct": ["B"],
-    "explanation": "B est\u00e1 correta: identidade gerenciada com fun\u00e7\u00e3o de pull autentica sem segredo no manifesto. C est\u00e1 incorreta: exp\u00f5e credencial com poder total. A est\u00e1 incorreta: SAS \u00e9 de Storage, n\u00e3o de registro. D est\u00e1 incorreta: SSH n\u00e3o autentica pull de imagem.",
+    "explanation": "B está correta: identidade gerenciada com função de pull autentica sem segredo no manifesto. C está incorreta: expõe credencial com poder total. A está incorreta: SAS é de Storage, não de registro. D está incorreta: SSH não autentica pull de imagem.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-authentication",
     "tags": ["aci", "identidade-gerenciada", "acrpull", "co-containers"],
@@ -1379,11 +1413,11 @@
     "subdomain": "aci-secure-env",
     "type": "single",
     "difficulty": "hard",
-    "question": "Senha de banco em vari\u00e1vel de ambiente de cont\u00eainer ACI aparece em texto claro no portal. Como proteg\u00ea-la?",
+    "question": "Senha de banco em variável de ambiente de contêiner ACI aparece em texto claro no portal. Como protegê-la?",
     "options": [
       {
         "letter": "A",
-        "text": "secureValue em vez de value na vari\u00e1vel"
+        "text": "secureValue em vez de value na variável"
       },
       {
         "letter": "B",
@@ -1391,15 +1425,15 @@
       },
       {
         "letter": "C",
-        "text": "Mesma vari\u00e1vel com nome em mai\u00fasculas"
+        "text": "Mesma variável com nome em maiúsculas"
       },
       {
         "letter": "D",
-        "text": "Hardcode no c\u00f3digo da imagem"
+        "text": "Hardcode no código da imagem"
       }
     ],
     "correct": ["A"],
-    "explanation": "A est\u00e1 correta: secureValue oculta o valor no portal e na CLI. C est\u00e1 incorreta: caixa do nome n\u00e3o protege nada. D est\u00e1 incorreta: segredo na imagem vaza no registro. B est\u00e1 incorreta: o portal exibe por design; o controle \u00e9 na vari\u00e1vel.",
+    "explanation": "A está correta: secureValue oculta o valor no portal e na CLI. C está incorreta: caixa do nome não protege nada. D está incorreta: segredo na imagem vaza no registro. B está incorreta: o portal exibe por design; o controle é na variável.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-environment-variables",
     "tags": ["aci", "secure-env", "segredos", "co-containers"],
@@ -1413,27 +1447,27 @@
     "subdomain": "container-apps-revisions",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Nova revis\u00e3o do app precisa de 10% do tr\u00e1fego para can\u00e1rio antes do corte total. Quais recursos usar? Selecione dois.",
+    "question": "Nova revisão do app precisa de 10% do tráfego para canário antes do corte total. Quais recursos usar? Selecione dois.",
     "options": [
       {
         "letter": "A",
-        "text": "M\u00faltiplas revis\u00f5es ativas"
+        "text": "Múltiplas revisões ativas"
       },
       {
         "letter": "B",
-        "text": "Divis\u00e3o de tr\u00e1fego por peso entre revis\u00f5es"
+        "text": "Divisão de tráfego por peso entre revisões"
       },
       {
         "letter": "C",
-        "text": "Nova assinatura por revis\u00e3o"
+        "text": "Nova assinatura por revisão"
       },
       {
         "letter": "D",
-        "text": "Um slot de deployment por revis\u00e3o"
+        "text": "Um slot de deployment por revisão"
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "A e B est\u00e3o corretas: o Container Apps mant\u00e9m m\u00faltiplas revis\u00f5es ativas ao mesmo tempo; a divis\u00e3o de tr\u00e1fego por peso entre revis\u00f5es \u00e9 o que entrega os 10% do can\u00e1rio. D est\u00e1 incorreta: um slot de deployment por revis\u00e3o \u00e9 conceito do App Service, n\u00e3o do Container Apps. C est\u00e1 incorreta: nova assinatura por revis\u00e3o n\u00e3o faz parte do modelo de revis\u00f5es.",
+    "explanation": "A e B estão corretas: o Container Apps mantém múltiplas revisões ativas ao mesmo tempo; a divisão de tráfego por peso entre revisões é o que entrega os 10% do canário. D está incorreta: um slot de deployment por revisão é conceito do App Service, não do Container Apps. C está incorreta: nova assinatura por revisão não faz parte do modelo de revisões.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/revisions",
     "tags": ["container-apps", "revisoes", "canario", "co-containers"],
@@ -1447,27 +1481,27 @@
     "subdomain": "container-apps-escala",
     "type": "single",
     "difficulty": "hard",
-    "question": "App com picos imprevis\u00edveis precisa escalar por fila e nunca zerar por causa do warmup. Quais limites configurar?",
+    "question": "App com picos imprevisíveis precisa escalar por fila e nunca zerar por causa do warmup. Quais limites configurar?",
     "options": [
       {
         "letter": "A",
-        "text": "Escalador KEDA da fila com m\u00ednimo 1 e m\u00e1ximo N"
+        "text": "Escalador KEDA da fila com mínimo 1 e máximo N"
       },
       {
         "letter": "B",
-        "text": "M\u00ednimo 0 com warmup ignorado"
+        "text": "Mínimo 0 com warmup ignorado"
       },
       {
         "letter": "C",
-        "text": "R\u00e9plicas fixas sem escalador"
+        "text": "Réplicas fixas sem escalador"
       },
       {
         "letter": "D",
-        "text": "M\u00e1ximo 1 para economizar"
+        "text": "Máximo 1 para economizar"
       }
     ],
     "correct": ["A"],
-    "explanation": "A est\u00e1 correta: o escalador KEDA da fila com m\u00ednimo 1 e m\u00e1ximo N reage ao ac\u00famulo da fila e mant\u00e9m uma r\u00e9plica viva, evitando o cold start do warmup. B est\u00e1 incorreta: m\u00ednimo 0 com warmup ignorado deixa a escala zerar e reintroduz a lat\u00eancia de inicializa\u00e7\u00e3o. C est\u00e1 incorreta: r\u00e9plicas fixas sem escalador desperdi\u00e7am na calmaria e estouram no pico. D est\u00e1 incorreta: m\u00e1ximo 1 para economizar estrangula o pico e derruba o app.",
+    "explanation": "A está correta: o escalador KEDA da fila com mínimo 1 e máximo N reage ao acúmulo da fila e mantém uma réplica viva, evitando o cold start do warmup. B está incorreta: mínimo 0 com warmup ignorado deixa a escala zerar e reintroduz a latência de inicialização. C está incorreta: réplicas fixas sem escalador desperdiçam na calmaria e estouram no pico. D está incorreta: máximo 1 para economizar estrangula o pico e derruba o app.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app",
     "tags": ["container-apps", "keda", "escala", "co-containers"],
@@ -1497,11 +1531,11 @@
       },
       {
         "letter": "D",
-        "text": "No mesmo grupo de cont\u00eaineres"
+        "text": "No mesmo grupo de contêineres"
       }
     ],
     "correct": ["D"],
-    "explanation": "D est\u00e1 correta: o grupo \u00e9 a unidade de agendamento \u2014 mesmos IP, rede e ciclo de vida. B est\u00e1 incorreta: separar quebra IP compartilhado e ciclo conjunto. A est\u00e1 incorreta: VMSS \u00e9 para VMs, n\u00e3o cont\u00eaineres sob demanda. C est\u00e1 incorreta: assinatura distinta isola tudo.",
+    "explanation": "D está correta: o grupo é a unidade de agendamento — mesmos IP, rede e ciclo de vida. B está incorreta: separar quebra IP compartilhado e ciclo conjunto. A está incorreta: VMSS é para VMs, não contêineres sob demanda. C está incorreta: assinatura distinta isola tudo.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview",
     "tags": ["aci", "grupo", "sidecar", "co-containers"],

@@ -60,11 +60,12 @@
     ],
     "correct": ["C"],
     "explanation": "Consumo cobra por execução e escala a zero, ideal para uso esporádico. Premium e Dedicado mantêm recursos alocados (cold start menor, custo fixo); Isolado é para rede dedicada.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "consumption"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-009",
@@ -96,7 +97,7 @@
     "source": "mslearn",
     "tags": ["app-service", "slots", "canario"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T23:13:18.571Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
@@ -130,7 +131,7 @@
     "source": "mslearn",
     "tags": ["container-apps", "serverless"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T22:54:35.195Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -164,7 +165,7 @@
     "source": "mslearn",
     "tags": ["app-service", "dominio", "tls"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T23:13:18.571Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
@@ -195,11 +196,12 @@
     ],
     "correct": ["B"],
     "explanation": "Blob trigger reage a criação/atualização de blobs. HTTP exige chamada; Timer agenda horário fixo; disparo manual não é automático.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "triggers", "blob"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-017",
@@ -231,7 +233,7 @@
     "source": "mslearn",
     "tags": ["app-service", "backup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T23:13:18.571Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup"
   },
@@ -262,11 +264,12 @@
     ],
     "correct": ["A"],
     "explanation": "Autoscale ajusta instâncias pela métrica de CPU respeitando o piso de 2. Escala fixa desperdiça à noite; plano Gratuito não tem autoscale nem SLA; dois planos com DNS é gambiarra sem métrica.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "autoscale"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-023",
@@ -295,11 +298,12 @@
     ],
     "correct": ["D"],
     "explanation": "Orquestrador Durable mantém estado e aguarda eventos externos (aprovação) sem custo de espera ativa. Sleep de 48h estoura timeout e cobra; polling por timer desperdiça; fila sem orquestrador perde a sequência.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "durable", "orquestracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-024",
@@ -362,11 +366,12 @@
     ],
     "correct": ["A"],
     "explanation": "Easy Auth injeta o fluxo OpenID Connect na plataforma, sem código. Chave fixa não federa identidade; certificado cliente exige PKI; restrição de IP não autentica usuário.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "easy-auth", "entra-id"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.195Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-029",
@@ -395,11 +400,12 @@
     ],
     "correct": ["C"],
     "explanation": "Premium mantém instâncias aquecidas (always ready) com escala elástica. Timeout maior não evita partida fria; trocar gatilho muda o evento; CORS é permissão de origem, não desempenho.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "cold-start", "premium"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-030",
@@ -428,11 +434,12 @@
     ],
     "correct": ["B"],
     "explanation": "Azure Files montado persiste além do ciclo de vida do contêiner. Disco local é efêmero; variável não guarda arquivos; embutir na imagem exige rebuild a cada mudança.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["aci", "volumes", "azure-files"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview"
   },
   {
     "id": "az104-co-032",
@@ -461,11 +468,12 @@
     ],
     "correct": ["C"],
     "explanation": "Web App for Containers executa imagem customizada com todos os recursos da plataforma (TLS, slots, backup). Runtime padrão não aceita imagem; Functions é orientado a eventos; Static Web Apps serve front estático.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "containers", "acr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/overview"
   },
   {
     "id": "az104-co-034",
@@ -494,11 +502,12 @@
     ],
     "correct": ["C"],
     "explanation": "VNet Integration alcança o privado e o NAT entrega saída por IP fixo previsível. Consumo não tem VNet nem IP fixo; APIM Consumo não fixa IP; Front Door não alcança IP privado interno.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "vnet", "nat", "premium"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-036",
@@ -530,7 +539,7 @@
     "source": "mslearn",
     "tags": ["container-apps", "jobs", "lote"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.156Z",
+    "updatedAt": "2026-10-02T22:54:35.195Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -561,11 +570,12 @@
     ],
     "correct": ["C"],
     "explanation": "Hybrid Connections abrem túnel de saída pelo relay, sem inbound no firewall. VNet Integration exige VPN/ExpressRoute; IP público expõe o banco; replicar é migração, não conectividade pontual.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "hybrid-connections", "on-premises"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-040",
@@ -662,11 +672,12 @@
     ],
     "correct": ["D"],
     "explanation": "Output binding entrega o valor de retorno à fila sem SDK. ADO.NET é para SQL; HttpClient manual perde a declaratividade; não existe gatilho de saída por e-mail.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "bindings", "queue"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-046",
@@ -695,11 +706,12 @@
     ],
     "correct": ["D"],
     "explanation": "Logs em Blob retêm por dias configuráveis e sobrevivem a reinícios. Sistema de arquivos do plano é volátil e limitado; Kudu ao vivo não retém; App Insights sem SDK não coleta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "logs", "diagnostico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.195Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-047",
@@ -728,11 +740,12 @@
     ],
     "correct": ["C"],
     "explanation": "Always mantém serviço contínuo e Never executa tarefa finita uma vez. Never na API derruba o serviço; Always no job religa sem fim; OnFailure não garante disponibilidade contínua.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["aci", "restart-policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview"
   },
   {
     "id": "az104-co-050",
@@ -761,11 +774,12 @@
     ],
     "correct": ["A", "C"],
     "explanation": "Swap troca versões sem downtime e o roteamento percentual valida em produção (canário). Excluir slot perde o ambiente; downgrade durante swap arrisca indisponibilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "slots", "swap"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.195Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-051",
@@ -794,11 +808,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "Queue trigger dispara por mensagem e o output binding grava no Cosmos declarativamente. HTTP com polling desperdiça; e-mail não persiste o pedido.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "bindings", "cosmosdb"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-055",
@@ -827,11 +842,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Certificado gerenciado renova sozinho e a restrição de acesso limita origem ao Front Door. HTTP aberto anula o TLS; FTP compartilhado amplia superfície.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "tls", "restricao-acesso"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-058",
@@ -894,11 +910,12 @@
     ],
     "correct": ["C"],
     "explanation": "Flex Consumption combina escala por evento, VNet e timeouts longos. Consumo tradicional limita timeout e rede; Dedicado cobra sempre ativo; ACI não é Functions.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "flex-consumption", "vnet"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-062",
@@ -927,11 +944,12 @@
     ],
     "correct": ["B"],
     "explanation": "Clone copia configuração e conteúdo; hostname e certificado migram com validação. Recriar perde identidade; só código perde settings; trocar plano não muda de região.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "migracao", "clone", "regiao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/overview"
   },
   {
     "id": "az104-co-064",
@@ -960,11 +978,12 @@
     ],
     "correct": ["C"],
     "explanation": "Batch provisiona pool HPC temporário com RDMA/InfiniBand para MPI. ACI isola sem interconexão rápida; Functions não fazem MPI; série B não tem desempenho nem rede HPC.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "hpc", "mpi"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-067",
@@ -993,11 +1012,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "App Insights profile o código e os detectors analisam a plataforma (CPU, memória, TCP). Ping manual não diagnostica; reiniciar mascara sem identificar causa.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "app-insights", "diagnostico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.195Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-068",
@@ -1026,11 +1046,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Batch/paralelismo elevam vazão por instância e o plano elástico adiciona instâncias. Timeout curto derruba longas; sem retry, falha perde mensagem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "escala", "fila", "batch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-072",
@@ -1062,7 +1083,7 @@
     "source": "mslearn",
     "tags": ["app-service", "backup", "grs", "snapshot"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T23:13:18.571Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup"
   },
@@ -1093,11 +1114,12 @@
     ],
     "correct": ["A", "D"],
     "explanation": "Pool N com autoscale dá GPU sob demanda e pacotes versionam o renderizador. Série B não tem GPU nem escala HPC; RDP manual não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "gpu", "pacotes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-074",
@@ -1126,11 +1148,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Function keys isolam por função e host keys por aplicativo, permitindo revogação por escopo. Anônima não autentica; chave mestra exposta compromete tudo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "chaves", "auth-level"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-076",
@@ -1162,7 +1185,7 @@
     "source": "mslearn",
     "tags": ["container-apps", "dapr", "mtls", "bindings"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.156Z",
+    "updatedAt": "2026-10-02T22:54:35.195Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -1211,11 +1234,12 @@
     ],
     "correct": ["A"],
     "explanation": "Escalar a zero desliga workers; a próxima execução provisiona do zero (cold start). Workers aquecidos são característica do Premium/Dedicado, não do Consumo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "consumption", "cold-start"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-084",
@@ -1244,11 +1268,12 @@
     ],
     "correct": ["D"],
     "explanation": "Deployment Center liga repo→build→slot→swap com trilha. FTP manual erra; e-mail não implanta; direto não testa.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "deployment-center", "github", "swap"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-085",
@@ -1280,7 +1305,7 @@
     "source": "mslearn",
     "tags": ["functions", "slots", "canario"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T23:13:18.571Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
@@ -1311,11 +1336,12 @@
     ],
     "correct": ["C"],
     "explanation": "ACI confidencial roda em TEE com atestado. Padrão compartilha host; VM comum não atesta; blob não executa.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["aci", "confidencial", "tee"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview"
   },
   {
     "id": "az104-co-087",
@@ -1347,7 +1373,7 @@
     "source": "mslearn",
     "tags": ["container-apps", "vnet", "ambiente"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T22:54:35.195Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -1378,11 +1404,12 @@
     ],
     "correct": ["A"],
     "explanation": "Autoscale avalia pending/running e ajusta nós. Fixo desperdiça; manual atrasa; Spot sem fórmula não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "autoscale", "pool"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-104",
@@ -1411,11 +1438,12 @@
     ],
     "correct": ["D"],
     "explanation": "Private Endpoint dá IP privado com resolução interna. Público com 0.0.0.0 expõe; Gratuito não tem PE; slot público vaza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "private-endpoint", "privado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-105",
@@ -1444,11 +1472,12 @@
     ],
     "correct": ["D"],
     "explanation": "Duas chaves permitem migrar clientes e revogar a vazada. Manter expõe; sem auth abre; renomear não revoga.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "chaves", "rotacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-106",
@@ -1514,7 +1543,7 @@
     "source": "mslearn",
     "tags": ["container-apps", "segredos", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:02:04.156Z",
+    "updatedAt": "2026-10-02T22:54:35.195Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -1545,11 +1574,12 @@
     ],
     "correct": ["D"],
     "explanation": "dependsOn ordena o DAG com faixas de conclusão. Paralelo quebra ordem; manual não escala; isolado perde dependência.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "dependencias", "dag"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-110",
@@ -1578,11 +1608,12 @@
     ],
     "correct": ["A"],
     "explanation": "Warm-up executa rotas antes do swap, eliminando frio. Direto expõe lentidão; restart após piora; 1 instância não aquece.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "warmup", "swap"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:54:35.195Z",
+    "version": 1,
+    "sourceUrl": ""
   },
   {
     "id": "az104-co-111",
@@ -1611,11 +1642,12 @@
     ],
     "correct": ["B"],
     "explanation": "Scale limit impõe teto de workers controlando custo/quota. Sem limite explode; timeout zero quebra; sem gatilho para o negócio.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "escala", "limite", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
   },
   {
     "id": "az104-co-112",
@@ -1644,11 +1676,12 @@
     ],
     "correct": ["A"],
     "explanation": "Liveness valida a app e reinicia o travado. Ping não vê app; manual atrasa; sem sonda acumula zumbis.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["aci", "liveness", "sonda"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview"
   },
   {
     "id": "az104-co-115",
@@ -1677,11 +1710,12 @@
     ],
     "correct": ["B"],
     "explanation": "BYOS monta Files via SMB no app com chaves gerenciadas. Embutir exige redeploy; FTP atrasa boot; variável não escala arquivo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-service", "montagem", "files", "byos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-116",
@@ -1710,11 +1744,12 @@
     ],
     "correct": ["A"],
     "explanation": "Private Endpoint dá IP privado ao Function App com resolução DNS interna. Chave de função não é controle de rede; 0.0.0.0 expõe; Consumo não oferece PE nem VNet.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "private-endpoint", "privado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
   },
   {
     "id": "az104-co-117",
@@ -1743,11 +1778,12 @@
     ],
     "correct": ["D"],
     "explanation": "Fórmula avalia pending/tempo e dimensiona sozinha. Fixo desperdiça; manual atrasa; sem fórmula não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "autoscale", "formula"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-155",
@@ -1810,11 +1846,12 @@
     ],
     "correct": ["A"],
     "explanation": "Marcar como slot setting (sticky) fixa a string ao slot e impede a troca no swap. Mesma string em todos mistura ambientes; hardcode no código vaza segredo; variável local não publica.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["functions", "slot-settings", "sticky"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate"
   },
   {
     "id": "az104-co-157",
@@ -1843,11 +1880,12 @@
     ],
     "correct": ["D"],
     "explanation": "Delegação injeta o grupo na sub-rede com NSG. Público expõe; peering não se aplica; VPN por contêiner não existe.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["aci", "vnet", "delegacao", "privado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview"
   },
   {
     "id": "az104-co-158",
@@ -1879,7 +1917,7 @@
     "source": "mslearn",
     "tags": ["container-apps", "ingress", "interno"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
+    "updatedAt": "2026-10-02T22:54:35.195Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
@@ -1910,11 +1948,12 @@
     ],
     "correct": ["C"],
     "explanation": "Job prep roda em cada nó antes das tarefas. Sem prep falta dado; manual não escala; sem dados quebra.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "job-preparation", "dataset"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-160",
@@ -1943,11 +1982,12 @@
     ],
     "correct": ["B"],
     "explanation": "Tarefa de liberação (job release) roda ao fim do job em cada nó coletando logs e resultados. Excluir o pool sem coletar perde tudo; coleta manual não escala; ignorar desperdiça.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["batch", "job-release", "coleta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app"
   },
   {
     "id": "az104-co-188",
@@ -2010,11 +2050,12 @@
     ],
     "correct": ["A"],
     "explanation": "Premium/Dedicado contratam 99,95%; Consumo não tem SLA de execução. 99,99% não se aplica; Flex segue regras próprias.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "functions", "99-95"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup"
   },
   {
     "id": "az104-co-199",
@@ -2043,10 +2084,11 @@
     ],
     "correct": ["C"],
     "explanation": "Consumption não contrata SLA; Premium/Dedicado têm 99,95%. Equiparar ignora a diferença de compromisso entre planos.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sla", "consumption", "functions"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T23:13:18.571Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup"
   }
 ]
