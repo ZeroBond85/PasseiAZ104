@@ -243,9 +243,8 @@ Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `d
 **S14 — opcional/revisão (aberto). S15–16 — parcial:** axe 0 ✅ + Lighthouse 98/100/100 ✅ · iOS físico pendente (humano).
 **S17+ — PÓS-PROVA ANTECIPADO (v6.0/v7.0 NO AR ✅):** backend multi-filho (backend v6.0 na nuvem) +
 **plataforma por usuário v7.0** (16/set/2026): migration 002, IDB v2, Study Guide, tags de erro, aba Admin,
-Progresso com streak/§12 — **QA local ✅ (e2e 9/9, axe 0, CI verde)**, commit 36d69ef+4571609. Falta:
-execução manual da migration 002 no Supabase (dono) + validação 2 usuários · iOS físico (humano) ·
-quarentena community · gamificação · push · analytics · loja.
+Progresso com streak/§12 — **QA local ✅ (e2e 9/9, axe 0, CI verde)**, commit 36d69ef+4571609. **Migration 002 aplicada + probe RLS validado (0 falhas) + validação 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci**. Falta:
+iOS físico (humano) · quarentena community · gamificação · push · analytics · loja.
 
 ---
 
@@ -383,13 +382,7 @@ próximos: `dp900_*`, …). Um login serve todos os filhos.
 - **Admin (v7.0 P5):** aba visível só para `role='admin'` (`getProfileRole` + `upsertOwnProfile` grava
   email; role só owner promove por SQL). RLS filtra tudo; `admin-panel.ts` lê via Supabase e agrega em
   client-side (KPIs, drill por questão com distrator mais escolhido, CSV sem depender de server).
-- **Experiência por usuário (P2/P3/P4):** aba Progresso (histórico, streak por `activity_log`, weak-map
-  SVG por domínio, CRUD leve de dúvidas, prontidão §12), Study Guide pós-simulado (`analyzeAttempt`,
-  `topErrors` + sourceUrl, tips, ação "treinar domínio fraco"; snapshot em `az104_study_suggestions`),
-  tags de erro ×5 nos `review-card` alimentando `attempts.error_tags` + `az104_doubts`.
-- **Deploy:** `VITE_*` via GitHub Secrets (`deploy.yml`); build sem env = modo 100% local.
-- **e2e:** `?local=1` desliga o gate (test-only, nunca em produção); `login.spec.ts` cobre gate + validação;
-  `progress.spec.ts` cobre attempt→IDB→streak/dúvida e ausência da aba Admin sem role.
+- **Migration 002:** **aplicada e validada** (probe RLS 0 falhas + 2 usuários: admin vê aba Admin + Auditoria; user comum não vê). Execução manual no SQL Editor pelo dono.
 
 ---
 

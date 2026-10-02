@@ -973,3 +973,9 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
   - Novo gatilho: `pre-push` ou `ci` falhando em `secrets` → não faça push; rotacione; `scripts/check-secrets.mjs` detalha.
 
 **Gates pós-mudanças:** `npm run ci` (tsc 0 · lint 0 · unit **115/115** · validate **1000/0** · meta + migration OK) · `npm run budget` **125.8 KB / 140 KB** · `npm run secrets` **EXIT=0** · `check-seq --domain` **5/5 OK** · `test:count` **115 + 16**.
+
+## 2026-10-02 — Validação 2 usuários CONCLUÍDA (admin vê / user não vê)
+
+- **Teste manual no app confirmado:** login como admin → aba Admin visível + Auditoria com logs; login como user comum → aba Admin **oculta** + Auditoria **vazia** (RLS fail-closed funcionando).
+- Gate do AGENTS.md satisfeito: "validar admin com 2 usuários antes de assumir" → **OK**.
+- Migration 002 agora **totalmente validada** (aplicada + probe RLS 0 falhas + 2 usuários).

@@ -110,8 +110,7 @@ opções — dar vocabulário a elas ("90 dias — o mínimo da Cold") entregari
 distrator e trivializaria a questão. Trava em `tests/unit/explanation-valve.test.ts`.
 
 ## Fora de qualquer trilha (pendências de operação)
-- **Migration 002** não aplicada no Supabase → aba Admin oculta (fail-closed por RLS). Validação
-  com 2 usuários depende disso.
+- **Migration 002**: **aplicada + probe RLS 0 falhas + 2 usuários validados (admin vê / user não vê)** ✅
 - **Chave Gemini** exposta: rotação é ação do dono.
 - `DATA_PROVA=TBD` — só agendar nas 3 condições do `AGENTS.md` §12.
 
@@ -541,19 +540,18 @@ estrelas/PRs/Issues. Linguagem honesta: "questões autorais em PT-BR, não são 
 
 ---
 
-# §2 Ordem de execução — situação em 29/set
+# §2 Ordem de execução — situação em 02/out/2026
 **Gasto:** A1 → A2 → A6/A7 → A8/A9/A10 → B3 Fase 0 → B1 → R0/R1/R2 → B2 (5 lotes) → B4/B5.
-Falta só a **verificação da A2 com 2 usuários**, que depende da migration 002 no Supabase.
+**A2 verificada com 2 usuários** (migration 002 aplicada + probe RLS 0 falhas + validação 2 usuários OK).
 
 **Restante, na ordem de qualidade (não de tempo):**
-1. **Doc-sync do estado** (§5 + README 950→1000) — mecânico, e é o que impede o projeto de se perder.
-2. **A2 verificada** com 2 usuários — depende de migration 002 (ação do dono).
-3. **Aposentar as 175 de autoavaliação (G16) e repor** — o substituto nasce ancorado, então fazer isto
+1. **Doc-sync do estado** (§5 + README 950→1000) — mecânico, e é o que impede o projeto de se perder. ✅ FECHADA (10/02)
+2. **Aposentar as 175 de autoavaliação (G16) e repor** — o substituto nasce ancorado, então fazer isto
    *dentro* do R3 evita ancorar o mesmo fato duas vezes.
-4. **R3 lote a lote** (`ig` primeiro) — o gargalo; cada lote com `.agent/audits/retrofit-<domínio>.md`.
-5. ~~**Revisão das 22 da valve**~~ — feita (22→0). Não sobra.
-6. **Track C** — `v0.1.0` (código + visibilidade) pode sair a qualquer momento; `v0.2.0` só com R3 fechado.
-7. **A3/A4/A5** antes da próxima feature grande.
+3. **R3 lote a lote** (`ig` primeiro) — o gargalo; cada lote com `.agent/audits/retrofit-<domínio>.md`.
+4. ~~**Revisão das 22 da valve**~~ — feita (22→0). Não sobra.
+5. **Track C** — `v0.1.0` (código + visibilidade) pode sair a qualquer momento; `v0.2.0` só com R3 fechado.
+6. **A3/A4/A5** antes da próxima feature grande.
 
 > **Ordem que quebraria qualidade:** começar o R3 antes de fechar G16 faria ancorar um bloco de 175
 > questões que será aposentado logo depois. Daí a aposentadoria vir **dentro** do R3, e não antes.

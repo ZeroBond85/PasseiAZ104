@@ -1,8 +1,8 @@
 # CODE-REVIEW.md — PasseiAZ-104 v7.1
 
-> Revisão final pós-PLAN-3 (Sprints 1–5). Método: leitura de código + suíte executada
-> (lint/tsc/unit/e2e/validate/meta/migration/budget) + screenshots desktop/mobile lidos.
-> Data: 2026-09-26. Base: `main` pós-Sprint 5c.
+> Revisão final pós-PLAN-3 (Sprints 1–5) + migration 002 validada + gate segredo + factual review. Método: leitura de código + suíte executada
+> (lint/tsc/unit/e2e/validate/meta/migration/budget/secrets) + screenshots desktop/mobile lidos.
+> Data: 2026-10-02. Base: `main` pós-commit d665f9b.
 
 ## Verdict geral: APROVADO PARA PRODUÇÃO ✅ (com ressalvas humanas abaixo)
 
@@ -58,10 +58,10 @@
 
 ## Riscos residuais (todos humanos, nenhum bloqueia código)
 
-1. Migration 004 não aplicada no Supabase (SQL Editor, 5 min).
-2. Promoção admin inicial via SQL (owner, RLS exige).
+1. ~~Migration 004 não aplicada~~ **aplicada + seed de topics pendente** (SQL Editor).
+2. ~~Promoção admin inicial via SQL~~ **feita** (owner, RLS exige).
 3. `SUPABASE_DB_URL` p/ backup semanal (Settings → Secrets).
 4. SMTP próprio Brevo (magic link sem rate-limit).
-5. Validação com 2 usuários + iOS físico.
+5. ~~Validação com 2 usuários~~ **OK** (admin vê / user não vê) + iOS físico pendente.
 6. GitHub Settings (About/topics/social preview/proteção `main`/labels/Discussions/auto-merge).
 7. Estudo até §12 (média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10) → só então agendar a prova.

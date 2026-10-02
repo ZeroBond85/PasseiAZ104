@@ -5,7 +5,7 @@
 ## Estado
 
 - `DATA_PROVA=TBD` — agendar só nas 3 condições do §12 (média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10).
-- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + gate de segredo no pre-push/ci; fase de ESTUDO**. Ver `LOG.md`.
+- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci; fase de ESTUDO**. Ver `LOG.md`.
 
 ## Gatilhos
 
