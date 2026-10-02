@@ -5,32 +5,33 @@
     "subdomain": "vms-tamanhos",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa implantar uma máquina virtual para um site de baixo tráfego com custo mínimo, sem necessidade de alto desempenho de CPU. Qual série de VM do Azure é a mais econômica para essa carga?",
+    "question": "Voc\u00ea precisa implantar uma m\u00e1quina virtual para um site de baixo tr\u00e1fego com custo m\u00ednimo, sem necessidade de alto desempenho de CPU. Qual s\u00e9rie de VM do Azure \u00e9 a mais econ\u00f4mica para essa carga?",
     "options": [
       {
         "letter": "A",
-        "text": "Série H (HPC de alto desempenho)"
+        "text": "S\u00e9rie H (HPC de alto desempenho)"
       },
       {
         "letter": "B",
-        "text": "Série B (burstable, ex.: Standard_B1s)"
+        "text": "S\u00e9rie B (burstable, ex.: Standard_B1s)"
       },
       {
         "letter": "C",
-        "text": "Série M (otimizada para memória)"
+        "text": "S\u00e9rie M (otimizada para mem\u00f3ria)"
       },
       {
         "letter": "D",
-        "text": "Série N (GPU para IA)"
+        "text": "S\u00e9rie N (GPU para IA)"
       }
     ],
     "correct": ["B"],
-    "explanation": "A série B acumula créditos de CPU e custa pouco, ideal para picos ocasionais. M, H e N são especializadas (memória, HPC, GPU) e bem mais caras para um site simples.",
-    "source": "original",
+    "explanation": "A s\u00e9rie B acumula cr\u00e9ditos de CPU e custa pouco, ideal para picos ocasionais. M, H e N s\u00e3o especializadas (mem\u00f3ria, HPC, GPU) e bem mais caras para um site simples.",
+    "source": "mslearn",
     "tags": ["vms", "series", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
   },
   {
     "id": "az104-co-002",
@@ -38,7 +39,7 @@
     "subdomain": "vms-discos",
     "type": "single",
     "difficulty": "easy",
-    "question": "Uma VM de produção exige discos com alta taxa de IOPS e latência de um dígito de milissegundo para um banco de dados. Qual tipo de disco gerenciado deve ser usado?",
+    "question": "Uma VM de produ\u00e7\u00e3o exige discos com alta taxa de IOPS e lat\u00eancia de um d\u00edgito de milissegundo para um banco de dados. Qual tipo de disco gerenciado deve ser usado?",
     "options": [
       {
         "letter": "A",
@@ -46,7 +47,7 @@
       },
       {
         "letter": "B",
-        "text": "Disco não gerenciado em conta de armazenamento"
+        "text": "Disco n\u00e3o gerenciado em conta de armazenamento"
       },
       {
         "letter": "C",
@@ -58,12 +59,13 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "SSD Premium entrega IOPS alto e latência baixa para produção. HDD e SSD Standard são econômicos para dev/teste; disco não gerenciado é legado sem SLA de gerenciamento.",
-    "source": "original",
+    "explanation": "SSD Premium entrega IOPS alto e lat\u00eancia baixa para produ\u00e7\u00e3o. HDD e SSD Standard s\u00e3o econ\u00f4micos para dev/teste; disco n\u00e3o gerenciado \u00e9 legado sem SLA de gerenciamento.",
+    "source": "mslearn",
     "tags": ["vms", "discos", "premium-ssd"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/managed-disks-overview"
   },
   {
     "id": "az104-co-003",
@@ -71,7 +73,7 @@
     "subdomain": "vms-disponibilidade",
     "type": "single",
     "difficulty": "easy",
-    "question": "Duas VMs precisam rodar a mesma aplicação com SLA de 99,95% e proteção contra falha de rack (fault domain). Onde elas devem ser colocadas?",
+    "question": "Duas VMs precisam rodar a mesma aplica\u00e7\u00e3o com SLA de 99,95% e prote\u00e7\u00e3o contra falha de rack (fault domain). Onde elas devem ser colocadas?",
     "options": [
       {
         "letter": "A",
@@ -83,7 +85,7 @@
       },
       {
         "letter": "C",
-        "text": "Em regiões diferentes sem balanceador"
+        "text": "Em regi\u00f5es diferentes sem balanceador"
       },
       {
         "letter": "D",
@@ -91,11 +93,11 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Availability set distribui VMs em fault/update domains, garantindo o SLA de 99,95%. Sem o conjunto não há SLA; regiões distintas exigem outro desenho; host dedicado não isola fault domain.",
+    "explanation": "Availability set distribui VMs em fault/update domains, garantindo o SLA de 99,95%. Sem o conjunto n\u00e3o h\u00e1 SLA; regi\u00f5es distintas exigem outro desenho; host dedicado n\u00e3o isola fault domain.",
     "source": "original",
     "tags": ["vms", "availability-set", "sla"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -104,7 +106,7 @@
     "subdomain": "containers-aci",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa executar um contêiner único de forma rápida, sem gerenciar orquestrador nem nós. Qual serviço executa contêineres sob demanda com cobrança por segundo?",
+    "question": "Voc\u00ea precisa executar um cont\u00eainer \u00fanico de forma r\u00e1pida, sem gerenciar orquestrador nem n\u00f3s. Qual servi\u00e7o executa cont\u00eaineres sob demanda com cobran\u00e7a por segundo?",
     "options": [
       {
         "letter": "A",
@@ -112,7 +114,7 @@
       },
       {
         "letter": "B",
-        "text": "Máquina virtual com Docker manual"
+        "text": "M\u00e1quina virtual com Docker manual"
       },
       {
         "letter": "C",
@@ -124,12 +126,13 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "ACI sobe contêineres em segundos sem nós para gerenciar, cobrando por segundo. AKS exige cluster; VM com Docker exige SO; Batch é para HPC em lote.",
-    "source": "original",
+    "explanation": "ACI sobe cont\u00eaineres em segundos sem n\u00f3s para gerenciar, cobrando por segundo. AKS exige cluster; VM com Docker exige SO; Batch \u00e9 para HPC em lote.",
+    "source": "mslearn",
     "tags": ["containers", "aci"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
   {
     "id": "az104-co-007",
@@ -137,11 +140,11 @@
     "subdomain": "vms-stop",
     "type": "single",
     "difficulty": "easy",
-    "question": "Uma VM de desenvolvimento fica ligada à noite sem uso e gera custo de computação. Qual ação interrompe a cobrança de computação mantendo os discos e o IP?",
+    "question": "Uma VM de desenvolvimento fica ligada \u00e0 noite sem uso e gera custo de computa\u00e7\u00e3o. Qual a\u00e7\u00e3o interrompe a cobran\u00e7a de computa\u00e7\u00e3o mantendo os discos e o IP?",
     "options": [
       {
         "letter": "A",
-        "text": "Redimensionar para série maior"
+        "text": "Redimensionar para s\u00e9rie maior"
       },
       {
         "letter": "B",
@@ -157,11 +160,11 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Desalocar libera o hardware e zera o custo de computação (discos continuam cobrados). Shutdown pelo SO mantém alocação e custo; reiniciar não economiza; redimensionar para cima piora.",
+    "explanation": "Desalocar libera o hardware e zera o custo de computa\u00e7\u00e3o (discos continuam cobrados). Shutdown pelo SO mant\u00e9m aloca\u00e7\u00e3o e custo; reiniciar n\u00e3o economiza; redimensionar para cima piora.",
     "source": "original",
     "tags": ["vms", "custo", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -170,11 +173,11 @@
     "subdomain": "vmss-conceito",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um site tem picos de acesso imprevisíveis e precisa adicionar VMs idênticas automaticamente conforme a CPU sobe. Qual recurso escala esse conjunto de forma elástica?",
+    "question": "Um site tem picos de acesso imprevis\u00edveis e precisa adicionar VMs id\u00eanticas automaticamente conforme a CPU sobe. Qual recurso escala esse conjunto de forma el\u00e1stica?",
     "options": [
       {
         "letter": "A",
-        "text": "Conjunto deDimensionamento de Máquinas Virtuais (VMSS) com autoscale"
+        "text": "Conjunto deDimensionamento de M\u00e1quinas Virtuais (VMSS) com autoscale"
       },
       {
         "letter": "B",
@@ -186,15 +189,15 @@
       },
       {
         "letter": "D",
-        "text": "VM única com disco Premium"
+        "text": "VM \u00fanica com disco Premium"
       }
     ],
     "correct": ["A"],
-    "explanation": "VMSS cria e remove instâncias idênticas por regras de métrica. Availability set não escala; VM única não absorve pico; host dedicado reserva hardware, não escala automaticamente.",
+    "explanation": "VMSS cria e remove inst\u00e2ncias id\u00eanticas por regras de m\u00e9trica. Availability set n\u00e3o escala; VM \u00fanica n\u00e3o absorve pico; host dedicado reserva hardware, n\u00e3o escala automaticamente.",
     "source": "original",
     "tags": ["vmss", "autoscale"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -203,15 +206,15 @@
     "subdomain": "vms-extensoes",
     "type": "single",
     "difficulty": "easy",
-    "question": "Após implantar 10 VMs, você precisa instalar o mesmo agente de monitoramento em todas sem acessar cada uma. Qual recurso executa essa configuração em escala?",
+    "question": "Ap\u00f3s implantar 10 VMs, voc\u00ea precisa instalar o mesmo agente de monitoramento em todas sem acessar cada uma. Qual recurso executa essa configura\u00e7\u00e3o em escala?",
     "options": [
       {
         "letter": "A",
-        "text": "Conexão RDP individual em cada VM"
+        "text": "Conex\u00e3o RDP individual em cada VM"
       },
       {
         "letter": "B",
-        "text": "Extensão de VM aplicada via política ou modelo"
+        "text": "Extens\u00e3o de VM aplicada via pol\u00edtica ou modelo"
       },
       {
         "letter": "C",
@@ -223,12 +226,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Extensões instalam e configuram software via ARM em todas as VMs de uma vez. RDP individual não escala; trocar imagem recria máquinas; disco de dados não instala agente.",
-    "source": "original",
+    "explanation": "Extens\u00f5es instalam e configuram software via ARM em todas as VMs de uma vez. RDP individual n\u00e3o escala; trocar imagem recria m\u00e1quinas; disco de dados n\u00e3o instala agente.",
+    "source": "mslearn",
     "tags": ["vms", "extensoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-011",
@@ -236,11 +240,11 @@
     "subdomain": "vms-spot",
     "type": "single",
     "difficulty": "easy",
-    "question": "Uma carga de renderização tolera interrupções e precisa do menor custo possível em VMs. Qual opção de compra reduz drasticamente o preço aceitando despejo (eviction)?",
+    "question": "Uma carga de renderiza\u00e7\u00e3o tolera interrup\u00e7\u00f5es e precisa do menor custo poss\u00edvel em VMs. Qual op\u00e7\u00e3o de compra reduz drasticamente o pre\u00e7o aceitando despejo (eviction)?",
     "options": [
       {
         "letter": "A",
-        "text": "Host dedicado para a renderização"
+        "text": "Host dedicado para a renderiza\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -252,15 +256,15 @@
       },
       {
         "letter": "D",
-        "text": "VM Spot com preço variável e despejo"
+        "text": "VM Spot com pre\u00e7o vari\u00e1vel e despejo"
       }
     ],
     "correct": ["D"],
-    "explanation": "Spot usa capacidade ociosa com desconto de até 90% em troca de despejo. Pay-as-you-go garante sem desconto; reserva exige compromisso e uso estável; host dedicado é o mais caro.",
+    "explanation": "Spot usa capacidade ociosa com desconto de at\u00e9 90% em troca de despejo. Pay-as-you-go garante sem desconto; reserva exige compromisso e uso est\u00e1vel; host dedicado \u00e9 o mais caro.",
     "source": "original",
     "tags": ["vms", "spot", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -269,11 +273,11 @@
     "subdomain": "vms-imagens",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa implantar 30 VMs idênticas com software pré-instalado a partir de uma VM de referência já configurada. Qual objeto deve ser criado da VM de referência?",
+    "question": "Voc\u00ea precisa implantar 30 VMs id\u00eanticas com software pr\u00e9-instalado a partir de uma VM de refer\u00eancia j\u00e1 configurada. Qual objeto deve ser criado da VM de refer\u00eancia?",
     "options": [
       {
         "letter": "A",
-        "text": "Exportação do modelo ARM da VM"
+        "text": "Exporta\u00e7\u00e3o do modelo ARM da VM"
       },
       {
         "letter": "B",
@@ -289,11 +293,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Imagem generalizada remove identidade (SID/hostname) permitindo clonar N VMs. Snapshot sem generalizar duplica identidade; backup restaura a mesma VM; modelo ARM replica configuração, não o software instalado.",
+    "explanation": "Imagem generalizada remove identidade (SID/hostname) permitindo clonar N VMs. Snapshot sem generalizar duplica identidade; backup restaura a mesma VM; modelo ARM replica configura\u00e7\u00e3o, n\u00e3o o software instalado.",
     "source": "original",
     "tags": ["vms", "imagens", "sysprep"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -302,7 +306,7 @@
     "subdomain": "vms-zonas",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um serviço crítico precisa sobreviver à falha de um datacenter inteiro dentro da mesma região. Onde as VMs devem ser distribuídas?",
+    "question": "Um servi\u00e7o cr\u00edtico precisa sobreviver \u00e0 falha de um datacenter inteiro dentro da mesma regi\u00e3o. Onde as VMs devem ser distribu\u00eddas?",
     "options": [
       {
         "letter": "A",
@@ -310,7 +314,7 @@
       },
       {
         "letter": "B",
-        "text": "Em zonas de disponibilidade distintas da região"
+        "text": "Em zonas de disponibilidade distintas da regi\u00e3o"
       },
       {
         "letter": "C",
@@ -318,15 +322,15 @@
       },
       {
         "letter": "D",
-        "text": "Em uma única sub-rede sem redundância"
+        "text": "Em uma \u00fanica sub-rede sem redund\u00e2ncia"
       }
     ],
     "correct": ["B"],
-    "explanation": "Zonas são datacenters fisicamente separados na região; distribuir entre elas tolera perda de um site. Fault domain protege de rack, não de datacenter; mesma zona concentra o risco.",
+    "explanation": "Zonas s\u00e3o datacenters fisicamente separados na regi\u00e3o; distribuir entre elas tolera perda de um site. Fault domain protege de rack, n\u00e3o de datacenter; mesma zona concentra o risco.",
     "source": "original",
     "tags": ["vms", "zonas", "alta-disponibilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -335,15 +339,15 @@
     "subdomain": "vms-update-management",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cinquenta VMs precisam receber patches do Windows em janela de manutenção mensal, com relatório de conformidade. Qual solução agenda e audita essas atualizações?",
+    "question": "Cinquenta VMs precisam receber patches do Windows em janela de manuten\u00e7\u00e3o mensal, com relat\u00f3rio de conformidade. Qual solu\u00e7\u00e3o agenda e audita essas atualiza\u00e7\u00f5es?",
     "options": [
       {
         "letter": "A",
-        "text": "Gerenciador de Atualizações do Azure (Update Manager)"
+        "text": "Gerenciador de Atualiza\u00e7\u00f5es do Azure (Update Manager)"
       },
       {
         "letter": "B",
-        "text": "Extensão de antivírus em cada VM"
+        "text": "Extens\u00e3o de antiv\u00edrus em cada VM"
       },
       {
         "letter": "C",
@@ -355,11 +359,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Update Manager agenda janelas, aplica patches em escala e reporta conformidade. RDP manual não escala nem audita; antivírus não aplica patch de SO; backup protege dados, não atualiza.",
+    "explanation": "Update Manager agenda janelas, aplica patches em escala e reporta conformidade. RDP manual n\u00e3o escala nem audita; antiv\u00edrus n\u00e3o aplica patch de SO; backup protege dados, n\u00e3o atualiza.",
     "source": "original",
     "tags": ["vms", "update-manager", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -368,31 +372,31 @@
     "subdomain": "vmss-upgrade",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um VMSS em produção precisa receber uma nova imagem sem derrubar todas as instâncias ao mesmo tempo. Qual modo de atualização garante troca gradual com health check?",
+    "question": "Um VMSS em produ\u00e7\u00e3o precisa receber uma nova imagem sem derrubar todas as inst\u00e2ncias ao mesmo tempo. Qual modo de atualiza\u00e7\u00e3o garante troca gradual com health check?",
     "options": [
       {
         "letter": "A",
-        "text": "Atualização contínua (Rolling) com extensão de integridade"
+        "text": "Atualiza\u00e7\u00e3o cont\u00ednua (Rolling) com extens\u00e3o de integridade"
       },
       {
         "letter": "B",
-        "text": "Atualização manual com reimage simultâneo"
+        "text": "Atualiza\u00e7\u00e3o manual com reimage simult\u00e2neo"
       },
       {
         "letter": "C",
-        "text": "Exclusão e recriação do conjunto inteiro"
+        "text": "Exclus\u00e3o e recria\u00e7\u00e3o do conjunto inteiro"
       },
       {
         "letter": "D",
-        "text": "Troca do modelo sem aplicar às instâncias"
+        "text": "Troca do modelo sem aplicar \u00e0s inst\u00e2ncias"
       }
     ],
     "correct": ["A"],
-    "explanation": "Rolling atualiza em lotes (batches) validando saúde entre eles e pausando em falha. Manual simultâneo derruba tudo; recriar zera disponibilidade; modelo sem aplicar não muda instância alguma.",
+    "explanation": "Rolling atualiza em lotes (batches) validando sa\u00fade entre eles e pausando em falha. Manual simult\u00e2neo derruba tudo; recriar zera disponibilidade; modelo sem aplicar n\u00e3o muda inst\u00e2ncia alguma.",
     "source": "original",
     "tags": ["vmss", "rolling-upgrade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -401,7 +405,7 @@
     "subdomain": "vms-ssh-rdp",
     "type": "single",
     "difficulty": "medium",
-    "question": "A política de segurança proibiu RDP/SSH abertos para a internet nas VMs, mas administradores ainda precisam de acesso interativo ocasional. Qual recurso fornece shell via portal sem IP público?",
+    "question": "A pol\u00edtica de seguran\u00e7a proibiu RDP/SSH abertos para a internet nas VMs, mas administradores ainda precisam de acesso interativo ocasional. Qual recurso fornece shell via portal sem IP p\u00fablico?",
     "options": [
       {
         "letter": "A",
@@ -413,7 +417,7 @@
       },
       {
         "letter": "C",
-        "text": "IP público com DDoS Protection"
+        "text": "IP p\u00fablico com DDoS Protection"
       },
       {
         "letter": "D",
@@ -421,11 +425,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Bastion publica RDP/SSH via TLS no portal, sem expor portas. Liberar 3389 viola a política; IP público mantém exposição; VPN por VM é cara e complexa para acesso ocasional.",
+    "explanation": "Bastion publica RDP/SSH via TLS no portal, sem expor portas. Liberar 3389 viola a pol\u00edtica; IP p\u00fablico mant\u00e9m exposi\u00e7\u00e3o; VPN por VM \u00e9 cara e complexa para acesso ocasional.",
     "source": "original",
     "tags": ["vms", "bastion", "rdp"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -434,7 +438,7 @@
     "subdomain": "vms-gallery",
     "type": "single",
     "difficulty": "medium",
-    "question": "Imagens de VM precisam ser versionadas, replicadas para 3 regiões e compartilhadas com outras assinaturas da empresa. Qual repositório centraliza esse ciclo de vida?",
+    "question": "Imagens de VM precisam ser versionadas, replicadas para 3 regi\u00f5es e compartilhadas com outras assinaturas da empresa. Qual reposit\u00f3rio centraliza esse ciclo de vida?",
     "options": [
       {
         "letter": "A",
@@ -442,23 +446,23 @@
       },
       {
         "letter": "B",
-        "text": "Galeria de Computação do Azure (Shared Image Gallery)"
+        "text": "Galeria de Computa\u00e7\u00e3o do Azure (Shared Image Gallery)"
       },
       {
         "letter": "C",
-        "text": "Registro de Contêiner (ACR) para VHDs"
+        "text": "Registro de Cont\u00eainer (ACR) para VHDs"
       },
       {
         "letter": "D",
-        "text": "Imagem gerenciada isolada por região"
+        "text": "Imagem gerenciada isolada por regi\u00e3o"
       }
     ],
     "correct": ["B"],
-    "explanation": "A Galeria versiona, replica entre regiões e compartilha imagens via RBAC. Imagem isolada não replica; VHD avulso não versiona; ACR guarda contêineres, não imagens de VM.",
+    "explanation": "A Galeria versiona, replica entre regi\u00f5es e compartilha imagens via RBAC. Imagem isolada n\u00e3o replica; VHD avulso n\u00e3o versiona; ACR guarda cont\u00eaineres, n\u00e3o imagens de VM.",
     "source": "original",
     "tags": ["vms", "galeria", "imagens"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -467,7 +471,7 @@
     "subdomain": "vms-proximity",
     "type": "single",
     "difficulty": "medium",
-    "question": "Duas VMs trocam milhares de mensagens por segundo e cada microssegundo de latência importa. Como garantir que fiquem fisicamente adjacentes no datacenter?",
+    "question": "Duas VMs trocam milhares de mensagens por segundo e cada microssegundo de lat\u00eancia importa. Como garantir que fiquem fisicamente adjacentes no datacenter?",
     "options": [
       {
         "letter": "A",
@@ -475,7 +479,7 @@
       },
       {
         "letter": "B",
-        "text": "Regiões pareadas diferentes"
+        "text": "Regi\u00f5es pareadas diferentes"
       },
       {
         "letter": "C",
@@ -487,11 +491,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "PPG co-localiza VMs no mesmo rack/cluster para latência mínima. Zonas e regiões aumentam a distância; availability set distribui (oposto do pedido).",
+    "explanation": "PPG co-localiza VMs no mesmo rack/cluster para lat\u00eancia m\u00ednima. Zonas e regi\u00f5es aumentam a dist\u00e2ncia; availability set distribui (oposto do pedido).",
     "source": "original",
     "tags": ["vms", "ppg", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -500,7 +504,7 @@
     "subdomain": "vmss-lb",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um VMSS expõe uma API HTTP e precisa distribuir requisições entre instâncias com probe de saúde na porta 80. Qual balanceador com SKU adequado atende em produção?",
+    "question": "Um VMSS exp\u00f5e uma API HTTP e precisa distribuir requisi\u00e7\u00f5es entre inst\u00e2ncias com probe de sa\u00fade na porta 80. Qual balanceador com SKU adequado atende em produ\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -508,7 +512,7 @@
       },
       {
         "letter": "B",
-        "text": "Load Balancer Básico sem SLA"
+        "text": "Load Balancer B\u00e1sico sem SLA"
       },
       {
         "letter": "C",
@@ -520,11 +524,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "LB Standard tem SLA, zonas e probes de saúde para o VMSS. Básico não tem SLA nem escala; App Gateway sem pool não distribui; Traffic Manager balanceia por DNS entre regiões, não instâncias.",
+    "explanation": "LB Standard tem SLA, zonas e probes de sa\u00fade para o VMSS. B\u00e1sico n\u00e3o tem SLA nem escala; App Gateway sem pool n\u00e3o distribui; Traffic Manager balanceia por DNS entre regi\u00f5es, n\u00e3o inst\u00e2ncias.",
     "source": "original",
     "tags": ["vmss", "load-balancer", "probe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -533,7 +537,7 @@
     "subdomain": "vms-reserved",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma VM de produção roda 24/7 há um ano e continuará por mais dois. Qual compromisso reduz o custo de computação em até 72% mantendo a mesma VM?",
+    "question": "Uma VM de produ\u00e7\u00e3o roda 24/7 h\u00e1 um ano e continuar\u00e1 por mais dois. Qual compromisso reduz o custo de computa\u00e7\u00e3o em at\u00e9 72% mantendo a mesma VM?",
     "options": [
       {
         "letter": "A",
@@ -541,7 +545,7 @@
       },
       {
         "letter": "B",
-        "text": "Desalocação noturna programada"
+        "text": "Desaloca\u00e7\u00e3o noturna programada"
       },
       {
         "letter": "C",
@@ -549,15 +553,15 @@
       },
       {
         "letter": "D",
-        "text": "Downgrade para série B"
+        "text": "Downgrade para s\u00e9rie B"
       }
     ],
     "correct": ["A"],
-    "explanation": "Reserva de 3 anos dá o maior desconto para carga estável 24/7. Spot pode despejar produção; desalocar quebra disponibilidade; downgrade reduz capacidade, não preço unitário.",
+    "explanation": "Reserva de 3 anos d\u00e1 o maior desconto para carga est\u00e1vel 24/7. Spot pode despejar produ\u00e7\u00e3o; desalocar quebra disponibilidade; downgrade reduz capacidade, n\u00e3o pre\u00e7o unit\u00e1rio.",
     "source": "original",
     "tags": ["vms", "reservas", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -566,19 +570,19 @@
     "subdomain": "vms-diagnostico-boot",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma VM Windows não inicia e você precisa ver a captura de tela do console e o log serial para diagnosticar. Qual recurso fornece esses dados sem RDP?",
+    "question": "Uma VM Windows n\u00e3o inicia e voc\u00ea precisa ver a captura de tela do console e o log serial para diagnosticar. Qual recurso fornece esses dados sem RDP?",
     "options": [
       {
         "letter": "A",
-        "text": "Extensão de backup da VM"
+        "text": "Extens\u00e3o de backup da VM"
       },
       {
         "letter": "B",
-        "text": "Alerta de métrica de CPU"
+        "text": "Alerta de m\u00e9trica de CPU"
       },
       {
         "letter": "C",
-        "text": "Diagnóstico de inicialização (Boot Diagnostics) com conta de armazenamento"
+        "text": "Diagn\u00f3stico de inicializa\u00e7\u00e3o (Boot Diagnostics) com conta de armazenamento"
       },
       {
         "letter": "D",
@@ -586,11 +590,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Boot Diagnostics grava screenshot e log serial na storage para análise offline. Backup restaura, não diagnostica; alerta de CPU não mostra console; DNS não exibe boot.",
+    "explanation": "Boot Diagnostics grava screenshot e log serial na storage para an\u00e1lise offline. Backup restaura, n\u00e3o diagnostica; alerta de CPU n\u00e3o mostra console; DNS n\u00e3o exibe boot.",
     "source": "original",
     "tags": ["vms", "boot-diagnostics"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -599,15 +603,15 @@
     "subdomain": "vmss-spot",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um VMSS de renderização precisa misturar instâncias baratas tolerantes a despejo com base garantida. Qual configuração de prioridade combina os dois perfis no mesmo conjunto?",
+    "question": "Um VMSS de renderiza\u00e7\u00e3o precisa misturar inst\u00e2ncias baratas tolerantes a despejo com base garantida. Qual configura\u00e7\u00e3o de prioridade combina os dois perfis no mesmo conjunto?",
     "options": [
       {
         "letter": "A",
-        "text": "Prioridade Spot + Regular com proporção e política de remoção"
+        "text": "Prioridade Spot + Regular com propor\u00e7\u00e3o e pol\u00edtica de remo\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Dois VMSS separados sem orquestração"
+        "text": "Dois VMSS separados sem orquestra\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -615,15 +619,15 @@
       },
       {
         "letter": "D",
-        "text": "Apenas prioridade Regular em todas as instâncias"
+        "text": "Apenas prioridade Regular em todas as inst\u00e2ncias"
       }
     ],
     "correct": ["A"],
-    "explanation": "VMSS aceita mix Spot/Regular com base protegida e excedente barato, removendo Spot primeiro. Só Regular perde o desconto; dois conjuntos duplicam gestão; availability set não escala nem mistura prioridades.",
+    "explanation": "VMSS aceita mix Spot/Regular com base protegida e excedente barato, removendo Spot primeiro. S\u00f3 Regular perde o desconto; dois conjuntos duplicam gest\u00e3o; availability set n\u00e3o escala nem mistura prioridades.",
     "source": "original",
     "tags": ["vmss", "spot", "prioridade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -652,12 +656,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Ultra Disk desacopla IOPS, throughput e tamanho para cargas extremas. Premium vincula IOPS ao tamanho; Standard e HDD não alcançam 50k IOPS.",
-    "source": "original",
+    "explanation": "Ultra Disk desacopla IOPS, throughput e tamanho para cargas extremas. Premium vincula IOPS ao tamanho; Standard e HDD n\u00e3o alcan\u00e7am 50k IOPS.",
+    "source": "mslearn",
     "tags": ["vms", "ultra-disk", "iops"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-037",
@@ -665,7 +670,7 @@
     "subdomain": "vms-maintenance",
     "type": "single",
     "difficulty": "medium",
-    "question": "A Microsoft avisou manutenção planejada no host e suas VMs críticas não podem reiniciar no horário comercial. Como controlar a janela dessa manutenção?",
+    "question": "A Microsoft avisou manuten\u00e7\u00e3o planejada no host e suas VMs cr\u00edticas n\u00e3o podem reiniciar no hor\u00e1rio comercial. Como controlar a janela dessa manuten\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -673,7 +678,7 @@
       },
       {
         "letter": "B",
-        "text": "Aumentar o número de update domains"
+        "text": "Aumentar o n\u00famero de update domains"
       },
       {
         "letter": "C",
@@ -681,15 +686,15 @@
       },
       {
         "letter": "D",
-        "text": "Configuração de manutenção (Scheduled Events + janela) no host/VM"
+        "text": "Configura\u00e7\u00e3o de manuten\u00e7\u00e3o (Scheduled Events + janela) no host/VM"
       }
     ],
     "correct": ["D"],
-    "explanation": "Maintenance control agenda a janela e Scheduled Events avisam antes para preparar. Desligar alertas cega a operação; trocar assinatura não muda o host; update domains protegem de manutenção, não a reagendam.",
+    "explanation": "Maintenance control agenda a janela e Scheduled Events avisam antes para preparar. Desligar alertas cega a opera\u00e7\u00e3o; trocar assinatura n\u00e3o muda o host; update domains protegem de manuten\u00e7\u00e3o, n\u00e3o a reagendam.",
     "source": "original",
     "tags": ["vms", "manutencao", "scheduled-events"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -698,31 +703,31 @@
     "subdomain": "vms-nested",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um laboratório precisa rodar Hyper-V dentro de VMs do Azure para treinar virtualização aninhada. Qual família de VM suporta virtualização aninhada?",
+    "question": "Um laborat\u00f3rio precisa rodar Hyper-V dentro de VMs do Azure para treinar virtualiza\u00e7\u00e3o aninhada. Qual fam\u00edlia de VM suporta virtualiza\u00e7\u00e3o aninhada?",
     "options": [
       {
         "letter": "A",
-        "text": "Séries Dv3/Ev3 (e superiores) com Hyper-V aninhado"
+        "text": "S\u00e9ries Dv3/Ev3 (e superiores) com Hyper-V aninhado"
       },
       {
         "letter": "B",
-        "text": "Série A legada"
+        "text": "S\u00e9rie A legada"
       },
       {
         "letter": "C",
-        "text": "Série B burstable básica"
+        "text": "S\u00e9rie B burstable b\u00e1sica"
       },
       {
         "letter": "D",
-        "text": "Qualquer série com disco Standard"
+        "text": "Qualquer s\u00e9rie com disco Standard"
       }
     ],
     "correct": ["A"],
-    "explanation": "Dv3/Ev3+ expõem extensões de virtualização ao convidado. B e A não suportam aninhamento; tipo de disco não habilita Hyper-V aninhado.",
+    "explanation": "Dv3/Ev3+ exp\u00f5em extens\u00f5es de virtualiza\u00e7\u00e3o ao convidado. B e A n\u00e3o suportam aninhamento; tipo de disco n\u00e3o habilita Hyper-V aninhado.",
     "source": "original",
     "tags": ["vms", "nested-virtualization", "lab"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -731,7 +736,7 @@
     "subdomain": "vms-encryption",
     "type": "single",
     "difficulty": "medium",
-    "question": "Discos de VM com dados sigilosos precisam de criptografia com chaves gerenciadas pelo cliente e rotacionadas no Key Vault. Qual solução criptografa discos de SO e dados com sua chave?",
+    "question": "Discos de VM com dados sigilosos precisam de criptografia com chaves gerenciadas pelo cliente e rotacionadas no Key Vault. Qual solu\u00e7\u00e3o criptografa discos de SO e dados com sua chave?",
     "options": [
       {
         "letter": "A",
@@ -739,11 +744,11 @@
       },
       {
         "letter": "B",
-        "text": "Criptografia padrão da plataforma com chaves Microsoft"
+        "text": "Criptografia padr\u00e3o da plataforma com chaves Microsoft"
       },
       {
         "letter": "C",
-        "text": "BitLocker manual sem integração ao Key Vault"
+        "text": "BitLocker manual sem integra\u00e7\u00e3o ao Key Vault"
       },
       {
         "letter": "D",
@@ -751,11 +756,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Disk Encryption usa BitLocker/DM-Crypt com chaves do seu Key Vault. Criptografia padrão usa chaves Microsoft; BitLocker manual não escala nem audita; TLS protege tráfego, não disco.",
+    "explanation": "Disk Encryption usa BitLocker/DM-Crypt com chaves do seu Key Vault. Criptografia padr\u00e3o usa chaves Microsoft; BitLocker manual n\u00e3o escala nem audita; TLS protege tr\u00e1fego, n\u00e3o disco.",
     "source": "original",
     "tags": ["vms", "disk-encryption", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -764,7 +769,7 @@
     "subdomain": "vmss-orchestration",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um VMSS com modo de orquestração flexível precisa espalhar instâncias por fault domains como availability set, mas com escala elástica. Qual modo combina os dois mundos?",
+    "question": "Um VMSS com modo de orquestra\u00e7\u00e3o flex\u00edvel precisa espalhar inst\u00e2ncias por fault domains como availability set, mas com escala el\u00e1stica. Qual modo combina os dois mundos?",
     "options": [
       {
         "letter": "A",
@@ -772,23 +777,23 @@
       },
       {
         "letter": "B",
-        "text": "Availability set estático"
+        "text": "Availability set est\u00e1tico"
       },
       {
         "letter": "C",
-        "text": "Orquestração Flexível (Flexible) com fault domain count"
+        "text": "Orquestra\u00e7\u00e3o Flex\u00edvel (Flexible) com fault domain count"
       },
       {
         "letter": "D",
-        "text": "Orquestração Uniforme sem perfis"
+        "text": "Orquestra\u00e7\u00e3o Uniforme sem perfis"
       }
     ],
     "correct": ["C"],
-    "explanation": "Flexible mistura FD spreading com instâncias heterogêneas e autoscale. Uniforme usa perfil único; availability set não escala; script avulso não é orquestrado.",
+    "explanation": "Flexible mistura FD spreading com inst\u00e2ncias heterog\u00eaneas e autoscale. Uniforme usa perfil \u00fanico; availability set n\u00e3o escala; script avulso n\u00e3o \u00e9 orquestrado.",
     "source": "original",
     "tags": ["vmss", "flexible", "orquestracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -797,7 +802,7 @@
     "subdomain": "vms-runcommand",
     "type": "single",
     "difficulty": "medium",
-    "question": "Você precisa executar um script PowerShell urgente em uma VM sem RDP, com saída registrada. Qual recurso executa o script via agente da VM?",
+    "question": "Voc\u00ea precisa executar um script PowerShell urgente em uma VM sem RDP, com sa\u00edda registrada. Qual recurso executa o script via agente da VM?",
     "options": [
       {
         "letter": "A",
@@ -805,11 +810,11 @@
       },
       {
         "letter": "B",
-        "text": "Redefinição de senha do administrador"
+        "text": "Redefini\u00e7\u00e3o de senha do administrador"
       },
       {
         "letter": "C",
-        "text": "Série de reinicializações da VM"
+        "text": "S\u00e9rie de reinicializa\u00e7\u00f5es da VM"
       },
       {
         "letter": "D",
@@ -817,12 +822,13 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Run Command executa scripts pelo agente com saída capturada, sem rede de gerência. Reiniciar não executa nada; anexar disco não roda; redefinir senha só troca credencial.",
-    "source": "original",
+    "explanation": "Run Command executa scripts pelo agente com sa\u00edda capturada, sem rede de ger\u00eancia. Reiniciar n\u00e3o executa nada; anexar disco n\u00e3o roda; redefinir senha s\u00f3 troca credencial.",
+    "source": "mslearn",
     "tags": ["vms", "run-command", "powershell"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-048",
@@ -830,7 +836,7 @@
     "subdomain": "vms-capacity",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um evento crítico exige garantia de capacidade para 20 VMs D-series mesmo em pico regional. O que reserva essa capacidade independentemente de cota?",
+    "question": "Um evento cr\u00edtico exige garantia de capacidade para 20 VMs D-series mesmo em pico regional. O que reserva essa capacidade independentemente de cota?",
     "options": [
       {
         "letter": "A",
@@ -842,7 +848,7 @@
       },
       {
         "letter": "C",
-        "text": "Reserva de preço (Reserved Instance)"
+        "text": "Reserva de pre\u00e7o (Reserved Instance)"
       },
       {
         "letter": "D",
@@ -850,11 +856,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Capacity Reservation segura o hardware físico; quota só eleva o limite lógico. Reserved Instance desconta preço sem garantir hardware; Spot pode ser despejado no pico.",
+    "explanation": "Capacity Reservation segura o hardware f\u00edsico; quota s\u00f3 eleva o limite l\u00f3gico. Reserved Instance desconta pre\u00e7o sem garantir hardware; Spot pode ser despejado no pico.",
     "source": "original",
     "tags": ["vms", "capacity-reservation", "cota"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -863,19 +869,19 @@
     "subdomain": "vms-multiplos-conceitos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Para proteger VMs de produção contra falha de rack e ainda permitir manutenção sem downtime, quais dois mecanismos devem ser combinados? Selecione duas.",
+    "question": "Para proteger VMs de produ\u00e7\u00e3o contra falha de rack e ainda permitir manuten\u00e7\u00e3o sem downtime, quais dois mecanismos devem ser combinados? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Update domains para manutenção sequencial"
+        "text": "Update domains para manuten\u00e7\u00e3o sequencial"
       },
       {
         "letter": "B",
-        "text": "VM única com disco Ultra"
+        "text": "VM \u00fanica com disco Ultra"
       },
       {
         "letter": "C",
-        "text": "Availability set com múltiplos fault domains"
+        "text": "Availability set com m\u00faltiplos fault domains"
       },
       {
         "letter": "D",
@@ -883,11 +889,11 @@
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Fault domains isolam falha de rack e update domains sequenciam manutenção sem derrubar tudo. VM única não protege; snapshot é recuperação, não disponibilidade.",
+    "explanation": "Fault domains isolam falha de rack e update domains sequenciam manuten\u00e7\u00e3o sem derrubar tudo. VM \u00fanica n\u00e3o protege; snapshot \u00e9 recupera\u00e7\u00e3o, n\u00e3o disponibilidade.",
     "source": "original",
     "tags": ["vms", "fault-domain", "update-domain"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -896,11 +902,11 @@
     "subdomain": "vmss-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Um VMSS precisa escalar por CPU e garantir distribuição entre zonas. Quais duas configurações atendem? Selecione duas.",
+    "question": "Um VMSS precisa escalar por CPU e garantir distribui\u00e7\u00e3o entre zonas. Quais duas configura\u00e7\u00f5es atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Imagem sem generalização"
+        "text": "Imagem sem generaliza\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -908,11 +914,11 @@
       },
       {
         "letter": "C",
-        "text": "Distribuição zonal (zone-balanced)"
+        "text": "Distribui\u00e7\u00e3o zonal (zone-balanced)"
       },
       {
         "letter": "D",
-        "text": "Prioridade Spot em 100% das instâncias"
+        "text": "Prioridade Spot em 100% das inst\u00e2ncias"
       }
     ],
     "correct": ["B", "C"],
@@ -920,7 +926,7 @@
     "source": "original",
     "tags": ["vmss", "autoscale", "zonas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -929,15 +935,15 @@
     "subdomain": "containers-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Para rodar microserviços com descoberta de serviço e revisões de versão sem gerenciar cluster, quais dois recursos do Container Apps são usados? Selecione duas.",
+    "question": "Para rodar microservi\u00e7os com descoberta de servi\u00e7o e revis\u00f5es de vers\u00e3o sem gerenciar cluster, quais dois recursos do Container Apps s\u00e3o usados? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Revisões com divisão de tráfego"
+        "text": "Revis\u00f5es com divis\u00e3o de tr\u00e1fego"
       },
       {
         "letter": "B",
-        "text": "DaemonSet manual por nó"
+        "text": "DaemonSet manual por n\u00f3"
       },
       {
         "letter": "C",
@@ -945,16 +951,17 @@
       },
       {
         "letter": "D",
-        "text": "Node pool próprio com kubelet"
+        "text": "Node pool pr\u00f3prio com kubelet"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Ambiente gerenciado abstrai o Kubernetes (com Dapr opcional) e revisões permitem canário por tráfego. Node pool e DaemonSet são gestão de AKS, contrária ao pedido.",
-    "source": "original",
+    "explanation": "Ambiente gerenciado abstrai o Kubernetes (com Dapr opcional) e revis\u00f5es permitem can\u00e1rio por tr\u00e1fego. Node pool e DaemonSet s\u00e3o gest\u00e3o de AKS, contr\u00e1ria ao pedido.",
+    "source": "mslearn",
     "tags": ["container-apps", "revisoes", "dapr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
   {
     "id": "az104-co-054",
@@ -962,19 +969,19 @@
     "subdomain": "vms-backup-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "O backup de VMs precisa de retenção semanal por 1 ano e proteção contra exclusão acidental do cofre. Quais duas proteções devem ser configuradas? Selecione duas.",
+    "question": "O backup de VMs precisa de reten\u00e7\u00e3o semanal por 1 ano e prote\u00e7\u00e3o contra exclus\u00e3o acidental do cofre. Quais duas prote\u00e7\u00f5es devem ser configuradas? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Desabilitar o backup após a primeira cópia"
+        "text": "Desabilitar o backup ap\u00f3s a primeira c\u00f3pia"
       },
       {
         "letter": "B",
-        "text": "Exclusão reversível (soft delete) no cofre"
+        "text": "Exclus\u00e3o revers\u00edvel (soft delete) no cofre"
       },
       {
         "letter": "C",
-        "text": "Política de backup com retenção semanal de 52 semanas"
+        "text": "Pol\u00edtica de backup com reten\u00e7\u00e3o semanal de 52 semanas"
       },
       {
         "letter": "D",
@@ -982,11 +989,11 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Política com retenção longa guarda o histórico e soft delete recupera itens excluídos por 14 dias. Snapshot manual não agenda; desabilitar backup elimina a proteção.",
+    "explanation": "Pol\u00edtica com reten\u00e7\u00e3o longa guarda o hist\u00f3rico e soft delete recupera itens exclu\u00eddos por 14 dias. Snapshot manual n\u00e3o agenda; desabilitar backup elimina a prote\u00e7\u00e3o.",
     "source": "original",
     "tags": ["vms", "backup", "retencao", "soft-delete"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -995,11 +1002,11 @@
     "subdomain": "vms-identidade-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Duas VMs executam o mesmo aplicativo, mas cada uma precisa de permissões diferentes no Key Vault sem segredos no código. Quais duas identidades atendem? Selecione duas.",
+    "question": "Duas VMs executam o mesmo aplicativo, mas cada uma precisa de permiss\u00f5es diferentes no Key Vault sem segredos no c\u00f3digo. Quais duas identidades atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Identidade gerenciada atribuída pelo sistema em cada VM"
+        "text": "Identidade gerenciada atribu\u00edda pelo sistema em cada VM"
       },
       {
         "letter": "B",
@@ -1011,15 +1018,15 @@
       },
       {
         "letter": "D",
-        "text": "Mesma entidade de serviço com segredo único"
+        "text": "Mesma entidade de servi\u00e7o com segredo \u00fanico"
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Identidade por VM separa o principal de segurança e o RBAC diferencia as permissões. Entidade única com segredo mistura acessos e exige guardar segredo; chave compartilhada idem.",
+    "explanation": "Identidade por VM separa o principal de seguran\u00e7a e o RBAC diferencia as permiss\u00f5es. Entidade \u00fanica com segredo mistura acessos e exige guardar segredo; chave compartilhada idem.",
     "source": "original",
     "tags": ["vms", "managed-identity", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1028,31 +1035,31 @@
     "subdomain": "vmss-stateful",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um cluster Big Data no VMSS precisa preservar discos de dados ao remover instâncias durante scale-in. Qual proteção de escala garante a persistência dos discos?",
+    "question": "Um cluster Big Data no VMSS precisa preservar discos de dados ao remover inst\u00e2ncias durante scale-in. Qual prote\u00e7\u00e3o de escala garante a persist\u00eancia dos discos?",
     "options": [
       {
         "letter": "A",
-        "text": "Discos efêmeros locais (temp)"
+        "text": "Discos ef\u00eameros locais (temp)"
       },
       {
         "letter": "B",
-        "text": "Proteção de instância (scale-in protection) nas instâncias com dados"
+        "text": "Prote\u00e7\u00e3o de inst\u00e2ncia (scale-in protection) nas inst\u00e2ncias com dados"
       },
       {
         "letter": "C",
-        "text": "Deleção do VMSS inteiro no scale-in"
+        "text": "Dele\u00e7\u00e3o do VMSS inteiro no scale-in"
       },
       {
         "letter": "D",
-        "text": "Política de remoção padrão sem proteção"
+        "text": "Pol\u00edtica de remo\u00e7\u00e3o padr\u00e3o sem prote\u00e7\u00e3o"
       }
     ],
     "correct": ["B"],
-    "explanation": "Scale-in protection exclui instâncias marcadas da remoção, preservando discos. Remoção padrão apaga; deletar o conjunto destrói tudo; disco temp é efêmero por definição.",
+    "explanation": "Scale-in protection exclui inst\u00e2ncias marcadas da remo\u00e7\u00e3o, preservando discos. Remo\u00e7\u00e3o padr\u00e3o apaga; deletar o conjunto destr\u00f3i tudo; disco temp \u00e9 ef\u00eamero por defini\u00e7\u00e3o.",
     "source": "original",
     "tags": ["vmss", "scale-in-protection", "stateful"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1061,7 +1068,7 @@
     "subdomain": "vms-ephemeral-os",
     "type": "single",
     "difficulty": "hard",
-    "question": "VMs de build descartáveis precisam do boot mais rápido possível e nunca persistem estado do SO. Qual tipo de disco de SO elimina a cópia remota no provisionamento?",
+    "question": "VMs de build descart\u00e1veis precisam do boot mais r\u00e1pido poss\u00edvel e nunca persistem estado do SO. Qual tipo de disco de SO elimina a c\u00f3pia remota no provisionamento?",
     "options": [
       {
         "letter": "A",
@@ -1073,7 +1080,7 @@
       },
       {
         "letter": "C",
-        "text": "Disco de SO efêmero (ephemeral) no armazenamento local"
+        "text": "Disco de SO ef\u00eamero (ephemeral) no armazenamento local"
       },
       {
         "letter": "D",
@@ -1081,11 +1088,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "SO efêmero usa o disco local do host: provisiona rápido e descarta no deallocate. Discos remotos copiam pela rede; Ultra é para persistência extrema; snapshot por build é lento.",
+    "explanation": "SO ef\u00eamero usa o disco local do host: provisiona r\u00e1pido e descarta no deallocate. Discos remotos copiam pela rede; Ultra \u00e9 para persist\u00eancia extrema; snapshot por build \u00e9 lento.",
     "source": "original",
     "tags": ["vms", "ephemeral-os", "build"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1094,7 +1101,7 @@
     "subdomain": "vm-host-dedicado",
     "type": "single",
     "difficulty": "hard",
-    "question": "Licenças Windows Server com Software Assurance precisam ser usadas no Azure e há exigência de isolamento físico do host por compliance. Qual combinação atende licenciamento e isolamento?",
+    "question": "Licen\u00e7as Windows Server com Software Assurance precisam ser usadas no Azure e h\u00e1 exig\u00eancia de isolamento f\u00edsico do host por compliance. Qual combina\u00e7\u00e3o atende licenciamento e isolamento?",
     "options": [
       {
         "letter": "A",
@@ -1102,7 +1109,7 @@
       },
       {
         "letter": "B",
-        "text": "VM multitenant com licença incluída"
+        "text": "VM multitenant com licen\u00e7a inclu\u00edda"
       },
       {
         "letter": "C",
@@ -1114,11 +1121,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Host Dedicado isola fisicamente e Hybrid Benefit aproveita licenças com SA. Multitenant não isola; Spot não garante nem aceita bem BYOL; reserva de capacidade sem HUB não reduz licença.",
+    "explanation": "Host Dedicado isola fisicamente e Hybrid Benefit aproveita licen\u00e7as com SA. Multitenant n\u00e3o isola; Spot n\u00e3o garante nem aceita bem BYOL; reserva de capacidade sem HUB n\u00e3o reduz licen\u00e7a.",
     "source": "original",
     "tags": ["host-dedicado", "hybrid-benefit", "licenciamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1127,11 +1134,11 @@
     "subdomain": "vm-image-builder",
     "type": "single",
     "difficulty": "hard",
-    "question": "Imagens douradas precisam de pipeline auditável: build, teste, distribuição e versionamento automáticos a cada commit. Qual serviço orquestra esse pipeline de imagens?",
+    "question": "Imagens douradas precisam de pipeline audit\u00e1vel: build, teste, distribui\u00e7\u00e3o e versionamento autom\u00e1ticos a cada commit. Qual servi\u00e7o orquestra esse pipeline de imagens?",
     "options": [
       {
         "letter": "A",
-        "text": "Snapshot agendado sem customização"
+        "text": "Snapshot agendado sem customiza\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -1143,15 +1150,15 @@
       },
       {
         "letter": "D",
-        "text": "Backup com retenção longa"
+        "text": "Backup com reten\u00e7\u00e3o longa"
       }
     ],
     "correct": ["C"],
-    "explanation": "Image Builder executa pipeline declarativo (customize, validate, distribute) integrado à Galeria. Sysprep manual não audita; snapshot não customiza; backup não gera imagem nova.",
+    "explanation": "Image Builder executa pipeline declarativo (customize, validate, distribute) integrado \u00e0 Galeria. Sysprep manual n\u00e3o audita; snapshot n\u00e3o customiza; backup n\u00e3o gera imagem nova.",
     "source": "original",
     "tags": ["image-builder", "golden-image", "galeria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1160,31 +1167,31 @@
     "subdomain": "vms-confiabilidade-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Uma aplicação stateful em VM única precisa de RPO baixo e recuperação rápida de falha de zona. Quais dois mecanismos combinam backup e replicação? Selecione duas.",
+    "question": "Uma aplica\u00e7\u00e3o stateful em VM \u00fanica precisa de RPO baixo e recupera\u00e7\u00e3o r\u00e1pida de falha de zona. Quais dois mecanismos combinam backup e replica\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Snapshot único sem agendamento"
+        "text": "Snapshot \u00fanico sem agendamento"
       },
       {
         "letter": "B",
-        "text": "Desalocação diária da VM"
+        "text": "Desaloca\u00e7\u00e3o di\u00e1ria da VM"
       },
       {
         "letter": "C",
-        "text": "Site Recovery com replicação entre zonas"
+        "text": "Site Recovery com replica\u00e7\u00e3o entre zonas"
       },
       {
         "letter": "D",
-        "text": "Backup do Azure com política diária"
+        "text": "Backup do Azure com pol\u00edtica di\u00e1ria"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Backup garante pontos de restauração e Site Recovery replica para failover rápido entre zonas. Snapshot avulso não agenda; desalocar piora disponibilidade.",
+    "explanation": "Backup garante pontos de restaura\u00e7\u00e3o e Site Recovery replica para failover r\u00e1pido entre zonas. Snapshot avulso n\u00e3o agenda; desalocar piora disponibilidade.",
     "source": "original",
     "tags": ["vms", "backup", "site-recovery"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1193,11 +1200,11 @@
     "subdomain": "aks-vs-opcoes-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "A equipe avalia AKS contra alternativas para 50 microserviços com tráfego variável. Quais duas vantagens do AKS justificam o cluster gerenciado? Selecione duas.",
+    "question": "A equipe avalia AKS contra alternativas para 50 microservi\u00e7os com tr\u00e1fego vari\u00e1vel. Quais duas vantagens do AKS justificam o cluster gerenciado? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Orquestração completa com HPA e rolling updates"
+        "text": "Orquestra\u00e7\u00e3o completa com HPA e rolling updates"
       },
       {
         "letter": "B",
@@ -1205,15 +1212,15 @@
       },
       {
         "letter": "C",
-        "text": "Custo zero de plano de controle e nós"
+        "text": "Custo zero de plano de controle e n\u00f3s"
       },
       {
         "letter": "D",
-        "text": "Integração com Azure Policy e Microsoft Defender"
+        "text": "Integra\u00e7\u00e3o com Azure Policy e Microsoft Defender"
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "AKS entrega autoscaling, deploys graduais e governança integrada. Manifestos continuam necessários; plano de controle é grátis mas nós custam.",
+    "explanation": "AKS entrega autoscaling, deploys graduais e governan\u00e7a integrada. Manifestos continuam necess\u00e1rios; plano de controle \u00e9 gr\u00e1tis mas n\u00f3s custam.",
     "source": "original",
     "tags": ["aks", "orquestracao", "comparativo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1226,7 +1233,7 @@
     "subdomain": "vm-seguranca-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "VMs com dados regulados precisam de boot íntegro comprovado e criptografia de disco com chave própria. Quais dois recursos compõem essa base? Selecione duas.",
+    "question": "VMs com dados regulados precisam de boot \u00edntegro comprovado e criptografia de disco com chave pr\u00f3pria. Quais dois recursos comp\u00f5em essa base? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1234,11 +1241,11 @@
       },
       {
         "letter": "B",
-        "text": "Inicialização confiável (Trusted Launch) com vTPM e boot seguro"
+        "text": "Inicializa\u00e7\u00e3o confi\u00e1vel (Trusted Launch) com vTPM e boot seguro"
       },
       {
         "letter": "C",
-        "text": "IP público com NSG aberta"
+        "text": "IP p\u00fablico com NSG aberta"
       },
       {
         "letter": "D",
@@ -1250,7 +1257,7 @@
     "source": "original",
     "tags": ["vms", "trusted-launch", "encryption"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1259,15 +1266,15 @@
     "subdomain": "container-registry-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Imagens de produção precisam de varredura de vulnerabilidades e assinatura confiável antes do deploy. Quais dois recursos do ACR entregam isso? Selecione duas.",
+    "question": "Imagens de produ\u00e7\u00e3o precisam de varredura de vulnerabilidades e assinatura confi\u00e1vel antes do deploy. Quais dois recursos do ACR entregam isso? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Tag latest mutável sem retenção"
+        "text": "Tag latest mut\u00e1vel sem reten\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Repositório público sem autenticação"
+        "text": "Reposit\u00f3rio p\u00fablico sem autentica\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -1279,12 +1286,13 @@
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Defender varre CVEs e content trust garante procedência assinada. Repo público expõe; latest mutável sem política impede rastreabilidade.",
-    "source": "original",
+    "explanation": "Defender varre CVEs e content trust garante proced\u00eancia assinada. Repo p\u00fablico exp\u00f5e; latest mut\u00e1vel sem pol\u00edtica impede rastreabilidade.",
+    "source": "mslearn",
     "tags": ["acr", "defender", "content-trust"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
   {
     "id": "az104-co-071",
@@ -1292,31 +1300,31 @@
     "subdomain": "vmss-reparo-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Instâncias do VMSS falham no health check e precisam ser substituídas automaticamente com notificação. Quais dois mecanismos compõem a autorrecuperação? Selecione duas.",
+    "question": "Inst\u00e2ncias do VMSS falham no health check e precisam ser substitu\u00eddas automaticamente com notifica\u00e7\u00e3o. Quais dois mecanismos comp\u00f5em a autorrecupera\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Desabilitação do probe de saúde"
+        "text": "Desabilita\u00e7\u00e3o do probe de sa\u00fade"
       },
       {
         "letter": "B",
-        "text": "Reparo automático (automatic repairs) com probe de integridade"
+        "text": "Reparo autom\u00e1tico (automatic repairs) com probe de integridade"
       },
       {
         "letter": "C",
-        "text": "Grupo de ação do Monitor para alerta"
+        "text": "Grupo de a\u00e7\u00e3o do Monitor para alerta"
       },
       {
         "letter": "D",
-        "text": "Deleção manual semanal das instâncias"
+        "text": "Dele\u00e7\u00e3o manual semanal das inst\u00e2ncias"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Automatic repairs recria instância doente via probe e o action group notifica. Deleção manual não escala; sem probe não há detecção.",
+    "explanation": "Automatic repairs recria inst\u00e2ncia doente via probe e o action group notifica. Dele\u00e7\u00e3o manual n\u00e3o escala; sem probe n\u00e3o h\u00e1 detec\u00e7\u00e3o.",
     "source": "original",
     "tags": ["vmss", "automatic-repairs", "health-probe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1325,11 +1333,11 @@
     "subdomain": "vm-monitor-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Para detectar invasão e performance degradada nas VMs com resposta automatizada, quais dois recursos combinam detecção e ação? Selecione duas.",
+    "question": "Para detectar invas\u00e3o e performance degradada nas VMs com resposta automatizada, quais dois recursos combinam detec\u00e7\u00e3o e a\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Desabilitação do agente de monitoramento"
+        "text": "Desabilita\u00e7\u00e3o do agente de monitoramento"
       },
       {
         "letter": "B",
@@ -1341,15 +1349,15 @@
       },
       {
         "letter": "D",
-        "text": "Regra de alerta com runbook de correção"
+        "text": "Regra de alerta com runbook de corre\u00e7\u00e3o"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Defender detecta ameaças e a regra com runbook reage sozinha (isolar, reiniciar). Log mensal é lento; sem agente não há telemetria.",
+    "explanation": "Defender detecta amea\u00e7as e a regra com runbook reage sozinha (isolar, reiniciar). Log mensal \u00e9 lento; sem agente n\u00e3o h\u00e1 telemetria.",
     "source": "original",
     "tags": ["vms", "defender", "alertas", "runbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1358,23 +1366,23 @@
     "subdomain": "vms-conceito-final",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que desalocar uma VM pelo portal interrompe a cobrança de computação mas mantém a cobrança dos discos gerenciados anexados. Essa afirmação sobre o modelo de cobrança está correta?",
+    "question": "Um colega afirma que desalocar uma VM pelo portal interrompe a cobran\u00e7a de computa\u00e7\u00e3o mas mant\u00e9m a cobran\u00e7a dos discos gerenciados anexados. Essa afirma\u00e7\u00e3o sobre o modelo de cobran\u00e7a est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, desalocar zera todos os custos incluindo discos"
+        "text": "N\u00e3o, desalocar zera todos os custos incluindo discos"
       },
       {
         "letter": "B",
-        "text": "Sim, computação zera e discos continuam cobrados"
+        "text": "Sim, computa\u00e7\u00e3o zera e discos continuam cobrados"
       }
     ],
     "correct": ["B"],
-    "explanation": "Desalocar libera o hardware (fim do custo de computação), mas discos, IPs e outros recursos alocados continuam cobrados. Achar que tudo zera é erro clássico de custo.",
+    "explanation": "Desalocar libera o hardware (fim do custo de computa\u00e7\u00e3o), mas discos, IPs e outros recursos alocados continuam cobrados. Achar que tudo zera \u00e9 erro cl\u00e1ssico de custo.",
     "source": "original",
     "tags": ["vms", "custo", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1383,7 +1391,7 @@
     "subdomain": "vms-hibernacao",
     "type": "single",
     "difficulty": "medium",
-    "question": "VMs de dev paradas à noite perdem o estado da RAM ao desalocar, atrasando a retomada. Qual recurso preserva RAM/disco ao desalocar?",
+    "question": "VMs de dev paradas \u00e0 noite perdem o estado da RAM ao desalocar, atrasando a retomada. Qual recurso preserva RAM/disco ao desalocar?",
     "options": [
       {
         "letter": "A",
@@ -1391,11 +1399,11 @@
       },
       {
         "letter": "B",
-        "text": "Hibernação da VM com disco do SO gerenciado"
+        "text": "Hiberna\u00e7\u00e3o da VM com disco do SO gerenciado"
       },
       {
         "letter": "C",
-        "text": "Desalocação simples sem hibernação"
+        "text": "Desaloca\u00e7\u00e3o simples sem hiberna\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -1403,11 +1411,11 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Hibernação salva RAM no disco e retoma rápido sem custo de computação. Desalocar simples perde RAM; snapshot manual atrasa; ligada desperdiça.",
+    "explanation": "Hiberna\u00e7\u00e3o salva RAM no disco e retoma r\u00e1pido sem custo de computa\u00e7\u00e3o. Desalocar simples perde RAM; snapshot manual atrasa; ligada desperdi\u00e7a.",
     "source": "original",
     "tags": ["vms", "hibernacao", "dev"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1416,11 +1424,11 @@
     "subdomain": "vms-patch-orquestracao",
     "type": "single",
     "difficulty": "medium",
-    "question": "VMs críticas precisam de patch com pré e pós-scripts de quiesce do banco. Qual orquestração executa scripts ao redor da atualização?",
+    "question": "VMs cr\u00edticas precisam de patch com pr\u00e9 e p\u00f3s-scripts de quiesce do banco. Qual orquestra\u00e7\u00e3o executa scripts ao redor da atualiza\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Orquestração de patch com pré/pós-scripts do Update Manager"
+        "text": "Orquestra\u00e7\u00e3o de patch com pr\u00e9/p\u00f3s-scripts do Update Manager"
       },
       {
         "letter": "B",
@@ -1428,19 +1436,19 @@
       },
       {
         "letter": "C",
-        "text": "Windows Update automático sem script"
+        "text": "Windows Update autom\u00e1tico sem script"
       },
       {
         "letter": "D",
-        "text": "Reinicialização manual"
+        "text": "Reinicializa\u00e7\u00e3o manual"
       }
     ],
     "correct": ["A"],
-    "explanation": "Orquestração agenda com hooks de quiesce/validação. Automático puro não quiesce banco; manual não escala; backup não aplica patch.",
+    "explanation": "Orquestra\u00e7\u00e3o agenda com hooks de quiesce/valida\u00e7\u00e3o. Autom\u00e1tico puro n\u00e3o quiesce banco; manual n\u00e3o escala; backup n\u00e3o aplica patch.",
     "source": "original",
     "tags": ["update-manager", "orquestracao", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1449,31 +1457,31 @@
     "subdomain": "vmss-terminate-notification",
     "type": "single",
     "difficulty": "medium",
-    "question": "Instâncias Spot do VMSS despejadas perdem trabalho em andamento sem aviso. Como notificar a aplicação antes do despejo para drenar?",
+    "question": "Inst\u00e2ncias Spot do VMSS despejadas perdem trabalho em andamento sem aviso. Como notificar a aplica\u00e7\u00e3o antes do despejo para drenar?",
     "options": [
       {
         "letter": "A",
-        "text": "Reinicialização periódica"
+        "text": "Reinicializa\u00e7\u00e3o peri\u00f3dica"
       },
       {
         "letter": "B",
-        "text": "Probe de saúde apenas"
+        "text": "Probe de sa\u00fade apenas"
       },
       {
         "letter": "C",
-        "text": "Notificação de término agendada (terminate notification)"
+        "text": "Notifica\u00e7\u00e3o de t\u00e9rmino agendada (terminate notification)"
       },
       {
         "letter": "D",
-        "text": "Log após o despejo"
+        "text": "Log ap\u00f3s o despejo"
       }
     ],
     "correct": ["C"],
-    "explanation": "Scheduled events avisam despejo/exclusão com antecedência para drenar. Probe detecta doença, não despejo; log posterior não previne; restart não avisa.",
+    "explanation": "Scheduled events avisam despejo/exclus\u00e3o com anteced\u00eancia para drenar. Probe detecta doen\u00e7a, n\u00e3o despejo; log posterior n\u00e3o previne; restart n\u00e3o avisa.",
     "source": "original",
     "tags": ["vmss", "spot", "terminate-notification", "drenagem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1482,7 +1490,7 @@
     "subdomain": "vm-redeploy",
     "type": "single",
     "difficulty": "medium",
-    "question": "VM com falha de host subjacente precisa migrar de nó mantendo discos e IPs. Qual ação move a VM para hardware saudável?",
+    "question": "VM com falha de host subjacente precisa migrar de n\u00f3 mantendo discos e IPs. Qual a\u00e7\u00e3o move a VM para hardware saud\u00e1vel?",
     "options": [
       {
         "letter": "A",
@@ -1502,11 +1510,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Redeploy move para nó saudável preservando recursos. Restart fica no host ruim; recriar perde; aguardar prolonga outage.",
+    "explanation": "Redeploy move para n\u00f3 saud\u00e1vel preservando recursos. Restart fica no host ruim; recriar perde; aguardar prolonga outage.",
     "source": "original",
     "tags": ["vms", "redeploy", "host", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1515,7 +1523,7 @@
     "subdomain": "serial-console",
     "type": "single",
     "difficulty": "medium",
-    "question": "VM Linux sem rede acessível precisa de terminal de emergência via portal. Qual console serial dá shell sem SSH?",
+    "question": "VM Linux sem rede acess\u00edvel precisa de terminal de emerg\u00eancia via portal. Qual console serial d\u00e1 shell sem SSH?",
     "options": [
       {
         "letter": "A",
@@ -1527,7 +1535,7 @@
       },
       {
         "letter": "C",
-        "text": "Reinstalação do SO"
+        "text": "Reinstala\u00e7\u00e3o do SO"
       },
       {
         "letter": "D",
@@ -1535,7 +1543,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Serial console acessa o SAC/terminal da VM sem rede via portal. RDP é só Windows; Bastion exige conectividade; reinstalar apaga dados.",
+    "explanation": "Serial console acessa o SAC/terminal da VM sem rede via portal. RDP \u00e9 s\u00f3 Windows; Bastion exige conectividade; reinstalar apaga dados.",
     "source": "original",
     "tags": ["serial-console", "emergencia", "sac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1548,7 +1556,7 @@
     "subdomain": "vm-insights-onboard",
     "type": "single",
     "difficulty": "hard",
-    "question": "Duzentas VMs precisam de VM Insights com AMA e DCR sem tocar uma a uma. Como habilitar em escala com política?",
+    "question": "Duzentas VMs precisam de VM Insights com AMA e DCR sem tocar uma a uma. Como habilitar em escala com pol\u00edtica?",
     "options": [
       {
         "letter": "A",
@@ -1556,11 +1564,11 @@
       },
       {
         "letter": "B",
-        "text": "Aguardar onboarding automático"
+        "text": "Aguardar onboarding autom\u00e1tico"
       },
       {
         "letter": "C",
-        "text": "Extensão manual por portal"
+        "text": "Extens\u00e3o manual por portal"
       },
       {
         "letter": "D",
@@ -1568,11 +1576,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "DINE instala agente e associa DCR em novas e existentes. Manual não escala; RDP é inviável; sem policy nada acontece.",
+    "explanation": "DINE instala agente e associa DCR em novas e existentes. Manual n\u00e3o escala; RDP \u00e9 invi\u00e1vel; sem policy nada acontece.",
     "source": "original",
     "tags": ["vm-insights", "ama", "dcr", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1581,7 +1589,7 @@
     "subdomain": "automanage-vm",
     "type": "single",
     "difficulty": "hard",
-    "question": "VMs novas devem nascer com backup, Defender e monitoramento aplicados e desviados automaticamente. Qual serviço aplica o baseline?",
+    "question": "VMs novas devem nascer com backup, Defender e monitoramento aplicados e desviados automaticamente. Qual servi\u00e7o aplica o baseline?",
     "options": [
       {
         "letter": "A",
@@ -1589,7 +1597,7 @@
       },
       {
         "letter": "B",
-        "text": "Automanage com perfil de produção"
+        "text": "Automanage com perfil de produ\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -1597,15 +1605,15 @@
       },
       {
         "letter": "D",
-        "text": "Policy só de auditoria"
+        "text": "Policy s\u00f3 de auditoria"
       }
     ],
     "correct": ["B"],
-    "explanation": "Automanage aplica e corrige baseline continuamente. Tags não aplicam; trimestral atrasa; só auditar não corrige.",
+    "explanation": "Automanage aplica e corrige baseline continuamente. Tags n\u00e3o aplicam; trimestral atrasa; s\u00f3 auditar n\u00e3o corrige.",
     "source": "original",
     "tags": ["automanage", "baseline", "vm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1614,7 +1622,7 @@
     "subdomain": "site-recovery-vm",
     "type": "single",
     "difficulty": "hard",
-    "question": "VMs Tier 1 precisam de RPO de 30s e failover testado sem impacto. Qual replicação com teste de DR atende?",
+    "question": "VMs Tier 1 precisam de RPO de 30s e failover testado sem impacto. Qual replica\u00e7\u00e3o com teste de DR atende?",
     "options": [
       {
         "letter": "A",
@@ -1630,15 +1638,15 @@
       },
       {
         "letter": "D",
-        "text": "Backup diário como DR"
+        "text": "Backup di\u00e1rio como DR"
       }
     ],
     "correct": ["A"],
-    "explanation": "ASR replica contínuo com RPO de segundos e testa sem afetar produção. Backup tem RPO de horas; snapshot é pontual; fria exige rebuild.",
+    "explanation": "ASR replica cont\u00ednuo com RPO de segundos e testa sem afetar produ\u00e7\u00e3o. Backup tem RPO de horas; snapshot \u00e9 pontual; fria exige rebuild.",
     "source": "original",
     "tags": ["site-recovery", "dr", "rpo", "failover"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1647,31 +1655,31 @@
     "subdomain": "vmss-app-health-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Rolling upgrade seguro exige sinal de saúde da aplicação e pausa em falha. Quais dois elementos compõem? Selecione duas.",
+    "question": "Rolling upgrade seguro exige sinal de sa\u00fade da aplica\u00e7\u00e3o e pausa em falha. Quais dois elementos comp\u00f5em? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Sem probe de saúde"
+        "text": "Sem probe de sa\u00fade"
       },
       {
         "letter": "B",
-        "text": "Pausa automática em falha de lote"
+        "text": "Pausa autom\u00e1tica em falha de lote"
       },
       {
         "letter": "C",
-        "text": "Extensão de integridade (app health) reportando"
+        "text": "Extens\u00e3o de integridade (app health) reportando"
       },
       {
         "letter": "D",
-        "text": "Upgrade simultâneo total"
+        "text": "Upgrade simult\u00e2neo total"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Health extension sinaliza e o rolling pausa/rollback em lote doente. Simultâneo derruba; sem probe não detecta.",
+    "explanation": "Health extension sinaliza e o rolling pausa/rollback em lote doente. Simult\u00e2neo derruba; sem probe n\u00e3o detecta.",
     "source": "original",
     "tags": ["vmss", "rolling", "app-health"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1680,11 +1688,11 @@
     "subdomain": "confidential-vm-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Cargas reguladas exigem criptografia de memória e atestado de boot. Quais dois pilares das VMs confidenciais atendem? Selecione duas.",
+    "question": "Cargas reguladas exigem criptografia de mem\u00f3ria e atestado de boot. Quais dois pilares das VMs confidenciais atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Criptografia de memória (SEV-SNP/TDX)"
+        "text": "Criptografia de mem\u00f3ria (SEV-SNP/TDX)"
       },
       {
         "letter": "B",
@@ -1700,12 +1708,13 @@
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "SEV-SNP/TDX cifra RAM em uso e o atestado prova integridade. Sem cripto vaza; sem isolamento não há TEE.",
-    "source": "original",
+    "explanation": "SEV-SNP/TDX cifra RAM em uso e o atestado prova integridade. Sem cripto vaza; sem isolamento n\u00e3o h\u00e1 TEE.",
+    "source": "mslearn",
     "tags": ["vm-confidencial", "sev-snp", "tdx", "attestation"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-096",
@@ -1713,15 +1722,15 @@
     "subdomain": "gpu-partition-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Inferência leve precisa de fração de GPU com custo proporcional. Quais duas opções fracionam GPU no Azure? Selecione duas.",
+    "question": "Infer\u00eancia leve precisa de fra\u00e7\u00e3o de GPU com custo proporcional. Quais duas op\u00e7\u00f5es fracionam GPU no Azure? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "GPU física dedicada por job leve"
+        "text": "GPU f\u00edsica dedicada por job leve"
       },
       {
         "letter": "B",
-        "text": "Particionamento MIG em GPUs compatíveis"
+        "text": "Particionamento MIG em GPUs compat\u00edveis"
       },
       {
         "letter": "C",
@@ -1733,7 +1742,7 @@
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "MIG fatia a GPU e NVads virtualiza frações para VDI/inferência. Dedicada desperdiça; CPU não acelera.",
+    "explanation": "MIG fatia a GPU e NVads virtualiza fra\u00e7\u00f5es para VDI/infer\u00eancia. Dedicada desperdi\u00e7a; CPU n\u00e3o acelera.",
     "source": "original",
     "tags": ["gpu", "mig", "nvads", "fracionada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1750,7 +1759,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Nomes/prefixos imprevisíveis durante excesso"
+        "text": "Nomes/prefixos imprevis\u00edveis durante excesso"
       },
       {
         "letter": "B",
@@ -1758,15 +1767,15 @@
       },
       {
         "letter": "C",
-        "text": "Escala instantânea garantida"
+        "text": "Escala instant\u00e2nea garantida"
       },
       {
         "letter": "D",
-        "text": "Subida mais rápida com instâncias extras temporárias"
+        "text": "Subida mais r\u00e1pida com inst\u00e2ncias extras tempor\u00e1rias"
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Overprovision acelera com sobra temporária, mas numeração varia. Não garante instantâneo; extras cobram se persistirem.",
+    "explanation": "Overprovision acelera com sobra tempor\u00e1ria, mas numera\u00e7\u00e3o varia. N\u00e3o garante instant\u00e2neo; extras cobram se persistirem.",
     "source": "original",
     "tags": ["vmss", "overprovision", "escala"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1779,23 +1788,23 @@
     "subdomain": "proximity-zone-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que grupo de posicionamento por proximidade pode abranger VMs em zonas de disponibilidade distintas. Essa afirmação está correta?",
+    "question": "Um colega afirma que grupo de posicionamento por proximidade pode abranger VMs em zonas de disponibilidade distintas. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, PPG limita-se a um datacenter/zona"
+        "text": "N\u00e3o, PPG limita-se a um datacenter/zona"
       },
       {
         "letter": "B",
-        "text": "Sim, PPG é multizona"
+        "text": "Sim, PPG \u00e9 multizona"
       }
     ],
     "correct": ["A"],
-    "explanation": "PPG co-localiza no mesmo site; multizona contraria o propósito de latência mínima. Assumir abrangência quebra o desenho.",
+    "explanation": "PPG co-localiza no mesmo site; multizona contraria o prop\u00f3sito de lat\u00eancia m\u00ednima. Assumir abrang\u00eancia quebra o desenho.",
     "source": "original",
     "tags": ["ppg", "zonas", "proximidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1804,19 +1813,19 @@
     "subdomain": "ephemeral-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que disco de SO efêmero sobrevive a desalocação e mantém dados entre paradas. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que disco de SO ef\u00eamero sobrevive a desaloca\u00e7\u00e3o e mant\u00e9m dados entre paradas. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, deallocate apaga o disco local"
+        "text": "N\u00e3o, deallocate apaga o disco local"
       },
       {
         "letter": "B",
-        "text": "Sim, efêmero persiste como gerenciado"
+        "text": "Sim, ef\u00eamero persiste como gerenciado"
       }
     ],
     "correct": ["A"],
-    "explanation": "Disco efêmero vive no armazenamento local do host; desalocar ou destruir a VM apaga tudo. Tratar como persistente causa perda irreversível de dados.",
+    "explanation": "Disco ef\u00eamero vive no armazenamento local do host; desalocar ou destruir a VM apaga tudo. Tratar como persistente causa perda irrevers\u00edvel de dados.",
     "source": "original",
     "tags": ["ephemeral-os", "persistencia", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1829,7 +1838,7 @@
     "subdomain": "vms-generate-ssh",
     "type": "single",
     "difficulty": "medium",
-    "question": "VMs Linux precisam de login SSH sem senha com chaves gerenciadas. Como gerar e injetar o par de chaves na criação?",
+    "question": "VMs Linux precisam de login SSH sem senha com chaves gerenciadas. Como gerar e injetar o par de chaves na cria\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -1837,7 +1846,7 @@
       },
       {
         "letter": "B",
-        "text": "Gerar par SSH no portal/CLI e injetar a pública na VM"
+        "text": "Gerar par SSH no portal/CLI e injetar a p\u00fablica na VM"
       },
       {
         "letter": "C",
@@ -1849,12 +1858,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Par SSH (pública na VM, privada com o admin) elimina senha. Senha única vaza; root sem chave expõe; Telnet transmite em claro.",
-    "source": "original",
+    "explanation": "Par SSH (p\u00fablica na VM, privada com o admin) elimina senha. Senha \u00fanica vaza; root sem chave exp\u00f5e; Telnet transmite em claro.",
+    "source": "mslearn",
     "tags": ["vms", "ssh", "chaves", "linux"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-102",
@@ -1862,11 +1872,11 @@
     "subdomain": "vms-aad-login",
     "type": "single",
     "difficulty": "medium",
-    "question": "Logins SSH/RDP nas VMs devem usar identidades do Entra ID com RBAC, sem contas locais. Qual extensão habilita o login Entra?",
+    "question": "Logins SSH/RDP nas VMs devem usar identidades do Entra ID com RBAC, sem contas locais. Qual extens\u00e3o habilita o login Entra?",
     "options": [
       {
         "letter": "A",
-        "text": "Extensão AADLogin com funções de login de VM"
+        "text": "Extens\u00e3o AADLogin com fun\u00e7\u00f5es de login de VM"
       },
       {
         "letter": "B",
@@ -1874,7 +1884,7 @@
       },
       {
         "letter": "C",
-        "text": "RDP anônimo"
+        "text": "RDP an\u00f4nimo"
       },
       {
         "letter": "D",
@@ -1882,11 +1892,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "AADLogin autentica via Entra com MFA e RBAC (login/admin). Conta local não centraliza; vazia/anônima expõem.",
+    "explanation": "AADLogin autentica via Entra com MFA e RBAC (login/admin). Conta local n\u00e3o centraliza; vazia/an\u00f4nima exp\u00f5em.",
     "source": "original",
     "tags": ["vms", "aad-login", "entra-id", "rbac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1895,7 +1905,7 @@
     "subdomain": "vmss-custom-script",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cada instância do VMSS precisa baixar config e registrar no deploy. Qual extensão executa o script de bootstrap em todas?",
+    "question": "Cada inst\u00e2ncia do VMSS precisa baixar config e registrar no deploy. Qual extens\u00e3o executa o script de bootstrap em todas?",
     "options": [
       {
         "letter": "A",
@@ -1903,24 +1913,25 @@
       },
       {
         "letter": "B",
-        "text": "E-mail com instruções"
+        "text": "E-mail com instru\u00e7\u00f5es"
       },
       {
         "letter": "C",
-        "text": "Imagem sem customização"
+        "text": "Imagem sem customiza\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Login manual por instância"
+        "text": "Login manual por inst\u00e2ncia"
       }
     ],
     "correct": ["A"],
-    "explanation": "Custom Script roda em cada instância no provisionamento. Manual não escala; sem customizar não configura; e-mail não executa.",
-    "source": "original",
+    "explanation": "Custom Script roda em cada inst\u00e2ncia no provisionamento. Manual n\u00e3o escala; sem customizar n\u00e3o configura; e-mail n\u00e3o executa.",
+    "source": "mslearn",
     "tags": ["vmss", "custom-script", "bootstrap"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-109",
@@ -1928,7 +1939,7 @@
     "subdomain": "vm-disk-burst",
     "type": "single",
     "difficulty": "medium",
-    "question": "Picos curtos de escrita precisam de IOPS extra sem pagar disco maior permanente. Qual recurso dá rajada de crédito?",
+    "question": "Picos curtos de escrita precisam de IOPS extra sem pagar disco maior permanente. Qual recurso d\u00e1 rajada de cr\u00e9dito?",
     "options": [
       {
         "letter": "A",
@@ -1948,11 +1959,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Bursting acumula créditos para picos sem custo fixo maior. Disco maior cobra sempre; cache não persiste; ignorar pico degrada.",
+    "explanation": "Bursting acumula cr\u00e9ditos para picos sem custo fixo maior. Disco maior cobra sempre; cache n\u00e3o persiste; ignorar pico degrada.",
     "source": "original",
     "tags": ["discos", "bursting", "iops"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1965,7 +1976,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "VHD público para download"
+        "text": "VHD p\u00fablico para download"
       },
       {
         "letter": "B",
@@ -1977,15 +1988,15 @@
       },
       {
         "letter": "D",
-        "text": "Cópia manual por subscription"
+        "text": "C\u00f3pia manual por subscription"
       }
     ],
     "correct": ["C"],
-    "explanation": "Gallery sharing com RBAC (inclusive cross-tenant) controla acesso. VHD público expõe IP; SAS eterna vaza; cópia manual diverge.",
+    "explanation": "Gallery sharing com RBAC (inclusive cross-tenant) controla acesso. VHD p\u00fablico exp\u00f5e IP; SAS eterna vaza; c\u00f3pia manual diverge.",
     "source": "original",
     "tags": ["galeria", "compartilhar", "rbac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -1994,11 +2005,11 @@
     "subdomain": "vm-restore-point",
     "type": "single",
     "difficulty": "medium",
-    "question": "Antes de patch arriscado, criar ponto de restauração consistente da VM em segundos. Qual recurso captura estado crash-consistent?",
+    "question": "Antes de patch arriscado, criar ponto de restaura\u00e7\u00e3o consistente da VM em segundos. Qual recurso captura estado crash-consistent?",
     "options": [
       {
         "letter": "A",
-        "text": "Ponto de restauração da VM"
+        "text": "Ponto de restaura\u00e7\u00e3o da VM"
       },
       {
         "letter": "B",
@@ -2014,11 +2025,11 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Restore point agrupa discos num ponto crash-consistent rápido. Backup é lento e externo; snapshots manuais dispersam; generalizar destrói identidade.",
+    "explanation": "Restore point agrupa discos num ponto crash-consistent r\u00e1pido. Backup \u00e9 lento e externo; snapshots manuais dispersam; generalizar destr\u00f3i identidade.",
     "source": "original",
     "tags": ["restore-point", "vm", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2027,19 +2038,19 @@
     "subdomain": "vmss-rolling-upgrade-policy",
     "type": "single",
     "difficulty": "hard",
-    "question": "Upgrade com 20% de lote, pausa em falha e rollback automático precisa de política declarativa. O que configura lote e saúde?",
+    "question": "Upgrade com 20% de lote, pausa em falha e rollback autom\u00e1tico precisa de pol\u00edtica declarativa. O que configura lote e sa\u00fade?",
     "options": [
       {
         "letter": "A",
-        "text": "Recriação total do conjunto"
+        "text": "Recria\u00e7\u00e3o total do conjunto"
       },
       {
         "letter": "B",
-        "text": "Upgrade manual simultâneo"
+        "text": "Upgrade manual simult\u00e2neo"
       },
       {
         "letter": "C",
-        "text": "Política de rolling upgrade (maxBatch, pauseTime, rollback)"
+        "text": "Pol\u00edtica de rolling upgrade (maxBatch, pauseTime, rollback)"
       },
       {
         "letter": "D",
@@ -2047,11 +2058,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Rolling policy controla lote, pausa e reversão por saúde. Simultâneo derruba; recriar zera; sem versão não audita.",
+    "explanation": "Rolling policy controla lote, pausa e revers\u00e3o por sa\u00fade. Simult\u00e2neo derruba; recriar zera; sem vers\u00e3o n\u00e3o audita.",
     "source": "original",
     "tags": ["vmss", "rolling", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2060,11 +2071,11 @@
     "subdomain": "vm-application-health",
     "type": "single",
     "difficulty": "hard",
-    "question": "O balanceador precisa remover VM cuja aplicação trava mas o SO responde. Qual sinal de saúde da aplicação o LB consome?",
+    "question": "O balanceador precisa remover VM cuja aplica\u00e7\u00e3o trava mas o SO responde. Qual sinal de sa\u00fade da aplica\u00e7\u00e3o o LB consome?",
     "options": [
       {
         "letter": "A",
-        "text": "Métrica de disco"
+        "text": "M\u00e9trica de disco"
       },
       {
         "letter": "B",
@@ -2076,15 +2087,15 @@
       },
       {
         "letter": "D",
-        "text": "Probe de integridade da aplicação (HTTP custom)"
+        "text": "Probe de integridade da aplica\u00e7\u00e3o (HTTP custom)"
       }
     ],
     "correct": ["D"],
-    "explanation": "Probe HTTP da app detecta trava lógica e tira do pool. Ping vê SO; disco não é saúde; boot é pontual.",
+    "explanation": "Probe HTTP da app detecta trava l\u00f3gica e tira do pool. Ping v\u00ea SO; disco n\u00e3o \u00e9 sa\u00fade; boot \u00e9 pontual.",
     "source": "original",
     "tags": ["lb", "app-health", "probe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2093,7 +2104,7 @@
     "subdomain": "vm-guest-attestation",
     "type": "single",
     "difficulty": "hard",
-    "question": "Carga regulada precisa provar a terceiros que roda em TEE íntegro. O que emite evidência verificável do ambiente?",
+    "question": "Carga regulada precisa provar a terceiros que roda em TEE \u00edntegro. O que emite evid\u00eancia verific\u00e1vel do ambiente?",
     "options": [
       {
         "letter": "A",
@@ -2101,11 +2112,11 @@
       },
       {
         "letter": "B",
-        "text": "Atestação de convidado (guest attestation) com relatório"
+        "text": "Atesta\u00e7\u00e3o de convidado (guest attestation) com relat\u00f3rio"
       },
       {
         "letter": "C",
-        "text": "Declaração do administrador"
+        "text": "Declara\u00e7\u00e3o do administrador"
       },
       {
         "letter": "D",
@@ -2113,11 +2124,11 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Attestation emite claims verificáveis do TEE/boot. Declaração não prova; log falsifica; TLS prova canal, não ambiente.",
+    "explanation": "Attestation emite claims verific\u00e1veis do TEE/boot. Declara\u00e7\u00e3o n\u00e3o prova; log falsifica; TLS prova canal, n\u00e3o ambiente.",
     "source": "original",
     "tags": ["attestation", "tee", "convidado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2130,11 +2141,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "BIOS legado sem medição"
+        "text": "BIOS legado sem medi\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Antivírus pós-boot"
+        "text": "Antiv\u00edrus p\u00f3s-boot"
       },
       {
         "letter": "C",
@@ -2146,7 +2157,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Secure Boot valida assinaturas e vTPM ancora medições. Legado não mede; senha não atesta; antivírus age tarde.",
+    "explanation": "Secure Boot valida assinaturas e vTPM ancora medi\u00e7\u00f5es. Legado n\u00e3o mede; senha n\u00e3o atesta; antiv\u00edrus age tarde.",
     "source": "original",
     "tags": ["secure-boot", "vtpm", "boot-medido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2159,11 +2170,11 @@
     "subdomain": "vm-disk-encryption-ade",
     "type": "single",
     "difficulty": "hard",
-    "question": "Discos de VMs existentes sem criptografia precisam de ADE com CMK sem recriar máquinas. Qual sequência habilita com segurança?",
+    "question": "Discos de VMs existentes sem criptografia precisam de ADE com CMK sem recriar m\u00e1quinas. Qual sequ\u00eancia habilita com seguran\u00e7a?",
     "options": [
       {
         "letter": "A",
-        "text": "Desabilitar criptografia padrão"
+        "text": "Desabilitar criptografia padr\u00e3o"
       },
       {
         "letter": "B",
@@ -2175,15 +2186,15 @@
       },
       {
         "letter": "D",
-        "text": "Key Vault com purge protection + extensão ADE por VM"
+        "text": "Key Vault com purge protection + extens\u00e3o ADE por VM"
       }
     ],
     "correct": ["D"],
-    "explanation": "Cofre protegido + extensão aplica BitLocker/DM-Crypt in place. Manual não escala; recriar interrompe; desligar padrão piora.",
+    "explanation": "Cofre protegido + extens\u00e3o aplica BitLocker/DM-Crypt in place. Manual n\u00e3o escala; recriar interrompe; desligar padr\u00e3o piora.",
     "source": "original",
     "tags": ["ade", "cmk", "key-vault", "extensao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2192,7 +2203,7 @@
     "subdomain": "host-encryption-cache",
     "type": "single",
     "difficulty": "hard",
-    "question": "Cache de SO em host com dados sensíveis precisa de criptografia em repouso sem CMK. O que cifra o cache temporário?",
+    "question": "Cache de SO em host com dados sens\u00edveis precisa de criptografia em repouso sem CMK. O que cifra o cache tempor\u00e1rio?",
     "options": [
       {
         "letter": "A",
@@ -2212,7 +2223,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Encryption at host cifra temp/cache com chaves da plataforma. Desligar perde performance; maior não cifra; snapshot não protege.",
+    "explanation": "Encryption at host cifra temp/cache com chaves da plataforma. Desligar perde performance; maior n\u00e3o cifra; snapshot n\u00e3o protege.",
     "source": "original",
     "tags": ["encryption-at-host", "cache", "temporario"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2229,7 +2240,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Disco Standard sem vínculo"
+        "text": "Disco Standard sem v\u00ednculo"
       },
       {
         "letter": "B",
@@ -2241,16 +2252,17 @@
       },
       {
         "letter": "D",
-        "text": "Disco local temporário"
+        "text": "Disco local tempor\u00e1rio"
       }
     ],
     "correct": ["C"],
-    "explanation": "Confidential OS disk vincula chave ao vTPM/boot medido. Standard não vincula; compartilhado quebra isolamento; temp não persiste.",
-    "source": "original",
+    "explanation": "Confidential OS disk vincula chave ao vTPM/boot medido. Standard n\u00e3o vincula; compartilhado quebra isolamento; temp n\u00e3o persiste.",
+    "source": "mslearn",
     "tags": ["confidential-os-disk", "vtpm", "vm-confidencial"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-125",
@@ -2258,7 +2270,7 @@
     "subdomain": "shared-disk-cluster",
     "type": "single",
     "difficulty": "hard",
-    "question": "Cluster de failover Windows precisa de disco compartilhado entre duas VMs na mesma zona. Qual disco permite attach múltiplo?",
+    "question": "Cluster de failover Windows precisa de disco compartilhado entre duas VMs na mesma zona. Qual disco permite attach m\u00faltiplo?",
     "options": [
       {
         "letter": "A",
@@ -2278,11 +2290,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Shared disks permitem multi-attach com reservas SCSI para cluster. Exclusivo não compartilha; blob não é bloco; SMB não serve a cluster de disco.",
+    "explanation": "Shared disks permitem multi-attach com reservas SCSI para cluster. Exclusivo n\u00e3o compartilha; blob n\u00e3o \u00e9 bloco; SMB n\u00e3o serve a cluster de disco.",
     "source": "original",
     "tags": ["shared-disk", "cluster", "failover"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2291,7 +2303,7 @@
     "subdomain": "ultradisk-avset-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Banco crítico precisa de Ultra Disk e proteção de rack simultaneamente. Quais dois requisitos combinar? Selecione duas.",
+    "question": "Banco cr\u00edtico precisa de Ultra Disk e prote\u00e7\u00e3o de rack simultaneamente. Quais dois requisitos combinar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -2299,7 +2311,7 @@
       },
       {
         "letter": "B",
-        "text": "Availability set não suporta Ultra; usar VM única zonal ou VMSS"
+        "text": "Availability set n\u00e3o suporta Ultra; usar VM \u00fanica zonal ou VMSS"
       },
       {
         "letter": "C",
@@ -2311,11 +2323,11 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Ultra exige zonal e é incompatível com availability set; usa-se VM zonal/VMSS flex. Assumir Ultra em avset quebra deploy; Standard não dá IOPS.",
+    "explanation": "Ultra exige zonal e \u00e9 incompat\u00edvel com availability set; usa-se VM zonal/VMSS flex. Assumir Ultra em avset quebra deploy; Standard n\u00e3o d\u00e1 IOPS.",
     "source": "original",
     "tags": ["ultra-disk", "availability-set", "limitacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2324,15 +2336,15 @@
     "subdomain": "ppg-avset-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Baixa latência e tolerância a rack parecem conflitantes. Quais dois fatos sobre PPG + availability set considerar? Selecione duas.",
+    "question": "Baixa lat\u00eancia e toler\u00e2ncia a rack parecem conflitantes. Quais dois fatos sobre PPG + availability set considerar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Regiões distintas no mesmo PPG"
+        "text": "Regi\u00f5es distintas no mesmo PPG"
       },
       {
         "letter": "B",
-        "text": "PPG co-localiza para latência mínima"
+        "text": "PPG co-localiza para lat\u00eancia m\u00ednima"
       },
       {
         "letter": "C",
@@ -2344,7 +2356,7 @@
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "PPG aproxima e pode incluir avset para distribuir fault domains. PPG não é multizona nem multirregião.",
+    "explanation": "PPG aproxima e pode incluir avset para distribuir fault domains. PPG n\u00e3o \u00e9 multizona nem multirregi\u00e3o.",
     "source": "original",
     "tags": ["ppg", "availability-set", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2357,11 +2369,11 @@
     "subdomain": "priority-regular-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que instâncias Regular (pay-as-you-go) no VMSS têm prioridade de capacidade sobre Spot em contenção. Essa afirmação está correta?",
+    "question": "Um colega afirma que inst\u00e2ncias Regular (pay-as-you-go) no VMSS t\u00eam prioridade de capacidade sobre Spot em conten\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, Spot tem preferência"
+        "text": "N\u00e3o, Spot tem prefer\u00eancia"
       },
       {
         "letter": "B",
@@ -2369,7 +2381,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Em contenção, Spot é despejado primeiro preservando Regular. Inverter a premissa quebra o desenho de base garantida.",
+    "explanation": "Em conten\u00e7\u00e3o, Spot \u00e9 despejado primeiro preservando Regular. Inverter a premissa quebra o desenho de base garantida.",
     "source": "original",
     "tags": ["vmss", "regular", "spot", "prioridade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2382,7 +2394,7 @@
     "subdomain": "eviction-policy-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que a política de despejo Delete remove VM e discos, enquanto Deallocate preserva discos para retomar depois. Essa afirmação está correta?",
+    "question": "Um arquiteto afirma que a pol\u00edtica de despejo Delete remove VM e discos, enquanto Deallocate preserva discos para retomar depois. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2390,11 +2402,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, ambas preservam tudo"
+        "text": "N\u00e3o, ambas preservam tudo"
       }
     ],
     "correct": ["A"],
-    "explanation": "Eviction Delete remove a VM (discos conforme config) e Deallocate libera mantendo discos. Assumir igualdade perde dados ou desperdiça.",
+    "explanation": "Eviction Delete remove a VM (discos conforme config) e Deallocate libera mantendo discos. Assumir igualdade perde dados ou desperdi\u00e7a.",
     "source": "original",
     "tags": ["spot", "eviction", "delete", "deallocate"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2407,7 +2419,7 @@
     "subdomain": "max-price-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que definir preço máximo no Spot garante a VM enquanto o preço de mercado ficar abaixo do teto, sem despejo por capacidade. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que definir pre\u00e7o m\u00e1ximo no Spot garante a VM enquanto o pre\u00e7o de mercado ficar abaixo do teto, sem despejo por capacidade. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2415,11 +2427,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, falta de capacidade despeja mesmo abaixo do teto"
+        "text": "N\u00e3o, falta de capacidade despeja mesmo abaixo do teto"
       }
     ],
     "correct": ["B"],
-    "explanation": "Spot despeja por capacidade independente de preço; teto só limita custo. Confiar só no preço ignora contenção.",
+    "explanation": "Spot despeja por capacidade independente de pre\u00e7o; teto s\u00f3 limita custo. Confiar s\u00f3 no pre\u00e7o ignora conten\u00e7\u00e3o.",
     "source": "original",
     "tags": ["spot", "preco-maximo", "capacidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2432,23 +2444,23 @@
     "subdomain": "capacity-behavior-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que capacidade Spot excedente sempre existe em todas as regiões e SKUs a qualquer hora. Essa afirmação está correta?",
+    "question": "Um colega afirma que capacidade Spot excedente sempre existe em todas as regi\u00f5es e SKUs a qualquer hora. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, Spot é ilimitado"
+        "text": "Sim, Spot \u00e9 ilimitado"
       },
       {
         "letter": "B",
-        "text": "Não, varia por região, SKU e horário"
+        "text": "N\u00e3o, varia por regi\u00e3o, SKU e hor\u00e1rio"
       }
     ],
     "correct": ["B"],
-    "explanation": "Capacidade Spot excedente flutua por região, SKU e horário do dia. Assumir oferta ilimitada quebra o planejamento de escala e causa indisponibilidade.",
+    "explanation": "Capacidade Spot excedente flutua por regi\u00e3o, SKU e hor\u00e1rio do dia. Assumir oferta ilimitada quebra o planejamento de escala e causa indisponibilidade.",
     "source": "original",
     "tags": ["spot", "capacidade", "disponibilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2457,19 +2469,19 @@
     "subdomain": "try-spot-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um dev afirma que dá para testar carga Spot sem compromisso usando preço atual com despejo simulado antes de migrar. Essa afirmação está correta?",
+    "question": "Um dev afirma que d\u00e1 para testar carga Spot sem compromisso usando pre\u00e7o atual com despejo simulado antes de migrar. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, via simulação de despejo e preço Spot"
+        "text": "Sim, via simula\u00e7\u00e3o de despejo e pre\u00e7o Spot"
       },
       {
         "letter": "B",
-        "text": "Não, só migrando tudo de uma vez"
+        "text": "N\u00e3o, s\u00f3 migrando tudo de uma vez"
       }
     ],
     "correct": ["A"],
-    "explanation": "É possível validar tolerância com eviction simulada e monitorar preço. Migrar às cegas arrisca produção.",
+    "explanation": "\u00c9 poss\u00edvel validar toler\u00e2ncia com eviction simulada e monitorar pre\u00e7o. Migrar \u00e0s cegas arrisca produ\u00e7\u00e3o.",
     "source": "original",
     "tags": ["spot", "simulacao", "teste"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2482,7 +2494,7 @@
     "subdomain": "restore-spot-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que após despejo Spot a aplicação retoma sozinha sem checkpoint porque a plataforma preserva estado. Essa afirmação está correta?",
+    "question": "Um arquiteto afirma que ap\u00f3s despejo Spot a aplica\u00e7\u00e3o retoma sozinha sem checkpoint porque a plataforma preserva estado. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2490,11 +2502,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, a app precisa de checkpoint/retomada"
+        "text": "N\u00e3o, a app precisa de checkpoint/retomada"
       }
     ],
     "correct": ["B"],
-    "explanation": "Spot não preserva estado da aplicação; a carga precisa de checkpoint e lógica de retomada. Assumir preservação automática perde todo o trabalho.",
+    "explanation": "Spot n\u00e3o preserva estado da aplica\u00e7\u00e3o; a carga precisa de checkpoint e l\u00f3gica de retomada. Assumir preserva\u00e7\u00e3o autom\u00e1tica perde todo o trabalho.",
     "source": "original",
     "tags": ["spot", "checkpoint", "estado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2507,11 +2519,11 @@
     "subdomain": "vm-repair-cli",
     "type": "single",
     "difficulty": "hard",
-    "question": "VM Linux com disco de SO corrompido não inicia e o reparo exige chroot offline. Qual comando automatiza VM de resgate + attach + chroot?",
+    "question": "VM Linux com disco de SO corrompido n\u00e3o inicia e o reparo exige chroot offline. Qual comando automatiza VM de resgate + attach + chroot?",
     "options": [
       {
         "letter": "A",
-        "text": "Aguardar autorecuperação"
+        "text": "Aguardar autorecupera\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -2523,15 +2535,15 @@
       },
       {
         "letter": "D",
-        "text": "Exclusão da VM corrompida"
+        "text": "Exclus\u00e3o da VM corrompida"
       }
     ],
     "correct": ["C"],
-    "explanation": "az vm repair orquestra resgate, correção e troca de SO. Excluir perde; RDP não alcança disco morto; aguardar não repara.",
+    "explanation": "az vm repair orquestra resgate, corre\u00e7\u00e3o e troca de SO. Excluir perde; RDP n\u00e3o alcan\u00e7a disco morto; aguardar n\u00e3o repara.",
     "source": "original",
     "tags": ["vm-repair", "cli", "resgate", "linux"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2540,7 +2552,7 @@
     "subdomain": "vm-run-command-list",
     "type": "single",
     "difficulty": "hard",
-    "question": "Cem VMs precisam de coleta de logs com script único e saída centralizada. O que executa em massa com resultado agregado?",
+    "question": "Cem VMs precisam de coleta de logs com script \u00fanico e sa\u00edda centralizada. O que executa em massa com resultado agregado?",
     "options": [
       {
         "letter": "A",
@@ -2560,11 +2572,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Run Command em escala via CLI executa e agrega saída. Individual não escala; e-mail não executa; desligar destrói evidência.",
+    "explanation": "Run Command em escala via CLI executa e agrega sa\u00edda. Individual n\u00e3o escala; e-mail n\u00e3o executa; desligar destr\u00f3i evid\u00eancia.",
     "source": "original",
     "tags": ["run-command", "escala", "logs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2573,19 +2585,19 @@
     "subdomain": "azure-automation-dsc",
     "type": "single",
     "difficulty": "hard",
-    "question": "Configuração de baseline (registro, arquivos, pacotes) precisa convergir e corrigir drift continuamente. Qual DSC na nuvem aplica e monitora?",
+    "question": "Configura\u00e7\u00e3o de baseline (registro, arquivos, pacotes) precisa convergir e corrigir drift continuamente. Qual DSC na nuvem aplica e monitora?",
     "options": [
       {
         "letter": "A",
-        "text": "Edição manual por RDP"
+        "text": "Edi\u00e7\u00e3o manual por RDP"
       },
       {
         "letter": "B",
-        "text": "Script único sem idempotência"
+        "text": "Script \u00fanico sem idempot\u00eancia"
       },
       {
         "letter": "C",
-        "text": "Imagem nova por mudança"
+        "text": "Imagem nova por mudan\u00e7a"
       },
       {
         "letter": "D",
@@ -2593,11 +2605,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "State Configuration aplica MOF idempotente e corrige drift. Script único diverge; imagem por mudança é lenta; manual não escala.",
+    "explanation": "State Configuration aplica MOF idempotente e corrige drift. Script \u00fanico diverge; imagem por mudan\u00e7a \u00e9 lenta; manual n\u00e3o escala.",
     "source": "original",
     "tags": ["automation", "dsc", "baseline", "drift"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2606,11 +2618,11 @@
     "subdomain": "update-rings",
     "type": "single",
     "difficulty": "hard",
-    "question": "Patches devem passar por canário, piloto e produção com pausa entre anéis. Como organizar os anéis de atualização?",
+    "question": "Patches devem passar por can\u00e1rio, piloto e produ\u00e7\u00e3o com pausa entre an\u00e9is. Como organizar os an\u00e9is de atualiza\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Ordem alfabética de VM"
+        "text": "Ordem alfab\u00e9tica de VM"
       },
       {
         "letter": "B",
@@ -2618,15 +2630,15 @@
       },
       {
         "letter": "C",
-        "text": "Aleatório sem critério"
+        "text": "Aleat\u00f3rio sem crit\u00e9rio"
       },
       {
         "letter": "D",
-        "text": "Anéis (rings) com waves e health check"
+        "text": "An\u00e9is (rings) com waves e health check"
       }
     ],
     "correct": ["D"],
-    "explanation": "Rings graduam exposição com validação entre ondas. Tudo junto derruba; alfabeto não é risco; aleatório não controla.",
+    "explanation": "Rings graduam exposi\u00e7\u00e3o com valida\u00e7\u00e3o entre ondas. Tudo junto derruba; alfabeto n\u00e3o \u00e9 risco; aleat\u00f3rio n\u00e3o controla.",
     "source": "original",
     "tags": ["update-rings", "canario", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2639,7 +2651,7 @@
     "subdomain": "hotpatch",
     "type": "single",
     "difficulty": "hard",
-    "question": "VMs críticas não podem reiniciar em patches mensais do Windows. Qual recurso aplica segurança sem reboot?",
+    "question": "VMs cr\u00edticas n\u00e3o podem reiniciar em patches mensais do Windows. Qual recurso aplica seguran\u00e7a sem reboot?",
     "options": [
       {
         "letter": "A",
@@ -2651,7 +2663,7 @@
       },
       {
         "letter": "C",
-        "text": "Patch normal com reboot forçado"
+        "text": "Patch normal com reboot for\u00e7ado"
       },
       {
         "letter": "D",
@@ -2659,7 +2671,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Hotpatch aplica em memória sem reboot em SKUs suportados. Normal reinicia; desligar vulnerabiliza; snapshot não evita boot.",
+    "explanation": "Hotpatch aplica em mem\u00f3ria sem reboot em SKUs suportados. Normal reinicia; desligar vulnerabiliza; snapshot n\u00e3o evita boot.",
     "source": "original",
     "tags": ["hotpatch", "sem-reboot", "windows"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2672,7 +2684,7 @@
     "subdomain": "vm-guest-patching-mode",
     "type": "single",
     "difficulty": "hard",
-    "question": "Orquestração pelo Azure com janela e avaliação, sem WSUS local. Qual modo de patch do convidado delega ao Azure?",
+    "question": "Orquestra\u00e7\u00e3o pelo Azure com janela e avalia\u00e7\u00e3o, sem WSUS local. Qual modo de patch do convidado delega ao Azure?",
     "options": [
       {
         "letter": "A",
@@ -2688,15 +2700,15 @@
       },
       {
         "letter": "D",
-        "text": "WSUS local obrigatório"
+        "text": "WSUS local obrigat\u00f3rio"
       }
     ],
     "correct": ["A"],
-    "explanation": "AutomaticByPlatform orquestra pelo Azure com janela. Manual não agenda; desligado vulnerabiliza; WSUS local é legado.",
+    "explanation": "AutomaticByPlatform orquestra pelo Azure com janela. Manual n\u00e3o agenda; desligado vulnerabiliza; WSUS local \u00e9 legado.",
     "source": "original",
     "tags": ["guest-patching", "automatic-by-platform", "janela"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -2705,11 +2717,11 @@
     "subdomain": "assess-mode-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Antes de aplicar, avaliar pendências por VM com relatório sem instalar nada. Quais dois elementos do modo avaliação usar? Selecione duas.",
+    "question": "Antes de aplicar, avaliar pend\u00eancias por VM com relat\u00f3rio sem instalar nada. Quais dois elementos do modo avalia\u00e7\u00e3o usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Instalação imediata em tudo"
+        "text": "Instala\u00e7\u00e3o imediata em tudo"
       },
       {
         "letter": "B",
@@ -2717,15 +2729,15 @@
       },
       {
         "letter": "C",
-        "text": "Relatório de conformidade pendente"
+        "text": "Relat\u00f3rio de conformidade pendente"
       },
       {
         "letter": "D",
-        "text": "Avaliação periódica (assessment) por VM"
+        "text": "Avalia\u00e7\u00e3o peri\u00f3dica (assessment) por VM"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Assessment lista pendências e o relatório prioriza. Instalar direto pula avaliação; sem agente não há dado.",
+    "explanation": "Assessment lista pend\u00eancias e o relat\u00f3rio prioriza. Instalar direto pula avalia\u00e7\u00e3o; sem agente n\u00e3o h\u00e1 dado.",
     "source": "original",
     "tags": ["assessment", "avaliacao", "relatorio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2738,27 +2750,27 @@
     "subdomain": "schedule-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Janela mensal com exceção de feriado e notificação prévia exige dois controles. Quais são eles? Selecione duas.",
+    "question": "Janela mensal com exce\u00e7\u00e3o de feriado e notifica\u00e7\u00e3o pr\u00e9via exige dois controles. Quais s\u00e3o eles? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Silêncio total sem aviso"
+        "text": "Sil\u00eancio total sem aviso"
       },
       {
         "letter": "B",
-        "text": "Agendamento com janela de manutenção"
+        "text": "Agendamento com janela de manuten\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Notificação e exceção de calendário"
+        "text": "Notifica\u00e7\u00e3o e exce\u00e7\u00e3o de calend\u00e1rio"
       },
       {
         "letter": "D",
-        "text": "Execução imediata sem janela"
+        "text": "Execu\u00e7\u00e3o imediata sem janela"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Janela contém o impacto e aviso/exceção respeitam negócio. Imediato quebra horário; silêncio surpreende.",
+    "explanation": "Janela cont\u00e9m o impacto e aviso/exce\u00e7\u00e3o respeitam neg\u00f3cio. Imediato quebra hor\u00e1rio; sil\u00eancio surpreende.",
     "source": "original",
     "tags": ["agendamento", "janela", "notificacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2771,19 +2783,19 @@
     "subdomain": "reboot-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Patches com reboot precisam de ordem (banco antes de app) e validação. Quais dois controles ordenam com segurança? Selecione duas.",
+    "question": "Patches com reboot precisam de ordem (banco antes de app) e valida\u00e7\u00e3o. Quais dois controles ordenam com seguran\u00e7a? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Reboot simultâneo geral"
+        "text": "Reboot simult\u00e2neo geral"
       },
       {
         "letter": "B",
-        "text": "Sem validação"
+        "text": "Sem valida\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Ordem por dependência (pre/post)"
+        "text": "Ordem por depend\u00eancia (pre/post)"
       },
       {
         "letter": "D",
@@ -2791,7 +2803,7 @@
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Ordem por dependência (pre/post) sequencia os reboots e o health check pausa em falha. Reboot simultâneo derruba tudo; sem validação o erro se propaga.",
+    "explanation": "Ordem por depend\u00eancia (pre/post) sequencia os reboots e o health check pausa em falha. Reboot simult\u00e2neo derruba tudo; sem valida\u00e7\u00e3o o erro se propaga.",
     "source": "original",
     "tags": ["reboot", "ordem", "health-check"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2804,15 +2816,15 @@
     "subdomain": "rollback-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Patch quebrou o app e é preciso voltar rápido com trilha. Quais dois mecanismos de reversão usar? Selecione duas.",
+    "question": "Patch quebrou o app e \u00e9 preciso voltar r\u00e1pido com trilha. Quais dois mecanismos de revers\u00e3o usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Rollback da imagem/versão com registro"
+        "text": "Rollback da imagem/vers\u00e3o com registro"
       },
       {
         "letter": "B",
-        "text": "Ponto de restauração pré-patch"
+        "text": "Ponto de restaura\u00e7\u00e3o pr\u00e9-patch"
       },
       {
         "letter": "C",
@@ -2820,11 +2832,11 @@
       },
       {
         "letter": "D",
-        "text": "Aguardar próximo patch"
+        "text": "Aguardar pr\u00f3ximo patch"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Restore point volta estado e rollback de versão registra. Reinstalar demora; aguardar prolonga outage.",
+    "explanation": "Restore point volta estado e rollback de vers\u00e3o registra. Reinstalar demora; aguardar prolonga outage.",
     "source": "original",
     "tags": ["rollback", "restore-point", "reversao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2837,7 +2849,7 @@
     "subdomain": "kernel-live-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um admin afirma que hotpatch do Windows dispensa reboot em qualquer VM, independente de SKU e imagem. Essa afirmação está correta?",
+    "question": "Um admin afirma que hotpatch do Windows dispensa reboot em qualquer VM, independente de SKU e imagem. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2845,7 +2857,7 @@
       },
       {
         "letter": "B",
-        "text": "Não, exige SKU/imagem e canal compatíveis"
+        "text": "N\u00e3o, exige SKU/imagem e canal compat\u00edveis"
       }
     ],
     "correct": ["B"],
@@ -2862,7 +2874,7 @@
     "subdomain": "assessment-only-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que o modo avaliação (assessment) instala patches automaticamente ao detectar pendência. Essa afirmação está correta?",
+    "question": "Um colega afirma que o modo avalia\u00e7\u00e3o (assessment) instala patches automaticamente ao detectar pend\u00eancia. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2870,11 +2882,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, só avalia e reporta"
+        "text": "N\u00e3o, s\u00f3 avalia e reporta"
       }
     ],
     "correct": ["B"],
-    "explanation": "Assessment lista sem instalar; instalação exige deployment. Confundir avalia com aplica gera janela inesperada.",
+    "explanation": "Assessment lista sem instalar; instala\u00e7\u00e3o exige deployment. Confundir avalia com aplica gera janela inesperada.",
     "source": "original",
     "tags": ["assessment", "avaliacao", "instalacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2887,19 +2899,19 @@
     "subdomain": "patch-class-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que dá para incluir só patches de segurança, excluindo feature packs, na mesma janela. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que d\u00e1 para incluir s\u00f3 patches de seguran\u00e7a, excluindo feature packs, na mesma janela. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, via classificação de patch"
+        "text": "Sim, via classifica\u00e7\u00e3o de patch"
       },
       {
         "letter": "B",
-        "text": "Não, janela aplica tudo ou nada"
+        "text": "N\u00e3o, janela aplica tudo ou nada"
       }
     ],
     "correct": ["A"],
-    "explanation": "Classificações (security, critical, outros) filtram o escopo. Achar tudo-ou-nada impede janelas cirúrgicas.",
+    "explanation": "Classifica\u00e7\u00f5es (security, critical, outros) filtram o escopo. Achar tudo-ou-nada impede janelas cir\u00fargicas.",
     "source": "original",
     "tags": ["patch", "classificacao", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2912,7 +2924,7 @@
     "subdomain": "reboot-required-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um admin afirma que todo patch do Windows exige reboot, sem exceção. Essa afirmação está correta?",
+    "question": "Um admin afirma que todo patch do Windows exige reboot, sem exce\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2920,11 +2932,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, hotpatch e alguns pacotes dispensam"
+        "text": "N\u00e3o, hotpatch e alguns pacotes dispensam"
       }
     ],
     "correct": ["B"],
-    "explanation": "Hotpatch e pacotes sem componente de kernel dispensam reboot. Generalizar que tudo reinicia paralisa operações sem necessidade técnica.",
+    "explanation": "Hotpatch e pacotes sem componente de kernel dispensam reboot. Generalizar que tudo reinicia paralisa opera\u00e7\u00f5es sem necessidade t\u00e9cnica.",
     "source": "original",
     "tags": ["reboot", "hotpatch", "excecao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2937,7 +2949,7 @@
     "subdomain": "orchestration-vs-manual-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que orquestração de patch pelo Azure elimina a necessidade de janela de manutenção aprovada. Essa afirmação está correta?",
+    "question": "Um colega afirma que orquestra\u00e7\u00e3o de patch pelo Azure elimina a necessidade de janela de manuten\u00e7\u00e3o aprovada. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2945,11 +2957,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, janela aprovada continua obrigatória"
+        "text": "N\u00e3o, janela aprovada continua obrigat\u00f3ria"
       }
     ],
     "correct": ["B"],
-    "explanation": "Orquestração executa dentro da janela aprovada; sem ela, reboot cai em horário crítico. Automatizar não dispensa governança.",
+    "explanation": "Orquestra\u00e7\u00e3o executa dentro da janela aprovada; sem ela, reboot cai em hor\u00e1rio cr\u00edtico. Automatizar n\u00e3o dispensa governan\u00e7a.",
     "source": "original",
     "tags": ["orquestracao", "janela", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2962,7 +2974,7 @@
     "subdomain": "drift-patch-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que VMs fora do escopo de patch convergem sozinhas ao baseline com o tempo. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que VMs fora do escopo de patch convergem sozinhas ao baseline com o tempo. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2970,11 +2982,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, sem escopo acumulam drift"
+        "text": "N\u00e3o, sem escopo acumulam drift"
       }
     ],
     "correct": ["B"],
-    "explanation": "Sem escopo/DSC, drift só cresce; convergência exige aplicação contínua. Assumir auto-cura deixa dívida.",
+    "explanation": "Sem escopo/DSC, drift s\u00f3 cresce; converg\u00eancia exige aplica\u00e7\u00e3o cont\u00ednua. Assumir auto-cura deixa d\u00edvida.",
     "source": "original",
     "tags": ["drift", "escopo", "convergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2987,7 +2999,7 @@
     "subdomain": "vm-images-sig",
     "type": "single",
     "difficulty": "medium",
-    "question": "Imagens precisam de replicação automática para 2 regiões com 3 réplicas cada para deploy rápido. O que configura replicação e contagem?",
+    "question": "Imagens precisam de replica\u00e7\u00e3o autom\u00e1tica para 2 regi\u00f5es com 3 r\u00e9plicas cada para deploy r\u00e1pido. O que configura replica\u00e7\u00e3o e contagem?",
     "options": [
       {
         "letter": "A",
@@ -2995,23 +3007,23 @@
       },
       {
         "letter": "B",
-        "text": "VHD avulso por região"
+        "text": "VHD avulso por regi\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Galeria com replicação regional e replica count"
+        "text": "Galeria com replica\u00e7\u00e3o regional e replica count"
       },
       {
         "letter": "D",
-        "text": "Imagem isolada por região"
+        "text": "Imagem isolada por regi\u00e3o"
       }
     ],
     "correct": ["C"],
-    "explanation": "Galeria replica versões com contagem configurável por região. Isolada não replica; VHD avulso não versiona; snapshot manual não distribui.",
+    "explanation": "Galeria replica vers\u00f5es com contagem configur\u00e1vel por regi\u00e3o. Isolada n\u00e3o replica; VHD avulso n\u00e3o versiona; snapshot manual n\u00e3o distribui.",
     "source": "original",
     "tags": ["galeria", "replicacao", "regioes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3020,11 +3032,11 @@
     "subdomain": "vm-disk-caching",
     "type": "single",
     "difficulty": "medium",
-    "question": "Banco de dados em VM precisa de cache de leitura no SO sem risco de perda de escrita. Qual combinação de cache por disco usar?",
+    "question": "Banco de dados em VM precisa de cache de leitura no SO sem risco de perda de escrita. Qual combina\u00e7\u00e3o de cache por disco usar?",
     "options": [
       {
         "letter": "A",
-        "text": "Cache de escrita no temporário"
+        "text": "Cache de escrita no tempor\u00e1rio"
       },
       {
         "letter": "B",
@@ -3040,11 +3052,11 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "ReadOnly no SO acelera boot e dados sem escrita arriscada (None ou RO). ReadWrite em dados arrisca perda; sem cache perde performance; temp não persiste.",
+    "explanation": "ReadOnly no SO acelera boot e dados sem escrita arriscada (None ou RO). ReadWrite em dados arrisca perda; sem cache perde performance; temp n\u00e3o persiste.",
     "source": "original",
     "tags": ["discos", "cache", "readonly", "banco"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3053,7 +3065,7 @@
     "subdomain": "vm-write-accelerator",
     "type": "single",
     "difficulty": "medium",
-    "question": "Log transacional exige latência de escrita mínima em disco Premium. Qual acelerador reduz latência de escrita?",
+    "question": "Log transacional exige lat\u00eancia de escrita m\u00ednima em disco Premium. Qual acelerador reduz lat\u00eancia de escrita?",
     "options": [
       {
         "letter": "A",
@@ -3073,11 +3085,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Write Accelerator zera latência de escrita em Premium suportado. Leitura não ajuda escrita; Standard não alcança; blob não é disco de VM.",
+    "explanation": "Write Accelerator zera lat\u00eancia de escrita em Premium suportado. Leitura n\u00e3o ajuda escrita; Standard n\u00e3o alcan\u00e7a; blob n\u00e3o \u00e9 disco de VM.",
     "source": "original",
     "tags": ["write-accelerator", "latencia", "log"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3086,7 +3098,7 @@
     "subdomain": "vm-disk-striping",
     "type": "single",
     "difficulty": "medium",
-    "question": "Throughput além do limite de um disco é necessário para data warehouse. Como combinar discos para somar IOPS?",
+    "question": "Throughput al\u00e9m do limite de um disco \u00e9 necess\u00e1rio para data warehouse. Como combinar discos para somar IOPS?",
     "options": [
       {
         "letter": "A",
@@ -3106,11 +3118,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Striping soma throughput dos discos no SO. Disco maior tem teto; snapshot não soma; backup não acelera.",
+    "explanation": "Striping soma throughput dos discos no SO. Disco maior tem teto; snapshot n\u00e3o soma; backup n\u00e3o acelera.",
     "source": "original",
     "tags": ["striping", "raid0", "throughput"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3119,19 +3131,19 @@
     "subdomain": "vm-boot-time",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Boot de 8 minutos atrasa autoscale e SLA. Quais duas otimizações reduzem o tempo de provisionamento? Selecione duas.",
+    "question": "Boot de 8 minutos atrasa autoscale e SLA. Quais duas otimiza\u00e7\u00f5es reduzem o tempo de provisionamento? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Imagem gerenciada otimizada sem generalização excessiva"
+        "text": "Imagem gerenciada otimizada sem generaliza\u00e7\u00e3o excessiva"
       },
       {
         "letter": "B",
-        "text": "SO efêmero sem cópia remota"
+        "text": "SO ef\u00eamero sem c\u00f3pia remota"
       },
       {
         "letter": "C",
-        "text": "Imagem gigante monolítica"
+        "text": "Imagem gigante monol\u00edtica"
       },
       {
         "letter": "D",
@@ -3139,11 +3151,11 @@
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Imagem gerenciada enxuta e SO efêmero local eliminam cópia remota e setup longo. Imagem monolítica atrasa o boot; custom script de 30 minutos piora ainda mais.",
+    "explanation": "Imagem gerenciada enxuta e SO ef\u00eamero local eliminam c\u00f3pia remota e setup longo. Imagem monol\u00edtica atrasa o boot; custom script de 30 minutos piora ainda mais.",
     "source": "original",
     "tags": ["boot", "provisionamento", "otimizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3152,7 +3164,7 @@
     "subdomain": "vm-agent-health-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Extensões falham silenciosamente sem telemetria do agente. Quais dois sinais monitorar? Selecione duas.",
+    "question": "Extens\u00f5es falham silenciosamente sem telemetria do agente. Quais dois sinais monitorar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3164,7 +3176,7 @@
       },
       {
         "letter": "C",
-        "text": "Status por extensão com substatus"
+        "text": "Status por extens\u00e3o com substatus"
       },
       {
         "letter": "D",
@@ -3172,11 +3184,11 @@
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Status do agente convidado e substatus por extensão mostram saúde e erros detalhados. Cor do portal e tamanho de disco nada dizem sobre extensões.",
+    "explanation": "Status do agente convidado e substatus por extens\u00e3o mostram sa\u00fade e erros detalhados. Cor do portal e tamanho de disco nada dizem sobre extens\u00f5es.",
     "source": "original",
     "tags": ["agente", "extensao", "status"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3185,7 +3197,7 @@
     "subdomain": "extension-seq-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Duas extensões conflitam instalando juntas e corrompem config. Como ordenar a instalação? Selecione duas.",
+    "question": "Duas extens\u00f5es conflitam instalando juntas e corrompem config. Como ordenar a instala\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3193,19 +3205,19 @@
       },
       {
         "letter": "B",
-        "text": "Instalação simultânea forçada"
+        "text": "Instala\u00e7\u00e3o simult\u00e2nea for\u00e7ada"
       },
       {
         "letter": "C",
-        "text": "Remoção de ambas"
+        "text": "Remo\u00e7\u00e3o de ambas"
       },
       {
         "letter": "D",
-        "text": "Sequenciamento com dependsOn entre extensões"
+        "text": "Sequenciamento com dependsOn entre extens\u00f5es"
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Dependência (dependsOn) ordena a instalação e a espera garante conclusão antes da próxima. Instalação simultânea forçada conflita e corrompe config; remover tudo perde a função.",
+    "explanation": "Depend\u00eancia (dependsOn) ordena a instala\u00e7\u00e3o e a espera garante conclus\u00e3o antes da pr\u00f3xima. Instala\u00e7\u00e3o simult\u00e2nea for\u00e7ada conflita e corrompe config; remover tudo perde a fun\u00e7\u00e3o.",
     "source": "original",
     "tags": ["extensao", "sequencia", "dependencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3218,7 +3230,7 @@
     "subdomain": "vmss-rolling-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Upgrade gradual com validação e reversão exige três parâmetros. Quais dois são essenciais? Selecione duas.",
+    "question": "Upgrade gradual com valida\u00e7\u00e3o e revers\u00e3o exige tr\u00eas par\u00e2metros. Quais dois s\u00e3o essenciais? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3230,7 +3242,7 @@
       },
       {
         "letter": "C",
-        "text": "Pausa e rollback em falha de saúde"
+        "text": "Pausa e rollback em falha de sa\u00fade"
       },
       {
         "letter": "D",
@@ -3238,11 +3250,11 @@
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Tamanho do lote limita o blast radius e a pausa/rollback em falha de saúde protege o restante. Atualizar tudo de uma vez derruba o serviço; sem monitoramento não há detecção.",
+    "explanation": "Tamanho do lote limita o blast radius e a pausa/rollback em falha de sa\u00fade protege o restante. Atualizar tudo de uma vez derruba o servi\u00e7o; sem monitoramento n\u00e3o h\u00e1 detec\u00e7\u00e3o.",
     "source": "original",
     "tags": ["vmss", "rolling", "lote", "rollback"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3251,15 +3263,15 @@
     "subdomain": "maxsurge-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Upgrade sem reduzir capacidade exige sobra temporária. Quais dois elementos do MaxSurge atendem? Selecione duas.",
+    "question": "Upgrade sem reduzir capacidade exige sobra tempor\u00e1ria. Quais dois elementos do MaxSurge atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Parada total do serviço"
+        "text": "Parada total do servi\u00e7o"
       },
       {
         "letter": "B",
-        "text": "Remoção prévia de metade"
+        "text": "Remo\u00e7\u00e3o pr\u00e9via de metade"
       },
       {
         "letter": "C",
@@ -3267,11 +3279,11 @@
       },
       {
         "letter": "D",
-        "text": "Substituição gradual mantendo capacidade"
+        "text": "Substitui\u00e7\u00e3o gradual mantendo capacidade"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Sobra temporária (surge) acima da contagem permite substituir instâncias sem degradar capacidade. Remover metade antes reduz; parar o serviço zera disponibilidade.",
+    "explanation": "Sobra tempor\u00e1ria (surge) acima da contagem permite substituir inst\u00e2ncias sem degradar capacidade. Remover metade antes reduz; parar o servi\u00e7o zera disponibilidade.",
     "source": "original",
     "tags": ["vmss", "rolling", "lote", "rollback"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3284,15 +3296,15 @@
     "subdomain": "priority-mix-policy-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Política Spot-first com fallback Regular em contenção exige dois comportamentos. Quais são eles? Selecione duas.",
+    "question": "Pol\u00edtica Spot-first com fallback Regular em conten\u00e7\u00e3o exige dois comportamentos. Quais s\u00e3o eles? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Ignorar contenção"
+        "text": "Ignorar conten\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Travar só em Spot"
+        "text": "Travar s\u00f3 em Spot"
       },
       {
         "letter": "C",
@@ -3304,7 +3316,7 @@
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Estratégia Spot-first economiza no excedente e o fallback para Regular garante capacidade no despejo. Travar só em Spot despeja tudo; ignorar contenção quebra o serviço.",
+    "explanation": "Estrat\u00e9gia Spot-first economiza no excedente e o fallback para Regular garante capacidade no despejo. Travar s\u00f3 em Spot despeja tudo; ignorar conten\u00e7\u00e3o quebra o servi\u00e7o.",
     "source": "original",
     "tags": ["spot", "fallback", "regular", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3317,7 +3329,7 @@
     "subdomain": "recovery-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Recuperação de VM corrompida com dados intactos exige dois passos. Quais são eles? Selecione duas.",
+    "question": "Recupera\u00e7\u00e3o de VM corrompida com dados intactos exige dois passos. Quais s\u00e3o eles? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3337,7 +3349,7 @@
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Resgate anexa e chroot repara sem perder dados. Formatar apaga; excluir backup remove rede de segurança.",
+    "explanation": "Resgate anexa e chroot repara sem perder dados. Formatar apaga; excluir backup remove rede de seguran\u00e7a.",
     "source": "original",
     "tags": ["recuperacao", "resgate", "chroot"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3350,7 +3362,7 @@
     "subdomain": "serial-access-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Acesso serial de emergência exige habilitação e RBAC. Quais dois pré-requisitos configurar? Selecione duas.",
+    "question": "Acesso serial de emerg\u00eancia exige habilita\u00e7\u00e3o e RBAC. Quais dois pr\u00e9-requisitos configurar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3358,7 +3370,7 @@
       },
       {
         "letter": "B",
-        "text": "RDP aberto à internet"
+        "text": "RDP aberto \u00e0 internet"
       },
       {
         "letter": "C",
@@ -3370,7 +3382,7 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Habilitação do console serial na subscription mais RBAC de operador na VM controlam o acesso de emergência. RDP aberto à internet expõe; senha em branco anula autenticação.",
+    "explanation": "Habilita\u00e7\u00e3o do console serial na subscription mais RBAC de operador na VM controlam o acesso de emerg\u00eancia. RDP aberto \u00e0 internet exp\u00f5e; senha em branco anula autentica\u00e7\u00e3o.",
     "source": "original",
     "tags": ["serial-console", "rbac", "emergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3383,11 +3395,11 @@
     "subdomain": "boot-diag-managed-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Diagnóstico de boot sem gerenciar storage exige dois elementos gerenciados. Quais são eles? Selecione duas.",
+    "question": "Diagn\u00f3stico de boot sem gerenciar storage exige dois elementos gerenciados. Quais s\u00e3o eles? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Storage próprio com chave"
+        "text": "Storage pr\u00f3prio com chave"
       },
       {
         "letter": "B",
@@ -3399,11 +3411,11 @@
       },
       {
         "letter": "D",
-        "text": "Sem diagnóstico"
+        "text": "Sem diagn\u00f3stico"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Boot diagnostics gerenciado dispensa storage próprio usando conta da plataforma. Storage próprio exige gestão de chaves; sem diagnóstico não há console em falha.",
+    "explanation": "Boot diagnostics gerenciado dispensa storage pr\u00f3prio usando conta da plataforma. Storage pr\u00f3prio exige gest\u00e3o de chaves; sem diagn\u00f3stico n\u00e3o h\u00e1 console em falha.",
     "source": "original",
     "tags": ["boot-diagnostics", "gerenciado", "storage"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3416,23 +3428,23 @@
     "subdomain": "scale-set-id-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que todas as instâncias de um VMSS compartilham o mesmo ID de computador (SID/hostname). Essa afirmação está correta?",
+    "question": "Um colega afirma que todas as inst\u00e2ncias de um VMSS compartilham o mesmo ID de computador (SID/hostname). Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, instâncias são idênticas inclusive ID"
+        "text": "Sim, inst\u00e2ncias s\u00e3o id\u00eanticas inclusive ID"
       },
       {
         "letter": "B",
-        "text": "Não, cada instância tem identidade única"
+        "text": "N\u00e3o, cada inst\u00e2ncia tem identidade \u00fanica"
       }
     ],
     "correct": ["B"],
-    "explanation": "Sysprep/generalização garante SID/hostname únicos por instância. IDs iguais quebrariam domínio e Kerberos.",
+    "explanation": "Sysprep/generaliza\u00e7\u00e3o garante SID/hostname \u00fanicos por inst\u00e2ncia. IDs iguais quebrariam dom\u00ednio e Kerberos.",
     "source": "original",
     "tags": ["vmss", "identidade", "sysprep"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3441,19 +3453,19 @@
     "subdomain": "instance-name-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que nomes de instância do VMSS seguem padrão previsível com sufixo numérico sequencial. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que nomes de inst\u00e2ncia do VMSS seguem padr\u00e3o previs\u00edvel com sufixo num\u00e9rico sequencial. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, padrão com sufixo sequencial"
+        "text": "Sim, padr\u00e3o com sufixo sequencial"
       },
       {
         "letter": "B",
-        "text": "Não, nomes são aleatórios"
+        "text": "N\u00e3o, nomes s\u00e3o aleat\u00f3rios"
       }
     ],
     "correct": ["A"],
-    "explanation": "Nomenclatura segue prefixo + base-36 sequencial (com overprovision pode saltar). Assumir aleatório quebra automação.",
+    "explanation": "Nomenclatura segue prefixo + base-36 sequencial (com overprovision pode saltar). Assumir aleat\u00f3rio quebra automa\u00e7\u00e3o.",
     "source": "original",
     "tags": ["vmss", "nomenclatura", "instancia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3466,19 +3478,19 @@
     "subdomain": "single-placement-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que grupos de posicionamento único (single placement group) limitam o VMSS a 100 instâncias do mesmo SKU. Essa afirmação está correta?",
+    "question": "Um arquiteto afirma que grupos de posicionamento \u00fanico (single placement group) limitam o VMSS a 100 inst\u00e2ncias do mesmo SKU. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, limite de 100 por grupo único"
+        "text": "Sim, limite de 100 por grupo \u00fanico"
       },
       {
         "letter": "B",
-        "text": "Não, escala ilimitada em qualquer modo"
+        "text": "N\u00e3o, escala ilimitada em qualquer modo"
       }
     ],
     "correct": ["A"],
-    "explanation": "Single placement group limita a ~100 VMs do mesmo tipo; múltiplos grupos escalam a milhares. Ignorar o limite trava escala.",
+    "explanation": "Single placement group limita a ~100 VMs do mesmo tipo; m\u00faltiplos grupos escalam a milhares. Ignorar o limite trava escala.",
     "source": "original",
     "tags": ["vmss", "placement-group", "limite", "escala"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3491,11 +3503,11 @@
     "subdomain": "orchestration-mode-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que o modo de orquestração do VMSS pode ser alterado livremente após a criação sem recriar. Essa afirmação está correta?",
+    "question": "Um colega afirma que o modo de orquestra\u00e7\u00e3o do VMSS pode ser alterado livremente ap\u00f3s a cria\u00e7\u00e3o sem recriar. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, exige recriação do conjunto"
+        "text": "N\u00e3o, exige recria\u00e7\u00e3o do conjunto"
       },
       {
         "letter": "B",
@@ -3503,7 +3515,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Modo Uniform/Flexible é definido na criação; mudança exige novo conjunto. Assumir alternância quebra planejamento.",
+    "explanation": "Modo Uniform/Flexible \u00e9 definido na cria\u00e7\u00e3o; mudan\u00e7a exige novo conjunto. Assumir altern\u00e2ncia quebra planejamento.",
     "source": "original",
     "tags": ["vmss", "orquestracao", "modo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3516,19 +3528,19 @@
     "subdomain": "fault-domain-count-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que região sem zonas suporta no máximo 2 fault domains em availability set. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que regi\u00e3o sem zonas suporta no m\u00e1ximo 2 fault domains em availability set. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, são 3 fault domains por padrão"
+        "text": "N\u00e3o, s\u00e3o 3 fault domains por padr\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Sim, máximo 2 sem zonas"
+        "text": "Sim, m\u00e1ximo 2 sem zonas"
       }
     ],
     "correct": ["B"],
-    "explanation": "Região sem zonas suporta no máximo 2 fault domains por availability set; com zonas, 3. Assumir 3 FDs em toda região quebra a distribuição de racks.",
+    "explanation": "Regi\u00e3o sem zonas suporta no m\u00e1ximo 2 fault domains por availability set; com zonas, 3. Assumir 3 FDs em toda regi\u00e3o quebra a distribui\u00e7\u00e3o de racks.",
     "source": "original",
     "tags": ["fault-domain", "availability-set", "regiao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3541,19 +3553,19 @@
     "subdomain": "update-domain-count-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que availability set permite até 20 update domains configuráveis. Essa afirmação está correta?",
+    "question": "Um colega afirma que availability set permite at\u00e9 20 update domains configur\u00e1veis. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, até 20 UDs"
+        "text": "Sim, at\u00e9 20 UDs"
       },
       {
         "letter": "B",
-        "text": "Não, o máximo é 5 UDs"
+        "text": "N\u00e3o, o m\u00e1ximo \u00e9 5 UDs"
       }
     ],
     "correct": ["A"],
-    "explanation": "O limite é 20 update domains por availability set. Assumir 5 (padrão) subestima a granularidade possível.",
+    "explanation": "O limite \u00e9 20 update domains por availability set. Assumir 5 (padr\u00e3o) subestima a granularidade poss\u00edvel.",
     "source": "original",
     "tags": ["update-domain", "availability-set", "limite"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3566,7 +3578,7 @@
     "subdomain": "managed-disk-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que discos gerenciados dispensam conta de armazenamento do cliente para VHDs. Essa afirmação está correta?",
+    "question": "Um arquiteto afirma que discos gerenciados dispensam conta de armazenamento do cliente para VHDs. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -3574,15 +3586,15 @@
       },
       {
         "letter": "B",
-        "text": "Não, exigem conta do cliente"
+        "text": "N\u00e3o, exigem conta do cliente"
       }
     ],
     "correct": ["A"],
-    "explanation": "Discos gerenciados abstraem a conta de armazenamento; a plataforma Microsoft gerencia o storage. Exigir conta do cliente é o modelo legado não gerenciado.",
+    "explanation": "Discos gerenciados abstraem a conta de armazenamento; a plataforma Microsoft gerencia o storage. Exigir conta do cliente \u00e9 o modelo legado n\u00e3o gerenciado.",
     "source": "original",
     "tags": ["managed-disk", "storage", "abstracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3591,11 +3603,11 @@
     "subdomain": "unmanaged-retired-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que discos não gerenciados continuam recomendados para novas VMs por simplicidade. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que discos n\u00e3o gerenciados continuam recomendados para novas VMs por simplicidade. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, preteridos em favor de gerenciados"
+        "text": "N\u00e3o, preteridos em favor de gerenciados"
       },
       {
         "letter": "B",
@@ -3603,7 +3615,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Discos não gerenciados foram preteridos; novas VMs devem usar gerenciados. Recomendar unmanaged para deploy novo acumula dívida técnica e perde SLA.",
+    "explanation": "Discos n\u00e3o gerenciados foram preteridos; novas VMs devem usar gerenciados. Recomendar unmanaged para deploy novo acumula d\u00edvida t\u00e9cnica e perde SLA.",
     "source": "original",
     "tags": ["unmanaged", "preterido", "gerenciados"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3616,23 +3628,23 @@
     "subdomain": "temp-disk-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um dev afirma que o disco temporário (D:) da VM é seguro para pagefile e dados descartáveis, mas nunca para dados persistentes. Essa afirmação está correta?",
+    "question": "Um dev afirma que o disco tempor\u00e1rio (D:) da VM \u00e9 seguro para pagefile e dados descart\u00e1veis, mas nunca para dados persistentes. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, temp é efêmero por definição"
+        "text": "Sim, temp \u00e9 ef\u00eamero por defini\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Não, temp persiste como gerenciado"
+        "text": "N\u00e3o, temp persiste como gerenciado"
       }
     ],
     "correct": ["A"],
-    "explanation": "Disco temp é local e efêmero; ideal para pagefile/swap, fatal para dados. Tratar como persistente perde dados.",
+    "explanation": "Disco temp \u00e9 local e ef\u00eamero; ideal para pagefile/swap, fatal para dados. Tratar como persistente perde dados.",
     "source": "original",
     "tags": ["temp-disk", "efemero", "pagefile"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3641,7 +3653,7 @@
     "subdomain": "os-disk-swap-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um admin afirma que é possível trocar o disco de SO de uma VM por outro disco gerenciado sem recriar a máquina. Essa afirmação está correta?",
+    "question": "Um admin afirma que \u00e9 poss\u00edvel trocar o disco de SO de uma VM por outro disco gerenciado sem recriar a m\u00e1quina. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -3649,15 +3661,15 @@
       },
       {
         "letter": "B",
-        "text": "Não, exige recriação total"
+        "text": "N\u00e3o, exige recria\u00e7\u00e3o total"
       }
     ],
     "correct": ["A"],
-    "explanation": "Troca de disco de SO (swap) substitui o disco com a VM parada preservando NICs e dados. Recriar a máquina do zero é trabalho desnecessário.",
+    "explanation": "Troca de disco de SO (swap) substitui o disco com a VM parada preservando NICs e dados. Recriar a m\u00e1quina do zero \u00e9 trabalho desnecess\u00e1rio.",
     "source": "original",
     "tags": ["drift", "escopo", "convergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3666,7 +3678,7 @@
     "subdomain": "vm-insights-dependency",
     "type": "single",
     "difficulty": "hard",
-    "question": "Mapa de dependências mostra VM falando com IP desconhecido às 3h. Qual investigação confirma se é backup legítimo ou exfiltração?",
+    "question": "Mapa de depend\u00eancias mostra VM falando com IP desconhecido \u00e0s 3h. Qual investiga\u00e7\u00e3o confirma se \u00e9 backup leg\u00edtimo ou exfiltra\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -3686,11 +3698,11 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Mapa mostra quem, flow logs mostram volume/destino e processo identifica o binário. Desligar destrói evidência; ignorar é negligência; reinstalar apaga trilha.",
+    "explanation": "Mapa mostra quem, flow logs mostram volume/destino e processo identifica o bin\u00e1rio. Desligar destr\u00f3i evid\u00eancia; ignorar \u00e9 neglig\u00eancia; reinstalar apaga trilha.",
     "source": "original",
     "tags": ["vm-insights", "dependencias", "investigacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3699,11 +3711,11 @@
     "subdomain": "live-migration",
     "type": "single",
     "difficulty": "hard",
-    "question": "Manutenção de host exige mover VMs sem downtime perceptível. Como a plataforma preserva memória e conexões?",
+    "question": "Manuten\u00e7\u00e3o de host exige mover VMs sem downtime percept\u00edvel. Como a plataforma preserva mem\u00f3ria e conex\u00f5es?",
     "options": [
       {
         "letter": "A",
-        "text": "Live migration com pré-cópia de memória"
+        "text": "Live migration com pr\u00e9-c\u00f3pia de mem\u00f3ria"
       },
       {
         "letter": "B",
@@ -3719,7 +3731,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Live migration copia RAM iterativamente e transfere em milissegundos. Desligar interrompe; snapshot não migra viva; DNS não move VM.",
+    "explanation": "Live migration copia RAM iterativamente e transfere em milissegundos. Desligar interrompe; snapshot n\u00e3o migra viva; DNS n\u00e3o move VM.",
     "source": "original",
     "tags": ["live-migration", "host", "manutencao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3732,7 +3744,7 @@
     "subdomain": "memory-preserving-update",
     "type": "single",
     "difficulty": "hard",
-    "question": "Atualização de host com VMs em memória precisa zerar downtime de guest. Qual técnica mantém estado durante o update?",
+    "question": "Atualiza\u00e7\u00e3o de host com VMs em mem\u00f3ria precisa zerar downtime de guest. Qual t\u00e9cnica mant\u00e9m estado durante o update?",
     "options": [
       {
         "letter": "A",
@@ -3744,15 +3756,15 @@
       },
       {
         "letter": "C",
-        "text": "Atualização com preservação de memória do host"
+        "text": "Atualiza\u00e7\u00e3o com preserva\u00e7\u00e3o de mem\u00f3ria do host"
       },
       {
         "letter": "D",
-        "text": "Migração manual por RDP"
+        "text": "Migra\u00e7\u00e3o manual por RDP"
       }
     ],
     "correct": ["C"],
-    "explanation": "Memory-preserving update mantém guests vivos no host atualizado. Reboot interrompe; pausa degrada; manual não escala.",
+    "explanation": "Memory-preserving update mant\u00e9m guests vivos no host atualizado. Reboot interrompe; pausa degrada; manual n\u00e3o escala.",
     "source": "original",
     "tags": ["host-update", "memoria", "zero-downtime"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3765,7 +3777,7 @@
     "subdomain": "cluster-aware-update",
     "type": "single",
     "difficulty": "hard",
-    "question": "Cluster de VMs precisa de update orquestrado com validação de quórum entre nós. O que ordena com failover controlado?",
+    "question": "Cluster de VMs precisa de update orquestrado com valida\u00e7\u00e3o de qu\u00f3rum entre n\u00f3s. O que ordena com failover controlado?",
     "options": [
       {
         "letter": "A",
@@ -3773,7 +3785,7 @@
       },
       {
         "letter": "B",
-        "text": "Update simultâneo de todos"
+        "text": "Update simult\u00e2neo de todos"
       },
       {
         "letter": "C",
@@ -3781,11 +3793,11 @@
       },
       {
         "letter": "D",
-        "text": "Patch aleatório"
+        "text": "Patch aleat\u00f3rio"
       }
     ],
     "correct": ["A"],
-    "explanation": "CAU move roles, atualiza e valida mantendo quórum. Simultâneo derruba; desligar zera; aleatório quebra ordem.",
+    "explanation": "CAU move roles, atualiza e valida mantendo qu\u00f3rum. Simult\u00e2neo derruba; desligar zera; aleat\u00f3rio quebra ordem.",
     "source": "original",
     "tags": ["cluster-aware", "quorum", "update"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3814,11 +3826,11 @@
       },
       {
         "letter": "D",
-        "text": "99,9% de VM única"
+        "text": "99,9% de VM \u00fanica"
       }
     ],
     "correct": ["C"],
-    "explanation": "Availability set com discos gerenciados contrata 99,95%. 99,99% exige zonas; 99,9% é VM única Premium; 100% não existe.",
+    "explanation": "Availability set com discos gerenciados contrata 99,95%. 99,99% exige zonas; 99,9% \u00e9 VM \u00fanica Premium; 100% n\u00e3o existe.",
     "source": "original",
     "tags": ["sla", "availability-set", "99-95"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3831,7 +3843,7 @@
     "subdomain": "vm-sla-single",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma VM única com SSD Premium promete qual SLA de conectividade segundo o contrato do Azure?",
+    "question": "Uma VM \u00fanica com SSD Premium promete qual SLA de conectividade segundo o contrato do Azure?",
     "options": [
       {
         "letter": "A",
@@ -3847,15 +3859,15 @@
       },
       {
         "letter": "D",
-        "text": "99,9% para VM única com disco Premium"
+        "text": "99,9% para VM \u00fanica com disco Premium"
       }
     ],
     "correct": ["D"],
-    "explanation": "VM única com Premium/Ultra contrata 99,9%. 99,95% exige availability set; 99,99% exige zonas; sem Premium não há SLA de VM única.",
+    "explanation": "VM \u00fanica com Premium/Ultra contrata 99,9%. 99,95% exige availability set; 99,99% exige zonas; sem Premium n\u00e3o h\u00e1 SLA de VM \u00fanica.",
     "source": "original",
     "tags": ["sla", "vm-unica", "99-9"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3868,7 +3880,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "99,9% de VM única"
+        "text": "99,9% de VM \u00fanica"
       },
       {
         "letter": "B",
@@ -3884,11 +3896,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Duas ou mais VMs em zonas distintas com discos gerenciados contratam 99,99%. Availability set dá 99,95%; única 99,9%; 99,5% não existe no contrato.",
+    "explanation": "Duas ou mais VMs em zonas distintas com discos gerenciados contratam 99,99%. Availability set d\u00e1 99,95%; \u00fanica 99,9%; 99,5% n\u00e3o existe no contrato.",
     "source": "original",
     "tags": ["sla", "zonas", "99-99"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -3897,7 +3909,7 @@
     "subdomain": "vmss-sla",
     "type": "single",
     "difficulty": "medium",
-    "question": "VMSS com duas ou mais instâncias em availability set promete qual SLA?",
+    "question": "VMSS com duas ou mais inst\u00e2ncias em availability set promete qual SLA?",
     "options": [
       {
         "letter": "A",
@@ -3909,19 +3921,19 @@
       },
       {
         "letter": "C",
-        "text": "99,9% de instância única"
+        "text": "99,9% de inst\u00e2ncia \u00fanica"
       },
       {
         "letter": "D",
-        "text": "99,99% automático"
+        "text": "99,99% autom\u00e1tico"
       }
     ],
     "correct": ["A"],
-    "explanation": "VMSS com 2+ instâncias contrata 99,95% (zonas elevam a 99,99%). Automático 99,99% só com zonas; única não é conjunto.",
+    "explanation": "VMSS com 2+ inst\u00e2ncias contrata 99,95% (zonas elevam a 99,99%). Autom\u00e1tico 99,99% s\u00f3 com zonas; \u00fanica n\u00e3o \u00e9 conjunto.",
     "source": "original",
     "tags": ["sla", "vmss", "99-95"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1
   },
   {
@@ -3930,7 +3942,7 @@
     "subdomain": "composite-sla",
     "type": "single",
     "difficulty": "medium",
-    "question": "App com App Service (99,95%) + SQL (99,99%) em série tem qual SLA composto aproximado?",
+    "question": "App com App Service (99,95%) + SQL (99,99%) em s\u00e9rie tem qual SLA composto aproximado?",
     "options": [
       {
         "letter": "A",
@@ -3950,7 +3962,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Composição em série multiplica disponibilidades (0,9995x0,9999≈0,9994). Maior/menor isolados ignoram a cadeia; soma passa de 100%.",
+    "explanation": "Composi\u00e7\u00e3o em s\u00e9rie multiplica disponibilidades (0,9995x0,9999\u22480,9994). Maior/menor isolados ignoram a cadeia; soma passa de 100%.",
     "source": "original",
     "tags": ["sla", "composto", "serie", "calculo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3983,7 +3995,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "0,1% de 43.200 minutos ≈ 43 min de downtime. 4 min seria 99,99%; 7h seria 99%; zero downtime não existe em nenhum SLA.",
+    "explanation": "0,1% de 43.200 minutos \u2248 43 min de downtime. 4 min seria 99,99%; 7h seria 99%; zero downtime n\u00e3o existe em nenhum SLA.",
     "source": "original",
     "tags": ["sla", "downtime", "calculo", "99-9"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4016,7 +4028,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "0,05% de 43.200 ≈ 22 min de downtime mensal. 43 min equivalem a 99,9%; 4 min a 99,99%; 8h seria cerca de 98%.",
+    "explanation": "0,05% de 43.200 \u2248 22 min de downtime mensal. 43 min equivalem a 99,9%; 4 min a 99,99%; 8h seria cerca de 98%.",
     "source": "original",
     "tags": ["sla", "downtime", "99-95", "calculo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4029,7 +4041,7 @@
     "subdomain": "planned-maintenance-sla",
     "type": "single",
     "difficulty": "hard",
-    "question": "Janelas de manutenção planejada contam como downtime no SLA?",
+    "question": "Janelas de manuten\u00e7\u00e3o planejada contam como downtime no SLA?",
     "options": [
       {
         "letter": "A",
@@ -4037,7 +4049,7 @@
       },
       {
         "letter": "B",
-        "text": "Não, manutenções anunciadas são excluídas"
+        "text": "N\u00e3o, manuten\u00e7\u00f5es anunciadas s\u00e3o exclu\u00eddas"
       },
       {
         "letter": "C",
@@ -4045,15 +4057,15 @@
       },
       {
         "letter": "D",
-        "text": "Conta só em feriado"
+        "text": "Conta s\u00f3 em feriado"
       }
     ],
     "correct": ["B"],
-    "explanation": "SLAs excluem manutenção planejada anunciada do cálculo. Contar tudo ignora a cláusula; dobro não existe; feriado é irrelevante.",
+    "explanation": "SLAs excluem manuten\u00e7\u00e3o planejada anunciada do c\u00e1lculo. Contar tudo ignora a cl\u00e1usula; dobro n\u00e3o existe; feriado \u00e9 irrelevante.",
     "source": "original",
     "tags": ["sla", "manutencao", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   },
   {
@@ -4062,7 +4074,7 @@
     "subdomain": "external-factors-sla",
     "type": "single",
     "difficulty": "hard",
-    "question": "Falha causada por configuração errada do cliente (NSG bloqueando probe) gera crédito de SLA?",
+    "question": "Falha causada por configura\u00e7\u00e3o errada do cliente (NSG bloqueando probe) gera cr\u00e9dito de SLA?",
     "options": [
       {
         "letter": "A",
@@ -4070,7 +4082,7 @@
       },
       {
         "letter": "B",
-        "text": "Não, causas do cliente são excluídas"
+        "text": "N\u00e3o, causas do cliente s\u00e3o exclu\u00eddas"
       },
       {
         "letter": "C",
@@ -4082,7 +4094,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "SLA exclui mau uso, força maior e causas do cliente. Gerar sempre ignora exclusões; dobrar não existe; reclamar não cria direito.",
+    "explanation": "SLA exclui mau uso, for\u00e7a maior e causas do cliente. Gerar sempre ignora exclus\u00f5es; dobrar n\u00e3o existe; reclamar n\u00e3o cria direito.",
     "source": "original",
     "tags": ["sla", "exclusoes", "cliente"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4095,7 +4107,7 @@
     "subdomain": "free-tier-sla",
     "type": "single",
     "difficulty": "hard",
-    "question": "Planos Gratuitos e Compartilhados do App Service têm qual SLA?",
+    "question": "Planos Gratuitos e Compartilhados do App Service t\u00eam qual SLA?",
     "options": [
       {
         "letter": "A",
@@ -4111,11 +4123,11 @@
       },
       {
         "letter": "D",
-        "text": "99,95% igual ao Básico"
+        "text": "99,95% igual ao B\u00e1sico"
       }
     ],
     "correct": ["C"],
-    "explanation": "Planos Free e Shared não têm SLA contratual. Equiparar ao plano Básico ignora a tabela oficial de SLAs do App Service.",
+    "explanation": "Planos Free e Shared n\u00e3o t\u00eam SLA contratual. Equiparar ao plano B\u00e1sico ignora a tabela oficial de SLAs do App Service.",
     "source": "original",
     "tags": ["sla", "gratuito", "compartilhado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4128,11 +4140,11 @@
     "subdomain": "vm-sizes-constrained",
     "type": "single",
     "difficulty": "medium",
-    "question": "Região com capacidade limitada não tem D-series disponível para deploy imediato. Como descobrir SKUs disponíveis na região via CLI?",
+    "question": "Regi\u00e3o com capacidade limitada n\u00e3o tem D-series dispon\u00edvel para deploy imediato. Como descobrir SKUs dispon\u00edveis na regi\u00e3o via CLI?",
     "options": [
       {
         "letter": "A",
-        "text": "Usar qualquer SKU indisponível"
+        "text": "Usar qualquer SKU indispon\u00edvel"
       },
       {
         "letter": "B",
@@ -4140,20 +4152,21 @@
       },
       {
         "letter": "C",
-        "text": "az vm list-skus com filtros de região e zona"
+        "text": "az vm list-skus com filtros de regi\u00e3o e zona"
       },
       {
         "letter": "D",
-        "text": "Ticket de suporte genérico"
+        "text": "Ticket de suporte gen\u00e9rico"
       }
     ],
     "correct": ["C"],
-    "explanation": "list-skus mostra disponibilidade por região/zona com restrições. Tentativa e erro atrasa; ticket genérico não resolve; SKU indisponível falha.",
-    "source": "original",
+    "explanation": "list-skus mostra disponibilidade por regi\u00e3o/zona com restri\u00e7\u00f5es. Tentativa e erro atrasa; ticket gen\u00e9rico n\u00e3o resolve; SKU indispon\u00edvel falha.",
+    "source": "mslearn",
     "tags": ["skus", "capacidade", "regiao", "cli"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T21:40:58.787Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal"
   },
   {
     "id": "az104-co-202",
@@ -4165,7 +4178,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Reduzir para série menor sem solicitar"
+        "text": "Reduzir para s\u00e9rie menor sem solicitar"
       },
       {
         "letter": "B",
@@ -4173,7 +4186,7 @@
       },
       {
         "letter": "C",
-        "text": "Solicitação de aumento de cota no portal com justificativa"
+        "text": "Solicita\u00e7\u00e3o de aumento de cota no portal com justificativa"
       },
       {
         "letter": "D",
@@ -4181,11 +4194,11 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Quota increase formal eleva o limite com aprovação. Nova sub por VM fragmenta; Spot tem cota própria; reduzir sem pedir não resolve o teto.",
+    "explanation": "Quota increase formal eleva o limite com aprova\u00e7\u00e3o. Nova sub por VM fragmenta; Spot tem cota pr\u00f3pria; reduzir sem pedir n\u00e3o resolve o teto.",
     "source": "original",
     "tags": ["cota", "vcpu", "limite", "aumento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:00:00.000Z",
     "version": 1
   }
 ]

@@ -721,5 +721,285 @@
     "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
     "score": 5,
     "count": 1
+  },
+  "vms-disponibilidade": {
+    "groupId": "co-vms",
+    "bulletIndex": 5,
+    "bulletLabel": "Implantar m\u00e1quinas virtuais em zonas de disponibilidade e conjuntos de disponibilidade",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "score": 13,
+    "count": 1
+  },
+  "containers-aci": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-conceito": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-upgrade": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-lb": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-spot": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vms-ultra-disk": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-orchestration": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-multiplos": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-stateful": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-reparo-multiplos": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-terminate-notification": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-app-health-multiplos": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-custom-script": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-disk-burst": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-rolling-upgrade-policy": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-disk-encryption-ade": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-confidential-os-disk": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-disk-caching": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-disk-striping": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-rolling-multiplos": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-sla-zones": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vmss-sla": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "vm-sizes-constrained": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar uma m\u00e1quina virtual",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "app-service-slots": {
+    "groupId": "co-app-service",
+    "bulletIndex": 7,
+    "bulletLabel": "Configurar slots de implanta\u00e7\u00e3o para um Servi\u00e7o de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots",
+    "score": 24,
+    "count": 1
+  },
+  "container-apps": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
+  },
+  "app-service-certificados": {
+    "groupId": "co-app-service",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar certificados e a Seguran\u00e7a da Camada de Transporte (TLS) para um servi\u00e7o de aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate",
+    "score": 14,
+    "count": 1
+  },
+  "app-service-backup": {
+    "groupId": "co-app-service",
+    "bulletIndex": 5,
+    "bulletLabel": "Configurar backup para um Servi\u00e7o de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup",
+    "score": 19,
+    "count": 1
+  },
+  "container-apps-jobs": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
+  },
+  "app-service-backup-multiplos": {
+    "groupId": "co-app-service",
+    "bulletIndex": 5,
+    "bulletLabel": "Configurar backup para um Servi\u00e7o de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup",
+    "score": 19,
+    "count": 1
+  },
+  "container-apps-dapr-multiplos": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
+  },
+  "functions-slots": {
+    "groupId": "co-app-service",
+    "bulletIndex": 7,
+    "bulletLabel": "Configurar slots de implanta\u00e7\u00e3o para um Servi\u00e7o de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots",
+    "score": 14,
+    "count": 1
+  },
+  "container-apps-vnet": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
+  },
+  "container-apps-secrets": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
+  },
+  "container-apps-ingress": {
+    "groupId": "co-containers",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "score": 10,
+    "count": 1
   }
 }
