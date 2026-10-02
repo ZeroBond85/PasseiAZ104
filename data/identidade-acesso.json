@@ -5,11 +5,11 @@
     "subdomain": "entra-id-usuarios",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa criar uma conta de usuário para um novo funcionário no Microsoft Entra ID. Qual tipo de conta permite autenticação com políticas de acesso condicional da organização?",
+    "question": "Voc\u00ea precisa criar uma conta de usu\u00e1rio para um novo funcion\u00e1rio no Microsoft Entra ID. Qual tipo de conta permite autentica\u00e7\u00e3o com pol\u00edticas de acesso condicional da organiza\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Conta de serviço gerenciada pelo sistema operacional"
+        "text": "Conta de servi\u00e7o gerenciada pelo sistema operacional"
       },
       {
         "letter": "B",
@@ -17,15 +17,15 @@
       },
       {
         "letter": "C",
-        "text": "Conta de usuário membro (Member) no tenant da organização"
+        "text": "Conta de usu\u00e1rio membro (Member) no tenant da organiza\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Conta local do Windows no computador do funcionário"
+        "text": "Conta local do Windows no computador do funcion\u00e1rio"
       }
     ],
     "correct": ["C"],
-    "explanation": "Usuários membros do tenant estão sujeitos a políticas de acesso condicional e MFA. MSA sem convite não pertence ao tenant; conta local do Windows e conta de serviço do SO ficam fora do Entra ID e não recebem as políticas.",
+    "explanation": "Usu\u00e1rios membros do tenant est\u00e3o sujeitos a pol\u00edticas de acesso condicional e MFA. MSA sem convite n\u00e3o pertence ao tenant; conta local do Windows e conta de servi\u00e7o do SO ficam fora do Entra ID e n\u00e3o recebem as pol\u00edticas.",
     "source": "mslearn",
     "tags": ["entra-id", "usuarios"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -39,15 +39,15 @@
     "subdomain": "entra-id-grupos",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um administrador precisa criar um novo grupo de segurança no Microsoft Entra ID e adicionar membros manualmente. Qual sequência de ações no centro de administração realiza essa tarefa?",
+    "question": "Um administrador precisa criar um novo grupo de seguran\u00e7a no Microsoft Entra ID e adicionar membros manualmente. Qual sequ\u00eancia de a\u00e7\u00f5es no centro de administra\u00e7\u00e3o realiza essa tarefa?",
     "options": [
       {
         "letter": "A",
-        "text": "Identidade > Grupos > Novo grupo > Segurança > Adicionar membros > Criar"
+        "text": "Identidade > Grupos > Novo grupo > Seguran\u00e7a > Adicionar membros > Criar"
       },
       {
         "letter": "B",
-        "text": "Usuários > Novo usuário > Preencher dados > Atribuir grupo"
+        "text": "Usu\u00e1rios > Novo usu\u00e1rio > Preencher dados > Atribuir grupo"
       },
       {
         "letter": "C",
@@ -59,7 +59,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "A página de grupos no centro de administração (Identidade > Grupos > Novo grupo) permite criar grupos de segurança e adicionar membros na criação. Criar usuário não cria grupo; registro de app é para aplicações; unidades administrativas são para delegação, não para criar grupos de segurança.",
+    "explanation": "A p\u00e1gina de grupos no centro de administra\u00e7\u00e3o (Identidade > Grupos > Novo grupo) permite criar grupos de seguran\u00e7a e adicionar membros na cria\u00e7\u00e3o. Criar usu\u00e1rio n\u00e3o cria grupo; registro de app \u00e9 para aplica\u00e7\u00f5es; unidades administrativas s\u00e3o para delega\u00e7\u00e3o, n\u00e3o para criar grupos de seguran\u00e7a.",
     "source": "mslearn",
     "tags": ["entra-id", "grupos-dinamicos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -73,27 +73,27 @@
     "subdomain": "conditional-access",
     "type": "single",
     "difficulty": "medium",
-    "question": "Você precisa exigir MFA apenas quando usuários acessarem o portal do Azure de redes fora do escritório, mantendo o acesso interno só com senha. Quais elementos de uma política de acesso condicional configuram isso?",
+    "question": "Voc\u00ea precisa exigir MFA apenas quando usu\u00e1rios acessarem o portal do Azure de redes fora do escrit\u00f3rio, mantendo o acesso interno s\u00f3 com senha. Quais elementos de uma pol\u00edtica de acesso condicional configuram isso?",
     "options": [
       {
         "letter": "A",
-        "text": "Condição de local com redes confiáveis excluídas + controle de concessão exigindo MFA"
+        "text": "Condi\u00e7\u00e3o de local com redes confi\u00e1veis exclu\u00eddas + controle de concess\u00e3o exigindo MFA"
       },
       {
         "letter": "B",
-        "text": "Condição de risco de login + concessão de conformidade de dispositivo"
+        "text": "Condi\u00e7\u00e3o de risco de login + concess\u00e3o de conformidade de dispositivo"
       },
       {
         "letter": "C",
-        "text": "Condição de plataforma de dispositivo + concessão de aplicativo aprovado"
+        "text": "Condi\u00e7\u00e3o de plataforma de dispositivo + concess\u00e3o de aplicativo aprovado"
       },
       {
         "letter": "D",
-        "text": "Condição de aplicativo cliente + concessão de sessão persistente"
+        "text": "Condi\u00e7\u00e3o de aplicativo cliente + concess\u00e3o de sess\u00e3o persistente"
       }
     ],
     "correct": ["A"],
-    "explanation": "Local com exceção das redes confiáveis isola o acesso externo, e a concessão MFA impõe o segundo fator só ali. As demais combinam sinais errados: cliente, risco e plataforma não expressam origem de rede versus concessão.",
+    "explanation": "Local com exce\u00e7\u00e3o das redes confi\u00e1veis isola o acesso externo, e a concess\u00e3o MFA imp\u00f5e o segundo fator s\u00f3 ali. As demais combinam sinais errados: cliente, risco e plataforma n\u00e3o expressam origem de rede versus concess\u00e3o.",
     "source": "original",
     "tags": ["conditional-access", "mfa", "locations"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -106,19 +106,19 @@
     "subdomain": "app-registrations",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um aplicativo interno precisa ler e-mails dos usuários via Microsoft Graph com consentimento de cada usuário. Qual tipo de permissão e configuração de entidade representam esse acesso delegado?",
+    "question": "Um aplicativo interno precisa ler e-mails dos usu\u00e1rios via Microsoft Graph com consentimento de cada usu\u00e1rio. Qual tipo de permiss\u00e3o e configura\u00e7\u00e3o de entidade representam esse acesso delegado?",
     "options": [
       {
         "letter": "A",
-        "text": "Permissão de aplicativo Mail.ReadWrite sem usuário conectado"
+        "text": "Permiss\u00e3o de aplicativo Mail.ReadWrite sem usu\u00e1rio conectado"
       },
       {
         "letter": "B",
-        "text": "Função RBAC Leitor na assinatura do tenant"
+        "text": "Fun\u00e7\u00e3o RBAC Leitor na assinatura do tenant"
       },
       {
         "letter": "C",
-        "text": "Permissão delegada Mail.Read na entidade de serviço do aplicativo"
+        "text": "Permiss\u00e3o delegada Mail.Read na entidade de servi\u00e7o do aplicativo"
       },
       {
         "letter": "D",
@@ -126,7 +126,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Permissão delegada age em nome do usuário conectado, com consentimento individual. Permissão de aplicativo age sem usuário (daemon); RBAC autoriza plano de gerenciamento do Azure, não Graph; chave de storage não autoriza Graph.",
+    "explanation": "Permiss\u00e3o delegada age em nome do usu\u00e1rio conectado, com consentimento individual. Permiss\u00e3o de aplicativo age sem usu\u00e1rio (daemon); RBAC autoriza plano de gerenciamento do Azure, n\u00e3o Graph; chave de storage n\u00e3o autoriza Graph.",
     "source": "original",
     "tags": ["app-registration", "graph", "permissoes-delegadas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -139,27 +139,27 @@
     "subdomain": "managed-identity",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma VM precisa ler segredos do Key Vault sem armazenar nenhuma credencial no código ou na configuração. Qual identidade elimina o gerenciamento de segredos nesse cenário?",
+    "question": "Uma VM precisa ler segredos do Key Vault sem armazenar nenhuma credencial no c\u00f3digo ou na configura\u00e7\u00e3o. Qual identidade elimina o gerenciamento de segredos nesse cen\u00e1rio?",
     "options": [
       {
         "letter": "A",
-        "text": "Conta de usuário com MFA executando o serviço"
+        "text": "Conta de usu\u00e1rio com MFA executando o servi\u00e7o"
       },
       {
         "letter": "B",
-        "text": "Chave SAS com validade de 1 ano no código"
+        "text": "Chave SAS com validade de 1 ano no c\u00f3digo"
       },
       {
         "letter": "C",
-        "text": "Identidade gerenciada atribuída pelo sistema na VM"
+        "text": "Identidade gerenciada atribu\u00edda pelo sistema na VM"
       },
       {
         "letter": "D",
-        "text": "Entidade de serviço com segredo de cliente no Key Vault"
+        "text": "Entidade de servi\u00e7o com segredo de cliente no Key Vault"
       }
     ],
     "correct": ["C"],
-    "explanation": "Identidade gerenciada do sistema provisiona credencial automática gerenciada pelo Azure, sem segredo para guardar. Entidade de serviço exige guardar segredo; conta de usuário com MFA não serve a serviço autônomo; SAS no código é exatamente o antípadrão.",
+    "explanation": "Identidade gerenciada do sistema provisiona credencial autom\u00e1tica gerenciada pelo Azure, sem segredo para guardar. Entidade de servi\u00e7o exige guardar segredo; conta de usu\u00e1rio com MFA n\u00e3o serve a servi\u00e7o aut\u00f4nomo; SAS no c\u00f3digo \u00e9 exatamente o ant\u00edpadr\u00e3o.",
     "source": "original",
     "tags": ["managed-identity", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -172,11 +172,11 @@
     "subdomain": "conditional-access",
     "type": "single",
     "difficulty": "medium",
-    "question": "Você criou uma política de acesso condicional para pilotos e precisa medir o impacto antes de impô-la, sem bloquear nenhum usuário. Qual modo da política permite essa avaliação segura?",
+    "question": "Voc\u00ea criou uma pol\u00edtica de acesso condicional para pilotos e precisa medir o impacto antes de imp\u00f4-la, sem bloquear nenhum usu\u00e1rio. Qual modo da pol\u00edtica permite essa avalia\u00e7\u00e3o segura?",
     "options": [
       {
         "letter": "A",
-        "text": "Modo Somente relatório (Report-only)"
+        "text": "Modo Somente relat\u00f3rio (Report-only)"
       },
       {
         "letter": "B",
@@ -184,15 +184,15 @@
       },
       {
         "letter": "C",
-        "text": "Modo Auditoria via Log Analytics sem política"
+        "text": "Modo Auditoria via Log Analytics sem pol\u00edtica"
       },
       {
         "letter": "D",
-        "text": "Modo Ativado (On) com exclusão de emergência"
+        "text": "Modo Ativado (On) com exclus\u00e3o de emerg\u00eancia"
       }
     ],
     "correct": ["A"],
-    "explanation": "Report-only avalia cada login contra a política e registra o resultado sem impor controle. Off não avalia nada; On impõe de verdade e pode bloquear; não existe modo Auditoria de política sem criá-la.",
+    "explanation": "Report-only avalia cada login contra a pol\u00edtica e registra o resultado sem impor controle. Off n\u00e3o avalia nada; On imp\u00f5e de verdade e pode bloquear; n\u00e3o existe modo Auditoria de pol\u00edtica sem cri\u00e1-la.",
     "source": "original",
     "tags": ["conditional-access", "report-only"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -205,27 +205,27 @@
     "subdomain": "entra-roles-vs-rbac",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um técnico precisa redefinir senhas de usuários e gerenciar licenças no Entra ID, mas não deve tocar em recursos do Azure como VMs. Qual tipo de função deve ser atribuído a ele?",
+    "question": "Um t\u00e9cnico precisa redefinir senhas de usu\u00e1rios e gerenciar licen\u00e7as no Entra ID, mas n\u00e3o deve tocar em recursos do Azure como VMs. Qual tipo de fun\u00e7\u00e3o deve ser atribu\u00eddo a ele?",
     "options": [
       {
         "letter": "A",
-        "text": "Função RBAC Leitor no grupo de gerenciamento"
+        "text": "Fun\u00e7\u00e3o RBAC Leitor no grupo de gerenciamento"
       },
       {
         "letter": "B",
-        "text": "Função de administrador do Microsoft Entra (ex.: Administrador de Senhas)"
+        "text": "Fun\u00e7\u00e3o de administrador do Microsoft Entra (ex.: Administrador de Senhas)"
       },
       {
         "letter": "C",
-        "text": "Função RBAC Colaborador na assinatura"
+        "text": "Fun\u00e7\u00e3o RBAC Colaborador na assinatura"
       },
       {
         "letter": "D",
-        "text": "Função de Proprietário de Dados de Storage"
+        "text": "Fun\u00e7\u00e3o de Propriet\u00e1rio de Dados de Storage"
       }
     ],
     "correct": ["B"],
-    "explanation": "Funções do Entra administram identidades (senhas, licenças) sem alcançar o plano de dados do Azure. RBAC do Azure gerencia recursos, não usuários; Leitor não redefine senha; Proprietário de Storage cuida de blobs.",
+    "explanation": "Fun\u00e7\u00f5es do Entra administram identidades (senhas, licen\u00e7as) sem alcan\u00e7ar o plano de dados do Azure. RBAC do Azure gerencia recursos, n\u00e3o usu\u00e1rios; Leitor n\u00e3o redefine senha; Propriet\u00e1rio de Storage cuida de blobs.",
     "source": "mslearn",
     "tags": ["entra-roles", "rbac", "escopo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -239,19 +239,19 @@
     "subdomain": "password-protection",
     "type": "single",
     "difficulty": "medium",
-    "question": "Usuários do AD local continuam criando senhas como NomeDaEmpresa123. Como estender a lista global de senhas proibidas do Entra para os controladores locais?",
+    "question": "Usu\u00e1rios do AD local continuam criando senhas como NomeDaEmpresa123. Como estender a lista global de senhas proibidas do Entra para os controladores locais?",
     "options": [
       {
         "letter": "A",
-        "text": "Bloqueio de conta após 3 tentativas no AD"
+        "text": "Bloqueio de conta ap\u00f3s 3 tentativas no AD"
       },
       {
         "letter": "B",
-        "text": "Proteção de senha do Entra com proxy e agente DC + lista personalizada"
+        "text": "Prote\u00e7\u00e3o de senha do Entra com proxy e agente DC + lista personalizada"
       },
       {
         "letter": "C",
-        "text": "Política de complexidade padrão do AD local"
+        "text": "Pol\u00edtica de complexidade padr\u00e3o do AD local"
       },
       {
         "letter": "D",
@@ -259,7 +259,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "O agente nos DCs valida cada troca contra a lista global e a personalizada via proxy. SSPR na nuvem não alcança o AD; complexidade padrão aceita NomeDaEmpresa123; bloqueio reage a tentativas, não à qualidade da senha.",
+    "explanation": "O agente nos DCs valida cada troca contra a lista global e a personalizada via proxy. SSPR na nuvem n\u00e3o alcan\u00e7a o AD; complexidade padr\u00e3o aceita NomeDaEmpresa123; bloqueio reage a tentativas, n\u00e3o \u00e0 qualidade da senha.",
     "source": "original",
     "tags": ["password-protection", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -272,19 +272,19 @@
     "subdomain": "service-principal-vs-managed",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um serviço no Azure precisa autenticar em outro tenant onde identidade gerenciada não alcança. Qual identidade de aplicativo deve ser criada nesse cenário de escopo ampliado?",
+    "question": "Um servi\u00e7o no Azure precisa autenticar em outro tenant onde identidade gerenciada n\u00e3o alcan\u00e7a. Qual identidade de aplicativo deve ser criada nesse cen\u00e1rio de escopo ampliado?",
     "options": [
       {
         "letter": "A",
-        "text": "Identidade gerenciada atribuída pelo usuário"
+        "text": "Identidade gerenciada atribu\u00edda pelo usu\u00e1rio"
       },
       {
         "letter": "B",
-        "text": "Entidade de serviço com certificado como credencial"
+        "text": "Entidade de servi\u00e7o com certificado como credencial"
       },
       {
         "letter": "C",
-        "text": "Conta de usuário sincronizada com senha"
+        "text": "Conta de usu\u00e1rio sincronizada com senha"
       },
       {
         "letter": "D",
@@ -292,7 +292,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Entidade de serviço com certificado funciona entre tenants e é mais segura que segredo. Identidade gerenciada limita-se ao próprio tenant; conta de usuário não serve a serviço; chave de storage não autentica entre tenants.",
+    "explanation": "Entidade de servi\u00e7o com certificado funciona entre tenants e \u00e9 mais segura que segredo. Identidade gerenciada limita-se ao pr\u00f3prio tenant; conta de usu\u00e1rio n\u00e3o serve a servi\u00e7o; chave de storage n\u00e3o autentica entre tenants.",
     "source": "original",
     "tags": ["service-principal", "certificado", "multitenant"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -305,7 +305,7 @@
     "subdomain": "conditional-access-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Você vai proteger administradores do Azure com acesso condicional. Quais dois controles combinados garantem estação segura e segundo fator a cada acesso administrativo? Selecione duas.",
+    "question": "Voc\u00ea vai proteger administradores do Azure com acesso condicional. Quais dois controles combinados garantem esta\u00e7\u00e3o segura e segundo fator a cada acesso administrativo? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -313,19 +313,19 @@
       },
       {
         "letter": "B",
-        "text": "Sessão persistente de 90 dias sem reautenticação"
+        "text": "Sess\u00e3o persistente de 90 dias sem reautentica\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Exigir autenticação multifator"
+        "text": "Exigir autentica\u00e7\u00e3o multifator"
       },
       {
         "letter": "D",
-        "text": "Exigir dispositivo em conformidade ou híbrido ingressado"
+        "text": "Exigir dispositivo em conformidade ou h\u00edbrido ingressado"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "MFA garante o segundo fator e dispositivo conforme garante a estação íntegra. Permitir qualquer dispositivo anula a garantia; sessão de 90 dias reduz a frequência de verificação exigida.",
+    "explanation": "MFA garante o segundo fator e dispositivo conforme garante a esta\u00e7\u00e3o \u00edntegra. Permitir qualquer dispositivo anula a garantia; sess\u00e3o de 90 dias reduz a frequ\u00eancia de verifica\u00e7\u00e3o exigida.",
     "source": "original",
     "tags": ["conditional-access", "admin", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -338,27 +338,27 @@
     "subdomain": "cross-tenant-access",
     "type": "single",
     "difficulty": "hard",
-    "question": "Duas assinaturas em tenants diferentes precisam colaborar e você quer que usuários do tenant parceiro acessem recursos com as políticas de acesso condicional do SEU tenant aplicadas. Qual configuração de acesso entre tenants impõe suas políticas aos externos?",
+    "question": "Duas assinaturas em tenants diferentes precisam colaborar e voc\u00ea quer que usu\u00e1rios do tenant parceiro acessem recursos com as pol\u00edticas de acesso condicional do SEU tenant aplicadas. Qual configura\u00e7\u00e3o de acesso entre tenants imp\u00f5e suas pol\u00edticas aos externos?",
     "options": [
       {
         "letter": "A",
-        "text": "Confiança total nas declarações MFA do parceiro sem avaliação local"
+        "text": "Confian\u00e7a total nas declara\u00e7\u00f5es MFA do parceiro sem avalia\u00e7\u00e3o local"
       },
       {
         "letter": "B",
-        "text": "Sincronização de senhas entre os dois tenants"
+        "text": "Sincroniza\u00e7\u00e3o de senhas entre os dois tenants"
       },
       {
         "letter": "C",
-        "text": "Federação direta sem colaboração B2B"
+        "text": "Federa\u00e7\u00e3o direta sem colabora\u00e7\u00e3o B2B"
       },
       {
         "letter": "D",
-        "text": "Confiança nas políticas do tenant parceiro DESATIVADA nas configurações de acesso entre tenants"
+        "text": "Confian\u00e7a nas pol\u00edticas do tenant parceiro DESATIVADA nas configura\u00e7\u00f5es de acesso entre tenants"
       }
     ],
     "correct": ["D"],
-    "explanation": "Desativar a confiança exige que o acesso satisfaça as políticas do seu tenant (MFA, conformidade). Confiar cegamente delega a segurança; senhas não sincronizam entre tenants; federação direta não dispensa as configurações de confiança.",
+    "explanation": "Desativar a confian\u00e7a exige que o acesso satisfa\u00e7a as pol\u00edticas do seu tenant (MFA, conformidade). Confiar cegamente delega a seguran\u00e7a; senhas n\u00e3o sincronizam entre tenants; federa\u00e7\u00e3o direta n\u00e3o dispensa as configura\u00e7\u00f5es de confian\u00e7a.",
     "source": "original",
     "tags": ["cross-tenant", "b2b", "confianca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -371,11 +371,11 @@
     "subdomain": "token-protection",
     "type": "single",
     "difficulty": "hard",
-    "question": "Tokens de sessão roubados estão sendo reproduzidos de outras máquinas. Qual recurso do acesso condicional vincula o token ao dispositivo e invalida o replay externo?",
+    "question": "Tokens de sess\u00e3o roubados est\u00e3o sendo reproduzidos de outras m\u00e1quinas. Qual recurso do acesso condicional vincula o token ao dispositivo e invalida o replay externo?",
     "options": [
       {
         "letter": "A",
-        "text": "Consentimento do usuário a cada login"
+        "text": "Consentimento do usu\u00e1rio a cada login"
       },
       {
         "letter": "B",
@@ -383,15 +383,15 @@
       },
       {
         "letter": "C",
-        "text": "Desabilitação de refresh tokens no aplicativo"
+        "text": "Desabilita\u00e7\u00e3o de refresh tokens no aplicativo"
       },
       {
         "letter": "D",
-        "text": "Proteção de token (token protection) na sessão de acesso condicional"
+        "text": "Prote\u00e7\u00e3o de token (token protection) na sess\u00e3o de acesso condicional"
       }
     ],
     "correct": ["D"],
-    "explanation": "Token protection vincula criptograficamente o token ao dispositivo registrado, rejeitando replay. Aumentar a vida do token amplia a janela de abuso; sem refresh token quebra a usabilidade sem vincular; consentimento não impede replay.",
+    "explanation": "Token protection vincula criptograficamente o token ao dispositivo registrado, rejeitando replay. Aumentar a vida do token amplia a janela de abuso; sem refresh token quebra a usabilidade sem vincular; consentimento n\u00e3o impede replay.",
     "source": "original",
     "tags": ["token-protection", "sessao", "replay"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -404,7 +404,7 @@
     "subdomain": "workload-identity-federation",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um pipeline do GitHub Actions implanta no Azure e você quer eliminar completamente o segredo de cliente da entidade de serviço. Qual mecanismo permite ao pipeline obter tokens via confiança direta com o Entra ID?",
+    "question": "Um pipeline do GitHub Actions implanta no Azure e voc\u00ea quer eliminar completamente o segredo de cliente da entidade de servi\u00e7o. Qual mecanismo permite ao pipeline obter tokens via confian\u00e7a direta com o Entra ID?",
     "options": [
       {
         "letter": "A",
@@ -412,19 +412,19 @@
       },
       {
         "letter": "B",
-        "text": "Federação de identidade de carga de trabalho (workload identity federation)"
+        "text": "Federa\u00e7\u00e3o de identidade de carga de trabalho (workload identity federation)"
       },
       {
         "letter": "C",
-        "text": "Conta de usuário dedicada ao pipeline com senha"
+        "text": "Conta de usu\u00e1rio dedicada ao pipeline com senha"
       },
       {
         "letter": "D",
-        "text": "Chave de automação armazenada em variável do pipeline"
+        "text": "Chave de automa\u00e7\u00e3o armazenada em vari\u00e1vel do pipeline"
       }
     ],
     "correct": ["B"],
-    "explanation": "Federação troca o token OIDC do GitHub por token do Entra sem nenhum segredo armazenado. Rotação reduz, mas mantém o segredo; conta de usuário com senha é frágil e sem MFA prático; variável de pipeline ainda expõe segredo.",
+    "explanation": "Federa\u00e7\u00e3o troca o token OIDC do GitHub por token do Entra sem nenhum segredo armazenado. Rota\u00e7\u00e3o reduz, mas mant\u00e9m o segredo; conta de usu\u00e1rio com senha \u00e9 fr\u00e1gil e sem MFA pr\u00e1tico; vari\u00e1vel de pipeline ainda exp\u00f5e segredo.",
     "source": "original",
     "tags": ["workload-identity", "github-actions", "federacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -437,19 +437,19 @@
     "subdomain": "conditional-access-avancado",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Para bloquear acessos de clientes legados que não suportam autenticação moderna em toda a organização, quais duas condições de acesso condicional identificam esse tráfego? Selecione duas.",
+    "question": "Para bloquear acessos de clientes legados que n\u00e3o suportam autentica\u00e7\u00e3o moderna em toda a organiza\u00e7\u00e3o, quais duas condi\u00e7\u00f5es de acesso condicional identificam esse tr\u00e1fego? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Condição de plataforma Windows atualizada"
+        "text": "Condi\u00e7\u00e3o de plataforma Windows atualizada"
       },
       {
         "letter": "B",
-        "text": "Condição de Exchange ActiveSync para EAS legado"
+        "text": "Condi\u00e7\u00e3o de Exchange ActiveSync para EAS legado"
       },
       {
         "letter": "C",
-        "text": "Aplicativos cliente: clientes de autenticação legados"
+        "text": "Aplicativos cliente: clientes de autentica\u00e7\u00e3o legados"
       },
       {
         "letter": "D",
@@ -457,7 +457,7 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Clientes legados (IMAP/POP/autenticação básica) e o EAS legado identificam o tráfego sem autenticação moderna. Navegadores modernos e Windows atualizado representam justamente o tráfego a preservar.",
+    "explanation": "Clientes legados (IMAP/POP/autentica\u00e7\u00e3o b\u00e1sica) e o EAS legado identificam o tr\u00e1fego sem autentica\u00e7\u00e3o moderna. Navegadores modernos e Windows atualizado representam justamente o tr\u00e1fego a preservar.",
     "source": "original",
     "tags": ["conditional-access", "legados", "modern-auth"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -470,15 +470,15 @@
     "subdomain": "global-secure-access",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "A empresa quer substituir a VPN por acesso Zero Trust do Entra para apps internos e internet, com política central. Quais dois componentes do Global Secure Access entregam esses acessos? Selecione duas.",
+    "question": "A empresa quer substituir a VPN por acesso Zero Trust do Entra para apps internos e internet, com pol\u00edtica central. Quais dois componentes do Global Secure Access entregam esses acessos? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Gateway de VPN ponto a site clássico"
+        "text": "Gateway de VPN ponto a site cl\u00e1ssico"
       },
       {
         "letter": "B",
-        "text": "Acesso à Internet (Internet Access) com filtragem"
+        "text": "Acesso \u00e0 Internet (Internet Access) com filtragem"
       },
       {
         "letter": "C",
@@ -486,11 +486,11 @@
       },
       {
         "letter": "D",
-        "text": "Roteamento forçado via ExpressRoute sem política"
+        "text": "Roteamento for\u00e7ado via ExpressRoute sem pol\u00edtica"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Private Access publica apps internos sem VPN e Internet Access filtra a navegação, ambos sob acesso condicional. VPN clássica mantém o modelo a substituir; ExpressRoute sem política é conectividade, não Zero Trust.",
+    "explanation": "Private Access publica apps internos sem VPN e Internet Access filtra a navega\u00e7\u00e3o, ambos sob acesso condicional. VPN cl\u00e1ssica mant\u00e9m o modelo a substituir; ExpressRoute sem pol\u00edtica \u00e9 conectividade, n\u00e3o Zero Trust.",
     "source": "original",
     "tags": ["global-secure-access", "zero-trust", "private-access"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -503,15 +503,15 @@
     "subdomain": "verified-id",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "O RH precisa emitir credenciais verificáveis de vínculo empregatício que parceiros validem sem consultar sua base interna. Quais duas propriedades das Credenciais Verificáveis do Entra garantem isso? Selecione duas.",
+    "question": "O RH precisa emitir credenciais verific\u00e1veis de v\u00ednculo empregat\u00edcio que parceiros validem sem consultar sua base interna. Quais duas propriedades das Credenciais Verific\u00e1veis do Entra garantem isso? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Assinatura descentralizada verificável sem contato com o emissor"
+        "text": "Assinatura descentralizada verific\u00e1vel sem contato com o emissor"
       },
       {
         "letter": "B",
-        "text": "Revogação consultável pelo verificador"
+        "text": "Revoga\u00e7\u00e3o consult\u00e1vel pelo verificador"
       },
       {
         "letter": "C",
@@ -519,11 +519,11 @@
       },
       {
         "letter": "D",
-        "text": "Cópia integral da base de RH no parceiro"
+        "text": "C\u00f3pia integral da base de RH no parceiro"
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "A credencial é assinada e verificável offline contra o DID, com status de revogação público. Senha compartilhada reintroduz segredo; copiar a base viola privacidade e é desnecessário.",
+    "explanation": "A credencial \u00e9 assinada e verific\u00e1vel offline contra o DID, com status de revoga\u00e7\u00e3o p\u00fablico. Senha compartilhada reintroduz segredo; copiar a base viola privacidade e \u00e9 desnecess\u00e1rio.",
     "source": "original",
     "tags": ["verified-id", "credenciais", "did"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -536,54 +536,29 @@
     "subdomain": "app-consent-governance",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Aplicativos de terceiros pedem permissões excessivas via consentimento do usuário. Quais duas medidas de governança de consentimento contêm esse risco? Selecione duas.",
+    "question": "Aplicativos de terceiros pedem permiss\u00f5es excessivas via consentimento do usu\u00e1rio. Quais duas medidas de governan\u00e7a de consentimento cont\u00eam esse risco? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Segredo de cliente único para todos os apps"
+        "text": "Segredo de cliente \u00fanico para todos os apps"
       },
       {
         "letter": "B",
-        "text": "Fluxo de solicitação de consentimento do administrador"
+        "text": "Fluxo de solicita\u00e7\u00e3o de consentimento do administrador"
       },
       {
         "letter": "C",
-        "text": "Classificação e revisão de permissões de aplicativos"
+        "text": "Classifica\u00e7\u00e3o e revis\u00e3o de permiss\u00f5es de aplicativos"
       },
       {
         "letter": "D",
-        "text": "Consentimento irrestrito do usuário para qualquer app"
+        "text": "Consentimento irrestrito do usu\u00e1rio para qualquer app"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Consents via workflow do admin centralizam aprovação e a revisão classifica permissões arriscadas. Consentimento irrestrito é a vulnerabilidade; segredo único amplia o blast radius entre apps.",
+    "explanation": "Consents via workflow do admin centralizam aprova\u00e7\u00e3o e a revis\u00e3o classifica permiss\u00f5es arriscadas. Consentimento irrestrito \u00e9 a vulnerabilidade; segredo \u00fanico amplia o blast radius entre apps.",
     "source": "original",
     "tags": ["consentimento", "governanca-apps"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-048",
-    "domain": "identidade-governanca",
-    "subdomain": "passwordless-conceitos",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que habilitar SSPR automaticamente converte o tenant para autenticação sem senha (passwordless) em todos os logins. Essa afirmação está correta diante do comportamento real do recurso no Entra ID?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, SSPR apenas permite redefinir a senha mantendo senha como fator"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, SSPR elimina senhas de todos os logins"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "SSPR recupera a senha esquecida, mas o login continua baseado em senha; passwordless exige métodos FIDO2, Hello ou Authenticator. Confundir recuperação com eliminação de senha é erro comum de prova.",
-    "source": "original",
-    "tags": ["sspr", "passwordless", "conceito"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
@@ -594,15 +569,15 @@
     "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um administrador precisa atribuir licenças Microsoft Entra ID P2 a um grupo de usuários do departamento de segurança. Qual método no centro de administração permite fazer essa atribuição em massa?",
+    "question": "Um administrador precisa atribuir licen\u00e7as Microsoft Entra ID P2 a um grupo de usu\u00e1rios do departamento de seguran\u00e7a. Qual m\u00e9todo no centro de administra\u00e7\u00e3o permite fazer essa atribui\u00e7\u00e3o em massa?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuir licenças individualmente na página do usuário"
+        "text": "Atribuir licen\u00e7as individualmente na p\u00e1gina do usu\u00e1rio"
       },
       {
         "letter": "B",
-        "text": "Atribuir licenças a um grupo e o sistema propaga aos membros"
+        "text": "Atribuir licen\u00e7as a um grupo e o sistema propaga aos membros"
       },
       {
         "letter": "C",
@@ -610,11 +585,11 @@
       },
       {
         "letter": "D",
-        "text": "Executar script PowerShell individual por usuário"
+        "text": "Executar script PowerShell individual por usu\u00e1rio"
       }
     ],
     "correct": ["B"],
-    "explanation": "O centro de administração do Microsoft Entra permite atribuir licenças a grupos; o sistema propaga automaticamente aos membros atuais e futuros. Atribuição individual não escala; CSV e script manual são propensos a erro.",
+    "explanation": "O centro de administra\u00e7\u00e3o do Microsoft Entra permite atribuir licen\u00e7as a grupos; o sistema propaga automaticamente aos membros atuais e futuros. Atribui\u00e7\u00e3o individual n\u00e3o escala; CSV e script manual s\u00e3o propensos a erro.",
     "source": "mslearn",
     "tags": ["licencas", "entra-p2"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -628,7 +603,7 @@
     "subdomain": "sso-saml",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um SaaS de terceiros precisa de login único federado com o Entra ID via SAML, com provisionamento automático de usuários. O que configurar no registro do aplicativo?",
+    "question": "Um SaaS de terceiros precisa de login \u00fanico federado com o Entra ID via SAML, com provisionamento autom\u00e1tico de usu\u00e1rios. O que configurar no registro do aplicativo?",
     "options": [
       {
         "letter": "A",
@@ -640,15 +615,15 @@
       },
       {
         "letter": "C",
-        "text": "VPN até o SaaS"
+        "text": "VPN at\u00e9 o SaaS"
       },
       {
         "letter": "D",
-        "text": "Senha única sincronizada manualmente"
+        "text": "Senha \u00fanica sincronizada manualmente"
       }
     ],
     "correct": ["B"],
-    "explanation": "SSO SAML federa o login e SCIM provisiona/desprovisiona contas. Chave por e-mail não federa; senha manual não escala; VPN não autentica SaaS.",
+    "explanation": "SSO SAML federa o login e SCIM provisiona/desprovisiona contas. Chave por e-mail n\u00e3o federa; senha manual n\u00e3o escala; VPN n\u00e3o autentica SaaS.",
     "source": "original",
     "tags": ["sso", "saml", "scim"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -661,11 +636,11 @@
     "subdomain": "break-glass",
     "type": "single",
     "difficulty": "medium",
-    "question": "Duas contas de emergência (break glass) devem sobreviver a falhas de MFA e políticas, com uso monitorado. Quais proteções aplicá-las?",
+    "question": "Duas contas de emerg\u00eancia (break glass) devem sobreviver a falhas de MFA e pol\u00edticas, com uso monitorado. Quais prote\u00e7\u00f5es aplic\u00e1-las?",
     "options": [
       {
         "letter": "A",
-        "text": "MFA obrigatório e sem exclusão"
+        "text": "MFA obrigat\u00f3rio e sem exclus\u00e3o"
       },
       {
         "letter": "B",
@@ -673,7 +648,7 @@
       },
       {
         "letter": "C",
-        "text": "Excluídas de políticas + credenciais fortes + alerta de uso"
+        "text": "Exclu\u00eddas de pol\u00edticas + credenciais fortes + alerta de uso"
       },
       {
         "letter": "D",
@@ -681,7 +656,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Break glass fica fora de CA/MFA (para emergência real), com senha longa e alerta a cada login. Exigir MFA anula o propósito; desabilitada não serve; senha igual duplica risco.",
+    "explanation": "Break glass fica fora de CA/MFA (para emerg\u00eancia real), com senha longa e alerta a cada login. Exigir MFA anula o prop\u00f3sito; desabilitada n\u00e3o serve; senha igual duplica risco.",
     "source": "original",
     "tags": ["break-glass", "emergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -694,7 +669,7 @@
     "subdomain": "session-controls",
     "type": "single",
     "difficulty": "medium",
-    "question": "Documentos sigilosos no SharePoint não podem ser baixados em dispositivos não gerenciados, apenas visualizados no navegador. Qual controle de sessão impõe isso?",
+    "question": "Documentos sigilosos no SharePoint n\u00e3o podem ser baixados em dispositivos n\u00e3o gerenciados, apenas visualizados no navegador. Qual controle de sess\u00e3o imp\u00f5e isso?",
     "options": [
       {
         "letter": "A",
@@ -702,7 +677,7 @@
       },
       {
         "letter": "B",
-        "text": "VPN obrigatória"
+        "text": "VPN obrigat\u00f3ria"
       },
       {
         "letter": "C",
@@ -710,11 +685,11 @@
       },
       {
         "letter": "D",
-        "text": "Controle de sessão com acesso limitado (Defender for Cloud Apps)"
+        "text": "Controle de sess\u00e3o com acesso limitado (Defender for Cloud Apps)"
       }
     ],
     "correct": ["D"],
-    "explanation": "Session control via Defender for Cloud Apps permite visualizar sem baixar em dispositivo não conforme. Bloqueio total impede trabalho; senha não limita download; VPN não controla sessão.",
+    "explanation": "Session control via Defender for Cloud Apps permite visualizar sem baixar em dispositivo n\u00e3o conforme. Bloqueio total impede trabalho; senha n\u00e3o limita download; VPN n\u00e3o controla sess\u00e3o.",
     "source": "original",
     "tags": ["session-controls", "defender-cloud-apps", "download"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -727,7 +702,7 @@
     "subdomain": "device-join-types",
     "type": "single",
     "difficulty": "medium",
-    "question": "Notebooks corporativos precisam de SSO primário, controle total via Intune e acesso condicional por conformidade. Qual ingresso atende Windows corporativo?",
+    "question": "Notebooks corporativos precisam de SSO prim\u00e1rio, controle total via Intune e acesso condicional por conformidade. Qual ingresso atende Windows corporativo?",
     "options": [
       {
         "letter": "A",
@@ -739,7 +714,7 @@
       },
       {
         "letter": "C",
-        "text": "Híbrido sem sincronização"
+        "text": "H\u00edbrido sem sincroniza\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -747,7 +722,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Entra joined dá identidade primária, SSO e gerenciamento total. Registered é BYOD limitado; híbrido sem sync quebra; workgroup não federa.",
+    "explanation": "Entra joined d\u00e1 identidade prim\u00e1ria, SSO e gerenciamento total. Registered \u00e9 BYOD limitado; h\u00edbrido sem sync quebra; workgroup n\u00e3o federa.",
     "source": "original",
     "tags": ["devices", "entra-joined", "intune"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -760,7 +735,7 @@
     "subdomain": "compliance-device",
     "type": "single",
     "difficulty": "medium",
-    "question": "Acesso condicional deve exigir dispositivo conforme com SO atualizado e antivírus. Onde a conformidade do dispositivo é avaliada?",
+    "question": "Acesso condicional deve exigir dispositivo conforme com SO atualizado e antiv\u00edrus. Onde a conformidade do dispositivo \u00e9 avaliada?",
     "options": [
       {
         "letter": "A",
@@ -768,7 +743,7 @@
       },
       {
         "letter": "B",
-        "text": "Grupo de segurança estático"
+        "text": "Grupo de seguran\u00e7a est\u00e1tico"
       },
       {
         "letter": "C",
@@ -776,11 +751,11 @@
       },
       {
         "letter": "D",
-        "text": "Política de conformidade do Intune consumida pelo acesso condicional"
+        "text": "Pol\u00edtica de conformidade do Intune consumida pelo acesso condicional"
       }
     ],
     "correct": ["D"],
-    "explanation": "Intune avalia conformidade e o CA consome o sinal. Grupo estático não mede saúde; senha e nome não atestam conformidade.",
+    "explanation": "Intune avalia conformidade e o CA consome o sinal. Grupo est\u00e1tico n\u00e3o mede sa\u00fade; senha e nome n\u00e3o atestam conformidade.",
     "source": "original",
     "tags": ["conformidade", "intune", "conditional-access"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -793,7 +768,7 @@
     "subdomain": "named-locations",
     "type": "single",
     "difficulty": "medium",
-    "question": "Faixas de IP dos escritórios e países bloqueados precisam de definição reutilizável nas políticas. Onde esses locais nomeados são criados?",
+    "question": "Faixas de IP dos escrit\u00f3rios e pa\u00edses bloqueados precisam de defini\u00e7\u00e3o reutiliz\u00e1vel nas pol\u00edticas. Onde esses locais nomeados s\u00e3o criados?",
     "options": [
       {
         "letter": "A",
@@ -809,11 +784,11 @@
       },
       {
         "letter": "D",
-        "text": "Locais nomeados do acesso condicional (inclui conformidade de país)"
+        "text": "Locais nomeados do acesso condicional (inclui conformidade de pa\u00eds)"
       }
     ],
     "correct": ["D"],
-    "explanation": "Named locations centralizam IPs confiáveis e países para todas as políticas. NSG é por rede; UDR roteia; RG organiza recursos.",
+    "explanation": "Named locations centralizam IPs confi\u00e1veis e pa\u00edses para todas as pol\u00edticas. NSG \u00e9 por rede; UDR roteia; RG organiza recursos.",
     "source": "original",
     "tags": ["named-locations", "ips", "paises"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -826,11 +801,11 @@
     "subdomain": "risk-detections",
     "type": "single",
     "difficulty": "medium",
-    "question": "Logins com credenciais vazadas em breaches públicos devem elevar o risco do usuário automaticamente. Qual detecção do Identity Protection identifica isso?",
+    "question": "Logins com credenciais vazadas em breaches p\u00fablicos devem elevar o risco do usu\u00e1rio automaticamente. Qual detec\u00e7\u00e3o do Identity Protection identifica isso?",
     "options": [
       {
         "letter": "A",
-        "text": "IP anônimo (Tor/VPN)"
+        "text": "IP an\u00f4nimo (Tor/VPN)"
       },
       {
         "letter": "B",
@@ -838,7 +813,7 @@
       },
       {
         "letter": "C",
-        "text": "Viagem impossível (impossible travel)"
+        "text": "Viagem imposs\u00edvel (impossible travel)"
       },
       {
         "letter": "D",
@@ -846,7 +821,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Leaked credentials cruza breaches conhecidos com seus usuários. Viagem impossível e IP anônimo são detecções de login, não de vazamento; volume normal não é risco.",
+    "explanation": "Leaked credentials cruza breaches conhecidos com seus usu\u00e1rios. Viagem imposs\u00edvel e IP an\u00f4nimo s\u00e3o detec\u00e7\u00f5es de login, n\u00e3o de vazamento; volume normal n\u00e3o \u00e9 risco.",
     "source": "original",
     "tags": ["identity-protection", "leaked-credentials"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -859,7 +834,7 @@
     "subdomain": "user-risk-remediation",
     "type": "single",
     "difficulty": "medium",
-    "question": "Contas marcadas com alto risco de usuário precisam ser forçadas a trocar a senha com segurança antes de qualquer acesso. Qual política aplica essa remediação?",
+    "question": "Contas marcadas com alto risco de usu\u00e1rio precisam ser for\u00e7adas a trocar a senha com seguran\u00e7a antes de qualquer acesso. Qual pol\u00edtica aplica essa remedia\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -867,19 +842,19 @@
       },
       {
         "letter": "B",
-        "text": "Política de risco de usuário com troca segura de senha"
+        "text": "Pol\u00edtica de risco de usu\u00e1rio com troca segura de senha"
       },
       {
         "letter": "C",
-        "text": "E-mail de aviso ao usuário"
+        "text": "E-mail de aviso ao usu\u00e1rio"
       },
       {
         "letter": "D",
-        "text": "Política de expiração de 90 dias"
+        "text": "Pol\u00edtica de expira\u00e7\u00e3o de 90 dias"
       }
     ],
     "correct": ["B"],
-    "explanation": "User risk policy exige password change seguro ao detectar comprometimento. Expiração periódica não reage; bloqueio permanente impede o legítimo; e-mail não impõe.",
+    "explanation": "User risk policy exige password change seguro ao detectar comprometimento. Expira\u00e7\u00e3o peri\u00f3dica n\u00e3o reage; bloqueio permanente impede o leg\u00edtimo; e-mail n\u00e3o imp\u00f5e.",
     "source": "original",
     "tags": ["user-risk", "remediacao", "senha"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -892,27 +867,27 @@
     "subdomain": "app-roles",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um SaaS interno precisa de papéis (Admin, Leitor) atribuídos a usuários e grupos dentro do aplicativo. Onde esses papéis são definidos?",
+    "question": "Um SaaS interno precisa de pap\u00e9is (Admin, Leitor) atribu\u00eddos a usu\u00e1rios e grupos dentro do aplicativo. Onde esses pap\u00e9is s\u00e3o definidos?",
     "options": [
       {
         "letter": "A",
-        "text": "Funções de aplicativo (app roles) no manifesto do registro"
+        "text": "Fun\u00e7\u00f5es de aplicativo (app roles) no manifesto do registro"
       },
       {
         "letter": "B",
-        "text": "Papéis no código sem registro"
+        "text": "Pap\u00e9is no c\u00f3digo sem registro"
       },
       {
         "letter": "C",
-        "text": "Funções RBAC da subscription"
+        "text": "Fun\u00e7\u00f5es RBAC da subscription"
       },
       {
         "letter": "D",
-        "text": "Grupos de segurança como papéis"
+        "text": "Grupos de seguran\u00e7a como pap\u00e9is"
       }
     ],
     "correct": ["A"],
-    "explanation": "App roles no manifesto expõem papéis atribuíveis via Entra. RBAC da subscription gerencia Azure; grupos sozinhos não viram claim de papel; código sem registro não integra.",
+    "explanation": "App roles no manifesto exp\u00f5em pap\u00e9is atribu\u00edveis via Entra. RBAC da subscription gerencia Azure; grupos sozinhos n\u00e3o viram claim de papel; c\u00f3digo sem registro n\u00e3o integra.",
     "source": "original",
     "tags": ["app-roles", "manifesto", "saas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -925,7 +900,7 @@
     "subdomain": "federation-vs-managed",
     "type": "single",
     "difficulty": "medium",
-    "question": "Após migrar do AD FS para autenticação gerenciada na nuvem, logins falham para um domínio ainda federado. O que converter o domínio para gerenciado?",
+    "question": "Ap\u00f3s migrar do AD FS para autentica\u00e7\u00e3o gerenciada na nuvem, logins falham para um dom\u00ednio ainda federado. O que converter o dom\u00ednio para gerenciado?",
     "options": [
       {
         "letter": "A",
@@ -937,15 +912,15 @@
       },
       {
         "letter": "C",
-        "text": "Converter o domínio de Federated para Managed no Entra Connect"
+        "text": "Converter o dom\u00ednio de Federated para Managed no Entra Connect"
       },
       {
         "letter": "D",
-        "text": "Recriar todos os usuários na nuvem"
+        "text": "Recriar todos os usu\u00e1rios na nuvem"
       }
     ],
     "correct": ["C"],
-    "explanation": "A conversão muda o fluxo para nuvem (PHS/PTA) mantendo usuários. Desligar sem converter quebra; recriar perde histórico; trocar senha não muda fluxo.",
+    "explanation": "A convers\u00e3o muda o fluxo para nuvem (PHS/PTA) mantendo usu\u00e1rios. Desligar sem converter quebra; recriar perde hist\u00f3rico; trocar senha n\u00e3o muda fluxo.",
     "source": "original",
     "tags": ["federacao", "managed", "adfs", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -958,7 +933,7 @@
     "subdomain": "ca-whatif",
     "type": "single",
     "difficulty": "medium",
-    "question": "Antes de ativar uma política que pode bloquear a diretoria, você quer simular o impacto para um usuário específico. Qual ferramenta avalia sem impor?",
+    "question": "Antes de ativar uma pol\u00edtica que pode bloquear a diretoria, voc\u00ea quer simular o impacto para um usu\u00e1rio espec\u00edfico. Qual ferramenta avalia sem impor?",
     "options": [
       {
         "letter": "A",
@@ -966,19 +941,19 @@
       },
       {
         "letter": "B",
-        "text": "Log de auditoria após o bloqueio"
+        "text": "Log de auditoria ap\u00f3s o bloqueio"
       },
       {
         "letter": "C",
-        "text": "Ativação direta em produção"
+        "text": "Ativa\u00e7\u00e3o direta em produ\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "E-mail de teste ao usuário"
+        "text": "E-mail de teste ao usu\u00e1rio"
       }
     ],
     "correct": ["A"],
-    "explanation": "What If simula políticas contra usuário, app e condições sem efeito real. Ativar direto arrisca; auditoria reage depois; e-mail não avalia.",
+    "explanation": "What If simula pol\u00edticas contra usu\u00e1rio, app e condi\u00e7\u00f5es sem efeito real. Ativar direto arrisca; auditoria reage depois; e-mail n\u00e3o avalia.",
     "source": "original",
     "tags": ["conditional-access", "what-if", "simulacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -991,7 +966,7 @@
     "subdomain": "token-lifetime",
     "type": "single",
     "difficulty": "medium",
-    "question": "Sessões de quiosques compartilhados devem expirar em 30 minutos de inatividade, mas notebooks corporativos mantêm 8h. Onde diferenciar o tempo de sessão?",
+    "question": "Sess\u00f5es de quiosques compartilhados devem expirar em 30 minutos de inatividade, mas notebooks corporativos mant\u00eam 8h. Onde diferenciar o tempo de sess\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -999,19 +974,19 @@
       },
       {
         "letter": "B",
-        "text": "Timeout do navegador do usuário"
+        "text": "Timeout do navegador do usu\u00e1rio"
       },
       {
         "letter": "C",
-        "text": "Expiração global de senha"
+        "text": "Expira\u00e7\u00e3o global de senha"
       },
       {
         "letter": "D",
-        "text": "Controles de sessão (frequência de login) por política de acesso condicional"
+        "text": "Controles de sess\u00e3o (frequ\u00eancia de login) por pol\u00edtica de acesso condicional"
       }
     ],
     "correct": ["D"],
-    "explanation": "Sign-in frequency por política diferencia por contexto (dispositivo/rede). Expiração de senha não limita sessão; navegador é cliente; SLA não controla tempo.",
+    "explanation": "Sign-in frequency por pol\u00edtica diferencia por contexto (dispositivo/rede). Expira\u00e7\u00e3o de senha n\u00e3o limita sess\u00e3o; navegador \u00e9 cliente; SLA n\u00e3o controla tempo.",
     "source": "original",
     "tags": ["sessao", "sign-in-frequency", "quiosque"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1024,11 +999,11 @@
     "subdomain": "persistent-browser",
     "type": "single",
     "difficulty": "medium",
-    "question": "Em computadores compartilhados, o 'manter conectado' não deve persistir sessão entre reinícios do navegador. Qual controle impede a persistência?",
+    "question": "Em computadores compartilhados, o 'manter conectado' n\u00e3o deve persistir sess\u00e3o entre rein\u00edcios do navegador. Qual controle impede a persist\u00eancia?",
     "options": [
       {
         "letter": "A",
-        "text": "Cookie de sessão com 1 ano"
+        "text": "Cookie de sess\u00e3o com 1 ano"
       },
       {
         "letter": "B",
@@ -1040,11 +1015,11 @@
       },
       {
         "letter": "D",
-        "text": "Sessão persistente de navegador negada na política"
+        "text": "Sess\u00e3o persistente de navegador negada na pol\u00edtica"
       }
     ],
     "correct": ["D"],
-    "explanation": "Negar persistent browser session força reautenticação ao fechar. Cookie longo e senha salva mantêm; token longo ignora contexto.",
+    "explanation": "Negar persistent browser session for\u00e7a reautentica\u00e7\u00e3o ao fechar. Cookie longo e senha salva mant\u00eam; token longo ignora contexto.",
     "source": "original",
     "tags": ["sessao-persistente", "navegador", "compartilhado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1057,7 +1032,7 @@
     "subdomain": "app-proxy",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um ERP on-premises precisa de acesso externo com pré-autenticação do Entra sem abrir inbound no firewall. Qual serviço publica o app via conectores de saída?",
+    "question": "Um ERP on-premises precisa de acesso externo com pr\u00e9-autentica\u00e7\u00e3o do Entra sem abrir inbound no firewall. Qual servi\u00e7o publica o app via conectores de sa\u00edda?",
     "options": [
       {
         "letter": "A",
@@ -1065,19 +1040,19 @@
       },
       {
         "letter": "B",
-        "text": "IP público com NAT no firewall"
+        "text": "IP p\u00fablico com NAT no firewall"
       },
       {
         "letter": "C",
-        "text": "DNS público direto ao servidor"
+        "text": "DNS p\u00fablico direto ao servidor"
       },
       {
         "letter": "D",
-        "text": "VPN para cada usuário externo"
+        "text": "VPN para cada usu\u00e1rio externo"
       }
     ],
     "correct": ["A"],
-    "explanation": "App Proxy usa conectores outbound com pré-auth Entra, sem inbound. IP público expõe; VPN por usuário não escala; DNS não autentica.",
+    "explanation": "App Proxy usa conectores outbound com pr\u00e9-auth Entra, sem inbound. IP p\u00fablico exp\u00f5e; VPN por usu\u00e1rio n\u00e3o escala; DNS n\u00e3o autentica.",
     "source": "original",
     "tags": ["app-proxy", "on-premises", "pre-auth"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1090,7 +1065,7 @@
     "subdomain": "kerberos-sso-proxy",
     "type": "single",
     "difficulty": "hard",
-    "question": "O ERP publicado via App Proxy usa autenticação integrada do Windows (Kerberos) internamente. Como delegar a identidade do Entra ao backend Kerberos?",
+    "question": "O ERP publicado via App Proxy usa autentica\u00e7\u00e3o integrada do Windows (Kerberos) internamente. Como delegar a identidade do Entra ao backend Kerberos?",
     "options": [
       {
         "letter": "A",
@@ -1102,7 +1077,7 @@
       },
       {
         "letter": "C",
-        "text": "Login anônimo no backend"
+        "text": "Login an\u00f4nimo no backend"
       },
       {
         "letter": "D",
@@ -1110,7 +1085,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "KCD delega o ticket ao backend sem expor senha. Repasse em claro vaza; anônimo perde identidade; ignorar cert quebra mTLS.",
+    "explanation": "KCD delega o ticket ao backend sem expor senha. Repasse em claro vaza; an\u00f4nimo perde identidade; ignorar cert quebra mTLS.",
     "source": "original",
     "tags": ["kerberos", "kcd", "sso", "app-proxy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1123,27 +1098,27 @@
     "subdomain": "cba",
     "type": "single",
     "difficulty": "hard",
-    "question": "Operações críticas exigem certificado digital em smartcard além do MFA para administradores. Qual método de autenticação por certificado o Entra suporta?",
+    "question": "Opera\u00e7\u00f5es cr\u00edticas exigem certificado digital em smartcard al\u00e9m do MFA para administradores. Qual m\u00e9todo de autentica\u00e7\u00e3o por certificado o Entra suporta?",
     "options": [
       {
         "letter": "A",
-        "text": "Self-signed sem CA confiável"
+        "text": "Self-signed sem CA confi\u00e1vel"
       },
       {
         "letter": "B",
-        "text": "Upload de PFX no perfil do usuário"
+        "text": "Upload de PFX no perfil do usu\u00e1rio"
       },
       {
         "letter": "C",
-        "text": "Autenticação baseada em certificado (CBA) com regras de emissor"
+        "text": "Autentica\u00e7\u00e3o baseada em certificado (CBA) com regras de emissor"
       },
       {
         "letter": "D",
-        "text": "Senha + PIN do cartão sem validação"
+        "text": "Senha + PIN do cart\u00e3o sem valida\u00e7\u00e3o"
       }
     ],
     "correct": ["C"],
-    "explanation": "CBA valida cadeia e mapeia o certificado à conta com regras. PFX no perfil não autentica; PIN sem validação é fraco; self-signed sem âncora não confia.",
+    "explanation": "CBA valida cadeia e mapeia o certificado \u00e0 conta com regras. PFX no perfil n\u00e3o autentica; PIN sem valida\u00e7\u00e3o \u00e9 fraco; self-signed sem \u00e2ncora n\u00e3o confia.",
     "source": "original",
     "tags": ["cba", "certificado", "smartcard"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1156,11 +1131,11 @@
     "subdomain": "sso-taxonomy-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Dois SaaS: um legado só com SAML e um moderno com OpenID Connect. Quais dois protocolos federar, respectivamente? Selecione duas.",
+    "question": "Dois SaaS: um legado s\u00f3 com SAML e um moderno com OpenID Connect. Quais dois protocolos federar, respectivamente? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "NTLM via SaaS público"
+        "text": "NTLM via SaaS p\u00fablico"
       },
       {
         "letter": "B",
@@ -1176,7 +1151,7 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "SAML atende legados federados e OIDC é o padrão moderno. Kerberos/NTLM não atravessam internet para SaaS.",
+    "explanation": "SAML atende legados federados e OIDC \u00e9 o padr\u00e3o moderno. Kerberos/NTLM n\u00e3o atravessam internet para SaaS.",
     "source": "original",
     "tags": ["sso", "saml", "oidc", "protocolos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1189,11 +1164,11 @@
     "subdomain": "scim-lifecycle-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "O ciclo do colaborador no SaaS exige criação na admissão e remoção imediata no desligamento. Quais dois eventos o SCIM sincroniza? Selecione duas.",
+    "question": "O ciclo do colaborador no SaaS exige cria\u00e7\u00e3o na admiss\u00e3o e remo\u00e7\u00e3o imediata no desligamento. Quais dois eventos o SCIM sincroniza? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Manutenção de conta órfã ativa"
+        "text": "Manuten\u00e7\u00e3o de conta \u00f3rf\u00e3 ativa"
       },
       {
         "letter": "B",
@@ -1205,11 +1180,11 @@
       },
       {
         "letter": "D",
-        "text": "Provisionamento na admissão"
+        "text": "Provisionamento na admiss\u00e3o"
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "SCIM cria, atualiza e remove contas no SaaS conforme eventos do RH, sem intervenção manual. Manter órfã ativa é risco de acesso; planilha jamais provisiona.",
+    "explanation": "SCIM cria, atualiza e remove contas no SaaS conforme eventos do RH, sem interven\u00e7\u00e3o manual. Manter \u00f3rf\u00e3 ativa \u00e9 risco de acesso; planilha jamais provisiona.",
     "source": "original",
     "tags": ["scim", "provisionamento", "ciclo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1222,7 +1197,7 @@
     "subdomain": "risk-remediation-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Risco de login alto em tempo real e risco de usuário persistente exigem respostas distintas. Quais duas ações correspondem a cada nível? Selecione duas.",
+    "question": "Risco de login alto em tempo real e risco de usu\u00e1rio persistente exigem respostas distintas. Quais duas a\u00e7\u00f5es correspondem a cada n\u00edvel? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1234,15 +1209,15 @@
       },
       {
         "letter": "C",
-        "text": "Bloquear o usuário permanentemente"
+        "text": "Bloquear o usu\u00e1rio permanentemente"
       },
       {
         "letter": "D",
-        "text": "Exigir troca segura de senha no risco de usuário"
+        "text": "Exigir troca segura de senha no risco de usu\u00e1rio"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Login arriscado bloqueia a tentativa; conta comprometida remedeia com troca segura. Ignorar atrasa; bloqueio permanente impede o legítimo.",
+    "explanation": "Login arriscado bloqueia a tentativa; conta comprometida remedeia com troca segura. Ignorar atrasa; bloqueio permanente impede o leg\u00edtimo.",
     "source": "original",
     "tags": ["risco-login", "risco-usuario", "remediacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1255,11 +1230,11 @@
     "subdomain": "device-filter-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "A política deve atingir só dispositivos marcados como Compliant e excluir quiosques por nome. Quais dois filtros combinam inclusão e exclusão? Selecione duas.",
+    "question": "A pol\u00edtica deve atingir s\u00f3 dispositivos marcados como Compliant e excluir quiosques por nome. Quais dois filtros combinam inclus\u00e3o e exclus\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão por padrão de displayName do quiosque"
+        "text": "Exclus\u00e3o por padr\u00e3o de displayName do quiosque"
       },
       {
         "letter": "B",
@@ -1267,7 +1242,7 @@
       },
       {
         "letter": "C",
-        "text": "Exclusão de todos os dispositivos"
+        "text": "Exclus\u00e3o de todos os dispositivos"
       },
       {
         "letter": "D",
@@ -1275,7 +1250,7 @@
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Device filter inclui por atributo de conformidade e exclui por nome. Cor não é atributo; excluir tudo anula a política.",
+    "explanation": "Device filter inclui por atributo de conformidade e exclui por nome. Cor n\u00e3o \u00e9 atributo; excluir tudo anula a pol\u00edtica.",
     "source": "original",
     "tags": ["device-filter", "conformidade", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1288,7 +1263,7 @@
     "subdomain": "ca-backup-exclusion-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Para não se trancar para fora, a política global precisa preservar emergência e permitir teste seguro. Quais duas salvaguardas aplicar? Selecione duas.",
+    "question": "Para n\u00e3o se trancar para fora, a pol\u00edtica global precisa preservar emerg\u00eancia e permitir teste seguro. Quais duas salvaguardas aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1296,11 +1271,11 @@
       },
       {
         "letter": "B",
-        "text": "Ativar tudo direto em produção"
+        "text": "Ativar tudo direto em produ\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Excluir contas break glass de todas as políticas"
+        "text": "Excluir contas break glass de todas as pol\u00edticas"
       },
       {
         "letter": "D",
@@ -1308,7 +1283,7 @@
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Break glass excluído garante recuperação e Report-only valida impacto. Incluir emergência tranca; ativar direto arrisca lockout.",
+    "explanation": "Break glass exclu\u00eddo garante recupera\u00e7\u00e3o e Report-only valida impacto. Incluir emerg\u00eancia tranca; ativar direto arrisca lockout.",
     "source": "original",
     "tags": ["break-glass", "report-only", "lockout"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1321,15 +1296,15 @@
     "subdomain": "guest-expiry-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Convidados com mais de 180 dias sem revisão devem sair automaticamente, com aviso prévio. Quais dois mecanismos combinam expiração e recertificação? Selecione duas.",
+    "question": "Convidados com mais de 180 dias sem revis\u00e3o devem sair automaticamente, com aviso pr\u00e9vio. Quais dois mecanismos combinam expira\u00e7\u00e3o e recertifica\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Conta vitalícia sem revisão"
+        "text": "Conta vital\u00edcia sem revis\u00e3o"
       },
       {
         "letter": "B",
-        "text": "E-mail manual de cobrança"
+        "text": "E-mail manual de cobran\u00e7a"
       },
       {
         "letter": "C",
@@ -1337,11 +1312,11 @@
       },
       {
         "letter": "D",
-        "text": "Expiração do pacote de acesso"
+        "text": "Expira\u00e7\u00e3o do pacote de acesso"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Review recertifica e expiração remove sem confirmação. Vitalício acumula; e-mail manual não executa.",
+    "explanation": "Review recertifica e expira\u00e7\u00e3o remove sem confirma\u00e7\u00e3o. Vital\u00edcio acumula; e-mail manual n\u00e3o executa.",
     "source": "original",
     "tags": ["convidados", "expiracao", "review"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1354,11 +1329,11 @@
     "subdomain": "consent-admin-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Apps que pedem Directory.ReadWrite.All devem passar por aprovação com justificativa e expiração do consentimento. Quais dois controles aplicar? Selecione duas.",
+    "question": "Apps que pedem Directory.ReadWrite.All devem passar por aprova\u00e7\u00e3o com justificativa e expira\u00e7\u00e3o do consentimento. Quais dois controles aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Revisão periódica de consentimentos concedidos"
+        "text": "Revis\u00e3o peri\u00f3dica de consentimentos concedidos"
       },
       {
         "letter": "B",
@@ -1366,15 +1341,15 @@
       },
       {
         "letter": "C",
-        "text": "Consentimento do usuário sem limite"
+        "text": "Consentimento do usu\u00e1rio sem limite"
       },
       {
         "letter": "D",
-        "text": "Segredo único para todos os apps"
+        "text": "Segredo \u00fanico para todos os apps"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Workflow aprova com trilha e revisão revoga obsoletos. Consentimento irrestrito expõe o diretório; segredo único amplia blast radius.",
+    "explanation": "Workflow aprova com trilha e revis\u00e3o revoga obsoletos. Consentimento irrestrito exp\u00f5e o diret\u00f3rio; segredo \u00fanico amplia blast radius.",
     "source": "original",
     "tags": ["consentimento", "workflow", "revisao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1387,15 +1362,15 @@
     "subdomain": "password-rollover-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Contas de serviço legadas com senha fixa precisam de rotação sem downtime e trilha. Quais duas práticas compõem a rotação segura? Selecione duas.",
+    "question": "Contas de servi\u00e7o legadas com senha fixa precisam de rota\u00e7\u00e3o sem downtime e trilha. Quais duas pr\u00e1ticas comp\u00f5em a rota\u00e7\u00e3o segura? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Registro de rotação com data e responsável"
+        "text": "Registro de rota\u00e7\u00e3o com data e respons\u00e1vel"
       },
       {
         "letter": "B",
-        "text": "Duas senhas válidas com transição gradual"
+        "text": "Duas senhas v\u00e1lidas com transi\u00e7\u00e3o gradual"
       },
       {
         "letter": "C",
@@ -1403,11 +1378,11 @@
       },
       {
         "letter": "D",
-        "text": "Senha única permanente"
+        "text": "Senha \u00fanica permanente"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Duas credenciais ativas permitem transição e o registro audita. Senha única impede rotação; chat vaza.",
+    "explanation": "Duas credenciais ativas permitem transi\u00e7\u00e3o e o registro audita. Senha \u00fanica impede rota\u00e7\u00e3o; chat vaza.",
     "source": "original",
     "tags": ["senhas", "rotacao", "contas-servico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1420,27 +1395,27 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "Ao habilitar o SSPR no centro de administração, o administrador deve selecionar quais métodos de autenticação os usuários podem usar para redefinir a senha. Qual método NÃO é suportado nativamente pelo SSPR?",
+    "question": "Ao habilitar o SSPR no centro de administra\u00e7\u00e3o, o administrador deve selecionar quais m\u00e9todos de autentica\u00e7\u00e3o os usu\u00e1rios podem usar para redefinir a senha. Qual m\u00e9todo N\u00c3O \u00e9 suportado nativamente pelo SSPR?",
     "options": [
       {
         "letter": "A",
-        "text": "Notificação no Microsoft Authenticator (aprovação)"
+        "text": "Notifica\u00e7\u00e3o no Microsoft Authenticator (aprova\u00e7\u00e3o)"
       },
       {
         "letter": "B",
-        "text": "Código por SMS para telefone cadastrado"
+        "text": "C\u00f3digo por SMS para telefone cadastrado"
       },
       {
         "letter": "C",
-        "text": "Chave de segurança FIDO2 (ex.: YubiKey)"
+        "text": "Chave de seguran\u00e7a FIDO2 (ex.: YubiKey)"
       },
       {
         "letter": "D",
-        "text": "E-mail alternativo para código de verificação"
+        "text": "E-mail alternativo para c\u00f3digo de verifica\u00e7\u00e3o"
       }
     ],
     "correct": ["C"],
-    "explanation": "O SSPR suporta nativamente: Microsoft Authenticator (notificação/código), telefone (SMS/chamada), e-mail alternativo e perguntas de segurança. FIDO2 é método de MFA, não de redefinição de senha no SSPR. A página do tutorial lista explicitamente os métodos suportados.",
+    "explanation": "O SSPR suporta nativamente: Microsoft Authenticator (notifica\u00e7\u00e3o/c\u00f3digo), telefone (SMS/chamada), e-mail alternativo e perguntas de seguran\u00e7a. FIDO2 \u00e9 m\u00e9todo de MFA, n\u00e3o de redefini\u00e7\u00e3o de senha no SSPR. A p\u00e1gina do tutorial lista explicitamente os m\u00e9todos suportados.",
     "source": "mslearn",
     "tags": ["smart-lockout", "spray", "forca-bruta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1454,27 +1429,27 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador configura métodos de autenticação para SSPR e quer priorizar métodos resistentes a phishing. Qual método suportado pelo SSPR oferece resistência a phishing?",
+    "question": "Um administrador configura m\u00e9todos de autentica\u00e7\u00e3o para SSPR e quer priorizar m\u00e9todos resistentes a phishing. Qual m\u00e9todo suportado pelo SSPR oferece resist\u00eancia a phishing?",
     "options": [
       {
         "letter": "A",
-        "text": "Código por SMS"
+        "text": "C\u00f3digo por SMS"
       },
       {
         "letter": "B",
-        "text": "Notificação no Microsoft Authenticator"
+        "text": "Notifica\u00e7\u00e3o no Microsoft Authenticator"
       },
       {
         "letter": "C",
-        "text": "Chamada telefônica automática"
+        "text": "Chamada telef\u00f4nica autom\u00e1tica"
       },
       {
         "letter": "D",
-        "text": "Perguntas de segurança pré-definidas"
+        "text": "Perguntas de seguran\u00e7a pr\u00e9-definidas"
       }
     ],
     "correct": ["B"],
-    "explanation": "A notificação no Microsoft Authenticator (aprovação via aplicativo) vincula a autenticação à origem e não expõe código interceptável. SMS e chamada são interceptáveis; perguntas de segurança são vulneráveis a engenharia social.",
+    "explanation": "A notifica\u00e7\u00e3o no Microsoft Authenticator (aprova\u00e7\u00e3o via aplicativo) vincula a autentica\u00e7\u00e3o \u00e0 origem e n\u00e3o exp\u00f5e c\u00f3digo intercept\u00e1vel. SMS e chamada s\u00e3o intercept\u00e1veis; perguntas de seguran\u00e7a s\u00e3o vulner\u00e1veis a engenharia social.",
     "source": "mslearn",
     "tags": ["phishing-resistant", "fido2", "hello"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1488,19 +1463,19 @@
     "subdomain": "number-matching-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "A fadiga de MFA aprova pushes não solicitados. Quais dois controles eliminam o approve cego? Selecione duas.",
+    "question": "A fadiga de MFA aprova pushes n\u00e3o solicitados. Quais dois controles eliminam o approve cego? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Aprovação com um toque sem contexto"
+        "text": "Aprova\u00e7\u00e3o com um toque sem contexto"
       },
       {
         "letter": "B",
-        "text": "Contexto (app e local) na notificação"
+        "text": "Contexto (app e local) na notifica\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Push ilimitado sem expiração"
+        "text": "Push ilimitado sem expira\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -1508,7 +1483,7 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Número exibido na tela exige atenção e o contexto denuncia origem estranha. Toque cego aprova ataque; push sem expiração amplia janela.",
+    "explanation": "N\u00famero exibido na tela exige aten\u00e7\u00e3o e o contexto denuncia origem estranha. Toque cego aprova ataque; push sem expira\u00e7\u00e3o amplia janela.",
     "source": "original",
     "tags": ["number-matching", "fatigue", "authenticator"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1521,80 +1496,29 @@
     "subdomain": "ca-insights-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Políticas legadas sem uso e gaps de cobertura precisam de diagnóstico antes da limpeza. Quais dois relatórios orientam? Selecione duas.",
+    "question": "Pol\u00edticas legadas sem uso e gaps de cobertura precisam de diagn\u00f3stico antes da limpeza. Quais dois relat\u00f3rios orientam? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Desabilitação de logs"
+        "text": "Desabilita\u00e7\u00e3o de logs"
       },
       {
         "letter": "B",
-        "text": "Relatório de políticas sem uso recente"
+        "text": "Relat\u00f3rio de pol\u00edticas sem uso recente"
       },
       {
         "letter": "C",
-        "text": "Exclusão aleatória de políticas"
+        "text": "Exclus\u00e3o aleat\u00f3ria de pol\u00edticas"
       },
       {
         "letter": "D",
-        "text": "Cobertura por app/usuário sem política"
+        "text": "Cobertura por app/usu\u00e1rio sem pol\u00edtica"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Insights mostram ociosas e descobertas para consolidar. Excluir no escuro quebra; sem log não há diagnóstico.",
+    "explanation": "Insights mostram ociosas e descobertas para consolidar. Excluir no escuro quebra; sem log n\u00e3o h\u00e1 diagn\u00f3stico.",
     "source": "original",
     "tags": ["ca-insights", "cobertura", "limpeza"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-094",
-    "domain": "identidade-governanca",
-    "subdomain": "guest-mfa-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que políticas de MFA do seu tenant se aplicam a convidados B2B mesmo que o tenant de origem não exija MFA. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, convidados seguem só a origem"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, a política do tenant de recurso vale para convidados"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "O tenant de recurso impõe sua CA aos guests (salvo confiança explícita). Achar que origem manda sozinha deixa brecha.",
-    "source": "mslearn",
-    "tags": ["b2b", "mfa", "convidado"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.160Z",
-    "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/external-identities-overview"
-  },
-  {
-    "id": "az104-ig-098",
-    "domain": "identidade-governanca",
-    "subdomain": "b2b-redeem-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um parceiro afirma que convite B2B aceito com conta pessoal (MSA) recebe as mesmas políticas de acesso condicional dos membros. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, MSA convidada equivale a membro"
-      },
-      {
-        "letter": "B",
-        "text": "Não, guests têm escopo e políticas distintas"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Guests têm userType distinto e políticas próprias; MSA resgatada não vira membro. Equiparar quebra segmentação.",
-    "source": "original",
-    "tags": ["b2b", "msa", "convidado", "politicas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
@@ -1605,27 +1529,27 @@
     "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um administrador precisa listar todos os usuários que possuem uma licença Microsoft Entra ID P2 atribuída diretamente (não via grupo). Qual relatório no centro de administração mostra essa informação?",
+    "question": "Um administrador precisa listar todos os usu\u00e1rios que possuem uma licen\u00e7a Microsoft Entra ID P2 atribu\u00edda diretamente (n\u00e3o via grupo). Qual relat\u00f3rio no centro de administra\u00e7\u00e3o mostra essa informa\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Licenças > Microsoft Entra ID P2 > Usuários e grupos licenciados"
+        "text": "Licen\u00e7as > Microsoft Entra ID P2 > Usu\u00e1rios e grupos licenciados"
       },
       {
         "letter": "B",
-        "text": "Usuários > Todos os usuários > Filtro por departamento"
+        "text": "Usu\u00e1rios > Todos os usu\u00e1rios > Filtro por departamento"
       },
       {
         "letter": "C",
-        "text": "Grupos > Todos os grupos > Membros com licença"
+        "text": "Grupos > Todos os grupos > Membros com licen\u00e7a"
       },
       {
         "letter": "D",
-        "text": "Identidade > Monitoramento > Logs de atribuição"
+        "text": "Identidade > Monitoramento > Logs de atribui\u00e7\u00e3o"
       }
     ],
     "correct": ["A"],
-    "explanation": "A página da licença no centro de administração (Licenças > produto > Usuários e grupos licenciados) mostra quem tem a licença atribuída diretamente vs via grupo. Filtro por departamento não mostra licenciamento; grupos não distinguem atribuição direta; logs de atribuição são para auditoria.",
+    "explanation": "A p\u00e1gina da licen\u00e7a no centro de administra\u00e7\u00e3o (Licen\u00e7as > produto > Usu\u00e1rios e grupos licenciados) mostra quem tem a licen\u00e7a atribu\u00edda diretamente vs via grupo. Filtro por departamento n\u00e3o mostra licenciamento; grupos n\u00e3o distinguem atribui\u00e7\u00e3o direta; logs de atribui\u00e7\u00e3o s\u00e3o para auditoria.",
     "source": "mslearn",
     "tags": ["graph", "odata", "paginacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1639,15 +1563,15 @@
     "subdomain": "consentimento-admin-geral",
     "type": "single",
     "difficulty": "medium",
-    "question": "Usuários pedem consentimento para apps que leem perfil e e-mail. Como permitir autoatendimento seguro sem abrir permissões sensíveis?",
+    "question": "Usu\u00e1rios pedem consentimento para apps que leem perfil e e-mail. Como permitir autoatendimento seguro sem abrir permiss\u00f5es sens\u00edveis?",
     "options": [
       {
         "letter": "A",
-        "text": "Consentimento do usuário só para permissões de baixo impacto classificadas"
+        "text": "Consentimento do usu\u00e1rio s\u00f3 para permiss\u00f5es de baixo impacto classificadas"
       },
       {
         "letter": "B",
-        "text": "Permitir qualquer permissão inclusive Directory.ReadWrite"
+        "text": "Permitir qualquer permiss\u00e3o inclusive Directory.ReadWrite"
       },
       {
         "letter": "C",
@@ -1659,7 +1583,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Classificação permite autoatendimento no baixo risco e exige admin no sensível. Bloquear tudo trava; liberar tudo expõe; desligar apps para o negócio.",
+    "explanation": "Classifica\u00e7\u00e3o permite autoatendimento no baixo risco e exige admin no sens\u00edvel. Bloquear tudo trava; liberar tudo exp\u00f5e; desligar apps para o neg\u00f3cio.",
     "source": "original",
     "tags": ["consentimento", "classificacao", "baixo-impacto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1680,19 +1604,19 @@
       },
       {
         "letter": "B",
-        "text": "Remover todas as permissões"
+        "text": "Remover todas as permiss\u00f5es"
       },
       {
         "letter": "C",
-        "text": "Publicar na loja pública"
+        "text": "Publicar na loja p\u00fablica"
       },
       {
         "letter": "D",
-        "text": "Verificação de editor (publisher verification) com MPN"
+        "text": "Verifica\u00e7\u00e3o de editor (publisher verification) com MPN"
       }
     ],
     "correct": ["D"],
-    "explanation": "Publisher verification valida a organização via Microsoft Partner Network e exibe o selo. Renomear não prova; sem permissões o app não funciona; loja pública não verifica editor.",
+    "explanation": "Publisher verification valida a organiza\u00e7\u00e3o via Microsoft Partner Network e exibe o selo. Renomear n\u00e3o prova; sem permiss\u00f5es o app n\u00e3o funciona; loja p\u00fablica n\u00e3o verifica editor.",
     "source": "original",
     "tags": ["publisher-verification", "mpn", "phishing"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1705,7 +1629,7 @@
     "subdomain": "what-if-deploy",
     "type": "single",
     "difficulty": "medium",
-    "question": "Antes de aplicar um template ARM em produção, você quer prever criações, alterações e exclusões. Qual operação simula o deploy?",
+    "question": "Antes de aplicar um template ARM em produ\u00e7\u00e3o, voc\u00ea quer prever cria\u00e7\u00f5es, altera\u00e7\u00f5es e exclus\u00f5es. Qual opera\u00e7\u00e3o simula o deploy?",
     "options": [
       {
         "letter": "A",
@@ -1725,7 +1649,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "What-if prevê o plano (create/modify/delete/ignore) sem aplicar. Direto arrisca; olho não detecta tudo; backup não prevê.",
+    "explanation": "What-if prev\u00ea o plano (create/modify/delete/ignore) sem aplicar. Direto arrisca; olho n\u00e3o detecta tudo; backup n\u00e3o prev\u00ea.",
     "source": "original",
     "tags": ["what-if", "arm", "deploy", "previsao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1742,11 +1666,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "CLI imperativa sem código"
+        "text": "CLI imperativa sem c\u00f3digo"
       },
       {
         "letter": "B",
-        "text": "Bicep com transpilação para ARM"
+        "text": "Bicep com transpila\u00e7\u00e3o para ARM"
       },
       {
         "letter": "C",
@@ -1758,7 +1682,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Bicep é DSL concisa que compila para ARM transparente. JSON verboso atrasa; CLI imperativa não versiona estado; portal não é IaC.",
+    "explanation": "Bicep \u00e9 DSL concisa que compila para ARM transparente. JSON verboso atrasa; CLI imperativa n\u00e3o versiona estado; portal n\u00e3o \u00e9 IaC.",
     "source": "original",
     "tags": ["bicep", "arm", "iac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1779,7 +1703,7 @@
       },
       {
         "letter": "B",
-        "text": "Federação OIDC + identidade gerenciada/RBAC no cofre"
+        "text": "Federa\u00e7\u00e3o OIDC + identidade gerenciada/RBAC no cofre"
       },
       {
         "letter": "C",
@@ -1787,11 +1711,11 @@
       },
       {
         "letter": "D",
-        "text": "Cofre público sem auth"
+        "text": "Cofre p\u00fablico sem auth"
       }
     ],
     "correct": ["B"],
-    "explanation": "OIDC autentica o workflow e a identidade acessa via RBAC, sem segredo. Chave no secret vaza; SAS longa expira mal; público expõe.",
+    "explanation": "OIDC autentica o workflow e a identidade acessa via RBAC, sem segredo. Chave no secret vaza; SAS longa expira mal; p\u00fablico exp\u00f5e.",
     "source": "original",
     "tags": ["oidc", "key-vault", "managed-identity", "pipeline"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1804,27 +1728,27 @@
     "subdomain": "conditional-access-filters-apps",
     "type": "single",
     "difficulty": "hard",
-    "question": "A política deve atingir só aplicativos com tag de sensibilidade Alta, excluindo o app legado crítico. Quais filtros de app usar?",
+    "question": "A pol\u00edtica deve atingir s\u00f3 aplicativos com tag de sensibilidade Alta, excluindo o app legado cr\u00edtico. Quais filtros de app usar?",
     "options": [
       {
         "letter": "A",
-        "text": "Todas as apps sem exceção"
+        "text": "Todas as apps sem exce\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Filtro por atributo customizado do app + exclusão do legado"
+        "text": "Filtro por atributo customizado do app + exclus\u00e3o do legado"
       },
       {
         "letter": "C",
-        "text": "Só o app legado"
+        "text": "S\u00f3 o app legado"
       },
       {
         "letter": "D",
-        "text": "Filtro por nome do usuário"
+        "text": "Filtro por nome do usu\u00e1rio"
       }
     ],
     "correct": ["B"],
-    "explanation": "Filtro por atributo do service principal mira sensíveis e a exclusão preserva o legado. Tudo trava o legado; só legado inverte; nome de usuário não filtra app.",
+    "explanation": "Filtro por atributo do service principal mira sens\u00edveis e a exclus\u00e3o preserva o legado. Tudo trava o legado; s\u00f3 legado inverte; nome de usu\u00e1rio n\u00e3o filtra app.",
     "source": "original",
     "tags": ["conditional-access", "filtro-app", "atributo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1837,7 +1761,7 @@
     "subdomain": "global-secure-access-ca",
     "type": "single",
     "difficulty": "hard",
-    "question": "Tráfego do Global Secure Access deve obedecer às mesmas políticas de acesso condicional dos apps. Onde o sinal do GSA entra na avaliação?",
+    "question": "Tr\u00e1fego do Global Secure Access deve obedecer \u00e0s mesmas pol\u00edticas de acesso condicional dos apps. Onde o sinal do GSA entra na avalia\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -1845,7 +1769,7 @@
       },
       {
         "letter": "B",
-        "text": "Condição de rede/conformidade consumida pela política"
+        "text": "Condi\u00e7\u00e3o de rede/conformidade consumida pela pol\u00edtica"
       },
       {
         "letter": "C",
@@ -1853,11 +1777,11 @@
       },
       {
         "letter": "D",
-        "text": "Sem política para GSA"
+        "text": "Sem pol\u00edtica para GSA"
       }
     ],
     "correct": ["B"],
-    "explanation": "GSA injeta conformidade de rede/dispositivo na CA unificada. Regra externa fragmenta; VPN sem CA enfraquece; sem política não há controle.",
+    "explanation": "GSA injeta conformidade de rede/dispositivo na CA unificada. Regra externa fragmenta; VPN sem CA enfraquece; sem pol\u00edtica n\u00e3o h\u00e1 controle.",
     "source": "original",
     "tags": ["global-secure-access", "conditional-access", "zero-trust"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1870,7 +1794,7 @@
     "subdomain": "cross-tenant-sync",
     "type": "single",
     "difficulty": "hard",
-    "question": "Após fusão, usuários do tenant adquirido precisam existir no tenant principal com sincronização contínua. Qual recurso sincroniza identidades entre tenants?",
+    "question": "Ap\u00f3s fus\u00e3o, usu\u00e1rios do tenant adquirido precisam existir no tenant principal com sincroniza\u00e7\u00e3o cont\u00ednua. Qual recurso sincroniza identidades entre tenants?",
     "options": [
       {
         "letter": "A",
@@ -1878,19 +1802,19 @@
       },
       {
         "letter": "B",
-        "text": "Federação sem sincronizar objetos"
+        "text": "Federa\u00e7\u00e3o sem sincronizar objetos"
       },
       {
         "letter": "C",
-        "text": "Sincronização entre tenants (cross-tenant sync)"
+        "text": "Sincroniza\u00e7\u00e3o entre tenants (cross-tenant sync)"
       },
       {
         "letter": "D",
-        "text": "Exportação CSV semanal"
+        "text": "Exporta\u00e7\u00e3o CSV semanal"
       }
     ],
     "correct": ["C"],
-    "explanation": "Cross-tenant sync provisiona e mantém membros/guests entre tenants. Convite manual não escala; CSV atrasa; federação autentica sem criar objeto.",
+    "explanation": "Cross-tenant sync provisiona e mant\u00e9m membros/guests entre tenants. Convite manual n\u00e3o escala; CSV atrasa; federa\u00e7\u00e3o autentica sem criar objeto.",
     "source": "original",
     "tags": ["cross-tenant-sync", "fusao", "sincronizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1903,11 +1827,11 @@
     "subdomain": "tenant-switching",
     "type": "single",
     "difficulty": "hard",
-    "question": "Administradores multifuncionais alternam entre 5 tenants e confundem contextos, aplicando mudanças no tenant errado. Como isolar visualmente e auditar por tenant?",
+    "question": "Administradores multifuncionais alternam entre 5 tenants e confundem contextos, aplicando mudan\u00e7as no tenant errado. Como isolar visualmente e auditar por tenant?",
     "options": [
       {
         "letter": "A",
-        "text": "Navegador único sem perfis"
+        "text": "Navegador \u00fanico sem perfis"
       },
       {
         "letter": "B",
@@ -1915,7 +1839,7 @@
       },
       {
         "letter": "C",
-        "text": "Diretórios favoritos + PIM por tenant com alertas"
+        "text": "Diret\u00f3rios favoritos + PIM por tenant com alertas"
       },
       {
         "letter": "D",
@@ -1923,7 +1847,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Favoritos/exibição por tenant + PIM com aprovação e alerta reduzem erro de contexto. Global em tudo amplia blast; mesma senha vaza; sem perfis mistura sessão.",
+    "explanation": "Favoritos/exibi\u00e7\u00e3o por tenant + PIM com aprova\u00e7\u00e3o e alerta reduzem erro de contexto. Global em tudo amplia blast; mesma senha vaza; sem perfis mistura sess\u00e3o.",
     "source": "original",
     "tags": ["multitenant", "contexto", "pim"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1936,11 +1860,11 @@
     "subdomain": "gdpr-dsr",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Pedidos de titular (DSR/LGPD) exigem localizar e exportar dados do usuário no Entra. Quais duas capacidades atendem? Selecione duas.",
+    "question": "Pedidos de titular (DSR/LGPD) exigem localizar e exportar dados do usu\u00e1rio no Entra. Quais duas capacidades atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Manutenção de dados após pedido"
+        "text": "Manuten\u00e7\u00e3o de dados ap\u00f3s pedido"
       },
       {
         "letter": "B",
@@ -1948,15 +1872,15 @@
       },
       {
         "letter": "C",
-        "text": "Exclusão sob solicitação com trilha"
+        "text": "Exclus\u00e3o sob solicita\u00e7\u00e3o com trilha"
       },
       {
         "letter": "D",
-        "text": "Exportação de dados do usuário via Graph/portal"
+        "text": "Exporta\u00e7\u00e3o de dados do usu\u00e1rio via Graph/portal"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "DSR exige localizar/exportar e excluir mediante pedido com evidência. Manter viola; ignorar descumpre a lei.",
+    "explanation": "DSR exige localizar/exportar e excluir mediante pedido com evid\u00eancia. Manter viola; ignorar descumpre a lei.",
     "source": "original",
     "tags": ["lgpd", "dsr", "privacidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1989,7 +1913,7 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Certificado expirado quebra a assinatura SAML e atributo mapeado errado impede provisionar o usuário. Cor do portal e tamanho de VM nada têm a ver com federação.",
+    "explanation": "Certificado expirado quebra a assinatura SAML e atributo mapeado errado impede provisionar o usu\u00e1rio. Cor do portal e tamanho de VM nada t\u00eam a ver com federa\u00e7\u00e3o.",
     "source": "original",
     "tags": ["sso", "saml", "troubleshooting", "certificado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2002,11 +1926,11 @@
     "subdomain": "password-writeback-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "SSPR deve refletir no AD local com pré-requisitos atendidos. Quais dois elementos habilitam o writeback? Selecione duas.",
+    "question": "SSPR deve refletir no AD local com pr\u00e9-requisitos atendidos. Quais dois elementos habilitam o writeback? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Permissões da conta de serviço no AD"
+        "text": "Permiss\u00f5es da conta de servi\u00e7o no AD"
       },
       {
         "letter": "B",
@@ -2018,11 +1942,11 @@
       },
       {
         "letter": "D",
-        "text": "SSPR só na nuvem sem writeback"
+        "text": "SSPR s\u00f3 na nuvem sem writeback"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Writeback habilitado com conta de serviço permissionada grava a nova senha no AD local. Só nuvem não reflete no local; anotar senha em chamado vaza credencial.",
+    "explanation": "Writeback habilitado com conta de servi\u00e7o permissionada grava a nova senha no AD local. S\u00f3 nuvem n\u00e3o reflete no local; anotar senha em chamado vaza credencial.",
     "source": "original",
     "tags": ["password-writeback", "sspr", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2039,7 +1963,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Dispositivo só na nuvem"
+        "text": "Dispositivo s\u00f3 na nuvem"
       },
       {
         "letter": "B",
@@ -2047,7 +1971,7 @@
       },
       {
         "letter": "C",
-        "text": "Sincronização de computadores habilitada"
+        "text": "Sincroniza\u00e7\u00e3o de computadores habilitada"
       },
       {
         "letter": "D",
@@ -2055,184 +1979,9 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Device writeback cria o objeto do dispositivo na OU alvo para aplicar GPO legada. Só na nuvem não recebe GPO; sem objeto não existe alvo para a política.",
+    "explanation": "Device writeback cria o objeto do dispositivo na OU alvo para aplicar GPO legada. S\u00f3 na nuvem n\u00e3o recebe GPO; sem objeto n\u00e3o existe alvo para a pol\u00edtica.",
     "source": "original",
     "tags": ["device-writeback", "gpo", "hibrido"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-143",
-    "domain": "identidade-governanca",
-    "subdomain": "sso-seamless-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que o logon único contínuo (seamless SSO) dispensa qualquer credencial até em máquina fora do domínio corporativo. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, funciona em qualquer máquina"
-      },
-      {
-        "letter": "B",
-        "text": "Não, exige máquina ingressada na rede corporativa"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Seamless SSO usa Kerberos da máquina ingressada; fora do domínio não há ticket. Assumir ubíquo quebra o desenho.",
-    "source": "original",
-    "tags": ["seamless-sso", "kerberos", "dominio"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-144",
-    "domain": "identidade-governanca",
-    "subdomain": "pta-vs-phs-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que PTA continua autenticando na nuvem mesmo com todos os agentes e o AD locais indisponíveis. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, PTA tem cache na nuvem"
-      },
-      {
-        "letter": "B",
-        "text": "Não, PTA depende do local a cada login"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "PTA valida no AD a cada login; sem agentes/AD não autentica (diferente do PHS). Assumir cache é erro de resiliência.",
-    "source": "original",
-    "tags": ["pta", "phs", "resiliencia"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-145",
-    "domain": "identidade-governanca",
-    "subdomain": "guest-invite-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que convite B2B resgatado cria objeto Guest que conta na cota do diretório como qualquer objeto. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, guests contam na cota de objetos"
-      },
-      {
-        "letter": "B",
-        "text": "Não, convidados são isentos de cota"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Guest resgatado vira objeto do diretório e consome cota como qualquer usuário. Achar convidado isento estoura o planejamento de capacidade em escala.",
-    "source": "original",
-    "tags": ["b2b", "cota", "guest"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-146",
-    "domain": "identidade-governanca",
-    "subdomain": "app-proxy-connector-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um engenheiro afirma que conectores do App Proxy exigem inbound liberado no firewall local para a nuvem alcançá-los. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, conectores só fazem outbound"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, inbound é obrigatório"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Conectores abrem conexões de saída e mantêm canal; nenhum inbound é necessário. Exigir inbound inverte o modelo.",
-    "source": "original",
-    "tags": ["app-proxy", "conector", "outbound"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-147",
-    "domain": "identidade-governanca",
-    "subdomain": "managed-vs-federated-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que domínios gerenciados (managed) autenticam na nuvem sem depender de federação ativa. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, todo domínio precisa de federação"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, managed autentica na nuvem"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Managed usa PHS/PTA na nuvem; federated delega ao IdP. Exigir federação sempre ignora o modelo gerenciado.",
-    "source": "original",
-    "tags": ["managed", "federated", "dominio"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-148",
-    "domain": "identidade-governanca",
-    "subdomain": "ca-order-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que, com várias políticas de acesso condicional, basta uma concessão de bloqueio para negar, mesmo que outras concedam acesso. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, bloqueio prevalece sobre concessões"
-      },
-      {
-        "letter": "B",
-        "text": "Não, a última política criada decide"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Avaliação lógica: qualquer Block aplicável nega, independente de allows. Ordem de criação não decide; bloqueio vence.",
-    "source": "original",
-    "tags": ["conditional-access", "bloqueio", "precedencia"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-149",
-    "domain": "identidade-governanca",
-    "subdomain": "report-only-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que política em Report-only registra o resultado 'não aplicado' nos logs de login sem impactar o usuário. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, avalia e registra sem impor"
-      },
-      {
-        "letter": "B",
-        "text": "Não, Report-only bloqueia em silêncio"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Report-only avalia e marca o resultado sem conceder/negar diferente. Achar que bloqueia confunde com On.",
-    "source": "original",
-    "tags": ["report-only", "avaliacao", "logs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
@@ -2243,11 +1992,11 @@
     "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Ao atribuir licenças a um grupo, alguns usuários ficam em estado de erro de atribuição. Qual causa comum o centro de administração indica para 'local de uso inválido'?",
+    "question": "Ao atribuir licen\u00e7as a um grupo, alguns usu\u00e1rios ficam em estado de erro de atribui\u00e7\u00e3o. Qual causa comum o centro de administra\u00e7\u00e3o indica para 'local de uso inv\u00e1lido'?",
     "options": [
       {
         "letter": "A",
-        "text": "Usuário sem local de uso configurado no perfil"
+        "text": "Usu\u00e1rio sem local de uso configurado no perfil"
       },
       {
         "letter": "B",
@@ -2255,15 +2004,15 @@
       },
       {
         "letter": "C",
-        "text": "Licença já expirada no tenant"
+        "text": "Licen\u00e7a j\u00e1 expirada no tenant"
       },
       {
         "letter": "D",
-        "text": "Usuário com MFA desabilitado"
+        "text": "Usu\u00e1rio com MFA desabilitado"
       }
     ],
     "correct": ["A"],
-    "explanation": "A página de licenças lista 'local de uso inválido' entre as falhas de atribuição — ocorre quando o usuário não tem UsageLocation definido. Grupo grande, licença expirada e MFA não causam esse erro específico.",
+    "explanation": "A p\u00e1gina de licen\u00e7as lista 'local de uso inv\u00e1lido' entre as falhas de atribui\u00e7\u00e3o \u2014 ocorre quando o usu\u00e1rio n\u00e3o tem UsageLocation definido. Grupo grande, licen\u00e7a expirada e MFA n\u00e3o causam esse erro espec\u00edfico.",
     "source": "mslearn",
     "tags": ["upn", "nomenclatura", "padrao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2277,11 +2026,11 @@
     "subdomain": "guest-invite-settings",
     "type": "single",
     "difficulty": "medium",
-    "question": "Qualquer funcionário convida guests sem controle e a base inchou. Como restringir quem pode convidar sem travar colaboração legítima?",
+    "question": "Qualquer funcion\u00e1rio convida guests sem controle e a base inchou. Como restringir quem pode convidar sem travar colabora\u00e7\u00e3o leg\u00edtima?",
     "options": [
       {
         "letter": "A",
-        "text": "Restringir convites a admins/donos + fluxo de solicitação"
+        "text": "Restringir convites a admins/donos + fluxo de solicita\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -2293,11 +2042,11 @@
       },
       {
         "letter": "D",
-        "text": "Convite só por e-mail pessoal"
+        "text": "Convite s\u00f3 por e-mail pessoal"
       }
     ],
     "correct": ["A"],
-    "explanation": "Configuração de colaboração restringe convite com fluxo de pedido. Livre incha; proibir trava parceiro; pessoal perde governança.",
+    "explanation": "Configura\u00e7\u00e3o de colabora\u00e7\u00e3o restringe convite com fluxo de pedido. Livre incha; proibir trava parceiro; pessoal perde governan\u00e7a.",
     "source": "original",
     "tags": ["b2b", "convites", "restricao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2310,7 +2059,7 @@
     "subdomain": "sponsors",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cada convidado precisa de um responsável interno que responda pelo acesso. O que vincular ao guest no convite?",
+    "question": "Cada convidado precisa de um respons\u00e1vel interno que responda pelo acesso. O que vincular ao guest no convite?",
     "options": [
       {
         "letter": "A",
@@ -2322,7 +2071,7 @@
       },
       {
         "letter": "C",
-        "text": "Nenhum vínculo de responsabilidade"
+        "text": "Nenhum v\u00ednculo de responsabilidade"
       },
       {
         "letter": "D",
@@ -2330,7 +2079,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Sponsor responde por reviews e expiração do guest. Sem vínculo ninguém recertifica; senha compartilhada vaza; grupo sem dono não revisa.",
+    "explanation": "Sponsor responde por reviews e expira\u00e7\u00e3o do guest. Sem v\u00ednculo ningu\u00e9m recertifica; senha compartilhada vaza; grupo sem dono n\u00e3o revisa.",
     "source": "original",
     "tags": ["sponsor", "convidado", "responsabilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2347,11 +2096,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Conta anônima"
+        "text": "Conta an\u00f4nima"
       },
       {
         "letter": "B",
-        "text": "Ordem alfabética de e-mail"
+        "text": "Ordem alfab\u00e9tica de e-mail"
       },
       {
         "letter": "C",
@@ -2359,11 +2108,11 @@
       },
       {
         "letter": "D",
-        "text": "Conta corporativa do domínio convidado, depois MSA"
+        "text": "Conta corporativa do dom\u00ednio convidado, depois MSA"
       }
     ],
     "correct": ["D"],
-    "explanation": "Resgate prioriza identidade corporativa federada do e-mail convidado, caindo para MSA/one-time passcode. Sempre MSA ignora federação; anônima não autentica.",
+    "explanation": "Resgate prioriza identidade corporativa federada do e-mail convidado, caindo para MSA/one-time passcode. Sempre MSA ignora federa\u00e7\u00e3o; an\u00f4nima n\u00e3o autentica.",
     "source": "original",
     "tags": ["b2b", "resgate", "ordem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2376,19 +2125,19 @@
     "subdomain": "otp-guest",
     "type": "single",
     "difficulty": "medium",
-    "question": "Parceiros sem Entra nem MSA precisam acessar documentos com verificação por e-mail. Qual método cobre convidados sem identidade federada?",
+    "question": "Parceiros sem Entra nem MSA precisam acessar documentos com verifica\u00e7\u00e3o por e-mail. Qual m\u00e9todo cobre convidados sem identidade federada?",
     "options": [
       {
         "letter": "A",
-        "text": "VPN com usuário genérico"
+        "text": "VPN com usu\u00e1rio gen\u00e9rico"
       },
       {
         "letter": "B",
-        "text": "Senha de uso único por e-mail (one-time passcode)"
+        "text": "Senha de uso \u00fanico por e-mail (one-time passcode)"
       },
       {
         "letter": "C",
-        "text": "Login anônimo permanente"
+        "text": "Login an\u00f4nimo permanente"
       },
       {
         "letter": "D",
@@ -2396,7 +2145,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "OTP por e-mail autentica sem federação, com código por acesso. Anônimo não identifica; fixa vaza; genérico perde trilha.",
+    "explanation": "OTP por e-mail autentica sem federa\u00e7\u00e3o, com c\u00f3digo por acesso. An\u00f4nimo n\u00e3o identifica; fixa vaza; gen\u00e9rico perde trilha.",
     "source": "original",
     "tags": ["otp", "convidado", "e-mail"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2409,15 +2158,15 @@
     "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um administrador compara as funcionalidades disponíveis nas licenças Microsoft Entra ID P1 e P2. Qual recurso está disponível apenas no P2 (não no P1)?",
+    "question": "Um administrador compara as funcionalidades dispon\u00edveis nas licen\u00e7as Microsoft Entra ID P1 e P2. Qual recurso est\u00e1 dispon\u00edvel apenas no P2 (n\u00e3o no P1)?",
     "options": [
       {
         "letter": "A",
-        "text": "Acesso Condicional básico"
+        "text": "Acesso Condicional b\u00e1sico"
       },
       {
         "letter": "B",
-        "text": "Redefinição de senha por autoatendimento (SSPR)"
+        "text": "Redefini\u00e7\u00e3o de senha por autoatendimento (SSPR)"
       },
       {
         "letter": "C",
@@ -2425,11 +2174,11 @@
       },
       {
         "letter": "D",
-        "text": "Grupos dinâmicos"
+        "text": "Grupos din\u00e2micos"
       }
     ],
     "correct": ["C"],
-    "explanation": "PIM é recurso exclusivo do P2 (e EMS E5). Acesso Condicional básico e SSPR existem no P1; grupos dinâmicos são do P1. A página de comparação de licenças detalha quais recursos premium (PIM, Identity Protection, Access Reviews, Entitlement Management) requerem P2.",
+    "explanation": "PIM \u00e9 recurso exclusivo do P2 (e EMS E5). Acesso Condicional b\u00e1sico e SSPR existem no P1; grupos din\u00e2micos s\u00e3o do P1. A p\u00e1gina de compara\u00e7\u00e3o de licen\u00e7as detalha quais recursos premium (PIM, Identity Protection, Access Reviews, Entitlement Management) requerem P2.",
     "source": "mslearn",
     "tags": ["licenca", "p1", "p2", "diferencas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2443,27 +2192,27 @@
     "subdomain": "step-up-auth",
     "type": "single",
     "difficulty": "hard",
-    "question": "Operações sensíveis no portal exigem reautenticação mesmo com sessão válida. Qual concessão eleva a garantia pontualmente?",
+    "question": "Opera\u00e7\u00f5es sens\u00edveis no portal exigem reautentica\u00e7\u00e3o mesmo com sess\u00e3o v\u00e1lida. Qual concess\u00e3o eleva a garantia pontualmente?",
     "options": [
       {
         "letter": "A",
-        "text": "Exigir MFA/autenticação recente (step-up) na política"
+        "text": "Exigir MFA/autentica\u00e7\u00e3o recente (step-up) na pol\u00edtica"
       },
       {
         "letter": "B",
-        "text": "Desabilitar MFA nas operações"
+        "text": "Desabilitar MFA nas opera\u00e7\u00f5es"
       },
       {
         "letter": "C",
-        "text": "Senha estática sem expiração"
+        "text": "Senha est\u00e1tica sem expira\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Sessão de 30 dias para tudo"
+        "text": "Sess\u00e3o de 30 dias para tudo"
       }
     ],
     "correct": ["A"],
-    "explanation": "Step-up exige auth fresca na ação sensível. Sessão longa enfraquece; sem MFA piora; estática não eleva.",
+    "explanation": "Step-up exige auth fresca na a\u00e7\u00e3o sens\u00edvel. Sess\u00e3o longa enfraquece; sem MFA piora; est\u00e1tica n\u00e3o eleva.",
     "source": "original",
     "tags": ["step-up", "reautenticacao", "sensivel"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2476,7 +2225,7 @@
     "subdomain": "continuous-access",
     "type": "single",
     "difficulty": "hard",
-    "question": "Tokens vazados precisam ser revogados em minutos, não na expiração natural. Qual avaliação contínua encerra sessões após eventos críticos?",
+    "question": "Tokens vazados precisam ser revogados em minutos, n\u00e3o na expira\u00e7\u00e3o natural. Qual avalia\u00e7\u00e3o cont\u00ednua encerra sess\u00f5es ap\u00f3s eventos cr\u00edticos?",
     "options": [
       {
         "letter": "A",
@@ -2484,19 +2233,19 @@
       },
       {
         "letter": "B",
-        "text": "Avaliação de Acesso Contínuo (CAE) com revogação imediata"
+        "text": "Avalia\u00e7\u00e3o de Acesso Cont\u00ednuo (CAE) com revoga\u00e7\u00e3o imediata"
       },
       {
         "letter": "C",
-        "text": "Token de 24h sem revogação"
+        "text": "Token de 24h sem revoga\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Sessão persistente ilimitada"
+        "text": "Sess\u00e3o persistente ilimitada"
       }
     ],
     "correct": ["B"],
-    "explanation": "CAE reage a senha alterada, conta desabilitada e risco em minutos. Token longo sem CAE vaza até expirar; persistente piora; cache local não revoga.",
+    "explanation": "CAE reage a senha alterada, conta desabilitada e risco em minutos. Token longo sem CAE vaza at\u00e9 expirar; persistente piora; cache local n\u00e3o revoga.",
     "source": "original",
     "tags": ["cae", "revogacao", "token", "continuo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2509,7 +2258,7 @@
     "subdomain": "token-theft-defense",
     "type": "single",
     "difficulty": "hard",
-    "question": "Ataques replay de token de acesso exigem defesa além de MFA. Quais camadas combinadas mitigam roubo de token?",
+    "question": "Ataques replay de token de acesso exigem defesa al\u00e9m de MFA. Quais camadas combinadas mitigam roubo de token?",
     "options": [
       {
         "letter": "A",
@@ -2525,11 +2274,11 @@
       },
       {
         "letter": "D",
-        "text": "IP fixo por usuário"
+        "text": "IP fixo por usu\u00e1rio"
       }
     ],
     "correct": ["C"],
-    "explanation": "CAE revoga, token protection vincula ao dispositivo e CA por risco bloqueia replay. Senha não protege token; sem refresh quebra UX; IP fixo não escala.",
+    "explanation": "CAE revoga, token protection vincula ao dispositivo e CA por risco bloqueia replay. Senha n\u00e3o protege token; sem refresh quebra UX; IP fixo n\u00e3o escala.",
     "source": "original",
     "tags": ["token", "roubo", "cae", "protection"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2542,11 +2291,11 @@
     "subdomain": "verified-credentials-hr",
     "type": "single",
     "difficulty": "hard",
-    "question": "Admissões remotas precisam provar identidade com documento verificável antes de criar conta. Qual credencial o candidato apresenta?",
+    "question": "Admiss\u00f5es remotas precisam provar identidade com documento verific\u00e1vel antes de criar conta. Qual credencial o candidato apresenta?",
     "options": [
       {
         "letter": "A",
-        "text": "Declaração assinada em papel"
+        "text": "Declara\u00e7\u00e3o assinada em papel"
       },
       {
         "letter": "B",
@@ -2554,15 +2303,15 @@
       },
       {
         "letter": "C",
-        "text": "Credencial verificável emitida por autoridade (Verified ID)"
+        "text": "Credencial verific\u00e1vel emitida por autoridade (Verified ID)"
       },
       {
         "letter": "D",
-        "text": "Senha provisória por SMS"
+        "text": "Senha provis\u00f3ria por SMS"
       }
     ],
     "correct": ["C"],
-    "explanation": "Verified ID valida documento com criptografia sem expor base. Selfie por e-mail falsifica; SMS intercepta; papel não escala remoto.",
+    "explanation": "Verified ID valida documento com criptografia sem expor base. Selfie por e-mail falsifica; SMS intercepta; papel n\u00e3o escala remoto.",
     "source": "original",
     "tags": ["verified-id", "admissao", "identidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2575,7 +2324,7 @@
     "subdomain": "face-check",
     "type": "single",
     "difficulty": "hard",
-    "question": "Prova de vida com correspondência facial e documento precisa de liveness contra foto. Qual verificação combina documento e живо?",
+    "question": "Prova de vida com correspond\u00eancia facial e documento precisa de liveness contra foto. Qual verifica\u00e7\u00e3o combina documento e \u0436\u0438\u0432\u043e?",
     "options": [
       {
         "letter": "A",
@@ -2583,7 +2332,7 @@
       },
       {
         "letter": "B",
-        "text": "Vídeo sem validação"
+        "text": "V\u00eddeo sem valida\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -2591,11 +2340,11 @@
       },
       {
         "letter": "D",
-        "text": "Foto estática comparada a olho"
+        "text": "Foto est\u00e1tica comparada a olho"
       }
     ],
     "correct": ["A"],
-    "explanation": "Face Check valida живо + documento com anti-spoof. Olho não detecta deepfake; vídeo sem liveness falsifica; assinatura não prova rosto.",
+    "explanation": "Face Check valida \u0436\u0438\u0432\u043e + documento com anti-spoof. Olho n\u00e3o detecta deepfake; v\u00eddeo sem liveness falsifica; assinatura n\u00e3o prova rosto.",
     "source": "original",
     "tags": ["face-check", "liveness", "prova-vida"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2608,7 +2357,7 @@
     "subdomain": "workplace-join",
     "type": "single",
     "difficulty": "hard",
-    "question": "Dispositivos móveis pessoais precisam de gerenciamento de app sem controlar o aparelho inteiro. Qual modelo isola dados corporativos?",
+    "question": "Dispositivos m\u00f3veis pessoais precisam de gerenciamento de app sem controlar o aparelho inteiro. Qual modelo isola dados corporativos?",
     "options": [
       {
         "letter": "A",
@@ -2624,7 +2373,7 @@
       },
       {
         "letter": "D",
-        "text": "Sem gerência com BYOD livre"
+        "text": "Sem ger\u00eancia com BYOD livre"
       }
     ],
     "correct": ["C"],
@@ -2641,15 +2390,15 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "Para usar o Microsoft Authenticator como método de redefinição de senha no SSPR, o usuário precisa registrar o aplicativo. Qual etapa é obrigatória no fluxo de registro combinado?",
+    "question": "Para usar o Microsoft Authenticator como m\u00e9todo de redefini\u00e7\u00e3o de senha no SSPR, o usu\u00e1rio precisa registrar o aplicativo. Qual etapa \u00e9 obrigat\u00f3ria no fluxo de registro combinado?",
     "options": [
       {
         "letter": "A",
-        "text": "Instalar o Authenticator e escanear QR code na página de registro"
+        "text": "Instalar o Authenticator e escanear QR code na p\u00e1gina de registro"
       },
       {
         "letter": "B",
-        "text": "Configurar PIN do dispositivo nas configurações do Android/iOS"
+        "text": "Configurar PIN do dispositivo nas configura\u00e7\u00f5es do Android/iOS"
       },
       {
         "letter": "C",
@@ -2657,11 +2406,11 @@
       },
       {
         "letter": "D",
-        "text": "Conceder permissão de administrador do dispositivo"
+        "text": "Conceder permiss\u00e3o de administrador do dispositivo"
       }
     ],
     "correct": ["A"],
-    "explanation": "O registro combinado (SSPR + MFA) exige instalar o Microsoft Authenticator e escanear o QR code exibido na página de registro (aka.ms/mysecurityinfo). PIN do dispositivo, backup e admin do dispositivo não são etapas do registro SSPR.",
+    "explanation": "O registro combinado (SSPR + MFA) exige instalar o Microsoft Authenticator e escanear o QR code exibido na p\u00e1gina de registro (aka.ms/mysecurityinfo). PIN do dispositivo, backup e admin do dispositivo n\u00e3o s\u00e3o etapas do registro SSPR.",
     "source": "mslearn",
     "tags": ["app-protection", "dlp", "movel"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2675,27 +2424,27 @@
     "subdomain": "conditional-launch-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Lançamento de política crítica exige validação e rota de fuga. Quais duas etapas antecedem o On? Selecione duas.",
+    "question": "Lan\u00e7amento de pol\u00edtica cr\u00edtica exige valida\u00e7\u00e3o e rota de fuga. Quais duas etapas antecedem o On? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão de emergência documentada"
+        "text": "Exclus\u00e3o de emerg\u00eancia documentada"
       },
       {
         "letter": "B",
-        "text": "Ativação direta sem teste"
+        "text": "Ativa\u00e7\u00e3o direta sem teste"
       },
       {
         "letter": "C",
-        "text": "Report-only com análise de impacto"
+        "text": "Report-only com an\u00e1lise de impacto"
       },
       {
         "letter": "D",
-        "text": "Remoção de logs"
+        "text": "Remo\u00e7\u00e3o de logs"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Report-only mede impacto real sem bloquear e a exclusão de emergência documentada salva do lockout. Ativar direto arrisca travar todos; sem log não há auditoria.",
+    "explanation": "Report-only mede impacto real sem bloquear e a exclus\u00e3o de emerg\u00eancia documentada salva do lockout. Ativar direto arrisca travar todos; sem log n\u00e3o h\u00e1 auditoria.",
     "source": "original",
     "tags": ["lancamento", "report-only", "emergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2708,11 +2457,11 @@
     "subdomain": "risk-based-stepup-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Risco médio exige MFA e risco alto exige bloqueio, diferenciados por sinal. Quais duas concessões escalonam por nível? Selecione duas.",
+    "question": "Risco m\u00e9dio exige MFA e risco alto exige bloqueio, diferenciados por sinal. Quais duas concess\u00f5es escalonam por n\u00edvel? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "MFA para risco médio"
+        "text": "MFA para risco m\u00e9dio"
       },
       {
         "letter": "B",
@@ -2720,7 +2469,7 @@
       },
       {
         "letter": "C",
-        "text": "Mesma ação para todos"
+        "text": "Mesma a\u00e7\u00e3o para todos"
       },
       {
         "letter": "D",
@@ -2728,7 +2477,7 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Escalonar por nível equilibra fricção e segurança. Permitir tudo vaza; ação única erra nos extremos.",
+    "explanation": "Escalonar por n\u00edvel equilibra fric\u00e7\u00e3o e seguran\u00e7a. Permitir tudo vaza; a\u00e7\u00e3o \u00fanica erra nos extremos.",
     "source": "original",
     "tags": ["risco", "escalonamento", "mfa", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2741,27 +2490,27 @@
     "subdomain": "location-spoof-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "VPNs de privacidade mascaram localização burlando política por país. Quais dois sinais combinados detectam o mascaramento? Selecione duas.",
+    "question": "VPNs de privacidade mascaram localiza\u00e7\u00e3o burlando pol\u00edtica por pa\u00eds. Quais dois sinais combinados detectam o mascaramento? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Confiar no país declarado"
+        "text": "Confiar no pa\u00eds declarado"
       },
       {
         "letter": "B",
-        "text": "Detecção de IP anônimo/VPN"
+        "text": "Detec\u00e7\u00e3o de IP an\u00f4nimo/VPN"
       },
       {
         "letter": "C",
-        "text": "Ignorar geolocalização"
+        "text": "Ignorar geolocaliza\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Viagem impossível entre logins"
+        "text": "Viagem imposs\u00edvel entre logins"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "IP anônimo sinaliza túnel e viagem impossível denuncia salto. Confiar no declarado aceita fraude; ignorar perde o sinal.",
+    "explanation": "IP an\u00f4nimo sinaliza t\u00fanel e viagem imposs\u00edvel denuncia salto. Confiar no declarado aceita fraude; ignorar perde o sinal.",
     "source": "original",
     "tags": ["vpn", "mascaramento", "ip-anonimo", "viagem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2774,11 +2523,11 @@
     "subdomain": "compliant-network-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Acesso a dados sigilosos exige rede corporativa ou VPN gerenciada, nunca Wi-Fi público. Quais dois sinais de rede combinar? Selecione duas.",
+    "question": "Acesso a dados sigilosos exige rede corporativa ou VPN gerenciada, nunca Wi-Fi p\u00fablico. Quais dois sinais de rede combinar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Sem verificação de rede"
+        "text": "Sem verifica\u00e7\u00e3o de rede"
       },
       {
         "letter": "B",
@@ -2786,15 +2535,15 @@
       },
       {
         "letter": "C",
-        "text": "Conformidade do dispositivo/túnel"
+        "text": "Conformidade do dispositivo/t\u00fanel"
       },
       {
         "letter": "D",
-        "text": "Localização de rede confiável"
+        "text": "Localiza\u00e7\u00e3o de rede confi\u00e1vel"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Rede confiável + dispositivo conforme garantem canal e ponta. Qualquer rede vaza; sem verificar não há controle.",
+    "explanation": "Rede confi\u00e1vel + dispositivo conforme garantem canal e ponta. Qualquer rede vaza; sem verificar n\u00e3o h\u00e1 controle.",
     "source": "original",
     "tags": ["rede-confiavel", "conformidade", "sigilo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2807,27 +2556,27 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador configura a política de registro do SSPR e define que os usuários devem registrar métodos de autenticação no próximo login. Onde essa configuração é definida no centro de administração?",
+    "question": "Um administrador configura a pol\u00edtica de registro do SSPR e define que os usu\u00e1rios devem registrar m\u00e9todos de autentica\u00e7\u00e3o no pr\u00f3ximo login. Onde essa configura\u00e7\u00e3o \u00e9 definida no centro de administra\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Proteção de Identidade > Configurações de registro"
+        "text": "Prote\u00e7\u00e3o de Identidade > Configura\u00e7\u00f5es de registro"
       },
       {
         "letter": "B",
-        "text": "Proteção > Redefinição de senha > Registro > Exigir registro no próximo login"
+        "text": "Prote\u00e7\u00e3o > Redefini\u00e7\u00e3o de senha > Registro > Exigir registro no pr\u00f3ximo login"
       },
       {
         "letter": "C",
-        "text": "Usuários > Todos os usuários > Métodos de autenticação > Exigir re-registro"
+        "text": "Usu\u00e1rios > Todos os usu\u00e1rios > M\u00e9todos de autentica\u00e7\u00e3o > Exigir re-registro"
       },
       {
         "letter": "D",
-        "text": "Identidade > Governança > Access Reviews > Novo > Registro SSPR"
+        "text": "Identidade > Governan\u00e7a > Access Reviews > Novo > Registro SSPR"
       }
     ],
     "correct": ["B"],
-    "explanation": "A configuração 'Exigir registro no próximo login' fica em Proteção > Redefinição de senha > Registro. Proteção de Identidade é para risco; métodos de autenticação por usuário é individual; Access Reviews é para revisão de acesso, não registro SSPR.",
+    "explanation": "A configura\u00e7\u00e3o 'Exigir registro no pr\u00f3ximo login' fica em Prote\u00e7\u00e3o > Redefini\u00e7\u00e3o de senha > Registro. Prote\u00e7\u00e3o de Identidade \u00e9 para risco; m\u00e9todos de autentica\u00e7\u00e3o por usu\u00e1rio \u00e9 individual; Access Reviews \u00e9 para revis\u00e3o de acesso, n\u00e3o registro SSPR.",
     "source": "mslearn",
     "tags": ["cae", "reavaliacao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2836,57 +2585,32 @@
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
-    "id": "az104-ig-175",
-    "domain": "identidade-governanca",
-    "subdomain": "guest-token-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um parceiro afirma que tokens de convidado têm o mesmo tempo de vida e escopo dos tokens de membros por padrão. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, políticas distintas podem encurtar sessão de guest"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, lifetimes idênticos"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "É possível (e comum) limitar sessão de guest via CA/session controls. Assumir igualdade perde endurecimento.",
-    "source": "original",
-    "tags": ["guest", "token", "sessao"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
     "id": "az104-ig-176",
     "domain": "identidade-governanca",
     "subdomain": "pim",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador afirma que a duração máxima de ativação do Privileged Identity Management (PIM) é fixa globalmente e não pode variar por função. Essa afirmação está correta?",
+    "question": "Um administrador afirma que a dura\u00e7\u00e3o m\u00e1xima de ativa\u00e7\u00e3o do Privileged Identity Management (PIM) \u00e9 fixa globalmente e n\u00e3o pode variar por fun\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, cada função define sua duração máxima nas configurações de função do PIM"
+        "text": "N\u00e3o, cada fun\u00e7\u00e3o define sua dura\u00e7\u00e3o m\u00e1xima nas configura\u00e7\u00f5es de fun\u00e7\u00e3o do PIM"
       },
       {
         "letter": "B",
-        "text": "Sim, a duração máxima é fixa globalmente em 8 horas para todas as funções"
+        "text": "Sim, a dura\u00e7\u00e3o m\u00e1xima \u00e9 fixa globalmente em 8 horas para todas as fun\u00e7\u00f5es"
       },
       {
         "letter": "C",
-        "text": "Não, mas a duração é definida no nível da assinatura, não da função"
+        "text": "N\u00e3o, mas a dura\u00e7\u00e3o \u00e9 definida no n\u00edvel da assinatura, n\u00e3o da fun\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Sim, a duração máxima é sempre 24 horas para todas as funções"
+        "text": "Sim, a dura\u00e7\u00e3o m\u00e1xima \u00e9 sempre 24 horas para todas as fun\u00e7\u00f5es"
       }
     ],
     "correct": ["A"],
-    "explanation": "As configurações de função do PIM (role settings) permitem definir duração máxima, exigência de MFA e aprovação por função individualmente. Não existe duração global única; cada função (ex.: Administrador Global, Colaborador) tem suas próprias configurações de duração máxima, MFA e aprovação.",
+    "explanation": "As configura\u00e7\u00f5es de fun\u00e7\u00e3o do PIM (role settings) permitem definir dura\u00e7\u00e3o m\u00e1xima, exig\u00eancia de MFA e aprova\u00e7\u00e3o por fun\u00e7\u00e3o individualmente. N\u00e3o existe dura\u00e7\u00e3o global \u00fanica; cada fun\u00e7\u00e3o (ex.: Administrador Global, Colaborador) tem suas pr\u00f3prias configura\u00e7\u00f5es de dura\u00e7\u00e3o m\u00e1xima, MFA e aprova\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["pim", "duracao", "role-settings"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2900,7 +2624,7 @@
     "subdomain": "entra-id-powershell",
     "type": "single",
     "difficulty": "medium",
-    "question": "Administração em massa de usuários (criar 200 contas) precisa de automação nativa do Entra. Qual módulo PowerShell usar?",
+    "question": "Administra\u00e7\u00e3o em massa de usu\u00e1rios (criar 200 contas) precisa de automa\u00e7\u00e3o nativa do Entra. Qual m\u00f3dulo PowerShell usar?",
     "options": [
       {
         "letter": "A",
@@ -2908,11 +2632,11 @@
       },
       {
         "letter": "B",
-        "text": "Microsoft.Graph com cmdlets de usuário"
+        "text": "Microsoft.Graph com cmdlets de usu\u00e1rio"
       },
       {
         "letter": "C",
-        "text": "MSOnline legado sem manutenção"
+        "text": "MSOnline legado sem manuten\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -2920,7 +2644,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "SDK Microsoft.Graph automatiza em massa via API. Portal não escala; MSOnline foi preterido; cmdlets locais não alcançam nuvem.",
+    "explanation": "SDK Microsoft.Graph automatiza em massa via API. Portal n\u00e3o escala; MSOnline foi preterido; cmdlets locais n\u00e3o alcan\u00e7am nuvem.",
     "source": "mslearn",
     "tags": ["powershell", "graph", "automacao", "massa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2934,27 +2658,27 @@
     "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um administrador precisa atribuir licenças Microsoft Entra ID P2 a todos os membros de um grupo de segurança usando o centro de administração. Qual procedimento garante que a licença seja propagada automaticamente aos membros atuais e futuros do grupo?",
+    "question": "Um administrador precisa atribuir licen\u00e7as Microsoft Entra ID P2 a todos os membros de um grupo de seguran\u00e7a usando o centro de administra\u00e7\u00e3o. Qual procedimento garante que a licen\u00e7a seja propagada automaticamente aos membros atuais e futuros do grupo?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuir a licença diretamente a cada usuário individualmente"
+        "text": "Atribuir a licen\u00e7a diretamente a cada usu\u00e1rio individualmente"
       },
       {
         "letter": "B",
-        "text": "Atribuir a licença ao grupo de segurança no centro de administração"
+        "text": "Atribuir a licen\u00e7a ao grupo de seguran\u00e7a no centro de administra\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Criar script PowerShell para atribuir licença a cada membro"
+        "text": "Criar script PowerShell para atribuir licen\u00e7a a cada membro"
       },
       {
         "letter": "D",
-        "text": "Exportar membros do grupo, editar CSV e importar licenças"
+        "text": "Exportar membros do grupo, editar CSV e importar licen\u00e7as"
       }
     ],
     "correct": ["B"],
-    "explanation": "Atribuir a licença ao grupo no centro de administração faz o sistema propagar automaticamente aos membros atuais e futuros. Atribuição individual não escala; script e CSV são manuais e não propagam para novos membros.",
+    "explanation": "Atribuir a licen\u00e7a ao grupo no centro de administra\u00e7\u00e3o faz o sistema propagar automaticamente aos membros atuais e futuros. Atribui\u00e7\u00e3o individual n\u00e3o escala; script e CSV s\u00e3o manuais e n\u00e3o propagam para novos membros.",
     "source": "mslearn",
     "tags": ["cli", "automacao", "grupo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2968,19 +2692,19 @@
     "subdomain": "bicep-identity",
     "type": "single",
     "difficulty": "medium",
-    "question": "Atribuição de função via Bicep precisa de GUID estável da definição Leitor. Onde obter o ID da role em código?",
+    "question": "Atribui\u00e7\u00e3o de fun\u00e7\u00e3o via Bicep precisa de GUID est\u00e1vel da defini\u00e7\u00e3o Leitor. Onde obter o ID da role em c\u00f3digo?",
     "options": [
       {
         "letter": "A",
-        "text": "ID canônico da definição (ex.: acdd72a7-...) no template"
+        "text": "ID can\u00f4nico da defini\u00e7\u00e3o (ex.: acdd72a7-...) no template"
       },
       {
         "letter": "B",
-        "text": "Nome do usuário"
+        "text": "Nome do usu\u00e1rio"
       },
       {
         "letter": "C",
-        "text": "GUID aleatório gerado"
+        "text": "GUID aleat\u00f3rio gerado"
       },
       {
         "letter": "D",
@@ -2988,7 +2712,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Role assignments referenciam roleDefinitionId (GUID fixo global). Nome traduzido varia; aleatório não existe; usuário não é definição.",
+    "explanation": "Role assignments referenciam roleDefinitionId (GUID fixo global). Nome traduzido varia; aleat\u00f3rio n\u00e3o existe; usu\u00e1rio n\u00e3o \u00e9 defini\u00e7\u00e3o.",
     "source": "original",
     "tags": ["bicep", "rbac", "guid", "iac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3001,7 +2725,7 @@
     "subdomain": "principal-id",
     "type": "single",
     "difficulty": "medium",
-    "question": "Atribuição via Bicep a uma identidade gerenciada precisa do object ID do principal. Qual propriedade referencia?",
+    "question": "Atribui\u00e7\u00e3o via Bicep a uma identidade gerenciada precisa do object ID do principal. Qual propriedade referencia?",
     "options": [
       {
         "letter": "A",
@@ -3021,7 +2745,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "principalId referencia o objectId do security principal na atribuição via template. Nome de VM, IP e subscription ID não identificam o principal.",
+    "explanation": "principalId referencia o objectId do security principal na atribui\u00e7\u00e3o via template. Nome de VM, IP e subscription ID n\u00e3o identificam o principal.",
     "source": "original",
     "tags": ["principal-id", "rbac", "bicep"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3034,15 +2758,15 @@
     "subdomain": "guid-role-assignment",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cada atribuição de função via template precisa de nome único estável entre deploys. O que usar como nome do recurso?",
+    "question": "Cada atribui\u00e7\u00e3o de fun\u00e7\u00e3o via template precisa de nome \u00fanico est\u00e1vel entre deploys. O que usar como nome do recurso?",
     "options": [
       {
         "letter": "A",
-        "text": "GUID aleatório a cada deploy"
+        "text": "GUID aleat\u00f3rio a cada deploy"
       },
       {
         "letter": "B",
-        "text": "GUID determinístico (guid() de escopo+principal+papel)"
+        "text": "GUID determin\u00edstico (guid() de escopo+principal+papel)"
       },
       {
         "letter": "C",
@@ -3054,7 +2778,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "guid() determinístico mantém idempotência entre deploys. Aleatório duplica; nome do deploy colide; data muda sempre.",
+    "explanation": "guid() determin\u00edstico mant\u00e9m idempot\u00eancia entre deploys. Aleat\u00f3rio duplica; nome do deploy colide; data muda sempre.",
     "source": "original",
     "tags": ["guid", "role-assignment", "idempotencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3067,7 +2791,7 @@
     "subdomain": "scope-format",
     "type": "single",
     "difficulty": "medium",
-    "question": "Atribuição no escopo do grupo de recursos via Bicep precisa do formato correto. Como referenciar o escopo?",
+    "question": "Atribui\u00e7\u00e3o no escopo do grupo de recursos via Bicep precisa do formato correto. Como referenciar o escopo?",
     "options": [
       {
         "letter": "A",
@@ -3079,7 +2803,7 @@
       },
       {
         "letter": "C",
-        "text": "scope: resourceGroup() no módulo de atribuição"
+        "text": "scope: resourceGroup() no m\u00f3dulo de atribui\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -3087,7 +2811,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "scope tipado (resourceGroup()/subscription()/tenant()) define o nível. String solta não tipa; subscription/root ampliam demais.",
+    "explanation": "scope tipado (resourceGroup()/subscription()/tenant()) define o n\u00edvel. String solta n\u00e3o tipa; subscription/root ampliam demais.",
     "source": "original",
     "tags": ["scope", "bicep", "resourcegroup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3100,7 +2824,7 @@
     "subdomain": "delegated-vs-app-perms",
     "type": "single",
     "difficulty": "medium",
-    "question": "Daemon sem usuário que sincroniza diretório precisa de permissão de aplicativo; portal do RH com login precisa de delegada. Qual par está correto?",
+    "question": "Daemon sem usu\u00e1rio que sincroniza diret\u00f3rio precisa de permiss\u00e3o de aplicativo; portal do RH com login precisa de delegada. Qual par est\u00e1 correto?",
     "options": [
       {
         "letter": "A",
@@ -3120,7 +2844,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Sem usuário usa application (admin consent); com usuário usa delegated (user+app). Inverter quebra auth ou expõe.",
+    "explanation": "Sem usu\u00e1rio usa application (admin consent); com usu\u00e1rio usa delegated (user+app). Inverter quebra auth ou exp\u00f5e.",
     "source": "original",
     "tags": ["delegated", "application", "daemon", "portal"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3133,15 +2857,15 @@
     "subdomain": "admin-consent-flow",
     "type": "single",
     "difficulty": "medium",
-    "question": "App pede Directory.Read.All e usuários não podem consentir sozinhos. Qual fluxo direciona ao admin para aprovação?",
+    "question": "App pede Directory.Read.All e usu\u00e1rios n\u00e3o podem consentir sozinhos. Qual fluxo direciona ao admin para aprova\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Solicitação de consentimento do administrador (admin consent workflow)"
+        "text": "Solicita\u00e7\u00e3o de consentimento do administrador (admin consent workflow)"
       },
       {
         "letter": "B",
-        "text": "Consentimento do usuário forçado"
+        "text": "Consentimento do usu\u00e1rio for\u00e7ado"
       },
       {
         "letter": "C",
@@ -3153,7 +2877,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Workflow roteia pedido ao revisor com justificativa. Forçar usuário viola; desligar trava; compartilhar vaza.",
+    "explanation": "Workflow roteia pedido ao revisor com justificativa. For\u00e7ar usu\u00e1rio viola; desligar trava; compartilhar vaza.",
     "source": "original",
     "tags": ["admin-consent", "workflow", "aprovacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3166,7 +2890,7 @@
     "subdomain": "permission-classification",
     "type": "single",
     "difficulty": "medium",
-    "question": "Permissões de leitura básica devem ser autoaprováveis e escrita no diretório exigir admin. Onde classificar o impacto?",
+    "question": "Permiss\u00f5es de leitura b\u00e1sica devem ser autoaprov\u00e1veis e escrita no diret\u00f3rio exigir admin. Onde classificar o impacto?",
     "options": [
       {
         "letter": "A",
@@ -3178,15 +2902,15 @@
       },
       {
         "letter": "C",
-        "text": "Documentação externa"
+        "text": "Documenta\u00e7\u00e3o externa"
       },
       {
         "letter": "D",
-        "text": "Classificação de permissões (baixo/alto impacto)"
+        "text": "Classifica\u00e7\u00e3o de permiss\u00f5es (baixo/alto impacto)"
       }
     ],
     "correct": ["D"],
-    "explanation": "Permission classification marca baixo impacto (auto) vs alto (admin). Doc externa não impõe; nome/cor não classificam.",
+    "explanation": "Permission classification marca baixo impacto (auto) vs alto (admin). Doc externa n\u00e3o imp\u00f5e; nome/cor n\u00e3o classificam.",
     "source": "original",
     "tags": ["classificacao", "permissoes", "impacto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3199,11 +2923,11 @@
     "subdomain": "risky-apps",
     "type": "single",
     "difficulty": "medium",
-    "question": "Apps com permissões excessivas e sem uso precisam de priorização de remediação. Onde ver o risco agregado por aplicativo?",
+    "question": "Apps com permiss\u00f5es excessivas e sem uso precisam de prioriza\u00e7\u00e3o de remedia\u00e7\u00e3o. Onde ver o risco agregado por aplicativo?",
     "options": [
       {
         "letter": "A",
-        "text": "Relatório de apps arriscados (risky apps) do Identity Protection"
+        "text": "Relat\u00f3rio de apps arriscados (risky apps) do Identity Protection"
       },
       {
         "letter": "B",
@@ -3211,15 +2935,15 @@
       },
       {
         "letter": "C",
-        "text": "Lista alfabética de apps"
+        "text": "Lista alfab\u00e9tica de apps"
       },
       {
         "letter": "D",
-        "text": "Fatura de licenças"
+        "text": "Fatura de licen\u00e7as"
       }
     ],
     "correct": ["A"],
-    "explanation": "Risky apps pontua por permissões e comportamento. Alfabética não prioriza; fatura não mede risco; deploy não avalia app.",
+    "explanation": "Risky apps pontua por permiss\u00f5es e comportamento. Alfab\u00e9tica n\u00e3o prioriza; fatura n\u00e3o mede risco; deploy n\u00e3o avalia app.",
     "source": "original",
     "tags": ["risky-apps", "priorizacao", "remediacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3232,7 +2956,7 @@
     "subdomain": "service-principal-risk",
     "type": "single",
     "difficulty": "medium",
-    "question": "Entidade com credencial vazada no GitHub precisa de detecção e remediação. Qual risco de workload identity cobre isso?",
+    "question": "Entidade com credencial vazada no GitHub precisa de detec\u00e7\u00e3o e remedia\u00e7\u00e3o. Qual risco de workload identity cobre isso?",
     "options": [
       {
         "letter": "A",
@@ -3244,7 +2968,7 @@
       },
       {
         "letter": "C",
-        "text": "Risco de usuário comum"
+        "text": "Risco de usu\u00e1rio comum"
       },
       {
         "letter": "D",
@@ -3252,7 +2976,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Workload identity risk detecta credencial exposta e sugere rotação. User risk é para pessoas; CPU não detecta; backup não remedeia.",
+    "explanation": "Workload identity risk detecta credencial exposta e sugere rota\u00e7\u00e3o. User risk \u00e9 para pessoas; CPU n\u00e3o detecta; backup n\u00e3o remedeia.",
     "source": "original",
     "tags": ["workload-identity", "risco", "credencial-vazada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3265,11 +2989,11 @@
     "subdomain": "cert-vs-secret",
     "type": "single",
     "difficulty": "medium",
-    "question": "Produção exige credencial de entidade sem segredo compartilhado e com expiração gerenciada. O que usar em vez de client secret?",
+    "question": "Produ\u00e7\u00e3o exige credencial de entidade sem segredo compartilhado e com expira\u00e7\u00e3o gerenciada. O que usar em vez de client secret?",
     "options": [
       {
         "letter": "A",
-        "text": "Secret em texto claro no código"
+        "text": "Secret em texto claro no c\u00f3digo"
       },
       {
         "letter": "B",
@@ -3285,7 +3009,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Certificado prova posse sem compartilhar segredo e expira gerenciado. Texto claro vaza; senha pessoal não serve; token permanente expõe.",
+    "explanation": "Certificado prova posse sem compartilhar segredo e expira gerenciado. Texto claro vaza; senha pessoal n\u00e3o serve; token permanente exp\u00f5e.",
     "source": "original",
     "tags": ["certificado", "client-secret", "x509"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3298,11 +3022,11 @@
     "subdomain": "token-cache-security",
     "type": "single",
     "difficulty": "medium",
-    "question": "Tokens em cache no cliente precisam de proteção contra leitura por outros processos. Onde armazenar com isolamento?",
+    "question": "Tokens em cache no cliente precisam de prote\u00e7\u00e3o contra leitura por outros processos. Onde armazenar com isolamento?",
     "options": [
       {
         "letter": "A",
-        "text": "Variável de ambiente global"
+        "text": "Vari\u00e1vel de ambiente global"
       },
       {
         "letter": "B",
@@ -3318,7 +3042,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "DPAPI/Keychain isolam por usuário/processo com criptografia. Texto e env vazam; localStorage sem cripto expõe.",
+    "explanation": "DPAPI/Keychain isolam por usu\u00e1rio/processo com criptografia. Texto e env vazam; localStorage sem cripto exp\u00f5e.",
     "source": "original",
     "tags": ["token-cache", "dpapi", "keychain", "isolamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3331,7 +3055,7 @@
     "subdomain": "pkce-flow",
     "type": "single",
     "difficulty": "hard",
-    "question": "App móvel público (sem client secret) precisa de fluxo OAuth resistente a interceptação do código. Qual extensão do authorization code usar?",
+    "question": "App m\u00f3vel p\u00fablico (sem client secret) precisa de fluxo OAuth resistente a intercepta\u00e7\u00e3o do c\u00f3digo. Qual extens\u00e3o do authorization code usar?",
     "options": [
       {
         "letter": "A",
@@ -3343,7 +3067,7 @@
       },
       {
         "letter": "C",
-        "text": "Senha do usuário no app (ROPC)"
+        "text": "Senha do usu\u00e1rio no app (ROPC)"
       },
       {
         "letter": "D",
@@ -3351,7 +3075,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "PKCE vincula código ao verificador, neutralizando interceptação. Implicit expõe token; client credentials vaza secret; ROPC coleta senha.",
+    "explanation": "PKCE vincula c\u00f3digo ao verificador, neutralizando intercepta\u00e7\u00e3o. Implicit exp\u00f5e token; client credentials vaza secret; ROPC coleta senha.",
     "source": "original",
     "tags": ["pkce", "oauth", "movel", "authorization-code"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3368,7 +3092,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sem autenticação"
+        "text": "Sem autentica\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -3380,11 +3104,11 @@
       },
       {
         "letter": "D",
-        "text": "Device Code Flow com verificação em outro aparelho"
+        "text": "Device Code Flow com verifica\u00e7\u00e3o em outro aparelho"
       }
     ],
     "correct": ["D"],
-    "explanation": "Device code exibe código para validar no celular/PC. Senha no controle vaza; fixo não revoga; sem auth expõe.",
+    "explanation": "Device code exibe c\u00f3digo para validar no celular/PC. Senha no controle vaza; fixo n\u00e3o revoga; sem auth exp\u00f5e.",
     "source": "original",
     "tags": ["device-code", "tv", "entrada-limitada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3397,11 +3121,11 @@
     "subdomain": "obo-flow",
     "type": "single",
     "difficulty": "hard",
-    "question": "API intermediária precisa chamar API downstream em nome do usuário logado. Qual fluxo delega a identidade adiante?",
+    "question": "API intermedi\u00e1ria precisa chamar API downstream em nome do usu\u00e1rio logado. Qual fluxo delega a identidade adiante?",
     "options": [
       {
         "letter": "A",
-        "text": "Nova autenticação do usuário"
+        "text": "Nova autentica\u00e7\u00e3o do usu\u00e1rio"
       },
       {
         "letter": "B",
@@ -3417,7 +3141,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "OBO troca o token por outro com escopo downstream mantendo usuário. Client credentials perde identidade; repasse viola audiência; reautenticar quebra UX.",
+    "explanation": "OBO troca o token por outro com escopo downstream mantendo usu\u00e1rio. Client credentials perde identidade; repasse viola audi\u00eancia; reautenticar quebra UX.",
     "source": "original",
     "tags": ["obo", "delegacao", "api", "downstream"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3430,7 +3154,7 @@
     "subdomain": "ropc-avoid",
     "type": "single",
     "difficulty": "hard",
-    "question": "App legado coleta login/senha para trocar por token (ROPC) e quebra com MFA. Qual migração elimina a coleta de credencial?",
+    "question": "App legado coleta login/senha para trocar por token (ROPC) e quebra com MFA. Qual migra\u00e7\u00e3o elimina a coleta de credencial?",
     "options": [
       {
         "letter": "A",
@@ -3483,7 +3207,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Code+PKCE evita token na URL com troca segura. Implicit vaza em logs; sem auth expõe; localStorage permanente rouba fácil.",
+    "explanation": "Code+PKCE evita token na URL com troca segura. Implicit vaza em logs; sem auth exp\u00f5e; localStorage permanente rouba f\u00e1cil.",
     "source": "original",
     "tags": ["implicit", "spa", "migracao", "bff"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3496,11 +3220,11 @@
     "subdomain": "bff-pattern",
     "type": "single",
     "difficulty": "hard",
-    "question": "SPA precisa de tokens seguros sem expor refresh no navegador. Qual padrão isola OAuth no backend?",
+    "question": "SPA precisa de tokens seguros sem expor refresh no navegador. Qual padr\u00e3o isola OAuth no backend?",
     "options": [
       {
         "letter": "A",
-        "text": "Sem sessão com login por request"
+        "text": "Sem sess\u00e3o com login por request"
       },
       {
         "letter": "B",
@@ -3512,11 +3236,11 @@
       },
       {
         "letter": "D",
-        "text": "Backend-for-Frontend (BFF) com sessão em cookie"
+        "text": "Backend-for-Frontend (BFF) com sess\u00e3o em cookie"
       }
     ],
     "correct": ["D"],
-    "explanation": "BFF guarda tokens no backend e usa cookie HttpOnly/SameSite. LocalStorage expõe a XSS; implicit vaza; por request degrada UX.",
+    "explanation": "BFF guarda tokens no backend e usa cookie HttpOnly/SameSite. LocalStorage exp\u00f5e a XSS; implicit vaza; por request degrada UX.",
     "source": "original",
     "tags": ["bff", "spa", "cookie", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3529,7 +3253,7 @@
     "subdomain": "claims-mapping",
     "type": "single",
     "difficulty": "hard",
-    "question": "SaaS exige claim customizada department extraída do atributo do usuário. Onde mapear atributo para claim no app corporativo?",
+    "question": "SaaS exige claim customizada department extra\u00edda do atributo do usu\u00e1rio. Onde mapear atributo para claim no app corporativo?",
     "options": [
       {
         "letter": "A",
@@ -3537,7 +3261,7 @@
       },
       {
         "letter": "B",
-        "text": "Renomear o usuário"
+        "text": "Renomear o usu\u00e1rio"
       },
       {
         "letter": "C",
@@ -3549,7 +3273,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Claims mapping transforma atributo em claim SAML/OIDC. Renomear quebra UPN; grupo não vira claim sem regra; e-mail não é claim dedicada.",
+    "explanation": "Claims mapping transforma atributo em claim SAML/OIDC. Renomear quebra UPN; grupo n\u00e3o vira claim sem regra; e-mail n\u00e3o \u00e9 claim dedicada.",
     "source": "original",
     "tags": ["claims", "mapeamento", "atributos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3562,7 +3286,7 @@
     "subdomain": "group-claims",
     "type": "single",
     "difficulty": "hard",
-    "question": "Token estoura tamanho com centenas de grupos do usuário. Como reduzir claims de grupo mantendo autorização?",
+    "question": "Token estoura tamanho com centenas de grupos do usu\u00e1rio. Como reduzir claims de grupo mantendo autoriza\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -3570,7 +3294,7 @@
       },
       {
         "letter": "B",
-        "text": "Remover grupos do usuário"
+        "text": "Remover grupos do usu\u00e1rio"
       },
       {
         "letter": "C",
@@ -3578,11 +3302,11 @@
       },
       {
         "letter": "D",
-        "text": "Filtrar por grupos atribuídos ao app + overage claim"
+        "text": "Filtrar por grupos atribu\u00eddos ao app + overage claim"
       }
     ],
     "correct": ["D"],
-    "explanation": "Filtro por app + overage (link Graph quando excede) mantém token enxuto. Emitir tudo estoura; remover quebra acesso; header maior não resolve.",
+    "explanation": "Filtro por app + overage (link Graph quando excede) mant\u00e9m token enxuto. Emitir tudo estoura; remover quebra acesso; header maior n\u00e3o resolve.",
     "source": "original",
     "tags": ["group-claims", "overage", "token-size"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3615,7 +3339,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Optional claims embutem dados padrão/extras no token. Graph por request atrasa; hardcode falsifica; log não entrega ao cliente.",
+    "explanation": "Optional claims embutem dados padr\u00e3o/extras no token. Graph por request atrasa; hardcode falsifica; log n\u00e3o entrega ao cliente.",
     "source": "original",
     "tags": ["optional-claims", "token", "registro"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3628,15 +3352,15 @@
     "subdomain": "token-version",
     "type": "single",
     "difficulty": "hard",
-    "question": "APIs legadas esperam v1 e novas esperam v2 dos tokens. Onde definir a versão aceita por recurso?",
+    "question": "APIs legadas esperam v1 e novas esperam v2 dos tokens. Onde definir a vers\u00e3o aceita por recurso?",
     "options": [
       {
         "letter": "A",
-        "text": "Duas entidades idênticas"
+        "text": "Duas entidades id\u00eanticas"
       },
       {
         "letter": "B",
-        "text": "Versão do token no manifesto (accessTokenAcceptedVersion)"
+        "text": "Vers\u00e3o do token no manifesto (accessTokenAcceptedVersion)"
       },
       {
         "letter": "C",
@@ -3644,11 +3368,11 @@
       },
       {
         "letter": "D",
-        "text": "Versão no nome do app"
+        "text": "Vers\u00e3o no nome do app"
       }
     ],
     "correct": ["B"],
-    "explanation": "accessTokenAcceptedVersion (null/1/2) define o formato por recurso. Nome não versiona; endpoint não muda claim; duplicar fragmenta.",
+    "explanation": "accessTokenAcceptedVersion (null/1/2) define o formato por recurso. Nome n\u00e3o versiona; endpoint n\u00e3o muda claim; duplicar fragmenta.",
     "source": "original",
     "tags": ["token-version", "v1", "v2", "manifesto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3661,11 +3385,11 @@
     "subdomain": "logout-flows-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Logout precisa encerrar sessão no app, no Entra e notificar SaaS federados. Quais dois mecanismos compõem a saída? Selecione duas.",
+    "question": "Logout precisa encerrar sess\u00e3o no app, no Entra e notificar SaaS federados. Quais dois mecanismos comp\u00f5em a sa\u00edda? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Manter refresh válido"
+        "text": "Manter refresh v\u00e1lido"
       },
       {
         "letter": "B",
@@ -3677,11 +3401,11 @@
       },
       {
         "letter": "D",
-        "text": "Limpeza de sessão local + revogação de refresh"
+        "text": "Limpeza de sess\u00e3o local + revoga\u00e7\u00e3o de refresh"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Front-channel propaga logout aos RPs e a limpeza local+revogação encerra. Só fechar aba mantém sessão; refresh válido reabre.",
+    "explanation": "Front-channel propaga logout aos RPs e a limpeza local+revoga\u00e7\u00e3o encerra. S\u00f3 fechar aba mant\u00e9m sess\u00e3o; refresh v\u00e1lido reabre.",
     "source": "original",
     "tags": ["logout", "front-channel", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3694,7 +3418,7 @@
     "subdomain": "session-revoke-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Conta comprometida precisa de contenção imediata em todas as sessões. Quais duas ações revogam acesso agora? Selecione duas.",
+    "question": "Conta comprometida precisa de conten\u00e7\u00e3o imediata em todas as sess\u00f5es. Quais duas a\u00e7\u00f5es revogam acesso agora? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3702,19 +3426,19 @@
       },
       {
         "letter": "B",
-        "text": "Revogar sessões (revokeSessions) no Graph"
+        "text": "Revogar sess\u00f5es (revokeSessions) no Graph"
       },
       {
         "letter": "C",
-        "text": "Redefinir senha com logout forçado"
+        "text": "Redefinir senha com logout for\u00e7ado"
       },
       {
         "letter": "D",
-        "text": "Aguardar expiração natural"
+        "text": "Aguardar expira\u00e7\u00e3o natural"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "RevokeSessions invalida refresh e a troca com logout força reauth. Aguardar mantém invasor; foto não revoga.",
+    "explanation": "RevokeSessions invalida refresh e a troca com logout for\u00e7a reauth. Aguardar mant\u00e9m invasor; foto n\u00e3o revoga.",
     "source": "original",
     "tags": ["revoke", "sessao", "comprometida"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3727,7 +3451,7 @@
     "subdomain": "risky-signin-playbook-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Playbook SOC para login arriscado exige contenção e evidência. Quais dois passos executar? Selecione duas.",
+    "question": "Playbook SOC para login arriscado exige conten\u00e7\u00e3o e evid\u00eancia. Quais dois passos executar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3739,15 +3463,15 @@
       },
       {
         "letter": "C",
-        "text": "Bloquear sessão/usuário e forçar troca"
+        "text": "Bloquear sess\u00e3o/usu\u00e1rio e for\u00e7ar troca"
       },
       {
         "letter": "D",
-        "text": "Aguardar próximo login"
+        "text": "Aguardar pr\u00f3ximo login"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Bloquear sessão/usuário com troca forçada contém o incidente e a coleta de logs com dismiss documenta a remediação. Ignorar como teste cega; aguardar prolonga o dwell time.",
+    "explanation": "Bloquear sess\u00e3o/usu\u00e1rio com troca for\u00e7ada cont\u00e9m o incidente e a coleta de logs com dismiss documenta a remedia\u00e7\u00e3o. Ignorar como teste cega; aguardar prolonga o dwell time.",
     "source": "original",
     "tags": ["soc", "playbook", "risco-login"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3760,7 +3484,7 @@
     "subdomain": "sentinel-ueaba-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Anomalia de identidade (logins impossíveis, exfiltração) precisa de UEBA com entidades. Quais dois elementos o Sentinel usa? Selecione duas.",
+    "question": "Anomalia de identidade (logins imposs\u00edveis, exfiltra\u00e7\u00e3o) precisa de UEBA com entidades. Quais dois elementos o Sentinel usa? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3768,19 +3492,19 @@
       },
       {
         "letter": "B",
-        "text": "Log sem correlação"
+        "text": "Log sem correla\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Regra estática única"
+        "text": "Regra est\u00e1tica \u00fanica"
       },
       {
         "letter": "D",
-        "text": "Análise comportamental (UEBA) com baseline"
+        "text": "An\u00e1lise comportamental (UEBA) com baseline"
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "UEBA detecta desvio e entidades correlacionam a trilha. Estática não aprende; sem correlação não investiga.",
+    "explanation": "UEBA detecta desvio e entidades correlacionam a trilha. Est\u00e1tica n\u00e3o aprende; sem correla\u00e7\u00e3o n\u00e3o investiga.",
     "source": "original",
     "tags": ["sentinel", "ueba", "entidades"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3793,7 +3517,7 @@
     "subdomain": "kql-soc-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Caça a logins de risco por usuário com primeira ocorrência exige duas operações KQL. Quais são elas? Selecione duas.",
+    "question": "Ca\u00e7a a logins de risco por usu\u00e1rio com primeira ocorr\u00eancia exige duas opera\u00e7\u00f5es KQL. Quais s\u00e3o elas? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3801,7 +3525,7 @@
       },
       {
         "letter": "B",
-        "text": "Resumir por usuário com min(TimeGenerated)"
+        "text": "Resumir por usu\u00e1rio com min(TimeGenerated)"
       },
       {
         "letter": "C",
@@ -3813,7 +3537,7 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Where isola risco e summarize acha a primeira ocorrência por usuário. Sem filtro afoga; sem agrupar não prioriza.",
+    "explanation": "Where isola risco e summarize acha a primeira ocorr\u00eancia por usu\u00e1rio. Sem filtro afoga; sem agrupar n\u00e3o prioriza.",
     "source": "original",
     "tags": ["kql", "hunting", "risco"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3826,7 +3550,7 @@
     "subdomain": "watchlist-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Lista de executivos e contas de serviço críticas precisa de monitoramento priorizado. Quais dois usos de watchlist aplicar? Selecione duas.",
+    "question": "Lista de executivos e contas de servi\u00e7o cr\u00edticas precisa de monitoramento priorizado. Quais dois usos de watchlist aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3838,15 +3562,15 @@
       },
       {
         "letter": "C",
-        "text": "Correlação em regras de hunting"
+        "text": "Correla\u00e7\u00e3o em regras de hunting"
       },
       {
         "letter": "D",
-        "text": "Ignorar contas críticas"
+        "text": "Ignorar contas cr\u00edticas"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Watchlist marca VIPs e contas críticas para alertas priorizados e correlação em regras de hunting KQL. Lista em papel não alerta; ignorar críticas perde o essencial.",
+    "explanation": "Watchlist marca VIPs e contas cr\u00edticas para alertas priorizados e correla\u00e7\u00e3o em regras de hunting KQL. Lista em papel n\u00e3o alerta; ignorar cr\u00edticas perde o essencial.",
     "source": "original",
     "tags": ["watchlist", "vip", "hunting"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3867,7 +3591,7 @@
       },
       {
         "letter": "B",
-        "text": "Ignorar reputação de IP"
+        "text": "Ignorar reputa\u00e7\u00e3o de IP"
       },
       {
         "letter": "C",
@@ -3875,11 +3599,11 @@
       },
       {
         "letter": "D",
-        "text": "Indicadores no Sentinel para correlação"
+        "text": "Indicadores no Sentinel para correla\u00e7\u00e3o"
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Indicadores de threat intelligence correlacionam no Sentinel e alimentam bloqueio automatizado por feed. Lista manual desatualiza rápido; ignorar reputação de IP cega a defesa.",
+    "explanation": "Indicadores de threat intelligence correlacionam no Sentinel e alimentam bloqueio automatizado por feed. Lista manual desatualiza r\u00e1pido; ignorar reputa\u00e7\u00e3o de IP cega a defesa.",
     "source": "original",
     "tags": ["threat-intel", "indicadores", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3892,11 +3616,11 @@
     "subdomain": "fusion-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Campanhas multietapa (phishing → login → exfiltração) precisam de incidente único correlacionado. Quais dois elementos o Fusion usa? Selecione duas.",
+    "question": "Campanhas multietapa (phishing \u2192 login \u2192 exfiltra\u00e7\u00e3o) precisam de incidente \u00fanico correlacionado. Quais dois elementos o Fusion usa? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Kill chain mapeada por tática"
+        "text": "Kill chain mapeada por t\u00e1tica"
       },
       {
         "letter": "B",
@@ -3908,11 +3632,11 @@
       },
       {
         "letter": "D",
-        "text": "Alertas isolados sem junção"
+        "text": "Alertas isolados sem jun\u00e7\u00e3o"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "O Fusion usa ML para unir alertas em incidente único mapeado por tática de kill chain. Alertas isolados fragmentam a investigação; fechar sem contexto perde priorização.",
+    "explanation": "O Fusion usa ML para unir alertas em incidente \u00fanico mapeado por t\u00e1tica de kill chain. Alertas isolados fragmentam a investiga\u00e7\u00e3o; fechar sem contexto perde prioriza\u00e7\u00e3o.",
     "source": "original",
     "tags": ["fusion", "correlacao", "kill-chain"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3925,19 +3649,19 @@
     "subdomain": "mttr-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "MTTR de incidentes de identidade precisa cair com triagem e contenção mais rápidas. Quais duas alavancas reduzem o tempo? Selecione duas.",
+    "question": "MTTR de incidentes de identidade precisa cair com triagem e conten\u00e7\u00e3o mais r\u00e1pidas. Quais duas alavancas reduzem o tempo? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Reunião antes de conter"
+        "text": "Reuni\u00e3o antes de conter"
       },
       {
         "letter": "B",
-        "text": "Playbooks de contenção em 1 clique"
+        "text": "Playbooks de conten\u00e7\u00e3o em 1 clique"
       },
       {
         "letter": "C",
-        "text": "Fila manual sem priorização"
+        "text": "Fila manual sem prioriza\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -3945,7 +3669,7 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Triagem automatizada com enriquecimento acelera e playbooks de contenção em 1 clique reduzem MTTR. Fila manual sem priorização atrasa; reunir antes de conter vaza tempo.",
+    "explanation": "Triagem automatizada com enriquecimento acelera e playbooks de conten\u00e7\u00e3o em 1 clique reduzem MTTR. Fila manual sem prioriza\u00e7\u00e3o atrasa; reunir antes de conter vaza tempo.",
     "source": "original",
     "tags": ["mttr", "triagem", "playbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3958,11 +3682,11 @@
     "subdomain": "posture-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Postura de identidade (MFA ausente, admins demais) precisa de medição contínua e correção. Quais dois ciclos aplicar? Selecione duas.",
+    "question": "Postura de identidade (MFA ausente, admins demais) precisa de medi\u00e7\u00e3o cont\u00ednua e corre\u00e7\u00e3o. Quais dois ciclos aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Campanhas de correção por time"
+        "text": "Campanhas de corre\u00e7\u00e3o por time"
       },
       {
         "letter": "B",
@@ -3970,7 +3694,7 @@
       },
       {
         "letter": "C",
-        "text": "Relatório anual estático"
+        "text": "Relat\u00f3rio anual est\u00e1tico"
       },
       {
         "letter": "D",
@@ -3978,7 +3702,7 @@
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Secure Score mede a postura com trilhas de melhoria e campanhas por time corrigem com dono. Relatório anual estático desatualiza; ignorar o score mantém o risco.",
+    "explanation": "Secure Score mede a postura com trilhas de melhoria e campanhas por time corrigem com dono. Relat\u00f3rio anual est\u00e1tico desatualiza; ignorar o score mant\u00e9m o risco.",
     "source": "original",
     "tags": ["secure-score", "postura", "campanhas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3991,7 +3715,7 @@
     "subdomain": "recommendations-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Recomendações de segurança do Entra se acumulam sem dono nem prazo. Quais dois controles dão vazão? Selecione duas.",
+    "question": "Recomenda\u00e7\u00f5es de seguran\u00e7a do Entra se acumulam sem dono nem prazo. Quais dois controles d\u00e3o vaz\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3999,11 +3723,11 @@
       },
       {
         "letter": "B",
-        "text": "Atribuição com prazo e acompanhamento"
+        "text": "Atribui\u00e7\u00e3o com prazo e acompanhamento"
       },
       {
         "letter": "C",
-        "text": "Priorização por impacto/exposição"
+        "text": "Prioriza\u00e7\u00e3o por impacto/exposi\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -4011,7 +3735,7 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Priorização por impacto/exposição foca no crítico e atribuição com prazo e acompanhamento executa. Lista sem ordem dispersa esforço; adiamento indefinido acumula risco.",
+    "explanation": "Prioriza\u00e7\u00e3o por impacto/exposi\u00e7\u00e3o foca no cr\u00edtico e atribui\u00e7\u00e3o com prazo e acompanhamento executa. Lista sem ordem dispersa esfor\u00e7o; adiamento indefinido acumula risco.",
     "source": "original",
     "tags": ["recomendacoes", "priorizacao", "prazo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4024,27 +3748,27 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "A organização exige que 100% dos usuários tenham métodos de autenticação registrados para SSPR. Quais duas configurações na política de registro garantem essa cobertura? Selecione duas.",
+    "question": "A organiza\u00e7\u00e3o exige que 100% dos usu\u00e1rios tenham m\u00e9todos de autentica\u00e7\u00e3o registrados para SSPR. Quais duas configura\u00e7\u00f5es na pol\u00edtica de registro garantem essa cobertura? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exceção por departamento para usuários sem celular"
+        "text": "Exce\u00e7\u00e3o por departamento para usu\u00e1rios sem celular"
       },
       {
         "letter": "B",
-        "text": "Registro opcional (usuário decide se registra)"
+        "text": "Registro opcional (usu\u00e1rio decide se registra)"
       },
       {
         "letter": "C",
-        "text": "Exigir registro no próximo login para todos os usuários"
+        "text": "Exigir registro no pr\u00f3ximo login para todos os usu\u00e1rios"
       },
       {
         "letter": "D",
-        "text": "Permitir apenas administradores globais registrar métodos"
+        "text": "Permitir apenas administradores globais registrar m\u00e9todos"
       }
     ],
     "correct": ["C"],
-    "explanation": "Exigir registro no próximo login para todos os usuários garante cobertura de 100%. Exceção por departamento e registro opcional criam lacunas; restringir a admins globais impede usuários de se registrarem.",
+    "explanation": "Exigir registro no pr\u00f3ximo login para todos os usu\u00e1rios garante cobertura de 100%. Exce\u00e7\u00e3o por departamento e registro opcional criam lacunas; restringir a admins globais impede usu\u00e1rios de se registrarem.",
     "source": "mslearn",
     "tags": ["mfa", "cobertura", "break-glass"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4058,232 +3782,32 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "A organização migrou da autenticação multifator por usuário (per-user MFA, legado) para o registro combinado (SSPR + MFA). Qual benefício o registro combinado oferece sobre o MFA per-user?",
+    "question": "A organiza\u00e7\u00e3o migrou da autentica\u00e7\u00e3o multifator por usu\u00e1rio (per-user MFA, legado) para o registro combinado (SSPR + MFA). Qual benef\u00edcio o registro combinado oferece sobre o MFA per-user?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, per-user é o recomendado pela Microsoft"
+        "text": "N\u00e3o, per-user \u00e9 o recomendado pela Microsoft"
       },
       {
         "letter": "B",
-        "text": "Sim, per-user é legado; usar registro combinado (SSPR+MFA)"
+        "text": "Sim, per-user \u00e9 legado; usar registro combinado (SSPR+MFA)"
       },
       {
         "letter": "C",
-        "text": "Não, per-user e registro combinado são equivalentes"
+        "text": "N\u00e3o, per-user e registro combinado s\u00e3o equivalentes"
       },
       {
         "letter": "D",
-        "text": "Sim, mas apenas para usuários convidados (B2B)"
+        "text": "Sim, mas apenas para usu\u00e1rios convidados (B2B)"
       }
     ],
     "correct": ["B"],
-    "explanation": "O registro combinado (aka.ms/mysecurityinfo) permite que o usuário registre métodos uma única vez para atender tanto SSPR (redefinição de senha) quanto MFA (autenticação multifator). MFA per-user é legado, não avalia contexto e conflita com Acesso Condicional; registro combinado é o caminho suportado.",
+    "explanation": "O registro combinado (aka.ms/mysecurityinfo) permite que o usu\u00e1rio registre m\u00e9todos uma \u00fanica vez para atender tanto SSPR (redefini\u00e7\u00e3o de senha) quanto MFA (autentica\u00e7\u00e3o multifator). MFA per-user \u00e9 legado, n\u00e3o avalia contexto e conflita com Acesso Condicional; registro combinado \u00e9 o caminho suportado.",
     "source": "mslearn",
     "tags": ["mfa", "per-user", "legado", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
-  },
-  {
-    "id": "az104-ig-223",
-    "domain": "identidade-governanca",
-    "subdomain": "combined-registration-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que o registro combinado de SSPR + MFA unifica o onboarding de métodos em um só fluxo. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, são registros totalmente separados"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, registro combinado unifica"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Registro combinado (combined registration) unifica SSPR e MFA num só fluxo de onboarding de métodos. Manter registros totalmente separados duplica fricção para o usuário.",
-    "source": "original",
-    "tags": ["registro-combinado", "sspr", "mfa"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-224",
-    "domain": "identidade-governanca",
-    "subdomain": "temp-access-pass-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que o Temporary Access Pass permite bootstrap de MFA sem senha, com validade curta. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, TAP é senha permanente"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, TAP faz bootstrap temporário"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "TAP é código de uso único e curta validade para registrar MFA/recuperar. Tratar como permanente vaza.",
-    "source": "original",
-    "tags": ["tap", "bootstrap", "temporario"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-225",
-    "domain": "identidade-governanca",
-    "subdomain": "authenticator-backup-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um usuário afirma que o backup em nuvem do Authenticator restaura contas sem nova verificação. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, restaura sem verificar"
-      },
-      {
-        "letter": "B",
-        "text": "Não, exige verificação da conta Microsoft"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Restauração do backup do Authenticator exige login e verificação na conta Microsoft de backup. Sem essa verificação, qualquer pessoa clonaria o MFA.",
-    "source": "original",
-    "tags": ["authenticator", "backup", "restauracao"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-226",
-    "domain": "identidade-governanca",
-    "subdomain": "hello-deployment-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que Windows Hello for Business exige infraestrutura de certificado on-premises em todos os modelos. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, o modelo cloud trust dispensa PKI"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, sempre exige PKI local"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Cloud Kerberos trust elimina PKI local; só híbrido com certificado a exige. Generalizar atrasa adoção.",
-    "source": "original",
-    "tags": ["hello", "cloud-trust", "pki"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-227",
-    "domain": "identidade-governanca",
-    "subdomain": "sso-seamless-requirement-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que o seamless SSO exige o recurso instalado via Entra Connect com URL de logon na zona de intranet. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, funciona sem nada"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, habilitação + intranet zone"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Seamless exige feature no Connect e Kerberos via zona de intranet no browser. Sem isso, cai para login manual.",
-    "source": "original",
-    "tags": ["seamless-sso", "requisito", "intranet"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-228",
-    "domain": "identidade-governanca",
-    "subdomain": "pta-agent-count-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que dois agentes PTA fazem balanceamento e failover automáticos sem configuração extra. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, só um agente funciona por vez"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, múltiplos agentes são ativos com failover"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Múltiplos agentes PTA operam ativos com balanceamento e failover nativos sem configuração extra. Achar que só um funciona por vez mantém ponto único de falha.",
-    "source": "original",
-    "tags": ["pta", "agentes", "failover"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-229",
-    "domain": "identidade-governanca",
-    "subdomain": "phs-cloud-only-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que com PHS a autenticação ocorre na nuvem mesmo com o AD local desligado. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, hash sincronizado autentica na nuvem"
-      },
-      {
-        "letter": "B",
-        "text": "Não, PHS exige AD online"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "PHS valida contra o hash na nuvem, sobrevivendo a outage local. Confundir com PTA erra o desenho de resiliência.",
-    "source": "original",
-    "tags": ["phs", "nuvem", "resiliencia"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-ig-230",
-    "domain": "identidade-governanca",
-    "subdomain": "federation-sla-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que federação com AD FS altamente disponível mantém o SLA de autenticação sem dependência extra. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, federação adiciona dependência fora do SLA do Entra"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, AD FS HA basta"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Todo login federado depende do IdP; indisponibilidade dele derruba auth mesmo com Entra saudável. Ignorar a dependência superestima SLA.",
-    "source": "original",
-    "tags": ["federacao", "sla", "dependencia", "adfs"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
   }
 ]

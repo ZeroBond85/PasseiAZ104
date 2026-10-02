@@ -1186,58 +1186,6 @@
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
   },
   {
-    "id": "az104-co-078",
-    "domain": "compute",
-    "subdomain": "slots-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um desenvolvedor afirma que as configura\u00e7\u00f5es de slot marcadas como slot setting acompanham o c\u00f3digo durante o swap para a produ\u00e7\u00e3o. Essa afirma\u00e7\u00e3o sobre o comportamento do swap est\u00e1 correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "N\u00e3o, configura\u00e7\u00f5es marcadas como slot setting permanecem no slot"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, tudo do slot vai junto no swap"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Slot settings ficam presas ao slot (ex.: string de homologa\u00e7\u00e3o n\u00e3o vaza para produ\u00e7\u00e3o). O swap move c\u00f3digo e settings comuns; marcadas como sticky, n\u00e3o.",
-    "source": "mslearn",
-    "tags": ["app-service", "slots", "swap", "sticky-settings"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:40:58.792Z",
-    "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots"
-  },
-  {
-    "id": "az104-co-080",
-    "domain": "compute",
-    "subdomain": "consumption-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que no plano Consumo do Functions a primeira execu\u00e7\u00e3o ap\u00f3s ociosidade pode sofrer cold start, caracter\u00edstica inerente ao scale-to-zero. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, scale-to-zero implica poss\u00edvel cold start"
-      },
-      {
-        "letter": "B",
-        "text": "N\u00e3o, o plano Consumo mant\u00e9m workers sempre aquecidos"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Escalar a zero desliga workers; a pr\u00f3xima execu\u00e7\u00e3o provisiona do zero (cold start). Workers aquecidos s\u00e3o caracter\u00edstica do Premium/Dedicado, n\u00e3o do Consumo.",
-    "source": "mslearn",
-    "tags": ["functions", "consumption", "cold-start"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T23:00:00.000Z",
-    "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up"
-  },
-  {
     "id": "az104-co-084",
     "domain": "compute",
     "subdomain": "app-service-deployment-center",

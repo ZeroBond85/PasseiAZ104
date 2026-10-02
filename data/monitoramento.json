@@ -5,11 +5,11 @@
     "subdomain": "monitor-visao",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa de um painel único com métricas, logs e status de todos os recursos do Azure. Qual serviço centraliza essa observabilidade?",
+    "question": "Voc\u00ea precisa de um painel \u00fanico com m\u00e9tricas, logs e status de todos os recursos do Azure. Qual servi\u00e7o centraliza essa observabilidade?",
     "options": [
       {
         "letter": "A",
-        "text": "Backup com relatórios"
+        "text": "Backup com relat\u00f3rios"
       },
       {
         "letter": "B",
@@ -17,7 +17,7 @@
       },
       {
         "letter": "C",
-        "text": "Gerenciador de Atualizações isolado"
+        "text": "Gerenciador de Atualiza\u00e7\u00f5es isolado"
       },
       {
         "letter": "D",
@@ -25,7 +25,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Azure Monitor agrega métricas, logs e insights de tudo. Update Manager cuida de patch; Backup de cópias; Policy de governança.",
+    "explanation": "Azure Monitor agrega m\u00e9tricas, logs e insights de tudo. Update Manager cuida de patch; Backup de c\u00f3pias; Policy de governan\u00e7a.",
     "source": "original",
     "tags": ["monitor", "visao-geral"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -38,11 +38,11 @@
     "subdomain": "metricas-vs-logs",
     "type": "single",
     "difficulty": "easy",
-    "question": "CPU a 95% agora precisa de alerta imediato, enquanto a análise da causa usa eventos detalhados. Qual par métrica/log atende cada necessidade?",
+    "question": "CPU a 95% agora precisa de alerta imediato, enquanto a an\u00e1lise da causa usa eventos detalhados. Qual par m\u00e9trica/log atende cada necessidade?",
     "options": [
       {
         "letter": "A",
-        "text": "Log para alertar + métrica para investigar"
+        "text": "Log para alertar + m\u00e9trica para investigar"
       },
       {
         "letter": "B",
@@ -54,11 +54,11 @@
       },
       {
         "letter": "D",
-        "text": "Métrica para alertar + Logs (Log Analytics) para investigar"
+        "text": "M\u00e9trica para alertar + Logs (Log Analytics) para investigar"
       }
     ],
     "correct": ["D"],
-    "explanation": "Métricas são séries numéricas rápidas para alerta; logs guardam detalhe para KQL. Inverter perde velocidade e detalhe; backup/policy não monitoram.",
+    "explanation": "M\u00e9tricas s\u00e3o s\u00e9ries num\u00e9ricas r\u00e1pidas para alerta; logs guardam detalhe para KQL. Inverter perde velocidade e detalhe; backup/policy n\u00e3o monitoram.",
     "source": "mslearn",
     "tags": ["metricas", "logs", "conceito"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -72,11 +72,11 @@
     "subdomain": "app-insights",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um App Service tem erros 500 e lentidão em endpoints específicos. Qual recurso mostra requisições, dependências e exceções por operação?",
+    "question": "Um App Service tem erros 500 e lentid\u00e3o em endpoints espec\u00edficos. Qual recurso mostra requisi\u00e7\u00f5es, depend\u00eancias e exce\u00e7\u00f5es por opera\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Application Insights com mapa de aplicação"
+        "text": "Application Insights com mapa de aplica\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -84,7 +84,7 @@
       },
       {
         "letter": "C",
-        "text": "Métrica de CPU da VM"
+        "text": "M\u00e9trica de CPU da VM"
       },
       {
         "letter": "D",
@@ -92,7 +92,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "App Insights rastreia requests, dependências e exceptions com correlação. CPU não mostra código; activity log registra ARM; backup não diagnostica.",
+    "explanation": "App Insights rastreia requests, depend\u00eancias e exceptions com correla\u00e7\u00e3o. CPU n\u00e3o mostra c\u00f3digo; activity log registra ARM; backup n\u00e3o diagnostica.",
     "source": "mslearn",
     "tags": ["app-insights", "aplicacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -106,7 +106,7 @@
     "subdomain": "alertas",
     "type": "single",
     "difficulty": "easy",
-    "question": "Quando a CPU passar de 80% por 5 minutos, a equipe deve receber e-mail e SMS. Quais dois componentes compõem esse alerta?",
+    "question": "Quando a CPU passar de 80% por 5 minutos, a equipe deve receber e-mail e SMS. Quais dois componentes comp\u00f5em esse alerta?",
     "options": [
       {
         "letter": "A",
@@ -118,15 +118,15 @@
       },
       {
         "letter": "C",
-        "text": "Regra de alerta (condição) + grupo de ação (notificação)"
+        "text": "Regra de alerta (condi\u00e7\u00e3o) + grupo de a\u00e7\u00e3o (notifica\u00e7\u00e3o)"
       },
       {
         "letter": "D",
-        "text": "Política + iniciativa"
+        "text": "Pol\u00edtica + iniciativa"
       }
     ],
     "correct": ["C"],
-    "explanation": "Regra avalia a condição e o action group notifica/age. Dashboard/workbook visualizam; policy governa; backup protege dados.",
+    "explanation": "Regra avalia a condi\u00e7\u00e3o e o action group notifica/age. Dashboard/workbook visualizam; policy governa; backup protege dados.",
     "source": "mslearn",
     "tags": ["alertas", "action-group"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -140,11 +140,11 @@
     "subdomain": "log-analytics",
     "type": "single",
     "difficulty": "easy",
-    "question": "Logs de 20 VMs precisam de consultas ad-hoc com linguagem poderosa e retenção configurável. Para onde enviar e com o que consultar?",
+    "question": "Logs de 20 VMs precisam de consultas ad-hoc com linguagem poderosa e reten\u00e7\u00e3o configur\u00e1vel. Para onde enviar e com o que consultar?",
     "options": [
       {
         "letter": "A",
-        "text": "E-mail diário com logs"
+        "text": "E-mail di\u00e1rio com logs"
       },
       {
         "letter": "B",
@@ -152,7 +152,7 @@
       },
       {
         "letter": "C",
-        "text": "Métricas do Monitor sem consulta"
+        "text": "M\u00e9tricas do Monitor sem consulta"
       },
       {
         "letter": "D",
@@ -160,7 +160,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Workspace centraliza com KQL e retenção. Métricas não consultam texto; tabela não tem KQL; e-mail não escala.",
+    "explanation": "Workspace centraliza com KQL e reten\u00e7\u00e3o. M\u00e9tricas n\u00e3o consultam texto; tabela n\u00e3o tem KQL; e-mail n\u00e3o escala.",
     "source": "mslearn",
     "tags": ["log-analytics", "kql", "workspace"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -174,11 +174,11 @@
     "subdomain": "service-health",
     "type": "single",
     "difficulty": "easy",
-    "question": "Antes de investigar lentidão, você quer saber se há incidente regional do Azure afetando a região. Onde ver a saúde oficial da plataforma?",
+    "question": "Antes de investigar lentid\u00e3o, voc\u00ea quer saber se h\u00e1 incidente regional do Azure afetando a regi\u00e3o. Onde ver a sa\u00fade oficial da plataforma?",
     "options": [
       {
         "letter": "A",
-        "text": "Log da aplicação"
+        "text": "Log da aplica\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -190,11 +190,11 @@
       },
       {
         "letter": "D",
-        "text": "Métrica de disco local"
+        "text": "M\u00e9trica de disco local"
       }
     ],
     "correct": ["B"],
-    "explanation": "Service Health publica incidentes e manutenções da plataforma. Resource Health diz do recurso específico; log da app não mostra a nuvem; disco local é do SO.",
+    "explanation": "Service Health publica incidentes e manuten\u00e7\u00f5es da plataforma. Resource Health diz do recurso espec\u00edfico; log da app n\u00e3o mostra a nuvem; disco local \u00e9 do SO.",
     "source": "original",
     "tags": ["service-health", "status"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -207,7 +207,7 @@
     "subdomain": "resource-health",
     "type": "single",
     "difficulty": "easy",
-    "question": "Uma VM específica está inacessível e você quer saber se o problema é da plataforma (host) ou do SO convidado. Qual lâmina responde isso?",
+    "question": "Uma VM espec\u00edfica est\u00e1 inacess\u00edvel e voc\u00ea quer saber se o problema \u00e9 da plataforma (host) ou do SO convidado. Qual l\u00e2mina responde isso?",
     "options": [
       {
         "letter": "A",
@@ -223,11 +223,11 @@
       },
       {
         "letter": "D",
-        "text": "Política de conformidade"
+        "text": "Pol\u00edtica de conformidade"
       }
     ],
     "correct": ["C"],
-    "explanation": "Resource Health indica disponibilidade do recurso e causa (plataforma vs convidado). Service Health é regional; policy não diagnostica; galeria guarda imagens.",
+    "explanation": "Resource Health indica disponibilidade do recurso e causa (plataforma vs convidado). Service Health \u00e9 regional; policy n\u00e3o diagnostica; galeria guarda imagens.",
     "source": "original",
     "tags": ["resource-health", "vm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -240,7 +240,7 @@
     "subdomain": "advisor",
     "type": "single",
     "difficulty": "easy",
-    "question": "A diretoria quer recomendações de custo, segurança e confiabilidade geradas automaticamente. Qual consultor analisa os recursos e sugere?",
+    "question": "A diretoria quer recomenda\u00e7\u00f5es de custo, seguran\u00e7a e confiabilidade geradas automaticamente. Qual consultor analisa os recursos e sugere?",
     "options": [
       {
         "letter": "A",
@@ -260,7 +260,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Advisor recomenda custo, segurança, confiabilidade e performance. Policy impõe; Defender foca segurança; Backup protege dados.",
+    "explanation": "Advisor recomenda custo, seguran\u00e7a, confiabilidade e performance. Policy imp\u00f5e; Defender foca seguran\u00e7a; Backup protege dados.",
     "source": "original",
     "tags": ["advisor", "recomendacoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -273,11 +273,11 @@
     "subdomain": "dashboards",
     "type": "single",
     "difficulty": "easy",
-    "question": "O NOC precisa de um painel compartilhado com gráficos de CPU, erros e disponibilidade. Onde montar e compartilhar esse dashboard?",
+    "question": "O NOC precisa de um painel compartilhado com gr\u00e1ficos de CPU, erros e disponibilidade. Onde montar e compartilhar esse dashboard?",
     "options": [
       {
         "letter": "A",
-        "text": "E-mail com métricas semanais"
+        "text": "E-mail com m\u00e9tricas semanais"
       },
       {
         "letter": "B",
@@ -289,11 +289,11 @@
       },
       {
         "letter": "D",
-        "text": "Portal isolado por usuário sem compartilhar"
+        "text": "Portal isolado por usu\u00e1rio sem compartilhar"
       }
     ],
     "correct": ["B"],
-    "explanation": "Dashboards do Azure combinam tiles e compartilham via RBAC. Isolado não colabora; planilha desatualiza; e-mail não é tempo real.",
+    "explanation": "Dashboards do Azure combinam tiles e compartilham via RBAC. Isolado n\u00e3o colabora; planilha desatualiza; e-mail n\u00e3o \u00e9 tempo real.",
     "source": "original",
     "tags": ["dashboards", "noc", "compartilhar"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -306,11 +306,11 @@
     "subdomain": "activity-log",
     "type": "single",
     "difficulty": "easy",
-    "question": "Auditoria pergunta quem excluiu um grupo de recursos ontem à noite. Qual log registra operações de gerenciamento com identidade?",
+    "question": "Auditoria pergunta quem excluiu um grupo de recursos ontem \u00e0 noite. Qual log registra opera\u00e7\u00f5es de gerenciamento com identidade?",
     "options": [
       {
         "letter": "A",
-        "text": "Métrica de rede da VNet"
+        "text": "M\u00e9trica de rede da VNet"
       },
       {
         "letter": "B",
@@ -326,7 +326,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Activity Log registra operações ARM (quem, o quê, quando). Log da app é da carga; métrica de rede não identifica autor; backup não audita.",
+    "explanation": "Activity Log registra opera\u00e7\u00f5es ARM (quem, o qu\u00ea, quando). Log da app \u00e9 da carga; m\u00e9trica de rede n\u00e3o identifica autor; backup n\u00e3o audita.",
     "source": "mslearn",
     "tags": ["activity-log", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -340,7 +340,7 @@
     "subdomain": "kql-basico",
     "type": "single",
     "difficulty": "medium",
-    "question": "No Log Analytics, você precisa listar os 10 eventos mais recentes da tabela Event com severidade Error. Qual consulta KQL retorna isso?",
+    "question": "No Log Analytics, voc\u00ea precisa listar os 10 eventos mais recentes da tabela Event com severidade Error. Qual consulta KQL retorna isso?",
     "options": [
       {
         "letter": "A",
@@ -360,7 +360,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "KQL usa pipe com where, sort e take. SQL não roda no LA; count agrega sem listar; search é genérico sem ordenação.",
+    "explanation": "KQL usa pipe com where, sort e take. SQL n\u00e3o roda no LA; count agrega sem listar; search \u00e9 gen\u00e9rico sem ordena\u00e7\u00e3o.",
     "source": "original",
     "tags": ["kql", "consulta", "event"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -373,19 +373,19 @@
     "subdomain": "diagnostic-settings",
     "type": "single",
     "difficulty": "medium",
-    "question": "Logs de um Key Vault precisam ir ao workspace com retenção de 1 ano para auditoria. O que deve ser configurado no recurso?",
+    "question": "Logs de um Key Vault precisam ir ao workspace com reten\u00e7\u00e3o de 1 ano para auditoria. O que deve ser configurado no recurso?",
     "options": [
       {
         "letter": "A",
-        "text": "Configuração de diagnóstico enviando AuditEvent ao workspace"
+        "text": "Configura\u00e7\u00e3o de diagn\u00f3stico enviando AuditEvent ao workspace"
       },
       {
         "letter": "B",
-        "text": "Métrica de disponibilidade apenas"
+        "text": "M\u00e9trica de disponibilidade apenas"
       },
       {
         "letter": "C",
-        "text": "Política de rede do cofre"
+        "text": "Pol\u00edtica de rede do cofre"
       },
       {
         "letter": "D",
@@ -393,7 +393,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Diagnostic settings roteiam logs de plataforma ao destino com retenção. Métrica não guarda eventos; backup não audita acesso; rede não registra.",
+    "explanation": "Diagnostic settings roteiam logs de plataforma ao destino com reten\u00e7\u00e3o. M\u00e9trica n\u00e3o guarda eventos; backup n\u00e3o audita acesso; rede n\u00e3o registra.",
     "source": "mslearn",
     "tags": ["diagnostic-settings", "key-vault", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -415,11 +415,11 @@
       },
       {
         "letter": "B",
-        "text": "Grupo de ação sem regra"
+        "text": "Grupo de a\u00e7\u00e3o sem regra"
       },
       {
         "letter": "C",
-        "text": "Alerta de métrica de CPU"
+        "text": "Alerta de m\u00e9trica de CPU"
       },
       {
         "letter": "D",
@@ -427,7 +427,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Log alert executa KQL periodicamente e dispara por resultado. Métrica não lê texto; Service Health é da plataforma; action group sozinho não avalia.",
+    "explanation": "Log alert executa KQL periodicamente e dispara por resultado. M\u00e9trica n\u00e3o l\u00ea texto; Service Health \u00e9 da plataforma; action group sozinho n\u00e3o avalia.",
     "source": "mslearn",
     "tags": ["alertas", "log-search", "kql"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -441,7 +441,7 @@
     "subdomain": "action-group-webhook",
     "type": "single",
     "difficulty": "medium",
-    "question": "Além de e-mail, o alerta deve abrir chamado automaticamente no ITSM e executar um runbook. Quais ações o grupo deve conter?",
+    "question": "Al\u00e9m de e-mail, o alerta deve abrir chamado automaticamente no ITSM e executar um runbook. Quais a\u00e7\u00f5es o grupo deve conter?",
     "options": [
       {
         "letter": "A",
@@ -453,15 +453,15 @@
       },
       {
         "letter": "C",
-        "text": "Política aplicada"
+        "text": "Pol\u00edtica aplicada"
       },
       {
         "letter": "D",
-        "text": "Webhook ITSM + Automação (runbook)"
+        "text": "Webhook ITSM + Automa\u00e7\u00e3o (runbook)"
       }
     ],
     "correct": ["D"],
-    "explanation": "Action group suporta webhook/ITSM e runbook de automação. Só SMS não abre chamado; dashboard não age; policy não é ação de alerta.",
+    "explanation": "Action group suporta webhook/ITSM e runbook de automa\u00e7\u00e3o. S\u00f3 SMS n\u00e3o abre chamado; dashboard n\u00e3o age; policy n\u00e3o \u00e9 a\u00e7\u00e3o de alerta.",
     "source": "original",
     "tags": ["action-group", "webhook", "itsm", "runbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -474,11 +474,11 @@
     "subdomain": "vm-insights",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cinquenta VMs precisam de mapa de dependências entre processos e portas sem instalar agentes manualmente um a um. O que habilita o VM Insights em escala?",
+    "question": "Cinquenta VMs precisam de mapa de depend\u00eancias entre processos e portas sem instalar agentes manualmente um a um. O que habilita o VM Insights em escala?",
     "options": [
       {
         "letter": "A",
-        "text": "Extensão de antivírus"
+        "text": "Extens\u00e3o de antiv\u00edrus"
       },
       {
         "letter": "B",
@@ -494,7 +494,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "AMA com DCR coleta e o VM Insights monta mapa de processos/conexões. RDP manual não escala; backup não monitora; antivírus não mapeia.",
+    "explanation": "AMA com DCR coleta e o VM Insights monta mapa de processos/conex\u00f5es. RDP manual n\u00e3o escala; backup n\u00e3o monitora; antiv\u00edrus n\u00e3o mapeia.",
     "source": "mslearn",
     "tags": ["vm-insights", "ama", "dcr", "mapa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -508,7 +508,7 @@
     "subdomain": "container-insights",
     "type": "single",
     "difficulty": "medium",
-    "question": "Pods com restart loop precisam de logs de stdout e métricas de nós em um só lugar. O que coleta do cluster para o workspace?",
+    "question": "Pods com restart loop precisam de logs de stdout e m\u00e9tricas de n\u00f3s em um s\u00f3 lugar. O que coleta do cluster para o workspace?",
     "options": [
       {
         "letter": "A",
@@ -524,11 +524,11 @@
       },
       {
         "letter": "D",
-        "text": "Métrica de CPU da VM do nó"
+        "text": "M\u00e9trica de CPU da VM do n\u00f3"
       }
     ],
     "correct": ["B"],
-    "explanation": "Container Insights centraliza logs e métricas do cluster. kubectl manual não historica; CPU do nó não mostra pod; backup não monitora.",
+    "explanation": "Container Insights centraliza logs e m\u00e9tricas do cluster. kubectl manual n\u00e3o historica; CPU do n\u00f3 n\u00e3o mostra pod; backup n\u00e3o monitora.",
     "source": "mslearn",
     "tags": ["container-insights", "aks", "pods"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -542,15 +542,15 @@
     "subdomain": "workbooks",
     "type": "single",
     "difficulty": "medium",
-    "question": "O time quer um relatório interativo que mistura texto, parâmetros e gráficos KQL editáveis. Qual artefato combina narrativa e consulta?",
+    "question": "O time quer um relat\u00f3rio interativo que mistura texto, par\u00e2metros e gr\u00e1ficos KQL edit\u00e1veis. Qual artefato combina narrativa e consulta?",
     "options": [
       {
         "letter": "A",
-        "text": "Dashboard estático de tiles"
+        "text": "Dashboard est\u00e1tico de tiles"
       },
       {
         "letter": "B",
-        "text": "Exportação CSV manual"
+        "text": "Exporta\u00e7\u00e3o CSV manual"
       },
       {
         "letter": "C",
@@ -562,7 +562,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Workbooks unem markdown, parâmetros e queries interativas. Dashboard é visual fixo; alerta notifica; CSV manual não interage.",
+    "explanation": "Workbooks unem markdown, par\u00e2metros e queries interativas. Dashboard \u00e9 visual fixo; alerta notifica; CSV manual n\u00e3o interage.",
     "source": "original",
     "tags": ["workbooks", "relatorio", "kql"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -575,27 +575,27 @@
     "subdomain": "change-analysis",
     "type": "single",
     "difficulty": "medium",
-    "question": "O site quebrou após deploy de ontem e ninguém sabe o que mudou no App Service. Onde ver a linha do tempo de alterações do recurso?",
+    "question": "O site quebrou ap\u00f3s deploy de ontem e ningu\u00e9m sabe o que mudou no App Service. Onde ver a linha do tempo de altera\u00e7\u00f5es do recurso?",
     "options": [
       {
         "letter": "A",
-        "text": "Log de acesso anônimo"
+        "text": "Log de acesso an\u00f4nimo"
       },
       {
         "letter": "B",
-        "text": "Análise de Alterações (Change Analysis) do App Service"
+        "text": "An\u00e1lise de Altera\u00e7\u00f5es (Change Analysis) do App Service"
       },
       {
         "letter": "C",
-        "text": "Backup do código"
+        "text": "Backup do c\u00f3digo"
       },
       {
         "letter": "D",
-        "text": "Métrica de memória atual"
+        "text": "M\u00e9trica de mem\u00f3ria atual"
       }
     ],
     "correct": ["B"],
-    "explanation": "Change Analysis lista mutações do recurso no tempo. Métrica atual não historica; backup não mostra o que mudou; acesso anônimo não registra config.",
+    "explanation": "Change Analysis lista muta\u00e7\u00f5es do recurso no tempo. M\u00e9trica atual n\u00e3o historica; backup n\u00e3o mostra o que mudou; acesso an\u00f4nimo n\u00e3o registra config.",
     "source": "original",
     "tags": ["change-analysis", "mudancas", "app-service"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -608,27 +608,27 @@
     "subdomain": "smart-detection",
     "type": "single",
     "difficulty": "medium",
-    "question": "Anomalias de resposta e falhas são detectadas por IA sem regra manual no App Insights. Qual recurso aprende o baseline e alerta sozinho?",
+    "question": "Anomalias de resposta e falhas s\u00e3o detectadas por IA sem regra manual no App Insights. Qual recurso aprende o baseline e alerta sozinho?",
     "options": [
       {
         "letter": "A",
-        "text": "Detecção Inteligente (Smart Detection)"
+        "text": "Detec\u00e7\u00e3o Inteligente (Smart Detection)"
       },
       {
         "letter": "B",
-        "text": "Dashboard com média móvel"
+        "text": "Dashboard com m\u00e9dia m\u00f3vel"
       },
       {
         "letter": "C",
-        "text": "Alerta de métrica com limiar fixo"
+        "text": "Alerta de m\u00e9trica com limiar fixo"
       },
       {
         "letter": "D",
-        "text": "Log manual diário"
+        "text": "Log manual di\u00e1rio"
       }
     ],
     "correct": ["A"],
-    "explanation": "Smart Detection usa ML sobre telemetria sem thresholds. Limiar fixo exige calibragem; dashboard não alerta; log manual é lento.",
+    "explanation": "Smart Detection usa ML sobre telemetria sem thresholds. Limiar fixo exige calibragem; dashboard n\u00e3o alerta; log manual \u00e9 lento.",
     "source": "original",
     "tags": ["smart-detection", "ml", "anomalia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -641,7 +641,7 @@
     "subdomain": "availability-tests",
     "type": "single",
     "difficulty": "medium",
-    "question": "O site precisa de teste sintético de 5 em 5 minutos a partir de 3 continentes. Qual teste de disponibilidade do App Insights cobre isso?",
+    "question": "O site precisa de teste sint\u00e9tico de 5 em 5 minutos a partir de 3 continentes. Qual teste de disponibilidade do App Insights cobre isso?",
     "options": [
       {
         "letter": "A",
@@ -653,7 +653,7 @@
       },
       {
         "letter": "C",
-        "text": "Métrica de CPU do plano"
+        "text": "M\u00e9trica de CPU do plano"
       },
       {
         "letter": "D",
@@ -661,7 +661,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Availability tests sondam URL de vários pontos com frequência. CPU não testa URL; ping manual não agenda; backup não monitora.",
+    "explanation": "Availability tests sondam URL de v\u00e1rios pontos com frequ\u00eancia. CPU n\u00e3o testa URL; ping manual n\u00e3o agenda; backup n\u00e3o monitora.",
     "source": "original",
     "tags": ["availability-tests", "sintetico", "ping"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -674,7 +674,7 @@
     "subdomain": "profiler",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um endpoint específico é lento só em produção e reproduzir localmente é impossível. Qual ferramenta captura stack de produção sob demanda?",
+    "question": "Um endpoint espec\u00edfico \u00e9 lento s\u00f3 em produ\u00e7\u00e3o e reproduzir localmente \u00e9 imposs\u00edvel. Qual ferramenta captura stack de produ\u00e7\u00e3o sob demanda?",
     "options": [
       {
         "letter": "A",
@@ -682,11 +682,11 @@
       },
       {
         "letter": "B",
-        "text": "Reinicialização do aplicativo"
+        "text": "Reinicializa\u00e7\u00e3o do aplicativo"
       },
       {
         "letter": "C",
-        "text": "Aumento de instâncias"
+        "text": "Aumento de inst\u00e2ncias"
       },
       {
         "letter": "D",
@@ -694,7 +694,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Profiler amostra stacks em produção com baixo overhead. Reiniciar mascara; escalar dilui sem identificar; log local não existe em PaaS.",
+    "explanation": "Profiler amostra stacks em produ\u00e7\u00e3o com baixo overhead. Reiniciar mascara; escalar dilui sem identificar; log local n\u00e3o existe em PaaS.",
     "source": "original",
     "tags": ["profiler", "performance", "producao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -707,7 +707,7 @@
     "subdomain": "snapshot-debugger",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma exceção rara em produção precisa do estado das variáveis no momento do throw, sem parar o app. Qual depurador captura snapshots?",
+    "question": "Uma exce\u00e7\u00e3o rara em produ\u00e7\u00e3o precisa do estado das vari\u00e1veis no momento do throw, sem parar o app. Qual depurador captura snapshots?",
     "options": [
       {
         "letter": "A",
@@ -723,11 +723,11 @@
       },
       {
         "letter": "D",
-        "text": "Dump manual após o crash"
+        "text": "Dump manual ap\u00f3s o crash"
       }
     ],
     "correct": ["A"],
-    "explanation": "Snapshot Debugger fotografa variáveis na exceção sem interromper. Breakpoint pausa produção; prints poluem; dump pós-crash perde contexto.",
+    "explanation": "Snapshot Debugger fotografa vari\u00e1veis na exce\u00e7\u00e3o sem interromper. Breakpoint pausa produ\u00e7\u00e3o; prints poluem; dump p\u00f3s-crash perde contexto.",
     "source": "original",
     "tags": ["snapshot-debugger", "excecao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -740,11 +740,11 @@
     "subdomain": "dcr",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cinquenta VMs devem enviar apenas logs de segurança ao workspace central, excluindo verbosos. O que define o quê coletar e para onde enviar?",
+    "question": "Cinquenta VMs devem enviar apenas logs de seguran\u00e7a ao workspace central, excluindo verbosos. O que define o qu\u00ea coletar e para onde enviar?",
     "options": [
       {
         "letter": "A",
-        "text": "Política de rede"
+        "text": "Pol\u00edtica de rede"
       },
       {
         "letter": "B",
@@ -760,7 +760,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "DCR declara fontes, filtros e destino por escopo. Agente legado coleta tudo; backup não coleta logs; rede não filtra telemetria.",
+    "explanation": "DCR declara fontes, filtros e destino por escopo. Agente legado coleta tudo; backup n\u00e3o coleta logs; rede n\u00e3o filtra telemetria.",
     "source": "original",
     "tags": ["dcr", "coleta", "ama"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -773,19 +773,19 @@
     "subdomain": "retencao-workspace",
     "type": "single",
     "difficulty": "medium",
-    "question": "Auditoria exige 1 ano de logs de segurança e 30 dias dos demais, sem dois workspaces. Como configurar retenções distintas na mesma área?",
+    "question": "Auditoria exige 1 ano de logs de seguran\u00e7a e 30 dias dos demais, sem dois workspaces. Como configurar reten\u00e7\u00f5es distintas na mesma \u00e1rea?",
     "options": [
       {
         "letter": "A",
-        "text": "Desabilitar a ingestão geral"
+        "text": "Desabilitar a ingest\u00e3o geral"
       },
       {
         "letter": "B",
-        "text": "Exportação manual mensal"
+        "text": "Exporta\u00e7\u00e3o manual mensal"
       },
       {
         "letter": "C",
-        "text": "Retenção por tipo de tabela no workspace"
+        "text": "Reten\u00e7\u00e3o por tipo de tabela no workspace"
       },
       {
         "letter": "D",
@@ -793,7 +793,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Retenção por tabela diferencia segurança (365d) do restante. Workspaces diários são ingovernáveis; export manual falha; sem ingestão não há log.",
+    "explanation": "Reten\u00e7\u00e3o por tabela diferencia seguran\u00e7a (365d) do restante. Workspaces di\u00e1rios s\u00e3o ingovern\u00e1veis; export manual falha; sem ingest\u00e3o n\u00e3o h\u00e1 log.",
     "source": "original",
     "tags": ["retencao", "workspace", "tabela"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -806,7 +806,7 @@
     "subdomain": "alerta-prometheus",
     "type": "single",
     "difficulty": "medium",
-    "question": "Métricas Prometheus do AKS precisam de alertas com PromQL no Azure. Qual serviço gerenciado recebe e alerta sobre essas métricas?",
+    "question": "M\u00e9tricas Prometheus do AKS precisam de alertas com PromQL no Azure. Qual servi\u00e7o gerenciado recebe e alerta sobre essas m\u00e9tricas?",
     "options": [
       {
         "letter": "A",
@@ -814,7 +814,7 @@
       },
       {
         "letter": "B",
-        "text": "Métrica de VM do nó"
+        "text": "M\u00e9trica de VM do n\u00f3"
       },
       {
         "letter": "C",
@@ -826,7 +826,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Managed Prometheus ingere e alerta em PromQL nativo. LA sem remote-write não recebe; métrica do nó não tem labels de pod; kubectl não alerta.",
+    "explanation": "Managed Prometheus ingere e alerta em PromQL nativo. LA sem remote-write n\u00e3o recebe; m\u00e9trica do n\u00f3 n\u00e3o tem labels de pod; kubectl n\u00e3o alerta.",
     "source": "mslearn",
     "tags": ["prometheus", "aks", "promql", "alertas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -840,7 +840,7 @@
     "subdomain": "grafana",
     "type": "single",
     "difficulty": "medium",
-    "question": "Dashboards Grafana corporativos precisam consumir métricas do Monitor com SSO do Entra. Qual serviço hospeda o Grafana gerenciado?",
+    "question": "Dashboards Grafana corporativos precisam consumir m\u00e9tricas do Monitor com SSO do Entra. Qual servi\u00e7o hospeda o Grafana gerenciado?",
     "options": [
       {
         "letter": "A",
@@ -848,11 +848,11 @@
       },
       {
         "letter": "B",
-        "text": "Portal isolado por usuário"
+        "text": "Portal isolado por usu\u00e1rio"
       },
       {
         "letter": "C",
-        "text": "Planilha com gráficos"
+        "text": "Planilha com gr\u00e1ficos"
       },
       {
         "letter": "D",
@@ -860,7 +860,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Managed Grafana integra fontes Azure com Entra ID. Local sem SSO quebra compliance; planilha não é tempo real; portal isolado não compartilha.",
+    "explanation": "Managed Grafana integra fontes Azure com Entra ID. Local sem SSO quebra compliance; planilha n\u00e3o \u00e9 tempo real; portal isolado n\u00e3o compartilha.",
     "source": "original",
     "tags": ["grafana", "dashboards", "sso"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -873,7 +873,7 @@
     "subdomain": "update-manager-relatorio",
     "type": "single",
     "difficulty": "medium",
-    "question": "Compliance mensal exige relatório de patches aplicados por VM com status. De onde extrair o estado de conformidade de atualizações?",
+    "question": "Compliance mensal exige relat\u00f3rio de patches aplicados por VM com status. De onde extrair o estado de conformidade de atualiza\u00e7\u00f5es?",
     "options": [
       {
         "letter": "A",
@@ -881,11 +881,11 @@
       },
       {
         "letter": "B",
-        "text": "Métrica de disco"
+        "text": "M\u00e9trica de disco"
       },
       {
         "letter": "C",
-        "text": "Gerenciador de Atualizações com avaliação e histórico"
+        "text": "Gerenciador de Atualiza\u00e7\u00f5es com avalia\u00e7\u00e3o e hist\u00f3rico"
       },
       {
         "letter": "D",
@@ -893,7 +893,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Update Manager avalia, agenda e historica patches por VM. RDP não audita; disco não mostra patch; backup não lista updates.",
+    "explanation": "Update Manager avalia, agenda e historica patches por VM. RDP n\u00e3o audita; disco n\u00e3o mostra patch; backup n\u00e3o lista updates.",
     "source": "original",
     "tags": ["update-manager", "patch", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -906,7 +906,7 @@
     "subdomain": "service-map",
     "type": "single",
     "difficulty": "medium",
-    "question": "Após migração, ninguém sabe quais VMs falam com o banco legado. Qual mapa descoberto automaticamente mostra conexões entre máquinas?",
+    "question": "Ap\u00f3s migra\u00e7\u00e3o, ningu\u00e9m sabe quais VMs falam com o banco legado. Qual mapa descoberto automaticamente mostra conex\u00f5es entre m\u00e1quinas?",
     "options": [
       {
         "letter": "A",
@@ -918,7 +918,7 @@
       },
       {
         "letter": "C",
-        "text": "Mapa de serviços do VM Insights"
+        "text": "Mapa de servi\u00e7os do VM Insights"
       },
       {
         "letter": "D",
@@ -926,7 +926,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Service Map descobre conexões reais entre processos/máquinas. Wiki desatualiza; rotas mostram caminho, não fluxo; NSG mostra regras, não tráfego.",
+    "explanation": "Service Map descobre conex\u00f5es reais entre processos/m\u00e1quinas. Wiki desatualiza; rotas mostram caminho, n\u00e3o fluxo; NSG mostra regras, n\u00e3o tr\u00e1fego.",
     "source": "original",
     "tags": ["service-map", "dependencias", "vm-insights"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -939,7 +939,7 @@
     "subdomain": "kql-join-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Para correlacionar erros do App Service com eventos do Windows pelo mesmo OperationId, quais duas cláusulas KQL unem as tabelas? Selecione duas.",
+    "question": "Para correlacionar erros do App Service com eventos do Windows pelo mesmo OperationId, quais duas cl\u00e1usulas KQL unem as tabelas? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -959,7 +959,7 @@
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Join une pela chave e where foca a operação. Counts isolados não correlacionam; take 1 não investiga.",
+    "explanation": "Join une pela chave e where foca a opera\u00e7\u00e3o. Counts isolados n\u00e3o correlacionam; take 1 n\u00e3o investiga.",
     "source": "original",
     "tags": ["kql", "join", "correlacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -972,7 +972,7 @@
     "subdomain": "alerta-dinamico-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Picos sazonais geram falsos alertas com limiar fixo. Quais dois recursos de limiar dinâmico adaptam ao padrão? Selecione duas.",
+    "question": "Picos sazonais geram falsos alertas com limiar fixo. Quais dois recursos de limiar din\u00e2mico adaptam ao padr\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -980,7 +980,7 @@
       },
       {
         "letter": "B",
-        "text": "Limiares dinâmicos com ML no alerta de métrica"
+        "text": "Limiares din\u00e2micos com ML no alerta de m\u00e9trica"
       },
       {
         "letter": "C",
@@ -988,11 +988,11 @@
       },
       {
         "letter": "D",
-        "text": "Janela de avaliação com agregação (média/máx)"
+        "text": "Janela de avalia\u00e7\u00e3o com agrega\u00e7\u00e3o (m\u00e9dia/m\u00e1x)"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Dynamic thresholds aprendem sazonalidade e a agregação suaviza. Fixo baixo dispara à toa; desligar cega no pico.",
+    "explanation": "Dynamic thresholds aprendem sazonalidade e a agrega\u00e7\u00e3o suaviza. Fixo baixo dispara \u00e0 toa; desligar cega no pico.",
     "source": "mslearn",
     "tags": ["alertas", "limiar-dinamico", "ml"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1006,7 +1006,7 @@
     "subdomain": "dcr-escopo-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "DCRs diferentes para produção (tudo) e dev (só erros) exigem dois controles. Quais são eles? Selecione duas.",
+    "question": "DCRs diferentes para produ\u00e7\u00e3o (tudo) e dev (s\u00f3 erros) exigem dois controles. Quais s\u00e3o eles? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1018,15 +1018,15 @@
       },
       {
         "letter": "C",
-        "text": "Workspace único sem filtro"
+        "text": "Workspace \u00fanico sem filtro"
       },
       {
         "letter": "D",
-        "text": "Associação por escopo (RG/assinatura) distinta"
+        "text": "Associa\u00e7\u00e3o por escopo (RG/assinatura) distinta"
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Escopo separa onde aplica e filtros o que coleta. Agente por log é inviável; sem filtro tudo mistura.",
+    "explanation": "Escopo separa onde aplica e filtros o que coleta. Agente por log \u00e9 invi\u00e1vel; sem filtro tudo mistura.",
     "source": "original",
     "tags": ["dcr", "escopo", "filtros"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1039,7 +1039,7 @@
     "subdomain": "appmap-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "O mapa de aplicação mostra frontend, API e SQL com latências por aresta. Quais dois dados o App Insights usa para montar o mapa? Selecione duas.",
+    "question": "O mapa de aplica\u00e7\u00e3o mostra frontend, API e SQL com lat\u00eancias por aresta. Quais dois dados o App Insights usa para montar o mapa? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1047,7 +1047,7 @@
       },
       {
         "letter": "B",
-        "text": "Telemetria de dependência entre componentes"
+        "text": "Telemetria de depend\u00eancia entre componentes"
       },
       {
         "letter": "C",
@@ -1059,7 +1059,7 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Dependências desenham arestas e o OperationId costura o fluxo. Backup não mapeia; IP não identifica componente lógico.",
+    "explanation": "Depend\u00eancias desenham arestas e o OperationId costura o fluxo. Backup n\u00e3o mapeia; IP n\u00e3o identifica componente l\u00f3gico.",
     "source": "original",
     "tags": ["app-map", "dependencias", "correlacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1072,15 +1072,15 @@
     "subdomain": "retencao-custo-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "A conta de ingestão explodiu com logs verbosos e retenção longa global. Quais duas alavancas reduzem custo sem perder auditoria? Selecione duas.",
+    "question": "A conta de ingest\u00e3o explodiu com logs verbosos e reten\u00e7\u00e3o longa global. Quais duas alavancas reduzem custo sem perder auditoria? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Retenção curta global + longa só em tabelas críticas"
+        "text": "Reten\u00e7\u00e3o curta global + longa s\u00f3 em tabelas cr\u00edticas"
       },
       {
         "letter": "B",
-        "text": "Ingerir tudo com retenção máxima"
+        "text": "Ingerir tudo com reten\u00e7\u00e3o m\u00e1xima"
       },
       {
         "letter": "C",
@@ -1092,7 +1092,7 @@
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Filtrar na origem corta ingestão e reter longo só no crítico corta armazenamento. Tudo+máximo é o problema; sem workspace não há log.",
+    "explanation": "Filtrar na origem corta ingest\u00e3o e reter longo s\u00f3 no cr\u00edtico corta armazenamento. Tudo+m\u00e1ximo \u00e9 o problema; sem workspace n\u00e3o h\u00e1 log.",
     "source": "original",
     "tags": ["custo", "ingestao", "retencao", "dcr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1105,7 +1105,7 @@
     "subdomain": "sli-slo-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "O contrato exige 99,9% de respostas abaixo de 500ms medidas no cliente sintético. Quais dois elementos definem e medem esse SLI? Selecione duas.",
+    "question": "O contrato exige 99,9% de respostas abaixo de 500ms medidas no cliente sint\u00e9tico. Quais dois elementos definem e medem esse SLI? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1113,7 +1113,7 @@
       },
       {
         "letter": "B",
-        "text": "Métrica de CPU do servidor"
+        "text": "M\u00e9trica de CPU do servidor"
       },
       {
         "letter": "C",
@@ -1125,7 +1125,7 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Sonda sintética mede experiência e o workbook computa o SLI/SLO. CPU não é latência percebida; deploy não mede serviço.",
+    "explanation": "Sonda sint\u00e9tica mede experi\u00eancia e o workbook computa o SLI/SLO. CPU n\u00e3o \u00e9 lat\u00eancia percebida; deploy n\u00e3o mede servi\u00e7o.",
     "source": "original",
     "tags": ["sli", "slo", "disponibilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1138,7 +1138,7 @@
     "subdomain": "itsm-acao-multiplos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Alertas críticos devem abrir chamado com severidade e acionar automação de contenção. Quais dois passos o fluxo executa? Selecione duas.",
+    "question": "Alertas cr\u00edticos devem abrir chamado com severidade e acionar automa\u00e7\u00e3o de conten\u00e7\u00e3o. Quais dois passos o fluxo executa? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1146,19 +1146,19 @@
       },
       {
         "letter": "B",
-        "text": "Conexão ITSM abrindo ticket com payload"
+        "text": "Conex\u00e3o ITSM abrindo ticket com payload"
       },
       {
         "letter": "C",
-        "text": "Runbook de contenção via action group"
+        "text": "Runbook de conten\u00e7\u00e3o via action group"
       },
       {
         "letter": "D",
-        "text": "E-mail informativo sem ação"
+        "text": "E-mail informativo sem a\u00e7\u00e3o"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "ITSM registra o chamado com severidade e o runbook executa a contenção automaticamente. Só e-mail informa sem agir; dashboard manual atrasa a resposta ao incidente.",
+    "explanation": "ITSM registra o chamado com severidade e o runbook executa a conten\u00e7\u00e3o automaticamente. S\u00f3 e-mail informa sem agir; dashboard manual atrasa a resposta ao incidente.",
     "source": "original",
     "tags": ["itsm", "runbook", "automacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1171,7 +1171,7 @@
     "subdomain": "log-query-performance",
     "type": "single",
     "difficulty": "hard",
-    "question": "Uma consulta KQL varre 30 dias e estoura timeout. Qual técnica reduz o escopo temporal e o volume antes da agregação?",
+    "question": "Uma consulta KQL varre 30 dias e estoura timeout. Qual t\u00e9cnica reduz o escopo temporal e o volume antes da agrega\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -1183,15 +1183,15 @@
       },
       {
         "letter": "C",
-        "text": "Aumentar o take para 1 milhão"
+        "text": "Aumentar o take para 1 milh\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Filtrar TimeGenerated primeiro e projetar só colunas usadas"
+        "text": "Filtrar TimeGenerated primeiro e projetar s\u00f3 colunas usadas"
       }
     ],
     "correct": ["D"],
-    "explanation": "Filtrar tempo e projetar colunas poda partições antes do join/agregação. Take gigante piora; sem where varre tudo; sem limite estoura.",
+    "explanation": "Filtrar tempo e projetar colunas poda parti\u00e7\u00f5es antes do join/agrega\u00e7\u00e3o. Take gigante piora; sem where varre tudo; sem limite estoura.",
     "source": "mslearn",
     "tags": ["kql", "performance", "otimizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1205,11 +1205,11 @@
     "subdomain": "alerta-fadiga",
     "type": "single",
     "difficulty": "hard",
-    "question": "Centenas de alertas por noite causam fadiga e incidentes reais se perdem. Qual construção agrupa e suprime ruído correlacionado?",
+    "question": "Centenas de alertas por noite causam fadiga e incidentes reais se perdem. Qual constru\u00e7\u00e3o agrupa e suprime ru\u00eddo correlacionado?",
     "options": [
       {
         "letter": "A",
-        "text": "Regras de processamento com agrupamento e supressão"
+        "text": "Regras de processamento com agrupamento e supress\u00e3o"
       },
       {
         "letter": "B",
@@ -1239,7 +1239,7 @@
     "subdomain": "private-link-monitor",
     "type": "single",
     "difficulty": "hard",
-    "question": "Agentes em VNet isolada sem internet precisam enviar telemetria ao Monitor. Como conectar o workspace sem expor tráfego?",
+    "question": "Agentes em VNet isolada sem internet precisam enviar telemetria ao Monitor. Como conectar o workspace sem expor tr\u00e1fego?",
     "options": [
       {
         "letter": "A",
@@ -1247,11 +1247,11 @@
       },
       {
         "letter": "B",
-        "text": "SAS pública do workspace"
+        "text": "SAS p\u00fablica do workspace"
       },
       {
         "letter": "C",
-        "text": "Proxy público com IP fixo"
+        "text": "Proxy p\u00fablico com IP fixo"
       },
       {
         "letter": "D",
@@ -1259,7 +1259,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "AMPLS projeta ingestão via Private Link com DNS. Proxy público expõe; sem coleta cega; workspace não usa SAS pública.",
+    "explanation": "AMPLS projeta ingest\u00e3o via Private Link com DNS. Proxy p\u00fablico exp\u00f5e; sem coleta cega; workspace n\u00e3o usa SAS p\u00fablica.",
     "source": "original",
     "tags": ["ampls", "private-link", "telemetria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1276,23 +1276,23 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cópia manual por consulta"
+        "text": "C\u00f3pia manual por consulta"
       },
       {
         "letter": "B",
-        "text": "Exportação de dados do workspace para Storage/Event Hub"
+        "text": "Exporta\u00e7\u00e3o de dados do workspace para Storage/Event Hub"
       },
       {
         "letter": "C",
-        "text": "Exclusão após 30 dias"
+        "text": "Exclus\u00e3o ap\u00f3s 30 dias"
       },
       {
         "letter": "D",
-        "text": "Retenção infinita no workspace quente"
+        "text": "Reten\u00e7\u00e3o infinita no workspace quente"
       }
     ],
     "correct": ["B"],
-    "explanation": "Data export replica tabelas ao Storage barato continuamente. Retenção infinita quente custa fortuna; excluir perde; cópia manual falha.",
+    "explanation": "Data export replica tabelas ao Storage barato continuamente. Reten\u00e7\u00e3o infinita quente custa fortuna; excluir perde; c\u00f3pia manual falha.",
     "source": "original",
     "tags": ["exportacao", "archive", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1305,15 +1305,15 @@
     "subdomain": "automanage",
     "type": "single",
     "difficulty": "hard",
-    "question": "VMs novas precisam nascer já com monitoramento, backup e segurança aplicados por padrão. Qual serviço aplica esse baseline automaticamente?",
+    "question": "VMs novas precisam nascer j\u00e1 com monitoramento, backup e seguran\u00e7a aplicados por padr\u00e3o. Qual servi\u00e7o aplica esse baseline automaticamente?",
     "options": [
       {
         "letter": "A",
-        "text": "Runbook mensal de verificação"
+        "text": "Runbook mensal de verifica\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Automanage com perfis de configuração"
+        "text": "Automanage com perfis de configura\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -1321,11 +1321,11 @@
       },
       {
         "letter": "D",
-        "text": "Extensões instaladas por RDP"
+        "text": "Extens\u00f5es instaladas por RDP"
       }
     ],
     "correct": ["B"],
-    "explanation": "Automanage aplica e mantém baseline (monitor, backup, Defender) no ciclo de vida. RDP não escala; runbook mensal atrasa; só auditar não aplica.",
+    "explanation": "Automanage aplica e mant\u00e9m baseline (monitor, backup, Defender) no ciclo de vida. RDP n\u00e3o escala; runbook mensal atrasa; s\u00f3 auditar n\u00e3o aplica.",
     "source": "original",
     "tags": ["automanage", "baseline", "vm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1338,7 +1338,7 @@
     "subdomain": "network-insights-multiplos",
     "type": "single",
     "difficulty": "hard",
-    "question": "O time de rede quer topologia, saúde de VPN/ER e fluxos em uma visão dedicada. Qual hub do Network Watcher consolida a saúde de rede?",
+    "question": "O time de rede quer topologia, sa\u00fade de VPN/ER e fluxos em uma vis\u00e3o dedicada. Qual hub do Network Watcher consolida a sa\u00fade de rede?",
     "options": [
       {
         "letter": "A",
@@ -1350,15 +1350,15 @@
       },
       {
         "letter": "C",
-        "text": "Network Insights (conectividade e saúde)"
+        "text": "Network Insights (conectividade e sa\u00fade)"
       },
       {
         "letter": "D",
-        "text": "Métrica de CPU das VMs"
+        "text": "M\u00e9trica de CPU das VMs"
       }
     ],
     "correct": ["C"],
-    "explanation": "Network Insights agrega topologia, VPN/ER e fluxos. CPU não é rede; log web não mostra túnel; backup não monitora.",
+    "explanation": "Network Insights agrega topologia, VPN/ER e fluxos. CPU n\u00e3o \u00e9 rede; log web n\u00e3o mostra t\u00fanel; backup n\u00e3o monitora.",
     "source": "mslearn",
     "tags": ["network-insights", "saude-rede"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1372,7 +1372,7 @@
     "subdomain": "azure-policy-monitor-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Garantir DCR em todas as VMs e diagnostic settings em Key Vaults exige imposição contínua. Quais dois efeitos de Policy aplicam? Selecione duas.",
+    "question": "Garantir DCR em todas as VMs e diagnostic settings em Key Vaults exige imposi\u00e7\u00e3o cont\u00ednua. Quais dois efeitos de Policy aplicam? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1392,7 +1392,7 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "DINE instala agente e cria diagnósticos em recursos novos e existentes. Auditoria manual atrasa; desligar anula.",
+    "explanation": "DINE instala agente e cria diagn\u00f3sticos em recursos novos e existentes. Auditoria manual atrasa; desligar anula.",
     "source": "mslearn",
     "tags": ["policy", "dine", "ama", "diagnostico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1406,11 +1406,11 @@
     "subdomain": "opentelemetry-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Aplicações em várias linguagens precisam de tracing distribuído vendor-neutral até o App Insights. Quais dois elementos compõem o pipeline? Selecione duas.",
+    "question": "Aplica\u00e7\u00f5es em v\u00e1rias linguagens precisam de tracing distribu\u00eddo vendor-neutral at\u00e9 o App Insights. Quais dois elementos comp\u00f5em o pipeline? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Métricas de ping manual"
+        "text": "M\u00e9tricas de ping manual"
       },
       {
         "letter": "B",
@@ -1418,7 +1418,7 @@
       },
       {
         "letter": "C",
-        "text": "SDKs OpenTelemetry instrumentando o código"
+        "text": "SDKs OpenTelemetry instrumentando o c\u00f3digo"
       },
       {
         "letter": "D",
@@ -1426,7 +1426,7 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "SDKs geram spans distribuídos e o exporter OTLP envia ao Application Insights com correlação. Arquivo local fragmenta por host; ping manual não traça requisições.",
+    "explanation": "SDKs geram spans distribu\u00eddos e o exporter OTLP envia ao Application Insights com correla\u00e7\u00e3o. Arquivo local fragmenta por host; ping manual n\u00e3o tra\u00e7a requisi\u00e7\u00f5es.",
     "source": "original",
     "tags": ["opentelemetry", "tracing", "app-insights"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1439,15 +1439,15 @@
     "subdomain": "data-collection-endpoint-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Telemetria de regiões distintas deve ingressar por endpoints regionais com failover. Quais dois elementos do DCE atendem? Selecione duas.",
+    "question": "Telemetria de regi\u00f5es distintas deve ingressar por endpoints regionais com failover. Quais dois elementos do DCE atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Associação DCR→DCE por região"
+        "text": "Associa\u00e7\u00e3o DCR\u2192DCE por regi\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Ingestão direta sem endpoint"
+        "text": "Ingest\u00e3o direta sem endpoint"
       },
       {
         "letter": "C",
@@ -1455,11 +1455,11 @@
       },
       {
         "letter": "D",
-        "text": "Endpoint único global sem failover"
+        "text": "Endpoint \u00fanico global sem failover"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "DCEs regionais com associação por DCR dão ingresso local resiliente. Único global é ponto único; sem endpoint perde controle.",
+    "explanation": "DCEs regionais com associa\u00e7\u00e3o por DCR d\u00e3o ingresso local resiliente. \u00danico global \u00e9 ponto \u00fanico; sem endpoint perde controle.",
     "source": "original",
     "tags": ["dce", "ingestao", "regional"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1480,19 +1480,19 @@
       },
       {
         "letter": "B",
-        "text": "Amostragem ajustável no incidente"
+        "text": "Amostragem ajust\u00e1vel no incidente"
       },
       {
         "letter": "C",
-        "text": "Stream ao vivo com filtros por operação"
+        "text": "Stream ao vivo com filtros por opera\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Relatório mensal estático"
+        "text": "Relat\u00f3rio mensal est\u00e1tico"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Live Metrics filtra ao vivo e a amostragem foca sem afogar. Relatório mensal não é incidente; desligar cega.",
+    "explanation": "Live Metrics filtra ao vivo e a amostragem foca sem afogar. Relat\u00f3rio mensal n\u00e3o \u00e9 incidente; desligar cega.",
     "source": "mslearn",
     "tags": ["live-metrics", "incidente", "amostragem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1506,130 +1506,29 @@
     "subdomain": "defender-cloud-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Postura de segurança dos recursos precisa de score, recomendações e proteção de workload. Quais dois pilares do Defender for Cloud entregam? Selecione duas.",
+    "question": "Postura de seguran\u00e7a dos recursos precisa de score, recomenda\u00e7\u00f5es e prote\u00e7\u00e3o de workload. Quais dois pilares do Defender for Cloud entregam? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Policy sem recomendação"
+        "text": "Policy sem recomenda\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Backup como detecção"
+        "text": "Backup como detec\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Proteção de workload (servidores, containers, storage)"
+        "text": "Prote\u00e7\u00e3o de workload (servidores, containers, storage)"
       },
       {
         "letter": "D",
-        "text": "CSPM com secure score e recomendações"
+        "text": "CSPM com secure score e recomenda\u00e7\u00f5es"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "CSPM mede postura e workload protege runtime. Backup não detecta; policy sem recomendação não prioriza.",
+    "explanation": "CSPM mede postura e workload protege runtime. Backup n\u00e3o detecta; policy sem recomenda\u00e7\u00e3o n\u00e3o prioriza.",
     "source": "original",
     "tags": ["defender-cloud", "cspm", "workload"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-047",
-    "domain": "monitoramento",
-    "subdomain": "retencao-legal-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que aumentar a retenção do workspace para 2 anos permite consultar qualquer dia com a mesma velocidade dos últimos 30 dias. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, retenção longa mantém performance interativa"
-      },
-      {
-        "letter": "B",
-        "text": "Não, dados antigos vão para archive com consulta mais lenta"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Retenção longa usa tabelas archive com reidratação; só o quente (até ~2 anos interativo conforme SKU) é rápido. Assumir velocidade igual é erro de custo.",
-    "source": "original",
-    "tags": ["retencao", "archive", "performance"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-048",
-    "domain": "monitoramento",
-    "subdomain": "metrica-custom-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um desenvolvedor afirma que métricas customizadas via API têm a mesma latência de alerta das métricas de plataforma (cerca de 1 minuto). Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, toda métrica alerta em 1 minuto"
-      },
-      {
-        "letter": "B",
-        "text": "Não, customizadas podem levar vários minutos"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Métricas de plataforma têm pipeline otimizado; customizadas agregam com latência maior. Assumir 1 minuto para tudo gera SLO incorreto.",
-    "source": "mslearn",
-    "tags": ["metricas-custom", "latencia", "alertas"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:23:06.445Z",
-    "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
-  },
-  {
-    "id": "az104-mo-049",
-    "domain": "monitoramento",
-    "subdomain": "amostragem-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que a amostragem adaptativa do Application Insights descarta erros e distorce taxas de falha. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, a amostragem preserva itens atípicos e ajusta contagens"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, amostragem perde erros e corrompe métricas"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Adaptive sampling mantém exceções e pondera contagens (itemCount). Achar que perde erro é o mito que impede economizar ingestão.",
-    "source": "original",
-    "tags": ["amostragem", "app-insights", "custo"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-050",
-    "domain": "monitoramento",
-    "subdomain": "action-group-limite-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um engenheiro afirma que um grupo de ação pode ser reutilizado por qualquer regra de alerta da mesma assinatura sem restrições de RBAC. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, action groups são globais e livres"
-      },
-      {
-        "letter": "B",
-        "text": "Não, o uso exige permissão e habilitação por tipo de ação"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Usar e editar action groups exige RBAC, e ações como voz/SMS/ITSM têm habilitação e limites. Tratar como livre quebra least privilege.",
-    "source": "original",
-    "tags": ["action-group", "rbac", "permissao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1
@@ -1640,7 +1539,7 @@
     "subdomain": "case-fabrikam-instrumentacao",
     "type": "case-study",
     "difficulty": "medium",
-    "question": "Caso Fabrikam: para rastrear o checkout entre frontend, API e SQL com correlação fim-a-fim, o que instrumentar primeiro?",
+    "question": "Caso Fabrikam: para rastrear o checkout entre frontend, API e SQL com correla\u00e7\u00e3o fim-a-fim, o que instrumentar primeiro?",
     "options": [
       {
         "letter": "A",
@@ -1648,7 +1547,7 @@
       },
       {
         "letter": "B",
-        "text": "Application Insights com distributed tracing nos três tiers"
+        "text": "Application Insights com distributed tracing nos tr\u00eas tiers"
       },
       {
         "letter": "C",
@@ -1660,7 +1559,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Tracing distribuído correlaciona a jornada do checkout por OperationId. Ping não mostra código; backup não diagnostica; CPU não isola camada.",
+    "explanation": "Tracing distribu\u00eddo correlaciona a jornada do checkout por OperationId. Ping n\u00e3o mostra c\u00f3digo; backup n\u00e3o diagnostica; CPU n\u00e3o isola camada.",
     "source": "original",
     "tags": ["case", "app-insights", "tracing"],
     "caseStudyId": "case-mo-01",
@@ -1674,7 +1573,7 @@
     "subdomain": "case-fabrikam-alertas",
     "type": "case-study",
     "difficulty": "medium",
-    "question": "Caso Fabrikam: latência do checkout acima de 2s deve abrir chamado e executar contenção. O que compõe o alerta automático?",
+    "question": "Caso Fabrikam: lat\u00eancia do checkout acima de 2s deve abrir chamado e executar conten\u00e7\u00e3o. O que comp\u00f5e o alerta autom\u00e1tico?",
     "options": [
       {
         "letter": "A",
@@ -1682,7 +1581,7 @@
       },
       {
         "letter": "B",
-        "text": "Reinicialização agendada"
+        "text": "Reinicializa\u00e7\u00e3o agendada"
       },
       {
         "letter": "C",
@@ -1694,7 +1593,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Regra detecta e o action group abre ticket e contém. Dashboard sem alerta atrasa; manual não escala; restart mascara.",
+    "explanation": "Regra detecta e o action group abre ticket e cont\u00e9m. Dashboard sem alerta atrasa; manual n\u00e3o escala; restart mascara.",
     "source": "mslearn",
     "tags": ["case", "alertas", "itsm"],
     "caseStudyId": "case-mo-01",
@@ -1709,7 +1608,7 @@
     "subdomain": "case-fabrikam-rede",
     "type": "case-study",
     "difficulty": "hard",
-    "question": "Caso Fabrikam: para provar se a latência é da rede entre regiões, qual monitoramento contínuo isola o segmento de rede?",
+    "question": "Caso Fabrikam: para provar se a lat\u00eancia \u00e9 da rede entre regi\u00f5es, qual monitoramento cont\u00ednuo isola o segmento de rede?",
     "options": [
       {
         "letter": "A",
@@ -1717,19 +1616,19 @@
       },
       {
         "letter": "B",
-        "text": "Métrica de disco das VMs"
+        "text": "M\u00e9trica de disco das VMs"
       },
       {
         "letter": "C",
-        "text": "Connection Monitor entre as regiões com alertas"
+        "text": "Connection Monitor entre as regi\u00f5es com alertas"
       },
       {
         "letter": "D",
-        "text": "Log da aplicação apenas"
+        "text": "Log da aplica\u00e7\u00e3o apenas"
       }
     ],
     "correct": ["C"],
-    "explanation": "Connection Monitor mede perda/latência do segmento com histórico. Log da app mistura camadas; disco não é rede; backup não mede.",
+    "explanation": "Connection Monitor mede perda/lat\u00eancia do segmento com hist\u00f3rico. Log da app mistura camadas; disco n\u00e3o \u00e9 rede; backup n\u00e3o mede.",
     "source": "original",
     "tags": ["case", "connection-monitor", "latencia"],
     "caseStudyId": "case-mo-01",
@@ -1747,15 +1646,15 @@
     "options": [
       {
         "letter": "A",
-        "text": "Workspace Log Analytics com retenção de 90 dias"
+        "text": "Workspace Log Analytics com reten\u00e7\u00e3o de 90 dias"
       },
       {
         "letter": "B",
-        "text": "Console do portal sem retenção"
+        "text": "Console do portal sem reten\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "E-mail semanal de alterações"
+        "text": "E-mail semanal de altera\u00e7\u00f5es"
       },
       {
         "letter": "D",
@@ -1763,7 +1662,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Diagnostic settings do Activity Log ao workspace retêm e consultam 90 dias. Console não retém; tabela local fragmenta; e-mail não audita.",
+    "explanation": "Diagnostic settings do Activity Log ao workspace ret\u00eam e consultam 90 dias. Console n\u00e3o ret\u00e9m; tabela local fragmenta; e-mail n\u00e3o audita.",
     "source": "original",
     "tags": ["case", "activity-log", "auditoria"],
     "caseStudyId": "case-mo-01",
@@ -1777,11 +1676,11 @@
     "subdomain": "case-fabrikam-slo",
     "type": "case-study",
     "difficulty": "hard",
-    "question": "Caso Fabrikam: o SLO de 99,9% do checkout precisa de medição sintética contínua a partir de várias regiões. O que mede a experiência real?",
+    "question": "Caso Fabrikam: o SLO de 99,9% do checkout precisa de medi\u00e7\u00e3o sint\u00e9tica cont\u00ednua a partir de v\u00e1rias regi\u00f5es. O que mede a experi\u00eancia real?",
     "options": [
       {
         "letter": "A",
-        "text": "CPU média das VMs"
+        "text": "CPU m\u00e9dia das VMs"
       },
       {
         "letter": "B",
@@ -1789,7 +1688,7 @@
       },
       {
         "letter": "C",
-        "text": "Testes de disponibilidade multi-step por região"
+        "text": "Testes de disponibilidade multi-step por regi\u00e3o"
       },
       {
         "letter": "D",
@@ -1797,7 +1696,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Availability tests simulam o checkout por região e alimentam o SLI. CPU, deploys e tamanho não medem experiência.",
+    "explanation": "Availability tests simulam o checkout por regi\u00e3o e alimentam o SLI. CPU, deploys e tamanho n\u00e3o medem experi\u00eancia.",
     "source": "original",
     "tags": ["case", "slo", "availability"],
     "caseStudyId": "case-mo-01",
@@ -1811,7 +1710,7 @@
     "subdomain": "action-group-sms",
     "type": "single",
     "difficulty": "medium",
-    "question": "Alertas críticos precisam acordar o plantonista por SMS e voz em minutos. Quais canais o action group oferece para isso?",
+    "question": "Alertas cr\u00edticos precisam acordar o plantonista por SMS e voz em minutos. Quais canais o action group oferece para isso?",
     "options": [
       {
         "letter": "A",
@@ -1831,7 +1730,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Action groups disparam SMS/voz/push em segundos. Dashboard não acorda; semanal atrasa; log não notifica.",
+    "explanation": "Action groups disparam SMS/voz/push em segundos. Dashboard n\u00e3o acorda; semanal atrasa; log n\u00e3o notifica.",
     "source": "original",
     "tags": ["action-group", "sms", "voz", "plantao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1844,7 +1743,7 @@
     "subdomain": "action-group-push",
     "type": "single",
     "difficulty": "medium",
-    "question": "Engenheiros precisam receber alertas no app móvel do Azure com confirmação. Qual notificação push o action group envia?",
+    "question": "Engenheiros precisam receber alertas no app m\u00f3vel do Azure com confirma\u00e7\u00e3o. Qual notifica\u00e7\u00e3o push o action group envia?",
     "options": [
       {
         "letter": "A",
@@ -1860,11 +1759,11 @@
       },
       {
         "letter": "D",
-        "text": "Notificação push no aplicativo móvel"
+        "text": "Notifica\u00e7\u00e3o push no aplicativo m\u00f3vel"
       }
     ],
     "correct": ["D"],
-    "explanation": "Push no app Azure com ack integra plantão. Fixo não recebe SMS; carta atrasa meses; portal exige estar olhando.",
+    "explanation": "Push no app Azure com ack integra plant\u00e3o. Fixo n\u00e3o recebe SMS; carta atrasa meses; portal exige estar olhando.",
     "source": "original",
     "tags": ["action-group", "push", "movel"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1877,15 +1776,15 @@
     "subdomain": "webhook-custom",
     "type": "single",
     "difficulty": "medium",
-    "question": "Alerta deve acionar endpoint HTTPS interno com payload customizado e autenticação. O que o action group chama?",
+    "question": "Alerta deve acionar endpoint HTTPS interno com payload customizado e autentica\u00e7\u00e3o. O que o action group chama?",
     "options": [
       {
         "letter": "A",
-        "text": "E-mail sem autenticação"
+        "text": "E-mail sem autentica\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Ligação com DTMF"
+        "text": "Liga\u00e7\u00e3o com DTMF"
       },
       {
         "letter": "C",
@@ -1897,7 +1796,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Webhook seguro entrega JSON com auth configurável. E-mail não integra; SMS não leva payload; voz não automatiza.",
+    "explanation": "Webhook seguro entrega JSON com auth configur\u00e1vel. E-mail n\u00e3o integra; SMS n\u00e3o leva payload; voz n\u00e3o automatiza.",
     "source": "original",
     "tags": ["webhook", "payload", "automacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1910,7 +1809,7 @@
     "subdomain": "logic-app-connector",
     "type": "single",
     "difficulty": "medium",
-    "question": "Alerta deve criar card no Teams, chamado no ITSM e postar no canal. Qual ação orquestra múltiplos destinos?",
+    "question": "Alerta deve criar card no Teams, chamado no ITSM e postar no canal. Qual a\u00e7\u00e3o orquestra m\u00faltiplos destinos?",
     "options": [
       {
         "letter": "A",
@@ -1918,19 +1817,19 @@
       },
       {
         "letter": "B",
-        "text": "SMS único"
+        "text": "SMS \u00fanico"
       },
       {
         "letter": "C",
-        "text": "Dashboard estático"
+        "text": "Dashboard est\u00e1tico"
       },
       {
         "letter": "D",
-        "text": "E-mail único"
+        "text": "E-mail \u00fanico"
       }
     ],
     "correct": ["A"],
-    "explanation": "Logic App com conectores ramifica o alerta para Teams, ITSM e canal com lógica. E-mail ou SMS isolados são ponto único; dashboard estático não age.",
+    "explanation": "Logic App com conectores ramifica o alerta para Teams, ITSM e canal com l\u00f3gica. E-mail ou SMS isolados s\u00e3o ponto \u00fanico; dashboard est\u00e1tico n\u00e3o age.",
     "source": "mslearn",
     "tags": ["logic-app", "conectores", "teams", "itsm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1944,7 +1843,7 @@
     "subdomain": "automation-runbook-alert",
     "type": "single",
     "difficulty": "medium",
-    "question": "Disco cheio deve disparar limpeza automática via script antes de acordar humano. O que o alerta executa primeiro?",
+    "question": "Disco cheio deve disparar limpeza autom\u00e1tica via script antes de acordar humano. O que o alerta executa primeiro?",
     "options": [
       {
         "letter": "A",
@@ -1952,7 +1851,7 @@
       },
       {
         "letter": "B",
-        "text": "Runbook de automação com remediação"
+        "text": "Runbook de automa\u00e7\u00e3o com remedia\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -1960,11 +1859,11 @@
       },
       {
         "letter": "D",
-        "text": "Página direta ao plantão"
+        "text": "P\u00e1gina direta ao plant\u00e3o"
       }
     ],
     "correct": ["B"],
-    "explanation": "Runbook limpa e só escala se falhar. Paginar direto desperta à toa; e-mail atrasa; nada acumula incidente.",
+    "explanation": "Runbook limpa e s\u00f3 escala se falhar. Paginar direto desperta \u00e0 toa; e-mail atrasa; nada acumula incidente.",
     "source": "mslearn",
     "tags": ["runbook", "remediacao", "disco"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1978,7 +1877,7 @@
     "subdomain": "alert-processing-rule",
     "type": "single",
     "difficulty": "medium",
-    "question": "Alertas de teste e homologação poluem o plantão de produção. Como suprimir por horário e origem sem desligar regras?",
+    "question": "Alertas de teste e homologa\u00e7\u00e3o poluem o plant\u00e3o de produ\u00e7\u00e3o. Como suprimir por hor\u00e1rio e origem sem desligar regras?",
     "options": [
       {
         "letter": "A",
@@ -1990,7 +1889,7 @@
       },
       {
         "letter": "C",
-        "text": "Regra de processamento com supressão por escopo/horário"
+        "text": "Regra de processamento com supress\u00e3o por escopo/hor\u00e1rio"
       },
       {
         "letter": "D",
@@ -1998,7 +1897,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Processing rules suprimem por escopo, horário e severidade mantendo regras ativas. Excluir perde cobertura; desligar cega; filtro manual atrasa.",
+    "explanation": "Processing rules suprimem por escopo, hor\u00e1rio e severidade mantendo regras ativas. Excluir perde cobertura; desligar cega; filtro manual atrasa.",
     "source": "mslearn",
     "tags": ["processing-rules", "supressao", "plantao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2028,7 +1927,7 @@
       },
       {
         "letter": "D",
-        "text": "Agrupamento de alertas por correlação (smart groups)"
+        "text": "Agrupamento de alertas por correla\u00e7\u00e3o (smart groups)"
       }
     ],
     "correct": ["D"],
@@ -2046,11 +1945,11 @@
     "subdomain": "maintenance-window-alert",
     "type": "single",
     "difficulty": "medium",
-    "question": "Deploys noturnos disparam alertas esperados que acordam o plantão. Como silenciar durante a janela de mudança?",
+    "question": "Deploys noturnos disparam alertas esperados que acordam o plant\u00e3o. Como silenciar durante a janela de mudan\u00e7a?",
     "options": [
       {
         "letter": "A",
-        "text": "Ignorar o plantão"
+        "text": "Ignorar o plant\u00e3o"
       },
       {
         "letter": "B",
@@ -2058,7 +1957,7 @@
       },
       {
         "letter": "C",
-        "text": "Supressão programada na janela de manutenção"
+        "text": "Supress\u00e3o programada na janela de manuten\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -2066,7 +1965,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Supressão agenda silêncio na janela e reativa sozinha. Excluir perde cobertura; ignorar queima plantão; desligar cega.",
+    "explanation": "Supress\u00e3o agenda sil\u00eancio na janela e reativa sozinha. Excluir perde cobertura; ignorar queima plant\u00e3o; desligar cega.",
     "source": "mslearn",
     "tags": ["supressao", "janela", "deploy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2088,7 +1987,7 @@
       },
       {
         "letter": "B",
-        "text": "Severidades com action groups distintos por nível"
+        "text": "Severidades com action groups distintos por n\u00edvel"
       },
       {
         "letter": "C",
@@ -2100,7 +1999,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Sev0-Sev4 roteiam voz/SMS vs ticket conforme impacto. Tudo igual queima ou atrasa; tudo Sev0 dessensibiliza; sem nível não prioriza.",
+    "explanation": "Sev0-Sev4 roteiam voz/SMS vs ticket conforme impacto. Tudo igual queima ou atrasa; tudo Sev0 dessensibiliza; sem n\u00edvel n\u00e3o prioriza.",
     "source": "mslearn",
     "tags": ["severidade", "triagem", "roteamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2114,7 +2013,7 @@
     "subdomain": "monitor-private-link-scope",
     "type": "single",
     "difficulty": "medium",
-    "question": "Múltiplos workspaces isolados precisam compartilhar o mesmo link privado. Qual escopo o AMPLS usa?",
+    "question": "M\u00faltiplos workspaces isolados precisam compartilhar o mesmo link privado. Qual escopo o AMPLS usa?",
     "options": [
       {
         "letter": "A",
@@ -2122,7 +2021,7 @@
       },
       {
         "letter": "B",
-        "text": "Endpoint público por workspace"
+        "text": "Endpoint p\u00fablico por workspace"
       },
       {
         "letter": "C",
@@ -2134,7 +2033,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "AMPLS vincula workspaces e componentes ao link privado. Por query não existe; público expõe; sem link não isola.",
+    "explanation": "AMPLS vincula workspaces e componentes ao link privado. Por query n\u00e3o existe; p\u00fablico exp\u00f5e; sem link n\u00e3o isola.",
     "source": "original",
     "tags": ["ampls", "escopo", "link-privado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2147,7 +2046,7 @@
     "subdomain": "data-ingestion-access",
     "type": "single",
     "difficulty": "medium",
-    "question": "Apenas redes corporativas podem ingerir telemetria no workspace. Onde restringir ingestão e consulta à rede privada?",
+    "question": "Apenas redes corporativas podem ingerir telemetria no workspace. Onde restringir ingest\u00e3o e consulta \u00e0 rede privada?",
     "options": [
       {
         "letter": "A",
@@ -2155,11 +2054,11 @@
       },
       {
         "letter": "B",
-        "text": "Acesso público irrestrito"
+        "text": "Acesso p\u00fablico irrestrito"
       },
       {
         "letter": "C",
-        "text": "Isolamento de rede do workspace (ingestão/consulta)"
+        "text": "Isolamento de rede do workspace (ingest\u00e3o/consulta)"
       },
       {
         "letter": "D",
@@ -2167,7 +2066,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Network isolation separa ingestão e query para redes/VNet. Desligado expõe; público irrestrito vaza; sem workspace não há log.",
+    "explanation": "Network isolation separa ingest\u00e3o e query para redes/VNet. Desligado exp\u00f5e; p\u00fablico irrestrito vaza; sem workspace n\u00e3o h\u00e1 log.",
     "source": "original",
     "tags": ["isolamento", "ingestao", "rede"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2180,11 +2079,11 @@
     "subdomain": "daily-cap",
     "type": "single",
     "difficulty": "medium",
-    "question": "Bug de log verboso ameaça estourar a fatura de ingestão. Qual trava limita o volume diário?",
+    "question": "Bug de log verboso amea\u00e7a estourar a fatura de ingest\u00e3o. Qual trava limita o volume di\u00e1rio?",
     "options": [
       {
         "letter": "A",
-        "text": "Ingestão ilimitada"
+        "text": "Ingest\u00e3o ilimitada"
       },
       {
         "letter": "B",
@@ -2192,7 +2091,7 @@
       },
       {
         "letter": "C",
-        "text": "Teto diário (daily cap) com alerta"
+        "text": "Teto di\u00e1rio (daily cap) com alerta"
       },
       {
         "letter": "D",
@@ -2200,7 +2099,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Daily cap trava volume com alerta antes do estouro. Ilimitado fatura; desligar cega; excluir antigo não limita ingestão.",
+    "explanation": "Daily cap trava volume com alerta antes do estouro. Ilimitado fatura; desligar cega; excluir antigo n\u00e3o limita ingest\u00e3o.",
     "source": "original",
     "tags": ["daily-cap", "teto", "fatura"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2225,7 +2124,7 @@
       },
       {
         "letter": "C",
-        "text": "Logs básicos (Basic) com retenção curta"
+        "text": "Logs b\u00e1sicos (Basic) com reten\u00e7\u00e3o curta"
       },
       {
         "letter": "D",
@@ -2233,7 +2132,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Basic logs custam fração para verbosos com query limitada. Analytics em tudo desperdiça; sem log perde debug; local fragmenta.",
+    "explanation": "Basic logs custam fra\u00e7\u00e3o para verbosos com query limitada. Analytics em tudo desperdi\u00e7a; sem log perde debug; local fragmenta.",
     "source": "mslearn",
     "tags": ["basic-logs", "custo", "verboso"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2247,11 +2146,11 @@
     "subdomain": "auxiliary-logs",
     "type": "single",
     "difficulty": "medium",
-    "question": "Trilhas de auditoria raramente consultadas precisam de retenção longa barata. Qual plano arquiva com consulta ocasional?",
+    "question": "Trilhas de auditoria raramente consultadas precisam de reten\u00e7\u00e3o longa barata. Qual plano arquiva com consulta ocasional?",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão após 30 dias"
+        "text": "Exclus\u00e3o ap\u00f3s 30 dias"
       },
       {
         "letter": "B",
@@ -2263,11 +2162,11 @@
       },
       {
         "letter": "D",
-        "text": "Logs auxiliares (Auxiliary) com retenção longa"
+        "text": "Logs auxiliares (Auxiliary) com reten\u00e7\u00e3o longa"
       }
     ],
     "correct": ["D"],
-    "explanation": "Auxiliary arquiva barato com restore sob demanda. Quente para tudo custa; excluir perde compliance; CSV não escala.",
+    "explanation": "Auxiliary arquiva barato com restore sob demanda. Quente para tudo custa; excluir perde compliance; CSV n\u00e3o escala.",
     "source": "mslearn",
     "tags": ["auxiliary", "arquivo", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2281,19 +2180,19 @@
     "subdomain": "restore-logs",
     "type": "single",
     "difficulty": "medium",
-    "question": "Investigação precisa consultar 6 meses de logs arquivados por 2 dias. Como restaurar temporariamente para consulta?",
+    "question": "Investiga\u00e7\u00e3o precisa consultar 6 meses de logs arquivados por 2 dias. Como restaurar temporariamente para consulta?",
     "options": [
       {
         "letter": "A",
-        "text": "Reingestão manual dos arquivos"
+        "text": "Reingest\u00e3o manual dos arquivos"
       },
       {
         "letter": "B",
-        "text": "Desistir da investigação"
+        "text": "Desistir da investiga\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Restauração (restore) de tabelas por intervalo"
+        "text": "Restaura\u00e7\u00e3o (restore) de tabelas por intervalo"
       },
       {
         "letter": "D",
@@ -2301,7 +2200,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Restore materializa intervalo arquivado para KQL temporário. Reingestão duplica; direto no archive é lento/limitado; desistir não investiga.",
+    "explanation": "Restore materializa intervalo arquivado para KQL tempor\u00e1rio. Reingest\u00e3o duplica; direto no archive \u00e9 lento/limitado; desistir n\u00e3o investiga.",
     "source": "mslearn",
     "tags": ["restore", "arquivo", "investigacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2315,11 +2214,11 @@
     "subdomain": "search-jobs",
     "type": "single",
     "difficulty": "medium",
-    "question": "Busca em 1 ano de logs para perícia precisa rodar em segundo plano com resultado em tabela. O que executa a varredura assíncrona?",
+    "question": "Busca em 1 ano de logs para per\u00edcia precisa rodar em segundo plano com resultado em tabela. O que executa a varredura ass\u00edncrona?",
     "options": [
       {
         "letter": "A",
-        "text": "Exportação total para Excel"
+        "text": "Exporta\u00e7\u00e3o total para Excel"
       },
       {
         "letter": "B",
@@ -2327,7 +2226,7 @@
       },
       {
         "letter": "C",
-        "text": "Paginação manual por dia"
+        "text": "Pagina\u00e7\u00e3o manual por dia"
       },
       {
         "letter": "D",
@@ -2335,7 +2234,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Search jobs varrem longo prazo assíncronos com resultado em tabela. Interativa estoura timeout; manual atrasa meses; Excel não comporta.",
+    "explanation": "Search jobs varrem longo prazo ass\u00edncronos com resultado em tabela. Interativa estoura timeout; manual atrasa meses; Excel n\u00e3o comporta.",
     "source": "original",
     "tags": ["search-jobs", "pericia", "longo-prazo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2348,7 +2247,7 @@
     "subdomain": "update-runbook-patch",
     "type": "single",
     "difficulty": "medium",
-    "question": "Patch precisa de pré-check de espaço em disco com aborto se insuficiente. Onde validar antes de aplicar?",
+    "question": "Patch precisa de pr\u00e9-check de espa\u00e7o em disco com aborto se insuficiente. Onde validar antes de aplicar?",
     "options": [
       {
         "letter": "A",
@@ -2356,19 +2255,19 @@
       },
       {
         "letter": "B",
-        "text": "Verificação manual por RDP"
+        "text": "Verifica\u00e7\u00e3o manual por RDP"
       },
       {
         "letter": "C",
-        "text": "Ignorar pré-requisitos"
+        "text": "Ignorar pr\u00e9-requisitos"
       },
       {
         "letter": "D",
-        "text": "Runbook de pré-verificação na janela"
+        "text": "Runbook de pr\u00e9-verifica\u00e7\u00e3o na janela"
       }
     ],
     "correct": ["D"],
-    "explanation": "Pré-check automatizado aborta sem espaço. Torcer quebra no meio; RDP não escala; ignorar corrompe update.",
+    "explanation": "Pr\u00e9-check automatizado aborta sem espa\u00e7o. Torcer quebra no meio; RDP n\u00e3o escala; ignorar corrompe update.",
     "source": "original",
     "tags": ["pre-check", "runbook", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2381,7 +2280,7 @@
     "subdomain": "post-patch-validation",
     "type": "single",
     "difficulty": "medium",
-    "question": "Após patch, serviço precisa de teste de fumaça antes de liberar o lote. O que valida pós-aplicação?",
+    "question": "Ap\u00f3s patch, servi\u00e7o precisa de teste de fuma\u00e7a antes de liberar o lote. O que valida p\u00f3s-aplica\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -2393,15 +2292,15 @@
       },
       {
         "letter": "C",
-        "text": "Script de validação pós-patch com health check"
+        "text": "Script de valida\u00e7\u00e3o p\u00f3s-patch com health check"
       },
       {
         "letter": "D",
-        "text": "Aguardar chamado do usuário"
+        "text": "Aguardar chamado do usu\u00e1rio"
       }
     ],
     "correct": ["C"],
-    "explanation": "Pós-check valida serviço antes do próximo lote. Sem validar propaga quebra; ping não testa app; usuário não é monitor.",
+    "explanation": "P\u00f3s-check valida servi\u00e7o antes do pr\u00f3ximo lote. Sem validar propaga quebra; ping n\u00e3o testa app; usu\u00e1rio n\u00e3o \u00e9 monitor.",
     "source": "original",
     "tags": ["pos-check", "validacao", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2414,7 +2313,7 @@
     "subdomain": "patch-rollback-auto",
     "type": "single",
     "difficulty": "medium",
-    "question": "Falha pós-patch precisa reverter automaticamente ao snapshot. O que executa rollback na falha?",
+    "question": "Falha p\u00f3s-patch precisa reverter automaticamente ao snapshot. O que executa rollback na falha?",
     "options": [
       {
         "letter": "A",
@@ -2426,7 +2325,7 @@
       },
       {
         "letter": "C",
-        "text": "Aguardar próximo ciclo mensal"
+        "text": "Aguardar pr\u00f3ximo ciclo mensal"
       },
       {
         "letter": "D",
@@ -2447,11 +2346,11 @@
     "subdomain": "patch-report-compliance",
     "type": "single",
     "difficulty": "medium",
-    "question": "Diretoria exige percentual de conformidade de patch por ambiente mensalmente. De onde extrair o relatório?",
+    "question": "Diretoria exige percentual de conformidade de patch por ambiente mensalmente. De onde extrair o relat\u00f3rio?",
     "options": [
       {
         "letter": "A",
-        "text": "Relatório de conformidade do Update Manager"
+        "text": "Relat\u00f3rio de conformidade do Update Manager"
       },
       {
         "letter": "B",
@@ -2467,7 +2366,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Relatório agrega conformidade por escopo e período. Planilha desatualiza; e-mail não mede; chute não audita.",
+    "explanation": "Relat\u00f3rio agrega conformidade por escopo e per\u00edodo. Planilha desatualiza; e-mail n\u00e3o mede; chute n\u00e3o audita.",
     "source": "original",
     "tags": ["relatorio", "conformidade", "patch"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2480,7 +2379,7 @@
     "subdomain": "arc-monitoring",
     "type": "single",
     "difficulty": "medium",
-    "question": "Servidores on-premises com Arc precisam das mesmas métricas e logs do Azure. O que projeta o monitoramento?",
+    "question": "Servidores on-premises com Arc precisam das mesmas m\u00e9tricas e logs do Azure. O que projeta o monitoramento?",
     "options": [
       {
         "letter": "A",
@@ -2496,11 +2395,11 @@
       },
       {
         "letter": "D",
-        "text": "Monitoramento só local"
+        "text": "Monitoramento s\u00f3 local"
       }
     ],
     "correct": ["B"],
-    "explanation": "Arc projeta servidores com AMA/DCR iguais à nuvem. Legado fragmenta; só local não centraliza; sem monitor cega.",
+    "explanation": "Arc projeta servidores com AMA/DCR iguais \u00e0 nuvem. Legado fragmenta; s\u00f3 local n\u00e3o centraliza; sem monitor cega.",
     "source": "original",
     "tags": ["arc", "on-premises", "ama", "dcr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2513,7 +2412,7 @@
     "subdomain": "arc-update",
     "type": "single",
     "difficulty": "medium",
-    "question": "Patches em servidores Arc precisam da mesma janela e relatório da nuvem. O que estende o Update Manager?",
+    "question": "Patches em servidores Arc precisam da mesma janela e relat\u00f3rio da nuvem. O que estende o Update Manager?",
     "options": [
       {
         "letter": "A",
@@ -2525,7 +2424,7 @@
       },
       {
         "letter": "C",
-        "text": "WSUS isolado sem relatório"
+        "text": "WSUS isolado sem relat\u00f3rio"
       },
       {
         "letter": "D",
@@ -2533,7 +2432,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Escopo Arc unifica janela e relatório. WSUS isolado fragmenta; manual não escala; sem patch vulnerabiliza.",
+    "explanation": "Escopo Arc unifica janela e relat\u00f3rio. WSUS isolado fragmenta; manual n\u00e3o escala; sem patch vulnerabiliza.",
     "source": "original",
     "tags": ["arc", "update-manager", "on-premises"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2546,7 +2445,7 @@
     "subdomain": "arc-policy",
     "type": "single",
     "difficulty": "medium",
-    "question": "Servidores Arc precisam das mesmas políticas de conformidade da nuvem. O que estende Policy ao on-premises?",
+    "question": "Servidores Arc precisam das mesmas pol\u00edticas de conformidade da nuvem. O que estende Policy ao on-premises?",
     "options": [
       {
         "letter": "A",
@@ -2562,11 +2461,11 @@
       },
       {
         "letter": "D",
-        "text": "Sem governança on-prem"
+        "text": "Sem governan\u00e7a on-prem"
       }
     ],
     "correct": ["B"],
-    "explanation": "Policy avalia Arc com conformidade centralizada. GPO local não reporta; manual não escala; sem governança diverge.",
+    "explanation": "Policy avalia Arc com conformidade centralizada. GPO local n\u00e3o reporta; manual n\u00e3o escala; sem governan\u00e7a diverge.",
     "source": "mslearn",
     "tags": ["arc", "policy", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2580,11 +2479,11 @@
     "subdomain": "arc-defender",
     "type": "single",
     "difficulty": "medium",
-    "question": "Servidores Arc precisam de proteção contra ameaças igual à nuvem. O que estende o Defender?",
+    "question": "Servidores Arc precisam de prote\u00e7\u00e3o contra amea\u00e7as igual \u00e0 nuvem. O que estende o Defender?",
     "options": [
       {
         "letter": "A",
-        "text": "Antivírus local sem central"
+        "text": "Antiv\u00edrus local sem central"
       },
       {
         "letter": "B",
@@ -2592,7 +2491,7 @@
       },
       {
         "letter": "C",
-        "text": "Sem proteção on-prem"
+        "text": "Sem prote\u00e7\u00e3o on-prem"
       },
       {
         "letter": "D",
@@ -2600,7 +2499,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Plano no Arc centraliza alertas e recomendações. Local sem central fragmenta; sem nada expõe; borda não protege host.",
+    "explanation": "Plano no Arc centraliza alertas e recomenda\u00e7\u00f5es. Local sem central fragmenta; sem nada exp\u00f5e; borda n\u00e3o protege host.",
     "source": "original",
     "tags": ["arc", "defender", "servidores"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2617,7 +2516,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Fita local com rotação"
+        "text": "Fita local com rota\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -2625,7 +2524,7 @@
       },
       {
         "letter": "C",
-        "text": "Cópia manual em HD externo"
+        "text": "C\u00f3pia manual em HD externo"
       },
       {
         "letter": "D",
@@ -2633,7 +2532,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "MARS envia ao cofre com retenção e criptografia. Fita atrasa restore; HD externo perde; sem nada arrisca.",
+    "explanation": "MARS envia ao cofre com reten\u00e7\u00e3o e criptografia. Fita atrasa restore; HD externo perde; sem nada arrisca.",
     "source": "mslearn",
     "tags": ["arc", "backup", "mars"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2647,11 +2546,11 @@
     "subdomain": "automanage-arc",
     "type": "single",
     "difficulty": "medium",
-    "question": "Servidores Arc precisam de baseline automático igual às VMs. O que aplica Automanage no híbrido?",
+    "question": "Servidores Arc precisam de baseline autom\u00e1tico igual \u00e0s VMs. O que aplica Automanage no h\u00edbrido?",
     "options": [
       {
         "letter": "A",
-        "text": "Imagem padrão sem gestão"
+        "text": "Imagem padr\u00e3o sem gest\u00e3o"
       },
       {
         "letter": "B",
@@ -2663,11 +2562,11 @@
       },
       {
         "letter": "D",
-        "text": "Configuração manual por servidor"
+        "text": "Configura\u00e7\u00e3o manual por servidor"
       }
     ],
     "correct": ["C"],
-    "explanation": "Perfil Arc aplica monitor, backup e segurança continuamente. Manual diverge; sem baseline vulnerabiliza; imagem sem gestão desatualiza.",
+    "explanation": "Perfil Arc aplica monitor, backup e seguran\u00e7a continuamente. Manual diverge; sem baseline vulnerabiliza; imagem sem gest\u00e3o desatualiza.",
     "source": "original",
     "tags": ["arc", "automanage", "baseline"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2680,7 +2579,7 @@
     "subdomain": "change-tracking-arc",
     "type": "single",
     "difficulty": "medium",
-    "question": "Mudanças de arquivos e registro em servidores Arc precisam de trilha com alerta. O que rastreia altering?",
+    "question": "Mudan\u00e7as de arquivos e registro em servidores Arc precisam de trilha com alerta. O que rastreia altering?",
     "options": [
       {
         "letter": "A",
@@ -2688,7 +2587,7 @@
       },
       {
         "letter": "B",
-        "text": "Verificação manual semanal"
+        "text": "Verifica\u00e7\u00e3o manual semanal"
       },
       {
         "letter": "C",
@@ -2700,7 +2599,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Change Tracking com regras detecta drift de arquivos/registro e alerta. Verificação manual semanal atrasa; sem rastreio cega; backup sem trilha não mostra mudança.",
+    "explanation": "Change Tracking com regras detecta drift de arquivos/registro e alerta. Verifica\u00e7\u00e3o manual semanal atrasa; sem rastreio cega; backup sem trilha n\u00e3o mostra mudan\u00e7a.",
     "source": "original",
     "tags": ["change-tracking", "arc", "drift"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2713,11 +2612,11 @@
     "subdomain": "inventory-arc",
     "type": "single",
     "difficulty": "medium",
-    "question": "Software instalado nos servidores Arc precisa de inventário com versão para patch. O que coleta o inventário?",
+    "question": "Software instalado nos servidores Arc precisa de invent\u00e1rio com vers\u00e3o para patch. O que coleta o invent\u00e1rio?",
     "options": [
       {
         "letter": "A",
-        "text": "Sem inventário"
+        "text": "Sem invent\u00e1rio"
       },
       {
         "letter": "B",
@@ -2725,7 +2624,7 @@
       },
       {
         "letter": "C",
-        "text": "Inventário do Automation com coleta"
+        "text": "Invent\u00e1rio do Automation com coleta"
       },
       {
         "letter": "D",
@@ -2733,7 +2632,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Inventory coleta pacotes/serviços com versão centralizada. Planilha desatualiza; e-mail dispersa; sem nada não planeja patch.",
+    "explanation": "Inventory coleta pacotes/servi\u00e7os com vers\u00e3o centralizada. Planilha desatualiza; e-mail dispersa; sem nada n\u00e3o planeja patch.",
     "source": "original",
     "tags": ["inventario", "arc", "software"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2746,7 +2645,7 @@
     "subdomain": "sql-arc",
     "type": "single",
     "difficulty": "medium",
-    "question": "SQL Server on-premises precisa de avaliação e backup gerenciado. O que projeta o SQL para o Azure?",
+    "question": "SQL Server on-premises precisa de avalia\u00e7\u00e3o e backup gerenciado. O que projeta o SQL para o Azure?",
     "options": [
       {
         "letter": "A",
@@ -2758,15 +2657,15 @@
       },
       {
         "letter": "C",
-        "text": "Sem gestão do SQL"
+        "text": "Sem gest\u00e3o do SQL"
       },
       {
         "letter": "D",
-        "text": "SQL habilitado pelo Arc com avaliação"
+        "text": "SQL habilitado pelo Arc com avalia\u00e7\u00e3o"
       }
     ],
     "correct": ["D"],
-    "explanation": "Arc SQL avalia best practices e gerencia backup. Local sem nuvem fragmenta; manual falha; sem gestão degrada.",
+    "explanation": "Arc SQL avalia best practices e gerencia backup. Local sem nuvem fragmenta; manual falha; sem gest\u00e3o degrada.",
     "source": "original",
     "tags": ["sql", "arc", "avaliacao", "backup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2795,11 +2694,11 @@
       },
       {
         "letter": "D",
-        "text": "Sem gestão dos clusters"
+        "text": "Sem gest\u00e3o dos clusters"
       }
     ],
     "correct": ["C"],
-    "explanation": "Arc K8s aplica GitOps e Policy centralizados. Local sem central diverge; e-mail não implanta; sem gestão perde controle.",
+    "explanation": "Arc K8s aplica GitOps e Policy centralizados. Local sem central diverge; e-mail n\u00e3o implanta; sem gest\u00e3o perde controle.",
     "source": "original",
     "tags": ["kubernetes", "arc", "gitops", "flux"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2812,7 +2711,7 @@
     "subdomain": "policy-guest-config",
     "type": "single",
     "difficulty": "hard",
-    "question": "Configurações dentro do SO (serviços, registros) precisam de auditoria via Policy. Qual provedor avalia guest configuration?",
+    "question": "Configura\u00e7\u00f5es dentro do SO (servi\u00e7os, registros) precisam de auditoria via Policy. Qual provedor avalia guest configuration?",
     "options": [
       {
         "letter": "A",
@@ -2824,7 +2723,7 @@
       },
       {
         "letter": "C",
-        "text": "Métrica de CPU"
+        "text": "M\u00e9trica de CPU"
       },
       {
         "letter": "D",
@@ -2832,7 +2731,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Guest Config audita e corrige dentro do SO via Policy. NSG filtra rede; backup não audita config; CPU não mostra setting.",
+    "explanation": "Guest Config audita e corrige dentro do SO via Policy. NSG filtra rede; backup n\u00e3o audita config; CPU n\u00e3o mostra setting.",
     "source": "mslearn",
     "tags": ["guest-configuration", "policy", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2846,15 +2745,15 @@
     "subdomain": "policy-remediate-guest",
     "type": "single",
     "difficulty": "hard",
-    "question": "SO fora do baseline precisa de correção automática, não só auditoria. Qual efeito remedia guest configuration?",
+    "question": "SO fora do baseline precisa de corre\u00e7\u00e3o autom\u00e1tica, n\u00e3o s\u00f3 auditoria. Qual efeito remedia guest configuration?",
     "options": [
       {
         "letter": "A",
-        "text": "Audit sem ação"
+        "text": "Audit sem a\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "DeployIfNotExists com correção de guest"
+        "text": "DeployIfNotExists com corre\u00e7\u00e3o de guest"
       },
       {
         "letter": "C",
@@ -2862,11 +2761,11 @@
       },
       {
         "letter": "D",
-        "text": "Exclusão do recurso"
+        "text": "Exclus\u00e3o do recurso"
       }
     ],
     "correct": ["B"],
-    "explanation": "DINE com remediation aplica a config desejada. Audit só observa; e-mail não corrige; excluir destrói.",
+    "explanation": "DINE com remediation aplica a config desejada. Audit s\u00f3 observa; e-mail n\u00e3o corrige; excluir destr\u00f3i.",
     "source": "mslearn",
     "tags": ["remediacao", "guest", "dine"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2880,15 +2779,15 @@
     "subdomain": "policy-exemptions",
     "type": "single",
     "difficulty": "hard",
-    "question": "Recurso legado precisa de isenção temporária documentada da política. Como isentar com prazo e motivo?",
+    "question": "Recurso legado precisa de isen\u00e7\u00e3o tempor\u00e1ria documentada da pol\u00edtica. Como isentar com prazo e motivo?",
     "options": [
       {
         "letter": "A",
-        "text": "Isenção (exemption) com expiração e justificativa"
+        "text": "Isen\u00e7\u00e3o (exemption) com expira\u00e7\u00e3o e justificativa"
       },
       {
         "letter": "B",
-        "text": "Desabilitar a política global"
+        "text": "Desabilitar a pol\u00edtica global"
       },
       {
         "letter": "C",
@@ -2896,11 +2795,11 @@
       },
       {
         "letter": "D",
-        "text": "Ignorar a não conformidade"
+        "text": "Ignorar a n\u00e3o conformidade"
       }
     ],
     "correct": ["A"],
-    "explanation": "Exemption documenta, expira e audita a exceção. Desligar global afeta todos; excluir foge; ignorar acumula.",
+    "explanation": "Exemption documenta, expira e audita a exce\u00e7\u00e3o. Desligar global afeta todos; excluir foge; ignorar acumula.",
     "source": "mslearn",
     "tags": ["exemption", "isencao", "prazo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2914,27 +2813,27 @@
     "subdomain": "policy-waivers",
     "type": "single",
     "difficulty": "hard",
-    "question": "Não conformidade pontual já corrigida precisa sair do relatório sem recriar. O que marca como dispensado?",
+    "question": "N\u00e3o conformidade pontual j\u00e1 corrigida precisa sair do relat\u00f3rio sem recriar. O que marca como dispensado?",
     "options": [
       {
         "letter": "A",
-        "text": "Mudança de subscription"
+        "text": "Mudan\u00e7a de subscription"
       },
       {
         "letter": "B",
-        "text": "Recriação do recurso"
+        "text": "Recria\u00e7\u00e3o do recurso"
       },
       {
         "letter": "C",
-        "text": "Exclusão da política"
+        "text": "Exclus\u00e3o da pol\u00edtica"
       },
       {
         "letter": "D",
-        "text": "Waiver (dispensa) do recurso não conforme"
+        "text": "Waiver (dispensa) do recurso n\u00e3o conforme"
       }
     ],
     "correct": ["D"],
-    "explanation": "Waiver dispensa o item avaliado com trilha. Excluir política afeta todos; recriar perde; trocar sub foge.",
+    "explanation": "Waiver dispensa o item avaliado com trilha. Excluir pol\u00edtica afeta todos; recriar perde; trocar sub foge.",
     "source": "mslearn",
     "tags": ["waiver", "dispensa", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2948,15 +2847,15 @@
     "subdomain": "policy-versioning",
     "type": "single",
     "difficulty": "hard",
-    "question": "Definições customizadas evoluem e atribuições precisam travar versão estável. Como versionar definição de Policy?",
+    "question": "Defini\u00e7\u00f5es customizadas evoluem e atribui\u00e7\u00f5es precisam travar vers\u00e3o est\u00e1vel. Como versionar defini\u00e7\u00e3o de Policy?",
     "options": [
       {
         "letter": "A",
-        "text": "Sem controle de versão"
+        "text": "Sem controle de vers\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Versões da definição com pin na atribuição"
+        "text": "Vers\u00f5es da defini\u00e7\u00e3o com pin na atribui\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -2964,11 +2863,11 @@
       },
       {
         "letter": "D",
-        "text": "Nova definição por mudança"
+        "text": "Nova defini\u00e7\u00e3o por mudan\u00e7a"
       }
     ],
     "correct": ["B"],
-    "explanation": "Versionamento com pin estabiliza atribuições. Sobrescrever quebra; duplicar fragmenta; sem controle perde trilha.",
+    "explanation": "Versionamento com pin estabiliza atribui\u00e7\u00f5es. Sobrescrever quebra; duplicar fragmenta; sem controle perde trilha.",
     "source": "mslearn",
     "tags": ["policy", "versionamento", "pin"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2982,27 +2881,27 @@
     "subdomain": "policy-group-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Iniciativa de segurança agrupa 20 definições com parâmetros comuns. Quais dois elementos compõem o pacote? Selecione duas.",
+    "question": "Iniciativa de seguran\u00e7a agrupa 20 defini\u00e7\u00f5es com par\u00e2metros comuns. Quais dois elementos comp\u00f5em o pacote? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão das definições"
+        "text": "Exclus\u00e3o das defini\u00e7\u00f5es"
       },
       {
         "letter": "B",
-        "text": "Atribuições avulsas sem pacote"
+        "text": "Atribui\u00e7\u00f5es avulsas sem pacote"
       },
       {
         "letter": "C",
-        "text": "Definições referenciadas na iniciativa"
+        "text": "Defini\u00e7\u00f5es referenciadas na iniciativa"
       },
       {
         "letter": "D",
-        "text": "Parâmetros compartilhados com valores"
+        "text": "Par\u00e2metros compartilhados com valores"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Iniciativa referencia definições com parâmetros unificados. Avulsas fragmentam; excluir remove proteção.",
+    "explanation": "Iniciativa referencia defini\u00e7\u00f5es com par\u00e2metros unificados. Avulsas fragmentam; excluir remove prote\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["initiative", "pacote", "parametros"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3032,11 +2931,11 @@
       },
       {
         "letter": "D",
-        "text": "Definição única genérica"
+        "text": "Defini\u00e7\u00e3o \u00fanica gen\u00e9rica"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Iniciativas regulatórias CIS e ISO 27001 mapeiam controles prontos para auditoria. Definição única genérica não mapeia; checklist manual não audita.",
+    "explanation": "Iniciativas regulat\u00f3rias CIS e ISO 27001 mapeiam controles prontos para auditoria. Defini\u00e7\u00e3o \u00fanica gen\u00e9rica n\u00e3o mapeia; checklist manual n\u00e3o audita.",
     "source": "original",
     "tags": ["cis", "iso", "compliance", "built-in"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3049,11 +2948,11 @@
     "subdomain": "benchmark-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Baseline de segurança Microsoft precisa de cobertura com relatório. Quais dois elementos aplicar? Selecione duas.",
+    "question": "Baseline de seguran\u00e7a Microsoft precisa de cobertura com relat\u00f3rio. Quais dois elementos aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Benchmark de segurança (MCB) como iniciativa"
+        "text": "Benchmark de seguran\u00e7a (MCB) como iniciativa"
       },
       {
         "letter": "B",
@@ -3061,15 +2960,15 @@
       },
       {
         "letter": "C",
-        "text": "Relatório de conformidade por controle"
+        "text": "Relat\u00f3rio de conformidade por controle"
       },
       {
         "letter": "D",
-        "text": "Configuração manual por VM"
+        "text": "Configura\u00e7\u00e3o manual por VM"
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Benchmark MCB padroniza controles e o relatório mede cobertura por controle. Configuração manual por VM diverge; sem baseline não há padrão.",
+    "explanation": "Benchmark MCB padroniza controles e o relat\u00f3rio mede cobertura por controle. Configura\u00e7\u00e3o manual por VM diverge; sem baseline n\u00e3o h\u00e1 padr\u00e3o.",
     "source": "original",
     "tags": ["benchmark", "mcb", "baseline"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3082,27 +2981,27 @@
     "subdomain": "assignment-scope-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Iniciativa deve valer para produção com exceção de sandbox documentada. Quais dois escopos combinar? Selecione duas.",
+    "question": "Iniciativa deve valer para produ\u00e7\u00e3o com exce\u00e7\u00e3o de sandbox documentada. Quais dois escopos combinar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuição só no sandbox"
+        "text": "Atribui\u00e7\u00e3o s\u00f3 no sandbox"
       },
       {
         "letter": "B",
-        "text": "Atribuição no MG de produção"
+        "text": "Atribui\u00e7\u00e3o no MG de produ\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Sem atribuição"
+        "text": "Sem atribui\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Exclusão com exemption no sandbox"
+        "text": "Exclus\u00e3o com exemption no sandbox"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Atribuição no MG de produção cobre tudo e exemption documenta a exceção no sandbox. Atribuir só no sandbox inverte; sem atribuição não governa.",
+    "explanation": "Atribui\u00e7\u00e3o no MG de produ\u00e7\u00e3o cobre tudo e exemption documenta a exce\u00e7\u00e3o no sandbox. Atribuir s\u00f3 no sandbox inverte; sem atribui\u00e7\u00e3o n\u00e3o governa.",
     "source": "original",
     "tags": ["escopo", "mg", "exemption"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3115,15 +3014,15 @@
     "subdomain": "noncompliance-reasons-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Recursos não conformes precisam de motivo e dono para tratar. Quais dois campos documentar? Selecione duas.",
+    "question": "Recursos n\u00e3o conformes precisam de motivo e dono para tratar. Quais dois campos documentar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Motivo da não conformidade"
+        "text": "Motivo da n\u00e3o conformidade"
       },
       {
         "letter": "B",
-        "text": "Responsável e prazo"
+        "text": "Respons\u00e1vel e prazo"
       },
       {
         "letter": "C",
@@ -3131,11 +3030,11 @@
       },
       {
         "letter": "D",
-        "text": "Responsável anônimo"
+        "text": "Respons\u00e1vel an\u00f4nimo"
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Motivo da não conformidade explica e responsável com prazo executa a correção. Sem motivo registrado não prioriza; responsável anônimo não cobra.",
+    "explanation": "Motivo da n\u00e3o conformidade explica e respons\u00e1vel com prazo executa a corre\u00e7\u00e3o. Sem motivo registrado n\u00e3o prioriza; respons\u00e1vel an\u00f4nimo n\u00e3o cobra.",
     "source": "original",
     "tags": ["nao-conformidade", "motivo", "dono"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3148,27 +3047,27 @@
     "subdomain": "compliance-trend-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Evolução da conformidade precisa de tendência com marcos. Quais dois elementos medir? Selecione duas.",
+    "question": "Evolu\u00e7\u00e3o da conformidade precisa de tend\u00eancia com marcos. Quais dois elementos medir? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Série histórica de conformidade"
+        "text": "S\u00e9rie hist\u00f3rica de conformidade"
       },
       {
         "letter": "B",
-        "text": "Marcos de remediação datados"
+        "text": "Marcos de remedia\u00e7\u00e3o datados"
       },
       {
         "letter": "C",
-        "text": "Foto única atual"
+        "text": "Foto \u00fanica atual"
       },
       {
         "letter": "D",
-        "text": "Sem histórico"
+        "text": "Sem hist\u00f3rico"
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Série histórica mostra evolução da conformidade e marcos datados provam progresso. Foto única atual não tende; sem histórico não há medição.",
+    "explanation": "S\u00e9rie hist\u00f3rica mostra evolu\u00e7\u00e3o da conformidade e marcos datados provam progresso. Foto \u00fanica atual n\u00e3o tende; sem hist\u00f3rico n\u00e3o h\u00e1 medi\u00e7\u00e3o.",
     "source": "original",
     "tags": ["tendencia", "historico", "marcos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3181,7 +3080,7 @@
     "subdomain": "drift-detection-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Mudanças fora do IaC precisam de detecção com diff antes/depois. Quais dois elementos detectar? Selecione duas.",
+    "question": "Mudan\u00e7as fora do IaC precisam de detec\u00e7\u00e3o com diff antes/depois. Quais dois elementos detectar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3189,19 +3088,19 @@
       },
       {
         "letter": "B",
-        "text": "Detecção de drift no recurso"
+        "text": "Detec\u00e7\u00e3o de drift no recurso"
       },
       {
         "letter": "C",
-        "text": "Ignorar mudanças manuais"
+        "text": "Ignorar mudan\u00e7as manuais"
       },
       {
         "letter": "D",
-        "text": "Diff de configuração auditado"
+        "text": "Diff de configura\u00e7\u00e3o auditado"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Detecção de drift sinaliza mudança fora do IaC e o diff auditado mostra antes/depois. Ignorar mudanças manuais acumula; sem trilha não há investigação.",
+    "explanation": "Detec\u00e7\u00e3o de drift sinaliza mudan\u00e7a fora do IaC e o diff auditado mostra antes/depois. Ignorar mudan\u00e7as manuais acumula; sem trilha n\u00e3o h\u00e1 investiga\u00e7\u00e3o.",
     "source": "original",
     "tags": ["drift", "deteccao", "diff"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3214,7 +3113,7 @@
     "subdomain": "activity-log-alert-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Exclusão de grupo de recursos precisa alertar imediatamente o SOC. Quais dois elementos compor? Selecione duas.",
+    "question": "Exclus\u00e3o de grupo de recursos precisa alertar imediatamente o SOC. Quais dois elementos compor? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3222,7 +3121,7 @@
       },
       {
         "letter": "B",
-        "text": "Alerta de log de atividade na operação delete"
+        "text": "Alerta de log de atividade na opera\u00e7\u00e3o delete"
       },
       {
         "letter": "C",
@@ -3234,7 +3133,7 @@
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Alerta de log na operação delete com voz/SMS ao SOC reage em minutos. Log semanal consolidado atrasa dias; sem alerta não há detecção.",
+    "explanation": "Alerta de log na opera\u00e7\u00e3o delete com voz/SMS ao SOC reage em minutos. Log semanal consolidado atrasa dias; sem alerta n\u00e3o h\u00e1 detec\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["activity-log", "delete", "soc"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3252,7 +3151,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Alerta de Service Health por região/serviço"
+        "text": "Alerta de Service Health por regi\u00e3o/servi\u00e7o"
       },
       {
         "letter": "B",
@@ -3264,11 +3163,11 @@
       },
       {
         "letter": "D",
-        "text": "Descoberta pelo usuário"
+        "text": "Descoberta pelo usu\u00e1rio"
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Alerta de Service Health filtra região/serviço e o NOC recebe com severidade. Aviso só no portal exige olhar; descoberta pelo usuário não monitora.",
+    "explanation": "Alerta de Service Health filtra regi\u00e3o/servi\u00e7o e o NOC recebe com severidade. Aviso s\u00f3 no portal exige olhar; descoberta pelo usu\u00e1rio n\u00e3o monitora.",
     "source": "mslearn",
     "tags": ["service-health", "alerta", "noc"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3282,15 +3181,15 @@
     "subdomain": "resource-health-alert-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "VM indisponível por falha de plataforma precisa alertar o dono com causa. Quais dois elementos compor? Selecione duas.",
+    "question": "VM indispon\u00edvel por falha de plataforma precisa alertar o dono com causa. Quais dois elementos compor? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Notificação ao dono com causa"
+        "text": "Notifica\u00e7\u00e3o ao dono com causa"
       },
       {
         "letter": "B",
-        "text": "Verificação manual horária"
+        "text": "Verifica\u00e7\u00e3o manual hor\u00e1ria"
       },
       {
         "letter": "C",
@@ -3302,7 +3201,7 @@
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Alerta de Resource Health detecta indisponibilidade da VM e notifica o dono com a causa. Verificação manual horária atrasa; sem alerta não há detecção.",
+    "explanation": "Alerta de Resource Health detecta indisponibilidade da VM e notifica o dono com a causa. Verifica\u00e7\u00e3o manual hor\u00e1ria atrasa; sem alerta n\u00e3o h\u00e1 detec\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["resource-health", "alerta", "dono"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3316,7 +3215,7 @@
     "subdomain": "advisor-alert-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Nova recomendação crítica do Advisor precisa chegar ao time responsável. Quais dois elementos encaminhar? Selecione duas.",
+    "question": "Nova recomenda\u00e7\u00e3o cr\u00edtica do Advisor precisa chegar ao time respons\u00e1vel. Quais dois elementos encaminhar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3324,11 +3223,11 @@
       },
       {
         "letter": "B",
-        "text": "Alerta em nova recomendação do Advisor"
+        "text": "Alerta em nova recomenda\u00e7\u00e3o do Advisor"
       },
       {
         "letter": "C",
-        "text": "Ignorar recomendações"
+        "text": "Ignorar recomenda\u00e7\u00f5es"
       },
       {
         "letter": "D",
@@ -3336,7 +3235,7 @@
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Alerta em nova recomendação do Advisor com roteamento ao time dono age rápido. Leitura mensal do portal atrasa; ignorar recomendações acumula risco.",
+    "explanation": "Alerta em nova recomenda\u00e7\u00e3o do Advisor com roteamento ao time dono age r\u00e1pido. Leitura mensal do portal atrasa; ignorar recomenda\u00e7\u00f5es acumula risco.",
     "source": "mslearn",
     "tags": ["advisor", "alerta", "roteamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3350,11 +3249,11 @@
     "subdomain": "scheduled-query-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Query KQL precisa avaliar a cada 5 min com janela de 15 min e threshold. Quais dois parâmetros definir? Selecione duas.",
+    "question": "Query KQL precisa avaliar a cada 5 min com janela de 15 min e threshold. Quais dois par\u00e2metros definir? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Frequência de avaliação de 5 min"
+        "text": "Frequ\u00eancia de avalia\u00e7\u00e3o de 5 min"
       },
       {
         "letter": "B",
@@ -3362,7 +3261,7 @@
       },
       {
         "letter": "C",
-        "text": "Avaliação anual"
+        "text": "Avalia\u00e7\u00e3o anual"
       },
       {
         "letter": "D",
@@ -3370,7 +3269,7 @@
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Frequência com janela e limiar equilibram detecção e ruído. Anual não monitora; sem limiar dispara à toa.",
+    "explanation": "Frequ\u00eancia com janela e limiar equilibram detec\u00e7\u00e3o e ru\u00eddo. Anual n\u00e3o monitora; sem limiar dispara \u00e0 toa.",
     "source": "original",
     "tags": ["scheduled-query", "frequencia", "threshold"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3383,11 +3282,11 @@
     "subdomain": "mute-actions-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Manutenção programada precisa silenciar ações sem desligar regras. Quais dois controles usar? Selecione duas.",
+    "question": "Manuten\u00e7\u00e3o programada precisa silenciar a\u00e7\u00f5es sem desligar regras. Quais dois controles usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão das regras"
+        "text": "Exclus\u00e3o das regras"
       },
       {
         "letter": "B",
@@ -3399,11 +3298,11 @@
       },
       {
         "letter": "D",
-        "text": "Supressão de ações na janela"
+        "text": "Supress\u00e3o de a\u00e7\u00f5es na janela"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Supressão de ações na janela mantém as regras avaliando com histórico. Excluir as regras perde cobertura; desligar o Monitor cega tudo.",
+    "explanation": "Supress\u00e3o de a\u00e7\u00f5es na janela mant\u00e9m as regras avaliando com hist\u00f3rico. Excluir as regras perde cobertura; desligar o Monitor cega tudo.",
     "source": "original",
     "tags": ["supressao", "acoes", "janela"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3416,11 +3315,11 @@
     "subdomain": "stateful-vs-stateless-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Alerta deve disparar por transição de estado e não a cada avaliação. Quais dois modos diferenciar? Selecione duas.",
+    "question": "Alerta deve disparar por transi\u00e7\u00e3o de estado e n\u00e3o a cada avalia\u00e7\u00e3o. Quais dois modos diferenciar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Notificação única vitalícia"
+        "text": "Notifica\u00e7\u00e3o \u00fanica vital\u00edcia"
       },
       {
         "letter": "B",
@@ -3436,7 +3335,7 @@
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Modo com estado notifica transição com resolução registrada; sem estado sempre notifica. Escolher errado inunda a operação ou silencia o incidente.",
+    "explanation": "Modo com estado notifica transi\u00e7\u00e3o com resolu\u00e7\u00e3o registrada; sem estado sempre notifica. Escolher errado inunda a opera\u00e7\u00e3o ou silencia o incidente.",
     "source": "original",
     "tags": ["stateful", "stateless", "transicao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3453,23 +3352,23 @@
     "options": [
       {
         "letter": "A",
-        "text": "Fechamento manual obrigatório"
+        "text": "Fechamento manual obrigat\u00f3rio"
       },
       {
         "letter": "B",
-        "text": "Resolução automática ao normalizar"
+        "text": "Resolu\u00e7\u00e3o autom\u00e1tica ao normalizar"
       },
       {
         "letter": "C",
-        "text": "Reabertura sem critério"
+        "text": "Reabertura sem crit\u00e9rio"
       },
       {
         "letter": "D",
-        "text": "Histórico com resolved"
+        "text": "Hist\u00f3rico com resolved"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Resolução automática fecha o alerta ao normalizar, com histórico de resolved. Fechamento manual obrigatório atrasa; reabertura sem critério gera ruído.",
+    "explanation": "Resolu\u00e7\u00e3o autom\u00e1tica fecha o alerta ao normalizar, com hist\u00f3rico de resolved. Fechamento manual obrigat\u00f3rio atrasa; reabertura sem crit\u00e9rio gera ru\u00eddo.",
     "source": "original",
     "tags": ["auto-resolve", "resolucao", "historico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3482,11 +3381,11 @@
     "subdomain": "split-by-dimensions-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Falha em um contêiner específico não pode alertar a conta toda. Quais dois recursos segmentar? Selecione duas.",
+    "question": "Falha em um cont\u00eainer espec\u00edfico n\u00e3o pode alertar a conta toda. Quais dois recursos segmentar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Alerta agregado genérico"
+        "text": "Alerta agregado gen\u00e9rico"
       },
       {
         "letter": "B",
@@ -3498,11 +3397,11 @@
       },
       {
         "letter": "D",
-        "text": "Divisão por dimensões (split)"
+        "text": "Divis\u00e3o por dimens\u00f5es (split)"
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Divisão por dimensões (split) isola o segmento com contexto próprio. Alerta agregado genérico não isola; um alerta por blob explode em volume.",
+    "explanation": "Divis\u00e3o por dimens\u00f5es (split) isola o segmento com contexto pr\u00f3prio. Alerta agregado gen\u00e9rico n\u00e3o isola; um alerta por blob explode em volume.",
     "source": "original",
     "tags": ["split", "dimensoes", "segmento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3515,15 +3414,15 @@
     "subdomain": "failures-anomalies-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Pico de falhas fora do padrão precisa de detecção sem limiar fixo. Quais dois recursos usar? Selecione duas.",
+    "question": "Pico de falhas fora do padr\u00e3o precisa de detec\u00e7\u00e3o sem limiar fixo. Quais dois recursos usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Detecção de anomalias no Application Insights"
+        "text": "Detec\u00e7\u00e3o de anomalias no Application Insights"
       },
       {
         "letter": "B",
-        "text": "Sem detecção"
+        "text": "Sem detec\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -3535,7 +3434,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Detecção de anomalias aprende o baseline e alerta em desvio do padrão. Limiar fixo alto permanente perde o sutil; sem detecção o pico passa batido.",
+    "explanation": "Detec\u00e7\u00e3o de anomalias aprende o baseline e alerta em desvio do padr\u00e3o. Limiar fixo alto permanente perde o sutil; sem detec\u00e7\u00e3o o pico passa batido.",
     "source": "original",
     "tags": ["anomalias", "baseline", "falhas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3548,27 +3447,27 @@
     "subdomain": "proactive-detection-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Degradação futura prevista por tendência precisa de ação antes do estouro. Quais dois elementos antecipar? Selecione duas.",
+    "question": "Degrada\u00e7\u00e3o futura prevista por tend\u00eancia precisa de a\u00e7\u00e3o antes do estouro. Quais dois elementos antecipar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Sem previsão"
+        "text": "Sem previs\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Reação após outage"
+        "text": "Rea\u00e7\u00e3o ap\u00f3s outage"
       },
       {
         "letter": "C",
-        "text": "Detecção proativa com previsão"
+        "text": "Detec\u00e7\u00e3o proativa com previs\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Ação preventiva documentada"
+        "text": "A\u00e7\u00e3o preventiva documentada"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Detecção proativa com previsão antecipa degradação e ação preventiva documentada contém. Reagir após o outage atrasa; sem previsão o estouro surpreende.",
+    "explanation": "Detec\u00e7\u00e3o proativa com previs\u00e3o antecipa degrada\u00e7\u00e3o e a\u00e7\u00e3o preventiva documentada cont\u00e9m. Reagir ap\u00f3s o outage atrasa; sem previs\u00e3o o estouro surpreende.",
     "source": "original",
     "tags": ["proativa", "previsao", "prevencao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3581,15 +3480,15 @@
     "subdomain": "performance-counters-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Gargalo de CPU/memória/disco precisa de contadores do SO correlacionados. Quais dois coletar? Selecione duas.",
+    "question": "Gargalo de CPU/mem\u00f3ria/disco precisa de contadores do SO correlacionados. Quais dois coletar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Métrica de billing"
+        "text": "M\u00e9trica de billing"
       },
       {
         "letter": "B",
-        "text": "Correlação com eventos do app"
+        "text": "Correla\u00e7\u00e3o com eventos do app"
       },
       {
         "letter": "C",
@@ -3601,7 +3500,7 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Contadores de performance do convidado mostram recurso e correlação com eventos do app explica a causa. Métrica de billing não diagnostica; log de deploy não mede runtime.",
+    "explanation": "Contadores de performance do convidado mostram recurso e correla\u00e7\u00e3o com eventos do app explica a causa. M\u00e9trica de billing n\u00e3o diagnostica; log de deploy n\u00e3o mede runtime.",
     "source": "original",
     "tags": ["contadores", "performance", "correlacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3634,7 +3533,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Syslog via AMA/DCR e eventos Windows via DCR centralizam multi-OS. Arquivo local sem central fragmenta; sem coleta não há visibilidade.",
+    "explanation": "Syslog via AMA/DCR e eventos Windows via DCR centralizam multi-OS. Arquivo local sem central fragmenta; sem coleta n\u00e3o h\u00e1 visibilidade.",
     "source": "mslearn",
     "tags": ["syslog", "eventos", "ama", "dcr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3656,11 +3555,11 @@
       },
       {
         "letter": "B",
-        "text": "Logs de aplicação com correlation ID"
+        "text": "Logs de aplica\u00e7\u00e3o com correlation ID"
       },
       {
         "letter": "C",
-        "text": "Métrica de disco apenas"
+        "text": "M\u00e9trica de disco apenas"
       },
       {
         "letter": "D",
@@ -3668,7 +3567,7 @@
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Logs IIS (W3C) mostram o request e logs de aplicação com correlation ID mostram a exceção. Métrica de disco apenas não explica 500; backup dos logs não investiga.",
+    "explanation": "Logs IIS (W3C) mostram o request e logs de aplica\u00e7\u00e3o com correlation ID mostram a exce\u00e7\u00e3o. M\u00e9trica de disco apenas n\u00e3o explica 500; backup dos logs n\u00e3o investiga.",
     "source": "mslearn",
     "tags": ["iis", "logs", "correlacao", "500"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3682,7 +3581,7 @@
     "subdomain": "failed-request-tracing-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Requests lentos intermitentes precisam de rastreio detalhado só nas falhas. Quais dois recursos capturar? Selecione duas.",
+    "question": "Requests lentos intermitentes precisam de rastreio detalhado s\u00f3 nas falhas. Quais dois recursos capturar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3690,7 +3589,7 @@
       },
       {
         "letter": "B",
-        "text": "Log genérico sem filtro"
+        "text": "Log gen\u00e9rico sem filtro"
       },
       {
         "letter": "C",
@@ -3702,7 +3601,7 @@
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Failed Request Tracing filtrado captura falhas com detalhe e profiler sob demanda mostra hot path. Log genérico sem filtro afoga; restart do app mascara.",
+    "explanation": "Failed Request Tracing filtrado captura falhas com detalhe e profiler sob demanda mostra hot path. Log gen\u00e9rico sem filtro afoga; restart do app mascara.",
     "source": "original",
     "tags": ["freb", "tracing", "profiler"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3715,11 +3614,11 @@
     "subdomain": "stdout-logs-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Crash no startup sem log acessível precisa de stdout capturado. Quais dois canais obter? Selecione duas.",
+    "question": "Crash no startup sem log acess\u00edvel precisa de stdout capturado. Quais dois canais obter? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Métrica de CPU"
+        "text": "M\u00e9trica de CPU"
       },
       {
         "letter": "B",
@@ -3731,11 +3630,11 @@
       },
       {
         "letter": "D",
-        "text": "Backup do código"
+        "text": "Backup do c\u00f3digo"
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Logs de console (stdout) mostram a exceção de startup e eventos de deploy registram a falha. Métrica de CPU não mostra erro; backup do código não diagnostica.",
+    "explanation": "Logs de console (stdout) mostram a exce\u00e7\u00e3o de startup e eventos de deploy registram a falha. M\u00e9trica de CPU n\u00e3o mostra erro; backup do c\u00f3digo n\u00e3o diagnostica.",
     "source": "mslearn",
     "tags": ["stdout", "startup", "crash"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3749,11 +3648,11 @@
     "subdomain": "deployment-logs-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Deploy falhou no meio e é preciso saber em qual etapa travou. Quais dois logs consultar? Selecione duas.",
+    "question": "Deploy falhou no meio e \u00e9 preciso saber em qual etapa travou. Quais dois logs consultar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Log do mês passado"
+        "text": "Log do m\u00eas passado"
       },
       {
         "letter": "B",
@@ -3765,11 +3664,11 @@
       },
       {
         "letter": "D",
-        "text": "Métrica de rede"
+        "text": "M\u00e9trica de rede"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Logs de deployment (Kudu/Actions) mostram a etapa travada e o status por etapa indica o erro para retomar. Log do mês passado desatualiza; métrica de rede não explica build.",
+    "explanation": "Logs de deployment (Kudu/Actions) mostram a etapa travada e o status por etapa indica o erro para retomar. Log do m\u00eas passado desatualiza; m\u00e9trica de rede n\u00e3o explica build.",
     "source": "mslearn",
     "tags": ["deploy", "logs", "etapas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3783,7 +3682,7 @@
     "subdomain": "kudu-tools-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Diagnóstico avançado precisa de console e dump do processo ao vivo. Quais duas ferramentas do Kudu usar? Selecione duas.",
+    "question": "Diagn\u00f3stico avan\u00e7ado precisa de console e dump do processo ao vivo. Quais duas ferramentas do Kudu usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3791,19 +3690,19 @@
       },
       {
         "letter": "B",
-        "text": "Edição direta em produção"
+        "text": "Edi\u00e7\u00e3o direta em produ\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Dump de processo para análise"
+        "text": "Dump de processo para an\u00e1lise"
       },
       {
         "letter": "D",
-        "text": "Exclusão de arquivos"
+        "text": "Exclus\u00e3o de arquivos"
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Console inspeciona e dump congela estado para análise. Editar em produção arrisca; excluir destrói evidência.",
+    "explanation": "Console inspeciona e dump congela estado para an\u00e1lise. Editar em produ\u00e7\u00e3o arrisca; excluir destr\u00f3i evid\u00eancia.",
     "source": "original",
     "tags": ["kudu", "console", "dump"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3816,7 +3715,7 @@
     "subdomain": "process-explorer-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Processo com CPU alta precisa de identificação com threads e handles. Quais dois dados inspecionar? Selecione duas.",
+    "question": "Processo com CPU alta precisa de identifica\u00e7\u00e3o com threads e handles. Quais dois dados inspecionar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3824,19 +3723,19 @@
       },
       {
         "letter": "B",
-        "text": "Lista de processos com CPU/memória"
+        "text": "Lista de processos com CPU/mem\u00f3ria"
       },
       {
         "letter": "C",
-        "text": "Nome do plano de serviço"
+        "text": "Nome do plano de servi\u00e7o"
       },
       {
         "letter": "D",
-        "text": "Threads e módulos do processo"
+        "text": "Threads e m\u00f3dulos do processo"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Processos com consumo e threads apontam o culpado. Plano não identifica processo; portal irrelevante.",
+    "explanation": "Processos com consumo e threads apontam o culpado. Plano n\u00e3o identifica processo; portal irrelevante.",
     "source": "original",
     "tags": ["processos", "threads", "cpu"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3849,7 +3748,7 @@
     "subdomain": "environment-dump-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Variáveis e connection strings em produção precisam de auditoria sem expor valores. Quais dois relatórios gerar? Selecione duas.",
+    "question": "Vari\u00e1veis e connection strings em produ\u00e7\u00e3o precisam de auditoria sem expor valores. Quais dois relat\u00f3rios gerar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3861,15 +3760,15 @@
       },
       {
         "letter": "C",
-        "text": "Exportação sem filtro"
+        "text": "Exporta\u00e7\u00e3o sem filtro"
       },
       {
         "letter": "D",
-        "text": "Print com segredos visíveis"
+        "text": "Print com segredos vis\u00edveis"
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Dump de ambiente com mascaramento e lista de settings sem valores auditam sem vazar segredos. Print com segredos visíveis expõe; exportação sem filtro vaza tudo.",
+    "explanation": "Dump de ambiente com mascaramento e lista de settings sem valores auditam sem vazar segredos. Print com segredos vis\u00edveis exp\u00f5e; exporta\u00e7\u00e3o sem filtro vaza tudo.",
     "source": "original",
     "tags": ["ambiente", "dump", "mascaramento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3882,11 +3781,11 @@
     "subdomain": "support-ticket-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Incidente com causa na plataforma precisa de chamado com severidade e evidência. Quais dois elementos montar? Selecione duas.",
+    "question": "Incidente com causa na plataforma precisa de chamado com severidade e evid\u00eancia. Quais dois elementos montar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Evidências (logs, tempo, escopo)"
+        "text": "Evid\u00eancias (logs, tempo, escopo)"
       },
       {
         "letter": "B",
@@ -3894,7 +3793,7 @@
       },
       {
         "letter": "C",
-        "text": "E-mail genérico"
+        "text": "E-mail gen\u00e9rico"
       },
       {
         "letter": "D",
@@ -3902,7 +3801,7 @@
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Severidade alinhada ao impacto prioriza e evidências (logs, tempo, escopo) aceleram o suporte. Chamado sem contexto atrasa; e-mail genérico dispersa.",
+    "explanation": "Severidade alinhada ao impacto prioriza e evid\u00eancias (logs, tempo, escopo) aceleram o suporte. Chamado sem contexto atrasa; e-mail gen\u00e9rico dispersa.",
     "source": "original",
     "tags": ["suporte", "severidade", "evidencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3915,7 +3814,7 @@
     "subdomain": "rca-report-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Pós-incidente precisa de causa raiz com ações preventivas. Quais dois blocos documentar? Selecione duas.",
+    "question": "P\u00f3s-incidente precisa de causa raiz com a\u00e7\u00f5es preventivas. Quais dois blocos documentar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -3931,11 +3830,11 @@
       },
       {
         "letter": "D",
-        "text": "Ações corretivas com donos"
+        "text": "A\u00e7\u00f5es corretivas com donos"
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Linha do tempo com causa raiz explica e ações corretivas com donos previnem repetição. Culpa individual nominal não corrige sistema; sem registro o erro repete.",
+    "explanation": "Linha do tempo com causa raiz explica e a\u00e7\u00f5es corretivas com donos previnem repeti\u00e7\u00e3o. Culpa individual nominal n\u00e3o corrige sistema; sem registro o erro repete.",
     "source": "original",
     "tags": ["rca", "pos-incidente", "acoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3948,11 +3847,11 @@
     "subdomain": "blameless-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Cultura de aprendizado sem caça às bruxas precisa de dois princípios. Quais são eles? Selecione duas.",
+    "question": "Cultura de aprendizado sem ca\u00e7a \u00e0s bruxas precisa de dois princ\u00edpios. Quais s\u00e3o eles? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Punição exemplar"
+        "text": "Puni\u00e7\u00e3o exemplar"
       },
       {
         "letter": "B",
@@ -3960,7 +3859,7 @@
       },
       {
         "letter": "C",
-        "text": "Melhoria contínua documentada"
+        "text": "Melhoria cont\u00ednua documentada"
       },
       {
         "letter": "D",
@@ -3968,7 +3867,7 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Foco em sistema e processo corrige a causa e melhoria contínua documentada propaga aprendizado. Punição exemplar esconde erros; sigilo total impede aprender.",
+    "explanation": "Foco em sistema e processo corrige a causa e melhoria cont\u00ednua documentada propaga aprendizado. Puni\u00e7\u00e3o exemplar esconde erros; sigilo total impede aprender.",
     "source": "original",
     "tags": ["blameless", "cultura", "aprendizado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3985,7 +3884,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Falha real em produção"
+        "text": "Falha real em produ\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -3993,15 +3892,15 @@
       },
       {
         "letter": "C",
-        "text": "Cenário de falha simulada"
+        "text": "Cen\u00e1rio de falha simulada"
       },
       {
         "letter": "D",
-        "text": "Sem preparação"
+        "text": "Sem prepara\u00e7\u00e3o"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Cenário de falha simulada treina a resposta e debrief com melhorias fixa aprendizado. Falha real em produção sem controle arrisca; sem preparação vira caos.",
+    "explanation": "Cen\u00e1rio de falha simulada treina a resposta e debrief com melhorias fixa aprendizado. Falha real em produ\u00e7\u00e3o sem controle arrisca; sem prepara\u00e7\u00e3o vira caos.",
     "source": "original",
     "tags": ["game-day", "simulacao", "treino"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4014,7 +3913,7 @@
     "subdomain": "runbook-docs-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Resposta consistente em plantão precisa de procedimento testado e atualizado. Quais dois artefatos manter? Selecione duas.",
+    "question": "Resposta consistente em plant\u00e3o precisa de procedimento testado e atualizado. Quais dois artefatos manter? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4026,15 +3925,15 @@
       },
       {
         "letter": "C",
-        "text": "Conhecimento só oral"
+        "text": "Conhecimento s\u00f3 oral"
       },
       {
         "letter": "D",
-        "text": "Revisão periódica do procedimento"
+        "text": "Revis\u00e3o peri\u00f3dica do procedimento"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Runbook passo a passo validado garante resposta consistente e revisão periódica mantém atualizado. Conhecimento só oral se perde; documento obsoleto induz erro.",
+    "explanation": "Runbook passo a passo validado garante resposta consistente e revis\u00e3o peri\u00f3dica mant\u00e9m atualizado. Conhecimento s\u00f3 oral se perde; documento obsoleto induz erro.",
     "source": "original",
     "tags": ["runbook", "documentacao", "plantao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4047,7 +3946,7 @@
     "subdomain": "oncall-rotation-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Plantão sustentável sem burnout precisa de rodízio e backup. Quais dois mecanismos adotar? Selecione duas.",
+    "question": "Plant\u00e3o sustent\u00e1vel sem burnout precisa de rod\u00edzio e backup. Quais dois mecanismos adotar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4059,15 +3958,15 @@
       },
       {
         "letter": "C",
-        "text": "Backup/secundário por turno"
+        "text": "Backup/secund\u00e1rio por turno"
       },
       {
         "letter": "D",
-        "text": "Escala de rodízio publicada"
+        "text": "Escala de rod\u00edzio publicada"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Escala de rodízio publicada distribui carga e backup/secundário por turno cobre ausência. Uma pessoa fixa para sempre queima; sem escala definida confunde.",
+    "explanation": "Escala de rod\u00edzio publicada distribui carga e backup/secund\u00e1rio por turno cobre aus\u00eancia. Uma pessoa fixa para sempre queima; sem escala definida confunde.",
     "source": "original",
     "tags": ["plantao", "rodizio", "backup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4080,7 +3979,7 @@
     "subdomain": "escalation-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Incidente sem resposta em 15 min precisa subir de nível automaticamente. Quais dois níveis de escalonamento definir? Selecione duas.",
+    "question": "Incidente sem resposta em 15 min precisa subir de n\u00edvel automaticamente. Quais dois n\u00edveis de escalonamento definir? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4092,7 +3991,7 @@
       },
       {
         "letter": "C",
-        "text": "Níveis com responsáveis (N1/N2/N3)"
+        "text": "N\u00edveis com respons\u00e1veis (N1/N2/N3)"
       },
       {
         "letter": "D",
@@ -4100,7 +3999,7 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Escalonamento por tempo sem ack sobe de nível e responsáveis N1/N2/N3 assumem. Aguardar indefinidamente atrasa; escalar tudo sempre queima o time.",
+    "explanation": "Escalonamento por tempo sem ack sobe de n\u00edvel e respons\u00e1veis N1/N2/N3 assumem. Aguardar indefinidamente atrasa; escalar tudo sempre queima o time.",
     "source": "original",
     "tags": ["escalonamento", "niveis", "ack"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4113,11 +4012,11 @@
     "subdomain": "war-room-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Incidente grave precisa de coordenação única com papéis claros. Quais dois elementos montar? Selecione duas.",
+    "question": "Incidente grave precisa de coordena\u00e7\u00e3o \u00fanica com pap\u00e9is claros. Quais dois elementos montar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Sem coordenação"
+        "text": "Sem coordena\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -4129,11 +4028,11 @@
       },
       {
         "letter": "D",
-        "text": "Papéis (comms, ops, scribe)"
+        "text": "Pap\u00e9is (comms, ops, scribe)"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Sala de guerra com comandante centraliza e papéis (comms, ops, scribe) evitam colisão. Cada um por si duplica esforço; sem coordenação dispersa.",
+    "explanation": "Sala de guerra com comandante centraliza e pap\u00e9is (comms, ops, scribe) evitam colis\u00e3o. Cada um por si duplica esfor\u00e7o; sem coordena\u00e7\u00e3o dispersa.",
     "source": "original",
     "tags": ["war-room", "coordenacao", "papeis"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4146,19 +4045,19 @@
     "subdomain": "status-page-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Clientes precisam de transparência durante outage sem sobrecarregar suporte. Quais dois canais manter? Selecione duas.",
+    "question": "Clientes precisam de transpar\u00eancia durante outage sem sobrecarregar suporte. Quais dois canais manter? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Comunicados periódicos com ETA"
+        "text": "Comunicados peri\u00f3dicos com ETA"
       },
       {
         "letter": "B",
-        "text": "Página de status pública atualizada"
+        "text": "P\u00e1gina de status p\u00fablica atualizada"
       },
       {
         "letter": "C",
-        "text": "Silêncio total"
+        "text": "Sil\u00eancio total"
       },
       {
         "letter": "D",
@@ -4166,7 +4065,7 @@
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Página de status pública atualizada centraliza e comunicados periódicos com ETA acalmam. Silêncio total especula; responder um a um não escala.",
+    "explanation": "P\u00e1gina de status p\u00fablica atualizada centraliza e comunicados peri\u00f3dicos com ETA acalmam. Sil\u00eancio total especula; responder um a um n\u00e3o escala.",
     "source": "original",
     "tags": ["status-page", "comunicacao", "transparencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4179,7 +4078,7 @@
     "subdomain": "slos-burn-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Queima rápida do orçamento de erro precisa de alerta antes de estourar. Quais dois alertas configurar? Selecione duas.",
+    "question": "Queima r\u00e1pida do or\u00e7amento de erro precisa de alerta antes de estourar. Quais dois alertas configurar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4191,15 +4090,15 @@
       },
       {
         "letter": "C",
-        "text": "Burn rate rápido (1h/6h)"
+        "text": "Burn rate r\u00e1pido (1h/6h)"
       },
       {
         "letter": "D",
-        "text": "Alerta só após estouro"
+        "text": "Alerta s\u00f3 ap\u00f3s estouro"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Burn rate rápido (1h/6h) pega incidente e lento (3d/6d) pega degradação; juntos antecipam o estouro. Sem alerta estoura; só após não previne.",
+    "explanation": "Burn rate r\u00e1pido (1h/6h) pega incidente e lento (3d/6d) pega degrada\u00e7\u00e3o; juntos antecipam o estouro. Sem alerta estoura; s\u00f3 ap\u00f3s n\u00e3o previne.",
     "source": "original",
     "tags": ["burn-rate", "slo", "alerta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4212,7 +4111,7 @@
     "subdomain": "error-budget-policy-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Orçamento de erro esgotado precisa travar features e focar em confiabilidade. Quais duas políticas aplicar? Selecione duas.",
+    "question": "Or\u00e7amento de erro esgotado precisa travar features e focar em confiabilidade. Quais duas pol\u00edticas aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4220,7 +4119,7 @@
       },
       {
         "letter": "B",
-        "text": "Ignorar o orçamento"
+        "text": "Ignorar o or\u00e7amento"
       },
       {
         "letter": "C",
@@ -4232,7 +4131,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Congelar deploys ao esgotar protege o SLO e priorizar confiabilidade no sprint recupera. Acelerar features mesmo assim piora; ignorar o orçamento anula o mecanismo.",
+    "explanation": "Congelar deploys ao esgotar protege o SLO e priorizar confiabilidade no sprint recupera. Acelerar features mesmo assim piora; ignorar o or\u00e7amento anula o mecanismo.",
     "source": "mslearn",
     "tags": ["error-budget", "freeze", "confiabilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4246,11 +4145,11 @@
     "subdomain": "reliability-targets-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Metas de confiabilidade precisam de SLO por serviço crítico com revisão. Quais dois elementos definir? Selecione duas.",
+    "question": "Metas de confiabilidade precisam de SLO por servi\u00e7o cr\u00edtico com revis\u00e3o. Quais dois elementos definir? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Meta única genérica"
+        "text": "Meta \u00fanica gen\u00e9rica"
       },
       {
         "letter": "B",
@@ -4258,15 +4157,15 @@
       },
       {
         "letter": "C",
-        "text": "SLOs por jornada crítica"
+        "text": "SLOs por jornada cr\u00edtica"
       },
       {
         "letter": "D",
-        "text": "Revisão trimestral das metas"
+        "text": "Revis\u00e3o trimestral das metas"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "SLOs por jornada crítica focam no que importa e revisão trimestral recalibra metas. Meta única genérica não dirige; sem metas não há medição.",
+    "explanation": "SLOs por jornada cr\u00edtica focam no que importa e revis\u00e3o trimestral recalibra metas. Meta \u00fanica gen\u00e9rica n\u00e3o dirige; sem metas n\u00e3o h\u00e1 medi\u00e7\u00e3o.",
     "source": "original",
     "tags": ["slo", "metas", "revisao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4279,7 +4178,7 @@
     "subdomain": "chaos-experiments-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Resiliência precisa de prova com falha injetada e hipótese medida. Quais dois elementos do experimento usar? Selecione duas.",
+    "question": "Resili\u00eancia precisa de prova com falha injetada e hip\u00f3tese medida. Quais dois elementos do experimento usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4291,15 +4190,15 @@
       },
       {
         "letter": "C",
-        "text": "Sem hipótese"
+        "text": "Sem hip\u00f3tese"
       },
       {
         "letter": "D",
-        "text": "Hipótese de steady-state"
+        "text": "Hip\u00f3tese de steady-state"
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Hipótese de steady-state define sucesso e falha controlada com blast radius testa com limite. Falha real sem controle arrisca; sem hipótese não há conclusão.",
+    "explanation": "Hip\u00f3tese de steady-state define sucesso e falha controlada com blast radius testa com limite. Falha real sem controle arrisca; sem hip\u00f3tese n\u00e3o h\u00e1 conclus\u00e3o.",
     "source": "original",
     "tags": ["caos", "experimento", "hipotese"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4312,11 +4211,11 @@
     "subdomain": "fault-injection-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Latência e queda de dependência precisam de simulação com aborto seguro. Quais dois controles aplicar? Selecione duas.",
+    "question": "Lat\u00eancia e queda de depend\u00eancia precisam de simula\u00e7\u00e3o com aborto seguro. Quais dois controles aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Injeção de latência/erro gradual"
+        "text": "Inje\u00e7\u00e3o de lat\u00eancia/erro gradual"
       },
       {
         "letter": "B",
@@ -4332,7 +4231,7 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Injeção de latência/erro gradual testa tolerância e abortar em guardrail violado protege. Queda total sem limite derruba; sem monitoramento cega.",
+    "explanation": "Inje\u00e7\u00e3o de lat\u00eancia/erro gradual testa toler\u00e2ncia e abortar em guardrail violado protege. Queda total sem limite derruba; sem monitoramento cega.",
     "source": "original",
     "tags": ["fault-injection", "latencia", "aborto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4345,27 +4244,27 @@
     "subdomain": "resilience-score-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Postura de resiliência precisa de nota com recomendações priorizadas. Quais dois elementos medir? Selecione duas.",
+    "question": "Postura de resili\u00eancia precisa de nota com recomenda\u00e7\u00f5es priorizadas. Quais dois elementos medir? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Nota única sem detalhe"
+        "text": "Nota \u00fanica sem detalhe"
       },
       {
         "letter": "B",
-        "text": "Recomendações com impacto"
+        "text": "Recomenda\u00e7\u00f5es com impacto"
       },
       {
         "letter": "C",
-        "text": "Sem medição"
+        "text": "Sem medi\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Score de resiliência por carga"
+        "text": "Score de resili\u00eancia por carga"
       }
     ],
     "correct": ["D", "B"],
-    "explanation": "Score de resiliência por carga prioriza e recomendações com impacto guiam. Nota única sem detalhe não age; sem medição não há evolução.",
+    "explanation": "Score de resili\u00eancia por carga prioriza e recomenda\u00e7\u00f5es com impacto guiam. Nota \u00fanica sem detalhe n\u00e3o age; sem medi\u00e7\u00e3o n\u00e3o h\u00e1 evolu\u00e7\u00e3o.",
     "source": "original",
     "tags": ["resiliencia", "score", "recomendacoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4378,7 +4277,7 @@
     "subdomain": "advisor-resilience-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Cargas sem zona nem backup precisam de recomendação automática. Quais dois sinais o Advisor usa? Selecione duas.",
+    "question": "Cargas sem zona nem backup precisam de recomenda\u00e7\u00e3o autom\u00e1tica. Quais dois sinais o Advisor usa? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -4386,7 +4285,7 @@
       },
       {
         "letter": "B",
-        "text": "Ausência de redundância zonal"
+        "text": "Aus\u00eancia de redund\u00e2ncia zonal"
       },
       {
         "letter": "C",
@@ -4398,7 +4297,7 @@
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Ausência de redundância zonal e falta de backup configurado disparam recomendação do Advisor. Cor do recurso e nome do grupo não avaliam resiliência.",
+    "explanation": "Aus\u00eancia de redund\u00e2ncia zonal e falta de backup configurado disparam recomenda\u00e7\u00e3o do Advisor. Cor do recurso e nome do grupo n\u00e3o avaliam resili\u00eancia.",
     "source": "original",
     "tags": ["advisor", "resiliencia", "recomendacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4411,11 +4310,11 @@
     "subdomain": "backup-explorer-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Centenas de itens protegidos precisam de visão com filtro por estado. Quais dois recursos do Explorer usar? Selecione duas.",
+    "question": "Centenas de itens protegidos precisam de vis\u00e3o com filtro por estado. Quais dois recursos do Explorer usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Visão centralizada multi-cofre"
+        "text": "Vis\u00e3o centralizada multi-cofre"
       },
       {
         "letter": "B",
@@ -4423,7 +4322,7 @@
       },
       {
         "letter": "C",
-        "text": "Filtros por estado e política"
+        "text": "Filtros por estado e pol\u00edtica"
       },
       {
         "letter": "D",
@@ -4431,7 +4330,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Visão centralizada multi-cofre com filtros por estado e política organiza centenas de itens. Cofre por cofre manual não escala; planilha paralela desatualiza.",
+    "explanation": "Vis\u00e3o centralizada multi-cofre com filtros por estado e pol\u00edtica organiza centenas de itens. Cofre por cofre manual n\u00e3o escala; planilha paralela desatualiza.",
     "source": "mslearn",
     "tags": ["backup-explorer", "visao", "filtros"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4445,11 +4344,11 @@
     "subdomain": "cross-region-restore-mo-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Teste de DR precisa restaurar na secundária sem afetar produção. Quais dois elementos isolar? Selecione duas.",
+    "question": "Teste de DR precisa restaurar na secund\u00e1ria sem afetar produ\u00e7\u00e3o. Quais dois elementos isolar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Restore direto em produção"
+        "text": "Restore direto em produ\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -4457,7 +4356,7 @@
       },
       {
         "letter": "C",
-        "text": "Validação sem tocar produção"
+        "text": "Valida\u00e7\u00e3o sem tocar produ\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -4465,7 +4364,7 @@
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "Restore em staging isolado testa sem risco e validação confirma sem tocar produção. Restore direto em produção arrisca; sem teste não se prova DR.",
+    "explanation": "Restore em staging isolado testa sem risco e valida\u00e7\u00e3o confirma sem tocar produ\u00e7\u00e3o. Restore direto em produ\u00e7\u00e3o arrisca; sem teste n\u00e3o se prova DR.",
     "source": "mslearn",
     "tags": ["cross-region", "staging", "teste-dr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -4474,250 +4373,24 @@
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
-    "id": "az104-mo-136",
-    "domain": "monitoramento",
-    "subdomain": "pitr-blob-mo-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que PITR de blobs exige versionamento e change feed habilitados. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, funciona sem nada"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, pré-requisitos obrigatórios"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "PITR de blobs requer versionamento, change feed e soft delete habilitados. Sem esses pré-requisitos não há ponto de restauração no passado.",
-    "source": "original",
-    "tags": ["pitr", "pre-requisitos", "versionamento"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-137",
-    "domain": "monitoramento",
-    "subdomain": "retention-vs-pitr-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que o ponto mais antigo restaurável é limitado pela retenção configurada. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, retenção limita o passado"
-      },
-      {
-        "letter": "B",
-        "text": "Não, restaura qualquer época"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "PITR só alcança dentro da retenção configurada para o passado. Restaurar qualquer época ignora o limite de guarda do banco.",
-    "source": "original",
-    "tags": ["pitr", "retencao", "limite"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-138",
-    "domain": "monitoramento",
-    "subdomain": "or-pitr-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que restore operacional e PITR podem coexistir na mesma conta. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, são mutuamente exclusivos"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, coexistem com políticas distintas"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Restore operacional contínuo e PITR atendem casos distintos e coexistem na mesma conta. Exclusividade mútua entre eles não existe na plataforma.",
-    "source": "original",
-    "tags": ["pitr", "operacional", "coexistencia"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-139",
-    "domain": "monitoramento",
-    "subdomain": "vault-tier-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que camada de cofre (vault tier) barateia retenção longa de blobs operacionais. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, vault tier reduz custo longo"
-      },
-      {
-        "letter": "B",
-        "text": "Não, só existe tier quente"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Camada de cofre (vault tier) move cópias antigas para retenção barata de longo prazo. Achar que só existe tier quente ignora a hierarquia de custo.",
-    "source": "mslearn",
-    "tags": ["vault-tier", "custo", "retencao"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T22:23:06.445Z",
-    "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
-  },
-  {
-    "id": "az104-mo-140",
-    "domain": "monitoramento",
-    "subdomain": "always-on-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que App Service sem Always On recicla em ociosidade, matando cache e cron. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, fica sempre ativo"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, sem Always On há unload"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Sem Always On o worker descarrega quando ocioso, matando warmup, cache e timers. Assumir sempre ativo ignora o ciclo de vida do plano.",
-    "source": "original",
-    "tags": ["always-on", "ociosidade", "reciclagem"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-141",
-    "domain": "monitoramento",
-    "subdomain": "arr-affinity-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que afinidade ARR deve ficar ligada por padrão para performance. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, desligada salvo estado em memória"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, sempre ligada"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Afinidade ARR só serve a estado em memória local; ligada quebra distribuição e escala. O padrão correto é desligada salvo necessidade explícita.",
-    "source": "original",
-    "tags": ["arr-affinity", "distribuicao", "estado"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-142",
-    "domain": "monitoramento",
-    "subdomain": "health-check-path-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um arquiteto afirma que health check path do App Service remove instância doente do LB. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Sim, unhealthy sai do pool"
-      },
-      {
-        "letter": "B",
-        "text": "Não, é só informativo"
-      }
-    ],
-    "correct": ["A"],
-    "explanation": "Health check path monitora e exclui a instância doente do balanceamento. Tratar como só informativo mantém tráfego no erro.",
-    "source": "original",
-    "tags": ["health-check", "pool", "doente"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-143",
-    "domain": "monitoramento",
-    "subdomain": "auto-heal-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um técnico afirma que auto-heal reinicia o app em condições como memória alta ou lentidão. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, auto-heal não existe"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, com gatilhos e ações"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Auto-heal monitora contadores (memória, lentidão) e recicla em condição configurada. Negar a existência ignora o recurso nativo da plataforma.",
-    "source": "original",
-    "tags": ["auto-heal", "reciclagem", "gatilhos"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
-    "id": "az104-mo-144",
-    "domain": "monitoramento",
-    "subdomain": "local-cache-conceito",
-    "type": "yes-no",
-    "difficulty": "hard",
-    "question": "Um colega afirma que cache local copia o conteúdo para o disco da instância melhorando leitura. Essa afirmação está correta?",
-    "options": [
-      {
-        "letter": "A",
-        "text": "Não, piora a performance"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, local cache acelera leitura"
-      }
-    ],
-    "correct": ["B"],
-    "explanation": "Cache local replica o conteúdo para o disco da instância reduzindo latência de leitura. Dizer que piora a performance inverte o propósito do recurso.",
-    "source": "original",
-    "tags": ["local-cache", "leitura", "disco"],
-    "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
-  },
-  {
     "id": "az104-mo-146",
     "domain": "monitoramento",
     "subdomain": "metricas-dimensoes",
     "type": "single",
     "difficulty": "medium",
-    "question": "Gráfico de CPU agrega todas as instâncias e esconde o outlier. Como ver a série por instância?",
+    "question": "Gr\u00e1fico de CPU agrega todas as inst\u00e2ncias e esconde o outlier. Como ver a s\u00e9rie por inst\u00e2ncia?",
     "options": [
       {
         "letter": "A",
-        "text": "Criar um alerta por instância"
+        "text": "Criar um alerta por inst\u00e2ncia"
       },
       {
         "letter": "B",
-        "text": "Dividir/filtrar pela dimensão de instância"
+        "text": "Dividir/filtrar pela dimens\u00e3o de inst\u00e2ncia"
       },
       {
         "letter": "C",
-        "text": "Aumentar a frequência de coleta"
+        "text": "Aumentar a frequ\u00eancia de coleta"
       },
       {
         "letter": "D",
@@ -4725,7 +4398,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "B está correta: dimensões dividem/filtram a série temporal por instância. A está incorreta: alerta por instância multiplica configuração sem mostrar série. D está incorreta: exportação manual não é monitoramento. C está incorreta: frequência maior não separa séries.",
+    "explanation": "B est\u00e1 correta: dimens\u00f5es dividem/filtram a s\u00e9rie temporal por inst\u00e2ncia. A est\u00e1 incorreta: alerta por inst\u00e2ncia multiplica configura\u00e7\u00e3o sem mostrar s\u00e9rie. D est\u00e1 incorreta: exporta\u00e7\u00e3o manual n\u00e3o \u00e9 monitoramento. C est\u00e1 incorreta: frequ\u00eancia maior n\u00e3o separa s\u00e9ries.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
     "tags": ["metricas", "dimensoes", "mo-monitor"],
@@ -4755,11 +4428,11 @@
       },
       {
         "letter": "D",
-        "text": "E-mail diário"
+        "text": "E-mail di\u00e1rio"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "A e B estão corretas: a conta de armazenamento (arquivo) mantém o arquivo barato por anos; o Log Analytics workspace responde à consulta KQL com retenção configurável em 90 dias. C está incorreta: apenas Application Insights é telemetria de código, não log de plataforma. D está incorreta: e-mail diário não é destino de log — não armazena nem permite consulta.",
+    "explanation": "A e B est\u00e3o corretas: a conta de armazenamento (arquivo) mant\u00e9m o arquivo barato por anos; o Log Analytics workspace responde \u00e0 consulta KQL com reten\u00e7\u00e3o configur\u00e1vel em 90 dias. C est\u00e1 incorreta: apenas Application Insights \u00e9 telemetria de c\u00f3digo, n\u00e3o log de plataforma. D est\u00e1 incorreta: e-mail di\u00e1rio n\u00e3o \u00e9 destino de log \u2014 n\u00e3o armazena nem permite consulta.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/diagnostic-settings",
     "tags": ["diagnostic-settings", "destinos", "mo-monitor"],
@@ -4773,7 +4446,7 @@
     "subdomain": "kql-render",
     "type": "single",
     "difficulty": "easy",
-    "question": "Consulta KQL lista erros por hora em tabela crua. Qual operador gera o gráfico de linhas do período?",
+    "question": "Consulta KQL lista erros por hora em tabela crua. Qual operador gera o gr\u00e1fico de linhas do per\u00edodo?",
     "options": [
       {
         "letter": "A",
@@ -4793,7 +4466,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: render timechart plota a série temporal. B está incorreta: take só limita linhas. A está incorreta: count retorna escalar, sem série. D está incorreta: search é busca textual sem visualização.",
+    "explanation": "C est\u00e1 correta: render timechart plota a s\u00e9rie temporal. B est\u00e1 incorreta: take s\u00f3 limita linhas. A est\u00e1 incorreta: count retorna escalar, sem s\u00e9rie. D est\u00e1 incorreta: search \u00e9 busca textual sem visualiza\u00e7\u00e3o.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
     "tags": ["kql", "render", "visualizacao", "mo-monitor"],
@@ -4807,11 +4480,11 @@
     "subdomain": "storage-insights",
     "type": "single",
     "difficulty": "medium",
-    "question": "Conta de armazenamento com latência precisa de capacidade e transações num painel pronto. Qual Insights usar?",
+    "question": "Conta de armazenamento com lat\u00eancia precisa de capacidade e transa\u00e7\u00f5es num painel pronto. Qual Insights usar?",
     "options": [
       {
         "letter": "A",
-        "text": "Storage Insights (capacidade + transações)"
+        "text": "Storage Insights (capacidade + transa\u00e7\u00f5es)"
       },
       {
         "letter": "B",
@@ -4827,7 +4500,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "A está correta: o Storage Insights (capacidade + transações) entrega capacidade, transações e latência da conta de armazenamento em um painel pronto. D está incorreta: VM Insights coleta métricas de máquinas virtuais, não da conta de armazenamento. B está incorreta: Application Insights é telemetria de código da aplicação. C está incorreta: Network Insights é observabilidade de rede e conectividade.",
+    "explanation": "A est\u00e1 correta: o Storage Insights (capacidade + transa\u00e7\u00f5es) entrega capacidade, transa\u00e7\u00f5es e lat\u00eancia da conta de armazenamento em um painel pronto. D est\u00e1 incorreta: VM Insights coleta m\u00e9tricas de m\u00e1quinas virtuais, n\u00e3o da conta de armazenamento. B est\u00e1 incorreta: Application Insights \u00e9 telemetria de c\u00f3digo da aplica\u00e7\u00e3o. C est\u00e1 incorreta: Network Insights \u00e9 observabilidade de rede e conectividade.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
     "tags": ["storage-insights", "capacidade", "mo-monitor"],
@@ -4841,11 +4514,11 @@
     "subdomain": "vnet-flow-logs",
     "type": "single",
     "difficulty": "hard",
-    "question": "Tráfego negado pelo NSG precisa de evidência com 5-tupla para auditoria. Qual recurso atual do Observador de Rede registra e analisa esses fluxos?",
+    "question": "Tr\u00e1fego negado pelo NSG precisa de evid\u00eancia com 5-tupla para auditoria. Qual recurso atual do Observador de Rede registra e analisa esses fluxos?",
     "options": [
       {
         "letter": "A",
-        "text": "Métricas do LB"
+        "text": "M\u00e9tricas do LB"
       },
       {
         "letter": "B",
@@ -4861,7 +4534,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "B está correta: os logs de fluxo de rede virtual registram a 5-tupla de cada fluxo (origem, destino, portas, protocolo, direção e estado) no Armazenamento do Azure, e o Traffic Analytics faz a análise. Os logs de fluxo do NSG estão em aposentadoria em 30/09/2027 e já não aceitam novas instalações, por isso a Microsoft orienta migrar para os logs de fluxo de rede virtual. C está incorreta: o IP Flow Verify devolve apenas o veredito de uma regra do NSG. D está incorreta: o Connection Troubleshoot devolve verificações de conectividade e latência, sem registrar fluxo. A está incorreta: métricas de balanceador não são evidência por fluxo.",
+    "explanation": "B est\u00e1 correta: os logs de fluxo de rede virtual registram a 5-tupla de cada fluxo (origem, destino, portas, protocolo, dire\u00e7\u00e3o e estado) no Armazenamento do Azure, e o Traffic Analytics faz a an\u00e1lise. Os logs de fluxo do NSG est\u00e3o em aposentadoria em 30/09/2027 e j\u00e1 n\u00e3o aceitam novas instala\u00e7\u00f5es, por isso a Microsoft orienta migrar para os logs de fluxo de rede virtual. C est\u00e1 incorreta: o IP Flow Verify devolve apenas o veredito de uma regra do NSG. D est\u00e1 incorreta: o Connection Troubleshoot devolve verifica\u00e7\u00f5es de conectividade e lat\u00eancia, sem registrar fluxo. A est\u00e1 incorreta: m\u00e9tricas de balanceador n\u00e3o s\u00e3o evid\u00eancia por fluxo.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/vnet-flow-logs-overview",
     "tags": ["flow-logs", "traffic-analytics", "auditoria", "mo-monitor"],
@@ -4875,19 +4548,19 @@
     "subdomain": "diagnostic-settings",
     "type": "single",
     "difficulty": "medium",
-    "question": "Diagnostic setting deve enviar logs de auditoria e métricas da conta. O que selecionar na configuração?",
+    "question": "Diagnostic setting deve enviar logs de auditoria e m\u00e9tricas da conta. O que selecionar na configura\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Só logs de atividade da assinatura"
+        "text": "S\u00f3 logs de atividade da assinatura"
       },
       {
         "letter": "B",
-        "text": "Só métricas"
+        "text": "S\u00f3 m\u00e9tricas"
       },
       {
         "letter": "C",
-        "text": "Categorias de log + métricas"
+        "text": "Categorias de log + m\u00e9tricas"
       },
       {
         "letter": "D",
@@ -4895,7 +4568,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: o diagnostic setting envia categorias de log de recurso e métricas de plataforma de forma independente. B está incorreta: só métricas descarta os logs, que são metade do requisito. A está incorreta: só logs de atividade da assinatura é outra lâmina — o log de atividade é da assinatura, não do recurso. D está incorreta: backup da conta faz cópia dos dados, não coleta telemetria.",
+    "explanation": "C est\u00e1 correta: o diagnostic setting envia categorias de log de recurso e m\u00e9tricas de plataforma de forma independente. B est\u00e1 incorreta: s\u00f3 m\u00e9tricas descarta os logs, que s\u00e3o metade do requisito. A est\u00e1 incorreta: s\u00f3 logs de atividade da assinatura \u00e9 outra l\u00e2mina \u2014 o log de atividade \u00e9 da assinatura, n\u00e3o do recurso. D est\u00e1 incorreta: backup da conta faz c\u00f3pia dos dados, n\u00e3o coleta telemetria.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/diagnostic-settings",
     "tags": ["diagnostic-settings", "categorias", "metricas", "mo-monitor"],

@@ -86,6 +86,7 @@ const files = readdirSync(DATA).filter(
       'exam-skills.json',
       'grounding-map.json',
       'anchor-map.json',
+      'retire_autoeval_ids.json',
       '.generation-state.json',
     ].includes(f),
 )
