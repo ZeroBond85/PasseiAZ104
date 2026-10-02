@@ -1001,5 +1001,688 @@
     "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
     "score": 10,
     "count": 1
+  },
+  "vnet-subnets": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "nsg": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "peering": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "dns-privado": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/private-resolver"
+  },
+  "expressroute": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "load-balancer": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar o DNS do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview",
+    "score": 10,
+    "count": 1
+  },
+  "private-endpoint": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 10,
+    "count": 1
+  },
+  "udr": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "service-endpoint": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 10,
+    "count": 1
+  },
+  "bastion": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 2,
+    "bulletLabel": "Implementar o Azure Bastion",
+    "url": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview",
+    "score": 9,
+    "count": 1
+  },
+  "nsg-fluxo": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "gateway-subnet": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "dns-hub-spoke": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview"
+  },
+  "peering-transitividade": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "nsg-service-tags": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 10,
+    "count": 1
+  },
+  "lb-probe": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-health-probes"
+  },
+  "expressroute-peering": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "connection-monitor": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vnet-integration-limites": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "nsg-flow-logs": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "dns-forward": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/dns-forwarding"
+  },
+  "lb-outbound": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/outbound-rules"
+  },
+  "private-link-service": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 10,
+    "count": 1
+  },
+  "ipv6": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "nsg-prioridades-avancado": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "lb-sku-diferencas": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/skus"
+  },
+  "dns-private-resolver-inbound": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "peering-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "nsg-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "dns-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "lb-multiplos": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/overview"
+  },
+  "vpn-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "firewall-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "frontdoor-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "expressroute-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "afd-private-origin": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "dns-split-horizon": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview"
+  },
+  "hub-spoke-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vpn-er-coex-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "appgw-autoscale-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "ddos-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "tm-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "nat-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "dnssec-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vwan-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "lb-regra-multiplos": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-rule-overview"
+  },
+  "cm-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "peering-crossregion-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "nva-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "peering-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "nsg-padrao-conceito": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "sla-lb-conceito": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/sla"
+  },
+  "vnet-address-plan": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "reserved-ips": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "static-vs-dynamic-ip": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "public-ip-sku": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "public-prefix": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "tm-subnet": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "dns-alias": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/dns-alias"
+  },
+  "dns-caa": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/caa-record"
+  },
+  "dns-private-resolver-ruleset": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "score": 5,
+    "count": 1
+  },
+  "dns-forwarding-ruleset-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vnet-tap-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "ddos-plan-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "bastion-host-scaling-multiplos": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 2,
+    "bulletLabel": "Implementar o Azure Bastion",
+    "url": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview",
+    "score": 9,
+    "count": 1
+  },
+  "bastion-shareable-multiplos": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 2,
+    "bulletLabel": "Implementar o Azure Bastion",
+    "url": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview",
+    "score": 9,
+    "count": 1
+  },
+  "nat-timeout-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "idle-timeout-lb-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "tcp-reset-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "ha-ports-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "gateway-sku-er-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vpn-device-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "custom-ipsec-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "dpd-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "nat-traversal-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "ike-versions-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "pfs-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "sa-lifetime-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "traffic-selector-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "route-based-vs-policy-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "connection-reset-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 10,
+    "count": 1
+  },
+  "shared-key-rotation-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "monitor-vpn-multiplos": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar redes virtuais e sub-redes",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "sla-dns-conceito": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/sla"
+  },
+  "sla-bastion-conceito": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 2,
+    "url": "https://learn.microsoft.com/pt-br/azure/bastion/sla"
+  },
+  "sla-nsg-conceito": {
+    "groupId": "rv-secure-access",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-sla"
+  },
+  "sla-udr-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 3,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-sla"
+  },
+  "sla-peering-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 1,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/peering-sla"
+  },
+  "sla-dns-privado-conceito": {
+    "groupId": "rv-dns-lb",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/dns/sla"
+  },
+  "sla-connection-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 4,
+    "url": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview"
+  },
+  "sla-public-ip-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 2,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-address-sla"
+  },
+  "sla-vnet-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/sla"
+  },
+  "sla-subnet-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 0,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/sla"
+  },
+  "sla-route-table-conceito": {
+    "groupId": "rv-vnets",
+    "bulletIndex": 3,
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-sla"
   }
 }
