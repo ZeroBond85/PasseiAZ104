@@ -95,7 +95,8 @@
       "verifiedAt": "2026-10-02T16:14:31.436Z",
       "extraUrls": [
         "https://learn.microsoft.com/pt-br/azure/governance/policy/concepts/exemption-structure",
-        "https://learn.microsoft.com/pt-br/azure/governance/policy/overview"
+        "https://learn.microsoft.com/pt-br/azure/governance/policy/overview",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-mode"
       ]
     },
     "ig-subscriptions-governance#2": {
@@ -621,7 +622,9 @@
       "verifiedAt": "2026-09-28T21:01:48.453Z",
       "extraUrls": [
         "https://learn.microsoft.com/pt-br/azure/dns/private-resolver",
-        "https://learn.microsoft.com/pt-br/azure/dns/dns-alias"
+        "https://learn.microsoft.com/pt-br/azure/dns/dns-alias",
+        "https://learn.microsoft.com/pt-br/azure/dns/dns-forwarding",
+        "https://learn.microsoft.com/pt-br/azure/dns/caa-record"
       ]
     },
     "rv-dns-lb#2": {
@@ -633,7 +636,10 @@
       "verifiedAt": "2026-10-02T16:14:32.519Z",
       "extraUrls": [
         "https://learn.microsoft.com/pt-br/azure/load-balancer/outbound-rules",
-        "https://learn.microsoft.com/pt-br/azure/load-balancer/skus"
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/skus",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-health-probes",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/overview",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-rule-overview"
       ]
     },
     "rv-dns-lb#3": {
@@ -762,6 +768,37 @@
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/backup/monitor-backup",
       "verifiedAt": "2026-10-02T16:14:32.876Z"
+    },
+    "rv-vnets#6": {
+      "domain": "rede-virtual",
+      "groupId": "rv-vnets",
+      "label": "SLA de Rede Virtual",
+      "minorSince": null,
+      "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/sla",
+      "verifiedAt": "2026-10-02T23:00:00.000Z",
+      "extraUrls": [
+        "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-address-sla",
+        "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-sla",
+        "https://learn.microsoft.com/pt-br/azure/virtual-network/peering-sla"
+      ]
+    },
+    "rv-secure-access#6": {
+      "domain": "rede-virtual",
+      "groupId": "rv-secure-access",
+      "label": "SLA de Seguran\u00e7a de Rede",
+      "minorSince": null,
+      "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-sla",
+      "verifiedAt": "2026-10-02T23:00:00.000Z",
+      "extraUrls": ["https://learn.microsoft.com/pt-br/azure/bastion/sla"]
+    },
+    "rv-dns-lb#4": {
+      "domain": "rede-virtual",
+      "groupId": "rv-dns-lb",
+      "label": "SLA de DNS e Load Balancer",
+      "minorSince": null,
+      "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/sla",
+      "verifiedAt": "2026-10-02T23:00:00.000Z",
+      "extraUrls": ["https://learn.microsoft.com/pt-br/azure/dns/sla"]
     }
   },
   "stems": {}

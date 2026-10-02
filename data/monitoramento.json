@@ -59,11 +59,12 @@
     ],
     "correct": ["D"],
     "explanation": "Métricas são séries numéricas rápidas para alerta; logs guardam detalhe para KQL. Inverter perde velocidade e detalhe; backup/policy não monitoram.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["metricas", "logs", "conceito"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-003",
@@ -92,11 +93,12 @@
     ],
     "correct": ["A"],
     "explanation": "App Insights rastreia requests, dependências e exceptions com correlação. CPU não mostra código; activity log registra ARM; backup não diagnostica.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-insights", "aplicacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview"
   },
   {
     "id": "az104-mo-004",
@@ -125,11 +127,12 @@
     ],
     "correct": ["C"],
     "explanation": "Regra avalia a condição e o action group notifica/age. Dashboard/workbook visualizam; policy governa; backup protege dados.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["alertas", "action-group"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview"
   },
   {
     "id": "az104-mo-005",
@@ -158,11 +161,12 @@
     ],
     "correct": ["B"],
     "explanation": "Workspace centraliza com KQL e retenção. Métricas não consultam texto; tabela não tem KQL; e-mail não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["log-analytics", "kql", "workspace"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-006",
@@ -323,11 +327,12 @@
     ],
     "correct": ["C"],
     "explanation": "Activity Log registra operações ARM (quem, o quê, quando). Log da app é da carga; métrica de rede não identifica autor; backup não audita.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["activity-log", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-011",
@@ -389,11 +394,12 @@
     ],
     "correct": ["A"],
     "explanation": "Diagnostic settings roteiam logs de plataforma ao destino com retenção. Métrica não guarda eventos; backup não audita acesso; rede não registra.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["diagnostic-settings", "key-vault", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/diagnostic-settings"
   },
   {
     "id": "az104-mo-013",
@@ -422,11 +428,12 @@
     ],
     "correct": ["A"],
     "explanation": "Log alert executa KQL periodicamente e dispara por resultado. Métrica não lê texto; Service Health é da plataforma; action group sozinho não avalia.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["alertas", "log-search", "kql"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview"
   },
   {
     "id": "az104-mo-014",
@@ -488,11 +495,12 @@
     ],
     "correct": ["B"],
     "explanation": "AMA com DCR coleta e o VM Insights monta mapa de processos/conexões. RDP manual não escala; backup não monitora; antivírus não mapeia.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vm-insights", "ama", "dcr", "mapa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview"
   },
   {
     "id": "az104-mo-016",
@@ -521,11 +529,12 @@
     ],
     "correct": ["B"],
     "explanation": "Container Insights centraliza logs e métricas do cluster. kubectl manual não historica; CPU do nó não mostra pod; backup não monitora.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["container-insights", "aks", "pods"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview"
   },
   {
     "id": "az104-mo-017",
@@ -818,11 +827,12 @@
     ],
     "correct": ["D"],
     "explanation": "Managed Prometheus ingere e alerta em PromQL nativo. LA sem remote-write não recebe; métrica do nó não tem labels de pod; kubectl não alerta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["prometheus", "aks", "promql", "alertas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-026",
@@ -983,11 +993,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "Dynamic thresholds aprendem sazonalidade e a agregação suaviza. Fixo baixo dispara à toa; desligar cega no pico.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["alertas", "limiar-dinamico", "ml"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-031",
@@ -1181,11 +1192,12 @@
     ],
     "correct": ["D"],
     "explanation": "Filtrar tempo e projetar colunas poda partições antes do join/agregação. Take gigante piora; sem where varre tudo; sem limite estoura.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["kql", "performance", "otimizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-037",
@@ -1214,11 +1226,12 @@
     ],
     "correct": ["A"],
     "explanation": "Processing rules agrupam por recurso/tempo e suprimem duplicados. Mais regras pioram; e-mail maior espalha; desligar cega.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["alertas", "fadiga", "agrupamento", "supressao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-038",
@@ -1346,11 +1359,12 @@
     ],
     "correct": ["C"],
     "explanation": "Network Insights agrega topologia, VPN/ER e fluxos. CPU não é rede; log web não mostra túnel; backup não monitora.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["network-insights", "saude-rede"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview"
   },
   {
     "id": "az104-mo-042",
@@ -1379,11 +1393,12 @@
     ],
     "correct": ["B", "C"],
     "explanation": "DINE instala agente e cria diagnósticos em recursos novos e existentes. Auditoria manual atrasa; desligar anula.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "dine", "ama", "diagnostico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/site-recovery/site-recovery-overview"
   },
   {
     "id": "az104-mo-043",
@@ -1478,11 +1493,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "Live Metrics filtra ao vivo e a amostragem foca sem afogar. Relatório mensal não é incidente; desligar cega.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["live-metrics", "incidente", "amostragem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-046",
@@ -1561,11 +1577,12 @@
     ],
     "correct": ["B"],
     "explanation": "Métricas de plataforma têm pipeline otimizado; customizadas agregam com latência maior. Assumir 1 minuto para tudo gera SLO incorreto.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["metricas-custom", "latencia", "alertas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-049",
@@ -1678,12 +1695,13 @@
     ],
     "correct": ["D"],
     "explanation": "Regra detecta e o action group abre ticket e contém. Dashboard sem alerta atrasa; manual não escala; restart mascara.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["case", "alertas", "itsm"],
     "caseStudyId": "case-mo-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview"
   },
   {
     "id": "az104-mo-053",
@@ -1913,11 +1931,12 @@
     ],
     "correct": ["A"],
     "explanation": "Logic App com conectores ramifica o alerta para Teams, ITSM e canal com lógica. E-mail ou SMS isolados são ponto único; dashboard estático não age.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["logic-app", "conectores", "teams", "itsm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-060",
@@ -1946,11 +1965,12 @@
     ],
     "correct": ["B"],
     "explanation": "Runbook limpa e só escala se falhar. Paginar direto desperta à toa; e-mail atrasa; nada acumula incidente.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["runbook", "remediacao", "disco"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-061",
@@ -1979,11 +1999,12 @@
     ],
     "correct": ["C"],
     "explanation": "Processing rules suprimem por escopo, horário e severidade mantendo regras ativas. Excluir perde cobertura; desligar cega; filtro manual atrasa.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["processing-rules", "supressao", "plantao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-062",
@@ -2012,11 +2033,12 @@
     ],
     "correct": ["D"],
     "explanation": "Smart groups correlacionam por recurso/tempo num chamado. Um por alerta inunda; manual atrasa; desligar perde trilha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["agrupamento", "smart-groups", "itsm"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-063",
@@ -2045,11 +2067,12 @@
     ],
     "correct": ["C"],
     "explanation": "Supressão agenda silêncio na janela e reativa sozinha. Excluir perde cobertura; ignorar queima plantão; desligar cega.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["supressao", "janela", "deploy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-064",
@@ -2078,11 +2101,12 @@
     ],
     "correct": ["B"],
     "explanation": "Sev0-Sev4 roteiam voz/SMS vs ticket conforme impacto. Tudo igual queima ou atrasa; tudo Sev0 dessensibiliza; sem nível não prioriza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["severidade", "triagem", "roteamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-065",
@@ -2210,11 +2234,12 @@
     ],
     "correct": ["C"],
     "explanation": "Basic logs custam fração para verbosos com query limitada. Analytics em tudo desperdiça; sem log perde debug; local fragmenta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["basic-logs", "custo", "verboso"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-069",
@@ -2243,11 +2268,12 @@
     ],
     "correct": ["D"],
     "explanation": "Auxiliary arquiva barato com restore sob demanda. Quente para tudo custa; excluir perde compliance; CSV não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["auxiliary", "arquivo", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-070",
@@ -2276,11 +2302,12 @@
     ],
     "correct": ["C"],
     "explanation": "Restore materializa intervalo arquivado para KQL temporário. Reingestão duplica; direto no archive é lento/limitado; desistir não investiga.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["restore", "arquivo", "investigacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-071",
@@ -2540,11 +2567,12 @@
     ],
     "correct": ["B"],
     "explanation": "Policy avalia Arc com conformidade centralizada. GPO local não reporta; manual não escala; sem governança diverge.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["arc", "policy", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-079",
@@ -2606,11 +2634,12 @@
     ],
     "correct": ["B"],
     "explanation": "MARS envia ao cofre com retenção e criptografia. Fita atrasa restore; HD externo perde; sem nada arrisca.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["arc", "backup", "mars"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-azure-arm-restore-vms"
   },
   {
     "id": "az104-mo-081",
@@ -2804,11 +2833,12 @@
     ],
     "correct": ["A"],
     "explanation": "Guest Config audita e corrige dentro do SO via Policy. NSG filtra rede; backup não audita config; CPU não mostra setting.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["guest-configuration", "policy", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-087",
@@ -2837,11 +2867,12 @@
     ],
     "correct": ["B"],
     "explanation": "DINE com remediation aplica a config desejada. Audit só observa; e-mail não corrige; excluir destrói.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["remediacao", "guest", "dine"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-088",
@@ -2870,11 +2901,12 @@
     ],
     "correct": ["A"],
     "explanation": "Exemption documenta, expira e audita a exceção. Desligar global afeta todos; excluir foge; ignorar acumula.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["exemption", "isencao", "prazo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-089",
@@ -2903,11 +2935,12 @@
     ],
     "correct": ["D"],
     "explanation": "Waiver dispensa o item avaliado com trilha. Excluir política afeta todos; recriar perde; trocar sub foge.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["waiver", "dispensa", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-090",
@@ -2936,11 +2969,12 @@
     ],
     "correct": ["B"],
     "explanation": "Versionamento com pin estabiliza atribuições. Sobrescrever quebra; duplicar fragmenta; sem controle perde trilha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "versionamento", "pin"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-091",
@@ -2969,11 +3003,12 @@
     ],
     "correct": ["C", "D"],
     "explanation": "Iniciativa referencia definições com parâmetros unificados. Avulsas fragmentam; excluir remove proteção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["initiative", "pacote", "parametros"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-092",
@@ -3200,11 +3235,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Alerta de log na operação delete com voz/SMS ao SOC reage em minutos. Log semanal consolidado atrasa dias; sem alerta não há detecção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["activity-log", "delete", "soc"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-099",
@@ -3233,11 +3269,12 @@
     ],
     "correct": ["A", "C"],
     "explanation": "Alerta de Service Health filtra região/serviço e o NOC recebe com severidade. Aviso só no portal exige olhar; descoberta pelo usuário não monitora.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["service-health", "alerta", "noc"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-100",
@@ -3266,11 +3303,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Alerta de Resource Health detecta indisponibilidade da VM e notifica o dono com a causa. Verificação manual horária atrasa; sem alerta não há detecção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["resource-health", "alerta", "dono"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-101",
@@ -3299,11 +3337,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "Alerta em nova recomendação do Advisor com roteamento ao time dono age rápido. Leitura mensal do portal atrasa; ignorar recomendações acumula risco.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["advisor", "alerta", "roteamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-102",
@@ -3596,11 +3635,12 @@
     ],
     "correct": ["A", "C"],
     "explanation": "Syslog via AMA/DCR e eventos Windows via DCR centralizam multi-OS. Arquivo local sem central fragmenta; sem coleta não há visibilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["syslog", "eventos", "ama", "dcr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started"
   },
   {
     "id": "az104-mo-111",
@@ -3629,11 +3669,12 @@
     ],
     "correct": ["D", "B"],
     "explanation": "Logs IIS (W3C) mostram o request e logs de aplicação com correlation ID mostram a exceção. Métrica de disco apenas não explica 500; backup dos logs não investiga.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["iis", "logs", "correlacao", "500"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-112",
@@ -3695,11 +3736,12 @@
     ],
     "correct": ["B", "C"],
     "explanation": "Logs de console (stdout) mostram a exceção de startup e eventos de deploy registram a falha. Métrica de CPU não mostra erro; backup do código não diagnostica.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["stdout", "startup", "crash"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-114",
@@ -3728,11 +3770,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "Logs de deployment (Kudu/Actions) mostram a etapa travada e o status por etapa indica o erro para retomar. Log do mês passado desatualiza; métrica de rede não explica build.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["deploy", "logs", "etapas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/kusto/query/render-operator"
   },
   {
     "id": "az104-mo-115",
@@ -4190,11 +4233,12 @@
     ],
     "correct": ["A", "C"],
     "explanation": "Congelar deploys ao esgotar protege o SLO e priorizar confiabilidade no sprint recupera. Acelerar features mesmo assim piora; ignorar o orçamento anula o mecanismo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["error-budget", "freeze", "confiabilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-129",
@@ -4388,11 +4432,12 @@
     ],
     "correct": ["A", "C"],
     "explanation": "Visão centralizada multi-cofre com filtros por estado e política organiza centenas de itens. Cofre por cofre manual não escala; planilha paralela desatualiza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["backup-explorer", "visao", "filtros"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-azure-arm-restore-vms"
   },
   {
     "id": "az104-mo-135",
@@ -4421,11 +4466,12 @@
     ],
     "correct": ["D", "C"],
     "explanation": "Restore em staging isolado testa sem risco e validação confirma sem tocar produção. Restore direto em produção arrisca; sem teste não se prova DR.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cross-region", "staging", "teste-dr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-136",
@@ -4521,11 +4567,12 @@
     ],
     "correct": ["A"],
     "explanation": "Camada de cofre (vault tier) move cópias antigas para retenção barata de longo prazo. Achar que só existe tier quente ignora a hierarquia de custo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["vault-tier", "custo", "retencao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T22:23:06.445Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview"
   },
   {
     "id": "az104-mo-140",

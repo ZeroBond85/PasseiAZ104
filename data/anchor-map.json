@@ -1385,7 +1385,7 @@
   },
   "sla-lb-conceito": {
     "groupId": "rv-dns-lb",
-    "bulletIndex": 1,
+    "bulletIndex": 3,
     "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/sla"
   },
   "vnet-address-plan": {
@@ -1637,22 +1637,22 @@
   },
   "sla-bastion-conceito": {
     "groupId": "rv-secure-access",
-    "bulletIndex": 2,
+    "bulletIndex": 5,
     "url": "https://learn.microsoft.com/pt-br/azure/bastion/sla"
   },
   "sla-nsg-conceito": {
     "groupId": "rv-secure-access",
-    "bulletIndex": 0,
+    "bulletIndex": 5,
     "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-sla"
   },
   "sla-udr-conceito": {
     "groupId": "rv-vnets",
-    "bulletIndex": 3,
+    "bulletIndex": 5,
     "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-sla"
   },
   "sla-peering-conceito": {
     "groupId": "rv-vnets",
-    "bulletIndex": 1,
+    "bulletIndex": 5,
     "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/peering-sla"
   },
   "sla-dns-privado-conceito": {
@@ -1662,8 +1662,8 @@
   },
   "sla-connection-conceito": {
     "groupId": "rv-vnets",
-    "bulletIndex": 4,
-    "url": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview"
+    "bulletIndex": 5,
+    "url": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-sla"
   },
   "sla-public-ip-conceito": {
     "groupId": "rv-vnets",
@@ -1672,17 +1672,425 @@
   },
   "sla-vnet-conceito": {
     "groupId": "rv-vnets",
-    "bulletIndex": 0,
+    "bulletIndex": 5,
     "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/sla"
   },
   "sla-subnet-conceito": {
     "groupId": "rv-vnets",
-    "bulletIndex": 0,
+    "bulletIndex": 5,
     "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/sla"
   },
   "sla-route-table-conceito": {
     "groupId": "rv-vnets",
     "bulletIndex": 3,
     "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-sla"
+  },
+  "metricas-dimensoes": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "diagnostic-settings": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 1,
+    "bulletLabel": "Definir configura\u00e7\u00f5es de log no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/diagnostic-settings",
+    "score": 5,
+    "count": 1
+  },
+  "kql-render": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 5,
+    "count": 1
+  },
+  "storage-insights": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar e interpretar o monitoramento de m\u00e1quinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
+    "score": 5,
+    "count": 1
+  },
+  "vnet-flow-logs": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 5,
+    "bulletLabel": "Usar o Observador de Rede do Azure e o Monitor de Conex\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-overview",
+    "score": 5,
+    "count": 1
+  },
+  "metricas-vs-logs": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 14,
+    "count": 1
+  },
+  "app-insights": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar e interpretar o monitoramento de m\u00e1quinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
+    "score": 9,
+    "count": 1
+  },
+  "alertas": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar regras de alerta, grupos de a\u00e7\u00f5es e regras de processamento de alertas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
+    "score": 9,
+    "count": 1
+  },
+  "log-analytics": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "activity-log": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "alertas-log": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar regras de alerta, grupos de a\u00e7\u00f5es e regras de processamento de alertas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
+    "score": 14,
+    "count": 1
+  },
+  "vm-insights": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar e interpretar o monitoramento de m\u00e1quinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
+    "score": 9,
+    "count": 1
+  },
+  "container-insights": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar e interpretar o monitoramento de m\u00e1quinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
+    "score": 9,
+    "count": 1
+  },
+  "alerta-prometheus": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "alerta-dinamico-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "log-query-performance": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "alerta-fadiga": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "network-insights-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar e interpretar o monitoramento de m\u00e1quinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
+    "score": 9,
+    "count": 1
+  },
+  "azure-policy-monitor-multiplos": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar o Azure Site Recovery para recursos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/site-recovery/site-recovery-overview",
+    "score": 13,
+    "count": 1
+  },
+  "livemetrics-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "metrica-custom-conceito": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "case-fabrikam-alertas": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar regras de alerta, grupos de a\u00e7\u00f5es e regras de processamento de alertas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
+    "score": 9,
+    "count": 1
+  },
+  "logic-app-connector": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "automation-runbook-alert": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "alert-processing-rule": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "alert-grouping": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "maintenance-window-alert": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "alert-severity-triage": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "basic-logs": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 9,
+    "count": 1
+  },
+  "auxiliary-logs": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 9,
+    "count": 1
+  },
+  "restore-logs": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 9,
+    "count": 1
+  },
+  "arc-policy": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "arc-backup": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 3,
+    "bulletLabel": "Executar opera\u00e7\u00f5es de backup e restaura\u00e7\u00e3o usando o Backup do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-azure-arm-restore-vms",
+    "score": 13,
+    "count": 1
+  },
+  "policy-guest-config": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "policy-remediate-guest": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "policy-exemptions": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "policy-waivers": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "policy-versioning": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "policy-group-multiplos": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "activity-log-alert-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 10,
+    "count": 1
+  },
+  "service-health-alert-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "resource-health-alert-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "advisor-alert-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "syslog-events-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 0,
+    "bulletLabel": "Interpretar m\u00e9tricas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "score": 5,
+    "count": 1
+  },
+  "iis-logs-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 9,
+    "count": 1
+  },
+  "stdout-logs-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 9,
+    "count": 1
+  },
+  "deployment-logs-multiplos": {
+    "groupId": "mo-monitor",
+    "bulletIndex": 2,
+    "bulletLabel": "Consultar e analisar logs no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/kusto/query/render-operator",
+    "score": 9,
+    "count": 1
+  },
+  "error-budget-policy-multiplos": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "backup-explorer-multiplos": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 3,
+    "bulletLabel": "Executar opera\u00e7\u00f5es de backup e restaura\u00e7\u00e3o usando o Backup do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-azure-arm-restore-vms",
+    "score": 13,
+    "count": 1
+  },
+  "cross-region-restore-mo-multiplos": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
+  },
+  "vault-tier-conceito": {
+    "groupId": "mo-backup-recovery",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+    "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "score": 5,
+    "count": 1
   }
 }
