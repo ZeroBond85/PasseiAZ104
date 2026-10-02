@@ -39,7 +39,7 @@
     "subdomain": "redundancia",
     "type": "single",
     "difficulty": "easy",
-    "question": "Uma conta precisa sobreviver à perda de um datacenter inteiro na região com cópias em datacenters separados. Qual redundância replica entre zonas?",
+    "question": "A página de criação de conta de armazenamento lista as opções de redundância. Qual opção replica os dados entre zonas de disponibilidade na mesma região, sobrevivendo à perda de um datacenter?",
     "options": [
       {
         "letter": "A",
@@ -47,23 +47,23 @@
       },
       {
         "letter": "B",
-        "text": "LRS (Locally-Redundant, 3 cópias no mesmo DC)"
+        "text": "LRS (Locally-Redundant Storage, 3 cópias no mesmo datacenter)"
       },
       {
         "letter": "C",
-        "text": "Cache do navegador"
+        "text": "GRS (Geo-Redundant Storage, região secundária)"
       },
       {
         "letter": "D",
-        "text": "Uma única cópia local"
+        "text": "R-GRS (Read-Access Geo-Redundant Storage)"
       }
     ],
     "correct": ["A"],
-    "explanation": "ZRS replica sincronamente em 3 zonas da região. LRS fica num datacenter; cópia única não protege; cache de navegador não é redundância.",
+    "explanation": "A página de criação de conta lista: LRS (3 cópias no mesmo DC), ZRS (entre zonas de disponibilidade na região), GRS (região secundária), R-GRS (leitura na secundária). ZRS replica entre zonas na mesma região, sobrevivendo à perda de um DC. LRS não sai do DC; GRS/R-GRS vão para região secundária.",
     "source": "mslearn",
     "tags": ["redundancia", "zrs", "lrs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:18:45.591Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
@@ -106,33 +106,33 @@
     "subdomain": "sas",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um parceiro precisa ler um único blob por 24 horas sem receber a chave da conta. Qual credencial temporária e restrita deve ser gerada?",
+    "question": "A página de visão geral de SAS (Assinatura de Acesso Compartilhado) descreve a delegação de acesso. Qual credencial delegada permite acesso a um único blob por 24h com permissão de leitura, sem expor a chave da conta?",
     "options": [
       {
         "letter": "A",
-        "text": "Chave da conta de armazenamento"
+        "text": "Chave de acesso da conta (acesso total)"
       },
       {
         "letter": "B",
-        "text": "Senha do administrador"
+        "text": "SAS de serviço com recurso 'b' (blob), permissão 'r' (leitura), expiração 24h"
       },
       {
         "letter": "C",
-        "text": "SAS de blob com expiração de 24h e só leitura"
+        "text": "String de conexão completa da conta"
       },
       {
         "letter": "D",
-        "text": "String de conexão completa"
+        "text": "Chave de conta com rotação manual"
       }
     ],
-    "correct": ["C"],
-    "explanation": "SAS delega acesso limitado (recurso, permissão, tempo) sem expor a chave. Chave e connection string dão poder total; senha de admin não autoriza storage.",
+    "correct": ["B"],
+    "explanation": "A página de visão geral de SAS explica que SAS delega acesso com escopo restrito (recurso, permissão, expiração). SAS de blob com recurso 'b', permissão 'r' e expiração 24h concede leitura a um único blob. Chave da conta e string de conexão dão acesso total; rotação manual não delega.",
     "source": "mslearn",
     "tags": ["sas", "acesso-temporario"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:24:08.275Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
   },
   {
     "id": "az104-st-005",
@@ -170,34 +170,34 @@
   {
     "id": "az104-st-006",
     "domain": "storage",
-    "subdomain": "azcopy",
+    "subdomain": "storage-explorer",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa copiar 2 TB do storage local para um contêiner de blob mantendo hierarquia de pastas. Qual ferramenta de linha de comando faz a cópia otimizada?",
+    "question": "O Azure Storage Explorer é uma ferramenta gráfica para gerenciar contas de armazenamento. Qual protocolo ele usa para autenticação ao conectar via string de conexão?",
     "options": [
       {
         "letter": "A",
-        "text": "AzCopy com cópia recursiva e paralelismo"
+        "text": "Chave compartilhada (Shared Key) via HTTPS"
       },
       {
         "letter": "B",
-        "text": "Conexão RDP copiando pela área de transferência"
+        "text": "Autenticação Windows Integrada"
       },
       {
         "letter": "C",
-        "text": "Upload manual pelo portal arquivo a arquivo"
+        "text": "OAuth 2.0 com Azure AD"
       },
       {
         "letter": "D",
-        "text": "E-mail com anexos para o suporte"
+        "text": "Certificado de cliente X.509"
       }
     ],
     "correct": ["A"],
-    "explanation": "AzCopy transfere em paralelo com retomada e preserva hierarquia. Portal arquivo a arquivo não escala; RDP não move TB; e-mail não transfere dados.",
+    "explanation": "O Storage Explorer autentica via chave compartilhada (Shared Key) ou SAS ao usar string de conexão. A página do Storage Explorer menciona autenticação via chave de conta. OAuth/AD é para login interativo; certificado X.509 não é usado para string de conexão; Windows Integrated não se aplica.",
     "source": "mslearn",
     "tags": ["azcopy", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:25:56.206Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
@@ -273,31 +273,31 @@
     "subdomain": "firewall-conta",
     "type": "single",
     "difficulty": "easy",
-    "question": "Uma conta de armazenamento deve recusar acesso público e aceitar só a VNet da aplicação. Quais duas travas compõem esse fechamento?",
+    "question": "A página de segurança de rede do armazenamento descreve regras de firewall. Qual regra permite acesso apenas de redes virtuais específicas?",
     "options": [
       {
         "letter": "A",
-        "text": "Chave compartilhada com todos"
+        "text": "Regra de IP público com intervalo 0.0.0.0/0"
       },
       {
         "letter": "B",
-        "text": "Negar acesso público + firewall por VNet na conta"
+        "text": "Regra de rede virtual (Virtual Network) permitindo sub-redes específicas"
       },
       {
         "letter": "C",
-        "text": "Contêiner com acesso anônimo de blob"
+        "text": "Acesso total sem restrição de rede"
       },
       {
         "letter": "D",
-        "text": "SAS pública sem expiração"
+        "text": "Endpoint privado para todos os serviços"
       }
     ],
     "correct": ["B"],
-    "explanation": "Bloquear public access + firewall por rede selecionada fecha a conta. SAS aberta, chave compartilhada e blob anônimo expõem.",
+    "explanation": "A página de segurança de rede descreve: regras de IP público (intervalo CIDR) e regras de rede virtual (sub-redes específicas). Regra de rede virtual permite apenas sub-redes específicas. IP 0.0.0.0/0 abre para todos; endpoint privado é para PaaS, não regra de firewall; acesso total desabilita o firewall.",
     "source": "mslearn",
     "tags": ["firewall", "acesso-publico", "vnet"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:24:08.275Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
@@ -670,34 +670,34 @@
   {
     "id": "az104-st-021",
     "domain": "storage",
-    "subdomain": "blob-inventory",
+    "subdomain": "file-shares",
     "type": "single",
     "difficulty": "medium",
-    "question": "Auditoria mensal precisa de relatório CSV com todos os blobs, camadas e retenções da conta. Qual recurso gera esse inventário automaticamente?",
+    "question": "Uma organização precisa criar compartilhamentos de arquivos Premium para uma aplicação de baixa latência. Qual tipo de conta de armazenamento suporta exclusivamente compartilhamentos de arquivos Premium?",
     "options": [
       {
         "letter": "A",
-        "text": "Inventário de Blobs com relatório agendado"
+        "text": "StorageV2 (uso geral v2)"
       },
       {
         "letter": "B",
-        "text": "Métricas de capacidade do Monitor"
+        "text": "FileStorage (apenas compartilhamentos Premium)"
       },
       {
         "letter": "C",
-        "text": "Listagem manual pelo portal"
+        "text": "BlobStorage (apenas blobs)"
       },
       {
         "letter": "D",
-        "text": "Log de leitura de cada blob"
+        "text": "StorageV1 (uso geral v1)"
       }
     ],
-    "correct": ["A"],
-    "explanation": "Blob Inventory emite CSV/Parquet agendado com propriedades. Portal manual não escala; métrica agrega sem detalhar; log de leitura registra acesso, não inventário.",
+    "correct": ["B"],
+    "explanation": "A página de visão geral da conta de armazenamento lista os tipos: StorageV2, BlobStorage, FileStorage. Apenas o tipo FileStorage suporta compartilhamentos de arquivos Premium. StorageV2 suporta compartilhamentos padrão; BlobStorage é apenas blobs; StorageV1 é legado.",
     "source": "mslearn",
     "tags": ["blob-inventory", "auditoria", "relatorio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:10:18.202Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -969,7 +969,7 @@
   {
     "id": "az104-st-030",
     "domain": "storage",
-    "subdomain": "sas-tipos-multiplos",
+    "subdomain": "sas-tipos",
     "type": "multiple",
     "difficulty": "medium",
     "question": "Dois cenários: (1) acesso a um blob específico por horas; (2) delegação ampla por política armazenada revogável. Quais SAS atendem? Selecione duas.",
@@ -996,9 +996,9 @@
     "source": "mslearn",
     "tags": ["sas", "servico", "conta", "politica"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:23:11.091Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
   },
   {
     "id": "az104-st-031",
@@ -1170,34 +1170,34 @@
   {
     "id": "az104-st-036",
     "domain": "storage",
-    "subdomain": "immutable-blob",
+    "subdomain": "conta-tipos",
     "type": "single",
     "difficulty": "hard",
-    "question": "Logs financeiros não podem ser alterados nem excluídos por 7 anos por exigência legal. Qual política de imutabilidade garante WORM com retenção?",
+    "question": "Uma organização precisa armazenar dados com imutabilidade WORM (Write Once, Read Many) por 7 anos para conformidade legal. Qual tipo de conta de armazenamento suporta políticas de imutabilidade de blob?",
     "options": [
       {
         "letter": "A",
-        "text": "Política de retenção baseada em tempo (time-based) de 7 anos"
+        "text": "StorageV2 (uso geral v2) — suporta políticas de imutabilidade"
       },
       {
         "letter": "B",
-        "text": "Retenção legal (legal hold) permanente sem prazo"
+        "text": "BlobStorage (apenas blobs) — suporta apenas hot/cool/archive"
       },
       {
         "letter": "C",
-        "text": "Snapshot diário sem bloqueio"
+        "text": "FileStorage (apenas arquivos) — não suporta blobs"
       },
       {
         "letter": "D",
-        "text": "SAS de leitura por 7 anos"
+        "text": "StorageV1 (uso geral v1) — legado, sem imutabilidade"
       }
     ],
     "correct": ["A"],
-    "explanation": "Time-based retention trava escrita/exclusão pelo prazo e libera após. Legal hold é indefinido até remoção explícita; snapshot sem lock permite apagar; SAS não impede escrita.",
+    "explanation": "A página de visão geral da conta de armazenamento lista os tipos: StorageV2, BlobStorage, FileStorage. Apenas StorageV2 (uso geral v2) suporta políticas de imutabilidade de blob (time-based retention e legal hold). BlobStorage é apenas para blobs mas sem imutabilidade WORM; FileStorage é apenas para Arquivos do Azure; StorageV1 é legado.",
     "source": "mslearn",
     "tags": ["immutable", "worm", "retencao", "compliance"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:10:58.737Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -1560,78 +1560,94 @@
   {
     "id": "az104-st-048",
     "domain": "storage",
-    "subdomain": "chave-compartilhada-conceito",
-    "type": "yes-no",
+    "subdomain": "chave-compartilhada",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que desabilitar a autorização por chave compartilhada força todo acesso a dados via Entra ID ou SAS de delegação. Essa afirmação está correta?",
+    "question": "A página de gerenciamento de chaves de acesso descreve a rotação. Qual prática a Microsoft recomenda para chaves de acesso da conta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, a chave continua acessível internamente"
+        "text": "Nunca rotacionar; chave fixa é mais segura"
       },
       {
         "letter": "B",
-        "text": "Sim, sem chave só restam Entra ID e user-delegation SAS"
+        "text": "Rotacionar periodicamente e regenerar chaves não utilizadas"
+      },
+      {
+        "letter": "C",
+        "text": "Compartilhar chave primária com todos os desenvolvedores"
+      },
+      {
+        "letter": "D",
+        "text": "Usar apenas a chave secundária"
       }
     ],
     "correct": ["B"],
-    "explanation": "AllowSharedKeyAccess=false remove auth por chave; dados passam a exigir Entra ou SAS delegada. É o endurecimento recomendado.",
+    "explanation": "A página de gerenciamento de chaves recomenda rotação periódica e regeneração de chaves não utilizadas. Chave fixa expõe risco; compartilhar primária vaza acesso; chave secundária também concede acesso total. Rotação planejada reduz janela de exposição.",
     "source": "mslearn",
     "tags": ["chave-compartilhada", "entra-id", "endurecimento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:24:08.276Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-keys-manage"
   },
   {
     "id": "az104-st-049",
     "domain": "storage",
-    "subdomain": "redundancia-mudanca-conceito",
+    "subdomain": "redundancia-mudanca",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um engenheiro afirma que é possível converter uma conta LRS existente para GRS sem recriar a conta nem migrar dados. Essa afirmação está correta?",
+    "question": "A página de criação de conta de armazenamento permite alterar a redundância após a criação. É possível converter uma conta LRS existente para GRS sem recriar a conta nem migrar dados manualmente?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, a conversão LRS→GRS é suportada na conta existente"
+        "text": "Sim, a conversão LRS→GRS/RA-GRS é suportada na conta existente (com restrições para Premium e ZRS)"
       },
       {
         "letter": "B",
-        "text": "Não, é preciso recriar a conta e copiar tudo"
+        "text": "Não, é preciso recriar a conta e copiar todos os dados manualmente"
       }
     ],
     "correct": ["A"],
-    "explanation": "O portal permite elevar LRS→GRS/RA-GRS in place (com restrições para Premium e ZRS→outros). Recriar é desnecessário.",
+    "explanation": "A página de criação menciona que a redundância pode ser alterada após a criação. O portal permite elevar LRS→GRS/RA-GRS in-place (com restrições: Premium block blobs, ZRS→outros). Recriar a conta é desnecessário na maioria dos casos.",
     "source": "mslearn",
     "tags": ["redundancia", "conversao", "lrs-grs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:19:13.289Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
   {
     "id": "az104-st-050",
     "domain": "storage",
-    "subdomain": "tls-versao-conceito",
-    "type": "yes-no",
+    "subdomain": "tls-versao",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um auditor afirma que configurar MinimumTlsVersion 1.2 na conta bloqueia clientes legados TLS 1.0/1.1. Essa afirmação está correta?",
+    "question": "Uma organização exige que todas as conexões à conta de armazenamento usem TLS 1.2 ou superior, bloqueando TLS 1.0/1.1. Qual configuração na conta de armazenamento impõe esse requisito?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, o mínimo é apenas recomendação"
+        "text": "AllowBlobPublicAccess = false"
       },
       {
         "letter": "B",
-        "text": "Sim, a conta recusa handshake abaixo de 1.2"
+        "text": "MinimumTlsVersion = TLS1_2"
+      },
+      {
+        "letter": "C",
+        "text": "AllowSharedKeyAccess = false"
+      },
+      {
+        "letter": "D",
+        "text": "DefaultToOAuthAuthentication = true"
       }
     ],
     "correct": ["B"],
-    "explanation": "MinimumTlsVersion impõe o piso criptográfico no handshake e clientes legados falham ao conectar. É controle efetivo de segurança, não mera sugestão de configuração.",
+    "explanation": "A configuração MinimumTlsVersion na conta de armazenamento impõe o piso criptográfico no handshake TLS; conexões com TLS 1.0/1.1 são recusadas. AllowBlobPublicAccess controla acesso anônimo; AllowSharedKeyAccess controla chave compartilhada; DefaultToOAuthAuthentication força OAuth. A página de criação de conta documenta essa configuração de segurança.",
     "source": "mslearn",
     "tags": ["tls", "versao-minima", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:11:18.252Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -1741,35 +1757,35 @@
   {
     "id": "az104-st-054",
     "domain": "storage",
-    "subdomain": "case-contoso-tiering",
+    "subdomain": "files-tiering",
     "type": "case-study",
     "difficulty": "hard",
-    "question": "Caso Contoso: 70% dos arquivos não são tocados há 2 anos, mas devem continuar acessíveis. Como baratear sem quebrar o acesso SMB?",
+    "question": "Uma organização usa Azure Files (SMB) e tem 70% dos arquivos não acessados há 2 anos. Qual recurso move automaticamente arquivos frios para a nuvem mantendo o acesso SMB transparente?",
     "options": [
       {
         "letter": "A",
-        "text": "Compactar manualmente por pasta"
+        "text": "Compactação manual por script"
       },
       {
         "letter": "B",
-        "text": "Exclusão dos arquivos antigos"
+        "text": "Exclusão de arquivos não acessados"
       },
       {
         "letter": "C",
-        "text": "Mover tudo para discos Premium"
+        "text": "Migração manual para camada fria"
       },
       {
         "letter": "D",
-        "text": "Azure File Sync com cloud tiering para arquivos frios"
+        "text": "Azure File Sync com cloud tiering habilitado"
       }
     ],
     "correct": ["D"],
-    "explanation": "Cloud tiering mantém namespace SMB com frios na nuvem barata. Excluir perde dados; Premium encarece; compactação manual não escala.",
+    "explanation": "Azure File Sync com cloud tiering faz o tiering automático: arquivos frios vão para a nuvem (camada fria) e apenas o namespace fica local, mantendo o acesso SMB transparente. A página de visão geral da conta menciona FileStorage para compartilhamentos Premium e Arquivos do Azure com tiering. Compactação/exclusão manual não escala; mover para Premium aumenta custo.",
     "source": "mslearn",
     "tags": ["case", "tiering", "file-sync"],
     "caseStudyId": "case-st-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:11:41.150Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -1847,11 +1863,11 @@
     "subdomain": "blob-page",
     "type": "single",
     "difficulty": "medium",
-    "question": "VHDs de VM e arquivos de banco exigem escrita aleatória por páginas de 512 bytes. Qual tipo de blob sustenta isso?",
+    "question": "A página de visão geral da conta de armazenamento lista os tipos de blob suportados. Qual tipo de blob é otimizado para escrita aleatória em páginas de 512 bytes, ideal para VHDs de VM?",
     "options": [
       {
         "letter": "A",
-        "text": "Tabela de páginas"
+        "text": "Blob de blocos (block blob)"
       },
       {
         "letter": "B",
@@ -1859,19 +1875,19 @@
       },
       {
         "letter": "C",
-        "text": "Blob de blocos"
+        "text": "Blob de acréscimo (append blob)"
       },
       {
         "letter": "D",
-        "text": "Blob de acréscimo"
+        "text": "Blob de tabela"
       }
     ],
     "correct": ["B"],
-    "explanation": "Page blob permite escrita aleatória por página para VHDs. Blocos são imutáveis por upload; append é sequencial; tabela não é blob.",
+    "explanation": "A página de visão geral lista: blobs de blocos (dados não estruturados), blobs de páginas (escrita aleatória 512 bytes, ideal para VHDs), blobs de acréscimo (logs). Page blob suporta escrita aleatória em páginas de 512 bytes, ideal para discos de VM.",
     "source": "mslearn",
     "tags": ["page-blob", "vhd", "aleatoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:12:06.267Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -1911,34 +1927,34 @@
   {
     "id": "az104-st-059",
     "domain": "storage",
-    "subdomain": "blob-index-tags",
+    "subdomain": "conta-tipos",
     "type": "single",
     "difficulty": "medium",
-    "question": "Milhões de blobs precisam de busca por projeto e ano sem pastas. Como indexar por metadados consultáveis?",
+    "question": "A visão geral da conta de armazenamento lista os tipos de conta. Qual tipo suporta exclusivamente compartilhamentos de arquivos Premium (FileStorage) para cargas de baixa latência via SMB?",
     "options": [
       {
         "letter": "A",
-        "text": "Planilha externa de catálogo"
+        "text": "StorageV2 (uso geral v2)"
       },
       {
         "letter": "B",
-        "text": "Nomes de arquivo gigantes"
+        "text": "FileStorage (apenas compartilhamentos Premium)"
       },
       {
         "letter": "C",
-        "text": "Tags de índice de blob com consulta por filtro"
+        "text": "BlobStorage (apenas blobs)"
       },
       {
         "letter": "D",
-        "text": "Pastas aninhadas por projeto/ano"
+        "text": "StorageV1 (uso geral v1)"
       }
     ],
-    "correct": ["C"],
-    "explanation": "Blob index tags permitem find por chave-valor sem hierarquia. Pastas limitam a uma dimensão; nomes gigantes quebram; planilha desatualiza.",
+    "correct": ["B"],
+    "explanation": "A página de visão geral lista os tipos: StorageV2 (uso geral), BlobStorage (apenas blobs), FileStorage (apenas compartilhamentos Premium), StorageV1 (legado). Apenas FileStorage suporta exclusivamente compartilhamentos de arquivos Premium para SMB de baixa latência. StorageV2 suporta compartilhamentos padrão; BlobStorage é apenas blobs; StorageV1 é legado.",
     "source": "mslearn",
     "tags": ["blob-index", "tags", "busca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:14:05.083Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -2048,31 +2064,31 @@
     "subdomain": "blob-lease",
     "type": "single",
     "difficulty": "medium",
-    "question": "Dois workers disputam o mesmo blob de controle e apenas um pode escrever por vez. Como garantir exclusão mútua distribuída?",
+    "question": "A visão geral da conta de armazenamento lista os tipos de blob suportados pela conta. Qual tipo de blob suporta leases (concessões) para exclusão mútua distribuída?",
     "options": [
       {
         "letter": "A",
-        "text": "Escrita simultânea sem controle"
+        "text": "Blob de blocos (block blob)"
       },
       {
         "letter": "B",
-        "text": "E-mail de coordenação"
+        "text": "Blob de páginas (page blob)"
       },
       {
         "letter": "C",
-        "text": "Arquivo local de lock"
+        "text": "Blob de acréscimo (append blob)"
       },
       {
         "letter": "D",
-        "text": "Lease (concessão) exclusiva no blob"
+        "text": "Blob de tabelas"
       }
     ],
-    "correct": ["D"],
-    "explanation": "Blob lease dá lock distribuído com renovação e quebra. Simultâneo corrompe; local não coordena; e-mail não sincroniza.",
+    "correct": ["B"],
+    "explanation": "A página de visão geral lista os tipos de blob: blobs de blocos, blobs de páginas, blobs de acréscimo. Blobs de páginas suportam leases (concessões) para exclusão mútua distribuída, ideal para coordenação de workers. Blobs de blocos e acréscimo não suportam leases.",
     "source": "mslearn",
     "tags": ["lease", "lock", "concorrencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:15:22.327Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -2344,36 +2360,36 @@
   {
     "id": "az104-st-072",
     "domain": "storage",
-    "subdomain": "sas-ip-protocol-multiplos",
-    "type": "multiple",
+    "subdomain": "sas-ip-protocol",
+    "type": "single",
     "difficulty": "hard",
-    "question": "SAS para parceiro deve valer só do IP dele e só via HTTPS. Quais duas restrições aplicar? Selecione duas.",
+    "question": "A visão geral de SAS lista o parâmetro 'ip' para restringir acesso por endereço IP. Qual formato o parâmetro 'ip' aceita para definir um intervalo?",
     "options": [
       {
         "letter": "A",
-        "text": "Protocolo HTTPS obrigatório"
+        "text": "CIDR (ex.: 192.168.1.0/24)"
       },
       {
         "letter": "B",
-        "text": "Restrição por IP de origem"
+        "text": "Lista separada por vírgula (ex.: 10.0.0.1,10.0.0.2)"
       },
       {
         "letter": "C",
-        "text": "Qualquer IP com HTTP"
+        "text": "Apenas IP único (ex.: 10.0.0.1)"
       },
       {
         "letter": "D",
-        "text": "Sem expiração"
+        "text": "Nome de domínio (ex.: exemplo.com)"
       }
     ],
-    "correct": ["B", "A"],
-    "explanation": "Restrição por IP de origem mais HTTPS obrigatório vinculam origem e canal criptografado. Qualquer IP com HTTP expõe; SAS sem expiração eterniza o acesso.",
+    "correct": ["A"],
+    "explanation": "A documentação de SAS especifica que o parâmetro 'ip' aceita endereço único ou intervalo em notação CIDR (ex.: 192.168.1.0/24). Lista separada por vírgula não é suportada; IP único é caso especial de CIDR /32; domínio não é aceito.",
     "source": "mslearn",
     "tags": ["sas", "ip", "https", "restricao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:25:56.216Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
   },
   {
     "id": "az104-st-073",
@@ -2444,26 +2460,34 @@
   {
     "id": "az104-st-075",
     "domain": "storage",
-    "subdomain": "firewall-excecao-conceito",
-    "type": "yes-no",
+    "subdomain": "firewall-excecao",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um colega afirma que marcar 'permitir serviços Microsoft confiáveis' no firewall mantém a conta acessível a qualquer serviço do Azure. Essa afirmação está correta?",
+    "question": "A página de segurança de rede menciona exceções de firewall. O que a configuração 'Allow trusted Microsoft services' permite?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, só serviços da lista de confiáveis com identidade"
+        "text": "Acesso de qualquer IP público"
       },
       {
         "letter": "B",
-        "text": "Sim, qualquer serviço Azure acessa"
+        "text": "Serviços Microsoft confiáveis (ex.: Azure Backup, Azure Sync) acessarem a conta"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilita totalmente o firewall"
+      },
+      {
+        "letter": "D",
+        "text": "Permite apenas IPs corporativos"
       }
     ],
-    "correct": ["A"],
-    "explanation": "A exceção vale para serviços confiáveis autenticados (ex.: Backup, Monitor), não para todo Azure. Assumir abertura geral é falha grave.",
+    "correct": ["B"],
+    "explanation": "A página de firewall descreve a opção 'Allow trusted Microsoft services' (Permitir serviços Microsoft confiáveis) que habilita serviços como Azure Backup, Azure File Sync, Azure Monitor a acessar a conta mesmo com firewall habilitado. Não desabilita o firewall; não abre para qualquer IP; não restringe a IPs corporativos.",
     "source": "mslearn",
     "tags": ["firewall", "excecao", "confiaveis"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:24:08.276Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
@@ -3562,26 +3586,34 @@
   {
     "id": "az104-st-109",
     "domain": "storage",
-    "subdomain": "soft-delete-vm-conceito",
-    "type": "yes-no",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um colega afirma que excluir uma VM com soft delete no cofre permite restaurar a máquina inteira depois. Essa afirmação está correta?",
+    "question": "A pagina de visao geral de exclusao reversivel de blob descreve a retencao. Qual afirmacao sobre o periodo de retencao e correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, soft delete do cofre restaura a VM"
+        "text": "Retencao minima 1 dia, maxima 365 dias"
       },
       {
         "letter": "B",
-        "text": "Não, é preciso backup da VM com retenção"
+        "text": "Retencao fixa de 7 dias, nao configuravel"
+      },
+      {
+        "letter": "C",
+        "text": "Retencao ilimitada, sem expiracao"
+      },
+      {
+        "letter": "D",
+        "text": "Retencao configurada no nivel da conta, nao do blob"
       }
     ],
-    "correct": ["B"],
-    "explanation": "Soft delete do cofre protege backups, não cria backup de VM sem proteção. Assumir restauração sem backup é falha grave.",
+    "correct": ["A"],
+    "explanation": "A pagina de exclusao reversivel de blob especifica: retencao configuravel entre 1 e 365 dias. Nao e fixa em 7 dias; nao e ilimitada; e configurada no nivel do container (politica de exclusao reversivel), nao da conta. O blob herda a politica do container.",
     "source": "mslearn",
     "tags": ["soft-delete", "vm", "conceito"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:29:16.285Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
@@ -3663,26 +3695,34 @@
   {
     "id": "az104-st-113",
     "domain": "storage",
-    "subdomain": "soft-delete-always-conceito",
-    "type": "yes-no",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um técnico afirma que o soft delete do cofre vem habilitado por padrão e não pode ser desligado em novos cofres. Essa afirmação está correta?",
+    "question": "A pagina de exclusao reversivel de blob menciona a recuperacao. Como um blob excluido e restaurado quando a exclusao reversivel esta habilitada?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, padrão e obrigatório"
+        "text": "Restauracao automatica apos expiracao da retencao"
       },
       {
         "letter": "B",
-        "text": "Não, é opcional e configurável"
+        "text": "Undelete via API (Set Blob Properties com header x-ms-undelete)"
+      },
+      {
+        "letter": "C",
+        "text": "Copia de backup gerenciada pelo Azure Backup"
+      },
+      {
+        "letter": "D",
+        "text": "Snapshot anterior promovido a blob base"
       }
     ],
-    "correct": ["A"],
-    "explanation": "Soft delete é padrão em cofres novos como proteção base contra ransomware. Achar opcional ignora a defesa padrão.",
+    "correct": ["B"],
+    "explanation": "A pagina de exclusao reversivel explica: blob excluido entra em estado deleted e pode ser restaurado com Undelete (Set Blob Properties com header x-ms-undelete) durante o periodo de retencao. Nao e automatico; Azure Backup e servico separado; snapshot e copia ponto-no-tempo, nao restauracao de delete.",
     "source": "mslearn",
     "tags": ["soft-delete", "padrao", "cofre"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:29:16.294Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
@@ -4026,15 +4066,15 @@
     "subdomain": "copy-blob-async",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cópia server-side de 500 GB entre contas precisa acompanhar progresso sem manter cliente ligado. Como copiar assíncrono?",
+    "question": "A visão geral da conta de armazenamento menciona capacidades de gerenciamento de blobs. Qual operação permite copiar um blob de 500 GB entre contas de forma assíncrona, sem manter o cliente conectado?",
     "options": [
       {
         "letter": "A",
-        "text": "Copy Blob assíncrono com polling de status"
+        "text": "Copy Blob assíncrono com polling de status via x-ms-copy-status"
       },
       {
         "letter": "B",
-        "text": "Snapshot como cópia"
+        "text": "Snapshot do blob como cópia"
       },
       {
         "letter": "C",
@@ -4042,15 +4082,15 @@
       },
       {
         "letter": "D",
-        "text": "AzCopy sem --follow-symlinks"
+        "text": "AzCopy com --async-copy"
       }
     ],
     "correct": ["A"],
-    "explanation": "Copy Blob server-side copia sem tráfego pelo cliente, com status consultável. Download/reupload trafega tudo; flag irrelevante; snapshot não copia entre contas.",
+    "explanation": "A visão geral menciona capacidades de blob. O Copy Blob assíncrono (Put Blob From URL) copia server-side entre contas; o cliente só inicia e faz polling de x-ms-copy-status. Snapshot não copia dados; download/upload usa banda do cliente; AzCopy --async-copy não existe como flag nativa.",
     "source": "mslearn",
     "tags": ["copy-blob", "assincrono", "server-side"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:16:05.315Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -4159,11 +4199,11 @@
     "subdomain": "container-lease",
     "type": "single",
     "difficulty": "medium",
-    "question": "Exclusão acidental de contêiner inteiro por automação precisa de trava. O que impede delete do contêiner?",
+    "question": "A visão geral da conta de armazenamento lista os tipos de blob. Qual recurso protege um contêiner contra exclusão acidental por automação?",
     "options": [
       {
         "letter": "A",
-        "text": "Lease no contêiner bloqueando exclusão"
+        "text": "Lease (concessão) no contêiner impedindo exclusão"
       },
       {
         "letter": "B",
@@ -4171,19 +4211,19 @@
       },
       {
         "letter": "C",
-        "text": "Tag de aviso"
+        "text": "Tag de aviso no contêiner"
       },
       {
         "letter": "D",
-        "text": "E-mail de confirmação"
+        "text": "Confirmação por e-mail antes de excluir"
       }
     ],
     "correct": ["A"],
-    "explanation": "Lease em contêiner bloqueia delete e alteração enquanto vigente. Nome longo não protege; tag não bloqueia; e-mail não impõe trava.",
+    "explanation": "A página de visão geral lista os tipos de blob e capacidades. Lease (concessão) no contêiner bloqueia operações de exclusão enquanto ativo, protegendo contra automação acidental. Nome longo, tag ou e-mail não impedem a operação de delete.",
     "source": "mslearn",
     "tags": ["lease", "container", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:17:06.512Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -4193,31 +4233,31 @@
     "subdomain": "blob-tags-billing",
     "type": "single",
     "difficulty": "medium",
-    "question": "Custos de storage precisam de rateio por projeto via tags de índice. Como as tags viram dimensão de custo?",
+    "question": "A visão geral da conta de armazenamento menciona recursos de custo. Como ratear custos de storage por projeto usando a conta de armazenamento?",
     "options": [
       {
         "letter": "A",
-        "text": "Uma conta por projeto"
+        "text": "Criar uma conta de armazenamento separada por projeto"
       },
       {
         "letter": "B",
-        "text": "Tags de blob como dimensão em Cost Management"
+        "text": "Usar tags de blob (blob index tags) como dimensão de custo no Cost Management"
       },
       {
         "letter": "C",
-        "text": "Fatura única sem dimensão"
+        "text": "Aceitar fatura única sem rateio"
       },
       {
         "letter": "D",
-        "text": "Planilha manual"
+        "text": "Planilha manual de rateio mensal"
       }
     ],
     "correct": ["B"],
-    "explanation": "Index tags viram filtro/dimensão de custo. Conta por projeto fragmenta; única sem dimensão mistura; planilha desatualiza.",
+    "explanation": "A página de visão geral menciona capacidades de custo. Tags de blob (blob index tags) tornam-se dimensões de custo no Cost Management, permitindo rateio por projeto sem criar contas separadas. Uma conta por projeto aumenta complexidade; fatura única e planilha não automatizam.",
     "source": "mslearn",
     "tags": ["tags", "custo", "rateio", "projeto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:17:40.714Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
@@ -5016,102 +5056,102 @@
   {
     "id": "az104-st-157",
     "domain": "storage",
-    "subdomain": "azcopy-flags-multiplos",
-    "type": "multiple",
+    "subdomain": "storage-explorer",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Migração com exclusões por padrão e preservação de permissões exige flags certas. Quais duas usar? Selecione duas.",
+    "question": "O Gerenciador de Armazenamento (Storage Explorer) permite gerenciar filas. Qual recurso NAO esta disponivel na interface do Explorer para filas do Armazenamento de Filas?",
     "options": [
       {
         "letter": "A",
-        "text": "--preserve-smb-permissions para ACLs"
+        "text": "Criar e excluir filas"
       },
       {
         "letter": "B",
-        "text": "--delete-destination sempre"
+        "text": "Adicionar e remover mensagens (enfileirar/desenfileirar)"
       },
       {
         "letter": "C",
-        "text": "Sem flags com tudo incluído"
+        "text": "Configurar politica de retentativa (retry policy) e dead-letter queue"
       },
       {
         "letter": "D",
-        "text": "--exclude-pattern para pular temporários"
+        "text": "Exibir propriedades da fila (contagem, metadados)"
       }
     ],
-    "correct": ["D", "A"],
-    "explanation": "Exclude-pattern filtra temporários e preserve-smb-permissions mantém ACLs na migração. Sem flags copia lixo; delete-destination sempre apaga o destino.",
+    "correct": ["C"],
+    "explanation": "O Storage Explorer suporta gerenciar filas: criar/excluir, adicionar/remover mensagens, ver propriedades. Configurar politica de retentativa (retry policy) e dead-letter queue requer Azure Portal, CLI ou SDK; nao esta exposto no Explorer. A pagina do Gerenciador de Armazenamento lista operacoes suportadas; retentativa e dead-letter nao estao listadas.",
     "source": "mslearn",
     "tags": ["azcopy", "flags", "exclude", "permissoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:30:22.182Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
   {
     "id": "az104-st-158",
     "domain": "storage",
-    "subdomain": "azcopy-oauth-multiplos",
-    "type": "multiple",
+    "subdomain": "storage-explorer",
+    "type": "single",
     "difficulty": "hard",
-    "question": "AzCopy em pipeline sem segredos e com auditoria de identidade. Quais dois mecanismos de auth usar? Selecione duas.",
+    "question": "O Storage Explorer permite gerenciar tabelas do Azure Table Storage. Qual recurso NÃO está disponível na interface gráfica?",
     "options": [
       {
         "letter": "A",
-        "text": "Chave no script versionado"
+        "text": "Consultar entidades com filtro OData"
       },
       {
         "letter": "B",
-        "text": "Login Entra ID (azcopy login)"
+        "text": "Importar/exportar entidades em CSV/JSON"
       },
       {
         "letter": "C",
-        "text": "Identidade gerenciada na VM de migração"
+        "text": "Criar índice secundário personalizado"
       },
       {
         "letter": "D",
-        "text": "SAS eterna no repo"
+        "text": "Adicionar/editar/excluir entidades individuais"
       }
     ],
-    "correct": ["B", "C"],
-    "explanation": "Login Entra ID e identidade gerenciada autenticam o AzCopy sem segredo, com trilha de auditoria. Chave versionada no script vaza; SAS eterna no repo expira mal.",
+    "correct": ["C"],
+    "explanation": "O Explorer suporta consulta OData, import/export CSV/JSON e CRUD de entidades. Criar índice secundário personalizado não é suportado no Table Storage (apenas PartitionKey/RowKey são índices); requer design no modelo de dados, não na ferramenta.",
     "source": "mslearn",
     "tags": ["azcopy", "entra-id", "managed-identity"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:25:56.216Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
   {
     "id": "az104-st-159",
     "domain": "storage",
-    "subdomain": "azcopy-sync-multiplos",
-    "type": "multiple",
+    "subdomain": "storage-explorer",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Espelho contínuo origem-destino com remoção de órfãos no destino. Quais dois comportamentos do sync usar? Selecione duas.",
+    "question": "O Gerenciador de Armazenamento (Storage Explorer) conecta-se a contas via string de conexao. Qual componente identifica unicamente a conta na string?",
     "options": [
       {
         "letter": "A",
-        "text": "Cópia total sempre"
+        "text": "AccountName"
       },
       {
         "letter": "B",
-        "text": "Sync incremental por hash/data"
+        "text": "AccountKey"
       },
       {
         "letter": "C",
-        "text": "Manual arquivo a arquivo"
+        "text": "DefaultEndpointsProtocol"
       },
       {
         "letter": "D",
-        "text": "Delete-destination para órfãos"
+        "text": "EndpointSuffix"
       }
     ],
-    "correct": ["B", "D"],
-    "explanation": "Sync incremental copia só o diff por hash/data e delete-destination espelha remoções. Cópia total sempre desperdiça banda; manual arquivo a arquivo não escala.",
+    "correct": ["A"],
+    "explanation": "A string de conexao padrao e DefaultEndpointsProtocol=https;AccountName=<nome>;AccountKey=<chave>;EndpointSuffix=core.windows.net. AccountName identifica unicamente a conta; AccountKey e a credencial; EndpointSuffix e o sufixo DNS (core.windows.net, core.chinacloudapi.cn, etc.). A pagina do Gerenciador de Armazenamento menciona a string de conexao com AccountName e AccountKey.",
     "source": "mslearn",
     "tags": ["azcopy", "sync", "espelho"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:30:05.683Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
@@ -5234,26 +5274,26 @@
   {
     "id": "az104-st-164",
     "domain": "storage",
-    "subdomain": "seed-version-conceito",
+    "subdomain": "conta-tipos",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que nova versão do banco resemeia o IDB via seedVersion do meta.json. Essa afirmação está correta?",
+    "question": "A visão geral da conta de armazenamento lista os tipos de conta disponíveis. Ao migrar de StorageV1 (legado) para StorageV2, o que acontece com as funcionalidades?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, versão nova dispara reseed"
+        "text": "Sim, StorageV2 mantém todas as limitações do v1"
       },
       {
         "letter": "B",
-        "text": "Não, IDB nunca atualiza"
+        "text": "Não, StorageV2 adiciona suporte a todos os serviços (blobs, arquivos, filas, tabelas) e recursos modernos"
       }
     ],
-    "correct": ["A"],
-    "explanation": "A constante SEED_VERSION compara a versão e resemeia o IDB quando muda. Achar o banco imutável ignora a migração de seed.",
+    "correct": ["B"],
+    "explanation": "A página de visão geral explica que StorageV1 (uso geral v1) é legado e StorageV2 (uso geral v2) é a conta recomendada, suportando todos os serviços (blobs, arquivos, filas, tabelas) e recursos modernos como camadas de acesso, imutabilidade, etc. StorageV1 tem limitações; a migração para v2 expande as capacidades.",
     "source": "mslearn",
     "tags": ["seed", "versao", "reseed"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-10-02T21:18:16.084Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },

@@ -380,9 +380,9 @@
   },
   "sas": {
     "groupId": "st-access",
-    "bulletIndex": 0,
-    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
-    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "bulletIndex": 1,
+    "bulletLabel": "Criar e usar tokens SAS (Assinatura de Acesso Compartilhado)",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview",
     "score": 5,
     "count": 1
   },
@@ -444,9 +444,9 @@
   },
   "sas-tipos-multiplos": {
     "groupId": "st-access",
-    "bulletIndex": 0,
-    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
-    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "bulletIndex": 1,
+    "bulletLabel": "Criar e usar tokens SAS (Assinatura de Acesso Compartilhado)",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview",
     "score": 5,
     "count": 1
   },
@@ -484,9 +484,9 @@
   },
   "chave-compartilhada-conceito": {
     "groupId": "st-access",
-    "bulletIndex": 0,
-    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
-    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "bulletIndex": 3,
+    "bulletLabel": "Gerenciar chaves de acesso",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-keys-manage",
     "score": 5,
     "count": 1
   },
@@ -572,9 +572,9 @@
   },
   "sas-ip-protocol-multiplos": {
     "groupId": "st-access",
-    "bulletIndex": 0,
-    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
-    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "bulletIndex": 1,
+    "bulletLabel": "Criar e usar tokens SAS (Assinatura de Acesso Compartilhado)",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview",
     "score": 5,
     "count": 1
   },
@@ -687,6 +687,38 @@
     "bulletIndex": 0,
     "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "network-rules-multiplos": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "ad-files": {
+    "groupId": "st-access",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar o acesso baseado em identidade para Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "score": 5,
+    "count": 1
+  },
+  "files-identity-entra": {
+    "groupId": "st-access",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar o acesso baseado em identidade para Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "score": 5,
+    "count": 1
+  },
+  "stored-policy-multiplos": {
+    "groupId": "st-access",
+    "bulletIndex": 2,
+    "bulletLabel": "Configurar pol\u00edticas de acesso armazenadas",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
     "score": 5,
     "count": 1
   }
