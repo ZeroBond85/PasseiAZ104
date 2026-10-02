@@ -2676,5 +2676,85 @@
     "url": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up",
     "score": 5,
     "count": 1
+  },
+  "vms-ultra-disk": {
+    "groupId": "co-vms",
+    "bulletIndex": 4,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "score": 5,
+    "count": 1
+  },
+  "vm-disk-burst": {
+    "groupId": "co-vms",
+    "bulletIndex": 4,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "score": 5,
+    "count": 1
+  },
+  "vm-disk-encryption-ade": {
+    "groupId": "co-vms",
+    "bulletIndex": 1,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vm-confidential-os-disk": {
+    "groupId": "co-vms",
+    "bulletIndex": 4,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "score": 5,
+    "count": 1
+  },
+  "vm-disk-caching": {
+    "groupId": "co-vms",
+    "bulletIndex": 4,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "score": 5,
+    "count": 1
+  },
+  "vm-disk-striping": {
+    "groupId": "co-vms",
+    "bulletIndex": 4,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "score": 5,
+    "count": 1
+  },
+  "vm-sla-zones": {
+    "groupId": "co-vms",
+    "bulletIndex": 5,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/managed-disks-overview",
+    "score": 5,
+    "count": 1
+  },
+  "vm-sizes-constrained": {
+    "groupId": "co-vms",
+    "bulletIndex": 3,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "score": 5,
+    "count": 1
+  },
+  "vms-extensoes": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 5,
+    "count": 1
+  },
+  "vms-runcommand": {
+    "groupId": "co-vms",
+    "bulletIndex": 0,
+    "bulletLabel": "TODO",
+    "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
+    "score": 5,
+    "count": 1
   }
 }
