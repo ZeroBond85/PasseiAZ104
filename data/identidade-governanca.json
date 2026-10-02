@@ -26,11 +26,12 @@
     ],
     "correct": ["A"],
     "explanation": "Leitor permite visualizar todos os recursos sem alterar nada. Colaborador cria e gerencia recursos; Proprietário ainda gerencia acesso; Administrador de Acesso gerencia atribuições de função, não é leitura simples.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["rbac", "funcoes-built-in"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.360Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-004",
@@ -59,11 +60,12 @@
     ],
     "correct": ["C"],
     "explanation": "MFA exige dois ou mais fatores (senha + app/telefone). SSO facilita o login mas mantém um fator; SSPR recupera senhas; sincronização de hash replica credencial, não adiciona fator.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["mfa", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-005",
@@ -92,11 +94,12 @@
     ],
     "correct": ["B"],
     "explanation": "Azure Policy avalia cada implantação e nega o que viola a definição. Lock de exclusão impede apagar, não criar; Blueprint sem atribuição não age; tag organiza, não bloqueia SKU.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-006",
@@ -158,11 +161,12 @@
     ],
     "correct": ["A"],
     "explanation": "Atribuir no escopo do grupo de recursos limita o acesso exatamente onde é preciso. Escopo de assinatura expõe demais; grupo de gerenciamento raiz é o escopo mais amplo; Leitor na assinatura não permite implantar.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["rbac", "escopo", "menor-privilegio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-008",
@@ -191,11 +195,12 @@
     ],
     "correct": ["D"],
     "explanation": "SSPR deixa o usuário redefinir a senha após verificação (MFA/perguntas). Smart Lockout bloqueia ataques de força bruta; proteção de senha veta senhas fracas; revisão de acesso recertifica acessos, não redefine senha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sspr", "senhas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
     "id": "az104-ig-009",
@@ -224,11 +229,12 @@
     ],
     "correct": ["B"],
     "explanation": "CanNotDelete impede exclusões mas permite leituras e atualizações. ReadOnly bloquearia também as atualizações; política de negação filtra tipos de recurso, não protege contra exclusão; Leitor não impede que outros excluam.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["locks", "producao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-010",
@@ -290,11 +296,12 @@
     ],
     "correct": ["D"],
     "explanation": "PIM torna a função qualificada: ativação temporária, com MFA, justificativa e aprovação. Atribuição permanente mantém o risco; grupo estático não impõe tempo; bloqueio protege recursos, não gerencia privilégio.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["pim", "just-in-time"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-013",
@@ -323,11 +330,12 @@
     ],
     "correct": ["D"],
     "explanation": "Função personalizada combina só as Actions necessárias (restart, leitura) e usa NotActions para excluir o resto. Colaborador de VM permite criar; Leitor+Rede não reinicia nem cobre discos; Proprietário com condição continua amplo demais.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["rbac", "custom-roles"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-014",
@@ -488,11 +496,12 @@
     ],
     "correct": ["C"],
     "explanation": "Iniciativas agrupam definições em um conjunto atribuível e auditável de uma vez. Atribuições avulsas multiplicam gestão; uma definição não comporta dez lógicas distintas; bloqueio não avalia conformidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "initiative"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-022",
@@ -521,11 +530,12 @@
     ],
     "correct": ["D"],
     "explanation": "DeployIfNotExists implanta a configuração ausente via tarefa de correção com identidade gerenciada. Negar só barra o novo; bloqueio impede excluir, não configura; etiqueta não altera o recurso.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "remediation", "deployifnotexists"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-023",
@@ -554,11 +564,12 @@
     ],
     "correct": ["A"],
     "explanation": "Condições ABAC filtram a atribuição por atributos (etiqueta do blob + departamento do usuário). Leitor de Dados libera tudo; chave compartilhada ignora identidade; SAS sem restrição não avalia atributos.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["rbac", "abac", "condicoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-025",
@@ -719,11 +730,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Start/action liga a VM e read em rede permite diagnosticar sem alterar. Write em VM autoriza criar/excluir; roleAssignments/write delega acesso, violando o menor privilégio.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["rbac", "custom-roles", "actions"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-033",
@@ -785,11 +797,12 @@
     ],
     "correct": ["C", "A"],
     "explanation": "MFA na ativação prova o solicitante e aprovação com justificativa cria trilha e controle humano. Ativação permanente anula o just-in-time; sem notificação ninguém audita a elevação.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["pim", "aprovacao", "mfa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-035",
@@ -818,11 +831,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Deny barra a criação fora de conformidade e Audit marca o existente como não conforme para correção. Desabilitar desliga a governança; etiqueta solta não avalia nem impede.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "deny", "audit"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-036",
@@ -950,11 +964,12 @@
     ],
     "correct": ["A", "B"],
     "explanation": "Colaborador do Key Vault administra o plano de gerenciamento e Usuário de Segredos lê valores no plano de dados, sem sobreposição. Proprietário quebra a segregação; Leitor de Backup atua sobre Recovery Services, não segredos.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["key-vault", "rbac", "segregacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-047",
@@ -1008,11 +1023,12 @@
     ],
     "correct": ["A"],
     "explanation": "Deny assignments fluem por herança como as concessões: valem no escopo e em todos os filhos. A pegadinha é achar que negação precisa ser repetida por recurso; a herança já cobre.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["deny-assignments", "heranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-050",
@@ -1033,11 +1049,12 @@
     ],
     "correct": ["B"],
     "explanation": "ReadOnly veta qualquer escrita no escopo, inclusive a implantação corretiva do DeployIfNotExists, que falha. Por isso remediação e locks de leitura são incompatíveis no mesmo escopo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["locks", "policy", "remediation"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-053",
@@ -1099,11 +1116,12 @@
     ],
     "correct": ["C"],
     "explanation": "Condição de client apps legados com concessão Bloquear elimina a via sem MFA. Senha longa ainda é fator único; sem MFA piora; firewall não distingue protocolo de auth.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["legacy-auth", "conditional-access", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-063",
@@ -1165,11 +1183,12 @@
     ],
     "correct": ["B"],
     "explanation": "Atributos indexados e escopo estreito avaliam rápido. ORs aninhados custam caro; grupo único gigante atrasa; regra por usuário anula a automação.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["grupos-dinamicos", "performance", "regras"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-065",
@@ -1297,11 +1316,12 @@
     ],
     "correct": ["A"],
     "explanation": "PIM alerts detectam padrões (fora de horário, sem MFA, papel sensível). Log manual atrasa; e-mail do ativador não alerta o SOC; desligar perde o controle.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["pim", "alertas", "soc", "anomalia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-076",
@@ -1330,11 +1350,12 @@
     ],
     "correct": ["C", "A"],
     "explanation": "Multi-aprovação distribui o controle e expiração com review remove órfãos. Vitalício acumula; autoaprovação anula governança.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["access-package", "aprovacao", "expiracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-077",
@@ -1429,11 +1450,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "Escopo na AU limita a região e aprovação+MFA controla a elevação. Global permanente excede; sem registro não audita.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["pim", "administrative-units", "escopo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-092",
@@ -1512,11 +1534,12 @@
     ],
     "correct": ["A"],
     "explanation": "O tier gratuito limita SSPR (basicamente admins); cobertura ampla de usuários exige P1 ou P2. Assumir gratuidade total trava o projeto na implantação.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sspr", "licenca", "p1"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
     "id": "az104-ig-096",
@@ -1587,11 +1610,12 @@
     ],
     "correct": ["A"],
     "explanation": "Deny avalia no PUT; existente segue non-compliant até remediação (DeployIfNotExists/audit). Achar que apaga sozinho é erro grave.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "deny", "existente"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-100",
@@ -1612,11 +1636,12 @@
     ],
     "correct": ["B"],
     "explanation": "ReadOnly veta escrita; leitura (inclusive de segredos exibidos) continua. Confiar no lock para ocultar dado é falha de modelo mental.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["readonly", "lock", "leitura"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-102",
@@ -1909,11 +1934,12 @@
     ],
     "correct": ["C"],
     "explanation": "Role settings do PIM definem duração máxima, MFA e aprovação. Expiração do grupo apaga o grupo; senha não limita ativação; licença não configura tempo.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["pim", "grupos", "duracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-113",
@@ -1975,11 +2001,12 @@
     ],
     "correct": ["A"],
     "explanation": "Policy nega e marca compliant/non-compliant por recurso. RBAC veta sem trilha de conformidade; NotActions não reporta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["policy", "deny", "rbac", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-115",
@@ -2008,11 +2035,12 @@
     ],
     "correct": ["D"],
     "explanation": "Herança do MG aplica na criação (ex.: exigir tag, negar região). E-mail não impõe; runbook mensal atrasa; bloquear impede o negócio.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["management-groups", "governanca", "heranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-116",
@@ -2041,11 +2069,12 @@
     ],
     "correct": ["B"],
     "explanation": "Budgets por escopo com alertas monitoram por centro de custo. Fatura única mistura; planilha desatualiza; tag sem budget não alerta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cost-management", "budgets", "centro-custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-117",
@@ -2074,11 +2103,12 @@
     ],
     "correct": ["C"],
     "explanation": "Deny barra sem tag e Modify herda do RG automaticamente. Audit só observa; manual atrasa; lock não exige tag.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["tags", "policy", "deny", "modify"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources"
   },
   {
     "id": "az104-ig-118",
@@ -2371,11 +2401,12 @@
     ],
     "correct": ["A", "D"],
     "explanation": "Staging importa e valida sem escrever; promoção troca com janela. Dois ativos duplicam; sem validar arrisca.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["staging-mode", "migracao", "connect-sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-136",
@@ -2561,11 +2592,12 @@
     ],
     "correct": ["B"],
     "explanation": "Deny assignments são criadas pelo sistema (ex.: Blueprints, Databricks); Owners não as criam diretamente. Assumir criação livre superestima o controle.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["deny-assignments", "rbac", "sistema"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-157",
@@ -2627,11 +2659,12 @@
     ],
     "correct": ["C"],
     "explanation": "Risco interno (exfiltração, HR) com CA de sessão bloqueia na hora. E-mail não age; liberar até sair vaza; backup não previne.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["insider-risk", "exfiltracao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-167",

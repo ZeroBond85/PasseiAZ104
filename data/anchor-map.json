@@ -1,0 +1,394 @@
+{
+  "rbac": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 2
+  },
+  "mfa": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "policy": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "sspr": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "score": 7,
+    "count": 1
+  },
+  "locks": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "pim": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "rbac-custom": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "policy-initiative": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "policy-remediation": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "rbac-abac": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "rbac-acoes": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "pim-config": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "policy-efeitos": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "key-vault-rbac": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "rbac-heranca": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "locks-vs-policy": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 12,
+    "count": 1
+  },
+  "legacy-auth-block": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "dynamic-membership-cost": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "pim-alerts": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "access-package-policy-multiplos": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "au-pim-multiplos": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "sspr-licenca-conceito": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "score": 7,
+    "count": 1
+  },
+  "policy-deny-conceito": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "readonly-lock-conceito": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "pim-grupos-ativacao": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 7,
+    "count": 1
+  },
+  "deny-vs-policy": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "subscription-policies": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "cost-management-scope": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "tags-governanca": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 2,
+    "bulletLabel": "Aplicar e gerenciar tags em recursos",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources",
+    "score": 7,
+    "count": 1
+  },
+  "staging-mode-multiplos": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "deny-rbac-conceito": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "insider-risk-policy": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "entra-id-usuarios": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "entra-id-grupos": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 7,
+    "count": 1
+  },
+  "entra-roles-vs-rbac": {
+    "groupId": "ig-access-resources",
+    "bulletIndex": 0,
+    "bulletLabel": "Gerenciar funções internas do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "score": 5,
+    "count": 1
+  },
+  "entra-id-licencas": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "smart-lockout-multiplos": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 5,
+    "count": 1
+  },
+  "phishing-resistant-mfa-multiplos": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "guest-mfa-conceito": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "entra-id-objetos": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "entra-id-naming": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "entra-id-p1-p2": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "app-protection-policy": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "elapsed-policy-conceito": {
+    "groupId": "ig-subscriptions-governance",
+    "bulletIndex": 0,
+    "bulletLabel": "Implementar e gerenciar o Azure Policy",
+    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "score": 7,
+    "count": 1
+  },
+  "pim-duration-conceito": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "entra-id-powershell": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "entra-id-cli": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "score": 7,
+    "count": 1
+  },
+  "mfa-coverage-multiplos": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  },
+  "legacy-mfa-peruser-conceito": {
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar usuários e grupos",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "score": 5,
+    "count": 1
+  }
+}

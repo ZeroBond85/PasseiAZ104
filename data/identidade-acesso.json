@@ -26,11 +26,12 @@
     ],
     "correct": ["C"],
     "explanation": "Usuários membros do tenant estão sujeitos a políticas de acesso condicional e MFA. MSA sem convite não pertence ao tenant; conta local do Windows e conta de serviço do SO ficam fora do Entra ID e não recebem as políticas.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["entra-id", "usuarios"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-002",
@@ -59,11 +60,12 @@
     ],
     "correct": ["A"],
     "explanation": "Grupos dinâmicos avaliam regras (ex.: department igual a Finance) e adicionam/removem membros sozinhos. Grupo atribuído exige ação manual; grupo Microsoft 365 serve a colaboração; unidade administrativa organiza, não associa por regra.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["entra-id", "grupos-dinamicos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-011",
@@ -224,11 +226,12 @@
     ],
     "correct": ["B"],
     "explanation": "Funções do Entra administram identidades (senhas, licenças) sem alcançar o plano de dados do Azure. RBAC do Azure gerencia recursos, não usuários; Leitor não redefine senha; Proprietário de Storage cuida de blobs.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["entra-roles", "rbac", "escopo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-026",
@@ -612,11 +615,12 @@
     ],
     "correct": ["B"],
     "explanation": "P2 libera PIM, Identity Protection, Access Reviews e Entitlement Management. Gratuito e M365 básico não incluem; subscription sem Entra não licencia identidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["licencas", "entra-p2"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-052",
@@ -1437,11 +1441,12 @@
     ],
     "correct": ["C", "A"],
     "explanation": "Smart Lockout distingue legítimo de spray por sinais e limiares. Bloquear após 1 erro trava todos; sem lockout libera força bruta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["smart-lockout", "spray", "forca-bruta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-089",
@@ -1470,11 +1475,12 @@
     ],
     "correct": ["A", "D"],
     "explanation": "FIDO2 e Hello vinculam à origem e dispensam segredo compartilhado. SMS e voz são interceptáveis e sofrem fatigue.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["phishing-resistant", "fido2", "hello"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-090",
@@ -1561,11 +1567,12 @@
     ],
     "correct": ["B"],
     "explanation": "O tenant de recurso impõe sua CA aos guests (salvo confiança explícita). Achar que origem manda sozinha deixa brecha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["b2b", "mfa", "convidado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-098",
@@ -1619,11 +1626,12 @@
     ],
     "correct": ["B"],
     "explanation": "Graph com OData filtra no servidor e pagina via nextLink. Portal manual não escala; CSV desatualiza; DNS não lista usuários.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["graph", "odata", "paginacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-107",
@@ -2256,11 +2264,12 @@
     ],
     "correct": ["A"],
     "explanation": "Padrão documentado com validação no fluxo impede UPN fora do formato. Aceitar tudo bagunça; renomear depois quebra login; bloquear impede o negócio.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["upn", "nomenclatura", "padrao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-152",
@@ -2421,11 +2430,12 @@
     ],
     "correct": ["B"],
     "explanation": "CA base é P1; PIM, Identity Protection e reviews exigem P2. Downgrade piora; subscription não licencia Entra; não é bug.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["licenca", "p1", "p2", "diferencas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-158",
@@ -2652,11 +2662,12 @@
     ],
     "correct": ["B"],
     "explanation": "App protection criptografa, exige PIN e bloqueia vazamento entre apps. Senha do aparelho não isola; proibir trava; só desktop reduz mobilidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["app-protection", "dlp", "movel"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-166",
@@ -2809,11 +2820,12 @@
     ],
     "correct": ["B"],
     "explanation": "CAE e session controls reavaliam risco e conformidade ao longo da sessão. Achar pontual ignora a proteção contínua.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cae", "reavaliacao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
   },
   {
     "id": "az104-ig-175",
@@ -2859,11 +2871,12 @@
     ],
     "correct": ["A"],
     "explanation": "Role settings por função definem duração, MFA e aprovação próprios. Assumir global impede calibrar por criticidade.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["pim", "duracao", "role-settings"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-181",
@@ -2892,11 +2905,12 @@
     ],
     "correct": ["B"],
     "explanation": "SDK Microsoft.Graph automatiza em massa via API. Portal não escala; MSOnline foi preterido; cmdlets locais não alcançam nuvem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["powershell", "graph", "automacao", "massa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-182",
@@ -2925,11 +2939,12 @@
     ],
     "correct": ["A"],
     "explanation": "Azure CLI (az ad) automatiza criação e associação de grupos de forma idempotente com queries JMESPath. Portal clicado não é pipeline; Telnet e FTP não gerenciam Entra ID.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cli", "automacao", "grupo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
   {
     "id": "az104-ig-183",
@@ -4014,11 +4029,12 @@
     ],
     "correct": ["D", "C"],
     "explanation": "Política para todos os usuários com MFA e exceção apenas para break glass monitorado com alerta fecha a cobertura. Exceção por departamento fura; MFA opcional nunca fecha.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["mfa", "cobertura", "break-glass"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-222",
@@ -4039,11 +4055,12 @@
     ],
     "correct": ["B"],
     "explanation": "Per-user não avalia contexto e conflita com CA; a migração para política é o caminho oficial e suportado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["mfa", "per-user", "legado", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
   {
     "id": "az104-ig-223",
