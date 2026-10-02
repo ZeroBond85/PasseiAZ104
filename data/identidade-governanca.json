@@ -63,9 +63,9 @@
     "source": "mslearn",
     "tags": ["mfa", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.143Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
     "id": "az104-ig-005",
@@ -299,9 +299,9 @@
     "source": "mslearn",
     "tags": ["pim", "just-in-time"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.154Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
   {
     "id": "az104-ig-013",
@@ -800,9 +800,9 @@
     "source": "mslearn",
     "tags": ["pim", "aprovacao", "mfa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.154Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
   {
     "id": "az104-ig-035",
@@ -1052,9 +1052,9 @@
     "source": "mslearn",
     "tags": ["locks", "policy", "remediation"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.154Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources"
   },
   {
     "id": "az104-ig-053",
@@ -1119,9 +1119,9 @@
     "source": "mslearn",
     "tags": ["legacy-auth", "conditional-access", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:40:19.353Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
     "id": "az104-ig-063",
@@ -1319,9 +1319,9 @@
     "source": "mslearn",
     "tags": ["pim", "alertas", "soc", "anomalia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
   {
     "id": "az104-ig-076",
@@ -1453,9 +1453,9 @@
     "source": "mslearn",
     "tags": ["pim", "administrative-units", "escopo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
   {
     "id": "az104-ig-092",
@@ -1639,9 +1639,9 @@
     "source": "mslearn",
     "tags": ["readonly", "lock", "leitura"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources"
   },
   {
     "id": "az104-ig-102",
@@ -1937,9 +1937,9 @@
     "source": "mslearn",
     "tags": ["pim", "grupos", "duracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
   {
     "id": "az104-ig-113",
@@ -2072,9 +2072,9 @@
     "source": "mslearn",
     "tags": ["cost-management", "budgets", "centro-custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview"
   },
   {
     "id": "az104-ig-117",
@@ -2401,12 +2401,11 @@
     ],
     "correct": ["A", "D"],
     "explanation": "Staging importa e valida sem escrever; promoção troca com janela. Dois ativos duplicam; sem validar arrisca.",
-    "source": "mslearn",
+    "source": "original",
     "tags": ["staging-mode", "migracao", "connect-sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.369Z",
-    "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "updatedAt": "2026-10-02T19:39:47.487Z",
+    "version": 1
   },
   {
     "id": "az104-ig-136",
@@ -2662,9 +2661,9 @@
     "source": "mslearn",
     "tags": ["insider-risk", "exfiltracao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview"
   },
   {
     "id": "az104-ig-167",

@@ -9,11 +9,10 @@
   },
   "mfa": {
     "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
+    "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   },
   "policy": {
     "groupId": "ig-subscriptions-governance",
@@ -40,12 +39,11 @@
     "count": 1
   },
   "pim": {
-    "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "rbac-custom": {
     "groupId": "ig-access-resources",
@@ -88,12 +86,11 @@
     "count": 1
   },
   "pim-config": {
-    "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "policy-efeitos": {
     "groupId": "ig-subscriptions-governance",
@@ -116,24 +113,21 @@
     "bulletIndex": 0,
     "bulletLabel": "Gerenciar funções internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
-    "score": 5,
-    "count": 1
+    "note": "Built-in roles and deny assignments map to official roles bullet"
   },
   "locks-vs-policy": {
     "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 12,
-    "count": 1
+    "bulletIndex": 1,
+    "bulletLabel": "Configurar os bloqueios de recursos",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources",
+    "note": "Locks questions map to official locks bullet"
   },
   "legacy-auth-block": {
-    "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
+    "note": "Legacy auth block rewritten to conditional access"
   },
   "dynamic-membership-cost": {
     "groupId": "ig-subscriptions-governance",
@@ -144,12 +138,11 @@
     "count": 1
   },
   "pim-alerts": {
-    "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "access-package-policy-multiplos": {
     "groupId": "ig-subscriptions-governance",
@@ -160,12 +153,11 @@
     "count": 1
   },
   "au-pim-multiplos": {
-    "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "sspr-licenca-conceito": {
     "groupId": "ig-entra-users-groups",
@@ -185,19 +177,17 @@
   },
   "readonly-lock-conceito": {
     "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 1,
+    "bulletLabel": "Configurar os bloqueios de recursos",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources",
+    "note": "Locks questions map to official locks bullet"
   },
   "pim-grupos-ativacao": {
-    "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 7,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "deny-vs-policy": {
     "groupId": "ig-subscriptions-governance",
@@ -217,43 +207,38 @@
   },
   "cost-management-scope": {
     "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 5,
+    "bulletLabel": "Gerenciar custos usando alertas, orçamentos e recomendações do Assistente do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview",
+    "note": "Cost budgets map to official cost management bullet"
   },
   "tags-governanca": {
     "groupId": "ig-subscriptions-governance",
     "bulletIndex": 2,
     "bulletLabel": "Aplicar e gerenciar tags em recursos",
     "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources",
-    "score": 7,
-    "count": 1
+    "note": "Tag enforcement maps to official tags bullet"
   },
   "staging-mode-multiplos": {
-    "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 2,
+    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-mode",
+    "note": "Staging mode rewritten to Entra Connect sync (license management context)"
   },
   "deny-rbac-conceito": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
     "bulletLabel": "Gerenciar funções internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
-    "score": 5,
-    "count": 1
+    "note": "Built-in roles and deny assignments map to official roles bullet"
   },
   "insider-risk-policy": {
-    "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 7,
-    "count": 1
+    "groupId": "mo-monitor",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar regras de alerta, grupos de ações e regras de processamento de alertas no Azure Monitor",
+    "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
+    "note": "Insider risk rewritten to alerting in Azure Monitor"
   },
   "entra-id-usuarios": {
     "groupId": "ig-entra-users-groups",
@@ -268,8 +253,7 @@
     "bulletIndex": 0,
     "bulletLabel": "Criar usuários e grupos",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 7,
-    "count": 1
+    "note": "Dynamic groups are a way to create/manage groups"
   },
   "entra-roles-vs-rbac": {
     "groupId": "ig-access-resources",
@@ -284,80 +268,70 @@
     "bulletIndex": 2,
     "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
-    "score": 7,
-    "count": 1
+    "note": "License questions map to official license bullet"
   },
   "smart-lockout-multiplos": {
-    "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-entra-users-groups",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
+    "note": "Smart Lockout rewritten to authentication methods / sign-in risk"
   },
   "phishing-resistant-mfa-multiplos": {
     "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
+    "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   },
   "guest-mfa-conceito": {
     "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 3,
+    "bulletLabel": "Gerenciar usuários externos",
+    "url": "https://learn.microsoft.com/pt-br/entra/external-id/external-identities-overview",
+    "note": "Guest/B2B MFA maps to external users bullet"
   },
   "entra-id-objetos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
     "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
-    "score": 7,
-    "count": 1
+    "note": "License questions map to official license bullet"
   },
   "entra-id-naming": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
     "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
-    "score": 7,
-    "count": 1
+    "note": "License questions map to official license bullet"
   },
   "entra-id-p1-p2": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
     "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
-    "score": 7,
-    "count": 1
+    "note": "License questions map to official license bullet"
   },
   "app-protection-policy": {
-    "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 7,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
+    "note": "App protection rewritten to conditional access for cloud apps"
   },
   "elapsed-policy-conceito": {
-    "groupId": "ig-subscriptions-governance",
-    "bulletIndex": 0,
-    "bulletLabel": "Implementar e gerenciar o Azure Policy",
-    "url": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
-    "score": 7,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
+    "note": "CAE/session controls rewritten to conditional access"
   },
   "pim-duration-conceito": {
-    "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "groupId": "ig-access-resources",
+    "bulletIndex": 1,
+    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "entra-id-powershell": {
     "groupId": "ig-entra-users-groups",
@@ -372,23 +346,20 @@
     "bulletIndex": 2,
     "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
-    "score": 7,
-    "count": 1
+    "note": "License questions map to official license bullet"
   },
   "mfa-coverage-multiplos": {
     "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
+    "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   },
   "legacy-mfa-peruser-conceito": {
     "groupId": "ig-entra-users-groups",
-    "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
-    "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
-    "score": 5,
-    "count": 1
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
+    "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   }
 }
