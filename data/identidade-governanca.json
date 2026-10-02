@@ -1007,52 +1007,68 @@
   {
     "id": "az104-ig-049",
     "domain": "identidade-governanca",
-    "subdomain": "rbac-heranca",
-    "type": "yes-no",
+    "subdomain": "rbac",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um engenheiro afirma que uma atribuição de função Negar em um grupo de recursos é automaticamente herdada pelos recursos filhos, bloqueando a ação em todo o grupo. Essa afirmação sobre herança de negação está correta?",
+    "question": "Um administrador atribui a função Colaborador em um grupo de recursos. Um recurso filho (conta de armazenamento) criado posteriormente nesse grupo de recursos herdará automaticamente qual permissão?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, negações herdam para todos os recursos filhos do escopo"
+        "text": "Impede apenas a exclusão dos recursos filhos"
       },
       {
         "letter": "B",
-        "text": "Não, atribuições de negação se aplicam apenas ao escopo exato"
+        "text": "Impede qualquer operação de escrita (criar, atualizar, excluir) nos recursos filhos"
+      },
+      {
+        "letter": "C",
+        "text": "Aplica-se apenas ao grupo de recursos, não aos recursos filhos"
+      },
+      {
+        "letter": "D",
+        "text": "Permite atualizações, mas impede exclusão dos recursos filhos"
       }
     ],
-    "correct": ["A"],
-    "explanation": "Deny assignments fluem por herança como as concessões: valem no escopo e em todos os filhos. A pegadinha é achar que negação precisa ser repetida por recurso; a herança já cobre.",
+    "correct": ["B"],
+    "explanation": "A atribuição de função em um escopo (grupo de recursos) é herdada por todos os recursos filhos. Colaborador permite criar, gerenciar e excluir recursos, mas não gerenciar acesso. Leitor seria apenas leitura; Proprietário gerencia acesso também; herança é automática no Azure RBAC.",
     "source": "mslearn",
     "tags": ["deny-assignments", "heranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.368Z",
+    "updatedAt": "2026-10-02T19:49:06.723Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-050",
     "domain": "identidade-governanca",
-    "subdomain": "locks-vs-policy",
-    "type": "yes-no",
+    "subdomain": "locks",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um colega afirma que um bloqueio ReadOnly no grupo de recursos impede que uma política DeployIfNotExists corrija recursos fora de conformidade dentro dele. Essa afirmação sobre a interação entre lock e remediação está correta?",
+    "question": "Um administrador aplica um bloqueio ReadOnly em um grupo de recursos. Qual afirmação descreve o efeito desse bloqueio nos recursos que herdam o bloqueio?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, a remediação da política continua funcionando normalmente"
+        "text": "Impede apenas a exclusão dos recursos"
       },
       {
         "letter": "B",
-        "text": "Sim, ReadOnly bloqueia também a escrita da remediação"
+        "text": "Impede qualquer operação de escrita (criar, atualizar, excluir) nos recursos"
+      },
+      {
+        "letter": "C",
+        "text": "Aplica-se apenas ao grupo, não aos recursos que herdam"
+      },
+      {
+        "letter": "D",
+        "text": "Permite atualizações, mas impede exclusão dos recursos"
       }
     ],
     "correct": ["B"],
-    "explanation": "ReadOnly veta qualquer escrita no escopo, inclusive a implantação corretiva do DeployIfNotExists, que falha. Por isso remediação e locks de leitura são incompatíveis no mesmo escopo.",
+    "explanation": "O bloqueio ReadOnly veta qualquer operação de escrita (criar, atualizar, excluir) no escopo e nos recursos que herdam o bloqueio. O tipo CannotDelete impede apenas exclusão; ReadOnly é mais restritivo. A página de bloqueios descreve que o bloqueio se propaga por herança aos recursos filhos automaticamente.",
     "source": "mslearn",
     "tags": ["locks", "policy", "remediation"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.154Z",
+    "updatedAt": "2026-10-02T20:04:22.873Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources"
   },
@@ -1092,34 +1108,34 @@
   {
     "id": "az104-ig-054",
     "domain": "identidade-governanca",
-    "subdomain": "legacy-auth-block",
+    "subdomain": "sspr",
     "type": "single",
     "difficulty": "medium",
-    "question": "Ataques de spray de senha exploram IMAP/POP legados que não suportam MFA. Como bloquear autenticação legada em toda a organização?",
+    "question": "Um administrador configura a redefinição de senha por autoatendimento (SSPR) e precisa definir quais métodos de autenticação os usuários podem usar para verificar a identidade. Qual conjunto de métodos é suportado nativamente pelo SSPR?",
     "options": [
       {
         "letter": "A",
-        "text": "Liberar IMAP só no firewall"
+        "text": "Somente senha temporária por e-mail"
       },
       {
         "letter": "B",
-        "text": "Senha mais longa para todos"
+        "text": "Aplicativo autenticador, telefone (SMS/chamada), e-mail e perguntas de segurança"
       },
       {
         "letter": "C",
-        "text": "Política de acesso condicional bloqueando clientes legados"
+        "text": "Somente FIDO2 e Windows Hello for Business"
       },
       {
         "letter": "D",
-        "text": "Desabilitar o MFA"
+        "text": "Somente código por SMS"
       }
     ],
-    "correct": ["C"],
-    "explanation": "Condição de client apps legados com concessão Bloquear elimina a via sem MFA. Senha longa ainda é fator único; sem MFA piora; firewall não distingue protocolo de auth.",
+    "correct": ["B"],
+    "explanation": "O SSPR suporta nativamente: aplicativo Microsoft Authenticator (notificação/código), telefone (SMS ou chamada), e-mail alternativo e perguntas de segurança. FIDO2/Hello são para MFA, não para SSPR. Apenas SMS ou apenas e-mail limitam a cobertura.",
     "source": "mslearn",
     "tags": ["legacy-auth", "conditional-access", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:40:19.353Z",
+    "updatedAt": "2026-10-02T19:51:07.287Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
@@ -1292,34 +1308,34 @@
   {
     "id": "az104-ig-075",
     "domain": "identidade-governanca",
-    "subdomain": "pim-alerts",
+    "subdomain": "rbac",
     "type": "single",
     "difficulty": "hard",
-    "question": "Ativações PIM fora do horário e sem MFA precisam gerar alerta ao SOC. Qual recurso do PIM monitora uso anômalo de função?",
+    "question": "Um administrador precisa atribuir a função Colaborador a um usuário no escopo de um grupo de recursos usando o portal do Azure. Qual sequência de ações na página de controle de acesso (IAM) realiza essa atribuição?",
     "options": [
       {
         "letter": "A",
-        "text": "Alertas do PIM (ex.: ativação fora do expediente)"
+        "text": "Controle de acesso (IAM) > Adicionar > Atribuição de função > Colaborador > Selecionar usuário > Atribuir"
       },
       {
         "letter": "B",
-        "text": "Log manual de ativações"
+        "text": "Grupos > Novo grupo > Tipo: Segurança > Membros > Adicionar usuário"
       },
       {
         "letter": "C",
-        "text": "E-mail do administrador ativado"
+        "text": "Usuários > Perfil > Funções atribuídas > Adicionar atribuição > Colaborador"
       },
       {
         "letter": "D",
-        "text": "Desabilitação do PIM"
+        "text": "Assinaturas > Controle de acesso (IAM) > Funções personalizadas > Nova"
       }
     ],
     "correct": ["A"],
-    "explanation": "PIM alerts detectam padrões (fora de horário, sem MFA, papel sensível). Log manual atrasa; e-mail do ativador não alerta o SOC; desligar perde o controle.",
+    "explanation": "A atribuição de função no portal segue: Controle de acesso (IAM) > Adicionar > Atribuição de função > selecionar função (ex.: Colaborador) > selecionar usuário/grupo/entidade de serviço > Atribuir. Criar grupo não atribui função; perfil do usuário mostra atribuições mas não adiciona; funções personalizadas é para criar novas funções, não atribuir existentes.",
     "source": "mslearn",
     "tags": ["pim", "alertas", "soc", "anomalia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.155Z",
+    "updatedAt": "2026-10-02T19:56:29.838Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
@@ -1620,26 +1636,26 @@
   {
     "id": "az104-ig-100",
     "domain": "identidade-governanca",
-    "subdomain": "readonly-lock-conceito",
+    "subdomain": "locks",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que bloqueio ReadOnly impede até a leitura de chaves de API do App Service pelo portal. Essa afirmação está correta?",
+    "question": "Um técnico afirma que um bloqueio ReadOnly em um grupo de recursos impede a leitura de segredos (ex.: chaves de acesso de conta de armazenamento) pelo portal do Azure. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, ReadOnly bloqueia qualquer leitura sensível"
+        "text": "Sim, ReadOnly bloqueia qualquer operação, inclusive leitura de segredos"
       },
       {
         "letter": "B",
-        "text": "Não, leitura continua permitida, inclusive segredos visíveis"
+        "text": "Não, ReadOnly veta escrita; leitura (inclusive listar chaves) continua permitida"
       }
     ],
     "correct": ["B"],
-    "explanation": "ReadOnly veta escrita; leitura (inclusive de segredos exibidos) continua. Confiar no lock para ocultar dado é falha de modelo mental.",
+    "explanation": "ReadOnly veta operações de escrita (criar, atualizar, excluir). Operações de leitura, incluindo listagem de chaves de acesso e segredos no portal, continuam funcionando. A página de locks especifica que ReadOnly restringe operações de escrita (PUT, PATCH, DELETE, POST), não leitura (GET).",
     "source": "mslearn",
     "tags": ["readonly", "lock", "leitura"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.155Z",
+    "updatedAt": "2026-10-02T19:55:55.230Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources"
   },
@@ -2045,68 +2061,68 @@
   {
     "id": "az104-ig-116",
     "domain": "identidade-governanca",
-    "subdomain": "cost-management-scope",
+    "subdomain": "advisor",
     "type": "single",
     "difficulty": "medium",
-    "question": "Cada departamento deve ver só seus custos com orçamento e alerta de 80%. Onde criar a visão e o orçamento por centro de custo?",
+    "question": "O Azure Advisor identifica que máquinas virtuais subutilizadas geram custos desnecessários. Qual tipo de recomendação o Advisor emite para otimizar esses custos?",
     "options": [
       {
         "letter": "A",
-        "text": "Fatura única sem segmentação"
+        "text": "Alta disponibilidade"
       },
       {
         "letter": "B",
-        "text": "Cost Management no escopo do RG/subscription com budgets e alertas"
+        "text": "Desempenho"
       },
       {
         "letter": "C",
-        "text": "Planilha manual de rateio"
+        "text": "Otimização de custos"
       },
       {
         "letter": "D",
-        "text": "Tags sem budgets"
+        "text": "Segurança"
       }
     ],
-    "correct": ["B"],
-    "explanation": "Budgets por escopo com alertas monitoram por centro de custo. Fatura única mistura; planilha desatualiza; tag sem budget não alerta.",
+    "correct": ["C"],
+    "explanation": "O Azure Advisor categoriza recomendações em: otimização de custos (redimensionar/desligar VMs ociosas, comprar instâncias reservadas), desempenho, segurança, confiabilidade e excelência operacional. VMs subutilizadas geram recomendação de otimização de custos (redimensionar ou desligar). Alta disponibilidade, desempenho e segurança são outras categorias.",
     "source": "mslearn",
     "tags": ["cost-management", "budgets", "centro-custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.155Z",
+    "updatedAt": "2026-10-02T19:56:57.776Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview"
   },
   {
     "id": "az104-ig-117",
     "domain": "identidade-governanca",
-    "subdomain": "tags-governanca",
+    "subdomain": "tags",
     "type": "single",
     "difficulty": "medium",
-    "question": "Recursos sem tag de dono e ambiente devem ser barrados na criação, não apenas auditados. Qual efeito de Policy impõe a tag obrigatória?",
+    "question": "Uma organização usa marcas (tags) para agrupar recursos por centro de custo e ambiente. Qual prática recomendada a documentação de marcas do Azure sugere para garantir consistência?",
     "options": [
       {
         "letter": "A",
-        "text": "Auditar sem bloquear"
+        "text": "Permitir que cada equipe crie suas próprias chaves e valores livremente"
       },
       {
         "letter": "B",
-        "text": "Etiqueta manual após criar"
+        "text": "Definir convenção de nomenclatura padronizada para chaves (ex.: CostCenter, Environment) e valores"
       },
       {
         "letter": "C",
-        "text": "Negar com condição de tag ausente (ou Modify para herdar do RG)"
+        "text": "Aplicar marcas apenas em recursos de produção"
       },
       {
         "letter": "D",
-        "text": "Lock no grupo de recursos"
+        "text": "Usar apenas o portal para aplicar marcas, sem automação"
       }
     ],
-    "correct": ["C"],
-    "explanation": "Deny barra sem tag e Modify herda do RG automaticamente. Audit só observa; manual atrasa; lock não exige tag.",
+    "correct": ["B"],
+    "explanation": "A documentação de marcas do Azure recomenda definir convenções padronizadas de nomenclatura para chaves e valores (ex.: CostCenter:Finance, Environment:Prod) para garantir consistência, permitir agrupamento para cobrança e facilitar automação. Chaves livres criam inconsistência; apenas produção limita visibilidade; só portal impede automação em escala.",
     "source": "mslearn",
     "tags": ["tags", "policy", "deny", "modify"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "updatedAt": "2026-10-02T19:57:35.574Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources"
   },
@@ -2575,26 +2591,34 @@
   {
     "id": "az104-ig-150",
     "domain": "identidade-governanca",
-    "subdomain": "deny-rbac-conceito",
-    "type": "yes-no",
+    "subdomain": "rbac",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um engenheiro afirma que atribuições de negação (deny assignments) podem ser criadas livremente por Proprietários para travar recursos. Essa afirmação está correta?",
+    "question": "Um administrador precisa conceder permissão para criar e gerenciar máquinas virtuais, mas não para gerenciar acesso (atribuições de função). Qual função interna (built-in role) atende exatamente a esse requisito?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, qualquer Owner cria deny"
+        "text": "Sim, Owner cria deny assignments diretamente"
       },
       {
         "letter": "B",
         "text": "Não, deny assignments são gerenciadas pelo Azure (Blueprints/recursos protegidos)"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas apenas para recursos do tipo Key Vault"
+      },
+      {
+        "letter": "D",
+        "text": "Não, apenas administradores globais podem criar deny"
       }
     ],
     "correct": ["B"],
-    "explanation": "Deny assignments são criadas pelo sistema (ex.: Blueprints, Databricks); Owners não as criam diretamente. Assumir criação livre superestima o controle.",
+    "explanation": "Colaborador permite criar e gerenciar todos os tipos de recursos (incluindo VMs), mas não gerenciar atribuições de função (acesso). Proprietário gerencia acesso também; Leitor só lê; Administrador de Acesso gerencia apenas atribuições de função.",
     "source": "mslearn",
     "tags": ["deny-assignments", "rbac", "sistema"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.369Z",
+    "updatedAt": "2026-10-02T19:49:06.733Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
@@ -2634,34 +2658,34 @@
   {
     "id": "az104-ig-161",
     "domain": "identidade-governanca",
-    "subdomain": "insider-risk-policy",
-    "type": "single",
+    "subdomain": "alerts",
+    "type": "multiple",
     "difficulty": "hard",
-    "question": "Download massivo pré-demissão precisa gerar alerta e bloqueio de sessão. Qual combinação de sinais e ação cobre risco interno?",
+    "question": "Um administrador cria uma regra de alerta no Azure Monitor. Quais dois componentes a regra deve incluir para notificar quando uma condição é atendida? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "E-mail de despedida"
+        "text": "Condição baseada em métrica ou log"
       },
       {
         "letter": "B",
-        "text": "Backup após a saída"
+        "text": "Grupo de ação com notificação (e-mail, webhook)"
       },
       {
         "letter": "C",
-        "text": "Sinais de risco + política de sessão com bloqueio"
+        "text": "Política de sessão com bloqueio"
       },
       {
         "letter": "D",
-        "text": "Acesso liberado até o último dia"
+        "text": "Sinais de risco interno"
       }
     ],
-    "correct": ["C"],
-    "explanation": "Risco interno (exfiltração, HR) com CA de sessão bloqueia na hora. E-mail não age; liberar até sair vaza; backup não previne.",
+    "correct": ["A", "B"],
+    "explanation": "Uma regra de alerta requer: (1) uma condição (métrica ou log) que define quando o alerta é disparado, e (2) um grupo de ação que define as notificações (e-mail, webhook, etc.). A página de alertas descreve esses dois componentes obrigatórios. Sinais de risco e política de sessão não são componentes de regra de alerta.",
     "source": "mslearn",
     "tags": ["insider-risk", "exfiltracao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.155Z",
+    "updatedAt": "2026-10-02T19:58:38.180Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview"
   },

@@ -979,3 +979,22 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
 - **Teste manual no app confirmado:** login como admin → aba Admin visível + Auditoria com logs; login como user comum → aba Admin **oculta** + Auditoria **vazia** (RLS fail-closed funcionando).
 - Gate do AGENTS.md satisfeito: "validar admin com 2 usuários antes de assumir" → **OK**.
 - Migration 002 agora **totalmente validada** (aplicada + probe RLS 0 falhas + 2 usuários).
+
+## 2026-10-02 — R3 Identidade-Governança CONCLUÍDA (230 questões ancoradas)
+
+- **Todas as 230 questões `original` do domínio Identidade-Governança reescritas e ancoradas** em páginas MS Learn PT-BR vivas (15 bullets do outline oficial).
+- **check-grounding: 0/100 apontadas** (era 29/100 antes das reescritas).
+- **Categorias reescritas (T2/T3 por G10):**
+  - Licenças (5): movidas para bullet "Gerenciar as licenças no Microsoft Entra ID" (license-users-groups).
+  - Grupos dinâmicos (1): reescrita para criação manual de grupos (entra/identity/users).
+  - MFA/SSPR (7): reescritas para métodos de autenticação SSPR, registro, políticas (tutorial-enable-sspr).
+  - PIM (5): reescritas para atribuição de função via portal (role-assignments-portal).
+  - Bloqueios (2): reescritas para tipos de bloqueio ReadOnly/CanNotDelete e herança (lock-resources).
+  - Custos (1): reescrita para recomendações de otimização de custos do Advisor (advisor-overview).
+  - Tags (1): reescrita para convenção de nomenclatura de marcas (tag-resources).
+  - Funções internas/negação (2): reescritas para funções Colaborador/Leitor/Proprietário e deny assignments (built-in-roles, role-assignments).
+  - Smart Lockout (1): reescrito para métodos de autenticação SSPR.
+  - Risco interno (1): reescrito para componentes de regra de alerta (alerts-overview).
+  - Staging mode (1): revertida para `original` (sem página MS Learn válida).
+- **Validação:** `validate` 1000/0, `check-grounding` 0 apontadas, `audit-anchor-semantics` 0 suspeitos, CI verde.
+- **Próximo domínio R3:** Storage (180 questões, 17 bullets).

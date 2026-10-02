@@ -39,31 +39,31 @@
     "subdomain": "entra-id-grupos",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa conceder acesso a um aplicativo para todos os usuários do departamento financeiro automaticamente, incluindo futuros contratados. Qual recurso do Microsoft Entra ID resolve isso?",
+    "question": "Um administrador precisa criar um novo grupo de segurança no Microsoft Entra ID e adicionar membros manualmente. Qual sequência de ações no centro de administração realiza essa tarefa?",
     "options": [
       {
         "letter": "A",
-        "text": "Grupo de segurança dinâmico com regra baseada no atributo department"
+        "text": "Identidade > Grupos > Novo grupo > Segurança > Adicionar membros > Criar"
       },
       {
         "letter": "B",
-        "text": "Grupo do Microsoft 365 usado apenas para e-mail"
+        "text": "Usuários > Novo usuário > Preencher dados > Atribuir grupo"
       },
       {
         "letter": "C",
-        "text": "Unidade administrativa sem regras de associação"
+        "text": "Aplicativos > Registros de aplicativo > Novo registro > Certificados"
       },
       {
         "letter": "D",
-        "text": "Grupo de segurança atribuído com adição manual de membros"
+        "text": "Identidade > Unidades administrativas > Nova > Adicionar membros"
       }
     ],
     "correct": ["A"],
-    "explanation": "Grupos dinâmicos avaliam regras (ex.: department igual a Finance) e adicionam/removem membros sozinhos. Grupo atribuído exige ação manual; grupo Microsoft 365 serve a colaboração; unidade administrativa organiza, não associa por regra.",
+    "explanation": "A página de grupos no centro de administração (Identidade > Grupos > Novo grupo) permite criar grupos de segurança e adicionar membros na criação. Criar usuário não cria grupo; registro de app é para aplicações; unidades administrativas são para delegação, não para criar grupos de segurança.",
     "source": "mslearn",
     "tags": ["entra-id", "grupos-dinamicos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "updatedAt": "2026-10-02T19:53:39.657Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
   },
@@ -594,31 +594,31 @@
     "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Recursos como Conditional Access, PIM e Access Reviews pararam de funcionar após expiração de licenças. Qual licença habilita esses recursos de governança premium?",
+    "question": "Um administrador precisa atribuir licenças Microsoft Entra ID P2 a um grupo de usuários do departamento de segurança. Qual método no centro de administração permite fazer essa atribuição em massa?",
     "options": [
       {
         "letter": "A",
-        "text": "Subscription do Azure sem Entra"
+        "text": "Atribuir licenças individualmente na página do usuário"
       },
       {
         "letter": "B",
-        "text": "Microsoft Entra ID P2 (ou EMS E5)"
+        "text": "Atribuir licenças a um grupo e o sistema propaga aos membros"
       },
       {
         "letter": "C",
-        "text": "Licença só do Microsoft 365 Básico"
+        "text": "Exportar CSV, editar localmente e importar novamente"
       },
       {
         "letter": "D",
-        "text": "Microsoft Entra ID Gratuito"
+        "text": "Executar script PowerShell individual por usuário"
       }
     ],
     "correct": ["B"],
-    "explanation": "P2 libera PIM, Identity Protection, Access Reviews e Entitlement Management. Gratuito e M365 básico não incluem; subscription sem Entra não licencia identidade.",
+    "explanation": "O centro de administração do Microsoft Entra permite atribuir licenças a grupos; o sistema propaga automaticamente aos membros atuais e futuros. Atribuição individual não escala; CSV e script manual são propensos a erro.",
     "source": "mslearn",
     "tags": ["licencas", "entra-p2"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "updatedAt": "2026-10-02T19:46:38.438Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
@@ -1417,68 +1417,68 @@
   {
     "id": "az104-ig-088",
     "domain": "identidade-governanca",
-    "subdomain": "smart-lockout-multiplos",
-    "type": "multiple",
+    "subdomain": "sspr",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Ataques de spray distribuídos por milhares de IPs precisam de bloqueio inteligente sem travar usuários legítimos. Quais dois comportamentos o Smart Lockout combina? Selecione duas.",
+    "question": "Ao habilitar o SSPR no centro de administração, o administrador deve selecionar quais métodos de autenticação os usuários podem usar para redefinir a senha. Qual método NÃO é suportado nativamente pelo SSPR?",
     "options": [
       {
         "letter": "A",
-        "text": "Contagem diferenciada por origem suspeita"
+        "text": "Notificação no Microsoft Authenticator (aprovação)"
       },
       {
         "letter": "B",
-        "text": "Bloqueio global após 1 erro"
+        "text": "Código por SMS para telefone cadastrado"
       },
       {
         "letter": "C",
-        "text": "Bloqueio por familiaridade de local/dispositivo"
+        "text": "Chave de segurança FIDO2 (ex.: YubiKey)"
       },
       {
         "letter": "D",
-        "text": "Desabilitação do lockout"
+        "text": "E-mail alternativo para código de verificação"
       }
     ],
-    "correct": ["C", "A"],
-    "explanation": "Smart Lockout distingue legítimo de spray por sinais e limiares. Bloquear após 1 erro trava todos; sem lockout libera força bruta.",
+    "correct": ["C"],
+    "explanation": "O SSPR suporta nativamente: Microsoft Authenticator (notificação/código), telefone (SMS/chamada), e-mail alternativo e perguntas de segurança. FIDO2 é método de MFA, não de redefinição de senha no SSPR. A página do tutorial lista explicitamente os métodos suportados.",
     "source": "mslearn",
     "tags": ["smart-lockout", "spray", "forca-bruta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:37:56.150Z",
+    "updatedAt": "2026-10-02T19:52:58.755Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
     "id": "az104-ig-089",
     "domain": "identidade-governanca",
-    "subdomain": "phishing-resistant-mfa-multiplos",
-    "type": "multiple",
+    "subdomain": "sspr",
+    "type": "single",
     "difficulty": "hard",
-    "question": "MFA por SMS sofre SIM swap e o Authenticator sofre MFA fatigue. Quais dois métodos resistem a phishing? Selecione duas.",
+    "question": "Um administrador configura métodos de autenticação para SSPR e quer priorizar métodos resistentes a phishing. Qual método suportado pelo SSPR oferece resistência a phishing?",
     "options": [
       {
         "letter": "A",
-        "text": "FIDO2 com verificação de origem"
+        "text": "Código por SMS"
       },
       {
         "letter": "B",
-        "text": "SMS com código"
+        "text": "Notificação no Microsoft Authenticator"
       },
       {
         "letter": "C",
-        "text": "Voz com confirmação"
+        "text": "Chamada telefônica automática"
       },
       {
         "letter": "D",
-        "text": "Windows Hello for Business"
+        "text": "Perguntas de segurança pré-definidas"
       }
     ],
-    "correct": ["A", "D"],
-    "explanation": "FIDO2 e Hello vinculam à origem e dispensam segredo compartilhado. SMS e voz são interceptáveis e sofrem fatigue.",
+    "correct": ["B"],
+    "explanation": "A notificação no Microsoft Authenticator (aprovação via aplicativo) vincula a autenticação à origem e não expõe código interceptável. SMS e chamada são interceptáveis; perguntas de segurança são vulneráveis a engenharia social.",
     "source": "mslearn",
     "tags": ["phishing-resistant", "fido2", "hello"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.160Z",
+    "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
@@ -1602,34 +1602,34 @@
   {
     "id": "az104-ig-101",
     "domain": "identidade-governanca",
-    "subdomain": "entra-id-objetos",
+    "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um script precisa listar todos os usuários com departamento preenchido, incluindo paginação de milhares de resultados. Qual API e padrão de consulta usar?",
+    "question": "Um administrador precisa listar todos os usuários que possuem uma licença Microsoft Entra ID P2 atribuída diretamente (não via grupo). Qual relatório no centro de administração mostra essa informação?",
     "options": [
       {
         "letter": "A",
-        "text": "CSV exportado uma vez"
+        "text": "Licenças > Microsoft Entra ID P2 > Usuários e grupos licenciados"
       },
       {
         "letter": "B",
-        "text": "Microsoft Graph /users com $filter e $top + nextLink"
+        "text": "Usuários > Todos os usuários > Filtro por departamento"
       },
       {
         "letter": "C",
-        "text": "Portal com scroll manual"
+        "text": "Grupos > Todos os grupos > Membros com licença"
       },
       {
         "letter": "D",
-        "text": "DNS reverso dos UPNs"
+        "text": "Identidade > Monitoramento > Logs de atribuição"
       }
     ],
-    "correct": ["B"],
-    "explanation": "Graph com OData filtra no servidor e pagina via nextLink. Portal manual não escala; CSV desatualiza; DNS não lista usuários.",
+    "correct": ["A"],
+    "explanation": "A página da licença no centro de administração (Licenças > produto > Usuários e grupos licenciados) mostra quem tem a licença atribuída diretamente vs via grupo. Filtro por departamento não mostra licenciamento; grupos não distinguem atribuição direta; logs de atribuição são para auditoria.",
     "source": "mslearn",
     "tags": ["graph", "odata", "paginacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "updatedAt": "2026-10-02T19:46:38.447Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
@@ -2240,34 +2240,34 @@
   {
     "id": "az104-ig-151",
     "domain": "identidade-governanca",
-    "subdomain": "entra-id-naming",
+    "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "UPNs precisam seguir o padrão nome.sobrenome@empresa.com com validação na criação. Onde impor o formato antes de provisionar?",
+    "question": "Ao atribuir licenças a um grupo, alguns usuários ficam em estado de erro de atribuição. Qual causa comum o centro de administração indica para 'local de uso inválido'?",
     "options": [
       {
         "letter": "A",
-        "text": "Política de nomenclatura + script de validação no provisionamento"
+        "text": "Usuário sem local de uso configurado no perfil"
       },
       {
         "letter": "B",
-        "text": "Renomear manualmente depois"
+        "text": "Grupo com mais de 5000 membros"
       },
       {
         "letter": "C",
-        "text": "Bloquear criação de usuários"
+        "text": "Licença já expirada no tenant"
       },
       {
         "letter": "D",
-        "text": "Aceitar qualquer formato digitado"
+        "text": "Usuário com MFA desabilitado"
       }
     ],
     "correct": ["A"],
-    "explanation": "Padrão documentado com validação no fluxo impede UPN fora do formato. Aceitar tudo bagunça; renomear depois quebra login; bloquear impede o negócio.",
+    "explanation": "A página de licenças lista 'local de uso inválido' entre as falhas de atribuição — ocorre quando o usuário não tem UsageLocation definido. Grupo grande, licença expirada e MFA não causam esse erro específico.",
     "source": "mslearn",
     "tags": ["upn", "nomenclatura", "padrao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "updatedAt": "2026-10-02T19:46:38.447Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
@@ -2406,34 +2406,34 @@
   {
     "id": "az104-ig-156",
     "domain": "identidade-governanca",
-    "subdomain": "entra-id-p1-p2",
+    "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Acesso condicional funciona, mas PIM e Identity Protection aparecem indisponíveis. O que falta no licenciamento?",
+    "question": "Um administrador compara as funcionalidades disponíveis nas licenças Microsoft Entra ID P1 e P2. Qual recurso está disponível apenas no P2 (não no P1)?",
     "options": [
       {
         "letter": "A",
-        "text": "Nada, é bug do portal"
+        "text": "Acesso Condicional básico"
       },
       {
         "letter": "B",
-        "text": "Upgrade de P1 para P2 (CA é P1; PIM/Protection são P2)"
+        "text": "Redefinição de senha por autoatendimento (SSPR)"
       },
       {
         "letter": "C",
-        "text": "Downgrade para gratuito"
+        "text": "Privileged Identity Management (PIM)"
       },
       {
         "letter": "D",
-        "text": "Mais subscriptions Azure"
+        "text": "Grupos dinâmicos"
       }
     ],
-    "correct": ["B"],
-    "explanation": "CA base é P1; PIM, Identity Protection e reviews exigem P2. Downgrade piora; subscription não licencia Entra; não é bug.",
+    "correct": ["C"],
+    "explanation": "PIM é recurso exclusivo do P2 (e EMS E5). Acesso Condicional básico e SSPR existem no P1; grupos dinâmicos são do P1. A página de comparação de licenças detalha quais recursos premium (PIM, Identity Protection, Access Reviews, Entitlement Management) requerem P2.",
     "source": "mslearn",
     "tags": ["licenca", "p1", "p2", "diferencas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "updatedAt": "2026-10-02T19:46:38.447Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
@@ -2638,34 +2638,34 @@
   {
     "id": "az104-ig-165",
     "domain": "identidade-governanca",
-    "subdomain": "app-protection-policy",
+    "subdomain": "sspr",
     "type": "single",
     "difficulty": "hard",
-    "question": "Dados corporativos no Outlook móvel não podem ser copiados para apps pessoais nem salvos localmente. Qual política impõe isso sem MDM?",
+    "question": "Para usar o Microsoft Authenticator como método de redefinição de senha no SSPR, o usuário precisa registrar o aplicativo. Qual etapa é obrigatória no fluxo de registro combinado?",
     "options": [
       {
         "letter": "A",
-        "text": "Senha do aparelho"
+        "text": "Instalar o Authenticator e escanear QR code na página de registro"
       },
       {
         "letter": "B",
-        "text": "Política de proteção de app (PIN, criptografia, sem copy/paste)"
+        "text": "Configurar PIN do dispositivo nas configurações do Android/iOS"
       },
       {
         "letter": "C",
-        "text": "E-mail só no desktop"
+        "text": "Habilitar backup do iCloud/Google Drive no Authenticator"
       },
       {
         "letter": "D",
-        "text": "Proibição de celular"
+        "text": "Conceder permissão de administrador do dispositivo"
       }
     ],
-    "correct": ["B"],
-    "explanation": "App protection criptografa, exige PIN e bloqueia vazamento entre apps. Senha do aparelho não isola; proibir trava; só desktop reduz mobilidade.",
+    "correct": ["A"],
+    "explanation": "O registro combinado (SSPR + MFA) exige instalar o Microsoft Authenticator e escanear o QR code exibido na página de registro (aka.ms/mysecurityinfo). PIN do dispositivo, backup e admin do dispositivo não são etapas do registro SSPR.",
     "source": "mslearn",
     "tags": ["app-protection", "dlp", "movel"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:40:19.357Z",
+    "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
@@ -2804,26 +2804,34 @@
   {
     "id": "az104-ig-174",
     "domain": "identidade-governanca",
-    "subdomain": "elapsed-policy-conceito",
-    "type": "yes-no",
+    "subdomain": "sspr",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um colega afirma que políticas de acesso condicional se aplicam apenas no login inicial, sem reavaliar durante a sessão. Essa afirmação está correta?",
+    "question": "Um administrador configura a política de registro do SSPR e define que os usuários devem registrar métodos de autenticação no próximo login. Onde essa configuração é definida no centro de administração?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, só no login inicial"
+        "text": "Proteção de Identidade > Configurações de registro"
       },
       {
         "letter": "B",
-        "text": "Não, CAE e controles de sessão reavaliam continuamente"
+        "text": "Proteção > Redefinição de senha > Registro > Exigir registro no próximo login"
+      },
+      {
+        "letter": "C",
+        "text": "Usuários > Todos os usuários > Métodos de autenticação > Exigir re-registro"
+      },
+      {
+        "letter": "D",
+        "text": "Identidade > Governança > Access Reviews > Novo > Registro SSPR"
       }
     ],
     "correct": ["B"],
-    "explanation": "CAE e session controls reavaliam risco e conformidade ao longo da sessão. Achar pontual ignora a proteção contínua.",
+    "explanation": "A configuração 'Exigir registro no próximo login' fica em Proteção > Redefinição de senha > Registro. Proteção de Identidade é para risco; métodos de autenticação por usuário é individual; Access Reviews é para revisão de acesso, não registro SSPR.",
     "source": "mslearn",
     "tags": ["cae", "reavaliacao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:40:19.357Z",
+    "updatedAt": "2026-10-02T20:03:46.861Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
@@ -2855,28 +2863,36 @@
   {
     "id": "az104-ig-176",
     "domain": "identidade-governanca",
-    "subdomain": "pim-duration-conceito",
-    "type": "yes-no",
+    "subdomain": "pim",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um admin afirma que a duração máxima de ativação PIM é fixa globalmente e não pode variar por função. Essa afirmação está correta?",
+    "question": "Um administrador afirma que a duração máxima de ativação do Privileged Identity Management (PIM) é fixa globalmente e não pode variar por função. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, cada função define sua duração máxima"
+        "text": "Não, cada função define sua duração máxima nas configurações de função do PIM"
       },
       {
         "letter": "B",
-        "text": "Sim, duração única global"
+        "text": "Sim, a duração máxima é fixa globalmente em 8 horas para todas as funções"
+      },
+      {
+        "letter": "C",
+        "text": "Não, mas a duração é definida no nível da assinatura, não da função"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, a duração máxima é sempre 24 horas para todas as funções"
       }
     ],
     "correct": ["A"],
-    "explanation": "Role settings por função definem duração, MFA e aprovação próprios. Assumir global impede calibrar por criticidade.",
+    "explanation": "As configurações de função do PIM (role settings) permitem definir duração máxima, exigência de MFA e aprovação por função individualmente. Não existe duração global única; cada função (ex.: Administrador Global, Colaborador) tem suas próprias configurações de duração máxima, MFA e aprovação.",
     "source": "mslearn",
     "tags": ["pim", "duracao", "role-settings"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.160Z",
+    "updatedAt": "2026-10-02T20:07:12.098Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
   },
   {
     "id": "az104-ig-181",
@@ -2915,34 +2931,34 @@
   {
     "id": "az104-ig-182",
     "domain": "identidade-governanca",
-    "subdomain": "entra-id-cli",
+    "subdomain": "entra-id-licencas",
     "type": "single",
     "difficulty": "medium",
-    "question": "Criação de grupo com membros via linha de comando no pipeline precisa de idempotência. Qual CLI usar?",
+    "question": "Um administrador precisa atribuir licenças Microsoft Entra ID P2 a todos os membros de um grupo de segurança usando o centro de administração. Qual procedimento garante que a licença seja propagada automaticamente aos membros atuais e futuros do grupo?",
     "options": [
       {
         "letter": "A",
-        "text": "Azure CLI (az ad group) com JMESPath"
+        "text": "Atribuir a licença diretamente a cada usuário individualmente"
       },
       {
         "letter": "B",
-        "text": "Comandos digitados no portal"
+        "text": "Atribuir a licença ao grupo de segurança no centro de administração"
       },
       {
         "letter": "C",
-        "text": "FTP de script"
+        "text": "Criar script PowerShell para atribuir licença a cada membro"
       },
       {
         "letter": "D",
-        "text": "Telnet no endpoint"
+        "text": "Exportar membros do grupo, editar CSV e importar licenças"
       }
     ],
-    "correct": ["A"],
-    "explanation": "Azure CLI (az ad) automatiza criação e associação de grupos de forma idempotente com queries JMESPath. Portal clicado não é pipeline; Telnet e FTP não gerenciam Entra ID.",
+    "correct": ["B"],
+    "explanation": "Atribuir a licença ao grupo no centro de administração faz o sistema propagar automaticamente aos membros atuais e futuros. Atribuição individual não escala; script e CSV são manuais e não propagam para novos membros.",
     "source": "mslearn",
     "tags": ["cli", "automacao", "grupo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:09:27.372Z",
+    "updatedAt": "2026-10-02T19:48:06.420Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
   },
@@ -4005,60 +4021,68 @@
   {
     "id": "az104-ig-221",
     "domain": "identidade-governanca",
-    "subdomain": "mfa-coverage-multiplos",
-    "type": "multiple",
+    "subdomain": "sspr",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Cobertura de MFA precisa chegar a 100% de humanos com exceção só de emergência. Quais dois controles fecham a conta? Selecione duas.",
+    "question": "A organização exige que 100% dos usuários tenham métodos de autenticação registrados para SSPR. Quais duas configurações na política de registro garantem essa cobertura? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exceção por departamento inteiro"
+        "text": "Exceção por departamento para usuários sem celular"
       },
       {
         "letter": "B",
-        "text": "MFA opcional"
+        "text": "Registro opcional (usuário decide se registra)"
       },
       {
         "letter": "C",
-        "text": "Exceção só para break glass monitorado"
+        "text": "Exigir registro no próximo login para todos os usuários"
       },
       {
         "letter": "D",
-        "text": "Política para todos os usuários com MFA"
+        "text": "Permitir apenas administradores globais registrar métodos"
       }
     ],
-    "correct": ["D", "C"],
-    "explanation": "Política para todos os usuários com MFA e exceção apenas para break glass monitorado com alerta fecha a cobertura. Exceção por departamento fura; MFA opcional nunca fecha.",
+    "correct": ["C"],
+    "explanation": "Exigir registro no próximo login para todos os usuários garante cobertura de 100%. Exceção por departamento e registro opcional criam lacunas; restringir a admins globais impede usuários de se registrarem.",
     "source": "mslearn",
     "tags": ["mfa", "cobertura", "break-glass"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.160Z",
+    "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
   {
     "id": "az104-ig-222",
     "domain": "identidade-governanca",
-    "subdomain": "legacy-mfa-peruser-conceito",
-    "type": "yes-no",
+    "subdomain": "sspr",
+    "type": "single",
     "difficulty": "hard",
-    "question": "Um técnico afirma que MFA por usuário (per-user, legado) deve ser migrado para acesso condicional. Essa afirmação está correta?",
+    "question": "A organização migrou da autenticação multifator por usuário (per-user MFA, legado) para o registro combinado (SSPR + MFA). Qual benefício o registro combinado oferece sobre o MFA per-user?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, per-user é o recomendado"
+        "text": "Não, per-user é o recomendado pela Microsoft"
       },
       {
         "letter": "B",
-        "text": "Sim, per-user é legado; usar CA"
+        "text": "Sim, per-user é legado; usar registro combinado (SSPR+MFA)"
+      },
+      {
+        "letter": "C",
+        "text": "Não, per-user e registro combinado são equivalentes"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas para usuários convidados (B2B)"
       }
     ],
     "correct": ["B"],
-    "explanation": "Per-user não avalia contexto e conflita com CA; a migração para política é o caminho oficial e suportado.",
+    "explanation": "O registro combinado (aka.ms/mysecurityinfo) permite que o usuário registre métodos uma única vez para atender tanto SSPR (redefinição de senha) quanto MFA (autenticação multifator). MFA per-user é legado, não avalia contexto e conflita com Acesso Condicional; registro combinado é o caminho suportado.",
     "source": "mslearn",
     "tags": ["mfa", "per-user", "legado", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:35:51.160Z",
+    "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
   },
