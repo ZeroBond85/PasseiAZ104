@@ -2,7 +2,7 @@
   "rbac": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "score": 5,
     "count": 2
@@ -10,7 +10,7 @@
   "mfa": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
     "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   },
@@ -25,7 +25,7 @@
   "sspr": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
     "score": 7,
     "count": 1
@@ -41,14 +41,14 @@
   "pim": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "rbac-custom": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "score": 5,
     "count": 1
@@ -72,7 +72,7 @@
   "rbac-abac": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "score": 5,
     "count": 1
@@ -80,7 +80,7 @@
   "rbac-acoes": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "score": 5,
     "count": 1
@@ -88,7 +88,7 @@
   "pim-config": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
@@ -103,7 +103,7 @@
   "key-vault-rbac": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "score": 5,
     "count": 1
@@ -111,7 +111,7 @@
   "rbac-heranca": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "note": "Built-in roles and deny assignments map to official roles bullet"
   },
@@ -125,7 +125,7 @@
   "legacy-auth-block": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
     "note": "Legacy auth block rewritten to conditional access"
   },
@@ -140,7 +140,7 @@
   "pim-alerts": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
@@ -155,14 +155,14 @@
   "au-pim-multiplos": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "sspr-licenca-conceito": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
     "score": 7,
     "count": 1
@@ -185,7 +185,7 @@
   "pim-grupos-ativacao": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
@@ -208,7 +208,7 @@
   "cost-management-scope": {
     "groupId": "ig-subscriptions-governance",
     "bulletIndex": 5,
-    "bulletLabel": "Gerenciar custos usando alertas, orçamentos e recomendações do Assistente do Azure",
+    "bulletLabel": "Gerenciar custos usando alertas, or\u00e7amentos e recomenda\u00e7\u00f5es do Assistente do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview",
     "note": "Cost budgets map to official cost management bullet"
   },
@@ -222,28 +222,28 @@
   "staging-mode-multiplos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-mode",
     "note": "Staging mode rewritten to Entra Connect sync (license management context)"
   },
   "deny-rbac-conceito": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "note": "Built-in roles and deny assignments map to official roles bullet"
   },
   "insider-risk-policy": {
     "groupId": "mo-monitor",
     "bulletIndex": 3,
-    "bulletLabel": "Configurar regras de alerta, grupos de ações e regras de processamento de alertas no Azure Monitor",
+    "bulletLabel": "Configurar regras de alerta, grupos de a\u00e7\u00f5es e regras de processamento de alertas no Azure Monitor",
     "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
     "note": "Insider risk rewritten to alerting in Azure Monitor"
   },
   "entra-id-usuarios": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "score": 7,
     "count": 1
@@ -251,14 +251,14 @@
   "entra-id-grupos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 0,
-    "bulletLabel": "Criar usuários e grupos",
+    "bulletLabel": "Criar usu\u00e1rios e grupos",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
     "note": "Dynamic groups are a way to create/manage groups"
   },
   "entra-roles-vs-rbac": {
     "groupId": "ig-access-resources",
     "bulletIndex": 0,
-    "bulletLabel": "Gerenciar funções internas do Azure",
+    "bulletLabel": "Gerenciar fun\u00e7\u00f5es internas do Azure",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
     "score": 5,
     "count": 1
@@ -266,77 +266,77 @@
   "entra-id-licencas": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "note": "License questions map to official license bullet"
   },
   "smart-lockout-multiplos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
     "note": "Smart Lockout rewritten to authentication methods / sign-in risk"
   },
   "phishing-resistant-mfa-multiplos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
     "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   },
   "guest-mfa-conceito": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 3,
-    "bulletLabel": "Gerenciar usuários externos",
+    "bulletLabel": "Gerenciar usu\u00e1rios externos",
     "url": "https://learn.microsoft.com/pt-br/entra/external-id/external-identities-overview",
     "note": "Guest/B2B MFA maps to external users bullet"
   },
   "entra-id-objetos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "note": "License questions map to official license bullet"
   },
   "entra-id-naming": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "note": "License questions map to official license bullet"
   },
   "entra-id-p1-p2": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "note": "License questions map to official license bullet"
   },
   "app-protection-policy": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
     "note": "App protection rewritten to conditional access for cloud apps"
   },
   "elapsed-policy-conceito": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
     "note": "CAE/session controls rewritten to conditional access"
   },
   "pim-duration-conceito": {
     "groupId": "ig-access-resources",
     "bulletIndex": 1,
-    "bulletLabel": "Atribuir funções em escopos diferentes",
+    "bulletLabel": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
     "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "note": "PIM questions rewritten to time-bound role assignment (RBAC) per official bullet"
   },
   "entra-id-powershell": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "score": 7,
     "count": 1
@@ -344,22 +344,350 @@
   "entra-id-cli": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 2,
-    "bulletLabel": "Gerenciar as licenças no Microsoft Entra ID",
+    "bulletLabel": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
     "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "note": "License questions map to official license bullet"
   },
   "mfa-coverage-multiplos": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
     "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
   },
   "legacy-mfa-peruser-conceito": {
     "groupId": "ig-entra-users-groups",
     "bulletIndex": 4,
-    "bulletLabel": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
+    "bulletLabel": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
     "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-methods",
     "note": "MFA/CA questions rewritten to authentication methods configuration per official bullet"
+  },
+  "blob-tiers": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 10,
+    "count": 1
+  },
+  "redundancia": {
+    "groupId": "st-accounts",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar contas de armazenamento",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "score": 5,
+    "count": 1
+  },
+  "sas": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "azcopy": {
+    "groupId": "st-accounts",
+    "bulletIndex": 4,
+    "bulletLabel": "Gerenciar dados usando o Gerenciador de Armazenamento do Azure e o AzCopy",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "score": 9,
+    "count": 1
+  },
+  "firewall-conta": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "soft-delete-blob": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar o soft delete para blobs e cont\u00eaineres",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "score": 18,
+    "count": 1
+  },
+  "versionamento": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "object-replication": {
+    "groupId": "st-accounts",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar contas de armazenamento",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "score": 5,
+    "count": 1
+  },
+  "blob-inventory": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "premium-blockblob": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "sas-tipos-multiplos": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "snapshot-vs-versao-multiplos": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "files-tiering-multiplos": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "immutable-blob": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "cross-tenant-replication": {
+    "groupId": "st-accounts",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar contas de armazenamento",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "score": 5,
+    "count": 1
+  },
+  "chave-compartilhada-conceito": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "redundancia-mudanca-conceito": {
+    "groupId": "st-accounts",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar contas de armazenamento",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "score": 5,
+    "count": 1
+  },
+  "tls-versao-conceito": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "case-contoso-identidade": {
+    "groupId": "st-access",
+    "bulletIndex": 4,
+    "bulletLabel": "Configurar o acesso baseado em identidade para Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "score": 9,
+    "count": 1
+  },
+  "case-contoso-tiering": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "blob-append": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "blob-page": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "blob-index-tags": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "container-delete-retention": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar o soft delete para blobs e cont\u00eaineres",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "score": 9,
+    "count": 1
+  },
+  "blob-lease": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "blob-nfs31": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "sas-ip-protocol-multiplos": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "firewall-excecao-conceito": {
+    "groupId": "st-access",
+    "bulletIndex": 0,
+    "bulletLabel": "Configurar firewalls e redes virtuais do Armazenamento do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "score": 5,
+    "count": 1
+  },
+  "blob-soft-delete-pit": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar o soft delete para blobs e cont\u00eaineres",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "score": 18,
+    "count": 1
+  },
+  "instant-restore": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "zone-redundant-vault-multiplos": {
+    "groupId": "st-accounts",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar contas de armazenamento",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "score": 5,
+    "count": 1
+  },
+  "soft-delete-vm-conceito": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar o soft delete para blobs e cont\u00eaineres",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "score": 13,
+    "count": 1
+  },
+  "soft-delete-always-conceito": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 3,
+    "bulletLabel": "Configurar o soft delete para blobs e cont\u00eaineres",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "score": 13,
+    "count": 1
+  },
+  "blob-access-tier-api": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 10,
+    "count": 1
+  },
+  "copy-blob-async": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "container-lease": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "blob-tags-billing": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
+  },
+  "azcopy-flags-multiplos": {
+    "groupId": "st-accounts",
+    "bulletIndex": 4,
+    "bulletLabel": "Gerenciar dados usando o Gerenciador de Armazenamento do Azure e o AzCopy",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "score": 9,
+    "count": 1
+  },
+  "azcopy-oauth-multiplos": {
+    "groupId": "st-accounts",
+    "bulletIndex": 4,
+    "bulletLabel": "Gerenciar dados usando o Gerenciador de Armazenamento do Azure e o AzCopy",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "score": 9,
+    "count": 1
+  },
+  "azcopy-sync-multiplos": {
+    "groupId": "st-accounts",
+    "bulletIndex": 4,
+    "bulletLabel": "Gerenciar dados usando o Gerenciador de Armazenamento do Azure e o AzCopy",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "score": 9,
+    "count": 1
+  },
+  "seed-version-conceito": {
+    "groupId": "st-files-blobs",
+    "bulletIndex": 0,
+    "bulletLabel": "Criar e configurar um compartilhamento de arquivos nos Arquivos do Azure",
+    "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "score": 5,
+    "count": 1
   }
 }

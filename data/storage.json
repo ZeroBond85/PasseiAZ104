@@ -26,11 +26,12 @@
     ],
     "correct": ["C"],
     "explanation": "Archive custa centavos por GB para acesso raríssimo, com reidratação em horas. Hot é para acesso frequente; Cool para mensal; disco Premium não é blob.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["blob", "tiers", "archive"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-002",
@@ -59,11 +60,12 @@
     ],
     "correct": ["A"],
     "explanation": "ZRS replica sincronamente em 3 zonas da região. LRS fica num datacenter; cópia única não protege; cache de navegador não é redundância.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["redundancia", "zrs", "lrs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
   {
     "id": "az104-st-003",
@@ -125,11 +127,12 @@
     ],
     "correct": ["C"],
     "explanation": "SAS delega acesso limitado (recurso, permissão, tempo) sem expor a chave. Chave e connection string dão poder total; senha de admin não autoriza storage.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sas", "acesso-temporario"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
   {
     "id": "az104-st-005",
@@ -191,11 +194,12 @@
     ],
     "correct": ["A"],
     "explanation": "AzCopy transfere em paralelo com retomada e preserva hierarquia. Portal arquivo a arquivo não escala; RDP não move TB; e-mail não transfere dados.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["azcopy", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
   {
     "id": "az104-st-007",
@@ -290,11 +294,12 @@
     ],
     "correct": ["B"],
     "explanation": "Bloquear public access + firewall por rede selecionada fecha a conta. SAS aberta, chave compartilhada e blob anônimo expõem.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["firewall", "acesso-publico", "vnet"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
   {
     "id": "az104-st-010",
@@ -389,11 +394,12 @@
     ],
     "correct": ["A"],
     "explanation": "Soft delete mantém blobs excluídos pelo período configurado para undelete. Versão sem retenção não recupera exclusão; snapshot manual não escala; não há lixeira de portal.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["soft-delete", "blob", "recuperacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
   {
     "id": "az104-st-013",
@@ -422,11 +428,12 @@
     ],
     "correct": ["D"],
     "explanation": "Versionamento cria versão prévia a cada escrita automaticamente. Snapshot manual exige chamada; SAS não versiona; GRS replica o atual, não o histórico.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["versionamento", "blob", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-014",
@@ -554,11 +561,12 @@
     ],
     "correct": ["D"],
     "explanation": "Object replication copia por regra (prefixo, tipo) entre contas. GRS replica a conta inteira entre regiões; cron atrasa; snapshot é pontual.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["object-replication", "blob"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
   {
     "id": "az104-st-018",
@@ -686,11 +694,12 @@
     ],
     "correct": ["A"],
     "explanation": "Blob Inventory emite CSV/Parquet agendado com propriedades. Portal manual não escala; métrica agrega sem detalhar; log de leitura registra acesso, não inventário.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["blob-inventory", "auditoria", "relatorio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-022",
@@ -818,11 +827,12 @@
     ],
     "correct": ["B"],
     "explanation": "Premium dá throughput e latência para transação intensa. Archive/Cool penalizam leitura; HDD não é blob.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["premium", "block-blob", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-026",
@@ -983,11 +993,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Service SAS limita ao recurso/tempo e account SAS com stored policy revoga em massa. Chave sem expiração é permanente; token sem escopo não limita.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sas", "servico", "conta", "politica"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
   {
     "id": "az104-st-031",
@@ -1082,11 +1093,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "Versões guardam pré-escrita e soft delete retém excluídos. SAS e container público são exposição, não proteção.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["versionamento", "soft-delete", "protecao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-034",
@@ -1115,11 +1127,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Premium serve IOPS e lifecycle move frios a camadas baratas. Ultra não é Files; fila não guarda arquivos.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["files", "premium", "lifecycle", "camadas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-035",
@@ -1181,11 +1194,12 @@
     ],
     "correct": ["A"],
     "explanation": "Time-based retention trava escrita/exclusão pelo prazo e libera após. Legal hold é indefinido até remoção explícita; snapshot sem lock permite apagar; SAS não impede escrita.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["immutable", "worm", "retencao", "compliance"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-037",
@@ -1313,11 +1327,12 @@
     ],
     "correct": ["C"],
     "explanation": "A conta origem usa sua identidade gerenciada com RBAC na destino, sem segredos. Chave embutida vaza; SAS aberta expõe; senha não autoriza replicação.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["replicacao", "cross-tenant", "managed-identity"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
   {
     "id": "az104-st-041",
@@ -1561,11 +1576,12 @@
     ],
     "correct": ["B"],
     "explanation": "AllowSharedKeyAccess=false remove auth por chave; dados passam a exigir Entra ou SAS delegada. É o endurecimento recomendado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["chave-compartilhada", "entra-id", "endurecimento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
   {
     "id": "az104-st-049",
@@ -1586,11 +1602,12 @@
     ],
     "correct": ["A"],
     "explanation": "O portal permite elevar LRS→GRS/RA-GRS in place (com restrições para Premium e ZRS→outros). Recriar é desnecessário.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["redundancia", "conversao", "lrs-grs"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
   {
     "id": "az104-st-050",
@@ -1611,11 +1628,12 @@
     ],
     "correct": ["B"],
     "explanation": "MinimumTlsVersion impõe o piso criptográfico no handshake e clientes legados falham ao conectar. É controle efetivo de segurança, não mera sugestão de configuração.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["tls", "versao-minima", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-051",
@@ -1678,12 +1696,13 @@
     ],
     "correct": ["A"],
     "explanation": "AD DS com NTFS preserva identidade e ACLs por pasta. Chave única, SAS anônima e acesso anônimo destroem o controle por departamento.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["case", "ad-ds", "ntfs"],
     "caseStudyId": "case-st-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
   },
   {
     "id": "az104-st-053",
@@ -1746,12 +1765,13 @@
     ],
     "correct": ["D"],
     "explanation": "Cloud tiering mantém namespace SMB com frios na nuvem barata. Excluir perde dados; Premium encarece; compactação manual não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["case", "tiering", "file-sync"],
     "caseStudyId": "case-st-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-055",
@@ -1814,11 +1834,12 @@
     ],
     "correct": ["C"],
     "explanation": "Append blob otimiza escrita sequencial de logs. Blocos servem a objetos; páginas a discos; fila a mensagens.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["append-blob", "logs", "sequencial"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-057",
@@ -1847,11 +1868,12 @@
     ],
     "correct": ["B"],
     "explanation": "Page blob permite escrita aleatória por página para VHDs. Blocos são imutáveis por upload; append é sequencial; tabela não é blob.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["page-blob", "vhd", "aleatoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-058",
@@ -1913,11 +1935,12 @@
     ],
     "correct": ["C"],
     "explanation": "Blob index tags permitem find por chave-valor sem hierarquia. Pastas limitam a uma dimensão; nomes gigantes quebram; planilha desatualiza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["blob-index", "tags", "busca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-060",
@@ -1946,11 +1969,12 @@
     ],
     "correct": ["B"],
     "explanation": "Container soft delete restaura contêiner e conteúdo. Blob soft delete não cobre o contêiner; snapshot por blob não escala; portal não tem lixeira.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["container", "soft-delete", "restauracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
   {
     "id": "az104-st-061",
@@ -2045,11 +2069,12 @@
     ],
     "correct": ["D"],
     "explanation": "Blob lease dá lock distribuído com renovação e quebra. Simultâneo corrompe; local não coordena; e-mail não sincroniza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["lease", "lock", "concorrencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-064",
@@ -2276,11 +2301,12 @@
     ],
     "correct": ["A"],
     "explanation": "NFS 3.0 no Blob monta o storage como filesystem POSIX para Linux. SMB exige Windows/AD; REST não monta volume; FTP é protocolo legado.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["blob", "nfs", "posix", "linux"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-071",
@@ -2342,11 +2368,12 @@
     ],
     "correct": ["B", "A"],
     "explanation": "Restrição por IP de origem mais HTTPS obrigatório vinculam origem e canal criptografado. Qualquer IP com HTTP expõe; SAS sem expiração eterniza o acesso.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["sas", "ip", "https", "restricao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
   {
     "id": "az104-st-073",
@@ -2433,11 +2460,12 @@
     ],
     "correct": ["A"],
     "explanation": "A exceção vale para serviços confiáveis autenticados (ex.: Backup, Monitor), não para todo Azure. Assumir abertura geral é falha grave.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["firewall", "excecao", "confiaveis"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
   },
   {
     "id": "az104-st-076",
@@ -2466,11 +2494,12 @@
     ],
     "correct": ["C"],
     "explanation": "Soft delete retém versões/excluídos pelo período configurado para undelete. Limite de 24h não existe; backup externo é complementar; criptografado com retenção volta.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["soft-delete", "retencao", "ransomware", "pit"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
   {
     "id": "az104-st-077",
@@ -2730,11 +2759,12 @@
     ],
     "correct": ["B"],
     "explanation": "Instant restore mantém snapshots locais por dias para volta rápida. Só cofre demora; recriar perde; failover muda região.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["instant-restore", "snapshot", "rapido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-085",
@@ -3093,11 +3123,12 @@
     ],
     "correct": ["C", "B"],
     "explanation": "ZRS no cofre em região zonal tolera perda de datacenter. LRS sem zona não tolera; único sem réplica é ponto único.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["cofre", "zrs", "zonas", "redundancia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
   },
   {
     "id": "az104-st-096",
@@ -3547,11 +3578,12 @@
     ],
     "correct": ["B"],
     "explanation": "Soft delete do cofre protege backups, não cria backup de VM sem proteção. Assumir restauração sem backup é falha grave.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["soft-delete", "vm", "conceito"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
   {
     "id": "az104-st-110",
@@ -3647,11 +3679,12 @@
     ],
     "correct": ["A"],
     "explanation": "Soft delete é padrão em cofres novos como proteção base contra ransomware. Achar opcional ignora a defesa padrão.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["soft-delete", "padrao", "cofre"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
   {
     "id": "az104-st-114",
@@ -3980,11 +4013,12 @@
     ],
     "correct": ["A"],
     "explanation": "Set Blob Tier muda Hot/Cool/Archive via API. Renomear não muda camada; copiar é migração; chave não define tier.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["tier", "api", "set-blob-tier"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-127",
@@ -4013,11 +4047,12 @@
     ],
     "correct": ["A"],
     "explanation": "Copy Blob server-side copia sem tráfego pelo cliente, com status consultável. Download/reupload trafega tudo; flag irrelevante; snapshot não copia entre contas.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["copy-blob", "assincrono", "server-side"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-128",
@@ -4145,11 +4180,12 @@
     ],
     "correct": ["A"],
     "explanation": "Lease em contêiner bloqueia delete e alteração enquanto vigente. Nome longo não protege; tag não bloqueia; e-mail não impõe trava.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["lease", "container", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-132",
@@ -4178,11 +4214,12 @@
     ],
     "correct": ["B"],
     "explanation": "Index tags viram filtro/dimensão de custo. Conta por projeto fragmenta; única sem dimensão mistura; planilha desatualiza.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["tags", "custo", "rateio", "projeto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-133",
@@ -5003,11 +5040,12 @@
     ],
     "correct": ["D", "A"],
     "explanation": "Exclude-pattern filtra temporários e preserve-smb-permissions mantém ACLs na migração. Sem flags copia lixo; delete-destination sempre apaga o destino.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["azcopy", "flags", "exclude", "permissoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
   {
     "id": "az104-st-158",
@@ -5036,11 +5074,12 @@
     ],
     "correct": ["B", "C"],
     "explanation": "Login Entra ID e identidade gerenciada autenticam o AzCopy sem segredo, com trilha de auditoria. Chave versionada no script vaza; SAS eterna no repo expira mal.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["azcopy", "entra-id", "managed-identity"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
   {
     "id": "az104-st-159",
@@ -5069,11 +5108,12 @@
     ],
     "correct": ["B", "D"],
     "explanation": "Sync incremental copia só o diff por hash/data e delete-destination espelha remoções. Cópia total sempre desperdiça banda; manual arquivo a arquivo não escala.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["azcopy", "sync", "espelho"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
   },
   {
     "id": "az104-st-160",
@@ -5210,11 +5250,12 @@
     ],
     "correct": ["A"],
     "explanation": "A constante SEED_VERSION compara a versão e resemeia o IDB quando muda. Achar o banco imutável ignora a migração de seed.",
-    "source": "original",
+    "source": "mslearn",
     "tags": ["seed", "versao", "reseed"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
   },
   {
     "id": "az104-st-165",

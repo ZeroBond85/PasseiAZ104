@@ -5,7 +5,7 @@
     "subdomain": "rbac",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um usuário precisa apenas visualizar máquinas virtuais e redes virtuais em um grupo de recursos, sem poder criar ou excluir nada. Qual função RBAC interna (built-in) concede exatamente esse acesso?",
+    "question": "Um usu\u00e1rio precisa apenas visualizar m\u00e1quinas virtuais e redes virtuais em um grupo de recursos, sem poder criar ou excluir nada. Qual fun\u00e7\u00e3o RBAC interna (built-in) concede exatamente esse acesso?",
     "options": [
       {
         "letter": "A",
@@ -17,15 +17,15 @@
       },
       {
         "letter": "C",
-        "text": "Proprietário (Owner)"
+        "text": "Propriet\u00e1rio (Owner)"
       },
       {
         "letter": "D",
-        "text": "Administrador de Acesso do Usuário (User Access Administrator)"
+        "text": "Administrador de Acesso do Usu\u00e1rio (User Access Administrator)"
       }
     ],
     "correct": ["A"],
-    "explanation": "Leitor permite visualizar todos os recursos sem alterar nada. Colaborador cria e gerencia recursos; Proprietário ainda gerencia acesso; Administrador de Acesso gerencia atribuições de função, não é leitura simples.",
+    "explanation": "Leitor permite visualizar todos os recursos sem alterar nada. Colaborador cria e gerencia recursos; Propriet\u00e1rio ainda gerencia acesso; Administrador de Acesso gerencia atribui\u00e7\u00f5es de fun\u00e7\u00e3o, n\u00e3o \u00e9 leitura simples.",
     "source": "mslearn",
     "tags": ["rbac", "funcoes-built-in"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -39,27 +39,27 @@
     "subdomain": "mfa",
     "type": "single",
     "difficulty": "easy",
-    "question": "Sua empresa exige uma segunda verificação além da senha para todos os administradores. Qual recurso do Microsoft Entra ID implementa essa exigência?",
+    "question": "Sua empresa exige uma segunda verifica\u00e7\u00e3o al\u00e9m da senha para todos os administradores. Qual recurso do Microsoft Entra ID implementa essa exig\u00eancia?",
     "options": [
       {
         "letter": "A",
-        "text": "Logon único (SSO) com senha sincronizada"
+        "text": "Logon \u00fanico (SSO) com senha sincronizada"
       },
       {
         "letter": "B",
-        "text": "Redefinição de senha de autoatendimento (SSPR)"
+        "text": "Redefini\u00e7\u00e3o de senha de autoatendimento (SSPR)"
       },
       {
         "letter": "C",
-        "text": "Autenticação multifator (MFA) do Microsoft Entra"
+        "text": "Autentica\u00e7\u00e3o multifator (MFA) do Microsoft Entra"
       },
       {
         "letter": "D",
-        "text": "Sincronização de hash de senha do Connect Sync"
+        "text": "Sincroniza\u00e7\u00e3o de hash de senha do Connect Sync"
       }
     ],
     "correct": ["C"],
-    "explanation": "MFA exige dois ou mais fatores (senha + app/telefone). SSO facilita o login mas mantém um fator; SSPR recupera senhas; sincronização de hash replica credencial, não adiciona fator.",
+    "explanation": "MFA exige dois ou mais fatores (senha + app/telefone). SSO facilita o login mas mant\u00e9m um fator; SSPR recupera senhas; sincroniza\u00e7\u00e3o de hash replica credencial, n\u00e3o adiciona fator.",
     "source": "mslearn",
     "tags": ["mfa", "seguranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -73,11 +73,11 @@
     "subdomain": "policy",
     "type": "single",
     "difficulty": "easy",
-    "question": "Você precisa impedir a criação de máquinas virtuais da série D em toda a assinatura, exibindo erro no momento da implantação. Qual serviço do Azure aplica essa regra?",
+    "question": "Voc\u00ea precisa impedir a cria\u00e7\u00e3o de m\u00e1quinas virtuais da s\u00e9rie D em toda a assinatura, exibindo erro no momento da implanta\u00e7\u00e3o. Qual servi\u00e7o do Azure aplica essa regra?",
     "options": [
       {
         "letter": "A",
-        "text": "Bloqueio (Lock) de Exclusão no grupo de recursos"
+        "text": "Bloqueio (Lock) de Exclus\u00e3o no grupo de recursos"
       },
       {
         "letter": "B",
@@ -85,15 +85,15 @@
       },
       {
         "letter": "C",
-        "text": "Etiqueta (Tag) obrigatória de ambiente"
+        "text": "Etiqueta (Tag) obrigat\u00f3ria de ambiente"
       },
       {
         "letter": "D",
-        "text": "Azure Blueprints sem atribuição ativa"
+        "text": "Azure Blueprints sem atribui\u00e7\u00e3o ativa"
       }
     ],
     "correct": ["B"],
-    "explanation": "Azure Policy avalia cada implantação e nega o que viola a definição. Lock de exclusão impede apagar, não criar; Blueprint sem atribuição não age; tag organiza, não bloqueia SKU.",
+    "explanation": "Azure Policy avalia cada implanta\u00e7\u00e3o e nega o que viola a defini\u00e7\u00e3o. Lock de exclus\u00e3o impede apagar, n\u00e3o criar; Blueprint sem atribui\u00e7\u00e3o n\u00e3o age; tag organiza, n\u00e3o bloqueia SKU.",
     "source": "mslearn",
     "tags": ["policy", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -107,7 +107,7 @@
     "subdomain": "assinaturas-grupos-gerenciamento",
     "type": "single",
     "difficulty": "easy",
-    "question": "Sua organização tem 20 assinaturas e precisa aplicar uma mesma política de conformidade em todas elas com uma única atribuição. Onde essa atribuição deve ser feita?",
+    "question": "Sua organiza\u00e7\u00e3o tem 20 assinaturas e precisa aplicar uma mesma pol\u00edtica de conformidade em todas elas com uma \u00fanica atribui\u00e7\u00e3o. Onde essa atribui\u00e7\u00e3o deve ser feita?",
     "options": [
       {
         "letter": "A",
@@ -119,7 +119,7 @@
       },
       {
         "letter": "C",
-        "text": "No grupo de gerenciamento que contém as 20 assinaturas"
+        "text": "No grupo de gerenciamento que cont\u00e9m as 20 assinaturas"
       },
       {
         "letter": "D",
@@ -127,7 +127,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Atribuições em grupo de gerenciamento herdam para todas as assinaturas filhas de uma vez. Atribuir por assinatura multiplica esforço; grupo de recursos é escopo baixo demais; tenant sem escopo não recebe atribuição de Policy.",
+    "explanation": "Atribui\u00e7\u00f5es em grupo de gerenciamento herdam para todas as assinaturas filhas de uma vez. Atribuir por assinatura multiplica esfor\u00e7o; grupo de recursos \u00e9 escopo baixo demais; tenant sem escopo n\u00e3o recebe atribui\u00e7\u00e3o de Policy.",
     "source": "original",
     "tags": ["management-groups", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -140,15 +140,15 @@
     "subdomain": "rbac",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um desenvolvedor precisa implantar recursos em um único grupo de recursos, mas não deve enxergar nem alterar os demais grupos da assinatura. Qual escopo de atribuição de função atende ao princípio do menor privilégio?",
+    "question": "Um desenvolvedor precisa implantar recursos em um \u00fanico grupo de recursos, mas n\u00e3o deve enxergar nem alterar os demais grupos da assinatura. Qual escopo de atribui\u00e7\u00e3o de fun\u00e7\u00e3o atende ao princ\u00edpio do menor privil\u00e9gio?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuir Colaborador no escopo do grupo de recursos específico"
+        "text": "Atribuir Colaborador no escopo do grupo de recursos espec\u00edfico"
       },
       {
         "letter": "B",
-        "text": "Atribuir Proprietário no grupo de gerenciamento raiz"
+        "text": "Atribuir Propriet\u00e1rio no grupo de gerenciamento raiz"
       },
       {
         "letter": "C",
@@ -160,7 +160,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Atribuir no escopo do grupo de recursos limita o acesso exatamente onde é preciso. Escopo de assinatura expõe demais; grupo de gerenciamento raiz é o escopo mais amplo; Leitor na assinatura não permite implantar.",
+    "explanation": "Atribuir no escopo do grupo de recursos limita o acesso exatamente onde \u00e9 preciso. Escopo de assinatura exp\u00f5e demais; grupo de gerenciamento raiz \u00e9 o escopo mais amplo; Leitor na assinatura n\u00e3o permite implantar.",
     "source": "mslearn",
     "tags": ["rbac", "escopo", "menor-privilegio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -174,15 +174,15 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "easy",
-    "question": "Os usuários esquecem a senha com frequência e o help desk está sobrecarregado. Qual recurso permite que eles redefinam a própria senha com segurança?",
+    "question": "Os usu\u00e1rios esquecem a senha com frequ\u00eancia e o help desk est\u00e1 sobrecarregado. Qual recurso permite que eles redefinam a pr\u00f3pria senha com seguran\u00e7a?",
     "options": [
       {
         "letter": "A",
-        "text": "Revisão de acesso (Access Review) periódica"
+        "text": "Revis\u00e3o de acesso (Access Review) peri\u00f3dica"
       },
       {
         "letter": "B",
-        "text": "Proteção de senha do Entra para Active Directory"
+        "text": "Prote\u00e7\u00e3o de senha do Entra para Active Directory"
       },
       {
         "letter": "C",
@@ -190,11 +190,11 @@
       },
       {
         "letter": "D",
-        "text": "Redefinição de senha de autoatendimento (SSPR) do Microsoft Entra"
+        "text": "Redefini\u00e7\u00e3o de senha de autoatendimento (SSPR) do Microsoft Entra"
       }
     ],
     "correct": ["D"],
-    "explanation": "SSPR deixa o usuário redefinir a senha após verificação (MFA/perguntas). Smart Lockout bloqueia ataques de força bruta; proteção de senha veta senhas fracas; revisão de acesso recertifica acessos, não redefine senha.",
+    "explanation": "SSPR deixa o usu\u00e1rio redefinir a senha ap\u00f3s verifica\u00e7\u00e3o (MFA/perguntas). Smart Lockout bloqueia ataques de for\u00e7a bruta; prote\u00e7\u00e3o de senha veta senhas fracas; revis\u00e3o de acesso recertifica acessos, n\u00e3o redefine senha.",
     "source": "mslearn",
     "tags": ["sspr", "senhas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -208,11 +208,11 @@
     "subdomain": "locks",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um grupo de recursos de produção não pode ser excluído nem ter recursos apagados por engano, mas atualizações de configuração continuam permitidas. Qual bloqueio atende a esse requisito?",
+    "question": "Um grupo de recursos de produ\u00e7\u00e3o n\u00e3o pode ser exclu\u00eddo nem ter recursos apagados por engano, mas atualiza\u00e7\u00f5es de configura\u00e7\u00e3o continuam permitidas. Qual bloqueio atende a esse requisito?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuição de função Leitor para todos os usuários"
+        "text": "Atribui\u00e7\u00e3o de fun\u00e7\u00e3o Leitor para todos os usu\u00e1rios"
       },
       {
         "letter": "B",
@@ -220,7 +220,7 @@
       },
       {
         "letter": "C",
-        "text": "Política de Negação em todo o tenant"
+        "text": "Pol\u00edtica de Nega\u00e7\u00e3o em todo o tenant"
       },
       {
         "letter": "D",
@@ -228,7 +228,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "CanNotDelete impede exclusões mas permite leituras e atualizações. ReadOnly bloquearia também as atualizações; política de negação filtra tipos de recurso, não protege contra exclusão; Leitor não impede que outros excluam.",
+    "explanation": "CanNotDelete impede exclus\u00f5es mas permite leituras e atualiza\u00e7\u00f5es. ReadOnly bloquearia tamb\u00e9m as atualiza\u00e7\u00f5es; pol\u00edtica de nega\u00e7\u00e3o filtra tipos de recurso, n\u00e3o protege contra exclus\u00e3o; Leitor n\u00e3o impede que outros excluam.",
     "source": "mslearn",
     "tags": ["locks", "producao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -242,11 +242,11 @@
     "subdomain": "identidades-externas",
     "type": "single",
     "difficulty": "easy",
-    "question": "Um parceiro precisa acessar um aplicativo da sua empresa por 30 dias usando a própria conta corporativa dele. Qual tipo de conta você deve provisionar no seu tenant?",
+    "question": "Um parceiro precisa acessar um aplicativo da sua empresa por 30 dias usando a pr\u00f3pria conta corporativa dele. Qual tipo de conta voc\u00ea deve provisionar no seu tenant?",
     "options": [
       {
         "letter": "A",
-        "text": "Entidade de serviço com segredo de cliente"
+        "text": "Entidade de servi\u00e7o com segredo de cliente"
       },
       {
         "letter": "B",
@@ -254,15 +254,15 @@
       },
       {
         "letter": "C",
-        "text": "Usuário convidado (Guest) via colaboração B2B"
+        "text": "Usu\u00e1rio convidado (Guest) via colabora\u00e7\u00e3o B2B"
       },
       {
         "letter": "D",
-        "text": "Usuário membro com licença permanente"
+        "text": "Usu\u00e1rio membro com licen\u00e7a permanente"
       }
     ],
     "correct": ["C"],
-    "explanation": "B2B cria conta Guest federada à identidade do parceiro, ideal para acesso temporário. Membro permanente é excesso de privilégio e custo; conta de dispositivo não autentica pessoa; entidade de serviço é para apps, não pessoas.",
+    "explanation": "B2B cria conta Guest federada \u00e0 identidade do parceiro, ideal para acesso tempor\u00e1rio. Membro permanente \u00e9 excesso de privil\u00e9gio e custo; conta de dispositivo n\u00e3o autentica pessoa; entidade de servi\u00e7o \u00e9 para apps, n\u00e3o pessoas.",
     "source": "original",
     "tags": ["b2b", "convidados"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -275,27 +275,27 @@
     "subdomain": "pim",
     "type": "single",
     "difficulty": "medium",
-    "question": "Administradores mantêm função de Proprietário permanente na assinatura de produção, violando o just-in-time. Qual recurso elimina o acesso permanente mantendo a capacidade de elevação sob aprovação?",
+    "question": "Administradores mant\u00eam fun\u00e7\u00e3o de Propriet\u00e1rio permanente na assinatura de produ\u00e7\u00e3o, violando o just-in-time. Qual recurso elimina o acesso permanente mantendo a capacidade de eleva\u00e7\u00e3o sob aprova\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuição direta permanente com revisão anual"
+        "text": "Atribui\u00e7\u00e3o direta permanente com revis\u00e3o anual"
       },
       {
         "letter": "B",
-        "text": "Grupo atribuído estático com Proprietário vitalício"
+        "text": "Grupo atribu\u00eddo est\u00e1tico com Propriet\u00e1rio vital\u00edcio"
       },
       {
         "letter": "C",
-        "text": "Política de bloqueio de recursos na assinatura"
+        "text": "Pol\u00edtica de bloqueio de recursos na assinatura"
       },
       {
         "letter": "D",
-        "text": "Privileged Identity Management (PIM) com ativação qualificada e aprovação"
+        "text": "Privileged Identity Management (PIM) com ativa\u00e7\u00e3o qualificada e aprova\u00e7\u00e3o"
       }
     ],
     "correct": ["D"],
-    "explanation": "PIM torna a função qualificada: ativação temporária, com MFA, justificativa e aprovação. Atribuição permanente mantém o risco; grupo estático não impõe tempo; bloqueio protege recursos, não gerencia privilégio.",
+    "explanation": "PIM torna a fun\u00e7\u00e3o qualificada: ativa\u00e7\u00e3o tempor\u00e1ria, com MFA, justificativa e aprova\u00e7\u00e3o. Atribui\u00e7\u00e3o permanente mant\u00e9m o risco; grupo est\u00e1tico n\u00e3o imp\u00f5e tempo; bloqueio protege recursos, n\u00e3o gerencia privil\u00e9gio.",
     "source": "mslearn",
     "tags": ["pim", "just-in-time"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -309,11 +309,11 @@
     "subdomain": "rbac-custom",
     "type": "single",
     "difficulty": "medium",
-    "question": "Nenhuma função interna atende: um operador precisa reiniciar VMs e ler discos, mas não pode criar VMs nem gerenciar rede. Qual abordagem cria exatamente esse conjunto de permissões?",
+    "question": "Nenhuma fun\u00e7\u00e3o interna atende: um operador precisa reiniciar VMs e ler discos, mas n\u00e3o pode criar VMs nem gerenciar rede. Qual abordagem cria exatamente esse conjunto de permiss\u00f5es?",
     "options": [
       {
         "letter": "A",
-        "text": "Proprietário com condição de horário comercial"
+        "text": "Propriet\u00e1rio com condi\u00e7\u00e3o de hor\u00e1rio comercial"
       },
       {
         "letter": "B",
@@ -321,15 +321,15 @@
       },
       {
         "letter": "C",
-        "text": "Colaborador de Máquina Virtual aplicado na assinatura"
+        "text": "Colaborador de M\u00e1quina Virtual aplicado na assinatura"
       },
       {
         "letter": "D",
-        "text": "Função personalizada com Actions de restart/leitura e sem permissões de escrita em rede"
+        "text": "Fun\u00e7\u00e3o personalizada com Actions de restart/leitura e sem permiss\u00f5es de escrita em rede"
       }
     ],
     "correct": ["D"],
-    "explanation": "Função personalizada combina só as Actions necessárias (restart, leitura) e usa NotActions para excluir o resto. Colaborador de VM permite criar; Leitor+Rede não reinicia nem cobre discos; Proprietário com condição continua amplo demais.",
+    "explanation": "Fun\u00e7\u00e3o personalizada combina s\u00f3 as Actions necess\u00e1rias (restart, leitura) e usa NotActions para excluir o resto. Colaborador de VM permite criar; Leitor+Rede n\u00e3o reinicia nem cobre discos; Propriet\u00e1rio com condi\u00e7\u00e3o continua amplo demais.",
     "source": "mslearn",
     "tags": ["rbac", "custom-roles"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -343,27 +343,27 @@
     "subdomain": "identity-protection",
     "type": "single",
     "difficulty": "medium",
-    "question": "Logins de um país atípico para vários usuários foram detectados e você quer bloquear automaticamente acessos de alto risco de login. Qual política do Identity Protection aplica esse bloqueio?",
+    "question": "Logins de um pa\u00eds at\u00edpico para v\u00e1rios usu\u00e1rios foram detectados e voc\u00ea quer bloquear automaticamente acessos de alto risco de login. Qual pol\u00edtica do Identity Protection aplica esse bloqueio?",
     "options": [
       {
         "letter": "A",
-        "text": "Política de expiração de senha a cada 30 dias"
+        "text": "Pol\u00edtica de expira\u00e7\u00e3o de senha a cada 30 dias"
       },
       {
         "letter": "B",
-        "text": "Política de acesso condicional por conformidade de dispositivo"
+        "text": "Pol\u00edtica de acesso condicional por conformidade de dispositivo"
       },
       {
         "letter": "C",
-        "text": "Política de risco de login (sign-in risk) com ação Bloquear acesso"
+        "text": "Pol\u00edtica de risco de login (sign-in risk) com a\u00e7\u00e3o Bloquear acesso"
       },
       {
         "letter": "D",
-        "text": "Política de risco de usuário com redefinição de senha segura"
+        "text": "Pol\u00edtica de risco de usu\u00e1rio com redefini\u00e7\u00e3o de senha segura"
       }
     ],
     "correct": ["C"],
-    "explanation": "Risco de login avalia cada tentativa (viagem impossível, IP anônimo) e bloqueia em tempo real. Risco de usuário trata conta comprometida com troca de senha; conformidade de dispositivo não detecta anomalia geográfica; expiração periódica não reage ao evento.",
+    "explanation": "Risco de login avalia cada tentativa (viagem imposs\u00edvel, IP an\u00f4nimo) e bloqueia em tempo real. Risco de usu\u00e1rio trata conta comprometida com troca de senha; conformidade de dispositivo n\u00e3o detecta anomalia geogr\u00e1fica; expira\u00e7\u00e3o peri\u00f3dica n\u00e3o reage ao evento.",
     "source": "original",
     "tags": ["identity-protection", "risco-login"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -376,15 +376,15 @@
     "subdomain": "access-reviews",
     "type": "single",
     "difficulty": "medium",
-    "question": "Convidados B2B acumulam acesso a grupos há meses e você precisa que os donos dos grupos confirmem periodicamente quem deve permanecer. Qual recurso automatiza essa recertificação?",
+    "question": "Convidados B2B acumulam acesso a grupos h\u00e1 meses e voc\u00ea precisa que os donos dos grupos confirmem periodicamente quem deve permanecer. Qual recurso automatiza essa recertifica\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Revisões de acesso (Access Reviews) do Microsoft Entra"
+        "text": "Revis\u00f5es de acesso (Access Reviews) do Microsoft Entra"
       },
       {
         "letter": "B",
-        "text": "Política de expiração de grupo estático"
+        "text": "Pol\u00edtica de expira\u00e7\u00e3o de grupo est\u00e1tico"
       },
       {
         "letter": "C",
@@ -392,11 +392,11 @@
       },
       {
         "letter": "D",
-        "text": "Alerta de Segurança do Defender for Cloud"
+        "text": "Alerta de Seguran\u00e7a do Defender for Cloud"
       }
     ],
     "correct": ["A"],
-    "explanation": "Access Reviews agenda revisões aos donos e remove automaticamente quem não for confirmado. Expiração de grupo apaga o grupo inteiro; CSV manual não aplica ação; Defender alerta sobre ameaças, não recertifica acesso.",
+    "explanation": "Access Reviews agenda revis\u00f5es aos donos e remove automaticamente quem n\u00e3o for confirmado. Expira\u00e7\u00e3o de grupo apaga o grupo inteiro; CSV manual n\u00e3o aplica a\u00e7\u00e3o; Defender alerta sobre amea\u00e7as, n\u00e3o recertifica acesso.",
     "source": "original",
     "tags": ["access-reviews", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -409,27 +409,27 @@
     "subdomain": "entra-connect-sync",
     "type": "single",
     "difficulty": "medium",
-    "question": "Usuários do Active Directory local precisam entrar nos serviços em nuvem com a mesma senha, e a autenticação deve continuar funcionando mesmo se o link com a nuvem cair por minutos. Qual método de autenticação do Connect Sync atende a isso?",
+    "question": "Usu\u00e1rios do Active Directory local precisam entrar nos servi\u00e7os em nuvem com a mesma senha, e a autentica\u00e7\u00e3o deve continuar funcionando mesmo se o link com a nuvem cair por minutos. Qual m\u00e9todo de autentica\u00e7\u00e3o do Connect Sync atende a isso?",
     "options": [
       {
         "letter": "A",
-        "text": "Sincronização apenas de grupos sem credenciais"
+        "text": "Sincroniza\u00e7\u00e3o apenas de grupos sem credenciais"
       },
       {
         "letter": "B",
-        "text": "Sincronização de hash de senha (PHS) com logon na nuvem"
+        "text": "Sincroniza\u00e7\u00e3o de hash de senha (PHS) com logon na nuvem"
       },
       {
         "letter": "C",
-        "text": "Federação via AD FS sem sincronização de senha"
+        "text": "Federa\u00e7\u00e3o via AD FS sem sincroniza\u00e7\u00e3o de senha"
       },
       {
         "letter": "D",
-        "text": "Autenticação de passagem (PTA) com agentes locais"
+        "text": "Autentica\u00e7\u00e3o de passagem (PTA) com agentes locais"
       }
     ],
     "correct": ["B"],
-    "explanation": "PHS autentica na nuvem com o hash sincronizado, sobrevivendo a quedas de link. PTA e federação dependem da infraestrutura local a cada login; sincronizar só grupos não autentica ninguém.",
+    "explanation": "PHS autentica na nuvem com o hash sincronizado, sobrevivendo a quedas de link. PTA e federa\u00e7\u00e3o dependem da infraestrutura local a cada login; sincronizar s\u00f3 grupos n\u00e3o autentica ningu\u00e9m.",
     "source": "original",
     "tags": ["entra-connect", "phs", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -442,7 +442,7 @@
     "subdomain": "entra-domain-services",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma aplicação legada executada em VM do Azure exige autenticação Kerberos e LDAP, mas você não quer gerenciar controladores de domínio. Qual serviço fornece domínio gerenciado integrado ao Entra ID?",
+    "question": "Uma aplica\u00e7\u00e3o legada executada em VM do Azure exige autentica\u00e7\u00e3o Kerberos e LDAP, mas voc\u00ea n\u00e3o quer gerenciar controladores de dom\u00ednio. Qual servi\u00e7o fornece dom\u00ednio gerenciado integrado ao Entra ID?",
     "options": [
       {
         "letter": "A",
@@ -450,7 +450,7 @@
       },
       {
         "letter": "B",
-        "text": "Serviços de Federação (AD FS) em VMs"
+        "text": "Servi\u00e7os de Federa\u00e7\u00e3o (AD FS) em VMs"
       },
       {
         "letter": "C",
@@ -462,7 +462,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Domain Services expõe Kerberos/LDAP gerenciados a partir das identidades do Entra. ID Protection detecta riscos; DNS privado resolve nomes; AD FS em VMs volta a exigir gerenciamento de servidores.",
+    "explanation": "Domain Services exp\u00f5e Kerberos/LDAP gerenciados a partir das identidades do Entra. ID Protection detecta riscos; DNS privado resolve nomes; AD FS em VMs volta a exigir gerenciamento de servidores.",
     "source": "original",
     "tags": ["domain-services", "kerberos", "legado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -475,19 +475,19 @@
     "subdomain": "policy-initiative",
     "type": "single",
     "difficulty": "medium",
-    "question": "A auditoria exige dez definições de política aplicadas juntas como um pacote versionável de conformidade para todas as assinaturas. Como empacotar essas definições em uma única atribuição?",
+    "question": "A auditoria exige dez defini\u00e7\u00f5es de pol\u00edtica aplicadas juntas como um pacote version\u00e1vel de conformidade para todas as assinaturas. Como empacotar essas defini\u00e7\u00f5es em uma \u00fanica atribui\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Dez atribuições independentes em cada assinatura"
+        "text": "Dez atribui\u00e7\u00f5es independentes em cada assinatura"
       },
       {
         "letter": "B",
-        "text": "Uma definição única com dez efeitos misturados"
+        "text": "Uma defini\u00e7\u00e3o \u00fanica com dez efeitos misturados"
       },
       {
         "letter": "C",
-        "text": "Iniciativa (initiative) agrupando as dez definições"
+        "text": "Iniciativa (initiative) agrupando as dez defini\u00e7\u00f5es"
       },
       {
         "letter": "D",
@@ -495,7 +495,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Iniciativas agrupam definições em um conjunto atribuível e auditável de uma vez. Atribuições avulsas multiplicam gestão; uma definição não comporta dez lógicas distintas; bloqueio não avalia conformidade.",
+    "explanation": "Iniciativas agrupam defini\u00e7\u00f5es em um conjunto atribu\u00edvel e audit\u00e1vel de uma vez. Atribui\u00e7\u00f5es avulsas multiplicam gest\u00e3o; uma defini\u00e7\u00e3o n\u00e3o comporta dez l\u00f3gicas distintas; bloqueio n\u00e3o avalia conformidade.",
     "source": "mslearn",
     "tags": ["policy", "initiative"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -509,11 +509,11 @@
     "subdomain": "policy-remediation",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma política exige criptografia em contas de armazenamento e existem contas antigas sem criptografia. Além de negar novas criações, como corrigir automaticamente os recursos já existentes?",
+    "question": "Uma pol\u00edtica exige criptografia em contas de armazenamento e existem contas antigas sem criptografia. Al\u00e9m de negar novas cria\u00e7\u00f5es, como corrigir automaticamente os recursos j\u00e1 existentes?",
     "options": [
       {
         "letter": "A",
-        "text": "Etiqueta manual indicando pendência de criptografia"
+        "text": "Etiqueta manual indicando pend\u00eancia de criptografia"
       },
       {
         "letter": "B",
@@ -521,15 +521,15 @@
       },
       {
         "letter": "C",
-        "text": "Bloqueio de exclusão nas contas antigas"
+        "text": "Bloqueio de exclus\u00e3o nas contas antigas"
       },
       {
         "letter": "D",
-        "text": "Efeito DeployIfNotExists com tarefa de correção (remediation) e identidade gerenciada"
+        "text": "Efeito DeployIfNotExists com tarefa de corre\u00e7\u00e3o (remediation) e identidade gerenciada"
       }
     ],
     "correct": ["D"],
-    "explanation": "DeployIfNotExists implanta a configuração ausente via tarefa de correção com identidade gerenciada. Negar só barra o novo; bloqueio impede excluir, não configura; etiqueta não altera o recurso.",
+    "explanation": "DeployIfNotExists implanta a configura\u00e7\u00e3o ausente via tarefa de corre\u00e7\u00e3o com identidade gerenciada. Negar s\u00f3 barra o novo; bloqueio impede excluir, n\u00e3o configura; etiqueta n\u00e3o altera o recurso.",
     "source": "mslearn",
     "tags": ["policy", "remediation", "deployifnotexists"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -543,27 +543,27 @@
     "subdomain": "rbac-abac",
     "type": "single",
     "difficulty": "medium",
-    "question": "Você precisa permitir leitura de blobs apenas quando o blob tiver a etiqueta Confidencialidade=Interno e o usuário for do departamento Financeiro. Qual construção RBAC expressa essa condição por atributos?",
+    "question": "Voc\u00ea precisa permitir leitura de blobs apenas quando o blob tiver a etiqueta Confidencialidade=Interno e o usu\u00e1rio for do departamento Financeiro. Qual constru\u00e7\u00e3o RBAC expressa essa condi\u00e7\u00e3o por atributos?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuição de função com condição ABAC sobre atributos do recurso e do solicitante"
+        "text": "Atribui\u00e7\u00e3o de fun\u00e7\u00e3o com condi\u00e7\u00e3o ABAC sobre atributos do recurso e do solicitante"
       },
       {
         "letter": "B",
-        "text": "Chave compartilhada da conta distribuída ao Financeiro"
+        "text": "Chave compartilhada da conta distribu\u00edda ao Financeiro"
       },
       {
         "letter": "C",
-        "text": "SAS de serviço gerada por contêiner sem restrição"
+        "text": "SAS de servi\u00e7o gerada por cont\u00eainer sem restri\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Função Leitor de Dados aplicada na conta inteira"
+        "text": "Fun\u00e7\u00e3o Leitor de Dados aplicada na conta inteira"
       }
     ],
     "correct": ["A"],
-    "explanation": "Condições ABAC filtram a atribuição por atributos (etiqueta do blob + departamento do usuário). Leitor de Dados libera tudo; chave compartilhada ignora identidade; SAS sem restrição não avalia atributos.",
+    "explanation": "Condi\u00e7\u00f5es ABAC filtram a atribui\u00e7\u00e3o por atributos (etiqueta do blob + departamento do usu\u00e1rio). Leitor de Dados libera tudo; chave compartilhada ignora identidade; SAS sem restri\u00e7\u00e3o n\u00e3o avalia atributos.",
     "source": "mslearn",
     "tags": ["rbac", "abac", "condicoes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -577,11 +577,11 @@
     "subdomain": "terms-of-use",
     "type": "single",
     "difficulty": "medium",
-    "question": "Convidados B2B devem aceitar o termo de uso da empresa no primeiro acesso, com registro da aceitação. Qual recurso impõe e registra esse consentimento via acesso condicional?",
+    "question": "Convidados B2B devem aceitar o termo de uso da empresa no primeiro acesso, com registro da aceita\u00e7\u00e3o. Qual recurso imp\u00f5e e registra esse consentimento via acesso condicional?",
     "options": [
       {
         "letter": "A",
-        "text": "Marca da empresa na página de login"
+        "text": "Marca da empresa na p\u00e1gina de login"
       },
       {
         "letter": "B",
@@ -589,15 +589,15 @@
       },
       {
         "letter": "C",
-        "text": "Termos de uso (Terms of Use) como controle de concessão"
+        "text": "Termos de uso (Terms of Use) como controle de concess\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Política de senha do Entra ID"
+        "text": "Pol\u00edtica de senha do Entra ID"
       }
     ],
     "correct": ["C"],
-    "explanation": "Terms of Use como concessão exige aceite antes do acesso e grava data, versão e identidade. Política de senha não coleta aceite; marca da empresa é visual; e-mail não bloqueia nem registra consentimento.",
+    "explanation": "Terms of Use como concess\u00e3o exige aceite antes do acesso e grava data, vers\u00e3o e identidade. Pol\u00edtica de senha n\u00e3o coleta aceite; marca da empresa \u00e9 visual; e-mail n\u00e3o bloqueia nem registra consentimento.",
     "source": "original",
     "tags": ["terms-of-use", "b2b"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -610,19 +610,19 @@
     "subdomain": "entitlement-management",
     "type": "single",
     "difficulty": "medium",
-    "question": "Parceiros solicitam acesso a grupos, um aplicativo e um site do SharePoint, com aprovação do gestor e expiração em 60 dias. Qual recurso empacota tudo em um fluxo único de solicitação?",
+    "question": "Parceiros solicitam acesso a grupos, um aplicativo e um site do SharePoint, com aprova\u00e7\u00e3o do gestor e expira\u00e7\u00e3o em 60 dias. Qual recurso empacota tudo em um fluxo \u00fanico de solicita\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Grupo dinâmico com regra de expiração"
+        "text": "Grupo din\u00e2mico com regra de expira\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Atribuição PIM de grupo sem catálogo"
+        "text": "Atribui\u00e7\u00e3o PIM de grupo sem cat\u00e1logo"
       },
       {
         "letter": "C",
-        "text": "Três convites B2B manuais separados"
+        "text": "Tr\u00eas convites B2B manuais separados"
       },
       {
         "letter": "D",
@@ -630,7 +630,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "Access Package junta recursos em catálogo com solicitação, aprovação e expiração automáticas. Convites manuais não expiram nem aprovam em fluxo; grupo dinâmico não aprova; PIM ativa função, não empacota recursos.",
+    "explanation": "Access Package junta recursos em cat\u00e1logo com solicita\u00e7\u00e3o, aprova\u00e7\u00e3o e expira\u00e7\u00e3o autom\u00e1ticas. Convites manuais n\u00e3o expiram nem aprovam em fluxo; grupo din\u00e2mico n\u00e3o aprova; PIM ativa fun\u00e7\u00e3o, n\u00e3o empacota recursos.",
     "source": "original",
     "tags": ["entitlement-management", "access-package"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -643,15 +643,15 @@
     "subdomain": "authentication-methods",
     "type": "single",
     "difficulty": "medium",
-    "question": "A empresa quer aposentar senhas e adotar login resistente a phishing para administradores. Qual método de autenticação do Entra atende a esse requisito?",
+    "question": "A empresa quer aposentar senhas e adotar login resistente a phishing para administradores. Qual m\u00e9todo de autentica\u00e7\u00e3o do Entra atende a esse requisito?",
     "options": [
       {
         "letter": "A",
-        "text": "SMS com código de seis dígitos"
+        "text": "SMS com c\u00f3digo de seis d\u00edgitos"
       },
       {
         "letter": "B",
-        "text": "Chave de segurança FIDO2 com PIN"
+        "text": "Chave de seguran\u00e7a FIDO2 com PIN"
       },
       {
         "letter": "C",
@@ -659,11 +659,11 @@
       },
       {
         "letter": "D",
-        "text": "Ligação de voz com confirmação"
+        "text": "Liga\u00e7\u00e3o de voz com confirma\u00e7\u00e3o"
       }
     ],
     "correct": ["B"],
-    "explanation": "FIDO2 é credencial vinculada à origem (resistente a phishing) e dispensa senha. SMS, voz e pergunta secreta são fatores fracos e suscetíveis a interceptação ou engenharia social.",
+    "explanation": "FIDO2 \u00e9 credencial vinculada \u00e0 origem (resistente a phishing) e dispensa senha. SMS, voz e pergunta secreta s\u00e3o fatores fracos e suscet\u00edveis a intercepta\u00e7\u00e3o ou engenharia social.",
     "source": "original",
     "tags": ["fido2", "passwordless", "phishing"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -676,11 +676,11 @@
     "subdomain": "deny-assignments",
     "type": "single",
     "difficulty": "medium",
-    "question": "Mesmo Proprietários precisam ser impedidos de excluir um cofre de backup crítico, sem remover as demais permissões deles. Qual mecanismo nega especificamente a exclusão para todos?",
+    "question": "Mesmo Propriet\u00e1rios precisam ser impedidos de excluir um cofre de backup cr\u00edtico, sem remover as demais permiss\u00f5es deles. Qual mecanismo nega especificamente a exclus\u00e3o para todos?",
     "options": [
       {
         "letter": "A",
-        "text": "Atribuição de negação (Deny assignment) na exclusão do cofre"
+        "text": "Atribui\u00e7\u00e3o de nega\u00e7\u00e3o (Deny assignment) na exclus\u00e3o do cofre"
       },
       {
         "letter": "B",
@@ -688,15 +688,15 @@
       },
       {
         "letter": "C",
-        "text": "Política de auditoria (Audit) no cofre"
+        "text": "Pol\u00edtica de auditoria (Audit) no cofre"
       },
       {
         "letter": "D",
-        "text": "Remoção da função Proprietário de todos os admins"
+        "text": "Remo\u00e7\u00e3o da fun\u00e7\u00e3o Propriet\u00e1rio de todos os admins"
       }
     ],
     "correct": ["A"],
-    "explanation": "Deny assignment veta a ação de exclusão mesmo contra permissões concedidas, preservando o resto. Remover Proprietário quebra a operação; ReadOnly na assinatura paralisa tudo; auditoria só observa.",
+    "explanation": "Deny assignment veta a a\u00e7\u00e3o de exclus\u00e3o mesmo contra permiss\u00f5es concedidas, preservando o resto. Remover Propriet\u00e1rio quebra a opera\u00e7\u00e3o; ReadOnly na assinatura paralisa tudo; auditoria s\u00f3 observa.",
     "source": "original",
     "tags": ["deny-assignments", "backup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -709,7 +709,7 @@
     "subdomain": "rbac-acoes",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Uma função personalizada de suporte precisa permitir: iniciar VMs e ler configurações de rede, sem criar recursos nem atribuir funções. Quais permissões compõem essa função? Selecione duas.",
+    "question": "Uma fun\u00e7\u00e3o personalizada de suporte precisa permitir: iniciar VMs e ler configura\u00e7\u00f5es de rede, sem criar recursos nem atribuir fun\u00e7\u00f5es. Quais permiss\u00f5es comp\u00f5em essa fun\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -729,7 +729,7 @@
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Start/action liga a VM e read em rede permite diagnosticar sem alterar. Write em VM autoriza criar/excluir; roleAssignments/write delega acesso, violando o menor privilégio.",
+    "explanation": "Start/action liga a VM e read em rede permite diagnosticar sem alterar. Write em VM autoriza criar/excluir; roleAssignments/write delega acesso, violando o menor privil\u00e9gio.",
     "source": "mslearn",
     "tags": ["rbac", "custom-roles", "actions"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -743,27 +743,27 @@
     "subdomain": "grupos-tipos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Você precisa de um grupo para controle de acesso a recursos do Azure com associação automática por atributos. Quais duas características esse grupo deve ter? Selecione duas.",
+    "question": "Voc\u00ea precisa de um grupo para controle de acesso a recursos do Azure com associa\u00e7\u00e3o autom\u00e1tica por atributos. Quais duas caracter\u00edsticas esse grupo deve ter? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Ser grupo de segurança (não Microsoft 365)"
+        "text": "Ser grupo de seguran\u00e7a (n\u00e3o Microsoft 365)"
       },
       {
         "letter": "B",
-        "text": "Ser grupo de distribuição de e-mail"
+        "text": "Ser grupo de distribui\u00e7\u00e3o de e-mail"
       },
       {
         "letter": "C",
-        "text": "Ter associação atribuída manualmente"
+        "text": "Ter associa\u00e7\u00e3o atribu\u00edda manualmente"
       },
       {
         "letter": "D",
-        "text": "Ter tipo de associação dinâmica com regra"
+        "text": "Ter tipo de associa\u00e7\u00e3o din\u00e2mica com regra"
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Grupo de segurança autoriza acesso a recursos e o tipo dinâmico associa por regra de atributos. Grupo Microsoft 365 foca colaboração; distribuição é para e-mail; associação manual contraria a automação pedida.",
+    "explanation": "Grupo de seguran\u00e7a autoriza acesso a recursos e o tipo din\u00e2mico associa por regra de atributos. Grupo Microsoft 365 foca colabora\u00e7\u00e3o; distribui\u00e7\u00e3o \u00e9 para e-mail; associa\u00e7\u00e3o manual contraria a automa\u00e7\u00e3o pedida.",
     "source": "original",
     "tags": ["grupos", "seguranca", "dinamicos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -776,27 +776,27 @@
     "subdomain": "pim-config",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Ao configurar PIM para a função Colaborador na assinatura, quais duas exigências reduzem o risco de elevação indevida? Selecione duas.",
+    "question": "Ao configurar PIM para a fun\u00e7\u00e3o Colaborador na assinatura, quais duas exig\u00eancias reduzem o risco de eleva\u00e7\u00e3o indevida? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exigir justificativa e aprovação"
+        "text": "Exigir justificativa e aprova\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Desabilitar notificações de ativação"
+        "text": "Desabilitar notifica\u00e7\u00f5es de ativa\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Exigir MFA na ativação"
+        "text": "Exigir MFA na ativa\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Ativação permanente sem expiração"
+        "text": "Ativa\u00e7\u00e3o permanente sem expira\u00e7\u00e3o"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "MFA na ativação prova o solicitante e aprovação com justificativa cria trilha e controle humano. Ativação permanente anula o just-in-time; sem notificação ninguém audita a elevação.",
+    "explanation": "MFA na ativa\u00e7\u00e3o prova o solicitante e aprova\u00e7\u00e3o com justificativa cria trilha e controle humano. Ativa\u00e7\u00e3o permanente anula o just-in-time; sem notifica\u00e7\u00e3o ningu\u00e9m audita a eleva\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["pim", "aprovacao", "mfa"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -810,7 +810,7 @@
     "subdomain": "policy-efeitos",
     "type": "multiple",
     "difficulty": "medium",
-    "question": "Você precisa que recursos fora de conformidade sejam impedidos na criação e que os já existentes sejam identificados para correção. Quais dois efeitos de política combinam esses objetivos? Selecione duas.",
+    "question": "Voc\u00ea precisa que recursos fora de conformidade sejam impedidos na cria\u00e7\u00e3o e que os j\u00e1 existentes sejam identificados para corre\u00e7\u00e3o. Quais dois efeitos de pol\u00edtica combinam esses objetivos? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -822,15 +822,15 @@
       },
       {
         "letter": "C",
-        "text": "Desabilitar a definição de política"
+        "text": "Desabilitar a defini\u00e7\u00e3o de pol\u00edtica"
       },
       {
         "letter": "D",
-        "text": "Negar (Deny) para novas implantações"
+        "text": "Negar (Deny) para novas implanta\u00e7\u00f5es"
       }
     ],
     "correct": ["D", "A"],
-    "explanation": "Deny barra a criação fora de conformidade e Audit marca o existente como não conforme para correção. Desabilitar desliga a governança; etiqueta solta não avalia nem impede.",
+    "explanation": "Deny barra a cria\u00e7\u00e3o fora de conformidade e Audit marca o existente como n\u00e3o conforme para corre\u00e7\u00e3o. Desabilitar desliga a governan\u00e7a; etiqueta solta n\u00e3o avalia nem impede.",
     "source": "mslearn",
     "tags": ["policy", "deny", "audit"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -844,11 +844,11 @@
     "subdomain": "privileged-access-workstations",
     "type": "single",
     "difficulty": "hard",
-    "question": "Administradores acessam o Azure de estações comuns vulneráveis a roubo de credencial. Além de MFA e PIM, qual controle garante que a ativação privilegiada ocorra apenas de estações endurecidas e conformes?",
+    "question": "Administradores acessam o Azure de esta\u00e7\u00f5es comuns vulner\u00e1veis a roubo de credencial. Al\u00e9m de MFA e PIM, qual controle garante que a ativa\u00e7\u00e3o privilegiada ocorra apenas de esta\u00e7\u00f5es endurecidas e conformes?",
     "options": [
       {
         "letter": "A",
-        "text": "Política de acesso condicional exigindo conformidade + filtro de dispositivo na ativação PIM"
+        "text": "Pol\u00edtica de acesso condicional exigindo conformidade + filtro de dispositivo na ativa\u00e7\u00e3o PIM"
       },
       {
         "letter": "B",
@@ -860,11 +860,11 @@
       },
       {
         "letter": "D",
-        "text": "VPN sempre ativa sem verificação de conformidade"
+        "text": "VPN sempre ativa sem verifica\u00e7\u00e3o de conformidade"
       }
     ],
     "correct": ["A"],
-    "explanation": "Conceder ativação só em dispositivo conforme (PAW gerenciada) fecha o roubo de sessão em estação comum. Senha longa não prova integridade da estação; VPN sem conformidade só oculta a rede; conta compartilhada destrói a trilha de auditoria.",
+    "explanation": "Conceder ativa\u00e7\u00e3o s\u00f3 em dispositivo conforme (PAW gerenciada) fecha o roubo de sess\u00e3o em esta\u00e7\u00e3o comum. Senha longa n\u00e3o prova integridade da esta\u00e7\u00e3o; VPN sem conformidade s\u00f3 oculta a rede; conta compartilhada destr\u00f3i a trilha de auditoria.",
     "source": "original",
     "tags": ["paw", "conditional-access", "pim"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -877,7 +877,7 @@
     "subdomain": "authentication-strengths",
     "type": "single",
     "difficulty": "hard",
-    "question": "A política de acesso condicional para dados sigilosos deve aceitar apenas FIDO2 ou Windows Hello, rejeitando SMS e voz mesmo com MFA habilitado. Qual construção expressa esse conjunto permitido de métodos?",
+    "question": "A pol\u00edtica de acesso condicional para dados sigilosos deve aceitar apenas FIDO2 ou Windows Hello, rejeitando SMS e voz mesmo com MFA habilitado. Qual constru\u00e7\u00e3o expressa esse conjunto permitido de m\u00e9todos?",
     "options": [
       {
         "letter": "A",
@@ -885,19 +885,19 @@
       },
       {
         "letter": "B",
-        "text": "Concessão genérica exigir MFA sem especificar método"
+        "text": "Concess\u00e3o gen\u00e9rica exigir MFA sem especificar m\u00e9todo"
       },
       {
         "letter": "C",
-        "text": "Política de senha com 16 caracteres mínimos"
+        "text": "Pol\u00edtica de senha com 16 caracteres m\u00ednimos"
       },
       {
         "letter": "D",
-        "text": "Força de autenticação (authentication strength) resistente a phishing na concessão"
+        "text": "For\u00e7a de autentica\u00e7\u00e3o (authentication strength) resistente a phishing na concess\u00e3o"
       }
     ],
     "correct": ["D"],
-    "explanation": "Authentication strength define combinações exatas de métodos aceitos (FIDO2/Hello). Exigir MFA genérico aceita SMS/voz; senha longa não é segundo fator; bloquear legados não restringe métodos fortes entre si.",
+    "explanation": "Authentication strength define combina\u00e7\u00f5es exatas de m\u00e9todos aceitos (FIDO2/Hello). Exigir MFA gen\u00e9rico aceita SMS/voz; senha longa n\u00e3o \u00e9 segundo fator; bloquear legados n\u00e3o restringe m\u00e9todos fortes entre si.",
     "source": "original",
     "tags": ["authentication-strength", "phishing-resistant"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -910,7 +910,7 @@
     "subdomain": "lifecycles-workflows",
     "type": "single",
     "difficulty": "hard",
-    "question": "Contratados precisam receber acesso no primeiro dia, ter revisão trimestral automática e perder tudo no desligamento, sem scripts manuais. Qual recurso executa esse ciclo de vida por fluxos de ingresso e saída?",
+    "question": "Contratados precisam receber acesso no primeiro dia, ter revis\u00e3o trimestral autom\u00e1tica e perder tudo no desligamento, sem scripts manuais. Qual recurso executa esse ciclo de vida por fluxos de ingresso e sa\u00edda?",
     "options": [
       {
         "letter": "A",
@@ -918,19 +918,19 @@
       },
       {
         "letter": "B",
-        "text": "Política de senha com expiração de 90 dias"
+        "text": "Pol\u00edtica de senha com expira\u00e7\u00e3o de 90 dias"
       },
       {
         "letter": "C",
-        "text": "Grupo estático com remoção semestral manual"
+        "text": "Grupo est\u00e1tico com remo\u00e7\u00e3o semestral manual"
       },
       {
         "letter": "D",
-        "text": "Runbook de automação manual sob demanda"
+        "text": "Runbook de automa\u00e7\u00e3o manual sob demanda"
       }
     ],
     "correct": ["A"],
-    "explanation": "Lifecycle Workflows disparam tarefas de joiner/mover/leaver por atributos de RH, com revisões agendadas. Runbook manual exige execução humana; grupo estático não reage a eventos; expiração de senha não provisiona nem remove acesso.",
+    "explanation": "Lifecycle Workflows disparam tarefas de joiner/mover/leaver por atributos de RH, com revis\u00f5es agendadas. Runbook manual exige execu\u00e7\u00e3o humana; grupo est\u00e1tico n\u00e3o reage a eventos; expira\u00e7\u00e3o de senha n\u00e3o provisiona nem remove acesso.",
     "source": "original",
     "tags": ["lifecycle-workflows", "joiner-mover-leaver"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -943,7 +943,7 @@
     "subdomain": "key-vault-rbac",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Um cofre precisa separar quem gerencia o cofre (chaves de acesso, rede) de quem usa segredos, usando RBAC do Azure em vez de políticas de acesso legadas. Quais duas funções compõem essa separação? Selecione duas.",
+    "question": "Um cofre precisa separar quem gerencia o cofre (chaves de acesso, rede) de quem usa segredos, usando RBAC do Azure em vez de pol\u00edticas de acesso legadas. Quais duas fun\u00e7\u00f5es comp\u00f5em essa separa\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -951,11 +951,11 @@
       },
       {
         "letter": "B",
-        "text": "Usuário de Segredos do Key Vault para ler segredos"
+        "text": "Usu\u00e1rio de Segredos do Key Vault para ler segredos"
       },
       {
         "letter": "C",
-        "text": "Proprietário da assinatura para tudo"
+        "text": "Propriet\u00e1rio da assinatura para tudo"
       },
       {
         "letter": "D",
@@ -963,7 +963,7 @@
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Colaborador do Key Vault administra o plano de gerenciamento e Usuário de Segredos lê valores no plano de dados, sem sobreposição. Proprietário quebra a segregação; Leitor de Backup atua sobre Recovery Services, não segredos.",
+    "explanation": "Colaborador do Key Vault administra o plano de gerenciamento e Usu\u00e1rio de Segredos l\u00ea valores no plano de dados, sem sobreposi\u00e7\u00e3o. Propriet\u00e1rio quebra a segrega\u00e7\u00e3o; Leitor de Backup atua sobre Recovery Services, n\u00e3o segredos.",
     "source": "mslearn",
     "tags": ["key-vault", "rbac", "segregacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -977,7 +977,7 @@
     "subdomain": "administrative-units",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Filiais regionais precisam de administradores locais que gerenciem apenas usuários da própria região. Quais duas construções delegam esse escopo regional? Selecione duas.",
+    "question": "Filiais regionais precisam de administradores locais que gerenciem apenas usu\u00e1rios da pr\u00f3pria regi\u00e3o. Quais duas constru\u00e7\u00f5es delegam esse escopo regional? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -985,19 +985,19 @@
       },
       {
         "letter": "B",
-        "text": "Função do Entra com escopo na unidade administrativa"
+        "text": "Fun\u00e7\u00e3o do Entra com escopo na unidade administrativa"
       },
       {
         "letter": "C",
-        "text": "Unidades administrativas por região com membros regionais"
+        "text": "Unidades administrativas por regi\u00e3o com membros regionais"
       },
       {
         "letter": "D",
-        "text": "Grupo de recursos do Azure por região"
+        "text": "Grupo de recursos do Azure por regi\u00e3o"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Unidades administrativas particionam usuários por região e a função com esse escopo limita o admin local. Global por filial é excesso total; grupo de recursos delega plano do Azure, não diretório.",
+    "explanation": "Unidades administrativas particionam usu\u00e1rios por regi\u00e3o e a fun\u00e7\u00e3o com esse escopo limita o admin local. Global por filial \u00e9 excesso total; grupo de recursos delega plano do Azure, n\u00e3o diret\u00f3rio.",
     "source": "original",
     "tags": ["administrative-units", "delegacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1010,27 +1010,27 @@
     "subdomain": "rbac",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador atribui a função Colaborador em um grupo de recursos. Um recurso filho (conta de armazenamento) criado posteriormente nesse grupo de recursos herdará automaticamente qual permissão?",
+    "question": "Um administrador atribui a fun\u00e7\u00e3o Colaborador em um grupo de recursos. Um recurso filho (conta de armazenamento) criado posteriormente nesse grupo de recursos herdar\u00e1 automaticamente qual permiss\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Impede apenas a exclusão dos recursos filhos"
+        "text": "Impede apenas a exclus\u00e3o dos recursos filhos"
       },
       {
         "letter": "B",
-        "text": "Impede qualquer operação de escrita (criar, atualizar, excluir) nos recursos filhos"
+        "text": "Impede qualquer opera\u00e7\u00e3o de escrita (criar, atualizar, excluir) nos recursos filhos"
       },
       {
         "letter": "C",
-        "text": "Aplica-se apenas ao grupo de recursos, não aos recursos filhos"
+        "text": "Aplica-se apenas ao grupo de recursos, n\u00e3o aos recursos filhos"
       },
       {
         "letter": "D",
-        "text": "Permite atualizações, mas impede exclusão dos recursos filhos"
+        "text": "Permite atualiza\u00e7\u00f5es, mas impede exclus\u00e3o dos recursos filhos"
       }
     ],
     "correct": ["B"],
-    "explanation": "A atribuição de função em um escopo (grupo de recursos) é herdada por todos os recursos filhos. Colaborador permite criar, gerenciar e excluir recursos, mas não gerenciar acesso. Leitor seria apenas leitura; Proprietário gerencia acesso também; herança é automática no Azure RBAC.",
+    "explanation": "A atribui\u00e7\u00e3o de fun\u00e7\u00e3o em um escopo (grupo de recursos) \u00e9 herdada por todos os recursos filhos. Colaborador permite criar, gerenciar e excluir recursos, mas n\u00e3o gerenciar acesso. Leitor seria apenas leitura; Propriet\u00e1rio gerencia acesso tamb\u00e9m; heran\u00e7a \u00e9 autom\u00e1tica no Azure RBAC.",
     "source": "mslearn",
     "tags": ["deny-assignments", "heranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1044,27 +1044,27 @@
     "subdomain": "locks",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador aplica um bloqueio ReadOnly em um grupo de recursos. Qual afirmação descreve o efeito desse bloqueio nos recursos que herdam o bloqueio?",
+    "question": "Um administrador aplica um bloqueio ReadOnly em um grupo de recursos. Qual afirma\u00e7\u00e3o descreve o efeito desse bloqueio nos recursos que herdam o bloqueio?",
     "options": [
       {
         "letter": "A",
-        "text": "Impede apenas a exclusão dos recursos"
+        "text": "Impede apenas a exclus\u00e3o dos recursos"
       },
       {
         "letter": "B",
-        "text": "Impede qualquer operação de escrita (criar, atualizar, excluir) nos recursos"
+        "text": "Impede qualquer opera\u00e7\u00e3o de escrita (criar, atualizar, excluir) nos recursos"
       },
       {
         "letter": "C",
-        "text": "Aplica-se apenas ao grupo, não aos recursos que herdam"
+        "text": "Aplica-se apenas ao grupo, n\u00e3o aos recursos que herdam"
       },
       {
         "letter": "D",
-        "text": "Permite atualizações, mas impede exclusão dos recursos"
+        "text": "Permite atualiza\u00e7\u00f5es, mas impede exclus\u00e3o dos recursos"
       }
     ],
     "correct": ["B"],
-    "explanation": "O bloqueio ReadOnly veta qualquer operação de escrita (criar, atualizar, excluir) no escopo e nos recursos que herdam o bloqueio. O tipo CannotDelete impede apenas exclusão; ReadOnly é mais restritivo. A página de bloqueios descreve que o bloqueio se propaga por herança aos recursos filhos automaticamente.",
+    "explanation": "O bloqueio ReadOnly veta qualquer opera\u00e7\u00e3o de escrita (criar, atualizar, excluir) no escopo e nos recursos que herdam o bloqueio. O tipo CannotDelete impede apenas exclus\u00e3o; ReadOnly \u00e9 mais restritivo. A p\u00e1gina de bloqueios descreve que o bloqueio se propaga por heran\u00e7a aos recursos filhos automaticamente.",
     "source": "mslearn",
     "tags": ["locks", "policy", "remediation"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1078,7 +1078,7 @@
     "subdomain": "provisionamento-hr",
     "type": "single",
     "difficulty": "medium",
-    "question": "Admissões no RH precisam criar contas no Entra automaticamente a partir do sistema de RH em nuvem. Qual provisionamento conecta RH ao Entra ID?",
+    "question": "Admiss\u00f5es no RH precisam criar contas no Entra automaticamente a partir do sistema de RH em nuvem. Qual provisionamento conecta RH ao Entra ID?",
     "options": [
       {
         "letter": "A",
@@ -1090,15 +1090,15 @@
       },
       {
         "letter": "C",
-        "text": "Criação manual pelo help desk"
+        "text": "Cria\u00e7\u00e3o manual pelo help desk"
       },
       {
         "letter": "D",
-        "text": "Conta genérica compartilhada"
+        "text": "Conta gen\u00e9rica compartilhada"
       }
     ],
     "correct": ["B"],
-    "explanation": "Provisionamento inbound sincroniza admissões/movimentações/desligamentos do RH. Manual e CSV atrasam e erram; conta genérica viola identidade individual.",
+    "explanation": "Provisionamento inbound sincroniza admiss\u00f5es/movimenta\u00e7\u00f5es/desligamentos do RH. Manual e CSV atrasam e erram; conta gen\u00e9rica viola identidade individual.",
     "source": "original",
     "tags": ["provisionamento", "rh", "inbound"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1111,15 +1111,15 @@
     "subdomain": "sspr",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um administrador configura a redefinição de senha por autoatendimento (SSPR) e precisa definir quais métodos de autenticação os usuários podem usar para verificar a identidade. Qual conjunto de métodos é suportado nativamente pelo SSPR?",
+    "question": "Um administrador configura a redefini\u00e7\u00e3o de senha por autoatendimento (SSPR) e precisa definir quais m\u00e9todos de autentica\u00e7\u00e3o os usu\u00e1rios podem usar para verificar a identidade. Qual conjunto de m\u00e9todos \u00e9 suportado nativamente pelo SSPR?",
     "options": [
       {
         "letter": "A",
-        "text": "Somente senha temporária por e-mail"
+        "text": "Somente senha tempor\u00e1ria por e-mail"
       },
       {
         "letter": "B",
-        "text": "Aplicativo autenticador, telefone (SMS/chamada), e-mail e perguntas de segurança"
+        "text": "Aplicativo autenticador, telefone (SMS/chamada), e-mail e perguntas de seguran\u00e7a"
       },
       {
         "letter": "C",
@@ -1127,11 +1127,11 @@
       },
       {
         "letter": "D",
-        "text": "Somente código por SMS"
+        "text": "Somente c\u00f3digo por SMS"
       }
     ],
     "correct": ["B"],
-    "explanation": "O SSPR suporta nativamente: aplicativo Microsoft Authenticator (notificação/código), telefone (SMS ou chamada), e-mail alternativo e perguntas de segurança. FIDO2/Hello são para MFA, não para SSPR. Apenas SMS ou apenas e-mail limitam a cobertura.",
+    "explanation": "O SSPR suporta nativamente: aplicativo Microsoft Authenticator (notifica\u00e7\u00e3o/c\u00f3digo), telefone (SMS ou chamada), e-mail alternativo e perguntas de seguran\u00e7a. FIDO2/Hello s\u00e3o para MFA, n\u00e3o para SSPR. Apenas SMS ou apenas e-mail limitam a cobertura.",
     "source": "mslearn",
     "tags": ["legacy-auth", "conditional-access", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1145,7 +1145,7 @@
     "subdomain": "group-licensing",
     "type": "single",
     "difficulty": "medium",
-    "question": "Licenças E5 devem ser atribuídas automaticamente a membros de um grupo, com erro visível quando faltar licença. Como automatizar com diagnóstico?",
+    "question": "Licen\u00e7as E5 devem ser atribu\u00eddas automaticamente a membros de um grupo, com erro vis\u00edvel quando faltar licen\u00e7a. Como automatizar com diagn\u00f3stico?",
     "options": [
       {
         "letter": "A",
@@ -1157,15 +1157,15 @@
       },
       {
         "letter": "C",
-        "text": "Licença por dispositivo"
+        "text": "Licen\u00e7a por dispositivo"
       },
       {
         "letter": "D",
-        "text": "Atribuição manual por usuário"
+        "text": "Atribui\u00e7\u00e3o manual por usu\u00e1rio"
       }
     ],
     "correct": ["B"],
-    "explanation": "Group licensing herda licenças e mostra erros (conflito, falta). Manual não escala; por dispositivo não licencia usuário; planilha não aplica.",
+    "explanation": "Group licensing herda licen\u00e7as e mostra erros (conflito, falta). Manual n\u00e3o escala; por dispositivo n\u00e3o licencia usu\u00e1rio; planilha n\u00e3o aplica.",
     "source": "original",
     "tags": ["licenciamento", "grupo", "e5"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1178,11 +1178,11 @@
     "subdomain": "dynamic-membership-cost",
     "type": "single",
     "difficulty": "medium",
-    "question": "Regras dinâmicas em milhares de grupos estouraram o limite de consultas e há atraso na associação. Qual boa prática reduz o custo de avaliação?",
+    "question": "Regras din\u00e2micas em milhares de grupos estouraram o limite de consultas e h\u00e1 atraso na associa\u00e7\u00e3o. Qual boa pr\u00e1tica reduz o custo de avalia\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Um grupo dinâmico para toda a empresa"
+        "text": "Um grupo din\u00e2mico para toda a empresa"
       },
       {
         "letter": "B",
@@ -1190,15 +1190,15 @@
       },
       {
         "letter": "C",
-        "text": "Regras com múltiplos ORs aninhados por grupo"
+        "text": "Regras com m\u00faltiplos ORs aninhados por grupo"
       },
       {
         "letter": "D",
-        "text": "Regra por usuário individual"
+        "text": "Regra por usu\u00e1rio individual"
       }
     ],
     "correct": ["B"],
-    "explanation": "Atributos indexados e escopo estreito avaliam rápido. ORs aninhados custam caro; grupo único gigante atrasa; regra por usuário anula a automação.",
+    "explanation": "Atributos indexados e escopo estreito avaliam r\u00e1pido. ORs aninhados custam caro; grupo \u00fanico gigante atrasa; regra por usu\u00e1rio anula a automa\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["grupos-dinamicos", "performance", "regras"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1212,7 +1212,7 @@
     "subdomain": "tenant-id-find",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um script de automação precisa do ID do tenant para autenticar via MSAL. Onde encontrar o Tenant ID de forma confiável no portal?",
+    "question": "Um script de automa\u00e7\u00e3o precisa do ID do tenant para autenticar via MSAL. Onde encontrar o Tenant ID de forma confi\u00e1vel no portal?",
     "options": [
       {
         "letter": "A",
@@ -1220,7 +1220,7 @@
       },
       {
         "letter": "B",
-        "text": "Microsoft Entra ID > Visão geral > ID do locatário"
+        "text": "Microsoft Entra ID > Vis\u00e3o geral > ID do locat\u00e1rio"
       },
       {
         "letter": "C",
@@ -1232,7 +1232,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "O overview do Entra ID exibe o Tenant ID (GUID) para MSAL e automação. Nome de subscription, IP do portal e grupo de recursos não identificam o tenant.",
+    "explanation": "O overview do Entra ID exibe o Tenant ID (GUID) para MSAL e automa\u00e7\u00e3o. Nome de subscription, IP do portal e grupo de recursos n\u00e3o identificam o tenant.",
     "source": "original",
     "tags": ["tenant-id", "msal", "automacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1245,7 +1245,7 @@
     "subdomain": "custom-domain-verify",
     "type": "single",
     "difficulty": "medium",
-    "question": "O domínio empresa.com precisa ser usado em UPNs do Entra ID. Qual passo comprova a propriedade antes do uso?",
+    "question": "O dom\u00ednio empresa.com precisa ser usado em UPNs do Entra ID. Qual passo comprova a propriedade antes do uso?",
     "options": [
       {
         "letter": "A",
@@ -1253,11 +1253,11 @@
       },
       {
         "letter": "B",
-        "text": "Adicionar TXT de verificação no DNS e validar"
+        "text": "Adicionar TXT de verifica\u00e7\u00e3o no DNS e validar"
       },
       {
         "letter": "C",
-        "text": "Criar usuários antes de verificar"
+        "text": "Criar usu\u00e1rios antes de verificar"
       },
       {
         "letter": "D",
@@ -1265,7 +1265,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "TXT comprova posse sem mexer no correio. Trocar MX quebra e-mail; criar antes impede sufixo; NS não é exigido.",
+    "explanation": "TXT comprova posse sem mexer no correio. Trocar MX quebra e-mail; criar antes impede sufixo; NS n\u00e3o \u00e9 exigido.",
     "source": "original",
     "tags": ["dominio-personalizado", "txt", "upn"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1278,11 +1278,11 @@
     "subdomain": "quota-limits",
     "type": "single",
     "difficulty": "hard",
-    "question": "A criação de 300 mil convidados B2B esbarrou em limite do diretório. Qual limite de objetos do Entra ID impõe teto ao tenant?",
+    "question": "A cria\u00e7\u00e3o de 300 mil convidados B2B esbarrou em limite do diret\u00f3rio. Qual limite de objetos do Entra ID imp\u00f5e teto ao tenant?",
     "options": [
       {
         "letter": "A",
-        "text": "Cota de objetos do diretório (padrão 300 mil, expansível)"
+        "text": "Cota de objetos do diret\u00f3rio (padr\u00e3o 300 mil, expans\u00edvel)"
       },
       {
         "letter": "B",
@@ -1290,15 +1290,15 @@
       },
       {
         "letter": "C",
-        "text": "Limite de 5 grupos dinâmicos"
+        "text": "Limite de 5 grupos din\u00e2micos"
       },
       {
         "letter": "D",
-        "text": "Limite de 50 usuários por tenant"
+        "text": "Limite de 50 usu\u00e1rios por tenant"
       }
     ],
     "correct": ["A"],
-    "explanation": "Directory quota padrão é 300k objetos, expansível via suporte. Os demais limites citados não existem nesses valores.",
+    "explanation": "Directory quota padr\u00e3o \u00e9 300k objetos, expans\u00edvel via suporte. Os demais limites citados n\u00e3o existem nesses valores.",
     "source": "original",
     "tags": ["cota", "diretorio", "limites", "b2b"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1311,27 +1311,27 @@
     "subdomain": "rbac",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador precisa atribuir a função Colaborador a um usuário no escopo de um grupo de recursos usando o portal do Azure. Qual sequência de ações na página de controle de acesso (IAM) realiza essa atribuição?",
+    "question": "Um administrador precisa atribuir a fun\u00e7\u00e3o Colaborador a um usu\u00e1rio no escopo de um grupo de recursos usando o portal do Azure. Qual sequ\u00eancia de a\u00e7\u00f5es na p\u00e1gina de controle de acesso (IAM) realiza essa atribui\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Controle de acesso (IAM) > Adicionar > Atribuição de função > Colaborador > Selecionar usuário > Atribuir"
+        "text": "Controle de acesso (IAM) > Adicionar > Atribui\u00e7\u00e3o de fun\u00e7\u00e3o > Colaborador > Selecionar usu\u00e1rio > Atribuir"
       },
       {
         "letter": "B",
-        "text": "Grupos > Novo grupo > Tipo: Segurança > Membros > Adicionar usuário"
+        "text": "Grupos > Novo grupo > Tipo: Seguran\u00e7a > Membros > Adicionar usu\u00e1rio"
       },
       {
         "letter": "C",
-        "text": "Usuários > Perfil > Funções atribuídas > Adicionar atribuição > Colaborador"
+        "text": "Usu\u00e1rios > Perfil > Fun\u00e7\u00f5es atribu\u00eddas > Adicionar atribui\u00e7\u00e3o > Colaborador"
       },
       {
         "letter": "D",
-        "text": "Assinaturas > Controle de acesso (IAM) > Funções personalizadas > Nova"
+        "text": "Assinaturas > Controle de acesso (IAM) > Fun\u00e7\u00f5es personalizadas > Nova"
       }
     ],
     "correct": ["A"],
-    "explanation": "A atribuição de função no portal segue: Controle de acesso (IAM) > Adicionar > Atribuição de função > selecionar função (ex.: Colaborador) > selecionar usuário/grupo/entidade de serviço > Atribuir. Criar grupo não atribui função; perfil do usuário mostra atribuições mas não adiciona; funções personalizadas é para criar novas funções, não atribuir existentes.",
+    "explanation": "A atribui\u00e7\u00e3o de fun\u00e7\u00e3o no portal segue: Controle de acesso (IAM) > Adicionar > Atribui\u00e7\u00e3o de fun\u00e7\u00e3o > selecionar fun\u00e7\u00e3o (ex.: Colaborador) > selecionar usu\u00e1rio/grupo/entidade de servi\u00e7o > Atribuir. Criar grupo n\u00e3o atribui fun\u00e7\u00e3o; perfil do usu\u00e1rio mostra atribui\u00e7\u00f5es mas n\u00e3o adiciona; fun\u00e7\u00f5es personalizadas \u00e9 para criar novas fun\u00e7\u00f5es, n\u00e3o atribuir existentes.",
     "source": "mslearn",
     "tags": ["pim", "alertas", "soc", "anomalia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1345,27 +1345,27 @@
     "subdomain": "access-package-policy-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Um pacote de acesso para parceiros exige aprovação em duas etapas e expiração com revisão. Quais dois elementos de política compõem isso? Selecione duas.",
+    "question": "Um pacote de acesso para parceiros exige aprova\u00e7\u00e3o em duas etapas e expira\u00e7\u00e3o com revis\u00e3o. Quais dois elementos de pol\u00edtica comp\u00f5em isso? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Expiração com revisão de acesso periódica"
+        "text": "Expira\u00e7\u00e3o com revis\u00e3o de acesso peri\u00f3dica"
       },
       {
         "letter": "B",
-        "text": "Autoaprovação do solicitante"
+        "text": "Autoaprova\u00e7\u00e3o do solicitante"
       },
       {
         "letter": "C",
-        "text": "Aprovação multiestágio do gestor e do dono do recurso"
+        "text": "Aprova\u00e7\u00e3o multiest\u00e1gio do gestor e do dono do recurso"
       },
       {
         "letter": "D",
-        "text": "Acesso vitalício sem revisão"
+        "text": "Acesso vital\u00edcio sem revis\u00e3o"
       }
     ],
     "correct": ["C", "A"],
-    "explanation": "Multi-aprovação distribui o controle e expiração com review remove órfãos. Vitalício acumula; autoaprovação anula governança.",
+    "explanation": "Multi-aprova\u00e7\u00e3o distribui o controle e expira\u00e7\u00e3o com review remove \u00f3rf\u00e3os. Vital\u00edcio acumula; autoaprova\u00e7\u00e3o anula governan\u00e7a.",
     "source": "mslearn",
     "tags": ["access-package", "aprovacao", "expiracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1379,27 +1379,27 @@
     "subdomain": "connected-org-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Vários parceiros acessam o mesmo catálogo com políticas distintas por organização. Quais dois elementos segmentam por parceiro? Selecione duas.",
+    "question": "V\u00e1rios parceiros acessam o mesmo cat\u00e1logo com pol\u00edticas distintas por organiza\u00e7\u00e3o. Quais dois elementos segmentam por parceiro? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Catálogo único sem distinção"
+        "text": "Cat\u00e1logo \u00fanico sem distin\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Políticas por organização conectada"
+        "text": "Pol\u00edticas por organiza\u00e7\u00e3o conectada"
       },
       {
         "letter": "C",
-        "text": "Organizações conectadas por domínio parceiro"
+        "text": "Organiza\u00e7\u00f5es conectadas por dom\u00ednio parceiro"
       },
       {
         "letter": "D",
-        "text": "Conta genérica compartilhada"
+        "text": "Conta gen\u00e9rica compartilhada"
       }
     ],
     "correct": ["C", "B"],
-    "explanation": "Connected orgs identificam o parceiro e políticas por org diferenciam regras. Catálogo único mistura; conta genérica perde trilha.",
+    "explanation": "Connected orgs identificam o parceiro e pol\u00edticas por org diferenciam regras. Cat\u00e1logo \u00fanico mistura; conta gen\u00e9rica perde trilha.",
     "source": "original",
     "tags": ["connected-org", "parceiros", "politicas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1412,7 +1412,7 @@
     "subdomain": "terms-versioning-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Nova versão do termo de uso precisa de reaceite e evidência por usuário. Quais dois comportamentos o Terms of Use versionado garante? Selecione duas.",
+    "question": "Nova vers\u00e3o do termo de uso precisa de reaceite e evid\u00eancia por usu\u00e1rio. Quais dois comportamentos o Terms of Use versionado garante? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -1420,11 +1420,11 @@
       },
       {
         "letter": "B",
-        "text": "Reaceite obrigatório na nova versão"
+        "text": "Reaceite obrigat\u00f3rio na nova vers\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Registro de aceite por versão e identidade"
+        "text": "Registro de aceite por vers\u00e3o e identidade"
       },
       {
         "letter": "D",
@@ -1432,7 +1432,7 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Versionamento exige novo aceite e grava evidência por versão. Herdar sem ler anula o propósito; sem registro não há prova.",
+    "explanation": "Versionamento exige novo aceite e grava evid\u00eancia por vers\u00e3o. Herdar sem ler anula o prop\u00f3sito; sem registro n\u00e3o h\u00e1 prova.",
     "source": "original",
     "tags": ["terms-of-use", "versao", "evidencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1445,11 +1445,11 @@
     "subdomain": "au-pim-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Administradores regionais precisam ativar papéis só na própria unidade, com aprovação e trilha. Quais dois elementos combinam escopo e controle? Selecione duas.",
+    "question": "Administradores regionais precisam ativar pap\u00e9is s\u00f3 na pr\u00f3pria unidade, com aprova\u00e7\u00e3o e trilha. Quais dois elementos combinam escopo e controle? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Ativação sem registro"
+        "text": "Ativa\u00e7\u00e3o sem registro"
       },
       {
         "letter": "B",
@@ -1461,11 +1461,11 @@
       },
       {
         "letter": "D",
-        "text": "Aprovação e MFA na ativação"
+        "text": "Aprova\u00e7\u00e3o e MFA na ativa\u00e7\u00e3o"
       }
     ],
     "correct": ["B", "D"],
-    "explanation": "Escopo na AU limita a região e aprovação+MFA controla a elevação. Global permanente excede; sem registro não audita.",
+    "explanation": "Escopo na AU limita a regi\u00e3o e aprova\u00e7\u00e3o+MFA controla a eleva\u00e7\u00e3o. Global permanente excede; sem registro n\u00e3o audita.",
     "source": "mslearn",
     "tags": ["pim", "administrative-units", "escopo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1479,27 +1479,27 @@
     "subdomain": "privileged-groups-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Grupos com papéis privilegiados via PIM precisam de ativação temporária e auditoria de membros. Quais dois controles aplicar? Selecione duas.",
+    "question": "Grupos com pap\u00e9is privilegiados via PIM precisam de ativa\u00e7\u00e3o tempor\u00e1ria e auditoria de membros. Quais dois controles aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Grupo sem dono responsável"
+        "text": "Grupo sem dono respons\u00e1vel"
       },
       {
         "letter": "B",
-        "text": "Membro permanente vitalício"
+        "text": "Membro permanente vital\u00edcio"
       },
       {
         "letter": "C",
-        "text": "Revisão de acesso dos membros do grupo"
+        "text": "Revis\u00e3o de acesso dos membros do grupo"
       },
       {
         "letter": "D",
-        "text": "Grupo qualificado no PIM com ativação"
+        "text": "Grupo qualificado no PIM com ativa\u00e7\u00e3o"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "PIM para grupos dá elevação temporária e review limpa membros. Permanente acumula; sem dono ninguém revisa.",
+    "explanation": "PIM para grupos d\u00e1 eleva\u00e7\u00e3o tempor\u00e1ria e review limpa membros. Permanente acumula; sem dono ningu\u00e9m revisa.",
     "source": "original",
     "tags": ["pim", "grupos", "review"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1512,19 +1512,19 @@
     "subdomain": "jit-admin-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que função PIM qualificada (eligible) concede acesso imediato sem ativação, igual à permanente. Essa afirmação está correta?",
+    "question": "Um colega afirma que fun\u00e7\u00e3o PIM qualificada (eligible) concede acesso imediato sem ativa\u00e7\u00e3o, igual \u00e0 permanente. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, eligible já libera acesso direto"
+        "text": "Sim, eligible j\u00e1 libera acesso direto"
       },
       {
         "letter": "B",
-        "text": "Não, eligible exige ativação para valer"
+        "text": "N\u00e3o, eligible exige ativa\u00e7\u00e3o para valer"
       }
     ],
     "correct": ["B"],
-    "explanation": "Eligible é só direito de ativar; sem ativação (com MFA/justificativa) não há acesso. Confundir com permanente anula o just-in-time.",
+    "explanation": "Eligible \u00e9 s\u00f3 direito de ativar; sem ativa\u00e7\u00e3o (com MFA/justificativa) n\u00e3o h\u00e1 acesso. Confundir com permanente anula o just-in-time.",
     "source": "original",
     "tags": ["pim", "eligible", "just-in-time"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1537,7 +1537,7 @@
     "subdomain": "sspr-licenca-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que SSPR para todos os usuários exige licença Entra ID P1 ou P2, não funcionando no tier gratuito. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que SSPR para todos os usu\u00e1rios exige licen\u00e7a Entra ID P1 ou P2, n\u00e3o funcionando no tier gratuito. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -1545,11 +1545,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, o gratuito cobre SSPR ilimitado"
+        "text": "N\u00e3o, o gratuito cobre SSPR ilimitado"
       }
     ],
     "correct": ["A"],
-    "explanation": "O tier gratuito limita SSPR (basicamente admins); cobertura ampla de usuários exige P1 ou P2. Assumir gratuidade total trava o projeto na implantação.",
+    "explanation": "O tier gratuito limita SSPR (basicamente admins); cobertura ampla de usu\u00e1rios exige P1 ou P2. Assumir gratuidade total trava o projeto na implanta\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["sspr", "licenca", "p1"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1563,19 +1563,19 @@
     "subdomain": "dynamic-group-license-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que grupo dinâmico exige licença P1 para cada membro avaliado pela regra. Essa afirmação sobre licenciamento está correta?",
+    "question": "Um colega afirma que grupo din\u00e2mico exige licen\u00e7a P1 para cada membro avaliado pela regra. Essa afirma\u00e7\u00e3o sobre licenciamento est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, membros de grupo dinâmico exigem P1"
+        "text": "Sim, membros de grupo din\u00e2mico exigem P1"
       },
       {
         "letter": "B",
-        "text": "Não, grupo dinâmico é gratuito"
+        "text": "N\u00e3o, grupo din\u00e2mico \u00e9 gratuito"
       }
     ],
     "correct": ["A"],
-    "explanation": "Dynamic membership é recurso P1 por usuário avaliado. Tratar como grátis gera não conformidade de licenciamento.",
+    "explanation": "Dynamic membership \u00e9 recurso P1 por usu\u00e1rio avaliado. Tratar como gr\u00e1tis gera n\u00e3o conformidade de licenciamento.",
     "source": "original",
     "tags": ["grupo-dinamico", "licenca", "p1"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1588,11 +1588,11 @@
     "subdomain": "owner-vs-uam-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um engenheiro afirma que Proprietário já pode delegar acesso, tornando o Administrador de Acesso do Usuário redundante. Essa afirmação está correta?",
+    "question": "Um engenheiro afirma que Propriet\u00e1rio j\u00e1 pode delegar acesso, tornando o Administrador de Acesso do Usu\u00e1rio redundante. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, UAA delega sem dar poder de Owner"
+        "text": "N\u00e3o, UAA delega sem dar poder de Owner"
       },
       {
         "letter": "B",
@@ -1600,7 +1600,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "User Access Administrator gerencia só RBAC, sem poder sobre recursos — delegação mínima. Owner acumula tudo; não são equivalentes.",
+    "explanation": "User Access Administrator gerencia s\u00f3 RBAC, sem poder sobre recursos \u2014 delega\u00e7\u00e3o m\u00ednima. Owner acumula tudo; n\u00e3o s\u00e3o equivalentes.",
     "source": "original",
     "tags": ["owner", "user-access-admin", "delegacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1613,11 +1613,11 @@
     "subdomain": "policy-deny-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que efeito Negar (Deny) impede também recursos já existentes fora de conformidade, removendo-os automaticamente. Essa afirmação está correta?",
+    "question": "Um colega afirma que efeito Negar (Deny) impede tamb\u00e9m recursos j\u00e1 existentes fora de conformidade, removendo-os automaticamente. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, Deny só barra novas implantações"
+        "text": "N\u00e3o, Deny s\u00f3 barra novas implanta\u00e7\u00f5es"
       },
       {
         "letter": "B",
@@ -1625,7 +1625,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Deny avalia no PUT; existente segue non-compliant até remediação (DeployIfNotExists/audit). Achar que apaga sozinho é erro grave.",
+    "explanation": "Deny avalia no PUT; existente segue non-compliant at\u00e9 remedia\u00e7\u00e3o (DeployIfNotExists/audit). Achar que apaga sozinho \u00e9 erro grave.",
     "source": "mslearn",
     "tags": ["policy", "deny", "existente"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1639,19 +1639,19 @@
     "subdomain": "locks",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que um bloqueio ReadOnly em um grupo de recursos impede a leitura de segredos (ex.: chaves de acesso de conta de armazenamento) pelo portal do Azure. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que um bloqueio ReadOnly em um grupo de recursos impede a leitura de segredos (ex.: chaves de acesso de conta de armazenamento) pelo portal do Azure. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, ReadOnly bloqueia qualquer operação, inclusive leitura de segredos"
+        "text": "Sim, ReadOnly bloqueia qualquer opera\u00e7\u00e3o, inclusive leitura de segredos"
       },
       {
         "letter": "B",
-        "text": "Não, ReadOnly veta escrita; leitura (inclusive listar chaves) continua permitida"
+        "text": "N\u00e3o, ReadOnly veta escrita; leitura (inclusive listar chaves) continua permitida"
       }
     ],
     "correct": ["B"],
-    "explanation": "ReadOnly veta operações de escrita (criar, atualizar, excluir). Operações de leitura, incluindo listagem de chaves de acesso e segredos no portal, continuam funcionando. A página de locks especifica que ReadOnly restringe operações de escrita (PUT, PATCH, DELETE, POST), não leitura (GET).",
+    "explanation": "ReadOnly veta opera\u00e7\u00f5es de escrita (criar, atualizar, excluir). Opera\u00e7\u00f5es de leitura, incluindo listagem de chaves de acesso e segredos no portal, continuam funcionando. A p\u00e1gina de locks especifica que ReadOnly restringe opera\u00e7\u00f5es de escrita (PUT, PATCH, DELETE, POST), n\u00e3o leitura (GET).",
     "source": "mslearn",
     "tags": ["readonly", "lock", "leitura"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1665,11 +1665,11 @@
     "subdomain": "delta-query",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma sincronização incremental precisa buscar só usuários alterados desde a última execução. Qual recurso do Graph evita varredura completa?",
+    "question": "Uma sincroniza\u00e7\u00e3o incremental precisa buscar s\u00f3 usu\u00e1rios alterados desde a \u00faltima execu\u00e7\u00e3o. Qual recurso do Graph evita varredura completa?",
     "options": [
       {
         "letter": "A",
-        "text": "Webhook por usuário"
+        "text": "Webhook por usu\u00e1rio"
       },
       {
         "letter": "B",
@@ -1685,7 +1685,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "Delta query retorna só mudanças desde o deltalink. Listagem completa desperdiça; webhook por usuário não escala; portal não é API.",
+    "explanation": "Delta query retorna s\u00f3 mudan\u00e7as desde o deltalink. Listagem completa desperdi\u00e7a; webhook por usu\u00e1rio n\u00e3o escala; portal n\u00e3o \u00e9 API.",
     "source": "original",
     "tags": ["graph", "delta-query", "sincronizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1698,7 +1698,7 @@
     "subdomain": "webhooks-graph",
     "type": "single",
     "difficulty": "medium",
-    "question": "Criação de usuários deve disparar onboarding em segundos via notificação push do Graph. O que assinar para receber mudanças?",
+    "question": "Cria\u00e7\u00e3o de usu\u00e1rios deve disparar onboarding em segundos via notifica\u00e7\u00e3o push do Graph. O que assinar para receber mudan\u00e7as?",
     "options": [
       {
         "letter": "A",
@@ -1718,7 +1718,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Subscriptions notificam criação/atualização em segundos. Timer atrasa; e-mail não é evento; log manual não integra.",
+    "explanation": "Subscriptions notificam cria\u00e7\u00e3o/atualiza\u00e7\u00e3o em segundos. Timer atrasa; e-mail n\u00e3o \u00e9 evento; log manual n\u00e3o integra.",
     "source": "original",
     "tags": ["graph", "webhook", "subscription"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1731,7 +1731,7 @@
     "subdomain": "batch-graph",
     "type": "single",
     "difficulty": "medium",
-    "question": "Mil atualizações de telefone precisam ser aplicadas com poucas chamadas HTTP para não estourar throttling. Como agrupar requisições Graph?",
+    "question": "Mil atualiza\u00e7\u00f5es de telefone precisam ser aplicadas com poucas chamadas HTTP para n\u00e3o estourar throttling. Como agrupar requisi\u00e7\u00f5es Graph?",
     "options": [
       {
         "letter": "A",
@@ -1739,7 +1739,7 @@
       },
       {
         "letter": "B",
-        "text": "JSON batching ($batch) com até 20 requisições"
+        "text": "JSON batching ($batch) com at\u00e9 20 requisi\u00e7\u00f5es"
       },
       {
         "letter": "C",
@@ -1751,7 +1751,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Batch agrupa até 20 requests por chamada, reduzindo throttling. Mil sequenciais estouram limite; uma por dia atrasa; portal não é API.",
+    "explanation": "Batch agrupa at\u00e9 20 requests por chamada, reduzindo throttling. Mil sequenciais estouram limite; uma por dia atrasa; portal n\u00e3o \u00e9 API.",
     "source": "original",
     "tags": ["graph", "batch", "throttling"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1784,7 +1784,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Respeitar Retry-After com backoff evita banir o app. Loop imediato piora; ignorar perde dados; portal não escala.",
+    "explanation": "Respeitar Retry-After com backoff evita banir o app. Loop imediato piora; ignorar perde dados; portal n\u00e3o escala.",
     "source": "original",
     "tags": ["graph", "throttling", "429", "backoff"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1797,7 +1797,7 @@
     "subdomain": "permissoes-least",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um script só lê nomes e e-mails de usuários. Qual permissão mínima do Graph atende sem expor o diretório inteiro?",
+    "question": "Um script s\u00f3 l\u00ea nomes e e-mails de usu\u00e1rios. Qual permiss\u00e3o m\u00ednima do Graph atende sem expor o diret\u00f3rio inteiro?",
     "options": [
       {
         "letter": "A",
@@ -1809,7 +1809,7 @@
       },
       {
         "letter": "C",
-        "text": "User.ReadBasic.All (leitura básica)"
+        "text": "User.ReadBasic.All (leitura b\u00e1sica)"
       },
       {
         "letter": "D",
@@ -1817,7 +1817,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "ReadBasic.All limita a nome/e-mail/foto. ReadWrite.All permite alterar; Global Admin é total; Mail.Send não lê diretório.",
+    "explanation": "ReadBasic.All limita a nome/e-mail/foto. ReadWrite.All permite alterar; Global Admin \u00e9 total; Mail.Send n\u00e3o l\u00ea diret\u00f3rio.",
     "source": "original",
     "tags": ["graph", "permissoes", "least-privilege"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1830,27 +1830,27 @@
     "subdomain": "admin-units-membership",
     "type": "single",
     "difficulty": "medium",
-    "question": "A unidade administrativa regional deve conter automaticamente usuários com country igual a BR. Como popular a AU sem administração manual?",
+    "question": "A unidade administrativa regional deve conter automaticamente usu\u00e1rios com country igual a BR. Como popular a AU sem administra\u00e7\u00e3o manual?",
     "options": [
       {
         "letter": "A",
-        "text": "Subscription por país"
+        "text": "Subscription por pa\u00eds"
       },
       {
         "letter": "B",
-        "text": "Adição manual por RH"
+        "text": "Adi\u00e7\u00e3o manual por RH"
       },
       {
         "letter": "C",
-        "text": "Associação dinâmica na unidade administrativa por regra"
+        "text": "Associa\u00e7\u00e3o din\u00e2mica na unidade administrativa por regra"
       },
       {
         "letter": "D",
-        "text": "Grupo de recursos por região"
+        "text": "Grupo de recursos por regi\u00e3o"
       }
     ],
     "correct": ["C"],
-    "explanation": "AUs suportam membership dinâmica por atributos. Manual não escala; RG organiza Azure; subscription por país é antieconômico.",
+    "explanation": "AUs suportam membership din\u00e2mica por atributos. Manual n\u00e3o escala; RG organiza Azure; subscription por pa\u00eds \u00e9 antiecon\u00f4mico.",
     "source": "original",
     "tags": ["administrative-units", "dinamica", "regra"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1863,27 +1863,27 @@
     "subdomain": "au-limitacoes",
     "type": "single",
     "difficulty": "medium",
-    "question": "O desenho prevê delegar grupos do Microsoft 365 via unidade administrativa. Qual limitação das AUs inviabiliza delegar esses grupos?",
+    "question": "O desenho prev\u00ea delegar grupos do Microsoft 365 via unidade administrativa. Qual limita\u00e7\u00e3o das AUs inviabiliza delegar esses grupos?",
     "options": [
       {
         "letter": "A",
-        "text": "AUs não contêm nenhum objeto"
+        "text": "AUs n\u00e3o cont\u00eam nenhum objeto"
       },
       {
         "letter": "B",
-        "text": "AUs exigem licença gratuita"
+        "text": "AUs exigem licen\u00e7a gratuita"
       },
       {
         "letter": "C",
-        "text": "AUs funcionam só on-premises"
+        "text": "AUs funcionam s\u00f3 on-premises"
       },
       {
         "letter": "D",
-        "text": "AUs não contêm grupos Microsoft 365 (só usuários, grupos de segurança e dispositivos)"
+        "text": "AUs n\u00e3o cont\u00eam grupos Microsoft 365 (s\u00f3 usu\u00e1rios, grupos de seguran\u00e7a e dispositivos)"
       }
     ],
     "correct": ["D"],
-    "explanation": "AUs suportam users, security groups e devices — M365 groups ficam fora. Dizer que não contêm nada é falso; exigem P1; são nuvem.",
+    "explanation": "AUs suportam users, security groups e devices \u2014 M365 groups ficam fora. Dizer que n\u00e3o cont\u00eam nada \u00e9 falso; exigem P1; s\u00e3o nuvem.",
     "source": "original",
     "tags": ["administrative-units", "limitacoes", "m365"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1896,19 +1896,19 @@
     "subdomain": "role-assignable-groups",
     "type": "single",
     "difficulty": "medium",
-    "question": "Atribuir função do Entra a um grupo (em vez de a usuários) exige um tipo especial de grupo. Qual flag o grupo precisa ter desde a criação?",
+    "question": "Atribuir fun\u00e7\u00e3o do Entra a um grupo (em vez de a usu\u00e1rios) exige um tipo especial de grupo. Qual flag o grupo precisa ter desde a cria\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Grupo dinâmico comum"
+        "text": "Grupo din\u00e2mico comum"
       },
       {
         "letter": "B",
-        "text": "Grupo atribuível a função (isAssignableToRole)"
+        "text": "Grupo atribu\u00edvel a fun\u00e7\u00e3o (isAssignableToRole)"
       },
       {
         "letter": "C",
-        "text": "Grupo de distribuição"
+        "text": "Grupo de distribui\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -1916,7 +1916,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Só grupos role-assignable recebem papéis do Entra (imutável após criação). Dinâmico comum não recebe papel; distribuição é e-mail; dono não habilita.",
+    "explanation": "S\u00f3 grupos role-assignable recebem pap\u00e9is do Entra (imut\u00e1vel ap\u00f3s cria\u00e7\u00e3o). Din\u00e2mico comum n\u00e3o recebe papel; distribui\u00e7\u00e3o \u00e9 e-mail; dono n\u00e3o habilita.",
     "source": "original",
     "tags": ["grupos", "role-assignable", "papeis"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1929,27 +1929,27 @@
     "subdomain": "pim-grupos-ativacao",
     "type": "single",
     "difficulty": "medium",
-    "question": "Membros ativam o grupo privilegiado por 4 horas com MFA. Onde essa janela máxima de ativação é configurada?",
+    "question": "Membros ativam o grupo privilegiado por 4 horas com MFA. Onde essa janela m\u00e1xima de ativa\u00e7\u00e3o \u00e9 configurada?",
     "options": [
       {
         "letter": "A",
-        "text": "Expiração do grupo em si"
+        "text": "Expira\u00e7\u00e3o do grupo em si"
       },
       {
         "letter": "B",
-        "text": "Licença do membro"
+        "text": "Licen\u00e7a do membro"
       },
       {
         "letter": "C",
-        "text": "Configurações de função do PIM para o grupo"
+        "text": "Configura\u00e7\u00f5es de fun\u00e7\u00e3o do PIM para o grupo"
       },
       {
         "letter": "D",
-        "text": "Política de senha do grupo"
+        "text": "Pol\u00edtica de senha do grupo"
       }
     ],
     "correct": ["C"],
-    "explanation": "Role settings do PIM definem duração máxima, MFA e aprovação. Expiração do grupo apaga o grupo; senha não limita ativação; licença não configura tempo.",
+    "explanation": "Role settings do PIM definem dura\u00e7\u00e3o m\u00e1xima, MFA e aprova\u00e7\u00e3o. Expira\u00e7\u00e3o do grupo apaga o grupo; senha n\u00e3o limita ativa\u00e7\u00e3o; licen\u00e7a n\u00e3o configura tempo.",
     "source": "mslearn",
     "tags": ["pim", "grupos", "duracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1963,7 +1963,7 @@
     "subdomain": "access-review-grupos",
     "type": "single",
     "difficulty": "medium",
-    "question": "Membros de grupos privilegiados precisam de recertificação trimestral pelo dono com remoção automática. O que agenda esse ciclo?",
+    "question": "Membros de grupos privilegiados precisam de recertifica\u00e7\u00e3o trimestral pelo dono com remo\u00e7\u00e3o autom\u00e1tica. O que agenda esse ciclo?",
     "options": [
       {
         "letter": "A",
@@ -1971,11 +1971,11 @@
       },
       {
         "letter": "B",
-        "text": "Access Review com recorrência trimestral e auto-apply"
+        "text": "Access Review com recorr\u00eancia trimestral e auto-apply"
       },
       {
         "letter": "C",
-        "text": "Expiração manual do grupo"
+        "text": "Expira\u00e7\u00e3o manual do grupo"
       },
       {
         "letter": "D",
@@ -1983,7 +1983,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Review recorrente com auto-apply remove negados sozinho. E-mail não executa; expiração manual atrasa; auditoria anual é lenta.",
+    "explanation": "Review recorrente com auto-apply remove negados sozinho. E-mail n\u00e3o executa; expira\u00e7\u00e3o manual atrasa; auditoria anual \u00e9 lenta.",
     "source": "original",
     "tags": ["access-review", "recorrencia", "auto-apply"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -1996,11 +1996,11 @@
     "subdomain": "deny-vs-policy",
     "type": "single",
     "difficulty": "medium",
-    "question": "Bloquear criação de VMs série G em toda a empresa deve aparecer em relatórios de conformidade. Por que Policy com Deny é melhor que RBAC com NotActions?",
+    "question": "Bloquear cria\u00e7\u00e3o de VMs s\u00e9rie G em toda a empresa deve aparecer em relat\u00f3rios de conformidade. Por que Policy com Deny \u00e9 melhor que RBAC com NotActions?",
     "options": [
       {
         "letter": "A",
-        "text": "Policy avalia e reporta conformidade; RBAC só autoriza sem auditar"
+        "text": "Policy avalia e reporta conformidade; RBAC s\u00f3 autoriza sem auditar"
       },
       {
         "letter": "B",
@@ -2008,15 +2008,15 @@
       },
       {
         "letter": "C",
-        "text": "RBAC gera relatório de conformidade"
+        "text": "RBAC gera relat\u00f3rio de conformidade"
       },
       {
         "letter": "D",
-        "text": "Policy não bloqueia criação"
+        "text": "Policy n\u00e3o bloqueia cria\u00e7\u00e3o"
       }
     ],
     "correct": ["A"],
-    "explanation": "Policy nega e marca compliant/non-compliant por recurso. RBAC veta sem trilha de conformidade; NotActions não reporta.",
+    "explanation": "Policy nega e marca compliant/non-compliant por recurso. RBAC veta sem trilha de conformidade; NotActions n\u00e3o reporta.",
     "source": "mslearn",
     "tags": ["policy", "deny", "rbac", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2030,27 +2030,27 @@
     "subdomain": "subscription-policies",
     "type": "single",
     "difficulty": "medium",
-    "question": "Novas subscriptions criadas por equipes devem nascer já com tag obrigatória e região restrita. O que aplica governança no momento da criação?",
+    "question": "Novas subscriptions criadas por equipes devem nascer j\u00e1 com tag obrigat\u00f3ria e regi\u00e3o restrita. O que aplica governan\u00e7a no momento da cria\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "E-mail de boas práticas ao criador"
+        "text": "E-mail de boas pr\u00e1ticas ao criador"
       },
       {
         "letter": "B",
-        "text": "Bloqueio de criação de subscriptions"
+        "text": "Bloqueio de cria\u00e7\u00e3o de subscriptions"
       },
       {
         "letter": "C",
-        "text": "Runbook mensal de correção"
+        "text": "Runbook mensal de corre\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Políticas no grupo de gerenciamento com efeito em novas subscriptions"
+        "text": "Pol\u00edticas no grupo de gerenciamento com efeito em novas subscriptions"
       }
     ],
     "correct": ["D"],
-    "explanation": "Herança do MG aplica na criação (ex.: exigir tag, negar região). E-mail não impõe; runbook mensal atrasa; bloquear impede o negócio.",
+    "explanation": "Heran\u00e7a do MG aplica na cria\u00e7\u00e3o (ex.: exigir tag, negar regi\u00e3o). E-mail n\u00e3o imp\u00f5e; runbook mensal atrasa; bloquear impede o neg\u00f3cio.",
     "source": "mslearn",
     "tags": ["management-groups", "governanca", "heranca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2064,7 +2064,7 @@
     "subdomain": "advisor",
     "type": "single",
     "difficulty": "medium",
-    "question": "O Azure Advisor identifica que máquinas virtuais subutilizadas geram custos desnecessários. Qual tipo de recomendação o Advisor emite para otimizar esses custos?",
+    "question": "O Azure Advisor identifica que m\u00e1quinas virtuais subutilizadas geram custos desnecess\u00e1rios. Qual tipo de recomenda\u00e7\u00e3o o Advisor emite para otimizar esses custos?",
     "options": [
       {
         "letter": "A",
@@ -2076,15 +2076,15 @@
       },
       {
         "letter": "C",
-        "text": "Otimização de custos"
+        "text": "Otimiza\u00e7\u00e3o de custos"
       },
       {
         "letter": "D",
-        "text": "Segurança"
+        "text": "Seguran\u00e7a"
       }
     ],
     "correct": ["C"],
-    "explanation": "O Azure Advisor categoriza recomendações em: otimização de custos (redimensionar/desligar VMs ociosas, comprar instâncias reservadas), desempenho, segurança, confiabilidade e excelência operacional. VMs subutilizadas geram recomendação de otimização de custos (redimensionar ou desligar). Alta disponibilidade, desempenho e segurança são outras categorias.",
+    "explanation": "O Azure Advisor categoriza recomenda\u00e7\u00f5es em: otimiza\u00e7\u00e3o de custos (redimensionar/desligar VMs ociosas, comprar inst\u00e2ncias reservadas), desempenho, seguran\u00e7a, confiabilidade e excel\u00eancia operacional. VMs subutilizadas geram recomenda\u00e7\u00e3o de otimiza\u00e7\u00e3o de custos (redimensionar ou desligar). Alta disponibilidade, desempenho e seguran\u00e7a s\u00e3o outras categorias.",
     "source": "mslearn",
     "tags": ["cost-management", "budgets", "centro-custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2098,27 +2098,27 @@
     "subdomain": "tags",
     "type": "single",
     "difficulty": "medium",
-    "question": "Uma organização usa marcas (tags) para agrupar recursos por centro de custo e ambiente. Qual prática recomendada a documentação de marcas do Azure sugere para garantir consistência?",
+    "question": "Uma organiza\u00e7\u00e3o usa marcas (tags) para agrupar recursos por centro de custo e ambiente. Qual pr\u00e1tica recomendada a documenta\u00e7\u00e3o de marcas do Azure sugere para garantir consist\u00eancia?",
     "options": [
       {
         "letter": "A",
-        "text": "Permitir que cada equipe crie suas próprias chaves e valores livremente"
+        "text": "Permitir que cada equipe crie suas pr\u00f3prias chaves e valores livremente"
       },
       {
         "letter": "B",
-        "text": "Definir convenção de nomenclatura padronizada para chaves (ex.: CostCenter, Environment) e valores"
+        "text": "Definir conven\u00e7\u00e3o de nomenclatura padronizada para chaves (ex.: CostCenter, Environment) e valores"
       },
       {
         "letter": "C",
-        "text": "Aplicar marcas apenas em recursos de produção"
+        "text": "Aplicar marcas apenas em recursos de produ\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Usar apenas o portal para aplicar marcas, sem automação"
+        "text": "Usar apenas o portal para aplicar marcas, sem automa\u00e7\u00e3o"
       }
     ],
     "correct": ["B"],
-    "explanation": "A documentação de marcas do Azure recomenda definir convenções padronizadas de nomenclatura para chaves e valores (ex.: CostCenter:Finance, Environment:Prod) para garantir consistência, permitir agrupamento para cobrança e facilitar automação. Chaves livres criam inconsistência; apenas produção limita visibilidade; só portal impede automação em escala.",
+    "explanation": "A documenta\u00e7\u00e3o de marcas do Azure recomenda definir conven\u00e7\u00f5es padronizadas de nomenclatura para chaves e valores (ex.: CostCenter:Finance, Environment:Prod) para garantir consist\u00eancia, permitir agrupamento para cobran\u00e7a e facilitar automa\u00e7\u00e3o. Chaves livres criam inconsist\u00eancia; apenas produ\u00e7\u00e3o limita visibilidade; s\u00f3 portal impede automa\u00e7\u00e3o em escala.",
     "source": "mslearn",
     "tags": ["tags", "policy", "deny", "modify"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2132,7 +2132,7 @@
     "subdomain": "blueprints-legado",
     "type": "single",
     "difficulty": "medium",
-    "question": "Modelos legados de Blueprints precisam migrar para a stack atual de IaC governada. Para quais artefatos a Microsoft direciona a migração?",
+    "question": "Modelos legados de Blueprints precisam migrar para a stack atual de IaC governada. Para quais artefatos a Microsoft direciona a migra\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -2140,7 +2140,7 @@
       },
       {
         "letter": "B",
-        "text": "Bicep/ARM + Políticas (Blueprints descontinuado)"
+        "text": "Bicep/ARM + Pol\u00edticas (Blueprints descontinuado)"
       },
       {
         "letter": "C",
@@ -2152,7 +2152,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Blueprints foi preterido em favor de Bicep/ARM com Policy. Manter acumula dívida; scripts locais não governam; portal não versiona.",
+    "explanation": "Blueprints foi preterido em favor de Bicep/ARM com Policy. Manter acumula d\u00edvida; scripts locais n\u00e3o governam; portal n\u00e3o versiona.",
     "source": "original",
     "tags": ["blueprints", "bicep", "migracao", "legado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2165,7 +2165,7 @@
     "subdomain": "deployment-stacks",
     "type": "single",
     "difficulty": "medium",
-    "question": "Deploys precisam de ciclo de vida com limpeza de recursos órfãos ao remover a stack. Qual construção gerencia o conjunto implantado?",
+    "question": "Deploys precisam de ciclo de vida com limpeza de recursos \u00f3rf\u00e3os ao remover a stack. Qual constru\u00e7\u00e3o gerencia o conjunto implantado?",
     "options": [
       {
         "letter": "A",
@@ -2185,7 +2185,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Stacks agrupam recursos do deploy com proteção e detach/delete gerenciados. Avulsos orfanam; portal não versiona; backup não gerencia ciclo.",
+    "explanation": "Stacks agrupam recursos do deploy com prote\u00e7\u00e3o e detach/delete gerenciados. Avulsos orfanam; portal n\u00e3o versiona; backup n\u00e3o gerencia ciclo.",
     "source": "original",
     "tags": ["deployment-stacks", "ciclo-vida", "iac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2210,7 +2210,7 @@
       },
       {
         "letter": "C",
-        "text": "Arquivos soltos por estação"
+        "text": "Arquivos soltos por esta\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -2218,7 +2218,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Template Specs versionam e compartilham via RBAC. Arquivos soltos divergem; e-mail não governa; portal não versiona.",
+    "explanation": "Template Specs versionam e compartilham via RBAC. Arquivos soltos divergem; e-mail n\u00e3o governa; portal n\u00e3o versiona.",
     "source": "original",
     "tags": ["template-specs", "arm", "reuso"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2231,7 +2231,7 @@
     "subdomain": "complete-mode",
     "type": "single",
     "difficulty": "medium",
-    "question": "Recursos fora do template devem ser removidos do grupo no deploy para combater drift. Qual modo de implantação apaga o que não está no template?",
+    "question": "Recursos fora do template devem ser removidos do grupo no deploy para combater drift. Qual modo de implanta\u00e7\u00e3o apaga o que n\u00e3o est\u00e1 no template?",
     "options": [
       {
         "letter": "A",
@@ -2239,19 +2239,19 @@
       },
       {
         "letter": "B",
-        "text": "Modo Incremental padrão"
+        "text": "Modo Incremental padr\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Validação de sintaxe"
+        "text": "Valida\u00e7\u00e3o de sintaxe"
       },
       {
         "letter": "D",
-        "text": "Modo Complete no nível do grupo de recursos"
+        "text": "Modo Complete no n\u00edvel do grupo de recursos"
       }
     ],
     "correct": ["D"],
-    "explanation": "Complete sincroniza o grupo ao template, removendo órfãos. Incremental preserva; what-if só prevê; sintaxe não aplica.",
+    "explanation": "Complete sincroniza o grupo ao template, removendo \u00f3rf\u00e3os. Incremental preserva; what-if s\u00f3 prev\u00ea; sintaxe n\u00e3o aplica.",
     "source": "original",
     "tags": ["complete-mode", "drift", "deploy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2276,7 +2276,7 @@
       },
       {
         "letter": "C",
-        "text": "Conta de usuário com senha no pipeline"
+        "text": "Conta de usu\u00e1rio com senha no pipeline"
       },
       {
         "letter": "D",
@@ -2284,7 +2284,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Federação OIDC troca token do GitHub sem segredo armazenado. Segredo no repo vaza; conta com senha é frágil; manual não é pipeline.",
+    "explanation": "Federa\u00e7\u00e3o OIDC troca token do GitHub sem segredo armazenado. Segredo no repo vaza; conta com senha \u00e9 fr\u00e1gil; manual n\u00e3o \u00e9 pipeline.",
     "source": "original",
     "tags": ["github-actions", "oidc", "federacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2297,11 +2297,11 @@
     "subdomain": "identity-governance-dashboard",
     "type": "single",
     "difficulty": "hard",
-    "question": "Auditoria pede visão única de reviews pendentes, pacotes expirando e riscos altos. Onde consolidar a governança de identidades?",
+    "question": "Auditoria pede vis\u00e3o \u00fanica de reviews pendentes, pacotes expirando e riscos altos. Onde consolidar a governan\u00e7a de identidades?",
     "options": [
       {
         "letter": "A",
-        "text": "Painel de Governança de Identidade do Entra"
+        "text": "Painel de Governan\u00e7a de Identidade do Entra"
       },
       {
         "letter": "B",
@@ -2313,11 +2313,11 @@
       },
       {
         "letter": "D",
-        "text": "Logs brutos sem agregação"
+        "text": "Logs brutos sem agrega\u00e7\u00e3o"
       }
     ],
     "correct": ["A"],
-    "explanation": "O dashboard de Identity Governance centraliza reviews, pacotes e riscos. Planilhas desatualizam; e-mails dispersam; logs brutos não priorizam.",
+    "explanation": "O dashboard de Identity Governance centraliza reviews, pacotes e riscos. Planilhas desatualizam; e-mails dispersam; logs brutos n\u00e3o priorizam.",
     "source": "original",
     "tags": ["governanca", "dashboard", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2330,15 +2330,15 @@
     "subdomain": "log-retention-audit-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Trilhas de login por 1 ano e de gerenciamento por 90 dias exigem destinos distintos. Quais dois destinos de diagnóstico usar? Selecione duas.",
+    "question": "Trilhas de login por 1 ano e de gerenciamento por 90 dias exigem destinos distintos. Quais dois destinos de diagn\u00f3stico usar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Console volátil do portal"
+        "text": "Console vol\u00e1til do portal"
       },
       {
         "letter": "B",
-        "text": "Memória do navegador"
+        "text": "Mem\u00f3ria do navegador"
       },
       {
         "letter": "C",
@@ -2346,11 +2346,11 @@
       },
       {
         "letter": "D",
-        "text": "Log Analytics com retenção longa para logins"
+        "text": "Log Analytics com reten\u00e7\u00e3o longa para logins"
       }
     ],
     "correct": ["D", "C"],
-    "explanation": "LA retém consultável por tabela e o Storage imutável arquiva barato para auditoria longa. Console do portal não retém; memória do navegador jamais audita.",
+    "explanation": "LA ret\u00e9m consult\u00e1vel por tabela e o Storage imut\u00e1vel arquiva barato para auditoria longa. Console do portal n\u00e3o ret\u00e9m; mem\u00f3ria do navegador jamais audita.",
     "source": "original",
     "tags": ["retencao", "log-analytics", "storage", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2363,11 +2363,11 @@
     "subdomain": "hybrid-agents-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Autenticação híbrida resiliente exige dois agentes PTA e monitoramento de sincronização. Quais dois elementos compõem a resiliência? Selecione duas.",
+    "question": "Autentica\u00e7\u00e3o h\u00edbrida resiliente exige dois agentes PTA e monitoramento de sincroniza\u00e7\u00e3o. Quais dois elementos comp\u00f5em a resili\u00eancia? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Um agente único"
+        "text": "Um agente \u00fanico"
       },
       {
         "letter": "B",
@@ -2375,7 +2375,7 @@
       },
       {
         "letter": "C",
-        "text": "Dois ou mais agentes PTA distribuídos"
+        "text": "Dois ou mais agentes PTA distribu\u00eddos"
       },
       {
         "letter": "D",
@@ -2383,7 +2383,7 @@
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Múltiplos agentes eliminam ponto único e alertas avisam degradação. Agente único cai junto; sem monitor ninguém percebe.",
+    "explanation": "M\u00faltiplos agentes eliminam ponto \u00fanico e alertas avisam degrada\u00e7\u00e3o. Agente \u00fanico cai junto; sem monitor ningu\u00e9m percebe.",
     "source": "original",
     "tags": ["pta", "resiliencia", "connect-sync", "ha"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2396,7 +2396,7 @@
     "subdomain": "staging-mode-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Migração de servidor do Connect Sync exige standby validado sem exportar duplicado. Quais dois elementos do modo staging garantem isso? Selecione duas.",
+    "question": "Migra\u00e7\u00e3o de servidor do Connect Sync exige standby validado sem exportar duplicado. Quais dois elementos do modo staging garantem isso? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -2404,7 +2404,7 @@
       },
       {
         "letter": "B",
-        "text": "Sem validação prévia"
+        "text": "Sem valida\u00e7\u00e3o pr\u00e9via"
       },
       {
         "letter": "C",
@@ -2412,15 +2412,15 @@
       },
       {
         "letter": "D",
-        "text": "Promoção planejada com janela"
+        "text": "Promo\u00e7\u00e3o planejada com janela"
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Staging importa e valida sem escrever; promoção troca com janela. Dois ativos duplicam; sem validar arrisca.",
+    "explanation": "Staging importa e valida sem escrever; promo\u00e7\u00e3o troca com janela. Dois ativos duplicam; sem validar arrisca.",
     "source": "original",
     "tags": ["staging-mode", "migracao", "connect-sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T19:39:47.487Z",
+    "updatedAt": "2026-10-02T20:00:00.000Z",
     "version": 1
   },
   {
@@ -2429,15 +2429,15 @@
     "subdomain": "object-match-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Objetos duplicados após sincronização indicam colisão de ancoragem. Quais dois identificadores o matching usa para unir? Selecione duas.",
+    "question": "Objetos duplicados ap\u00f3s sincroniza\u00e7\u00e3o indicam colis\u00e3o de ancoragem. Quais dois identificadores o matching usa para unir? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "sourceAnchor imutável do AD"
+        "text": "sourceAnchor imut\u00e1vel do AD"
       },
       {
         "letter": "B",
-        "text": "Correspondência por UPN/sufixo verificado"
+        "text": "Correspond\u00eancia por UPN/sufixo verificado"
       },
       {
         "letter": "C",
@@ -2445,11 +2445,11 @@
       },
       {
         "letter": "D",
-        "text": "Nome de exibição"
+        "text": "Nome de exibi\u00e7\u00e3o"
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Âncora imutável une com precisão e UPN/smtp auxiliam soft-match. Nome e foto não identificam unicamente.",
+    "explanation": "\u00c2ncora imut\u00e1vel une com precis\u00e3o e UPN/smtp auxiliam soft-match. Nome e foto n\u00e3o identificam unicamente.",
     "source": "original",
     "tags": ["matching", "sourceAnchor", "duplicados"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2466,11 +2466,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Writeback de grupos Microsoft 365 para distribuição"
+        "text": "Writeback de grupos Microsoft 365 para distribui\u00e7\u00e3o"
       },
       {
         "letter": "B",
-        "text": "Grupo só na nuvem"
+        "text": "Grupo s\u00f3 na nuvem"
       },
       {
         "letter": "C",
@@ -2478,11 +2478,11 @@
       },
       {
         "letter": "D",
-        "text": "Distribuição manual por e-mail"
+        "text": "Distribui\u00e7\u00e3o manual por e-mail"
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Writeback replica M365 como distribuição na OU alvo. Só nuvem não alcança legado; manual não escala.",
+    "explanation": "Writeback replica M365 como distribui\u00e7\u00e3o na OU alvo. S\u00f3 nuvem n\u00e3o alcan\u00e7a legado; manual n\u00e3o escala.",
     "source": "original",
     "tags": ["group-writeback", "m365", "ad"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2495,7 +2495,7 @@
     "subdomain": "sync-errors-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Erros de sincronização por atributo duplicado (UPN/proxy) travam objetos. Quais duas ações resolvem? Selecione duas.",
+    "question": "Erros de sincroniza\u00e7\u00e3o por atributo duplicado (UPN/proxy) travam objetos. Quais duas a\u00e7\u00f5es resolvem? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -2507,7 +2507,7 @@
       },
       {
         "letter": "C",
-        "text": "Reprocessar via relatório de erros do Connect"
+        "text": "Reprocessar via relat\u00f3rio de erros do Connect"
       },
       {
         "letter": "D",
@@ -2515,7 +2515,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Corrige o atributo duplicado na origem e reprocessa pelo relatório de erros do Connect até limpar a quarentena. Excluir perde o objeto; ignorar acumula pendência.",
+    "explanation": "Corrige o atributo duplicado na origem e reprocessa pelo relat\u00f3rio de erros do Connect at\u00e9 limpar a quarentena. Excluir perde o objeto; ignorar acumula pend\u00eancia.",
     "source": "original",
     "tags": ["sync-errors", "duplicados", "quarentena"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2528,11 +2528,11 @@
     "subdomain": "cloud-sync-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Florestas desconectadas precisam de sincronização leve por agente sem SQL. Quais dois elementos do Cloud Sync atendem? Selecione duas.",
+    "question": "Florestas desconectadas precisam de sincroniza\u00e7\u00e3o leve por agente sem SQL. Quais dois elementos do Cloud Sync atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Servidor Connect monolítico"
+        "text": "Servidor Connect monol\u00edtico"
       },
       {
         "letter": "B",
@@ -2540,11 +2540,11 @@
       },
       {
         "letter": "C",
-        "text": "Agentes leves por domínio/floresta"
+        "text": "Agentes leves por dom\u00ednio/floresta"
       },
       {
         "letter": "D",
-        "text": "Configuração por grupo no portal"
+        "text": "Configura\u00e7\u00e3o por grupo no portal"
       }
     ],
     "correct": ["C", "D"],
@@ -2561,11 +2561,11 @@
     "subdomain": "ou-filtering-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Apenas OUs de usuários ativos devem sincronizar, excluindo service accounts legadas. Quais dois filtros aplicar? Selecione duas.",
+    "question": "Apenas OUs de usu\u00e1rios ativos devem sincronizar, excluindo service accounts legadas. Quais dois filtros aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Filtragem por OU incluída"
+        "text": "Filtragem por OU inclu\u00edda"
       },
       {
         "letter": "B",
@@ -2581,7 +2581,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "OU scoping limita e filtro por grupo/atributo exclui legadas. Tudo sincroniza lixo; sem filtro não governa.",
+    "explanation": "OU scoping limita e filtro por grupo/atributo exclui legadas. Tudo sincroniza lixo; sem filtro n\u00e3o governa.",
     "source": "original",
     "tags": ["filtragem", "ou", "grupo", "sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2594,7 +2594,7 @@
     "subdomain": "rbac",
     "type": "single",
     "difficulty": "hard",
-    "question": "Um administrador precisa conceder permissão para criar e gerenciar máquinas virtuais, mas não para gerenciar acesso (atribuições de função). Qual função interna (built-in role) atende exatamente a esse requisito?",
+    "question": "Um administrador precisa conceder permiss\u00e3o para criar e gerenciar m\u00e1quinas virtuais, mas n\u00e3o para gerenciar acesso (atribui\u00e7\u00f5es de fun\u00e7\u00e3o). Qual fun\u00e7\u00e3o interna (built-in role) atende exatamente a esse requisito?",
     "options": [
       {
         "letter": "A",
@@ -2602,7 +2602,7 @@
       },
       {
         "letter": "B",
-        "text": "Não, deny assignments são gerenciadas pelo Azure (Blueprints/recursos protegidos)"
+        "text": "N\u00e3o, deny assignments s\u00e3o gerenciadas pelo Azure (Blueprints/recursos protegidos)"
       },
       {
         "letter": "C",
@@ -2610,11 +2610,11 @@
       },
       {
         "letter": "D",
-        "text": "Não, apenas administradores globais podem criar deny"
+        "text": "N\u00e3o, apenas administradores globais podem criar deny"
       }
     ],
     "correct": ["B"],
-    "explanation": "Colaborador permite criar e gerenciar todos os tipos de recursos (incluindo VMs), mas não gerenciar atribuições de função (acesso). Proprietário gerencia acesso também; Leitor só lê; Administrador de Acesso gerencia apenas atribuições de função.",
+    "explanation": "Colaborador permite criar e gerenciar todos os tipos de recursos (incluindo VMs), mas n\u00e3o gerenciar atribui\u00e7\u00f5es de fun\u00e7\u00e3o (acesso). Propriet\u00e1rio gerencia acesso tamb\u00e9m; Leitor s\u00f3 l\u00ea; Administrador de Acesso gerencia apenas atribui\u00e7\u00f5es de fun\u00e7\u00e3o.",
     "source": "mslearn",
     "tags": ["deny-assignments", "rbac", "sistema"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2628,11 +2628,11 @@
     "subdomain": "frontline-licenca",
     "type": "single",
     "difficulty": "medium",
-    "question": "Operários usam quiosque compartilhado só para ponto e comunicados. Qual licença cobre esse uso limitado de primeira linha?",
+    "question": "Oper\u00e1rios usam quiosque compartilhado s\u00f3 para ponto e comunicados. Qual licen\u00e7a cobre esse uso limitado de primeira linha?",
     "options": [
       {
         "letter": "A",
-        "text": "Licença F (frontline) para trabalhadores de campo"
+        "text": "Licen\u00e7a F (frontline) para trabalhadores de campo"
       },
       {
         "letter": "B",
@@ -2640,15 +2640,15 @@
       },
       {
         "letter": "C",
-        "text": "Licença de dispositivo apenas"
+        "text": "Licen\u00e7a de dispositivo apenas"
       },
       {
         "letter": "D",
-        "text": "Sem licença com conta genérica"
+        "text": "Sem licen\u00e7a com conta gen\u00e9rica"
       }
     ],
     "correct": ["A"],
-    "explanation": "SKU F cobre uso limitado com custo reduzido. E5 por quiosque desperdiça; genérica sem licença viola; dispositivo não licencia usuário.",
+    "explanation": "SKU F cobre uso limitado com custo reduzido. E5 por quiosque desperdi\u00e7a; gen\u00e9rica sem licen\u00e7a viola; dispositivo n\u00e3o licencia usu\u00e1rio.",
     "source": "original",
     "tags": ["licenca", "frontline", "f", "quiosque"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2661,19 +2661,19 @@
     "subdomain": "alerts",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Um administrador cria uma regra de alerta no Azure Monitor. Quais dois componentes a regra deve incluir para notificar quando uma condição é atendida? Selecione duas.",
+    "question": "Um administrador cria uma regra de alerta no Azure Monitor. Quais dois componentes a regra deve incluir para notificar quando uma condi\u00e7\u00e3o \u00e9 atendida? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Condição baseada em métrica ou log"
+        "text": "Condi\u00e7\u00e3o baseada em m\u00e9trica ou log"
       },
       {
         "letter": "B",
-        "text": "Grupo de ação com notificação (e-mail, webhook)"
+        "text": "Grupo de a\u00e7\u00e3o com notifica\u00e7\u00e3o (e-mail, webhook)"
       },
       {
         "letter": "C",
-        "text": "Política de sessão com bloqueio"
+        "text": "Pol\u00edtica de sess\u00e3o com bloqueio"
       },
       {
         "letter": "D",
@@ -2681,7 +2681,7 @@
       }
     ],
     "correct": ["A", "B"],
-    "explanation": "Uma regra de alerta requer: (1) uma condição (métrica ou log) que define quando o alerta é disparado, e (2) um grupo de ação que define as notificações (e-mail, webhook, etc.). A página de alertas descreve esses dois componentes obrigatórios. Sinais de risco e política de sessão não são componentes de regra de alerta.",
+    "explanation": "Uma regra de alerta requer: (1) uma condi\u00e7\u00e3o (m\u00e9trica ou log) que define quando o alerta \u00e9 disparado, e (2) um grupo de a\u00e7\u00e3o que define as notifica\u00e7\u00f5es (e-mail, webhook, etc.). A p\u00e1gina de alertas descreve esses dois componentes obrigat\u00f3rios. Sinais de risco e pol\u00edtica de sess\u00e3o n\u00e3o s\u00e3o componentes de regra de alerta.",
     "source": "mslearn",
     "tags": ["insider-risk", "exfiltracao", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2695,19 +2695,19 @@
     "subdomain": "naming-convention-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Grupos e apps proliferam sem padrão, dificultando auditoria. Quais dois controles de nomenclatura aplicar? Selecione duas.",
+    "question": "Grupos e apps proliferam sem padr\u00e3o, dificultando auditoria. Quais dois controles de nomenclatura aplicar? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Política de nomenclatura com prefixos por tipo"
+        "text": "Pol\u00edtica de nomenclatura com prefixos por tipo"
       },
       {
         "letter": "B",
-        "text": "Renomeação manual anual"
+        "text": "Renomea\u00e7\u00e3o manual anual"
       },
       {
         "letter": "C",
-        "text": "Bloqueio de nomes fora do padrão"
+        "text": "Bloqueio de nomes fora do padr\u00e3o"
       },
       {
         "letter": "D",
@@ -2715,7 +2715,7 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Política com prefixos por tipo organiza o diretório e o bloqueio impõe o padrão na criação. Nomes livres bagunçam a auditoria; renomear uma vez por ano atrasa.",
+    "explanation": "Pol\u00edtica com prefixos por tipo organiza o diret\u00f3rio e o bloqueio imp\u00f5e o padr\u00e3o na cria\u00e7\u00e3o. Nomes livres bagun\u00e7am a auditoria; renomear uma vez por ano atrasa.",
     "source": "original",
     "tags": ["nomenclatura", "padrao", "grupos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2728,15 +2728,15 @@
     "subdomain": "expiration-groups-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Grupos temporários de projeto acumulam após o fim. Quais dois mecanismos expiram e renovam com dono? Selecione duas.",
+    "question": "Grupos tempor\u00e1rios de projeto acumulam ap\u00f3s o fim. Quais dois mecanismos expiram e renovam com dono? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão manual pelo RH"
+        "text": "Exclus\u00e3o manual pelo RH"
       },
       {
         "letter": "B",
-        "text": "Expiração de grupo com renovação do dono"
+        "text": "Expira\u00e7\u00e3o de grupo com renova\u00e7\u00e3o do dono"
       },
       {
         "letter": "C",
@@ -2748,7 +2748,7 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Expiração remove grupos sem renovação do dono e o review limpa membros órfãos. Grupo eterno acumula; exclusão manual pelo RH atrasa.",
+    "explanation": "Expira\u00e7\u00e3o remove grupos sem renova\u00e7\u00e3o do dono e o review limpa membros \u00f3rf\u00e3os. Grupo eterno acumula; exclus\u00e3o manual pelo RH atrasa.",
     "source": "original",
     "tags": ["expiracao", "grupos", "renovacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2761,7 +2761,7 @@
     "subdomain": "usage-insights-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Apps sem uso há 1 ano e contas inativas incham o diretório e a fatura. Quais dois relatórios identificam ociosos? Selecione duas.",
+    "question": "Apps sem uso h\u00e1 1 ano e contas inativas incham o diret\u00f3rio e a fatura. Quais dois relat\u00f3rios identificam ociosos? Selecione duas.",
     "options": [
       {
         "letter": "A",
@@ -2769,19 +2769,19 @@
       },
       {
         "letter": "B",
-        "text": "Backup do diretório"
+        "text": "Backup do diret\u00f3rio"
       },
       {
         "letter": "C",
-        "text": "Lista de licenças compradas"
+        "text": "Lista de licen\u00e7as compradas"
       },
       {
         "letter": "D",
-        "text": "Contas inativas por último login"
+        "text": "Contas inativas por \u00faltimo login"
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Sign-ins por app e último login revelam ociosos para remover. Compradas não mostram uso; backup não mede atividade.",
+    "explanation": "Sign-ins por app e \u00faltimo login revelam ociosos para remover. Compradas n\u00e3o mostram uso; backup n\u00e3o mede atividade.",
     "source": "original",
     "tags": ["ociosos", "atividade", "limpeza"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2794,15 +2794,15 @@
     "subdomain": "stale-accounts-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Contas de ex-funcionários ativas há 6 meses são risco crítico. Quais duas ações combinam detecção e remoção? Selecione duas.",
+    "question": "Contas de ex-funcion\u00e1rios ativas h\u00e1 6 meses s\u00e3o risco cr\u00edtico. Quais duas a\u00e7\u00f5es combinam detec\u00e7\u00e3o e remo\u00e7\u00e3o? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Política de limpeza por inatividade com bloqueio"
+        "text": "Pol\u00edtica de limpeza por inatividade com bloqueio"
       },
       {
         "letter": "B",
-        "text": "Manter ativas por precaução"
+        "text": "Manter ativas por precau\u00e7\u00e3o"
       },
       {
         "letter": "C",
@@ -2814,7 +2814,7 @@
       }
     ],
     "correct": ["A", "D"],
-    "explanation": "Política por inatividade bloqueia contas paradas e o review limpa privilegiadas órfãs. Manter ativas por precaução é risco; aguardar auditoria anual atrasa.",
+    "explanation": "Pol\u00edtica por inatividade bloqueia contas paradas e o review limpa privilegiadas \u00f3rf\u00e3s. Manter ativas por precau\u00e7\u00e3o \u00e9 risco; aguardar auditoria anual atrasa.",
     "source": "original",
     "tags": ["contas-inativas", "limpeza", "review"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2827,19 +2827,19 @@
     "subdomain": "au-nesting-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que unidades administrativas podem ser aninhadas (AU dentro de AU) para hierarquia regional. Essa afirmação está correta?",
+    "question": "Um arquiteto afirma que unidades administrativas podem ser aninhadas (AU dentro de AU) para hierarquia regional. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, AUs são planas sem hierarquia"
+        "text": "N\u00e3o, AUs s\u00e3o planas sem hierarquia"
       },
       {
         "letter": "B",
-        "text": "Sim, aninhamento é suportado"
+        "text": "Sim, aninhamento \u00e9 suportado"
       }
     ],
     "correct": ["A"],
-    "explanation": "AUs não aninham; hierarquia se modela com múltiplas AUs paralelas. Assumir nesting quebra o desenho.",
+    "explanation": "AUs n\u00e3o aninham; hierarquia se modela com m\u00faltiplas AUs paralelas. Assumir nesting quebra o desenho.",
     "source": "original",
     "tags": ["administrative-units", "aninhamento", "hierarquia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2852,19 +2852,19 @@
     "subdomain": "dynamic-au-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um colega afirma que unidade administrativa aceita regra dinâmica como grupos dinâmicos. Essa afirmação está correta?",
+    "question": "Um colega afirma que unidade administrativa aceita regra din\u00e2mica como grupos din\u00e2micos. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, AUs suportam membership dinâmica"
+        "text": "Sim, AUs suportam membership din\u00e2mica"
       },
       {
         "letter": "B",
-        "text": "Não, AUs só têm membros atribuídos"
+        "text": "N\u00e3o, AUs s\u00f3 t\u00eam membros atribu\u00eddos"
       }
     ],
     "correct": ["A"],
-    "explanation": "Unidades administrativas suportam associação dinâmica por regra de atributo (requer P1). Achar que só aceitam membros manuais desperdiça a automação nativa.",
+    "explanation": "Unidades administrativas suportam associa\u00e7\u00e3o din\u00e2mica por regra de atributo (requer P1). Achar que s\u00f3 aceitam membros manuais desperdi\u00e7a a automa\u00e7\u00e3o nativa.",
     "source": "original",
     "tags": ["administrative-units", "dinamica", "regra"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2877,11 +2877,11 @@
     "subdomain": "schema-ext-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um dev afirma que extensões de esquema do Graph permitem atributos customizados pesquisáveis em usuários. Essa afirmação está correta?",
+    "question": "Um dev afirma que extens\u00f5es de esquema do Graph permitem atributos customizados pesquis\u00e1veis em usu\u00e1rios. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Não, o esquema do Entra é imutável"
+        "text": "N\u00e3o, o esquema do Entra \u00e9 imut\u00e1vel"
       },
       {
         "letter": "B",
@@ -2889,7 +2889,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Schema extensions registram atributos customizados filtráveis via Graph. Achar imutável ignora a extensibilidade oficial.",
+    "explanation": "Schema extensions registram atributos customizados filtr\u00e1veis via Graph. Achar imut\u00e1vel ignora a extensibilidade oficial.",
     "source": "original",
     "tags": ["schema-extensions", "atributos", "graph"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2902,7 +2902,7 @@
     "subdomain": "dirsync-softmatch-conceito",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um técnico afirma que soft-match por UPN une objeto local ao nuvem sem âncora imutável quando os UPNs coincidem. Essa afirmação está correta?",
+    "question": "Um t\u00e9cnico afirma que soft-match por UPN une objeto local ao nuvem sem \u00e2ncora imut\u00e1vel quando os UPNs coincidem. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
     "options": [
       {
         "letter": "A",
@@ -2910,11 +2910,11 @@
       },
       {
         "letter": "B",
-        "text": "Não, só hard-match com sourceAnchor une"
+        "text": "N\u00e3o, s\u00f3 hard-match com sourceAnchor une"
       }
     ],
     "correct": ["A"],
-    "explanation": "Soft-match por UPN/smtp une na primeira sincronização; depois a âncora assume. Exigir sempre hard-match ignora o fluxo padrão.",
+    "explanation": "Soft-match por UPN/smtp une na primeira sincroniza\u00e7\u00e3o; depois a \u00e2ncora assume. Exigir sempre hard-match ignora o fluxo padr\u00e3o.",
     "source": "original",
     "tags": ["soft-match", "upn", "sincronizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2927,19 +2927,19 @@
     "subdomain": "credential-rotation-sp",
     "type": "single",
     "difficulty": "medium",
-    "question": "Segredos de entidade expiram em 6 meses e precisam de rotação sem downtime. Qual prática evita interrupção?",
+    "question": "Segredos de entidade expiram em 6 meses e precisam de rota\u00e7\u00e3o sem downtime. Qual pr\u00e1tica evita interrup\u00e7\u00e3o?",
     "options": [
       {
         "letter": "A",
-        "text": "Duas credenciais ativas com transição e remoção da antiga"
+        "text": "Duas credenciais ativas com transi\u00e7\u00e3o e remo\u00e7\u00e3o da antiga"
       },
       {
         "letter": "B",
-        "text": "Nova entidade por rotação"
+        "text": "Nova entidade por rota\u00e7\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Credencial sem expiração"
+        "text": "Credencial sem expira\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -2947,7 +2947,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Duas credenciais permitem migrar consumidores antes de revogar. Única interrompe; sem expiração vaza; nova entidade quebra integrações.",
+    "explanation": "Duas credenciais permitem migrar consumidores antes de revogar. \u00danica interrompe; sem expira\u00e7\u00e3o vaza; nova entidade quebra integra\u00e7\u00f5es.",
     "source": "original",
     "tags": ["rotacao", "service-principal", "credencial"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2960,7 +2960,7 @@
     "subdomain": "same-site-cookie",
     "type": "single",
     "difficulty": "hard",
-    "question": "Sessão em cookie sofre CSRF em requisições cross-site. Quais atributos endurecem o cookie de sessão?",
+    "question": "Sess\u00e3o em cookie sofre CSRF em requisi\u00e7\u00f5es cross-site. Quais atributos endurecem o cookie de sess\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -2976,11 +2976,11 @@
       },
       {
         "letter": "D",
-        "text": "Sessão em memória sem cookie"
+        "text": "Sess\u00e3o em mem\u00f3ria sem cookie"
       }
     ],
     "correct": ["C"],
-    "explanation": "Flags bloqueiam JS, exigem HTTPS e limitam envio cross-site. Sem flags expõe; URL vaza; sem cookie não há sessão web.",
+    "explanation": "Flags bloqueiam JS, exigem HTTPS e limitam envio cross-site. Sem flags exp\u00f5e; URL vaza; sem cookie n\u00e3o h\u00e1 sess\u00e3o web.",
     "source": "original",
     "tags": ["cookie", "samesite", "csrf", "httponly"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -2993,7 +2993,7 @@
     "subdomain": "xss-token-theft",
     "type": "single",
     "difficulty": "hard",
-    "question": "XSS persistente rouba tokens do localStorage em segundos. Qual arquitetura elimina token acessível a JS?",
+    "question": "XSS persistente rouba tokens do localStorage em segundos. Qual arquitetura elimina token acess\u00edvel a JS?",
     "options": [
       {
         "letter": "A",
@@ -3013,7 +3013,7 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Sem token no browser, XSS não tem o que roubar. CSP permissiva não impede; longo agrava; sem log cega resposta.",
+    "explanation": "Sem token no browser, XSS n\u00e3o tem o que roubar. CSP permissiva n\u00e3o impede; longo agrava; sem log cega resposta.",
     "source": "original",
     "tags": ["xss", "token-theft", "bff", "httponly"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3026,7 +3026,7 @@
     "subdomain": "csp-headers",
     "type": "single",
     "difficulty": "hard",
-    "question": "O portal precisa bloquear scripts inline e origens desconhecidas contra XSS. Qual cabeçalho define a política?",
+    "question": "O portal precisa bloquear scripts inline e origens desconhecidas contra XSS. Qual cabe\u00e7alho define a pol\u00edtica?",
     "options": [
       {
         "letter": "A",
@@ -3038,15 +3038,15 @@
       },
       {
         "letter": "C",
-        "text": "X-Powered-By com versão"
+        "text": "X-Powered-By com vers\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Sem cabeçalhos de segurança"
+        "text": "Sem cabe\u00e7alhos de seguran\u00e7a"
       }
     ],
     "correct": ["A"],
-    "explanation": "CSP restringe origens de script/conteúdo mitigando XSS. X-Powered-By expõe; sem headers desprotege; sem Secure vaza.",
+    "explanation": "CSP restringe origens de script/conte\u00fado mitigando XSS. X-Powered-By exp\u00f5e; sem headers desprotege; sem Secure vaza.",
     "source": "original",
     "tags": ["csp", "headers", "xss"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3059,7 +3059,7 @@
     "subdomain": "hsts-header",
     "type": "single",
     "difficulty": "hard",
-    "question": "Downgrade SSLstrip ameaça o login em redes hostis. Qual cabeçalho força HTTPS com preload?",
+    "question": "Downgrade SSLstrip amea\u00e7a o login em redes hostis. Qual cabe\u00e7alho for\u00e7a HTTPS com preload?",
     "options": [
       {
         "letter": "A",
@@ -3075,11 +3075,11 @@
       },
       {
         "letter": "D",
-        "text": "Strict-Transport-Security com preload e subdomínios"
+        "text": "Strict-Transport-Security com preload e subdom\u00ednios"
       }
     ],
     "correct": ["D"],
-    "explanation": "HSTS com preload impede primeiro acesso HTTP. Redirect manual falha no primeiro request; HTTP libera downgrade; self-signed quebra confiança.",
+    "explanation": "HSTS com preload impede primeiro acesso HTTP. Redirect manual falha no primeiro request; HTTP libera downgrade; self-signed quebra confian\u00e7a.",
     "source": "original",
     "tags": ["hsts", "preload", "downgrade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3096,7 +3096,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Runbook de contenção via webhook"
+        "text": "Runbook de conten\u00e7\u00e3o via webhook"
       },
       {
         "letter": "B",
@@ -3104,15 +3104,15 @@
       },
       {
         "letter": "C",
-        "text": "Sem automação"
+        "text": "Sem automa\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Aprovação manual sempre"
+        "text": "Aprova\u00e7\u00e3o manual sempre"
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Logic App orquestra a resposta em segundos e o runbook de contenção isola automaticamente. Exigir aprovação manual sempre atrasa; sem automação a resposta não escala.",
+    "explanation": "Logic App orquestra a resposta em segundos e o runbook de conten\u00e7\u00e3o isola automaticamente. Exigir aprova\u00e7\u00e3o manual sempre atrasa; sem automa\u00e7\u00e3o a resposta n\u00e3o escala.",
     "source": "original",
     "tags": ["soar", "logic-app", "runbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
@@ -3125,19 +3125,19 @@
     "subdomain": "usuarios-bulk",
     "type": "single",
     "difficulty": "easy",
-    "question": "Quinhentas contas de parceiro precisam ser criadas de uma vez. Qual operação usar?",
+    "question": "Quinhentas contas de parceiro precisam ser criadas de uma vez. Qual opera\u00e7\u00e3o usar?",
     "options": [
       {
         "letter": "A",
-        "text": "Conta genérica compartilhada"
+        "text": "Conta gen\u00e9rica compartilhada"
       },
       {
         "letter": "B",
-        "text": "Criação manual uma a uma no portal"
+        "text": "Cria\u00e7\u00e3o manual uma a uma no portal"
       },
       {
         "letter": "C",
-        "text": "Criação em massa via CSV no Entra"
+        "text": "Cria\u00e7\u00e3o em massa via CSV no Entra"
       },
       {
         "letter": "D",
@@ -3145,7 +3145,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: bulk create importa CSV com centenas de contas de uma vez. B está incorreta: manual não escala para 500. A está incorreta: conta compartilhada viola identidade individual e auditoria. D está incorreta: sincronismo exige origem (AD/RH) configurada.",
+    "explanation": "C est\u00e1 correta: bulk create importa CSV com centenas de contas de uma vez. B est\u00e1 incorreta: manual n\u00e3o escala para 500. A est\u00e1 incorreta: conta compartilhada viola identidade individual e auditoria. D est\u00e1 incorreta: sincronismo exige origem (AD/RH) configurada.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users/users-bulk-add",
     "tags": ["usuarios", "bulk", "csv", "ig-entra"],
@@ -3159,7 +3159,7 @@
     "subdomain": "usuario-excluido-restore",
     "type": "single",
     "difficulty": "medium",
-    "question": "Usuário excluído por engano ontem precisa voltar com o mesmo UPN. O que fazer em 30 dias?",
+    "question": "Usu\u00e1rio exclu\u00eddo por engano ontem precisa voltar com o mesmo UPN. O que fazer em 30 dias?",
     "options": [
       {
         "letter": "A",
@@ -3167,7 +3167,7 @@
       },
       {
         "letter": "B",
-        "text": "Aguardar recriação automática"
+        "text": "Aguardar recria\u00e7\u00e3o autom\u00e1tica"
       },
       {
         "letter": "C",
@@ -3175,11 +3175,11 @@
       },
       {
         "letter": "D",
-        "text": "Restaurar o usuário excluído"
+        "text": "Restaurar o usu\u00e1rio exclu\u00eddo"
       }
     ],
     "correct": ["D"],
-    "explanation": "D está correta: restaurar o usuário excluído é possível em até 30 dias, preservando o mesmo UPN e as associações a grupos. A está incorreta: recriar com UPN diferente quebra os vínculos e as licenças. B está incorreta: não existe recriação automática de usuário excluído. C está incorreta: após 30 dias a exclusão é permanente e abrir chamado sem prazo não devolve nada.",
+    "explanation": "D est\u00e1 correta: restaurar o usu\u00e1rio exclu\u00eddo \u00e9 poss\u00edvel em at\u00e9 30 dias, preservando o mesmo UPN e as associa\u00e7\u00f5es a grupos. A est\u00e1 incorreta: recriar com UPN diferente quebra os v\u00ednculos e as licen\u00e7as. B est\u00e1 incorreta: n\u00e3o existe recria\u00e7\u00e3o autom\u00e1tica de usu\u00e1rio exclu\u00eddo. C est\u00e1 incorreta: ap\u00f3s 30 dias a exclus\u00e3o \u00e9 permanente e abrir chamado sem prazo n\u00e3o devolve nada.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/how-to-create-delete-users",
     "tags": ["usuarios", "exclusao", "restauracao", "ig-entra"],
@@ -3193,7 +3193,7 @@
     "subdomain": "licenca-usage-location",
     "type": "single",
     "difficulty": "medium",
-    "question": "Licença M365 falha ao atribuir para usuários sem país. Qual propriedade é pré-requisito?",
+    "question": "Licen\u00e7a M365 falha ao atribuir para usu\u00e1rios sem pa\u00eds. Qual propriedade \u00e9 pr\u00e9-requisito?",
     "options": [
       {
         "letter": "A",
@@ -3213,7 +3213,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: o local de uso (usage location) é obrigatório para licenciar, porque a cobrança e os recursos disponíveis dependem das regras de cada país. A está incorreta: telefone comercial não é exigido para licenciar. B está incorreta: cargo em texto livre é apenas informativo. D está incorreta: foto do perfil não influencia a licença.",
+    "explanation": "C est\u00e1 correta: o local de uso (usage location) \u00e9 obrigat\u00f3rio para licenciar, porque a cobran\u00e7a e os recursos dispon\u00edveis dependem das regras de cada pa\u00eds. A est\u00e1 incorreta: telefone comercial n\u00e3o \u00e9 exigido para licenciar. B est\u00e1 incorreta: cargo em texto livre \u00e9 apenas informativo. D est\u00e1 incorreta: foto do perfil n\u00e3o influencia a licen\u00e7a.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
     "tags": ["licencas", "usage-location", "ig-entra"],
@@ -3227,7 +3227,7 @@
     "subdomain": "grupo-excluido-restore",
     "type": "single",
     "difficulty": "medium",
-    "question": "Grupo de segurança excluído há 10 dias com regras dinâmicas. Como recuperar?",
+    "question": "Grupo de seguran\u00e7a exclu\u00eddo h\u00e1 10 dias com regras din\u00e2micas. Como recuperar?",
     "options": [
       {
         "letter": "A",
@@ -3239,15 +3239,15 @@
       },
       {
         "letter": "C",
-        "text": "Converter em grupo de distribuição"
+        "text": "Converter em grupo de distribui\u00e7\u00e3o"
       },
       {
         "letter": "D",
-        "text": "Restaurar o grupo excluído em 30 dias"
+        "text": "Restaurar o grupo exclu\u00eddo em 30 dias"
       }
     ],
     "correct": ["D"],
-    "explanation": "D está correta: grupos excluídos são restauráveis em 30 dias com membros e regras. B está incorreta: recriar perde histórico e exige reconfiguração. C está incorreta: conversão não recupera exclusão. A está incorreta: sincronismo não ressuscita objeto excluído.",
+    "explanation": "D est\u00e1 correta: grupos exclu\u00eddos s\u00e3o restaur\u00e1veis em 30 dias com membros e regras. B est\u00e1 incorreta: recriar perde hist\u00f3rico e exige reconfigura\u00e7\u00e3o. C est\u00e1 incorreta: convers\u00e3o n\u00e3o recupera exclus\u00e3o. A est\u00e1 incorreta: sincronismo n\u00e3o ressuscita objeto exclu\u00eddo.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users/groups-restore-deleted",
     "tags": ["grupos", "exclusao", "restauracao", "ig-entra"],
@@ -3261,11 +3261,11 @@
     "subdomain": "rbac-classic-admins",
     "type": "single",
     "difficulty": "medium",
-    "question": "Co-administrador clássico da assinatura precisa migrar para RBAC. Por quê?",
+    "question": "Co-administrador cl\u00e1ssico da assinatura precisa migrar para RBAC. Por qu\u00ea?",
     "options": [
       {
         "letter": "A",
-        "text": "Clássico tem mais recursos que RBAC"
+        "text": "Cl\u00e1ssico tem mais recursos que RBAC"
       },
       {
         "letter": "B",
@@ -3273,15 +3273,15 @@
       },
       {
         "letter": "C",
-        "text": "Admins clássicos estão descontinuados; usar funções RBAC"
+        "text": "Admins cl\u00e1ssicos est\u00e3o descontinuados; usar fun\u00e7\u00f5es RBAC"
       },
       {
         "letter": "D",
-        "text": "Co-admin é obrigatório por compliance"
+        "text": "Co-admin \u00e9 obrigat\u00f3rio por compliance"
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: administradores clássicos foram descontinuados em favor do RBAC granular. A está incorreta: inverte a realidade — RBAC é o modelo atual. B está incorreta: RBAC não exige certificado. D está incorreta: nada exige manter co-admin.",
+    "explanation": "C est\u00e1 correta: administradores cl\u00e1ssicos foram descontinuados em favor do RBAC granular. A est\u00e1 incorreta: inverte a realidade \u2014 RBAC \u00e9 o modelo atual. B est\u00e1 incorreta: RBAC n\u00e3o exige certificado. D est\u00e1 incorreta: nada exige manter co-admin.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/classic-administrators",
     "tags": ["rbac", "classic-admins", "migracao", "ig-acesso"],
@@ -3295,7 +3295,7 @@
     "subdomain": "rbac-dataactions",
     "type": "single",
     "difficulty": "hard",
-    "question": "Função personalizada precisa ler blobs mas não gerenciar contas. Qual campo separa permissão de dados?",
+    "question": "Fun\u00e7\u00e3o personalizada precisa ler blobs mas n\u00e3o gerenciar contas. Qual campo separa permiss\u00e3o de dados?",
     "options": [
       {
         "letter": "A",
@@ -3307,7 +3307,7 @@
       },
       {
         "letter": "C",
-        "text": "Só Actions cobre dados e controle"
+        "text": "S\u00f3 Actions cobre dados e controle"
       },
       {
         "letter": "D",
@@ -3315,7 +3315,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "A está correta: dataActions autoriza operações de dados (ler blob) e Actions o plano de controle. C está incorreta: Actions sozinho não alcança dados. D está incorreta: NotActions subtrai, não concede. B está incorreta: AssignableScopes limita onde a função vale, não o quê.",
+    "explanation": "A est\u00e1 correta: dataActions autoriza opera\u00e7\u00f5es de dados (ler blob) e Actions o plano de controle. C est\u00e1 incorreta: Actions sozinho n\u00e3o alcan\u00e7a dados. D est\u00e1 incorreta: NotActions subtrai, n\u00e3o concede. B est\u00e1 incorreta: AssignableScopes limita onde a fun\u00e7\u00e3o vale, n\u00e3o o qu\u00ea.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/custom-roles",
     "tags": ["rbac", "dataactions", "custom-roles", "ig-acesso"],
@@ -3329,7 +3329,7 @@
     "subdomain": "rbac-grupo-pratica",
     "type": "single",
     "difficulty": "easy",
-    "question": "Função para dez admins com gestão por membros. Onde atribuir?",
+    "question": "Fun\u00e7\u00e3o para dez admins com gest\u00e3o por membros. Onde atribuir?",
     "options": [
       {
         "letter": "A",
@@ -3341,15 +3341,15 @@
       },
       {
         "letter": "C",
-        "text": "A um grupo, não a cada usuário"
+        "text": "A um grupo, n\u00e3o a cada usu\u00e1rio"
       },
       {
         "letter": "D",
-        "text": "Direto em cada usuário"
+        "text": "Direto em cada usu\u00e1rio"
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: atribuir a um grupo, e não a cada usuário, centraliza a gestão — a entrada e a saída de admins viram gestão de membros. D está incorreta: atribuir direto em cada usuário cria uma atribuição individual por admin, que é débito de governança. A está incorreta: a conta de cada admin não recebe função de RBAC. B está incorreta: token SAS compartilhado é autorização de dados de Storage, não de RBAC.",
+    "explanation": "C est\u00e1 correta: atribuir a um grupo, e n\u00e3o a cada usu\u00e1rio, centraliza a gest\u00e3o \u2014 a entrada e a sa\u00edda de admins viram gest\u00e3o de membros. D est\u00e1 incorreta: atribuir direto em cada usu\u00e1rio cria uma atribui\u00e7\u00e3o individual por admin, que \u00e9 d\u00e9bito de governan\u00e7a. A est\u00e1 incorreta: a conta de cada admin n\u00e3o recebe fun\u00e7\u00e3o de RBAC. B est\u00e1 incorreta: token SAS compartilhado \u00e9 autoriza\u00e7\u00e3o de dados de Storage, n\u00e3o de RBAC.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
     "tags": ["rbac", "grupos", "pratica", "ig-acesso"],
@@ -3363,11 +3363,11 @@
     "subdomain": "policy-exemption",
     "type": "single",
     "difficulty": "medium",
-    "question": "Recurso legado não conforme precisa de prazo sem remover a policy. O que criar?",
+    "question": "Recurso legado n\u00e3o conforme precisa de prazo sem remover a policy. O que criar?",
     "options": [
       {
         "letter": "A",
-        "text": "Exclusão da definição"
+        "text": "Exclus\u00e3o da defini\u00e7\u00e3o"
       },
       {
         "letter": "B",
@@ -3375,7 +3375,7 @@
       },
       {
         "letter": "C",
-        "text": "Isenção (exemption) com expiração"
+        "text": "Isen\u00e7\u00e3o (exemption) com expira\u00e7\u00e3o"
       },
       {
         "letter": "D",
@@ -3383,7 +3383,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: exemption isenta o escopo com prazo e justificativa, mantendo a policy. A está incorreta: excluir a definição desprotege tudo. B está incorreta: Deny bloquearia em vez de dar prazo. D está incorreta: fugir para assinatura limpa é shadow governance.",
+    "explanation": "C est\u00e1 correta: exemption isenta o escopo com prazo e justificativa, mantendo a policy. A est\u00e1 incorreta: excluir a defini\u00e7\u00e3o desprotege tudo. B est\u00e1 incorreta: Deny bloquearia em vez de dar prazo. D est\u00e1 incorreta: fugir para assinatura limpa \u00e9 shadow governance.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/concepts/exemption-structure",
     "tags": ["policy", "exemption", "isencao", "ig-governanca"],
@@ -3397,7 +3397,7 @@
     "subdomain": "policy-requiretag",
     "type": "single",
     "difficulty": "medium",
-    "question": "Toda VM precisa nascer com tag CostCenter ou a criação falha. Qual política?",
+    "question": "Toda VM precisa nascer com tag CostCenter ou a cria\u00e7\u00e3o falha. Qual pol\u00edtica?",
     "options": [
       {
         "letter": "A",
@@ -3417,7 +3417,7 @@
       }
     ],
     "correct": ["D"],
-    "explanation": "D está correta: RequireTag com Deny barra PUT sem a tag. C está incorreta: Audit só marca, não impede. B está incorreta: trava impede escrita, não exige tag. A está incorreta: Leitor não avalia conformidade.",
+    "explanation": "D est\u00e1 correta: RequireTag com Deny barra PUT sem a tag. C est\u00e1 incorreta: Audit s\u00f3 marca, n\u00e3o impede. B est\u00e1 incorreta: trava impede escrita, n\u00e3o exige tag. A est\u00e1 incorreta: Leitor n\u00e3o avalia conformidade.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
     "tags": ["policy", "requiretag", "tags", "ig-governanca"],
@@ -3435,15 +3435,15 @@
     "options": [
       {
         "letter": "A",
-        "text": "Limite só para grupos"
+        "text": "Limite s\u00f3 para grupos"
       },
       {
         "letter": "B",
-        "text": "Máximo de 60 tags por recurso"
+        "text": "M\u00e1ximo de 60 tags por recurso"
       },
       {
         "letter": "C",
-        "text": "Máximo de 50 tags por recurso"
+        "text": "M\u00e1ximo de 50 tags por recurso"
       },
       {
         "letter": "D",
@@ -3451,7 +3451,7 @@
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: o teto é de máximo de 50 tags por recurso, grupo de recursos ou assinatura. A está incorreta: limite só para grupos é falso — o limite vale para qualquer recurso. B está incorreta: máximo de 60 tags por recurso estoura o teto de 50 tags por recurso. D está incorreta: sem limite de tags não existe, há teto documentado.",
+    "explanation": "C est\u00e1 correta: o teto \u00e9 de m\u00e1ximo de 50 tags por recurso, grupo de recursos ou assinatura. A est\u00e1 incorreta: limite s\u00f3 para grupos \u00e9 falso \u2014 o limite vale para qualquer recurso. B est\u00e1 incorreta: m\u00e1ximo de 60 tags por recurso estoura o teto de 50 tags por recurso. D est\u00e1 incorreta: sem limite de tags n\u00e3o existe, h\u00e1 teto documentado.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources",
     "tags": ["tags", "heranca", "policy", "ig-governanca"],
@@ -3465,7 +3465,7 @@
     "subdomain": "trava-heranca",
     "type": "single",
     "difficulty": "medium",
-    "question": "Trava CanNotDelete no grupo protege recursos filhos contra exclusão?",
+    "question": "Trava CanNotDelete no grupo protege recursos filhos contra exclus\u00e3o?",
     "options": [
       {
         "letter": "A",
@@ -3473,19 +3473,19 @@
       },
       {
         "letter": "B",
-        "text": "Só para leitura, não exclusão"
+        "text": "S\u00f3 para leitura, n\u00e3o exclus\u00e3o"
       },
       {
         "letter": "C",
-        "text": "Não, só no próprio grupo"
+        "text": "N\u00e3o, s\u00f3 no pr\u00f3prio grupo"
       },
       {
         "letter": "D",
-        "text": "Só com Policy junto"
+        "text": "S\u00f3 com Policy junto"
       }
     ],
     "correct": ["A"],
-    "explanation": "A está correta: sim, travas valem no escopo e nos filhos — o CanNotDelete é herdado para baixo. C está incorreta: não, só no próprio grupo é falso — restringir a trava ao grupo deixaria os recursos filhos expostos. D está incorreta: só com Policy junto é desnecessário, o CanNotDelete funciona sozinho, sem policy. B está incorreta: só para leitura, não exclusão confunde com ReadOnly — o CanNotDelete permite atualizar.",
+    "explanation": "A est\u00e1 correta: sim, travas valem no escopo e nos filhos \u2014 o CanNotDelete \u00e9 herdado para baixo. C est\u00e1 incorreta: n\u00e3o, s\u00f3 no pr\u00f3prio grupo \u00e9 falso \u2014 restringir a trava ao grupo deixaria os recursos filhos expostos. D est\u00e1 incorreta: s\u00f3 com Policy junto \u00e9 desnecess\u00e1rio, o CanNotDelete funciona sozinho, sem policy. B est\u00e1 incorreta: s\u00f3 para leitura, n\u00e3o exclus\u00e3o confunde com ReadOnly \u2014 o CanNotDelete permite atualizar.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources",
     "tags": ["travas", "heranca", "canotdelete", "ig-governanca"],
@@ -3499,27 +3499,27 @@
     "subdomain": "mg-hierarquia",
     "type": "single",
     "difficulty": "medium",
-    "question": "Desenho prevê raiz com 6 níveis de grupos de gerenciamento abaixo. Dentro do limite?",
+    "question": "Desenho prev\u00ea raiz com 6 n\u00edveis de grupos de gerenciamento abaixo. Dentro do limite?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, níveis ilimitados"
+        "text": "Sim, n\u00edveis ilimitados"
       },
       {
         "letter": "B",
-        "text": "Não, MG não aninha"
+        "text": "N\u00e3o, MG n\u00e3o aninha"
       },
       {
         "letter": "C",
-        "text": "Sim, até 6 níveis abaixo da raiz"
+        "text": "Sim, at\u00e9 6 n\u00edveis abaixo da raiz"
       },
       {
         "letter": "D",
-        "text": "Não, máximo 3 níveis"
+        "text": "N\u00e3o, m\u00e1ximo 3 n\u00edveis"
       }
     ],
     "correct": ["C"],
-    "explanation": "C está correta: o limite é 6 níveis de MG abaixo da raiz do tenant. D está incorreta: o teto real é 6 níveis, não 3. B está incorreta: MG aninha sim, é justamente o propósito dos grupos de gerenciamento. A está incorreta: existe teto documentado, os níveis não são ilimitados.",
+    "explanation": "C est\u00e1 correta: o limite \u00e9 6 n\u00edveis de MG abaixo da raiz do tenant. D est\u00e1 incorreta: o teto real \u00e9 6 n\u00edveis, n\u00e3o 3. B est\u00e1 incorreta: MG aninha sim, \u00e9 justamente o prop\u00f3sito dos grupos de gerenciamento. A est\u00e1 incorreta: existe teto documentado, os n\u00edveis n\u00e3o s\u00e3o ilimitados.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/management-groups/overview",
     "tags": ["management-groups", "hierarquia", "limites", "ig-governanca"],
@@ -3533,11 +3533,11 @@
     "subdomain": "advisor-custo",
     "type": "single",
     "difficulty": "easy",
-    "question": "Assinatura com VMs ociosas precisa de recomendação de economia. Qual serviço aponta?",
+    "question": "Assinatura com VMs ociosas precisa de recomenda\u00e7\u00e3o de economia. Qual servi\u00e7o aponta?",
     "options": [
       {
         "letter": "A",
-        "text": "Azure Advisor (recomendações de custo)"
+        "text": "Azure Advisor (recomenda\u00e7\u00f5es de custo)"
       },
       {
         "letter": "B",
@@ -3553,7 +3553,7 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "A está correta: Advisor analisa uso e recomenda rightsizing e desligamento. B está incorreta: Deny impede, não recomenda. D está incorreta: trava paralisa em vez de otimizar. C está incorreta: excluir sem análise perde dados.",
+    "explanation": "A est\u00e1 correta: Advisor analisa uso e recomenda rightsizing e desligamento. B est\u00e1 incorreta: Deny impede, n\u00e3o recomenda. D est\u00e1 incorreta: trava paralisa em vez de otimizar. C est\u00e1 incorreta: excluir sem an\u00e1lise perde dados.",
     "source": "mslearn",
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview",
     "tags": ["advisor", "custo", "economia", "ig-governanca"],

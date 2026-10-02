@@ -215,6 +215,7 @@ function suggestMapping(subdomain, domain) {
       for (const w of words) {
         if (s.includes(w)) score += 2
       }
+      // IG keywords
       if (s.includes('rbac') && gid === 'ig-access-resources') score += 5
       if (s.includes('mfa') && gid === 'ig-entra-users-groups') score += 5
       if (s.includes('sspr') && gid === 'ig-entra-users-groups') score += 5
@@ -235,6 +236,30 @@ function suggestMapping(subdomain, domain) {
         gid === 'ig-subscriptions-governance'
       )
         score += 5
+      // Storage keywords
+      if (s.includes('firewall') && gid === 'st-access') score += 5
+      if (s.includes('sas') && gid === 'st-access') score += 5
+      if (s.includes('chave') && gid === 'st-access') score += 5
+      if (s.includes('acesso') && gid === 'st-access') score += 5
+      if (s.includes('identidade') && gid === 'st-access') score += 5
+      if (s.includes('criar') && gid === 'st-accounts') score += 5
+      if (s.includes('redund') && gid === 'st-accounts') score += 5
+      if (s.includes('replic') && gid === 'st-accounts') score += 5
+      if (s.includes('cript') && gid === 'st-accounts') score += 5
+      if (s.includes('azcopy') && gid === 'st-accounts') score += 5
+      if (s.includes('compartilh') && gid === 'st-files-blobs') score += 5
+      if (s.includes('container') && gid === 'st-files-blobs') score += 5
+      if (s.includes('camada') && gid === 'st-files-blobs') score += 5
+      if (s.includes('soft') && gid === 'st-files-blobs') score += 5
+      if (s.includes('instant') && gid === 'st-files-blobs') score += 5
+      if (s.includes('ciclo') && gid === 'st-files-blobs') score += 5
+      if (s.includes('vers') && gid === 'st-files-blobs') score += 5
+      if (s.includes('blob') && gid === 'st-files-blobs') score += 5
+      if (s.includes('tier') && gid === 'st-files-blobs') score += 5
+      if (s.includes('tier') && gid === 'st-files-blobs') score += 5
+      if (s.includes('soft') && gid === 'st-files-blobs') score += 5
+      if (s.includes('tier') && gid === 'st-files-blobs') score += 5
+
       if (score > best.score)
         best = { group: gid, bullet: bi, score, bulletText: bullet }
     }
@@ -305,7 +330,7 @@ function applyMappings(domain) {
     })
 
     if (fileUpdated) {
-      writeFileSync(f, JSON.stringify(fileData, null, 2))
+      fs.writeFileSync(f, JSON.stringify(fileData, null, 2))
     }
   })
 
