@@ -56,7 +56,10 @@ export class StudyHubPanel extends LitElement {
     if (!topicId || !this.userId) return
     const p = loadProfile(this.userId)
     if (isSeen(p, topicId)) return
-    saveProfile(this.userId, markSeen(p, topicId))
+    saveProfile(this.userId, {
+      ...markSeen(p, topicId),
+      updatedAt: Date.now(),
+    })
     if (this.plan) {
       for (const l of this.plan.links) if (l.topicId === topicId) l.seen = true
     }

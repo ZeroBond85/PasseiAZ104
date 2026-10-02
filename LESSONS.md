@@ -166,3 +166,266 @@
 - **O quê:** credencial Postgres do Supabase colada em chat pelo dono do projeto.
 - **Tratamento:** senha tratada como comprometida (rotação exigida no dashboard); app desenhado para NUNCA precisar dela (migrations via SQL Editor pelo dono; frontend usa só anon key pública + RLS).
 - **Regra travada:** senha de BD nunca em chat/env/repo (PLAN §17 + `docs/multi-filho.md`); anon key pode ir a `.env.local` (gitignored) e GitHub Secrets — é pública por design.
+
+## 2026-09-26 — `saveProfile` invalidava o LWW que o próprio sync usa (PLAN-4 A1)
+
+- **O quê:** `saveProfile` carimbava `updatedAt = Date.now()` incondicionalmente; `pullStudyProfile` montava o perfil remoto com `updatedAt = remoteAt` e em seguida chamava `saveProfile`, que **mutava o mesmo objeto** e regravava no localStorage.
+- **Efeito:** o LWW (`if (remoteAt <= local.updatedAt) return`) comparava sempre contra o relógio local → atualização legítima de outro aparelho era **descartada**, e o `push` reenviava o timestamp inflado. Perda silenciosa de progresso entre dispositivos; nenhum teste cobria `push`/`pull`.
+- **Causa-raiz:** carimbar tempo dentro da função de *persistência* confunde "gravar" com "alterar". O mesmo bug reaparece em qualquer `save*` que muta o payload.
+- **Correção:** `saveProfile` só persiste; quem muta carimba (`study-hub.ts`, `study-hub-panel.ts`). `pullStudyProfile` mantém `remoteAt` e o `setItem` manual redundante foi removido.
+- **Teste que reproduz:** `tests/unit/study-profile-sync.test.ts` (preserva `updatedAt` no save · pull mantém o remoto · pull ignora remoto mais velho · push envia o persistido). RPR: os 4 falharam antes do fix (`expected 900, received 1000000`).
+- **Regressão permanente:** regra travada — **função `save*` nunca carimba `updatedAt`**; o carimbo é do call site que muta. Qualquer novo `save*` entra neste teste.
+- **Plano:** `PLAN-4.md` §A1.
+
+## 2026-09-27 — Write sem Glob sobrescreveu teste existente + execução paralela (PLAN-4)
+
+- **O quê:** meu `Write` em `tests/unit/treino-controller.test.ts` substituiu os 5 testes de engine do
+  Sprint 3.2 pelos meus 4 de shuffle — a ferramenta não exigiu `Read` prévio e a visão do FS estava
+  inconsistente com o disco. Detectado por `git show c26d511:path` + contagem de `it(` (9ab3a76 só tinha os meus).
+- **Correção:** arquivo mesclado (5 engine + 4 shuffle, mock único original) → 9/9 verdes.
+- **Regra travada (1):** **`Glob` (ou `Read`) antes de todo `Write`** — prova que o arquivo não existe na
+  árvore efetiva; nunca confie só na memória da sessão para "arquivo novo".
+- **Regra travada (2):** **uma sessão por repo por vez.** Sinais de concorrência (stash piscando,
+  arquivos sumindo entre comandos, `git status` inconsistente com `ls`) = **parar tudo** e chamar o dono.
+  Nenhum gate vale mais que o trabalho não commitado.
+- **Calibração R1 (check-grounding.mts):** medir stem+texto-da-correta (nunca explicação — ela cita
+  conceitos fora da página por construção); calibrar o limiar com âncora certa E errada de propósito
+  antes de travar (0.5 separou 0.56/0.57/0.48 vs 0.19/0.37). Re-verificar se o estilo dos stems mudar.
+
+## 2026-09-28 — shuffle de `options` desatualizou as letras da `explanation` (v7.0)
+
+- **O quê:** `shuffle-options.mjs` reatribui as letras de `options` e reescreve `correct`, mas a
+  `explanation` é escrita contra a ordem de autoria ("A está correta: ..."). Resultado: 34/51 questões
+  `mslearn` com a explicação **contradizendo o próprio gabarito** na tela do aluno.
+- **Causa-raiz:** determinismo por campo não é determinismo de *banco*. Um campo derivado depende de
+  outro (`explanation` depende de `options` + `correct`) e precisa ser regravado junto.
+- **Correção:** `remap-explanation-letters.mjs` — casa cada trecho com a alternativa por
+  **similaridade de texto** (Dice sobre prefixos de token, insensível a acentuação e flexão), com o
+  **veredicto do texto como restrição dura** (trechos "correta" só podem receber letra do gabarito).
+  Nenhuma dependência de posição ou de estado anterior.
+- **Armadilha intermediária (o que deu errado primeiro):** tentei reconstruir as letras "originais por
+  posição" (a i-ª menção = a i-ª letra). **Inválido** — o que está gravado no banco já é o texto
+  *pós*-shuffle, então a "âncora posicional" só reinjeta a corrupção. O baseline de comparação tinha de
+  ser o gabarito + o texto, nunca o arquivo anterior.
+- **Erro de regex (silencioso):** o guard usava `est[áa]` e não casava com "**estão**". Todas as
+  alegações em grupo plural (`A, B e D estão incorretas`) ficavam **invisíveis** para o gate. Corrigido
+  para `est[áaã]o?` — e o gate de letra repetida só passou a ter valor depois disso.
+- **Teste que reproduz:** regressão artificial em `az104-st-173` injetando letra repetida
+  (`A, B e B estão incorretas`) → gate acusa; injetando letra contraditória → gate acusa.
+- **Regra travada:** **campo derivado de `options`/`correct` é regravado no mesmo passo do shuffle**, ou
+  o shuffle está errado. E o gate de consistência tem que cobrir *plural* (`está`/`estão`) — regex de
+  validação precisa ser testada contra todas as formas que a linguagem realmente usa.
+- **Limite do automatismo:** o mapeamento por texto errou em 2 de 7 casos revisados (`rv-183`, `st-179`,
+  desempate por corpo ambíguo). O script **recusa gravar** quando algum trecho fica abaixo de
+  `SIM_FLOOR`; os casos ambíguos vão para revisão humana, nunca para escrita automática.
+- **Armadilha seguinte: o piso de similaridade não é margem.** Com o `SIM_FLOOR` sozinho, `rv-183` e
+  `st-179` ainda passavam e o `--write` invertia as letras de um texto que já estava **correto**.
+  Causa: corpo compartilhado ("C e A estão corretas: *mesma razão*") gera **dois slots com texto
+  idêntico**, então as duas bijeções empatam e quem fica com `C` é decidido pela **ordem de
+  `permutations()`** — puro acaso. Similaridade alta **nos dois lados** não é confiança; é ambiguidade.
+- **Correção:** `bestMatch` passou a devolver `{ p, margin }`, a folga normalizada para a segunda melhor
+  bijeção. Abaixo de `MARGIN_FLOOR` (0.15) a questão vai para revisão manual em vez de ser gravada.
+ Validade do valve provada nos dois sentidos: (1) `rv-183`/`st-179` → folga 0%/2% → recusados;
+  (2) `rv-179` com letras trocadas e corpos intactos → folga suficiente → planeja, `--write` corrige e
+  devolve o texto **exatamente** ao original. (3) injeção de letra repetida e de letra contraditória
+  → detectadas.
+- **Regra travada:** **um piso absoluto não detecta empate.** Num emparelhamento bijetivo, o que separa
+  "casou certo" de "deu empate" é a **folga para o segundo colocado**, não a nota do vencedor. Gate de
+  automação que possa inverter algo precisa de um critério de **indecisão** (empate/folga), senão ele
+  converte sorte em reescrita.
+- **Cuidado com valves fail-closed:** a recusa é o comportamento correto, mas precisa de prova de que a
+  ferramenta não ficou inerte — por isso os testes (2) e (3). "0 planejadas" só é notícia boa se houver
+  um caso em que a ferramenta **deveria** planejar e planeja.
+
+## Lessons (setembro 2026)
+
+### 27. Trocar âncora primária é editar a `PRIMARY`, não a `EXTRA`
+
+O `fill-grounding.mjs` tem duas tabelas: `PRIMARY` (sobrescreve a `url` do bullet) e `EXTRA` (só
+**acrescenta** `extraUrls`). Editei a `EXTRA` achando que trocava a âncora primária de
+`ig-access-resources#3`; o mapa continuou com a URL antiga e o verifier reportou **0 URLs com
+problema** — porque a URL antiga estava viva, só era a página errada. O sintoma foi o log do fill
+dizer "OK ... + role-assignments" para uma URL que virou só extra.
+
+Regra: âncora primária muda na `PRIMARY`; a `EXTRA` é para completar o parágrafo de apoio. Se o fill
+não imprimiu a linha `URL <bullet> -> ...`, a primária não mudou.
+
+### 28. Gate de URL não é gate de âncora — e o pior erro é o que passa nos dois
+
+Os três bullets reprovados na auditoria de semântica (`st-accounts#3`, `ig-subscriptions-governance#5`,
+`ig-access-resources#3`) respondiam **200**, eram **PT-BR**, e passavam em todo gate automático. O
+erro era a página tratar de outra coisa (redundância ≠ replicação · faturamento ≠ assinatura ·
+definições ≠ atribuições). Um aluno que estuda pelo link errado aprende a coisa errada com confiança.
+
+Corolário: o gate de cobertura mede questão × página e **não mede bullet**, porque bullet não tem
+questão ancorada. Auditoria de âncora tem que existir separada e ser semântica
+(`npm run grounding:audit`).
+
+### 29. O slug da URL pode mentir — verificar o H1, não o caminho
+
+`manage/subscription-transfer` responde 200, é PT-BR e a URL diz "transferência de assinatura". A
+página é o "hub de transferência de **produto**". O único jeito de pegar foi ler o H1 de cada
+candidato depois de um 200. Regra: para âncora nova, olhar o H1 da página, não confiar no slug.
+
+### 30. Comparação textual precisa de radical, senão o relatório accuse âncora boa
+
+Primeira versão do `audit-anchor-semantics` acusou 5 bullets; 4 eram falso positivo por
+singular/plural ("Gerenciar **usuários** externos" × "ID **Externa**", "assinatura" × "**assinaturas**",
+"rede" × "**redes**"). Cortar o termo no radical de 6 caracteres antes de comparar derrubou de 5
+suspeitos para 1 — e o 1 que sobrou era o erro real. Filtro de relatório que alarma em massa é
+ruído, e ruído treina a pessoa a ignorar o relatório.
+
+### 31. Duas listas paralelas do mesmo dado: uma delas sempre mente
+
+`verify-grounding-urls.mjs` mantinha `CANDIDATES` (o que eu *achava* ser a âncora) enquanto
+`fill-grounding.mjs` mantinha PRIMARY/EXTRA (o que *era* a âncora). Divergiram em dozens de
+entradas — inclusive nas quatro que a auditoria de semântica acabou de corrigir. Como todas as URLs
+divergentes respondem 200 em PT-BR, nenhuma gate pegaria, e o `--write` do `verify` desfaria as
+correções silenciosamente.
+
+Regra: para cada arquivo editado por script, **um autor só**. Escrita no mapa é do
+`fill-grounding`; o `verify` só lê e sai com código != 0. Se duas ferramentas escrevem o mesmo
+arquivo, uma delas já está obsoleta sem ninguém perceber.
+
+### 32. "O script rodou e não reclamou" não é prova — injete o erro
+
+Escrevi os testes com o HTML do erro **real** (a página de redundância com "replicados" na
+descrição, o slug que redireciona, o título "404 - Conteúdo não encontrado"). Dois achados só
+apareceram porque as fixtures foram adversariais, não porque o código estava ruim:
+- a descrição enfraquecia a checagem e segurava o bug;
+- tirando a descrição, apareceu um quarto bug que estava mascarado.
+
+Genuíno, com filtros que rejeitam null/NaN e data no passado, evita esse caminho. Inject-and-verify
+acha os buracos; review do código sozinho não pega.
+
+### 33. Página de "não encontrei" pode responder 200
+
+O Learn devolve **200** com página de erro em alguns casos. `status === 200` não prova que a
+âncora existe. O `isSoft404` olha título e corpo. Os marcadores são âncora no início do título
+(`/^\s*404\b/`) porque existe documentação real sobre **páginas de erro 404 personalizadas** no App
+Gateway: casar "404" em qualquer lugar reprovaria âncora boa.
+
+### 34. "Empate de 0%" num matcher é sinal de conteúdo girado, não de matcher fraco
+
+O remapeador recusou 15 questões por empate. Duas delas tinha as **letras rotacionadas**:
+`st-178` (B↔C↔D num ciclo de três, cada razão descrevendo o número da opção vizinha)
+e `co-234` (A e B trocadas: "B é burstable" descrevia a *série B*, que é a opção A).
+
+O conteúdo factual estava certo nos dois casos. Quem estava errado era o
+acoplamento letra↔razão — invisível para quem lê a questão e olha só se o
+gabarito está certo. O `--write` teria invertido as letras com base no empate,
+que é a inversão sem prova que o gate existe para impedir.
+
+Regra: quando uma ferramenta se recusa a gravar, **a leitura padrão é que o
+conteúdo está errado**, não o threshold. Ajustar o threshold para a lista sumir é
+destruir o único instrumento que sobrou.
+
+### 35. Filtro de ruído que descarta números cega o item por número
+
+`tokens()` filtrava `length > 2`, o que eliminava "7", "30", "90". Em `st-178`,
+onde as opções são "365/90/30/7 dias", as três erradas tokenizavam **todas** para
+`{dias}`: sem número não havia vocabulário que as distinguisse, e nenhuma redação
+de razão fecharia o caso.
+
+Duas saídas: dar vocabulário às opções (`"90 dias — o mínimo da Cold"`, que
+entrega o porquê de cada distrator e trivializa a questão) ou corrigir o filtro,
+que é o defeito real. **Ruído de token é palavra, não dígito.** Mesmo regime para
+qualquer normalizador que tenha sido escrito olhando prosa.
+
+### 36. Assertion que contradiz o resumo é bug do teste, não do produto
+
+Eu escrevi `expect(saida).not.toMatch(/revisão manual/)` para garantir zero
+recusas, mas a linha de resumo **sempre** contém a frase "0 com revisão manual".
+O teste reprovava o código perfeito. O certo é `not.toMatch(/^AVISO /m)`: nenhuma
+linha de aviso é a condição que importa.
+
+### 37. Cobertura lexical não é veredito, e extração automática acusa a questão certa
+
+`check-grounding` em 51/0 e `audit-anchor-semantics` em 0 suspeitos dizem que a
+página existe, é PT-BR e fala do assunto. Nada disso diz que a página **sustenta o
+gabarito** — e as 51 lidas uma a uma acharam 2 que não sustentavam, uma delas
+com o gabarito errado.
+
+O caso simétrico é o mais perigoso: a folha por janelas acusou `st-176` de defeito
+porque pôs ao lado dela "os clientes **podem** enumerar blobs dentro do contêiner".
+Essa frase é da lista do nível **Container**. O nível **Blob** — o gabarito da
+questão — diz "os clientes anônimos **não podem enumerar os blobs**". A questão
+estava certa e a máquina sugeria reescrever.
+
+Duas lições: janela de texto é *localizador*, não *veredito*; e uma ferramenta que
+proponha mudança de conteúdo precisa ser lida contra a fonte antes de virar commit.
+Automação que só filtra nunca deve editar enunciado.
+
+### 38. Recurso aposentado como gabarito é o defeito que nenhum gate pega
+
+`az104-mo-150` tinha gabarito "NSG flow logs + Traffic Analytics", ancorada na
+página que **declara a aposentadoria**: 30/09/2027, sem novas instalações, e sem
+análise de tráfego para eles depois disso. A URL respondia 200, em PT-BR, com
+título perfeito ("Visão geral dos logs de fluxo do NSG"), e `verify` + `audit` +
+`check-grounding` passavam.
+
+Âncora viva prova que a página existe. Prova que a página serve **para a pergunta
+que está feita hoje** é outra leitura, e ela exige abrir o documento.
+
+Regra: gabarito que cita um produto com data de EOL é candidato obrigatório a
+reescrita, mesmo com todos os gates verdes. E a correção tem de preservar `id` e
+letra do gabarito sempre que possível — assim nada se move no `data/simulados.json`
+e o conserto não vira pendência de reconstrução.
+
+### 39. `new URL(...).pathname` joga fora o host de um caminho UNC
+
+Com o repositório acessado como `\wsl$\Debian\home\...`,
+`new URL('..', import.meta.url).pathname` devolve `\wsl$\Debian\Debian\home\...`:
+o `.pathname` de uma URL `file://` traz só o *path*, e o servidor UNC fica de
+fora.
+
+O pior não é o `mkdir` falhar. É o `fetchPage` **engolir** a exceção e devolver
+`status: 0` com `text` vazio. Toda sonda de frase passou a responder "não casou",
+o que se lê como "a página não sustenta a afirmação" — a conclusão oposta. Se eu
+tivesse aceitado esse sinal, teria reescrito 15 questões corretas com base numa
+falha de I/O.
+
+O sintoma que denunciou: **todas** as sondas falhando ao mesmo tempo, inclusive em
+URLs que eu sabia existirem. Falha total é ambiente; falha parcial é conteúdo.
+
+`fileURLToPath` é a forma correta. Onde `ROOT` é concatenado (`${ROOT}data/…`),
+a barra final precisa continuar explícita.
+
+### 40. `fill-grounding` não promove página nova a primária — ele só reescreve o que está no `PRIMARY`
+
+Para reancorar uma questão numa página melhor, editar `data/*.json` **não
+basta**. `validate` exige que todo `sourceUrl` de questão `mslearn` esteja no
+`grounding-map`, e `fill-grounding.mjs` reescreve o mapa a partir de duas
+constantes no próprio script — `PRIMARY` e `EXTRA`. Ele tem como invariantE
+remover de `extraUrls` qualquer URL que nenhuma questão use.
+
+Ordem que funciona: editar a questão → declarar a URL em `PRIMARY`/`EXTRA` do
+`fill-grounding` → rodar `fill-grounding` → `biome --write` → `validate`. Pular
+o passo do script faz o `fill-grounding` seguinte **apagar** a URL que eu tinha
+acabado de adicionar, e o `validate` acusa "sourceUrl fora do grounding-map"
+três questões depois, com a causa duas etapas atrás.
+
+O sinal que denunciou: as três URLs que eu tinha acabado de gravar em
+`extraUrls` sumiram sozinhas no `fill` seguinte, e a mensagem do `validate`
+("fora do grounding-map") apontava para uma URL que eu ainda estava olhando no
+arquivo. **Recalcular um mapa a partir do dado invalida o ajuste manual do
+mapa** — o mapa é derivado, e a fonte da intenção é o script.
+
+### 41. Documentar a forma do comando não basta; o valor do argumento também
+
+`docs/QUESTION-GUIDELINES.md`, `docs/API-REF.md` e `docs/TROUBLESHOOTING.md`
+documentavam `node check-seq.mjs --domain <ig|st|co|rv|mo>`. O flag existia e
+funcionava; os cinco valores documentados saíam com `Prefixo nao encontrado`,
+porque o modo novo recebe o **nome do domínio**
+(`identidade-governanca`, `rede-virtual`…), não o prefixo do id.
+
+Os três docs estavam errado de forma **idêntica**, e o defeito era invisível a
+revisão de leitura: a linha é sintaticamente válida, o comando existe, o flag é
+real. Só rodar o exemplo pegou. Um doc que documenta um comando tem de ser
+executado antes de ser aceito — por isso os exemplos do `API-REF.md` entram no
+`ci` como smoke test, não como prosa.
+
+Corolário: `PLAN-4.md` afirmava que `check-seq.mjs` "não existe neste repo".
+Estava errado no sentido oposto: o script existia desde 27/set e o modo
+`--domain` já estava verde nos 5 domínios. A entrada de plano envelheceu sem
+que ninguém a rolasse junto com a entrega.

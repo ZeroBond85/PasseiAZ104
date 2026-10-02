@@ -1,7 +1,8 @@
 # TESTING.md — PasseiAZ-104
 
-> Pirâmide: 67 unit (Vitest) + 16 e2e (Playwright + axe). Contagem sincronizada
-> no README por `test:count` (fail-closed no `ci`).
+> Pirâmide: 115 unit (Vitest) + 16 e2e (Playwright + axe). Contagem sincronizada
+> no README por `test:count` (fail-closed no `ci`). Este arquivo **não** é coberto
+> pelo `test:count` — se a pirâmide mudar, atualizar os dois à mão.
 
 ## Unit (Vitest, `tests/unit/` + `tests/integration/`)
 

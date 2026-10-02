@@ -17,7 +17,7 @@ Todo script que reescreve `data/` faz backup `.bak` antes. Se perder:
 
 ```bash
 git checkout -- data/<arquivo>.json     # volta ao HEAD
-node check-seq.mjs data/<arquivo> <prefixo>  # confere contagem/dup/sequência
+node check-seq.mjs --domain <identidade-governanca|storage|compute|rede-virtual|monitoramento>  # nome do dominio, nao o prefixo
 npm run validate
 ```
 

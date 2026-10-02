@@ -35,8 +35,8 @@
   provado por e2e (IDB limpo + rede abortada → seed volta do cache).
 - `urlPattern` tem que ser RegExp/string (função é descartada em silêncio — LESSONS).
 
-### Question bank (950 PT-BR) — ✅ FECHADO E VIGIADO
-- 950/950 validadas, 0 erros; `meta:check` anti-drift no CI; curadoria mensal
+### Question bank (1000 PT-BR) — ✅ FECHADO E VIGIADO
+- 1000/1000 validadas, 0 erros; `meta:check` anti-drift no CI; curadoria mensal
   (needsReview>50, sourceUrl) + watch do outline oficial + gap report.
 
 ### Study Hub — ✅ ENTREGA O QUE PROMETE
@@ -48,7 +48,7 @@
   CSP via meta; SRI descartado com motivo documentado; backup semanal (precisa secret).
 
 ### Testes — ✅ ABRANGENTE
-- 67 unit + 16 e2e (quiz, treino, gate, offline ×2, login, catalog ×2, progress, estudo ×2,
+- 115 unit + 16 e2e (quiz, treino, gate, offline ×2, login, catalog ×2, progress, estudo ×2,
   overflow, axe ×3), RPR como lei, `test:count` fail-closed no CI.
 
 ### Documentação — ✅ ATUALIZADA

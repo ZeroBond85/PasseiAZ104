@@ -9,22 +9,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Plano Gratuito (F1) em camada compartilhada"
-      },
-      {
-        "letter": "B",
-        "text": "Plano Premium v3 com zona de disponibilidade"
-      },
-      {
-        "letter": "C",
         "text": "Plano Isolado (ASE) com rede dedicada"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Plano Básico com slot de produção"
+      },
+      {
+        "letter": "C",
+        "text": "Plano Gratuito (F1) em camada compartilhada"
+      },
+      {
+        "letter": "D",
+        "text": "Plano Premium v3 com zona de disponibilidade"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "O plano F1 é gratuito para testes, sem SLA. Premium e Isolado são caros e produtivos; Básico cobra e já inclui recursos pagos.",
     "source": "original",
     "tags": ["app-service", "planos", "f1"],
@@ -42,7 +42,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Plano de Consumo (Consumption)"
+        "text": "Plano Isolado com ASE"
       },
       {
         "letter": "B",
@@ -50,14 +50,14 @@
       },
       {
         "letter": "C",
-        "text": "Plano Dedicado (App Service) sempre ativo"
+        "text": "Plano de Consumo (Consumption)"
       },
       {
         "letter": "D",
-        "text": "Plano Isolado com ASE"
+        "text": "Plano Dedicado (App Service) sempre ativo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Consumo cobra por execução e escala a zero, ideal para uso esporádico. Premium e Dedicado mantêm recursos alocados (cold start menor, custo fixo); Isolado é para rede dedicada.",
     "source": "original",
     "tags": ["functions", "consumption"],
@@ -75,11 +75,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Slot de implantação com roteamento de teste (testing in production)"
+        "text": "Nova implantação direta em produção"
       },
       {
         "letter": "B",
-        "text": "Backup diário do aplicativo"
+        "text": "Slot de implantação com roteamento de teste (testing in production)"
       },
       {
         "letter": "C",
@@ -87,10 +87,10 @@
       },
       {
         "letter": "D",
-        "text": "Nova implantação direta em produção"
+        "text": "Backup diário do aplicativo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Slots com percentual de tráfego permitem canário e swap instantâneo. Backup restaura dados, não roteia tráfego; escala não testa versão; deploy direto não permite reversão gradual.",
     "source": "original",
     "tags": ["app-service", "slots", "canario"],
@@ -108,22 +108,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Azure Container Apps"
-      },
-      {
-        "letter": "B",
         "text": "AKS com node pool fixo"
       },
       {
+        "letter": "B",
+        "text": "Service Fabric Mesh"
+      },
+      {
         "letter": "C",
-        "text": "VM com Docker Compose"
+        "text": "Azure Container Apps"
       },
       {
         "letter": "D",
-        "text": "Service Fabric Mesh"
+        "text": "VM com Docker Compose"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Container Apps escala a zero por eventos (HTTP, filas) sobre Kubernetes gerenciado. AKS fixo cobra nós ociosos; VM exige gestão; Service Fabric Mesh foi descontinuado.",
     "source": "original",
     "tags": ["container-apps", "serverless"],
@@ -141,7 +141,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Adicionar o nome de host personalizado e validar a propriedade do domínio"
+        "text": "Criar um slot chamado www"
       },
       {
         "letter": "B",
@@ -149,14 +149,14 @@
       },
       {
         "letter": "C",
-        "text": "Habilitar backup com certificado incluído"
+        "text": "Adicionar o nome de host personalizado e validar a propriedade do domínio"
       },
       {
         "letter": "D",
-        "text": "Criar um slot chamado www"
+        "text": "Habilitar backup com certificado incluído"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Domínio personalizado exige registrar o hostname e provar posse (TXT/CNAME) antes do binding TLS. Isolado não é pré-requisito; backup não valida domínio; slot não cria hostname externo.",
     "source": "original",
     "tags": ["app-service", "dominio", "tls"],
@@ -174,22 +174,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Gatilho de Blob Storage"
-      },
-      {
-        "letter": "B",
         "text": "Gatilho HTTP"
       },
       {
+        "letter": "B",
+        "text": "Gatilho de Blob Storage"
+      },
+      {
         "letter": "C",
-        "text": "Gatilho de Temporizador (Timer)"
+        "text": "Gatilho manual via portal"
       },
       {
         "letter": "D",
-        "text": "Gatilho manual via portal"
+        "text": "Gatilho de Temporizador (Timer)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Blob trigger reage a criação/atualização de blobs. HTTP exige chamada; Timer agenda horário fixo; disparo manual não é automático.",
     "source": "original",
     "tags": ["functions", "triggers", "blob"],
@@ -207,22 +207,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Backup agendado com banco de dados vinculado incluído"
+        "text": "Exportação do perfil de publicação"
       },
       {
         "letter": "B",
-        "text": "Snapshot manual do plano de serviço"
-      },
-      {
-        "letter": "C",
         "text": "Slot de homologação como cópia de segurança"
       },
       {
+        "letter": "C",
+        "text": "Snapshot manual do plano de serviço"
+      },
+      {
         "letter": "D",
-        "text": "Exportação do perfil de publicação"
+        "text": "Backup agendado com banco de dados vinculado incluído"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Backup agendado (Standard+) captura arquivos e, marcando a opção, o banco vinculado. Snapshot de plano não existe; slot não é backup; perfil de publicação só tem credenciais de deploy.",
     "source": "original",
     "tags": ["app-service", "backup"],
@@ -273,7 +273,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Orquestração com eventos externos (fan-in/fan-out + wait for event)"
+        "text": "Timer a cada minuto consultando banco"
       },
       {
         "letter": "B",
@@ -281,14 +281,14 @@
       },
       {
         "letter": "C",
-        "text": "Timer a cada minuto consultando banco"
+        "text": "Fila única sem orquestrador"
       },
       {
         "letter": "D",
-        "text": "Fila única sem orquestrador"
+        "text": "Orquestração com eventos externos (fan-in/fan-out + wait for event)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Orquestrador Durable mantém estado e aguarda eventos externos (aprovação) sem custo de espera ativa. Sleep de 48h estoura timeout e cobra; polling por timer desperdiça; fila sem orquestrador perde a sequência.",
     "source": "original",
     "tags": ["functions", "durable", "orquestracao"],
@@ -306,7 +306,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Integração de Rede Virtual (VNet Integration) no aplicativo"
+        "text": "Conexão híbrida via Service Bus Relay"
       },
       {
         "letter": "B",
@@ -314,14 +314,14 @@
       },
       {
         "letter": "C",
-        "text": "Conexão híbrida via Service Bus Relay"
+        "text": "Integração de Rede Virtual (VNet Integration) no aplicativo"
       },
       {
         "letter": "D",
         "text": "Front Door na frente do banco"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "VNet Integration injeta o app na VNet para alcançar IPs privados. IP público expõe o banco; Hybrid Connections serve on-premises via relay (alternativa válida, mas a pedida é VNet); Front Door é entrada HTTP, não acesso a banco.",
     "source": "original",
     "tags": ["app-service", "vnet-integration"],
@@ -372,22 +372,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Migrar para plano Premium com workers pré-aquecidos"
-      },
-      {
-        "letter": "B",
-        "text": "Aumentar o timeout da função para 10 minutos"
-      },
-      {
-        "letter": "C",
         "text": "Trocar o gatilho HTTP por Timer"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Habilitar CORS no aplicativo de funções"
+      },
+      {
+        "letter": "C",
+        "text": "Migrar para plano Premium com workers pré-aquecidos"
+      },
+      {
+        "letter": "D",
+        "text": "Aumentar o timeout da função para 10 minutos"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Premium mantém instâncias aquecidas (always ready) com escala elástica. Timeout maior não evita partida fria; trocar gatilho muda o evento; CORS é permissão de origem, não desempenho.",
     "source": "original",
     "tags": ["functions", "cold-start", "premium"],
@@ -405,11 +405,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Compartilhamento de Arquivos do Azure montado no grupo de contêineres"
+        "text": "Disco temporário local do contêiner"
       },
       {
         "letter": "B",
-        "text": "Disco temporário local do contêiner"
+        "text": "Compartilhamento de Arquivos do Azure montado no grupo de contêineres"
       },
       {
         "letter": "C",
@@ -420,7 +420,7 @@
         "text": "Imagem do contêiner com os arquivos embutidos"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Azure Files montado persiste além do ciclo de vida do contêiner. Disco local é efêmero; variável não guarda arquivos; embutir na imagem exige rebuild a cada mudança.",
     "source": "original",
     "tags": ["aci", "volumes", "azure-files"],
@@ -438,22 +438,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Web App for Containers com a imagem do ACR"
-      },
-      {
-        "letter": "B",
         "text": "Web App Windows com runtime .NET padrão"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Function App em Consumo"
+      },
+      {
+        "letter": "C",
+        "text": "Web App for Containers com a imagem do ACR"
       },
       {
         "letter": "D",
         "text": "Static Web App com API"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Web App for Containers executa imagem customizada com todos os recursos da plataforma (TLS, slots, backup). Runtime padrão não aceita imagem; Functions é orientado a eventos; Static Web Apps serve front estático.",
     "source": "original",
     "tags": ["app-service", "containers", "acr"],
@@ -471,7 +471,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Integração VNet (entrada privada) + gateway NAT com IP fixo (saída)"
+        "text": "Front Door com backend público"
       },
       {
         "letter": "B",
@@ -479,14 +479,14 @@
       },
       {
         "letter": "C",
-        "text": "API Management em camada Consumo"
+        "text": "Integração VNet (entrada privada) + gateway NAT com IP fixo (saída)"
       },
       {
         "letter": "D",
-        "text": "Front Door com backend público"
+        "text": "API Management em camada Consumo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "VNet Integration alcança o privado e o NAT entrega saída por IP fixo previsível. Consumo não tem VNet nem IP fixo; APIM Consumo não fixa IP; Front Door não alcança IP privado interno.",
     "source": "original",
     "tags": ["functions", "vnet", "nat", "premium"],
@@ -504,11 +504,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Jobs do Container Apps com gatilho agendado"
+        "text": "Function Durable sem orquestrador"
       },
       {
         "letter": "B",
-        "text": "Aplicativo HTTP sempre ativo"
+        "text": "Jobs do Container Apps com gatilho agendado"
       },
       {
         "letter": "C",
@@ -516,10 +516,10 @@
       },
       {
         "letter": "D",
-        "text": "Function Durable sem orquestrador"
+        "text": "Aplicativo HTTP sempre ativo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Jobs executam até concluir (manual, agendado ou por evento) e liberam recursos. App HTTP fica servindo; ACI Always reinicia sem fim; Durable sem orquestrador perde o controle do fluxo.",
     "source": "original",
     "tags": ["container-apps", "jobs", "lote"],
@@ -537,22 +537,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Conexões Híbridas (Hybrid Connections) via Service Bus"
-      },
-      {
-        "letter": "B",
-        "text": "VNet Integration com gateway local"
-      },
-      {
-        "letter": "C",
         "text": "IP público no SQL local"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Replicação do banco para o Azure"
+      },
+      {
+        "letter": "C",
+        "text": "Conexões Híbridas (Hybrid Connections) via Service Bus"
+      },
+      {
+        "letter": "D",
+        "text": "VNet Integration com gateway local"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Hybrid Connections abrem túnel de saída pelo relay, sem inbound no firewall. VNet Integration exige VPN/ExpressRoute; IP público expõe o banco; replicar é migração, não conectividade pontual.",
     "source": "original",
     "tags": ["app-service", "hybrid-connections", "on-premises"],
@@ -570,22 +570,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Tarefas do ACR (ACR Tasks) com gatilho de imagem base"
-      },
-      {
-        "letter": "B",
         "text": "Webhook manual executado por e-mail"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "docker build local e push manual"
+      },
+      {
+        "letter": "C",
+        "text": "Tarefas do ACR (ACR Tasks) com gatilho de imagem base"
       },
       {
         "letter": "D",
         "text": "Replicação geográfica do registro"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "ACR Tasks com base-image trigger recompilam ao detectar nova base. Webhook por e-mail não automatiza; build local exige estação; replicação copia imagens, não reconstrói.",
     "source": "original",
     "tags": ["acr", "tasks", "build"],
@@ -603,7 +603,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Básico permite 3 slots; escalar para Standard (5+) ou Premium"
+        "text": "Gratuito permite 5 slots"
       },
       {
         "letter": "B",
@@ -611,14 +611,14 @@
       },
       {
         "letter": "C",
-        "text": "Gratuito permite 5 slots"
+        "text": "Básico permite 3 slots; escalar para Standard (5+) ou Premium"
       },
       {
         "letter": "D",
         "text": "Slots exigem plano Isolado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Básico tem 3 slots e Standard 5 (Premium 20); escalar resolve. Gratuito não tem slots de verdade; Isolado não é exigido para slots.",
     "source": "original",
     "tags": ["app-service", "slots", "limites"],
@@ -636,7 +636,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Binding de saída (output binding) para Queue Storage"
+        "text": "Gatilho de saída por e-mail"
       },
       {
         "letter": "B",
@@ -648,10 +648,10 @@
       },
       {
         "letter": "D",
-        "text": "Gatilho de saída por e-mail"
+        "text": "Binding de saída (output binding) para Queue Storage"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Output binding entrega o valor de retorno à fila sem SDK. ADO.NET é para SQL; HttpClient manual perde a declaratividade; não existe gatilho de saída por e-mail.",
     "source": "original",
     "tags": ["functions", "bindings", "queue"],
@@ -669,22 +669,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Conta de armazenamento (Blob) via configuração de logs"
-      },
-      {
-        "letter": "B",
         "text": "Sistema de arquivos do plano com retenção ilimitada"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Console do Kudu sem persistência"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Application Insights sem instrumentação"
+      },
+      {
+        "letter": "D",
+        "text": "Conta de armazenamento (Blob) via configuração de logs"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Logs em Blob retêm por dias configuráveis e sobrevivem a reinícios. Sistema de arquivos do plano é volátil e limitado; Kudu ao vivo não retém; App Insights sem SDK não coleta.",
     "source": "original",
     "tags": ["app-service", "logs", "diagnostico"],
@@ -702,22 +702,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Always para a API e Never para o job"
-      },
-      {
-        "letter": "B",
         "text": "Never para ambos"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Always para ambos"
+      },
+      {
+        "letter": "C",
+        "text": "Always para a API e Never para o job"
       },
       {
         "letter": "D",
         "text": "OnFailure para a API com porta pública"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Always mantém serviço contínuo e Never executa tarefa finita uma vez. Never na API derruba o serviço; Always no job religa sem fim; OnFailure não garante disponibilidade contínua.",
     "source": "original",
     "tags": ["aci", "restart-policy"],
@@ -739,18 +739,18 @@
       },
       {
         "letter": "B",
-        "text": "Roteamento de percentual de tráfego para o slot"
+        "text": "Downgrade do plano durante o swap"
       },
       {
         "letter": "C",
-        "text": "Exclusão do slot após cada deploy"
+        "text": "Roteamento de percentual de tráfego para o slot"
       },
       {
         "letter": "D",
-        "text": "Downgrade do plano durante o swap"
+        "text": "Exclusão do slot após cada deploy"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Swap troca versões sem downtime e o roteamento percentual valida em produção (canário). Excluir slot perde o ambiente; downgrade durante swap arrisca indisponibilidade.",
     "source": "original",
     "tags": ["app-service", "slots", "swap"],
@@ -768,7 +768,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Gatilho de Queue Storage"
+        "text": "Gatilho HTTP com polling manual"
       },
       {
         "letter": "B",
@@ -776,14 +776,14 @@
       },
       {
         "letter": "C",
-        "text": "Gatilho HTTP com polling manual"
+        "text": "Gatilho de Queue Storage"
       },
       {
         "letter": "D",
         "text": "Binding de saída para envio de e-mail"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Queue trigger dispara por mensagem e o output binding grava no Cosmos declarativamente. HTTP com polling desperdiça; e-mail não persiste o pedido.",
     "source": "original",
     "tags": ["functions", "bindings", "cosmosdb"],
@@ -801,22 +801,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Certificado gerenciado do App Service com renovação automática"
-      },
-      {
-        "letter": "B",
         "text": "Restrição de acesso permitindo só o Front Door"
       },
       {
+        "letter": "B",
+        "text": "Certificado gerenciado do App Service com renovação automática"
+      },
+      {
         "letter": "C",
-        "text": "HTTP liberado sem redirect para HTTPS"
+        "text": "Credenciais de FTP compartilhadas"
       },
       {
         "letter": "D",
-        "text": "Credenciais de FTP compartilhadas"
+        "text": "HTTP liberado sem redirect para HTTPS"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Certificado gerenciado renova sozinho e a restrição de acesso limita origem ao Front Door. HTTP aberto anula o TLS; FTP compartilhado amplia superfície.",
     "source": "original",
     "tags": ["app-service", "tls", "restricao-acesso"],
@@ -834,11 +834,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "App Service Environment v3 (ASE) em VNet dedicada"
+        "text": "Plano Premium público multitenant"
       },
       {
         "letter": "B",
-        "text": "Plano Premium público multitenant"
+        "text": "App Service Environment v3 (ASE) em VNet dedicada"
       },
       {
         "letter": "C",
@@ -849,7 +849,7 @@
         "text": "Container Instances com IP público"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "ASE v3 isola em single-tenant na sua VNet com escala ampla. Premium público compartilha infraestrutura; Gratuito não isola; ACI não é App Service nem isola rede por padrão.",
     "source": "original",
     "tags": ["app-service", "ase", "isolamento"],
@@ -867,22 +867,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Plano Flex Consumption"
-      },
-      {
-        "letter": "B",
         "text": "Plano Consumo tradicional"
       },
       {
+        "letter": "B",
+        "text": "Container Instances sem eventos"
+      },
+      {
         "letter": "C",
-        "text": "Plano Dedicado Básico"
+        "text": "Plano Flex Consumption"
       },
       {
         "letter": "D",
-        "text": "Container Instances sem eventos"
+        "text": "Plano Dedicado Básico"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Flex Consumption combina escala por evento, VNet e timeouts longos. Consumo tradicional limita timeout e rede; Dedicado cobra sempre ativo; ACI não é Functions.",
     "source": "original",
     "tags": ["functions", "flex-consumption", "vnet"],
@@ -900,11 +900,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Clonar o app para a nova região e mover o hostname com o certificado"
+        "text": "Recriar do zero e pedir novo domínio aos usuários"
       },
       {
         "letter": "B",
-        "text": "Recriar do zero e pedir novo domínio aos usuários"
+        "text": "Clonar o app para a nova região e mover o hostname com o certificado"
       },
       {
         "letter": "C",
@@ -915,7 +915,7 @@
         "text": "Trocar o plano na mesma região"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Clone copia configuração e conteúdo; hostname e certificado migram com validação. Recriar perde identidade; só código perde settings; trocar plano não muda de região.",
     "source": "original",
     "tags": ["app-service", "migracao", "clone", "regiao"],
@@ -933,22 +933,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Pool Batch com VMs série H, InfiniBand e tarefa MPI"
-      },
-      {
-        "letter": "B",
         "text": "ACI com 500 contêineres isolados"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Function App com 500 execuções"
+      },
+      {
+        "letter": "C",
+        "text": "Pool Batch com VMs série H, InfiniBand e tarefa MPI"
       },
       {
         "letter": "D",
         "text": "VMSS série B com autoscale"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Batch provisiona pool HPC temporário com RDMA/InfiniBand para MPI. ACI isola sem interconexão rápida; Functions não fazem MPI; série B não tem desempenho nem rede HPC.",
     "source": "original",
     "tags": ["batch", "hpc", "mpi"],
@@ -966,7 +966,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Application Insights com profiler e mapa de aplicação"
+        "text": "Ping manual do portal"
       },
       {
         "letter": "B",
@@ -974,14 +974,14 @@
       },
       {
         "letter": "C",
-        "text": "Ping manual do portal"
+        "text": "Application Insights com profiler e mapa de aplicação"
       },
       {
         "letter": "D",
         "text": "Reinicialização agendada do plano"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "App Insights profile o código e os detectors analisam a plataforma (CPU, memória, TCP). Ping manual não diagnostica; reiniciar mascara sem identificar causa.",
     "source": "original",
     "tags": ["app-service", "app-insights", "diagnostico"],
@@ -999,11 +999,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Lote (batch size) e paralelismo calibrados por instância"
+        "text": "Plano Premium/Elastic com escala por evento"
       },
       {
         "letter": "B",
-        "text": "Plano Premium/Elastic com escala por evento"
+        "text": "Lote (batch size) e paralelismo calibrados por instância"
       },
       {
         "letter": "C",
@@ -1014,7 +1014,7 @@
         "text": "Desabilitar retries da fila"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Batch/paralelismo elevam vazão por instância e o plano elástico adiciona instâncias. Timeout curto derruba longas; sem retry, falha perde mensagem.",
     "source": "original",
     "tags": ["functions", "escala", "fila", "batch"],
@@ -1032,22 +1032,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Backup com armazenamento georredundante"
-      },
-      {
-        "letter": "B",
         "text": "Snapshots automáticos com restauração pontual"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Slot único sem histórico"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Deploy via ZIP sem versionar"
+      },
+      {
+        "letter": "D",
+        "text": "Backup com armazenamento georredundante"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Backup GRS sobrevive a perda regional e snapshots permitem voltar a ponto anterior. Slot único não guarda histórico; ZIP sem versão não restaura seletivamente.",
     "source": "original",
     "tags": ["app-service", "backup", "grs", "snapshot"],
@@ -1069,18 +1069,18 @@
       },
       {
         "letter": "B",
-        "text": "Pacotes de aplicativo do Batch versionados"
-      },
-      {
-        "letter": "C",
         "text": "VMs série B fixas 24/7"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Instalação manual por RDP em cada nó"
+      },
+      {
+        "letter": "D",
+        "text": "Pacotes de aplicativo do Batch versionados"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Pool N com autoscale dá GPU sob demanda e pacotes versionam o renderizador. Série B não tem GPU nem escala HPC; RDP manual não escala.",
     "source": "original",
     "tags": ["batch", "gpu", "pacotes"],
@@ -1098,11 +1098,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Chaves de função (function keys) por função"
+        "text": "Chaves de host (host keys) compartilhadas por app"
       },
       {
         "letter": "B",
-        "text": "Chaves de host (host keys) compartilhadas por app"
+        "text": "Chave mestra publicada na documentação"
       },
       {
         "letter": "C",
@@ -1110,10 +1110,10 @@
       },
       {
         "letter": "D",
-        "text": "Chave mestra publicada na documentação"
+        "text": "Chaves de função (function keys) por função"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Function keys isolam por função e host keys por aplicativo, permitindo revogação por escopo. Anônima não autentica; chave mestra exposta compromete tudo.",
     "source": "original",
     "tags": ["functions", "chaves", "auth-level"],
@@ -1135,18 +1135,18 @@
       },
       {
         "letter": "B",
-        "text": "Bindings de entrada/saída para filas"
+        "text": "Segredos embutidos na imagem"
       },
       {
         "letter": "C",
-        "text": "Chamadas HTTP diretas sem sidecar"
+        "text": "Bindings de entrada/saída para filas"
       },
       {
         "letter": "D",
-        "text": "Segredos embutidos na imagem"
+        "text": "Chamadas HTTP diretas sem sidecar"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Service invocation do Dapr criptografa com mTLS e bindings abstraem filas sem SDK. HTTP direto perde mTLS e observabilidade; segredo na imagem vaza.",
     "source": "original",
     "tags": ["container-apps", "dapr", "mtls", "bindings"],
@@ -1164,14 +1164,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, tudo do slot vai junto no swap"
+        "text": "Não, configurações marcadas como slot setting permanecem no slot"
       },
       {
         "letter": "B",
-        "text": "Não, configurações marcadas como slot setting permanecem no slot"
+        "text": "Sim, tudo do slot vai junto no swap"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Slot settings ficam presas ao slot (ex.: string de homologação não vaza para produção). O swap move código e settings comuns; marcadas como sticky, não.",
     "source": "original",
     "tags": ["app-service", "slots", "swap", "sticky-settings"],
@@ -1214,11 +1214,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Central de Implantação com Actions + slot + swap"
+        "text": "FTP manual por release"
       },
       {
         "letter": "B",
-        "text": "FTP manual por release"
+        "text": "Deploy direto em produção"
       },
       {
         "letter": "C",
@@ -1226,10 +1226,10 @@
       },
       {
         "letter": "D",
-        "text": "Deploy direto em produção"
+        "text": "Central de Implantação com Actions + slot + swap"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Deployment Center liga repo→build→slot→swap com trilha. FTP manual erra; e-mail não implanta; direto não testa.",
     "source": "original",
     "tags": ["app-service", "deployment-center", "github", "swap"],
@@ -1251,15 +1251,15 @@
       },
       {
         "letter": "B",
-        "text": "Duas function apps sem roteamento"
+        "text": "Timer alternando versões"
       },
       {
         "letter": "C",
-        "text": "Troca de código direta"
+        "text": "Duas function apps sem roteamento"
       },
       {
         "letter": "D",
-        "text": "Timer alternando versões"
+        "text": "Troca de código direta"
       }
     ],
     "correct": ["A"],
@@ -1280,22 +1280,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "ACI confidencial com atestação"
+        "text": "Blob público com criptografia"
       },
       {
         "letter": "B",
-        "text": "ACI padrão compartilhado"
-      },
-      {
-        "letter": "C",
         "text": "VM comum sem enclave"
       },
       {
+        "letter": "C",
+        "text": "ACI confidencial com atestação"
+      },
+      {
         "letter": "D",
-        "text": "Blob público com criptografia"
+        "text": "ACI padrão compartilhado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "ACI confidencial roda em TEE com atestado. Padrão compartilha host; VM comum não atesta; blob não executa.",
     "source": "original",
     "tags": ["aci", "confidencial", "tee"],
@@ -1313,7 +1313,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ambiente com integração VNet (interno + UDR)"
+        "text": "VPN por contêiner"
       },
       {
         "letter": "B",
@@ -1325,10 +1325,10 @@
       },
       {
         "letter": "D",
-        "text": "VPN por contêiner"
+        "text": "Ambiente com integração VNet (interno + UDR)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Ambiente VNet-integrated dá IPs privados e UDR ao firewall. Público expõe; peering não se aplica a ambiente gerenciado; VPN por contêiner não existe.",
     "source": "original",
     "tags": ["container-apps", "vnet", "ambiente"],
@@ -1350,11 +1350,11 @@
       },
       {
         "letter": "B",
-        "text": "Pool fixo 24/7"
+        "text": "Redimensionamento manual diário"
       },
       {
         "letter": "C",
-        "text": "Redimensionamento manual diário"
+        "text": "Pool fixo 24/7"
       },
       {
         "letter": "D",
@@ -1379,11 +1379,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Private Endpoint do App Service + DNS privado"
+        "text": "IP público com restrição 0.0.0.0"
       },
       {
         "letter": "B",
-        "text": "IP público com restrição 0.0.0.0"
+        "text": "Slot público de homologação"
       },
       {
         "letter": "C",
@@ -1391,10 +1391,10 @@
       },
       {
         "letter": "D",
-        "text": "Slot público de homologação"
+        "text": "Private Endpoint do App Service + DNS privado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Private Endpoint dá IP privado com resolução interna. Público com 0.0.0.0 expõe; Gratuito não tem PE; slot público vaza.",
     "source": "original",
     "tags": ["app-service", "private-endpoint", "privado"],
@@ -1412,22 +1412,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Renovar via chaves primária/secundária com transição"
-      },
-      {
-        "letter": "B",
-        "text": "Manter a vazada ativa"
-      },
-      {
-        "letter": "C",
         "text": "Desabilitar auth da função"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Trocar o nome da função"
+      },
+      {
+        "letter": "C",
+        "text": "Manter a vazada ativa"
+      },
+      {
+        "letter": "D",
+        "text": "Renovar via chaves primária/secundária com transição"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Duas chaves permitem migrar clientes e revogar a vazada. Manter expõe; sem auth abre; renomear não revoga.",
     "source": "original",
     "tags": ["functions", "chaves", "rotacao"],
@@ -1445,22 +1445,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "ACI com SKU GPU (K80 e superiores)"
-      },
-      {
-        "letter": "B",
         "text": "ACI CPU comum"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "VM D sem GPU"
+      },
+      {
+        "letter": "C",
+        "text": "ACI com SKU GPU (K80 e superiores)"
       },
       {
         "letter": "D",
         "text": "Function Consumption"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "ACI GPU provisiona K80+ sob demanda por segundo. CPU não acelera; D sem GPU idem; Consumption não tem GPU.",
     "source": "original",
     "tags": ["aci", "gpu", "inferencia"],
@@ -1478,7 +1478,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Referência Key Vault nos segredos do app"
+        "text": "Imagem com segredo embutido"
       },
       {
         "letter": "B",
@@ -1486,14 +1486,14 @@
       },
       {
         "letter": "C",
-        "text": "Imagem com segredo embutido"
+        "text": "Referência Key Vault nos segredos do app"
       },
       {
         "letter": "D",
         "text": "E-mail com segredos"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Referência ao Key Vault resolve em runtime e acompanha rotação. Texto claro vaza; embutido exige rebuild; e-mail expõe.",
     "source": "original",
     "tags": ["container-apps", "segredos", "key-vault"],
@@ -1511,22 +1511,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Dependências de tarefa (dependsOn) no job"
-      },
-      {
-        "letter": "B",
-        "text": "Todas paralelas sem ordem"
-      },
-      {
-        "letter": "C",
         "text": "Manual uma após outra"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Um job por tarefa isolada"
+      },
+      {
+        "letter": "C",
+        "text": "Todas paralelas sem ordem"
+      },
+      {
+        "letter": "D",
+        "text": "Dependências de tarefa (dependsOn) no job"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "dependsOn ordena o DAG com faixas de conclusão. Paralelo quebra ordem; manual não escala; isolado perde dependência.",
     "source": "original",
     "tags": ["batch", "dependencias", "dag"],
@@ -1548,15 +1548,15 @@
       },
       {
         "letter": "B",
-        "text": "Swap imediato sem aquecer"
+        "text": "Escala para 1 instância"
       },
       {
         "letter": "C",
-        "text": "Reinicialização após swap"
+        "text": "Swap imediato sem aquecer"
       },
       {
         "letter": "D",
-        "text": "Escala para 1 instância"
+        "text": "Reinicialização após swap"
       }
     ],
     "correct": ["A"],
@@ -1577,22 +1577,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Limite máximo de instâncias (scale limit) no plano"
-      },
-      {
-        "letter": "B",
         "text": "Remover todos os limites"
       },
       {
+        "letter": "B",
+        "text": "Limite máximo de instâncias (scale limit) no plano"
+      },
+      {
         "letter": "C",
-        "text": "Timeout zero nas funções"
+        "text": "Desabilitar o gatilho"
       },
       {
         "letter": "D",
-        "text": "Desabilitar o gatilho"
+        "text": "Timeout zero nas funções"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Scale limit impõe teto de workers controlando custo/quota. Sem limite explode; timeout zero quebra; sem gatilho para o negócio.",
     "source": "original",
     "tags": ["functions", "escala", "limite", "custo"],
@@ -1614,11 +1614,11 @@
       },
       {
         "letter": "B",
-        "text": "Ping ICMP externo"
+        "text": "Restart manual semanal"
       },
       {
         "letter": "C",
-        "text": "Restart manual semanal"
+        "text": "Ping ICMP externo"
       },
       {
         "letter": "D",
@@ -1643,22 +1643,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Montagem de armazenamento (Bring Your Own Storage) no app"
-      },
-      {
-        "letter": "B",
         "text": "Arquivos embutidos no deploy"
       },
       {
+        "letter": "B",
+        "text": "Montagem de armazenamento (Bring Your Own Storage) no app"
+      },
+      {
         "letter": "C",
-        "text": "Download por FTP a cada boot"
+        "text": "Variáveis com conteúdo dos arquivos"
       },
       {
         "letter": "D",
-        "text": "Variáveis com conteúdo dos arquivos"
+        "text": "Download por FTP a cada boot"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "BYOS monta Files via SMB no app com chaves gerenciadas. Embutir exige redeploy; FTP atrasa boot; variável não escala arquivo.",
     "source": "original",
     "tags": ["app-service", "montagem", "files", "byos"],
@@ -1680,15 +1680,15 @@
       },
       {
         "letter": "B",
-        "text": "Chave de função como proteção"
+        "text": "Plano Consumo público"
       },
       {
         "letter": "C",
-        "text": "IP restrito a 0.0.0.0"
+        "text": "Chave de função como proteção"
       },
       {
         "letter": "D",
-        "text": "Plano Consumo público"
+        "text": "IP restrito a 0.0.0.0"
       }
     ],
     "correct": ["A"],
@@ -1709,7 +1709,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Fórmula de autoscale com $PendingTasks e agenda"
+        "text": "Escala manual por turno"
       },
       {
         "letter": "B",
@@ -1717,14 +1717,14 @@
       },
       {
         "letter": "C",
-        "text": "Escala manual por turno"
+        "text": "Spot sem fórmula"
       },
       {
         "letter": "D",
-        "text": "Spot sem fórmula"
+        "text": "Fórmula de autoscale com $PendingTasks e agenda"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Fórmula avalia pending/tempo e dimensiona sozinha. Fixo desperdiça; manual atrasa; sem fórmula não escala.",
     "source": "original",
     "tags": ["batch", "autoscale", "formula"],
@@ -1742,22 +1742,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Mesmo plano de serviço compartilhado"
-      },
-      {
-        "letter": "B",
         "text": "Um plano por app mínimo"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Plano Gratuito por app"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "ASE por aplicativo"
+      },
+      {
+        "letter": "D",
+        "text": "Mesmo plano de serviço compartilhado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Plano compartilhado escala a unidade e dilui custo. Um por app multiplica; Gratuito não escala; ASE por app é caríssimo.",
     "source": "original",
     "tags": ["app-service", "plano", "compartilhado", "escala"],
@@ -1779,15 +1779,15 @@
       },
       {
         "letter": "B",
-        "text": "Mesma string em todos"
+        "text": "Variável local por dev"
       },
       {
         "letter": "C",
-        "text": "Hardcode no código"
+        "text": "Mesma string em todos"
       },
       {
         "letter": "D",
-        "text": "Variável local por dev"
+        "text": "Hardcode no código"
       }
     ],
     "correct": ["A"],
@@ -1808,11 +1808,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Perfil de rede com delegação de sub-rede ao ACI"
+        "text": "IP público com NSG aberta"
       },
       {
         "letter": "B",
-        "text": "IP público com NSG aberta"
+        "text": "VPN por contêiner"
       },
       {
         "letter": "C",
@@ -1820,10 +1820,10 @@
       },
       {
         "letter": "D",
-        "text": "VPN por contêiner"
+        "text": "Perfil de rede com delegação de sub-rede ao ACI"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Delegação injeta o grupo na sub-rede com NSG. Público expõe; peering não se aplica; VPN por contêiner não existe.",
     "source": "original",
     "tags": ["aci", "vnet", "delegacao", "privado"],
@@ -1841,22 +1841,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ingress interno limitado ao ambiente"
+        "text": "Load Balancer externo"
       },
       {
         "letter": "B",
-        "text": "Ingress externo público"
-      },
-      {
-        "letter": "C",
         "text": "Sem ingress com IP público"
       },
       {
+        "letter": "C",
+        "text": "Ingress interno limitado ao ambiente"
+      },
+      {
         "letter": "D",
-        "text": "Load Balancer externo"
+        "text": "Ingress externo público"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Ingress internal expõe só dentro do ambiente. Externo publica; sem ingress não há rota; LB externo expõe.",
     "source": "original",
     "tags": ["container-apps", "ingress", "interno"],
@@ -1874,22 +1874,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Tarefa de preparação do job (job preparation)"
+        "text": "Imagem sem dados"
       },
       {
         "letter": "B",
-        "text": "Tarefa comum sem preparação"
-      },
-      {
-        "letter": "C",
         "text": "Login manual por nó"
       },
       {
+        "letter": "C",
+        "text": "Tarefa de preparação do job (job preparation)"
+      },
+      {
         "letter": "D",
-        "text": "Imagem sem dados"
+        "text": "Tarefa comum sem preparação"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Job prep roda em cada nó antes das tarefas. Sem prep falta dado; manual não escala; sem dados quebra.",
     "source": "original",
     "tags": ["batch", "job-preparation", "dataset"],
@@ -1907,22 +1907,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Tarefa de liberação (job release) do job"
-      },
-      {
-        "letter": "B",
         "text": "Exclusão do pool sem coletar"
       },
       {
+        "letter": "B",
+        "text": "Tarefa de liberação (job release) do job"
+      },
+      {
         "letter": "C",
-        "text": "Coleta manual por nó"
+        "text": "Ignorar os resultados"
       },
       {
         "letter": "D",
-        "text": "Ignorar os resultados"
+        "text": "Coleta manual por nó"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Tarefa de liberação (job release) roda ao fim do job em cada nó coletando logs e resultados. Excluir o pool sem coletar perde tudo; coleta manual não escala; ignorar desperdiça.",
     "source": "original",
     "tags": ["batch", "job-release", "coleta"],
@@ -1940,22 +1940,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "99,95% com duas ou mais instâncias"
+        "text": "Sem SLA em qualquer plano"
       },
       {
         "letter": "B",
-        "text": "99,99% com uma instância"
+        "text": "99,95% com duas ou mais instâncias"
       },
       {
         "letter": "C",
-        "text": "Sem SLA em qualquer plano"
+        "text": "99,99% com uma instância"
       },
       {
         "letter": "D",
         "text": "99,9% com plano Gratuito"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Básico ou superior com 2+ instâncias contrata 99,95%. Uma instância não tem SLA alto; Gratuito/Compartilhado não têm SLA.",
     "source": "original",
     "tags": ["sla", "app-service", "99-95"],
@@ -1977,15 +1977,15 @@
       },
       {
         "letter": "B",
-        "text": "99,99% no Consumo"
-      },
-      {
-        "letter": "C",
         "text": "Sem SLA em nenhum plano"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "99,9% só no Flex"
+      },
+      {
+        "letter": "D",
+        "text": "99,99% no Consumo"
       }
     ],
     "correct": ["A"],
@@ -2006,22 +2006,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sem SLA de execução"
-      },
-      {
-        "letter": "B",
         "text": "99,95% igual ao Premium"
       },
       {
+        "letter": "B",
+        "text": "99,9% com reserva"
+      },
+      {
         "letter": "C",
-        "text": "99,99% serverless"
+        "text": "Sem SLA de execução"
       },
       {
         "letter": "D",
-        "text": "99,9% com reserva"
+        "text": "99,99% serverless"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Consumption não contrata SLA; Premium/Dedicado têm 99,95%. Equiparar ignora a diferença de compromisso entre planos.",
     "source": "original",
     "tags": ["sla", "consumption", "functions"],

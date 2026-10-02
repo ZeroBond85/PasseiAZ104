@@ -162,7 +162,9 @@ create policy "suggestions own" on public.az104_study_suggestions
 
 -- -------------------------------------------------------------------------
 -- 6. az104_admin_logs — auditoria de acoes administrativas.
---    Sem UI própria em v7.0: consultar via SQL Editor (owner) / exports.
+--    Escrita pelo app: src/sync/admin.ts (changeUserRole -> role.change).
+--    Leitura na aba Admin > Auditoria (admin-panel.ts). Owner tambem pode
+--    consultar via SQL Editor / exportar.
 -- -------------------------------------------------------------------------
 create table if not exists public.az104_admin_logs (
   id uuid not null primary key default gen_random_uuid(),

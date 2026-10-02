@@ -33,7 +33,7 @@ Um app de estudos em **português (Brasil)** que simula a prova real (formato Pe
 
 ## Banco de questões
 
-**950 questões autorais em PT-BR** (a prova oficial existe em Português (Brasil) — este portal foi feito para ela), com explicação do porquê de cada erro, distribuídas como a prova:
+**1000 questões autorais em PT-BR** (a prova oficial existe em Português (Brasil) — este portal foi feito para ela), com explicação do porquê de cada erro, distribuídas como a prova:
 
 | Domínio | Questões |
 |---|---|
@@ -51,7 +51,26 @@ Cada questão passa por validação automática (schema + regras por tipo + anti
 Procedência: questões **elaboradas em PT-BR** a partir de simulados, cursos especializados
 e da documentação oficial da Microsoft, mapeadas 1:1 para o outline oficial vigente
 (skills 17/04/2026 — `syllabus-gap` prova cobertura total, sem gaps).
-Não são cópias de questões da prova; explicações e Study Hub apontam para a documentação oficial.
+Não são cópias de questões da prova.
+
+**Estado do ancoramento (honesto):** hoje **51 das 1000** questões estão ancoradas em uma página
+específica da documentação oficial em PT-BR, com o link verificado a cada curadoria
+(`npm run grounding:probe`). As outras 949 estão mapeadas 1:1 para o outline oficial, mas ainda sem
+`sourceUrl` individual. As explicações e o Study Hub apontam para a documentação oficial; os links
+"estudar depois" só ficam completos quando o ancoramento das 949 fechar.
+
+Dessas 51, a revisão factual de 2026-10-02 leu **uma a uma na fonte**: **49 confirmadas** e
+**2 corrigidas** (uma ensinava um recurso já aposentado — logs de fluxo do NSG — e outra estava
+ancorada na página errada). Das 9 que ficaram com lacuna declarada, nenhuma foi aprovada com
+Gibraltar nem trocada por um link qualquer: **6 ganharam âncora nova** depois de leitura da
+fonte e **3 se revelaram certas na página que já tinham** — o veredito_lexical é só uma
+aproximação, e ele reprovou âncoras boas e deixou passar outras.
+
+O mapa de âncoras por skill (82/82) tem verificação de duas naturezas: `grounding:probe` confere
+que a URL responde 200 em PT-BR, e `npm run grounding:audit` confere que a página **é mesmo sobre o
+que o bullet diz** — o vocabulário do bullet precisa aparecer no título da página, não só no corpo.
+As duas são o que impede "link válido, assunto errado", que é o erro mais caro aqui porque passa
+invisível até alguém estudar pelo link errado.
 
 ## Como estudar (rotina sugerida)
 
@@ -77,7 +96,7 @@ npm run dev        # ambiente de desenvolvimento
 npm run lint       # Biome (formato + regras)
 npm run build      # tsc + build de produção
 npm run test       # Vitest (unit + integração)
-npm run validate   # valida as 950 questões (schema + unicidade + dedup)
+npm run validate   # valida as 1000 questões (schema + unicidade + dedup)
 npm run ci         # tudo acima, em sequência
 npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 ```
@@ -104,9 +123,9 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 
 ## Qualidade (números verificáveis)
 
-- `npm run ci` verde: lint (Biome) + `tsc` + 66 testes unit + validate 950/0
+- `npm run ci` verde: lint (Biome) + `tsc` + 115 testes unit + validate 1000/0
 - e2e (16 specs): quiz fim-a-fim, treino (sem `alert`), offline (IDB + SW cache), tema/flags/timer, **axe 0 violações**
-- Lighthouse ≥90/90/90 (perf/a11y/boas práticas) · JS 123.5KB/teto 140KB gzip
+- Lighthouse ≥90/90/90 (perf/a11y/boas práticas) · JS 125.8KB/teto 140KB gzip
 - Hooks: pre-commit <10s (segredos, lint, tamanho) · pre-push roda o CI completo
 - Segurança: `.env` nunca commitado (gitleaks), senha Postgres nunca em chat/repo, RLS como fronteira, CSP via meta tag
 - Curadoria mensal automática: links MS Learn, banco, outline oficial + backup semanal
@@ -118,7 +137,7 @@ Leia `CONTRIBUTING.md`, `REGRAS.md` e `docs/QUESTION-GUIDELINES.md`. Resumo: que
 ## Para quem é
 
 Para quem vai fazer a **prova oficial AZ-104 em português** (Microsoft Azure Administrator
-Associate): simulado no formato real da prova, 950 questões em PT-BR, revisão espaçada,
+Associate): simulado no formato real da prova, 1000 questões em PT-BR, revisão espaçada,
 guia de estudo com links oficiais da Microsoft — e um painel que mostra quando você
 está pronto para marcar a prova. Grátis e offline.
 

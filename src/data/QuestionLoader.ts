@@ -7,9 +7,9 @@ import {
 import { logger } from '../utils/logger.js'
 
 const VERSION_KEY = 'az104-seed-version'
-export const SEED_VERSION = '1'
+export const SEED_VERSION = '2'
 
-// ADR-001: fetch() + precache SW + IDB primeiro. Bundle nunca carrega as ~950.
+// ADR-001: fetch() + precache SW + IDB primeiro. Bundle nunca carrega as ~1000.
 export async function ensureSeeded(): Promise<{
   seeded: boolean
   count: number
@@ -107,12 +107,15 @@ export function formatBankDate(iso: string): string {
     .replace('.', '')
 }
 
-// Linha pronta p/ UI ("Banco de 950 questões em português · atualizado em set de 2026").
+// Linha pronta p/ UI ("Banco de 1000 questões em português · atualizado em ...").
 // '' = não exibir (falha silenciosa; IDB continua fonte de leitura).
+// Nunca anuncia total não semeado: IDB com menos que meta.total = seed pendente.
 export async function getBankLine(): Promise<string> {
   const m = await getBankMeta()
   if (!m || m.total <= 0) return ''
   const when = formatBankDate(m.updatedAt)
   if (!when) return ''
+  const seeded = await questionsCount().catch(() => 0)
+  if (seeded < m.total) return ''
   return `Banco de ${m.total} questões em português · atualizado em ${when}`
 }

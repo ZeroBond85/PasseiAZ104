@@ -12,6 +12,9 @@
   Antes da Sprint 2 o SW só fazia precache do shell (o nome antigo do ADR era enganoso).
 - Falha parcial de seed nunca marca versão (throw + retry na UI, LESSONS 2026-09-25).
 - Bundle nunca embute o banco.
+- **Exceção (2026-09-26, PLAN-4 A5):** `src/study/topics.ts` importa `data/study-topics.json`
+  (~20 KB) no bundle — fail-fast intencional para carregar a taxonomia antes do SW/IDB.
+  Refatorar para fetch+cache é opcional pós-prova; não bloqueia a prova.
 
 ## ADR-002 — Writer único de sessão
 

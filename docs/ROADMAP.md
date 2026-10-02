@@ -1,8 +1,10 @@
 # ROADMAP.md — PasseiAZ-104
 
-> Estado: banco 950/950 + PLAN-3 executado (Sprints 1–5, QA local ✅).
+> Estado: banco 1000/1000 + PLAN-3 executado (Sprints 1–5, QA local ✅).
 > Falta (humano): migration 004 no Supabase · validar admin com 2 usuários ·
 > SMTP próprio · estudo até §12 · iOS físico · checklist GitHub Settings (Sprint 5d).
+> Abertas no repo: as **175 autoavaliações** viram 1000 ancoradas, e o **R3 das 949**
+> é o gargalo antes da prova.
 
 ## Antes da prova (restante)
 

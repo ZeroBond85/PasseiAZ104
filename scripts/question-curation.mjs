@@ -13,13 +13,17 @@ const SKIP = new Set([
   'case-studies.json',
   'study-topics.json',
   'exam-syllabus.json',
+  'exam-skills.json',
+  'grounding-map.json',
   'irt-params.json',
 ])
 const TIMEOUT_MS = 12000
-const CONCURRENCY = 6
+// PLAN-4 R4: banco 1000 → ~150-400 URLs únicas; concorrência 10 + 1 retry
+// para não estourar o job mensal (timeout 25min no workflow).
+const CONCURRENCY = 10
 const NEEDS_REVIEW_LIMIT = 50
 
-async function head(url) {
+async function headOnce(url) {
   const ctrl = new AbortController()
   const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS)
   try {
@@ -35,6 +39,12 @@ async function head(url) {
   } finally {
     clearTimeout(t)
   }
+}
+
+async function head(url) {
+  const first = await headOnce(url)
+  if (first === null) return null
+  return headOnce(url)
 }
 
 async function main() {

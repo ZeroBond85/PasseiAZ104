@@ -27,6 +27,18 @@
 - App prefere Supabase com fallback p/ JSON embarcado (offline-first intacto).
 - Re-seed manual após merge de PR de links (instrução na migration 004).
 
+## Grounding por questão ≠ topics do Study Hub
+
+Duas coisas diferentes, e só uma delas é o "link da questão":
+
+- **Topics** (`data/study-topics.json`, 34): cobrem os *temas*. Toda questão herda o topic pelo
+  `subdomain`, mesmo sem link próprio.
+- **Grounding** (`data/grounding-map.json`): liga a *questão* a uma página específica. Hoje
+  **51 das 1000** têm isso.
+
+Então o Study Hub mostra link para as 1000, mas só 51 têm âncora que sustenta a pergunta
+literalmente. Isso é o R3 (retrofit das 949 restantes); não é bug do espelho de topics.
+
 ## Propor um link
 
 PR editando `data/study-topics.json` + `node scripts/validate-study-links.mjs` verde.

@@ -7,12 +7,24 @@
     "difficulty": "easy",
     "question": "Você precisa segmentar uma rede virtual 10.0.0.0/16 em sub-redes para web, aplicação e banco de dados. Qual prefixo de sub-rede comporta cerca de 250 hosts utilizáveis em cada camada?",
     "options": [
-      { "letter": "A", "text": "10.0.1.0/24 para cada sub-rede" },
-      { "letter": "B", "text": "10.0.1.0/30 para cada sub-rede" },
-      { "letter": "C", "text": "10.0.0.0/16 repetido em cada camada" },
-      { "letter": "D", "text": "192.168.0.0/8 sobreposto à VNet" }
+      {
+        "letter": "A",
+        "text": "10.0.0.0/16 repetido em cada camada"
+      },
+      {
+        "letter": "B",
+        "text": "10.0.1.0/30 para cada sub-rede"
+      },
+      {
+        "letter": "C",
+        "text": "192.168.0.0/8 sobreposto à VNet"
+      },
+      {
+        "letter": "D",
+        "text": "10.0.1.0/24 para cada sub-rede"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "/24 entrega 251 IPs utilizáveis (Azure reserva 5), ideal por camada. /30 só tem 2 úteis; repetir /16 sobrepõe e é inválido; 192.168/8 externo não segmenta a VNet.",
     "source": "original",
     "tags": ["vnet", "subnets", "cidr"],
@@ -30,13 +42,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Regra 443 Allow de * + regra 22 Allow só de 200.10.5.1 com prioridade maior"
+        "text": "Regra única Allow * para todas as portas"
       },
-      { "letter": "B", "text": "Regra única Allow * para todas as portas" },
-      { "letter": "C", "text": "Regra Deny 443 de qualquer origem" },
-      { "letter": "D", "text": "NSG aplicada apenas no gateway da VPN" }
+      {
+        "letter": "B",
+        "text": "NSG aplicada apenas no gateway da VPN"
+      },
+      {
+        "letter": "C",
+        "text": "Regra Deny 443 de qualquer origem"
+      },
+      {
+        "letter": "D",
+        "text": "Regra 443 Allow de * + regra 22 Allow só de 200.10.5.1 com prioridade maior"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Duas regras de entrada: 443 aberta e 22 restrita ao IP (prioridade menor número = avaliada antes do Deny padrão). Abrir tudo viola; negar 443 quebra o site; NSG em gateway não filtra a VM.",
     "source": "original",
     "tags": ["nsg", "regras", "prioridade"],
@@ -52,12 +73,24 @@
     "difficulty": "easy",
     "question": "Duas VNets na mesma região com espaços 10.1.0.0/16 e 10.2.0.0/16 precisam comunicar com latência de backbone. Qual recurso conecta as duas sem gateway?",
     "options": [
-      { "letter": "A", "text": "Emparelhamento de VNet (VNet Peering)" },
-      { "letter": "B", "text": "VPN site-to-site entre as VNets" },
-      { "letter": "C", "text": "IP público nas VMs com NSG aberta" },
-      { "letter": "D", "text": "Rota 0.0.0.0/0 para a internet" }
+      {
+        "letter": "A",
+        "text": "Rota 0.0.0.0/0 para a internet"
+      },
+      {
+        "letter": "B",
+        "text": "VPN site-to-site entre as VNets"
+      },
+      {
+        "letter": "C",
+        "text": "Emparelhamento de VNet (VNet Peering)"
+      },
+      {
+        "letter": "D",
+        "text": "IP público nas VMs com NSG aberta"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Peering une VNets pelo backbone com baixa latência e sem gateway. VPN entre VNets (VNet-to-VNet) exige gateways e é mais lenta; IP público expõe; rota default não conecta redes privadas.",
     "source": "original",
     "tags": ["peering", "vnet"],
@@ -73,12 +106,24 @@
     "difficulty": "easy",
     "question": "VMs em VNets emparelhadas precisam resolver app.privado.local para o IP privado do App Service com Private Endpoint. Qual zona DNS resolve esse nome internamente?",
     "options": [
-      { "letter": "A", "text": "Zona DNS Privada do Azure vinculada às VNets" },
-      { "letter": "B", "text": "Zona DNS pública na internet" },
-      { "letter": "C", "text": "Arquivo hosts editado em cada VM" },
-      { "letter": "D", "text": "DNS do provedor de internet local" }
+      {
+        "letter": "A",
+        "text": "Zona DNS pública na internet"
+      },
+      {
+        "letter": "B",
+        "text": "DNS do provedor de internet local"
+      },
+      {
+        "letter": "C",
+        "text": "Zona DNS Privada do Azure vinculada às VNets"
+      },
+      {
+        "letter": "D",
+        "text": "Arquivo hosts editado em cada VM"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Zona privada vinculada às VNets resolve nomes internos com registros automáticos do Private Endpoint. Zona pública expõe; hosts não escala; DNS do ISP não conhece a zona privada.",
     "source": "original",
     "tags": ["dns-privado", "private-endpoint"],
@@ -94,12 +139,24 @@
     "difficulty": "easy",
     "question": "O escritório precisa de túnel criptografado permanente até a VNet do Azure pela internet. Qual recurso cria esse túnel site-to-site?",
     "options": [
-      { "letter": "A", "text": "Gateway de VPN com conexão IPsec/IKE" },
-      { "letter": "B", "text": "Load Balancer com regra NAT" },
-      { "letter": "C", "text": "Bastion na VNet" },
-      { "letter": "D", "text": "Rota definida pelo usuário para 0.0.0.0/0" }
+      {
+        "letter": "A",
+        "text": "Rota definida pelo usuário para 0.0.0.0/0"
+      },
+      {
+        "letter": "B",
+        "text": "Gateway de VPN com conexão IPsec/IKE"
+      },
+      {
+        "letter": "C",
+        "text": "Load Balancer com regra NAT"
+      },
+      {
+        "letter": "D",
+        "text": "Bastion na VNet"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "VPN Gateway termina túneis IPsec site-to-site e ponto-a-site. Load Balancer distribui, não tunela; Bastion dá shell, não rede; UDR sozinha não criptografa.",
     "source": "original",
     "tags": ["vpn", "site-to-site", "ipsec"],
@@ -115,12 +172,24 @@
     "difficulty": "easy",
     "question": "O banco exige link privado dedicado ao Azure sem passar pela internet pública, com SLA de conectividade. Qual serviço fornece esse circuito privado?",
     "options": [
-      { "letter": "A", "text": "ExpressRoute com circuito via provedor" },
-      { "letter": "B", "text": "VPN site-to-site pela internet" },
-      { "letter": "C", "text": "Peering entre VNets" },
-      { "letter": "D", "text": "Front Door com backend privado" }
+      {
+        "letter": "A",
+        "text": "Peering entre VNets"
+      },
+      {
+        "letter": "B",
+        "text": "VPN site-to-site pela internet"
+      },
+      {
+        "letter": "C",
+        "text": "Front Door com backend privado"
+      },
+      {
+        "letter": "D",
+        "text": "ExpressRoute com circuito via provedor"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "ExpressRoute é link privado dedicado com SLA, fora da internet. VPN passa pela internet; peering é entre VNets; Front Door é entrada pública, não link privado.",
     "source": "original",
     "tags": ["expressroute", "link-privado"],
@@ -136,12 +205,24 @@
     "difficulty": "easy",
     "question": "Três VMs precisam receber tráfego TCP na porta 80 distribuído igualmente, com IP público único na frente. Qual recurso distribui esse tráfego na camada 4?",
     "options": [
-      { "letter": "A", "text": "Load Balancer Standard com pool de backend" },
-      { "letter": "B", "text": "Application Gateway sem listener" },
-      { "letter": "C", "text": "Traffic Manager com perfil aninhado" },
-      { "letter": "D", "text": "NSG com regra de balanceamento" }
+      {
+        "letter": "A",
+        "text": "NSG com regra de balanceamento"
+      },
+      {
+        "letter": "B",
+        "text": "Load Balancer Standard com pool de backend"
+      },
+      {
+        "letter": "C",
+        "text": "Application Gateway sem listener"
+      },
+      {
+        "letter": "D",
+        "text": "Traffic Manager com perfil aninhado"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Load Balancer distribui TCP/UDP (L4) pelo frontend IP ao backend pool. App Gateway sem listener não recebe; Traffic Manager é DNS; NSG filtra, não balanceia.",
     "source": "original",
     "tags": ["load-balancer", "camada-4"],
@@ -161,9 +242,18 @@
         "letter": "A",
         "text": "Application Gateway com WAF e regras de roteamento"
       },
-      { "letter": "B", "text": "Load Balancer Básico" },
-      { "letter": "C", "text": "VPN Gateway com BGP" },
-      { "letter": "D", "text": "DNS privado com registros A" }
+      {
+        "letter": "B",
+        "text": "DNS privado com registros A"
+      },
+      {
+        "letter": "C",
+        "text": "VPN Gateway com BGP"
+      },
+      {
+        "letter": "D",
+        "text": "Load Balancer Básico"
+      }
     ],
     "correct": ["A"],
     "explanation": "App Gateway opera em L7 (host/URL) e o WAF filtra OWASP. LB Básico é L4 sem SLA; VPN não balanceia HTTP; DNS não inspeciona conteúdo.",
@@ -181,12 +271,24 @@
     "difficulty": "easy",
     "question": "VMs sem IP público precisam sair à internet por um único IP fixo para allowlist do parceiro. Qual recurso fornece SNAT com IP previsível?",
     "options": [
-      { "letter": "A", "text": "NAT Gateway com IP público fixo na sub-rede" },
-      { "letter": "B", "text": "IP público em cada VM" },
-      { "letter": "C", "text": "Load Balancer com regra de entrada" },
-      { "letter": "D", "text": "Rota para firewall sem SNAT" }
+      {
+        "letter": "A",
+        "text": "Rota para firewall sem SNAT"
+      },
+      {
+        "letter": "B",
+        "text": "Load Balancer com regra de entrada"
+      },
+      {
+        "letter": "C",
+        "text": "IP público em cada VM"
+      },
+      {
+        "letter": "D",
+        "text": "NAT Gateway com IP público fixo na sub-rede"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "NAT Gateway centraliza a saída da sub-rede em IP fixo. IP por VM multiplica allowlist; LB de entrada não faz saída; rota sem SNAT não traduz origem.",
     "source": "original",
     "tags": ["nat-gateway", "snat", "saida"],
@@ -202,10 +304,22 @@
     "difficulty": "easy",
     "question": "Todo o tráfego de saída das VNets precisa passar por inspeção central com regras de FQDN e TLS. Qual serviço filtra esse tráfego como firewall gerenciado?",
     "options": [
-      { "letter": "A", "text": "Azure Firewall com políticas e inspeção TLS" },
-      { "letter": "B", "text": "NSG com regras de porta" },
-      { "letter": "C", "text": "Route table sem próximo salto" },
-      { "letter": "D", "text": "Bastion com sessão gravada" }
+      {
+        "letter": "A",
+        "text": "Azure Firewall com políticas e inspeção TLS"
+      },
+      {
+        "letter": "B",
+        "text": "NSG com regras de porta"
+      },
+      {
+        "letter": "C",
+        "text": "Route table sem próximo salto"
+      },
+      {
+        "letter": "D",
+        "text": "Bastion com sessão gravada"
+      }
     ],
     "correct": ["A"],
     "explanation": "Firewall inspeciona L3-L7 com FQDN e TLS centralizados. NSG filtra portas sem inspeção de conteúdo; UDR sozinha não filtra; Bastion dá acesso, não filtra saída.",
@@ -223,12 +337,24 @@
     "difficulty": "easy",
     "question": "Uma conta de armazenamento deve ser acessada só por IP privado dentro da VNet, sem endpoint público. Qual recurso projeta o serviço PaaS para dentro da rede?",
     "options": [
-      { "letter": "A", "text": "Private Endpoint com Private Link" },
-      { "letter": "B", "text": "Service Endpoint aberto à internet" },
-      { "letter": "C", "text": "SAS com IP liberado" },
-      { "letter": "D", "text": "Firewall da conta com Allow All" }
+      {
+        "letter": "A",
+        "text": "Service Endpoint aberto à internet"
+      },
+      {
+        "letter": "B",
+        "text": "Firewall da conta com Allow All"
+      },
+      {
+        "letter": "C",
+        "text": "Private Endpoint com Private Link"
+      },
+      {
+        "letter": "D",
+        "text": "SAS com IP liberado"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Private Endpoint cria NIC privada para o PaaS, sem tráfego público. Service Endpoint estende a VNet mas mantém endpoint público; SAS é credencial, não rede; Allow All expõe.",
     "source": "original",
     "tags": ["private-endpoint", "private-link", "paas"],
@@ -244,12 +370,24 @@
     "difficulty": "easy",
     "question": "Usuários globais devem cair no App Service mais próximo (Brasil ou Europa) automaticamente. Qual serviço dirige por DNS com base em geografia?",
     "options": [
-      { "letter": "A", "text": "Traffic Manager com roteamento geográfico" },
-      { "letter": "B", "text": "Load Balancer regional único" },
-      { "letter": "C", "text": "VNet peering global" },
-      { "letter": "D", "text": "Zona DNS privada" }
+      {
+        "letter": "A",
+        "text": "Load Balancer regional único"
+      },
+      {
+        "letter": "B",
+        "text": "Traffic Manager com roteamento geográfico"
+      },
+      {
+        "letter": "C",
+        "text": "Zona DNS privada"
+      },
+      {
+        "letter": "D",
+        "text": "VNet peering global"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Traffic Manager responde DNS por método (geográfico, performance, prioridade). LB é regional; peering conecta redes; zona privada não resolve internet.",
     "source": "original",
     "tags": ["traffic-manager", "dns", "global"],
@@ -265,10 +403,22 @@
     "difficulty": "easy",
     "question": "Um site global precisa de entrada única com aceleração, WAF e failover entre regiões. Qual borda global entrega esses três juntos?",
     "options": [
-      { "letter": "A", "text": "Azure Front Door (Standard/Premium)" },
-      { "letter": "B", "text": "Application Gateway regional" },
-      { "letter": "C", "text": "Bastion por região" },
-      { "letter": "D", "text": "VPN ponto a site" }
+      {
+        "letter": "A",
+        "text": "Azure Front Door (Standard/Premium)"
+      },
+      {
+        "letter": "B",
+        "text": "Application Gateway regional"
+      },
+      {
+        "letter": "C",
+        "text": "Bastion por região"
+      },
+      {
+        "letter": "D",
+        "text": "VPN ponto a site"
+      }
     ],
     "correct": ["A"],
     "explanation": "Front Door é CDN+borda global com WAF e failover multirregião. App Gateway é regional; Bastion é acesso VM; VPN não publica site.",
@@ -290,9 +440,18 @@
         "letter": "A",
         "text": "Tabela de rotas (UDR) associada à sub-rede do banco"
       },
-      { "letter": "B", "text": "Tabela de rotas associada ao firewall" },
-      { "letter": "C", "text": "NSG do firewall com rota" },
-      { "letter": "D", "text": "Peering com gateway desativado" }
+      {
+        "letter": "B",
+        "text": "NSG do firewall com rota"
+      },
+      {
+        "letter": "C",
+        "text": "Tabela de rotas associada ao firewall"
+      },
+      {
+        "letter": "D",
+        "text": "Peering com gateway desativado"
+      }
     ],
     "correct": ["A"],
     "explanation": "UDR associada à sub-rede de origem redireciona o próximo salto ao firewall. Associar no firewall não afeta a origem; NSG não roteia; peering sem gateway não inspeciona.",
@@ -310,12 +469,24 @@
     "difficulty": "easy",
     "question": "VMs precisam acessar o Storage sem sair para a internet, identificando-se pela sub-rede no firewall da conta. Qual recurso estende a identidade da VNet ao serviço?",
     "options": [
-      { "letter": "A", "text": "Service Endpoint da sub-rede para o Storage" },
-      { "letter": "B", "text": "Private Endpoint com DNS privado" },
-      { "letter": "C", "text": "IP público na VM com SAS" },
-      { "letter": "D", "text": "ExpressRoute com peering público" }
+      {
+        "letter": "A",
+        "text": "ExpressRoute com peering público"
+      },
+      {
+        "letter": "B",
+        "text": "IP público na VM com SAS"
+      },
+      {
+        "letter": "C",
+        "text": "Service Endpoint da sub-rede para o Storage"
+      },
+      {
+        "letter": "D",
+        "text": "Private Endpoint com DNS privado"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Service Endpoint mantém o tráfego no backbone e permite filtrar por sub-rede no firewall da conta. Private Endpoint também isola, mas com IP privado (outro desenho); IP público sai à internet; peering público é para serviços Microsoft via ExpressRoute.",
     "source": "original",
     "tags": ["service-endpoint", "storage"],
@@ -331,12 +502,24 @@
     "difficulty": "easy",
     "question": "Administradores precisam de RDP via navegador sem expor portas das VMs. Qual sub-rede especial o Bastion exige na VNet?",
     "options": [
-      { "letter": "A", "text": "AzureBastionSubnet com /26 ou maior" },
-      { "letter": "B", "text": "GatewaySubnet compartilhada" },
-      { "letter": "C", "text": "Qualquer sub-rede com NSG aberta" },
-      { "letter": "D", "text": "Sub-rede com delegação ao App Service" }
+      {
+        "letter": "A",
+        "text": "Sub-rede com delegação ao App Service"
+      },
+      {
+        "letter": "B",
+        "text": "GatewaySubnet compartilhada"
+      },
+      {
+        "letter": "C",
+        "text": "Qualquer sub-rede com NSG aberta"
+      },
+      {
+        "letter": "D",
+        "text": "AzureBastionSubnet com /26 ou maior"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Bastion exige sub-rede dedicada AzureBastionSubnet (/26+). GatewaySubnet é do gateway VPN; qualquer sub-rede não serve; delegação é para PaaS, não Bastion.",
     "source": "original",
     "tags": ["bastion", "sub-rede"],
@@ -354,13 +537,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Diagnóstico de inicialização da VM"
+      },
+      {
+        "letter": "B",
         "text": "Verificação de fluxo IP (IP Flow Verify) do Network Watcher"
       },
-      { "letter": "B", "text": "Log de atividade da assinatura" },
-      { "letter": "C", "text": "Métricas de CPU da VM" },
-      { "letter": "D", "text": "Diagnóstico de inicialização da VM" }
+      {
+        "letter": "C",
+        "text": "Métricas de CPU da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Log de atividade da assinatura"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "IP Flow Verify simula o pacote contra NSGs e diz permitir/negar com a regra. Log de atividade registra operações ARM; CPU não mostra rede; boot diagnostics mostra console.",
     "source": "original",
     "tags": ["network-watcher", "ip-flow-verify", "nsg"],
@@ -380,9 +572,18 @@
         "letter": "A",
         "text": "Ponto a site (P2S) com autenticação por certificado"
       },
-      { "letter": "B", "text": "Site a site com dispositivo VPN local" },
-      { "letter": "C", "text": "Peering entre VNets" },
-      { "letter": "D", "text": "ExpressRoute com circuito dedicado" }
+      {
+        "letter": "B",
+        "text": "Peering entre VNets"
+      },
+      {
+        "letter": "C",
+        "text": "ExpressRoute com circuito dedicado"
+      },
+      {
+        "letter": "D",
+        "text": "Site a site com dispositivo VPN local"
+      }
     ],
     "correct": ["A"],
     "explanation": "P2S conecta clientes individuais via certificado/RADIUS. S2S liga redes inteiras via appliance; peering é VNet-VNet; ExpressRoute é link dedicado corporativo.",
@@ -402,13 +603,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Sub-rede delegada ao App Service"
+      },
+      {
+        "letter": "B",
+        "text": "Nome GatewaySubnet com /29"
+      },
+      {
+        "letter": "C",
         "text": "Nome exato GatewaySubnet, sem NSG e /27 ou maior"
       },
-      { "letter": "B", "text": "Qualquer nome com NSG restritiva" },
-      { "letter": "C", "text": "Nome GatewaySubnet com /29" },
-      { "letter": "D", "text": "Sub-rede delegada ao App Service" }
+      {
+        "letter": "D",
+        "text": "Qualquer nome com NSG restritiva"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Gateway exige GatewaySubnet, sem NSG/UDR e /27+ para IPs do cluster ativo-passivo. Nome livre, NSG ou /29 quebram o deploy; delegação é para outros PaaS.",
     "source": "original",
     "tags": ["vpn", "gateway-subnet"],
@@ -426,13 +636,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Zona DNS privada vinculada ao hub com propagação via peering"
+        "text": "DNS externo com forward condicional"
       },
-      { "letter": "B", "text": "Zona pública replicada por região" },
-      { "letter": "C", "text": "Hosts file distribuído por extensão" },
-      { "letter": "D", "text": "DNS externo com forward condicional" }
+      {
+        "letter": "B",
+        "text": "Zona pública replicada por região"
+      },
+      {
+        "letter": "C",
+        "text": "Hosts file distribuído por extensão"
+      },
+      {
+        "letter": "D",
+        "text": "Zona DNS privada vinculada ao hub com propagação via peering"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Zona vinculada ao hub resolve para spokes emparelhados (com link e sem sobreposição). Zona pública expõe; hosts não escala; DNS externo não conhece a zona privada.",
     "source": "original",
     "tags": ["dns-privado", "hub-spoke"],
@@ -450,13 +669,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Peering não é transitivo; usar gateway transit ou UDR via firewall do hub"
+        "text": "Peering é transitivo por padrão"
       },
-      { "letter": "B", "text": "Peering é transitivo por padrão" },
-      { "letter": "C", "text": "Basta criar DNS privado em C" },
-      { "letter": "D", "text": "Basta abrir NSG em A" }
+      {
+        "letter": "B",
+        "text": "Basta criar DNS privado em C"
+      },
+      {
+        "letter": "C",
+        "text": "Basta abrir NSG em A"
+      },
+      {
+        "letter": "D",
+        "text": "Peering não é transitivo; usar gateway transit ou UDR via firewall do hub"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Peering não transita: A não alcança C via B sem permitir trânsito de gateway ou rotas pelo firewall. DNS e NSG não criam rota; transitividade exige desenho hub-spoke explícito.",
     "source": "original",
     "tags": ["peering", "transitividade", "hub-spoke"],
@@ -472,12 +700,24 @@
     "difficulty": "medium",
     "question": "Uma regra precisa liberar o acesso ao Storage e ao SQL sem listar centenas de IPs que mudam. Qual construção representa esses serviços na NSG?",
     "options": [
-      { "letter": "A", "text": "Tags de serviço (Storage, Sql) como destino" },
-      { "letter": "B", "text": "IPs fixos manuais por região" },
-      { "letter": "C", "text": "Allow All de saída" },
-      { "letter": "D", "text": "DNS reverso dinâmico" }
+      {
+        "letter": "A",
+        "text": "DNS reverso dinâmico"
+      },
+      {
+        "letter": "B",
+        "text": "Tags de serviço (Storage, Sql) como destino"
+      },
+      {
+        "letter": "C",
+        "text": "IPs fixos manuais por região"
+      },
+      {
+        "letter": "D",
+        "text": "Allow All de saída"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Service tags agrupam prefixos dos serviços gerenciados pela Microsoft. IPs manuais quebram a cada mudança; Allow All viola; DNS reverso não é origem válida de regra.",
     "source": "original",
     "tags": ["nsg", "service-tags"],
@@ -493,12 +733,24 @@
     "difficulty": "medium",
     "question": "Instâncias doentes continuam recebendo tráfego porque o probe valida só TCP na porta. O que garante remoção de instância com aplicativo travado mas porta aberta?",
     "options": [
-      { "letter": "A", "text": "Probe HTTP com caminho de saúde da aplicação" },
-      { "letter": "B", "text": "Probe TCP com intervalo maior" },
-      { "letter": "C", "text": "Desabilitar o probe do backend" },
-      { "letter": "D", "text": "Aumentar o timeout de ociosidade" }
+      {
+        "letter": "A",
+        "text": "Desabilitar o probe do backend"
+      },
+      {
+        "letter": "B",
+        "text": "Aumentar o timeout de ociosidade"
+      },
+      {
+        "letter": "C",
+        "text": "Probe TCP com intervalo maior"
+      },
+      {
+        "letter": "D",
+        "text": "Probe HTTP com caminho de saúde da aplicação"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Probe HTTP valida resposta da app (200 no /health), detectando trava lógica. TCP só checa handshake; sem probe tudo recebe; timeout de ociosidade é sobre conexão, não saúde.",
     "source": "original",
     "tags": ["load-balancer", "health-probe", "http"],
@@ -516,16 +768,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Listener HTTPS com certificado referenciado do Key Vault"
+        "text": "Certificado PFX enviado por e-mail ao gateway"
       },
       {
         "letter": "B",
-        "text": "Certificado PFX enviado por e-mail ao gateway"
+        "text": "Listener HTTPS com certificado referenciado do Key Vault"
       },
-      { "letter": "C", "text": "Backend HTTP sem TLS" },
-      { "letter": "D", "text": "Probe TCP na porta 443" }
+      {
+        "letter": "C",
+        "text": "Backend HTTP sem TLS"
+      },
+      {
+        "letter": "D",
+        "text": "Probe TCP na porta 443"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Listener referencia o segredo no Key Vault (com identidade gerenciada) e acompanha renovações. PFX por e-mail é inseguro e estático; backend HTTP quebra fim-a-fim; probe não termina TLS.",
     "source": "original",
     "tags": ["app-gateway", "tls", "key-vault"],
@@ -543,13 +801,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "NSG global única"
+      },
+      {
+        "letter": "B",
         "text": "Política de Firewall com grupos de regras herdados"
       },
-      { "letter": "B", "text": "Regras locais repetidas por firewall" },
-      { "letter": "C", "text": "NSG global única" },
-      { "letter": "D", "text": "UDR com regras de aplicativo" }
+      {
+        "letter": "C",
+        "text": "Regras locais repetidas por firewall"
+      },
+      {
+        "letter": "D",
+        "text": "UDR com regras de aplicativo"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Firewall Policy centraliza rule collections com herança pai-filho. Regras locais divergem; NSG não é global nem L7; UDR roteia, não filtra conteúdo.",
     "source": "original",
     "tags": ["firewall", "policy", "regras"],
@@ -565,12 +832,24 @@
     "difficulty": "medium",
     "question": "Dois túneis S2S ativo-ativo precisam escolher rotas dinamicamente sem UDR manual por prefixo. Qual protocolo o gateway usa para trocar rotas?",
     "options": [
-      { "letter": "A", "text": "BGP entre gateway Azure e dispositivo local" },
-      { "letter": "B", "text": "DNS dinâmico nos túneis" },
-      { "letter": "C", "text": "ARP entre gateways" },
-      { "letter": "D", "text": "RIP versão 1" }
+      {
+        "letter": "A",
+        "text": "DNS dinâmico nos túneis"
+      },
+      {
+        "letter": "B",
+        "text": "RIP versão 1"
+      },
+      {
+        "letter": "C",
+        "text": "BGP entre gateway Azure e dispositivo local"
+      },
+      {
+        "letter": "D",
+        "text": "ARP entre gateways"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "BGP anuncia prefixos e converte em failover ativo-ativo. DNS não roteia; ARP é enlace local; RIPv1 é obsoleto e sem suporte.",
     "source": "original",
     "tags": ["vpn", "bgp", "ativo-ativo"],
@@ -590,9 +869,18 @@
         "letter": "A",
         "text": "Peering Microsoft (365/serviços) e peering Privado (VNets)"
       },
-      { "letter": "B", "text": "Dois peerings privados idênticos" },
-      { "letter": "C", "text": "Peering público para VNets" },
-      { "letter": "D", "text": "Um único peering para tudo" }
+      {
+        "letter": "B",
+        "text": "Peering público para VNets"
+      },
+      {
+        "letter": "C",
+        "text": "Um único peering para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "Dois peerings privados idênticos"
+      }
     ],
     "correct": ["A"],
     "explanation": "Peering Microsoft carrega serviços públicos e o Privado, as VNets. Dois privados duplicam; público não alcança VNet; um só mistura políticas distintas.",
@@ -614,9 +902,18 @@
         "letter": "A",
         "text": "Origens agrupadas em grupos de origem com rotas por padrão"
       },
-      { "letter": "B", "text": "Uma origem única para todos os caminhos" },
-      { "letter": "C", "text": "DNS CNAME direto ao Storage" },
-      { "letter": "D", "text": "NSG na borda global" }
+      {
+        "letter": "B",
+        "text": "Uma origem única para todos os caminhos"
+      },
+      {
+        "letter": "C",
+        "text": "DNS CNAME direto ao Storage"
+      },
+      {
+        "letter": "D",
+        "text": "NSG na borda global"
+      }
     ],
     "correct": ["A"],
     "explanation": "Origin groups com health probe fazem failover e rotas por padrão dividem por caminho. Origem única não separa; CNAME direto perde a borda; NSG não existe no Front Door.",
@@ -636,13 +933,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Monitor de Conexão (Connection Monitor) com testes periódicos"
+        "text": "Topologia estática da VNet"
       },
-      { "letter": "B", "text": "Captura de pacote única" },
-      { "letter": "C", "text": "Topologia estática da VNet" },
-      { "letter": "D", "text": "Diagnóstico de boot da VM" }
+      {
+        "letter": "B",
+        "text": "Captura de pacote única"
+      },
+      {
+        "letter": "C",
+        "text": "Diagnóstico de boot da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Monitor de Conexão (Connection Monitor) com testes periódicos"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Connection Monitor testa periodicamente e gera métricas/alertas. Captura única não historica; topologia é mapa; boot não mede rede.",
     "source": "original",
     "tags": ["network-watcher", "connection-monitor"],
@@ -658,12 +964,24 @@
     "difficulty": "medium",
     "question": "Pacotes entre duas VMs precisam ser inspecionados no Wireshark por 5 minutos. Qual recurso captura e exporta o tráfego para análise?",
     "options": [
-      { "letter": "A", "text": "Captura de Pacotes do Network Watcher na VM" },
-      { "letter": "B", "text": "Flow log do NSG (apenas metadados)" },
-      { "letter": "C", "text": "Métrica de bytes do Monitor" },
-      { "letter": "D", "text": "Log de DNS privado" }
+      {
+        "letter": "A",
+        "text": "Flow log do NSG (apenas metadados)"
+      },
+      {
+        "letter": "B",
+        "text": "Captura de Pacotes do Network Watcher na VM"
+      },
+      {
+        "letter": "C",
+        "text": "Log de DNS privado"
+      },
+      {
+        "letter": "D",
+        "text": "Métrica de bytes do Monitor"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Packet Capture grava PCAP para Wireshark. Flow log registra 5-tuplas, não payload; métrica agrega bytes; log DNS mostra nomes, não pacotes.",
     "source": "original",
     "tags": ["network-watcher", "packet-capture"],
@@ -681,13 +999,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Habilitação de logs em Blob"
+      },
+      {
+        "letter": "B",
         "text": "Certificado do gateway alterado sem ressincronizar a integração"
       },
-      { "letter": "B", "text": "Escala do plano para Premium" },
-      { "letter": "C", "text": "Criação de slot de homologação" },
-      { "letter": "D", "text": "Habilitação de logs em Blob" }
+      {
+        "letter": "C",
+        "text": "Escala do plano para Premium"
+      },
+      {
+        "letter": "D",
+        "text": "Criação de slot de homologação"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "A integração usa certificados do gateway P2S; trocá-los exige ressincronizar. Escala, slots e logs não quebram o túnel.",
     "source": "original",
     "tags": ["vnet-integration", "certificado", "gateway"],
@@ -705,13 +1032,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "E-mail de alerta por conexão"
+      },
+      {
+        "letter": "B",
         "text": "Logs de fluxo NSG para Log Analytics/Storage com retenção"
       },
-      { "letter": "B", "text": "Console ao vivo do portal" },
-      { "letter": "C", "text": "Métricas de 30 dias do Monitor" },
-      { "letter": "D", "text": "E-mail de alerta por conexão" }
+      {
+        "letter": "C",
+        "text": "Console ao vivo do portal"
+      },
+      {
+        "letter": "D",
+        "text": "Métricas de 30 dias do Monitor"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Flow logs gravam 5-tuplas com retenção configurável no LA/Storage. Console ao vivo não retém; métricas agregam; e-mail por conexão é inviável.",
     "source": "original",
     "tags": ["nsg", "flow-logs", "auditoria"],
@@ -727,10 +1063,22 @@
     "difficulty": "medium",
     "question": "IPs públicos de produção sofrem floods volumétricos e precisam de mitigação automática com telemetria. Qual plano protege esses IPs?",
     "options": [
-      { "letter": "A", "text": "DDoS Protection no nível da VNet" },
-      { "letter": "B", "text": "NSG com limite de taxa (rate limit)" },
-      { "letter": "C", "text": "WAF do Application Gateway" },
-      { "letter": "D", "text": "Bloqueio de IP manual por alerta" }
+      {
+        "letter": "A",
+        "text": "DDoS Protection no nível da VNet"
+      },
+      {
+        "letter": "B",
+        "text": "WAF do Application Gateway"
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio de IP manual por alerta"
+      },
+      {
+        "letter": "D",
+        "text": "NSG com limite de taxa (rate limit)"
+      }
     ],
     "correct": ["A"],
     "explanation": "DDoS Protection mitiga L3/L4 na borda com telemetria. NSG não tem rate limit nativo; WAF protege L7 de apps específicos; bloqueio manual não acompanha flood.",
@@ -750,13 +1098,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Conjunto de regras de encaminhamento do resolvedor privado de DNS"
+        "text": "Zona pública para corp.local"
       },
-      { "letter": "B", "text": "Hosts file idêntico em todas as VMs" },
-      { "letter": "C", "text": "Zona pública para corp.local" },
-      { "letter": "D", "text": "Desabilitar a resolução do Azure" }
+      {
+        "letter": "B",
+        "text": "Desabilitar a resolução do Azure"
+      },
+      {
+        "letter": "C",
+        "text": "Hosts file idêntico em todas as VMs"
+      },
+      {
+        "letter": "D",
+        "text": "Conjunto de regras de encaminhamento do resolvedor privado de DNS"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Private DNS Resolver com ruleset encaminha corp.local ao DNS local e o resto ao Azure. Hosts não escala; zona pública expõe interno; desabilitar quebra a resolução Azure.",
     "source": "original",
     "tags": ["dns", "resolvedor-privado", "encaminhamento", "hibrido"],
@@ -772,12 +1129,24 @@
     "difficulty": "medium",
     "question": "Trinta filiais com VPN e ExpressRoute precisam de hub gerenciado com roteamento automático entre tudo. Qual arquitetura centraliza sem configurar cada peering?",
     "options": [
-      { "letter": "A", "text": "Virtual WAN com hubs e roteamento automático" },
-      { "letter": "B", "text": "Trinta gateways isolados sem hub" },
-      { "letter": "C", "text": "Peering manual em malha completa" },
-      { "letter": "D", "text": "Uma VNet gigante para tudo" }
+      {
+        "letter": "A",
+        "text": "Peering manual em malha completa"
+      },
+      {
+        "letter": "B",
+        "text": "Uma VNet gigante para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Trinta gateways isolados sem hub"
+      },
+      {
+        "letter": "D",
+        "text": "Virtual WAN com hubs e roteamento automático"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "vWAN abstrai hubs com VPN/ER e roteia automaticamente. Gateways isolados não se falam; malha manual não escala; VNet única mistura domínios e limites.",
     "source": "original",
     "tags": ["vwan", "hub", "filiais"],
@@ -797,9 +1166,18 @@
         "letter": "A",
         "text": "Regra de saída (outbound rule) com frontend IP dedicado"
       },
-      { "letter": "B", "text": "Regra de entrada na porta 80" },
-      { "letter": "C", "text": "IP público em cada VM do backend" },
-      { "letter": "D", "text": "Probe TCP na porta 22" }
+      {
+        "letter": "B",
+        "text": "Probe TCP na porta 22"
+      },
+      {
+        "letter": "C",
+        "text": "IP público em cada VM do backend"
+      },
+      {
+        "letter": "D",
+        "text": "Regra de entrada na porta 80"
+      }
     ],
     "correct": ["A"],
     "explanation": "LB Standard remove SNAT padrão; outbound rule com frontend próprio restaura saída. Regra de entrada não faz saída; IP por VM foge do desenho; probe monitora, não roteia.",
@@ -819,13 +1197,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Listener TCP puro"
+      },
+      {
+        "letter": "B",
+        "text": "Probe de saúde com cabeçalho"
+      },
+      {
+        "letter": "C",
         "text": "Regras de reescrita (rewrite rules) no conjunto de regras"
       },
-      { "letter": "B", "text": "Probe de saúde com cabeçalho" },
-      { "letter": "C", "text": "Listener TCP puro" },
-      { "letter": "D", "text": "Backend pool sem HTTP" }
+      {
+        "letter": "D",
+        "text": "Backend pool sem HTTP"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Rewrite rules alteram cabeçalhos/URL de pedido e resposta. Probe monitora; listener TCP não interpreta HTTP; pool sem HTTP não serve.",
     "source": "original",
     "tags": ["app-gateway", "rewrite", "cabecalhos"],
@@ -845,9 +1232,18 @@
         "letter": "A",
         "text": "Serviço Private Link referenciando o LB Standard"
       },
-      { "letter": "B", "text": "IP público no LB com NSG aberta" },
-      { "letter": "C", "text": "Peering com gateway transit" },
-      { "letter": "D", "text": "DNS público apontando ao IP interno" }
+      {
+        "letter": "B",
+        "text": "IP público no LB com NSG aberta"
+      },
+      {
+        "letter": "C",
+        "text": "DNS público apontando ao IP interno"
+      },
+      {
+        "letter": "D",
+        "text": "Peering com gateway transit"
+      }
     ],
     "correct": ["A"],
     "explanation": "Private Link Service expõe o LB como endpoint privado consumível cross-VNet. IP público expõe; peering acopla redes; DNS público não alcança IP privado.",
@@ -865,10 +1261,22 @@
     "difficulty": "medium",
     "question": "Acesso RDP pontual a uma VM sem IP público deve passar pelo IP do firewall com tradução de destino. Qual regra publica esse acesso?",
     "options": [
-      { "letter": "A", "text": "Regra DNAT do Firewall para a VM:3389" },
-      { "letter": "B", "text": "Regra de aplicativo para HTTPS" },
-      { "letter": "C", "text": "Regra de rede com Allow interno" },
-      { "letter": "D", "text": "UDR apontando ao Bastion" }
+      {
+        "letter": "A",
+        "text": "Regra DNAT do Firewall para a VM:3389"
+      },
+      {
+        "letter": "B",
+        "text": "Regra de rede com Allow interno"
+      },
+      {
+        "letter": "C",
+        "text": "Regra de aplicativo para HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "UDR apontando ao Bastion"
+      }
     ],
     "correct": ["A"],
     "explanation": "DNAT traduz destino do IP do firewall para a VM/porta interna. Regra de app filtra FQDN; regra de rede não traduz; UDR ao Bastion não publica RDP.",
@@ -886,12 +1294,24 @@
     "difficulty": "medium",
     "question": "Uma aplicação precisa de conectividade IPv6 fim-a-fim nas VNets mantendo o IPv4 atual. O que deve ser adicionado à VNet e às sub-redes?",
     "options": [
-      { "letter": "A", "text": "Espaço IPv6 na VNet com sub-redes dual-stack" },
-      { "letter": "B", "text": "Apenas AAAA no DNS público" },
-      { "letter": "C", "text": "NAT64 sem espaço IPv6" },
-      { "letter": "D", "text": "Troca de todo IPv4 por IPv6" }
+      {
+        "letter": "A",
+        "text": "NAT64 sem espaço IPv6"
+      },
+      {
+        "letter": "B",
+        "text": "Espaço IPv6 na VNet com sub-redes dual-stack"
+      },
+      {
+        "letter": "C",
+        "text": "Troca de todo IPv4 por IPv6"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas AAAA no DNS público"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Dual-stack adiciona prefixo IPv6 à VNet/sub-redes convivendo com IPv4. Só DNS não cria rota; NAT64 traduz sem fim-a-fim; trocar tudo quebra o legado.",
     "source": "original",
     "tags": ["ipv6", "dual-stack"],
@@ -911,12 +1331,18 @@
         "letter": "A",
         "text": "NSG avalia por prioridade crescente; ajustar o Allow para número menor que 150"
       },
-      { "letter": "B", "text": "NSG avalia por ordem alfabética do nome" },
+      {
+        "letter": "B",
+        "text": "É preciso recriar a VNet"
+      },
       {
         "letter": "C",
         "text": "Allow sempre vence Deny independente de prioridade"
       },
-      { "letter": "D", "text": "É preciso recriar a VNet" }
+      {
+        "letter": "D",
+        "text": "NSG avalia por ordem alfabética do nome"
+      }
     ],
     "correct": ["A"],
     "explanation": "Primeira regra coincidente em ordem crescente de prioridade decide; 150 vence 200. Nome não ordena; Allow não tem precedência automática; VNet não precisa ser recriada.",
@@ -936,13 +1362,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "IPs reservados manuais por VM"
+      },
+      {
+        "letter": "B",
+        "text": "Tags de serviço personalizadas"
+      },
+      {
+        "letter": "C",
         "text": "Grupos de Segurança de Aplicativo (ASG) nas NICs referenciados na NSG"
       },
-      { "letter": "B", "text": "IPs reservados manuais por VM" },
-      { "letter": "C", "text": "Tags de serviço personalizadas" },
-      { "letter": "D", "text": "DNS interno com TTL baixo" }
+      {
+        "letter": "D",
+        "text": "DNS interno com TTL baixo"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "ASG agrupa NICs por papel e a NSG referencia o grupo, imune a troca de IP. IP fixo por VM não escala; tags de serviço são da Microsoft; DNS não é origem de regra NSG.",
     "source": "original",
     "tags": ["nsg", "asg", "agrupamento"],
@@ -960,13 +1395,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Adicionar zonas ao SKU Básico"
+      },
+      {
+        "letter": "B",
         "text": "Migrar para Load Balancer Standard (há caminho de migração)"
       },
-      { "letter": "B", "text": "Adicionar zonas ao SKU Básico" },
-      { "letter": "C", "text": "Trocar por Traffic Manager" },
-      { "letter": "D", "text": "Habilitar SLA no Básico por ticket" }
+      {
+        "letter": "C",
+        "text": "Habilitar SLA no Básico por ticket"
+      },
+      {
+        "letter": "D",
+        "text": "Trocar por Traffic Manager"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Standard traz zonas, backend por IP e SLA com migração assistida. Básico não recebe zonas; Traffic Manager muda para DNS; SLA não se habilita por ticket.",
     "source": "original",
     "tags": ["load-balancer", "sku", "standard", "migracao"],
@@ -984,13 +1428,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "SKU v2 (Standard_v2/WAF_v2) com migração de configuração"
+        "text": "Trocar por Front Door sem pools"
       },
-      { "letter": "B", "text": "Manter v1 com mais instâncias fixas" },
-      { "letter": "C", "text": "Trocar por Load Balancer Básico" },
-      { "letter": "D", "text": "Trocar por Front Door sem pools" }
+      {
+        "letter": "B",
+        "text": "Manter v1 com mais instâncias fixas"
+      },
+      {
+        "letter": "C",
+        "text": "Trocar por Load Balancer Básico"
+      },
+      {
+        "letter": "D",
+        "text": "SKU v2 (Standard_v2/WAF_v2) com migração de configuração"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "v2 adiciona autoscale, zonas e performance com migração de config. v1 fixo não escala sozinho; LB Básico perde L7; Front Door não importa pools do gateway.",
     "source": "original",
     "tags": ["app-gateway", "v2", "autoscaling", "zonas"],
@@ -1010,9 +1463,18 @@
         "letter": "A",
         "text": "VpnGw2 (ou superior) com BGP e multiprotocolo"
       },
-      { "letter": "B", "text": "Manter Básico com overprovision" },
-      { "letter": "C", "text": "Trocar por ExpressRoute local" },
-      { "letter": "D", "text": "Dois gateways Básicos em paralelo" }
+      {
+        "letter": "B",
+        "text": "Dois gateways Básicos em paralelo"
+      },
+      {
+        "letter": "C",
+        "text": "Trocar por ExpressRoute local"
+      },
+      {
+        "letter": "D",
+        "text": "Manter Básico com overprovision"
+      }
     ],
     "correct": ["A"],
     "explanation": "VpnGw2+ entrega throughput, BGP e S2S+P2S juntos. Básico não tem BGP nem 1 Gbps; ExpressRoute é outro produto; dois Básicos não somam recursos.",
@@ -1030,12 +1492,24 @@
     "difficulty": "medium",
     "question": "Dois datacenters on-premises em continentes distintos precisam trocar tráfego via backbone Microsoft sem passar pela internet. Qual recurso conecta os circuitos ExpressRoute entre si?",
     "options": [
-      { "letter": "A", "text": "Global Reach ligando os circuitos" },
-      { "letter": "B", "text": "Peering entre VNets do Azure" },
-      { "letter": "C", "text": "VPN pela internet entre filiais" },
-      { "letter": "D", "text": "Front Door entre datacenters" }
+      {
+        "letter": "A",
+        "text": "VPN pela internet entre filiais"
+      },
+      {
+        "letter": "B",
+        "text": "Front Door entre datacenters"
+      },
+      {
+        "letter": "C",
+        "text": "Peering entre VNets do Azure"
+      },
+      {
+        "letter": "D",
+        "text": "Global Reach ligando os circuitos"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Global Reach une circuitos ER pelo backbone privado. Peering VNet não alcança on-prem; VPN volta à internet; Front Door publica HTTP, não interliga sites.",
     "source": "original",
     "tags": ["expressroute", "global-reach"],
@@ -1055,9 +1529,18 @@
         "letter": "A",
         "text": "Endpoint de entrada (inbound) do Private DNS Resolver"
       },
-      { "letter": "B", "text": "Endpoint de saída (outbound) do resolvedor" },
-      { "letter": "C", "text": "Zona pública com os registros privados" },
-      { "letter": "D", "text": "Forwarder no DNS da internet" }
+      {
+        "letter": "B",
+        "text": "Zona pública com os registros privados"
+      },
+      {
+        "letter": "C",
+        "text": "Forwarder no DNS da internet"
+      },
+      {
+        "letter": "D",
+        "text": "Endpoint de saída (outbound) do resolvedor"
+      }
     ],
     "correct": ["A"],
     "explanation": "Inbound expõe IP na VNet para o DNS local encaminhar zonas privadas. Outbound faz o caminho inverso (Azure→local); zona pública expõe; forwarder externo não alcança zona privada.",
@@ -1077,13 +1560,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Azure Virtual Network Manager com grupos e configs"
+        "text": "NSG copiada manualmente por VNet"
       },
-      { "letter": "B", "text": "NSG copiada manualmente por VNet" },
-      { "letter": "C", "text": "Peering manual em malha" },
-      { "letter": "D", "text": "Uma NSG global única" }
+      {
+        "letter": "B",
+        "text": "Uma NSG global única"
+      },
+      {
+        "letter": "C",
+        "text": "Peering manual em malha"
+      },
+      {
+        "letter": "D",
+        "text": "Azure Virtual Network Manager com grupos e configs"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Network Manager agrupa VNets e aplica segurança/conectividade centralmente. Cópia manual diverge; malha manual não escala; não existe NSG global.",
     "source": "original",
     "tags": ["network-manager", "escala", "mesh"],
@@ -1099,15 +1591,24 @@
     "difficulty": "medium",
     "question": "Para emparelhar duas VNets com gateway compartilhado e tráfego só criptografado, quais duas opções do peering devem ser marcadas? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Usar gateway remoto (use remote gateway)" },
+      {
+        "letter": "A",
+        "text": "Desabilitar o peering após criar"
+      },
       {
         "letter": "B",
+        "text": "Usar gateway remoto (use remote gateway)"
+      },
+      {
+        "letter": "C",
         "text": "Permitir trânsito de gateway (allow gateway transit)"
       },
-      { "letter": "C", "text": "Bloquear todo o tráfego entre VNets" },
-      { "letter": "D", "text": "Desabilitar o peering após criar" }
+      {
+        "letter": "D",
+        "text": "Bloquear todo o tráfego entre VNets"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Allow transit exporta o gateway e use remote o consome na spoke. Bloquear anula; desabilitar desfaz o peering.",
     "source": "original",
     "tags": ["peering", "gateway-transit"],
@@ -1125,13 +1626,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Deny de saída para a internet"
+      },
+      {
+        "letter": "B",
         "text": "Allow 80/443 de * com prioridade alta (número baixo)"
       },
-      { "letter": "B", "text": "Deny * de * com prioridade logo abaixo" },
-      { "letter": "C", "text": "Allow 22 de * com prioridade máxima" },
-      { "letter": "D", "text": "Deny de saída para a internet" }
+      {
+        "letter": "C",
+        "text": "Allow 22 de * com prioridade máxima"
+      },
+      {
+        "letter": "D",
+        "text": "Deny * de * com prioridade logo abaixo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Allow web primeiro e Deny geral depois fecha a entrada; a saída usa o Allow padrão. SSH aberto viola; negar saída quebra updates.",
     "source": "original",
     "tags": ["nsg", "dmz", "regras"],
@@ -1149,13 +1659,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Vínculo (link) da zona às VNets"
+      },
+      {
+        "letter": "B",
+        "text": "Registro A manual no DNS público"
+      },
+      {
+        "letter": "C",
         "text": "Zona privada privatelink.blob.core.windows.net"
       },
-      { "letter": "B", "text": "Vínculo (link) da zona às VNets" },
-      { "letter": "C", "text": "Registro A manual no DNS público" },
-      { "letter": "D", "text": "Hosts file no cliente" }
+      {
+        "letter": "D",
+        "text": "Hosts file no cliente"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "A zona privatelink recebe o registro do endpoint e o link a publica nas VNets. Registro público expõe; hosts não escala.",
     "source": "original",
     "tags": ["dns-privado", "private-endpoint", "privatelink"],
@@ -1171,10 +1690,22 @@
     "difficulty": "medium",
     "question": "Um LB Standard precisa de alta disponibilidade zonal e backend por IP (VMs e on-premises). Quais duas características atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Frontend zonal-redundante" },
-      { "letter": "B", "text": "Backend pool por endereço IP" },
-      { "letter": "C", "text": "SKU Básico com IP dinâmico" },
-      { "letter": "D", "text": "Probe desabilitado" }
+      {
+        "letter": "A",
+        "text": "Frontend zonal-redundante"
+      },
+      {
+        "letter": "B",
+        "text": "Backend pool por endereço IP"
+      },
+      {
+        "letter": "C",
+        "text": "Probe desabilitado"
+      },
+      {
+        "letter": "D",
+        "text": "SKU Básico com IP dinâmico"
+      }
     ],
     "correct": ["A", "B"],
     "explanation": "Frontend zone-redundant tolera zona e backend por IP inclui até on-premises via VPN/ER. Básico não tem zonas; sem probe não há saúde.",
@@ -1196,11 +1727,20 @@
         "letter": "A",
         "text": "Gateway em modo ativo-ativo com dois IPs públicos"
       },
-      { "letter": "B", "text": "BGP para convergência de rotas" },
-      { "letter": "C", "text": "Um único túnel com DPD" },
-      { "letter": "D", "text": "Gateway Básico sem zona" }
+      {
+        "letter": "B",
+        "text": "Um único túnel com DPD"
+      },
+      {
+        "letter": "C",
+        "text": "BGP para convergência de rotas"
+      },
+      {
+        "letter": "D",
+        "text": "Gateway Básico sem zona"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Ativo-ativo usa duas instâncias/IPs e o BGP converge rotas na falha. Túnel único é ponto único de falha; Básico não faz ativo-ativo.",
     "source": "original",
     "tags": ["vpn", "ativo-ativo", "ha", "bgp"],
@@ -1216,12 +1756,24 @@
     "difficulty": "medium",
     "question": "O firewall precisa inspecionar TLS de saída e filtrar por FQDN com política central. Quais dois recursos atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Inspeção TLS com CA intermediária gerenciada" },
-      { "letter": "B", "text": "Regras de aplicativo com FQDNs na política" },
-      { "letter": "C", "text": "Regras de porta sem inspeção" },
-      { "letter": "D", "text": "Bypass de inspeção para tudo" }
+      {
+        "letter": "A",
+        "text": "Inspeção TLS com CA intermediária gerenciada"
+      },
+      {
+        "letter": "B",
+        "text": "Bypass de inspeção para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Regras de porta sem inspeção"
+      },
+      {
+        "letter": "D",
+        "text": "Regras de aplicativo com FQDNs na política"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "TLS inspection abre o tráfego com CA e as regras de app filtram por FQDN. Só porta não vê conteúdo; bypass geral anula a inspeção.",
     "source": "original",
     "tags": ["firewall", "tls-inspection", "fqdn"],
@@ -1239,13 +1791,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Política WAF associada ao frontend"
+      },
+      {
+        "letter": "B",
         "text": "Certificado gerenciado com renovação automática"
       },
-      { "letter": "B", "text": "Política WAF associada ao frontend" },
-      { "letter": "C", "text": "Certificado expirado fixo" },
-      { "letter": "D", "text": "Backend HTTP sem TLS" }
+      {
+        "letter": "C",
+        "text": "Certificado expirado fixo"
+      },
+      {
+        "letter": "D",
+        "text": "Backend HTTP sem TLS"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Certificado gerenciado renova sozinho e o WAF filtra OWASP na borda. Cert expirado quebra; backend sem TLS expõe o trecho interno.",
     "source": "original",
     "tags": ["front-door", "tls", "waf"],
@@ -1261,12 +1822,24 @@
     "difficulty": "medium",
     "question": "O circuito ExpressRoute precisa de redundância física e criptografia sobre o link privado. Quais dois elementos atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Conexões primária e secundária do circuito" },
-      { "letter": "B", "text": "IPsec sobre o peering privado" },
-      { "letter": "C", "text": "Circuito único sem redundância" },
-      { "letter": "D", "text": "Rota pública sem autenticação" }
+      {
+        "letter": "A",
+        "text": "Circuito único sem redundância"
+      },
+      {
+        "letter": "B",
+        "text": "IPsec sobre o peering privado"
+      },
+      {
+        "letter": "C",
+        "text": "Conexões primária e secundária do circuito"
+      },
+      {
+        "letter": "D",
+        "text": "Rota pública sem autenticação"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Duas conexões dão redundância física e o IPsec cifra sobre o privado. Circuito único é ponto único de falha; rota pública sem auth expõe.",
     "source": "original",
     "tags": ["expressroute", "redundancia", "ipsec"],
@@ -1284,13 +1857,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Peering direto entre spokes"
+      },
+      {
+        "letter": "B",
         "text": "UDR nas sub-redes do firewall (GatewaySubnet/firewall) forçando retorno simétrico"
       },
-      { "letter": "B", "text": "Remover todas as UDRs dos spokes" },
-      { "letter": "C", "text": "Desabilitar o firewall do hub" },
-      { "letter": "D", "text": "Peering direto entre spokes" }
+      {
+        "letter": "C",
+        "text": "Desabilitar o firewall do hub"
+      },
+      {
+        "letter": "D",
+        "text": "Remover todas as UDRs dos spokes"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Rota na sub-rede do firewall preserva simetria do fluxo inspecionado. Remover UDRs desvia do firewall; desabilitar perde inspeção; peering direto contorna o hub.",
     "source": "original",
     "tags": ["hub-spoke", "firewall", "udr", "simetria"],
@@ -1308,13 +1890,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Rota 0.0.0.0/0 para a internet"
+      },
+      {
+        "letter": "B",
+        "text": "Bastion como proxy de saída"
+      },
+      {
+        "letter": "C",
         "text": "Forced tunneling com UDR 0.0.0.0/0 para o gateway VPN/ER"
       },
-      { "letter": "B", "text": "NAT Gateway com IP fixo no Azure" },
-      { "letter": "C", "text": "Rota 0.0.0.0/0 para a internet" },
-      { "letter": "D", "text": "Bastion como proxy de saída" }
+      {
+        "letter": "D",
+        "text": "NAT Gateway com IP fixo no Azure"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "UDR default para o gateway devolve tudo ao local (forced tunnel). NAT sai pelo Azure; rota internet ignora inspeção; Bastion não proxya saída.",
     "source": "original",
     "tags": ["forced-tunneling", "udr", "on-premises"],
@@ -1332,13 +1923,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Listener HTTPS + pool HTTPS com certificado válido no backend"
+        "text": "Listener TCP + pool TCP"
       },
-      { "letter": "B", "text": "Listener HTTP + pool HTTPS" },
-      { "letter": "C", "text": "Listener HTTPS + pool HTTP" },
-      { "letter": "D", "text": "Listener TCP + pool TCP" }
+      {
+        "letter": "B",
+        "text": "Listener HTTPS + pool HTTP"
+      },
+      {
+        "letter": "C",
+        "text": "Listener HTTP + pool HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "Listener HTTPS + pool HTTPS com certificado válido no backend"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "TLS nas duas pontas com cert válido no backend garante fim-a-fim. HTTP em qualquer ponta quebra a cadeia; TCP não termina TLS.",
     "source": "original",
     "tags": ["app-gateway", "tls", "end-to-end"],
@@ -1356,16 +1956,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Private Link do Front Door ao App Service (origem privada)"
+        "text": "VPN do Front Door ao App Service"
       },
       {
         "letter": "B",
+        "text": "DNS público com IP interno"
+      },
+      {
+        "letter": "C",
         "text": "Restrição de IP ao range público do Front Door"
       },
-      { "letter": "C", "text": "DNS público com IP interno" },
-      { "letter": "D", "text": "VPN do Front Door ao App Service" }
+      {
+        "letter": "D",
+        "text": "Private Link do Front Door ao App Service (origem privada)"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Origem privada via Private Link mantém tráfego na backbone sem exposição. Restringir por IP público ainda expõe; DNS não cria caminho; Front Door não faz VPN.",
     "source": "original",
     "tags": ["front-door", "private-link", "origem-privada"],
@@ -1385,9 +1991,18 @@
         "letter": "A",
         "text": "Conjunto com LB interno (Gateway LB) distribuindo aos NVAs ativos"
       },
-      { "letter": "B", "text": "Uma VM maior para o NVA" },
-      { "letter": "C", "text": "Snapshot diário do NVA" },
-      { "letter": "D", "text": "NSG com failover automático" }
+      {
+        "letter": "B",
+        "text": "Snapshot diário do NVA"
+      },
+      {
+        "letter": "C",
+        "text": "NSG com failover automático"
+      },
+      {
+        "letter": "D",
+        "text": "Uma VM maior para o NVA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Gateway LB encadeia NVAs com HA transparente ao roteamento. VM maior não elimina ponto único; snapshot recupera, não evita; NSG não faz failover.",
@@ -1407,13 +2022,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "BGP sem FastPath"
+      },
+      {
+        "letter": "B",
         "text": "FastPath no gateway Ultra/ErGw3AZ com VNet peering"
       },
-      { "letter": "B", "text": "Aumentar o SKU do gateway VPN" },
-      { "letter": "C", "text": "UDR para a internet" },
-      { "letter": "D", "text": "BGP sem FastPath" }
+      {
+        "letter": "C",
+        "text": "UDR para a internet"
+      },
+      {
+        "letter": "D",
+        "text": "Aumentar o SKU do gateway VPN"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "FastPath desvia o fluxo direto à VNet, cortando o salto do gateway. SKU VPN não afeta ER; UDR internet piora; BGP sozinho ainda passa pelo gateway.",
     "source": "original",
     "tags": ["expressroute", "fastpath", "latencia"],
@@ -1431,13 +2055,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Apenas zona privada exposta"
+      },
+      {
+        "letter": "B",
         "text": "Zona privada + zona pública homônimas (split-horizon)"
       },
-      { "letter": "B", "text": "Apenas zona pública com IP privado" },
-      { "letter": "C", "text": "Apenas zona privada exposta" },
-      { "letter": "D", "text": "Hosts file com duas entradas" }
+      {
+        "letter": "C",
+        "text": "Hosts file com duas entradas"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas zona pública com IP privado"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Zonas homônimas dão visão interna e externa do mesmo FQDN. Zona pública com IP privado vaza topologia; privada exposta quebra; hosts não escala.",
     "source": "original",
     "tags": ["dns", "split-horizon", "visoes"],
@@ -1455,13 +2088,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Exclusões por atributo + elevação do limite de corpo"
+        "text": "Mudar o WAF para modo Detecção permanente"
       },
-      { "letter": "B", "text": "Desabilitar o conjunto de regras OWASP" },
-      { "letter": "C", "text": "Mudar o WAF para modo Detecção permanente" },
-      { "letter": "D", "text": "Remover o listener HTTPS" }
+      {
+        "letter": "B",
+        "text": "Desabilitar o conjunto de regras OWASP"
+      },
+      {
+        "letter": "C",
+        "text": "Remover o listener HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "Exclusões por atributo + elevação do limite de corpo"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Exclusões cirúrgicas e limite de corpo calibrado mantêm bloqueio real. Desligar OWASP cega; Detecção permanente nunca bloqueia; sem listener não há WAF.",
     "source": "original",
     "tags": ["waf", "tuning", "falso-positivo", "owasp"],
@@ -1479,13 +2121,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Peering direto entre todos os spokes"
+      },
+      {
+        "letter": "B",
+        "text": "UDRs dos spokes apontando ao firewall"
+      },
+      {
+        "letter": "C",
         "text": "Firewall em múltiplas zonas de disponibilidade"
       },
-      { "letter": "B", "text": "UDRs dos spokes apontando ao firewall" },
-      { "letter": "C", "text": "Peering direto entre todos os spokes" },
-      { "letter": "D", "text": "Firewall único sem zona" }
+      {
+        "letter": "D",
+        "text": "Firewall único sem zona"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Firewall zonalmente redundante elimina ponto único e UDRs forçam inspeção. Peering direto contorna o hub; firewall sem zona cai com o datacenter.",
     "source": "original",
     "tags": ["hub-spoke", "firewall", "zonas", "udr"],
@@ -1505,11 +2156,20 @@
         "letter": "A",
         "text": "Gateway com SKU que suporta coexistência (não Básico)"
       },
-      { "letter": "B", "text": "BGP habilitado nos dois caminhos" },
-      { "letter": "C", "text": "Gateway Básico com rota estática" },
-      { "letter": "D", "text": "Dois gateways na mesma GatewaySubnet" }
+      {
+        "letter": "B",
+        "text": "Gateway Básico com rota estática"
+      },
+      {
+        "letter": "C",
+        "text": "Dois gateways na mesma GatewaySubnet"
+      },
+      {
+        "letter": "D",
+        "text": "BGP habilitado nos dois caminhos"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "SKU compatível comporta os dois túneis e o BGP decide o ativo. Básico não coexiste; dois gateways disputam a mesma sub-rede.",
     "source": "original",
     "tags": ["vpn", "expressroute", "coexistencia", "bgp"],
@@ -1529,11 +2189,20 @@
         "letter": "A",
         "text": "Autoscaling habilitado com máximo de instâncias"
       },
-      { "letter": "B", "text": "Contagem mínima de instâncias reservadas" },
-      { "letter": "C", "text": "SKU v1 com instâncias fixas" },
-      { "letter": "D", "text": "Desabilitação de zonas" }
+      {
+        "letter": "B",
+        "text": "Desabilitação de zonas"
+      },
+      {
+        "letter": "C",
+        "text": "SKU v1 com instâncias fixas"
+      },
+      {
+        "letter": "D",
+        "text": "Contagem mínima de instâncias reservadas"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Autoscale define o teto e o mínimo reserva capacidade quente. v1 fixo não escala; sem zonas perde resiliência.",
     "source": "original",
     "tags": ["app-gateway", "autoscaling", "v2"],
@@ -1549,12 +2218,24 @@
     "difficulty": "hard",
     "question": "Durante um ataque volumétrico, a equipe precisa de mitigação automática e visibilidade do vetor. Quais dois recursos do DDoS Protection entregam isso? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Mitigação always-on na borda" },
-      { "letter": "B", "text": "Telemetria e alertas do ataque" },
-      { "letter": "C", "text": "Bloqueio manual de /8" },
-      { "letter": "D", "text": "Desligamento dos IPs públicos" }
+      {
+        "letter": "A",
+        "text": "Bloqueio manual de /8"
+      },
+      {
+        "letter": "B",
+        "text": "Mitigação always-on na borda"
+      },
+      {
+        "letter": "C",
+        "text": "Telemetria e alertas do ataque"
+      },
+      {
+        "letter": "D",
+        "text": "Desligamento dos IPs públicos"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Mitigação contínua absorve o flood e a telemetria mostra vetores para resposta. Bloqueio /8 manual é lento e amplo; desligar IPs derruba o serviço.",
     "source": "original",
     "tags": ["ddos", "mitigacao", "telemetria"],
@@ -1572,13 +2253,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Failback automático ao recuperar o primário"
+      },
+      {
+        "letter": "B",
         "text": "Monitoramento com probe e failover por prioridade"
       },
-      { "letter": "B", "text": "Failback automático ao recuperar o primário" },
-      { "letter": "C", "text": "TTL infinito sem rechecagem" },
-      { "letter": "D", "text": "Endpoint único sem secundário" }
+      {
+        "letter": "C",
+        "text": "TTL infinito sem rechecagem"
+      },
+      {
+        "letter": "D",
+        "text": "Endpoint único sem secundário"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Probe detecta queda e prioridade desvia; ao recuperar, o tráfego volta sozinho. TTL infinito prende no secundário; sem secundário não há para onde falhar.",
     "source": "original",
     "tags": ["traffic-manager", "failover", "prioridade"],
@@ -1594,12 +2284,24 @@
     "difficulty": "hard",
     "question": "Milhares de conexões simultâneas esgotam portas SNAT do NAT Gateway. Quais dois ajustes ampliam portas e resiliência? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "IPs públicos adicionais no NAT Gateway" },
-      { "letter": "B", "text": "Zonalidade do NAT com IPs por zona" },
-      { "letter": "C", "text": "Um único IP com timeout mínimo" },
-      { "letter": "D", "text": "Desabilitar o NAT e usar IP por VM" }
+      {
+        "letter": "A",
+        "text": "IPs públicos adicionais no NAT Gateway"
+      },
+      {
+        "letter": "B",
+        "text": "Um único IP com timeout mínimo"
+      },
+      {
+        "letter": "C",
+        "text": "Zonalidade do NAT com IPs por zona"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar o NAT e usar IP por VM"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Mais IPs multiplicam portas SNAT e a zonalidade distribui por zona. IP único esgota; voltar a IP por VM perde o desenho central.",
     "source": "original",
     "tags": ["nat-gateway", "snat", "portas", "zonas"],
@@ -1615,12 +2317,24 @@
     "difficulty": "hard",
     "question": "A zona pública precisa de autenticidade contra spoofing com cadeia válida até a raiz. Quais dois elementos compõem o DNSSEC? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Assinatura da zona com chaves (KSK/ZSK)" },
-      { "letter": "B", "text": "Registro DS na zona pai" },
-      { "letter": "C", "text": "TTL zero em todos os registros" },
-      { "letter": "D", "text": "Desabilitação da validação do resolvedor" }
+      {
+        "letter": "A",
+        "text": "TTL zero em todos os registros"
+      },
+      {
+        "letter": "B",
+        "text": "Registro DS na zona pai"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitação da validação do resolvedor"
+      },
+      {
+        "letter": "D",
+        "text": "Assinatura da zona com chaves (KSK/ZSK)"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Assinatura prova os registros e o DS ancora a cadeia no pai. TTL zero degrada sem autenticar; sem validação não há verificação.",
     "source": "original",
     "tags": ["dns", "dnssec", "assinatura"],
@@ -1636,12 +2350,24 @@
     "difficulty": "hard",
     "question": "A Virtual WAN precisa segmentar filiais por perfil (lojas vs fábricas) com políticas distintas. Quais dois construtos segmentam e aplicam política? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Tabelas de rota personalizadas por segmento" },
-      { "letter": "B", "text": "Rótulos (labels) agrupando conexões" },
-      { "letter": "C", "text": "Hub único sem segmentação" },
-      { "letter": "D", "text": "Rota default para tudo" }
+      {
+        "letter": "A",
+        "text": "Rótulos (labels) agrupando conexões"
+      },
+      {
+        "letter": "B",
+        "text": "Tabelas de rota personalizadas por segmento"
+      },
+      {
+        "letter": "C",
+        "text": "Hub único sem segmentação"
+      },
+      {
+        "letter": "D",
+        "text": "Rota default para tudo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Labels agrupam conexões e route tables por segmento isolam com políticas próprias. Hub único mistura; default único não segmenta.",
     "source": "original",
     "tags": ["vwan", "segmentacao", "labels"],
@@ -1657,12 +2383,24 @@
     "difficulty": "hard",
     "question": "Sessões com estado exigem afinidade ao mesmo backend e flutuação de porta tolerante. Quais dois ajustes da regra LB atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Persistência de sessão por IP de origem" },
-      { "letter": "B", "text": "Distribuição por 5-tuplas com afinidade" },
-      { "letter": "C", "text": "Floating IP desabilitado sempre" },
-      { "letter": "D", "text": "Probe removido do backend" }
+      {
+        "letter": "A",
+        "text": "Probe removido do backend"
+      },
+      {
+        "letter": "B",
+        "text": "Distribuição por 5-tuplas com afinidade"
+      },
+      {
+        "letter": "C",
+        "text": "Persistência de sessão por IP de origem"
+      },
+      {
+        "letter": "D",
+        "text": "Floating IP desabilitado sempre"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Persistência por origem fixa a sessão e 5-tuplas distribuem mantendo afinidade configurada. Sem floating IP alguns cenários (SQL AO) quebram; sem probe não há saúde.",
     "source": "original",
     "tags": ["load-balancer", "afinidade", "sessao"],
@@ -1678,12 +2416,24 @@
     "difficulty": "hard",
     "question": "O Connection Monitor precisa cobrir conectividade e latência fim-a-fim com alertas. Quais dois elementos compõem o monitoramento completo? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Testes com origem, destino e protocolo" },
-      { "letter": "B", "text": "Alertas sobre métricas dos testes" },
-      { "letter": "C", "text": "Teste único sem repetição" },
-      { "letter": "D", "text": "Topologia sem testes" }
+      {
+        "letter": "A",
+        "text": "Testes com origem, destino e protocolo"
+      },
+      {
+        "letter": "B",
+        "text": "Teste único sem repetição"
+      },
+      {
+        "letter": "C",
+        "text": "Alertas sobre métricas dos testes"
+      },
+      {
+        "letter": "D",
+        "text": "Topologia sem testes"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Testes periódicos medem perda/latência e alertas reagem a degradação. Teste único não historica; topologia sem teste não mede.",
     "source": "original",
     "tags": ["connection-monitor", "testes", "alertas"],
@@ -1699,12 +2449,24 @@
     "difficulty": "hard",
     "question": "VNets em regiões distintas precisam de conectividade privada com failover de rota. Quais dois elementos atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Peering global entre as regiões" },
-      { "letter": "B", "text": "Gateway transit com rotas propagadas" },
-      { "letter": "C", "text": "IP público com NSG aberta" },
-      { "letter": "D", "text": "DNS público como rota" }
+      {
+        "letter": "A",
+        "text": "Peering global entre as regiões"
+      },
+      {
+        "letter": "B",
+        "text": "DNS público como rota"
+      },
+      {
+        "letter": "C",
+        "text": "IP público com NSG aberta"
+      },
+      {
+        "letter": "D",
+        "text": "Gateway transit com rotas propagadas"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Peering global une regiões pelo backbone e o transit propaga rotas de gateway. IP público sai à internet; DNS não roteia.",
     "source": "original",
     "tags": ["peering-global", "regioes", "gateway-transit"],
@@ -1722,13 +2484,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "IP flutuante interno movido entre NVAs"
+      },
+      {
+        "letter": "B",
+        "text": "Rota estática fixa em um NVA"
+      },
+      {
+        "letter": "C",
         "text": "Probe de saúde com reescrita de UDR por automação"
       },
-      { "letter": "B", "text": "IP flutuante interno movido entre NVAs" },
-      { "letter": "C", "text": "Rota estática fixa em um NVA" },
-      { "letter": "D", "text": "Desligamento manual do primário" }
+      {
+        "letter": "D",
+        "text": "Desligamento manual do primário"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Probe detecta falha e a automação move rota/IP flutuante ao secundário. Rota fixa não falha over; processo manual é lento.",
     "source": "original",
     "tags": ["nva", "failover", "udr", "ip-flutuante"],
@@ -1746,14 +2517,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, peering sempre transita entre VNets emparelhadas"
+        "text": "Não, peering não é transitivo e exige desenho explícito"
       },
       {
         "letter": "B",
-        "text": "Não, peering não é transitivo e exige desenho explícito"
+        "text": "Sim, peering sempre transita entre VNets emparelhadas"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Peering conecta pares; trânsito exige gateway transit ou NVA com rotas. Assumir transitividade é o erro clássico de hub-spoke.",
     "source": "original",
     "tags": ["peering", "transitividade", "conceito"],
@@ -1773,7 +2544,10 @@
         "letter": "A",
         "text": "Sim, o AllowInternetOutBound padrão libera a saída"
       },
-      { "letter": "B", "text": "Não, o padrão nega toda saída até criar regra" }
+      {
+        "letter": "B",
+        "text": "Não, o padrão nega toda saída até criar regra"
+      }
     ],
     "correct": ["A"],
     "explanation": "As regras padrão incluem AllowVnetOutBound e AllowInternetOutBound; a negação só vem depois. Achar que padrão nega tudo é o erro comum.",
@@ -1791,13 +2565,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que o Load Balancer Básico possui o mesmo SLA de 99,99% do Standard, diferindo apenas em recursos. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, o SLA é idêntico entre os SKUs" },
+      {
+        "letter": "A",
+        "text": "Não, o Básico não tem SLA e será descontinuado"
+      },
       {
         "letter": "B",
-        "text": "Não, o Básico não tem SLA e será descontinuado"
+        "text": "Sim, o SLA é idêntico entre os SKUs"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Básico não oferece SLA (e tem aposentadoria anunciada); 99,99% exige Standard zonal. Equiparar os SKUs é erro de desenho.",
     "source": "original",
     "tags": ["load-balancer", "sla", "sku"],
@@ -1813,10 +2590,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que duas VNets com espaços sobrepostos (10.0.0.0/16 em ambas) podem ser emparelhadas normalmente, pois o Azure traduz os endereços. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, o peering resolve sobreposição com NAT" },
-      { "letter": "B", "text": "Não, espaços sobrepostos impedem o peering" }
+      {
+        "letter": "A",
+        "text": "Não, espaços sobrepostos impedem o peering"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, o peering resolve sobreposição com NAT"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Peering exige espaços disjuntos; sobreposição bloqueia a criação. NAT entre VNets não é função do peering.",
     "source": "original",
     "tags": ["peering", "sobreposicao", "cidr"],
@@ -1834,13 +2617,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "10.x.0.0/21 por VNet (8x /24, 4 usadas + reserva)"
+        "text": "Mesmo /24 em todas"
       },
-      { "letter": "B", "text": "10.0.0.0/16 igual em todas" },
-      { "letter": "C", "text": "/30 por VNet" },
-      { "letter": "D", "text": "Mesmo /24 em todas" }
+      {
+        "letter": "B",
+        "text": "10.0.0.0/16 igual em todas"
+      },
+      {
+        "letter": "C",
+        "text": "/30 por VNet"
+      },
+      {
+        "letter": "D",
+        "text": "10.x.0.0/21 por VNet (8x /24, 4 usadas + reserva)"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "/21 dá 8 /24 (4 em uso + reserva) com x distinto por VNet sem sobrepor. Mesmo /16 sobrepõe; /30 é insuficiente; /24 igual conflita.",
     "source": "original",
     "tags": ["vnet", "enderecamento", "planejamento", "cidr"],
@@ -1856,12 +2648,24 @@
     "difficulty": "medium",
     "question": "Sub-rede /26 precisa acomodar 40 VMs com IPs do Azure reservados. Quantos endereços restam utilizáveis?",
     "options": [
-      { "letter": "A", "text": "59 utilizáveis (64 menos 5 reservados)" },
-      { "letter": "B", "text": "64 utilizáveis todos" },
-      { "letter": "C", "text": "40 exatos sem reserva" },
-      { "letter": "D", "text": "30 utilizáveis" }
+      {
+        "letter": "A",
+        "text": "30 utilizáveis"
+      },
+      {
+        "letter": "B",
+        "text": "40 exatos sem reserva"
+      },
+      {
+        "letter": "C",
+        "text": "59 utilizáveis (64 menos 5 reservados)"
+      },
+      {
+        "letter": "D",
+        "text": "64 utilizáveis todos"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Azure reserva 5 por sub-rede (.0-.3 + broadcast); /26 tem 64, sobram 59. Ignorar a reserva estoura o plano.",
     "source": "original",
     "tags": ["subnets", "ips-reservados", "calculo"],
@@ -1877,12 +2681,24 @@
     "difficulty": "medium",
     "question": "VM crítica precisa manter o IP privado após desalocar. Qual alocação garante persistência do privado?",
     "options": [
-      { "letter": "A", "text": "IP privado estático na NIC" },
-      { "letter": "B", "text": "IP dinâmico padrão" },
-      { "letter": "C", "text": "IP público dinâmico" },
-      { "letter": "D", "text": "Nova NIC a cada boot" }
+      {
+        "letter": "A",
+        "text": "Nova NIC a cada boot"
+      },
+      {
+        "letter": "B",
+        "text": "IP dinâmico padrão"
+      },
+      {
+        "letter": "C",
+        "text": "IP privado estático na NIC"
+      },
+      {
+        "letter": "D",
+        "text": "IP público dinâmico"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Estático reserva o privado além do ciclo de vida. Dinâmico pode mudar ao desalocar; público não fixa privado; nova NIC troca tudo.",
     "source": "original",
     "tags": ["ip-privado", "estatico", "nic"],
@@ -1898,12 +2714,24 @@
     "difficulty": "medium",
     "question": "IP público precisa de zona, roteamento e SLA para o LB Standard. Qual SKU atende?",
     "options": [
-      { "letter": "A", "text": "IP Standard (zonal, com SLA)" },
-      { "letter": "B", "text": "IP Básico dinâmico" },
-      { "letter": "C", "text": "IP privado sem SKU" },
-      { "letter": "D", "text": "IP de link-local" }
+      {
+        "letter": "A",
+        "text": "IP Básico dinâmico"
+      },
+      {
+        "letter": "B",
+        "text": "IP de link-local"
+      },
+      {
+        "letter": "C",
+        "text": "IP privado sem SKU"
+      },
+      {
+        "letter": "D",
+        "text": "IP Standard (zonal, com SLA)"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Standard dá zona, estático e SLA, combinando com LB Standard. Básico não tem zona/SLA; privado não é público; link-local não roteia.",
     "source": "original",
     "tags": ["ip-publico", "sku", "standard"],
@@ -1919,12 +2747,24 @@
     "difficulty": "medium",
     "question": "Dez serviços precisam de IPs públicos contíguos reservados de uma vez. O que reserva o bloco?",
     "options": [
-      { "letter": "A", "text": "Prefixo de IP público (/28 com 16 endereços)" },
-      { "letter": "B", "text": "Dez IPs avulsos manuais" },
-      { "letter": "C", "text": "Um IP compartilhado" },
-      { "letter": "D", "text": "IPs dinâmicos por serviço" }
+      {
+        "letter": "A",
+        "text": "Um IP compartilhado"
+      },
+      {
+        "letter": "B",
+        "text": "IPs dinâmicos por serviço"
+      },
+      {
+        "letter": "C",
+        "text": "Dez IPs avulsos manuais"
+      },
+      {
+        "letter": "D",
+        "text": "Prefixo de IP público (/28 com 16 endereços)"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Public prefix reserva bloco contíguo gerenciado. Avulsos fragmentam; compartilhado conflita; dinâmicos mudam.",
     "source": "original",
     "tags": ["prefixo-ip", "bloco", "contiguo"],
@@ -1942,13 +2782,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Lista de permissões (allowlist) no plano DDoS"
+        "text": "Aumentar o ataque"
       },
-      { "letter": "B", "text": "Desabilitar a proteção" },
-      { "letter": "C", "text": "Remover o IP público" },
-      { "letter": "D", "text": "Aumentar o ataque" }
+      {
+        "letter": "B",
+        "text": "Desabilitar a proteção"
+      },
+      {
+        "letter": "C",
+        "text": "Remover o IP público"
+      },
+      {
+        "letter": "D",
+        "text": "Lista de permissões (allowlist) no plano DDoS"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Allowlist isenta origens confiáveis da mitigação. Desligar expõe; remover IP derruba; aumentar piora.",
     "source": "original",
     "tags": ["ddos", "allowlist", "falso-positivo"],
@@ -1964,10 +2813,22 @@
     "difficulty": "medium",
     "question": "Durante ataque, o SOC precisa de volume por protocolo e ações de mitigação em tempo real. Onde ver a telemetria?",
     "options": [
-      { "letter": "A", "text": "Telemetria do DDoS Protection no Monitor" },
-      { "letter": "B", "text": "Log do aplicativo" },
-      { "letter": "C", "text": "Fatura do mês" },
-      { "letter": "D", "text": "E-mail do ISP" }
+      {
+        "letter": "A",
+        "text": "Telemetria do DDoS Protection no Monitor"
+      },
+      {
+        "letter": "B",
+        "text": "Log do aplicativo"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail do ISP"
+      },
+      {
+        "letter": "D",
+        "text": "Fatura do mês"
+      }
     ],
     "correct": ["A"],
     "explanation": "Telemetria mostra vetores, volume e mitigação ao vivo. App não vê rede; fatura atrasa; ISP não tem o dado.",
@@ -1985,10 +2846,22 @@
     "difficulty": "medium",
     "question": "Bots de scraping derrubam o catálogo com milhares de requests. Qual proteção do WAF barra bots maliciosos?",
     "options": [
-      { "letter": "A", "text": "Proteção contra bots (bot manager) do WAF" },
-      { "letter": "B", "text": "Aumentar instâncias do app" },
-      { "letter": "C", "text": "Desabilitar o WAF" },
-      { "letter": "D", "text": "Captcha em todas as páginas" }
+      {
+        "letter": "A",
+        "text": "Proteção contra bots (bot manager) do WAF"
+      },
+      {
+        "letter": "B",
+        "text": "Aumentar instâncias do app"
+      },
+      {
+        "letter": "C",
+        "text": "Captcha em todas as páginas"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar o WAF"
+      }
     ],
     "correct": ["A"],
     "explanation": "Bot manager classifica e bloqueia bots ruins. Escalar absorve sem bloquear; sem WAF expõe; captcha geral degrada UX.",
@@ -2006,10 +2879,22 @@
     "difficulty": "medium",
     "question": "Login sofre força bruta distribuída com 100 tentativas/min por IP. Qual regra do WAF limita taxa por origem?",
     "options": [
-      { "letter": "A", "text": "Limite de taxa (rate limit) por IP/janela" },
-      { "letter": "B", "text": "Bloqueio do país inteiro" },
-      { "letter": "C", "text": "Senha mais longa" },
-      { "letter": "D", "text": "Desligar o login" }
+      {
+        "letter": "A",
+        "text": "Limite de taxa (rate limit) por IP/janela"
+      },
+      {
+        "letter": "B",
+        "text": "Senha mais longa"
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio do país inteiro"
+      },
+      {
+        "letter": "D",
+        "text": "Desligar o login"
+      }
     ],
     "correct": ["A"],
     "explanation": "Rate limit barra rajada por IP/janela. País inteiro bloqueia legítimos; senha não limita taxa; desligar para o negócio.",
@@ -2027,12 +2912,24 @@
     "difficulty": "medium",
     "question": "Aplicação só atende Brasil e sofre scans do exterior. Como restringir por geografia no WAF?",
     "options": [
-      { "letter": "A", "text": "Filtro geográfico permitindo só BR" },
-      { "letter": "B", "text": "Bloqueio de IP único" },
-      { "letter": "C", "text": "DNS geográfico sem WAF" },
-      { "letter": "D", "text": "Desligar a internet" }
+      {
+        "letter": "A",
+        "text": "DNS geográfico sem WAF"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio de IP único"
+      },
+      {
+        "letter": "C",
+        "text": "Desligar a internet"
+      },
+      {
+        "letter": "D",
+        "text": "Filtro geográfico permitindo só BR"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Geo-filter permite/bloqueia por país na borda. IP único não cobre scans; DNS não bloqueia; desligar inviabiliza.",
     "source": "original",
     "tags": ["waf", "geo-filter", "pais"],
@@ -2050,13 +2947,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Desabilitar o Front Door"
+      },
+      {
+        "letter": "B",
+        "text": "Sem cache com origem direta"
+      },
+      {
+        "letter": "C",
         "text": "Regras de cache + purga por caminho no deploy"
       },
-      { "letter": "B", "text": "Sem cache com origem direta" },
-      { "letter": "C", "text": "Cache eterno sem purga" },
-      { "letter": "D", "text": "Desabilitar o Front Door" }
+      {
+        "letter": "D",
+        "text": "Cache eterno sem purga"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Cache rules armazenam e purga invalida no deploy. Sem cache sobrecarrega origem; eterno serve velho; sem FD perde borda.",
     "source": "original",
     "tags": ["front-door", "cache", "purga"],
@@ -2072,12 +2978,24 @@
     "difficulty": "medium",
     "question": "Failover precisa detectar origem doente em segundos, não minutos. Como calibrar a sonda?",
     "options": [
-      { "letter": "A", "text": "Probe frequente com poucas falhas toleradas" },
-      { "letter": "B", "text": "Probe a cada hora" },
-      { "letter": "C", "text": "Sem probe com failover manual" },
-      { "letter": "D", "text": "Probe no DNS apenas" }
+      {
+        "letter": "A",
+        "text": "Probe no DNS apenas"
+      },
+      {
+        "letter": "B",
+        "text": "Probe a cada hora"
+      },
+      {
+        "letter": "C",
+        "text": "Sem probe com failover manual"
+      },
+      {
+        "letter": "D",
+        "text": "Probe frequente com poucas falhas toleradas"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Intervalo curto + threshold baixo detectam rápido. Hora atrasa; manual não escala; DNS não mede app.",
     "source": "original",
     "tags": ["front-door", "health-probe", "failover"],
@@ -2093,10 +3011,22 @@
     "difficulty": "medium",
     "question": "Usuários devem cair no endpoint de menor latência medido em tempo real. Qual método de roteamento usar?",
     "options": [
-      { "letter": "A", "text": "Performance (latência medida)" },
-      { "letter": "B", "text": "Prioridade fixa" },
-      { "letter": "C", "text": "Peso igual estático" },
-      { "letter": "D", "text": "Geográfico por país" }
+      {
+        "letter": "A",
+        "text": "Performance (latência medida)"
+      },
+      {
+        "letter": "B",
+        "text": "Prioridade fixa"
+      },
+      {
+        "letter": "C",
+        "text": "Peso igual estático"
+      },
+      {
+        "letter": "D",
+        "text": "Geográfico por país"
+      }
     ],
     "correct": ["A"],
     "explanation": "Performance dirige pela latência real sondada. Prioridade fixa não mede; peso não otimiza; geográfico aproxima sem medir.",
@@ -2114,10 +3044,22 @@
     "difficulty": "medium",
     "question": "Migração gradual precisa de 90% no antigo e 10% no novo via DNS. Qual método distribui por peso?",
     "options": [
-      { "letter": "A", "text": "Ponderado (weighted) 90/10" },
-      { "letter": "B", "text": "Performance puro" },
-      { "letter": "C", "text": "Prioridade com failover" },
-      { "letter": "D", "text": "Geográfico por cidade" }
+      {
+        "letter": "A",
+        "text": "Ponderado (weighted) 90/10"
+      },
+      {
+        "letter": "B",
+        "text": "Geográfico por cidade"
+      },
+      {
+        "letter": "C",
+        "text": "Prioridade com failover"
+      },
+      {
+        "letter": "D",
+        "text": "Performance puro"
+      }
     ],
     "correct": ["A"],
     "explanation": "Weighted divide por peso configurado para canário. Performance ignora proporção; prioridade não divide; geográfico não pondera.",
@@ -2135,12 +3077,24 @@
     "difficulty": "medium",
     "question": "Resolução DNS deve retornar múltiplos IPs saudáveis para o cliente escolher. Qual método retorna vários endpoints?",
     "options": [
-      { "letter": "A", "text": "Multivalue com health check" },
-      { "letter": "B", "text": "Prioridade com um ativo" },
-      { "letter": "C", "text": "Geográfico com um por país" },
-      { "letter": "D", "text": "Registro A estático" }
+      {
+        "letter": "A",
+        "text": "Registro A estático"
+      },
+      {
+        "letter": "B",
+        "text": "Multivalue com health check"
+      },
+      {
+        "letter": "C",
+        "text": "Prioridade com um ativo"
+      },
+      {
+        "letter": "D",
+        "text": "Geográfico com um por país"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Multivalue retorna N IPs saudáveis. Prioridade ativa um; geográfico um por região; A estático não monitora.",
     "source": "original",
     "tags": ["traffic-manager", "multivalue", "dns"],
@@ -2156,10 +3110,22 @@
     "difficulty": "medium",
     "question": "Faixas de IP corporativas devem ir ao endpoint interno e o resto ao público. Qual método roteia por sub-rede de origem?",
     "options": [
-      { "letter": "A", "text": "Sub-rede (subnet routing)" },
-      { "letter": "B", "text": "Performance global" },
-      { "letter": "C", "text": "Peso igual" },
-      { "letter": "D", "text": "Prioridade única" }
+      {
+        "letter": "A",
+        "text": "Sub-rede (subnet routing)"
+      },
+      {
+        "letter": "B",
+        "text": "Performance global"
+      },
+      {
+        "letter": "C",
+        "text": "Peso igual"
+      },
+      {
+        "letter": "D",
+        "text": "Prioridade única"
+      }
     ],
     "correct": ["A"],
     "explanation": "Subnet routing mapeia faixa de origem a endpoint. Performance ignora origem; peso divide; prioridade não segmenta.",
@@ -2177,12 +3143,24 @@
     "difficulty": "hard",
     "question": "Zona raiz (apex) precisa apontar ao Front Door sem CNAME (proibido no apex). Qual registro resolve o apex para o Azure?",
     "options": [
-      { "letter": "A", "text": "Registro Alias para o recurso do Azure" },
-      { "letter": "B", "text": "CNAME no apex" },
-      { "letter": "C", "text": "Registro A com IP fixo do Front Door" },
-      { "letter": "D", "text": "TXT com o IP" }
+      {
+        "letter": "A",
+        "text": "TXT com o IP"
+      },
+      {
+        "letter": "B",
+        "text": "Registro A com IP fixo do Front Door"
+      },
+      {
+        "letter": "C",
+        "text": "CNAME no apex"
+      },
+      {
+        "letter": "D",
+        "text": "Registro Alias para o recurso do Azure"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Alias aponta apex a recurso Azure acompanhando mudanças. CNAME no apex viola RFC; IP fixo do FD não existe; TXT não resolve.",
     "source": "original",
     "tags": ["dns", "alias", "apex"],
@@ -2198,10 +3176,22 @@
     "difficulty": "hard",
     "question": "Somente uma CA específica pode emitir certificados para o domínio, bloqueando as demais. Qual registro autoriza a CA?",
     "options": [
-      { "letter": "A", "text": "Registro CAA com a CA autorizada" },
-      { "letter": "B", "text": "Registro MX da CA" },
-      { "letter": "C", "text": "Registro TXT genérico" },
-      { "letter": "D", "text": "Registro A da CA" }
+      {
+        "letter": "A",
+        "text": "Registro CAA com a CA autorizada"
+      },
+      {
+        "letter": "B",
+        "text": "Registro TXT genérico"
+      },
+      {
+        "letter": "C",
+        "text": "Registro A da CA"
+      },
+      {
+        "letter": "D",
+        "text": "Registro MX da CA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Registro CAA restringe emissão à CA listada. MX roteia e-mail; TXT genérico não autoriza emissão; A aponta endereço IP.",
@@ -2219,10 +3209,22 @@
     "difficulty": "hard",
     "question": "Múltiplas VNets precisam compartilhar o mesmo conjunto de regras de encaminhamento DNS. Como vincular o ruleset a várias redes?",
     "options": [
-      { "letter": "A", "text": "Vínculo do ruleset a cada VNet" },
-      { "letter": "B", "text": "Um resolvedor por rua" },
-      { "letter": "C", "text": "Zona pública por VNet" },
-      { "letter": "D", "text": "Hosts por VM" }
+      {
+        "letter": "A",
+        "text": "Vínculo do ruleset a cada VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Hosts por VM"
+      },
+      {
+        "letter": "C",
+        "text": "Zona pública por VNet"
+      },
+      {
+        "letter": "D",
+        "text": "Um resolvedor por rua"
+      }
     ],
     "correct": ["A"],
     "explanation": "Vínculo do ruleset (ruleset link) compartilha regras entre múltiplas VNets. Um resolvedor por rua fragmenta; zona pública expõe; hosts por VM não escala.",
@@ -2240,12 +3242,24 @@
     "difficulty": "hard",
     "question": "Regras para corp.local ao DNS local e resto ao Azure exigem dois elementos. Quais são eles? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Regra de encaminhamento para o IP local" },
-      { "letter": "B", "text": "Resolução padrão Azure para o restante" },
-      { "letter": "C", "text": "Bloqueio de todo DNS" },
-      { "letter": "D", "text": "Zona pública para corp.local" }
+      {
+        "letter": "A",
+        "text": "Regra de encaminhamento para o IP local"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio de todo DNS"
+      },
+      {
+        "letter": "C",
+        "text": "Resolução padrão Azure para o restante"
+      },
+      {
+        "letter": "D",
+        "text": "Zona pública para corp.local"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Regra de encaminhamento direciona o sufixo corp.local e a resolução padrão Azure resolve o restante. Bloquear todo DNS quebra; zona pública expõe o interno.",
     "source": "original",
     "tags": ["dns", "encaminhamento", "ruleset"],
@@ -2261,12 +3275,24 @@
     "difficulty": "hard",
     "question": "Tráfego espelhado da VM precisa ir ao coletor para IDS sem agente. Quais dois elementos do TAP usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Configuração TAP na NIC de origem" },
-      { "letter": "B", "text": "Destino coletor (VM/LB) na mesma região" },
-      { "letter": "C", "text": "Agente instalado na origem" },
-      { "letter": "D", "text": "Espelho para internet" }
+      {
+        "letter": "A",
+        "text": "Espelho para internet"
+      },
+      {
+        "letter": "B",
+        "text": "Agente instalado na origem"
+      },
+      {
+        "letter": "C",
+        "text": "Configuração TAP na NIC de origem"
+      },
+      {
+        "letter": "D",
+        "text": "Destino coletor (VM/LB) na mesma região"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Configuração TAP na NIC espelha sem agente para o coletor regional (VM/LB). Agente instalado contradiz o modelo sem-agente; espelho para internet expõe.",
     "source": "original",
     "tags": ["vnet-tap", "espelho", "ids"],
@@ -2282,12 +3308,24 @@
     "difficulty": "hard",
     "question": "Dez VNets precisam de proteção DDoS com custo compartilhado. Quais dois elementos do plano usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Plano DDoS associado às VNets" },
-      { "letter": "B", "text": "IPs públicos sob o plano" },
-      { "letter": "C", "text": "Plano por IP individual" },
-      { "letter": "D", "text": "Sem plano com NSG" }
+      {
+        "letter": "A",
+        "text": "Plano DDoS associado às VNets"
+      },
+      {
+        "letter": "B",
+        "text": "Plano por IP individual"
+      },
+      {
+        "letter": "C",
+        "text": "IPs públicos sob o plano"
+      },
+      {
+        "letter": "D",
+        "text": "Sem plano com NSG"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Plano DDoS associado às VNets protege os IPs públicos com custo diluído. Plano por IP individual multiplica; sem plano com NSG não há mitigação.",
     "source": "original",
     "tags": ["ddos", "plano", "vnet"],
@@ -2303,12 +3341,24 @@
     "difficulty": "hard",
     "question": "Pico de acessos simultâneos ao Bastion exige escala sem trocar SKU. Quais dois parâmetros ajustar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Contagem de instâncias do Bastion" },
-      { "letter": "B", "text": "SKU com escala (Standard+)" },
-      { "letter": "C", "text": "Básico fixo para tudo" },
-      { "letter": "D", "text": "Desligar sessões ativas" }
+      {
+        "letter": "A",
+        "text": "Contagem de instâncias do Bastion"
+      },
+      {
+        "letter": "B",
+        "text": "Desligar sessões ativas"
+      },
+      {
+        "letter": "C",
+        "text": "Básico fixo para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "SKU com escala (Standard+)"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Contagem de instâncias escala sessões simultâneas no SKU Standard ou superior. Básico fixa sem escala; desligar sessões ativas derruba usuários.",
     "source": "original",
     "tags": ["bastion", "escala", "sessoes"],
@@ -2324,12 +3374,24 @@
     "difficulty": "hard",
     "question": "Suporte precisa compartilhar sessão RDP com o cliente sem expor credencial. Quais dois recursos usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Link compartilhável do Bastion" },
-      { "letter": "B", "text": "Sessão sem credencial exposta" },
-      { "letter": "C", "text": "Senha por e-mail" },
-      { "letter": "D", "text": "RDP público temporário" }
+      {
+        "letter": "A",
+        "text": "Sessão sem credencial exposta"
+      },
+      {
+        "letter": "B",
+        "text": "Senha por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "Link compartilhável do Bastion"
+      },
+      {
+        "letter": "D",
+        "text": "RDP público temporário"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Link compartilhável do Bastion concede acesso ao cliente sem expor credencial. Senha por e-mail vaza; RDP público temporário expõe.",
     "source": "original",
     "tags": ["bastion", "compartilhar", "sessao"],
@@ -2345,12 +3407,24 @@
     "difficulty": "hard",
     "question": "Conexões idle caem cedo demais e longas ocupam portas. Quais dois timeouts calibrar no NAT? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Timeout de ociosidade TCP" },
-      { "letter": "B", "text": "Timeout UDP específico" },
-      { "letter": "C", "text": "Timeout zero para tudo" },
-      { "letter": "D", "text": "Sem timeout (infinito)" }
+      {
+        "letter": "A",
+        "text": "Timeout UDP específico"
+      },
+      {
+        "letter": "B",
+        "text": "Timeout de ociosidade TCP"
+      },
+      {
+        "letter": "C",
+        "text": "Sem timeout (infinito)"
+      },
+      {
+        "letter": "D",
+        "text": "Timeout zero para tudo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Calibrar timeout TCP e UDP equilibra queda precoce e ocupação de portas. Timeout zero para tudo derruba; infinito esgota portas SNAT.",
     "source": "original",
     "tags": ["nat", "timeout", "ociosidade"],
@@ -2366,10 +3440,22 @@
     "difficulty": "hard",
     "question": "Conexões de banco ociosas caem no LB antes do timeout da app. Quais dois timeouts alinhar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Idle timeout da regra LB acima do app" },
-      { "letter": "B", "text": "Keepalive da aplicação abaixo do LB" },
-      { "letter": "C", "text": "Timeout mínimo em ambos" },
-      { "letter": "D", "text": "Sem keepalive" }
+      {
+        "letter": "A",
+        "text": "Idle timeout da regra LB acima do app"
+      },
+      {
+        "letter": "B",
+        "text": "Keepalive da aplicação abaixo do LB"
+      },
+      {
+        "letter": "C",
+        "text": "Timeout mínimo em ambos"
+      },
+      {
+        "letter": "D",
+        "text": "Sem keepalive"
+      }
     ],
     "correct": ["A", "B"],
     "explanation": "Idle timeout da regra LB acima do timeout da app, com keepalive abaixo, evita corte silencioso. Mínimo em ambos derruba; sem keepalive o LB fecha.",
@@ -2387,12 +3473,24 @@
     "difficulty": "hard",
     "question": "Falha de backend deixa conexões penduradas sem notificação. Quais dois comportamentos do TCP reset ajudam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "RST no idle timeout do LB" },
-      { "letter": "B", "text": "RST em probe falho" },
-      { "letter": "C", "text": "Silêncio sem RST" },
-      { "letter": "D", "text": "Retry infinito do cliente" }
+      {
+        "letter": "A",
+        "text": "RST no idle timeout do LB"
+      },
+      {
+        "letter": "B",
+        "text": "Silêncio sem RST"
+      },
+      {
+        "letter": "C",
+        "text": "RST em probe falho"
+      },
+      {
+        "letter": "D",
+        "text": "Retry infinito do cliente"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "RST no idle timeout e em probe falho notifica o cliente para reconectar rápido. Silêncio sem RST pendura até timeout; retry infinito do cliente agrava.",
     "source": "original",
     "tags": ["tcp-reset", "lb", "probe"],
@@ -2410,13 +3508,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Regra HA ports (todas as portas, frontend+backend)"
+        "text": "Sem probe"
       },
-      { "letter": "B", "text": "Probe de saúde do NVA" },
-      { "letter": "C", "text": "Regra por porta individual" },
-      { "letter": "D", "text": "Sem probe" }
+      {
+        "letter": "B",
+        "text": "Probe de saúde do NVA"
+      },
+      {
+        "letter": "C",
+        "text": "Regra por porta individual"
+      },
+      {
+        "letter": "D",
+        "text": "Regra HA ports (todas as portas, frontend+backend)"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Regra HA ports cobre todas as portas com probe de saúde para failover do NVA. Regra por porta individual não escala; sem probe não há detecção.",
     "source": "original",
     "tags": ["ha-ports", "nva", "failover"],
@@ -2432,12 +3539,24 @@
     "difficulty": "hard",
     "question": "Throughput de 10 Gbps com FastPath no ExpressRoute exige dois requisitos. Quais são eles? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Gateway Ultra/ErGw3AZ" },
-      { "letter": "B", "text": "FastPath habilitado no peering/VNet" },
-      { "letter": "C", "text": "Gateway Básico" },
-      { "letter": "D", "text": "Sem gateway" }
+      {
+        "letter": "A",
+        "text": "Gateway Básico"
+      },
+      {
+        "letter": "B",
+        "text": "FastPath habilitado no peering/VNet"
+      },
+      {
+        "letter": "C",
+        "text": "Sem gateway"
+      },
+      {
+        "letter": "D",
+        "text": "Gateway Ultra/ErGw3AZ"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Gateway Ultra/ErGw3AZ suporta FastPath que faz bypass do gateway. Básico não tem o recurso; sem gateway não há ExpressRoute.",
     "source": "original",
     "tags": ["expressroute", "gateway", "fastpath"],
@@ -2453,12 +3572,24 @@
     "difficulty": "hard",
     "question": "Appliance local precisa de interoperabilidade validada com o Azure. Quais dois pontos conferir? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Matriz de dispositivos VPN validados" },
-      { "letter": "B", "text": "Parâmetros IPsec/IKE compatíveis" },
-      { "letter": "C", "text": "Qualquer roteador doméstico" },
-      { "letter": "D", "text": "Sem criptografia" }
+      {
+        "letter": "A",
+        "text": "Qualquer roteador doméstico"
+      },
+      {
+        "letter": "B",
+        "text": "Matriz de dispositivos VPN validados"
+      },
+      {
+        "letter": "C",
+        "text": "Sem criptografia"
+      },
+      {
+        "letter": "D",
+        "text": "Parâmetros IPsec/IKE compatíveis"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Matriz de dispositivos validados lista appliances suportados e parâmetros IPsec/IKE alinham a proposta. Roteador doméstico não suporta; sem criptografia não há túnel.",
     "source": "original",
     "tags": ["vpn", "dispositivo", "interoperabilidade", "ipsec"],
@@ -2474,12 +3605,24 @@
     "difficulty": "hard",
     "question": "Compliance exige AES-256 e DH Group 24, fora do padrão. Onde customizar a proposta IPsec? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Política IPsec/IKE customizada na conexão" },
-      { "letter": "B", "text": "Parâmetros de criptografia e PFS alinhados" },
-      { "letter": "C", "text": "Padrão DES/MD5" },
-      { "letter": "D", "text": "Sem política" }
+      {
+        "letter": "A",
+        "text": "Política IPsec/IKE customizada na conexão"
+      },
+      {
+        "letter": "B",
+        "text": "Padrão DES/MD5"
+      },
+      {
+        "letter": "C",
+        "text": "Sem política"
+      },
+      {
+        "letter": "D",
+        "text": "Parâmetros de criptografia e PFS alinhados"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Política IPsec/IKE customizada define algoritmos e PFS alinhado. Padrão DES/MD5 viola compliance; sem política usa padrão fraco.",
     "source": "original",
     "tags": ["ipsec", "custom", "criptografia", "pfs"],
@@ -2495,12 +3638,24 @@
     "difficulty": "hard",
     "question": "Túnel caído precisa ser detectado e restabelecido sem manual. Quais dois mecanismos DPD usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Detecção de peer morto (DPD)" },
-      { "letter": "B", "text": "Reconexão automática do túnel" },
-      { "letter": "C", "text": "Ping manual periódico" },
-      { "letter": "D", "text": "Recriação do gateway" }
+      {
+        "letter": "A",
+        "text": "Recriação do gateway"
+      },
+      {
+        "letter": "B",
+        "text": "Reconexão automática do túnel"
+      },
+      {
+        "letter": "C",
+        "text": "Detecção de peer morto (DPD)"
+      },
+      {
+        "letter": "D",
+        "text": "Ping manual periódico"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "DPD detecta peer morto e o gateway restabelece o túnel sozinho. Ping manual periódico atrasa; recriar o gateway é drástico.",
     "source": "original",
     "tags": ["dpd", "tunel", "reconexao"],
@@ -2516,12 +3671,24 @@
     "difficulty": "hard",
     "question": "Appliance atrás de NAT precisa estabelecer IPsec através da tradução. Quais dois recursos atravessam o NAT? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "NAT-T com UDP 4500" },
-      { "letter": "B", "text": "Detecção de NAT no handshake" },
-      { "letter": "C", "text": "ESP puro sem UDP" },
-      { "letter": "D", "text": "Porta 500 bloqueada" }
+      {
+        "letter": "A",
+        "text": "Detecção de NAT no handshake"
+      },
+      {
+        "letter": "B",
+        "text": "ESP puro sem UDP"
+      },
+      {
+        "letter": "C",
+        "text": "Porta 500 bloqueada"
+      },
+      {
+        "letter": "D",
+        "text": "NAT-T com UDP 4500"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "NAT-T encapsula IPsec em UDP 4500 após detectar NAT no handshake. ESP puro não atravessa tradução; bloquear a porta 500 impede o túnel.",
     "source": "original",
     "tags": ["nat-t", "ipsec", "udp-4500"],
@@ -2537,12 +3704,24 @@
     "difficulty": "hard",
     "question": "Interoperabilidade exige IKEv2 com fallback controlado. Quais duas configurações usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "IKEv2 preferencial na conexão" },
-      { "letter": "B", "text": "Fallback IKEv1 documentado" },
-      { "letter": "C", "text": "Só IKEv1 legado" },
-      { "letter": "D", "text": "Sem IKE" }
+      {
+        "letter": "A",
+        "text": "Sem IKE"
+      },
+      {
+        "letter": "B",
+        "text": "Só IKEv1 legado"
+      },
+      {
+        "letter": "C",
+        "text": "Fallback IKEv1 documentado"
+      },
+      {
+        "letter": "D",
+        "text": "IKEv2 preferencial na conexão"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "IKEv2 preferencial com fallback IKEv1 documentado cobre appliances legados. Só IKEv1 legado perde recursos; sem IKE não há túnel.",
     "source": "original",
     "tags": ["ikev2", "ikev1", "fallback"],
@@ -2558,12 +3737,24 @@
     "difficulty": "hard",
     "question": "Chaves de sessão comprometidas não podem descriptografar tráfego passado. Quais dois elementos do PFS garantem isso? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Perfect Forward Secrecy habilitado" },
-      { "letter": "B", "text": "Grupos DH efêmeros por sessão" },
-      { "letter": "C", "text": "Chave estática reutilizada" },
-      { "letter": "D", "text": "Sem troca de chaves" }
+      {
+        "letter": "A",
+        "text": "Sem troca de chaves"
+      },
+      {
+        "letter": "B",
+        "text": "Chave estática reutilizada"
+      },
+      {
+        "letter": "C",
+        "text": "Grupos DH efêmeros por sessão"
+      },
+      {
+        "letter": "D",
+        "text": "Perfect Forward Secrecy habilitado"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Perfect Forward Secrecy com grupos DH efêmeros por sessão isola o passado. Chave estática reutilizada vaza tudo; sem troca de chaves não há segredo.",
     "source": "original",
     "tags": ["pfs", "dh", "sessao"],
@@ -2579,12 +3770,24 @@
     "difficulty": "hard",
     "question": "Associações de segurança precisam de renovação periódica sem queda. Quais dois lifetimes calibrar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Lifetime da SA IKE (fase 1)" },
-      { "letter": "B", "text": "Lifetime da SA IPsec (fase 2)" },
-      { "letter": "C", "text": "SA permanente sem renovar" },
-      { "letter": "D", "text": "Renovação manual anual" }
+      {
+        "letter": "A",
+        "text": "SA permanente sem renovar"
+      },
+      {
+        "letter": "B",
+        "text": "Renovação manual anual"
+      },
+      {
+        "letter": "C",
+        "text": "Lifetime da SA IKE (fase 1)"
+      },
+      {
+        "letter": "D",
+        "text": "Lifetime da SA IPsec (fase 2)"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Lifetimes das SAs IKE (fase 1) e IPsec (fase 2) renovam sem interromper. SA permanente acumula risco; renovação manual anual atrasa.",
     "source": "original",
     "tags": ["sa-lifetime", "ike", "ipsec", "renovacao"],
@@ -2600,12 +3803,24 @@
     "difficulty": "hard",
     "question": "Túnel deve carregar só prefixos corporativos, não toda internet. Quais dois seletores restringir? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Seletores locais (prefixos on-prem)" },
-      { "letter": "B", "text": "Seletores remotos (VNets)" },
-      { "letter": "C", "text": "0.0.0.0/0 para tudo" },
-      { "letter": "D", "text": "Sem seletor" }
+      {
+        "letter": "A",
+        "text": "Seletores remotos (VNets)"
+      },
+      {
+        "letter": "B",
+        "text": "0.0.0.0/0 para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Seletores locais (prefixos on-prem)"
+      },
+      {
+        "letter": "D",
+        "text": "Sem seletor"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Seletores locais (prefixos on-prem) e remotos (VNets) limitam o túnel ao necessário. Enviar 0.0.0.0/0 para tudo força internet; sem seletor não há negociação.",
     "source": "original",
     "tags": ["traffic-selector", "prefixos", "tunel"],
@@ -2621,12 +3836,24 @@
     "difficulty": "hard",
     "question": "Múltiplos túneis com failover e BGP exigem modo de VPN específico. Quais dois motivos escolhem route-based? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Suporte a BGP e failover" },
-      { "letter": "B", "text": "Múltiplos SAs por túnel" },
-      { "letter": "C", "text": "Policy-based com um SA" },
-      { "letter": "D", "text": "Sem criptografia" }
+      {
+        "letter": "A",
+        "text": "Sem criptografia"
+      },
+      {
+        "letter": "B",
+        "text": "Suporte a BGP e failover"
+      },
+      {
+        "letter": "C",
+        "text": "Policy-based com um SA"
+      },
+      {
+        "letter": "D",
+        "text": "Múltiplos SAs por túnel"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Route-based roteia com BGP e múltiplos SAs por túnel. Policy-based limita a um par; sem criptografia não há VPN.",
     "source": "original",
     "tags": ["route-based", "policy-based", "bgp"],
@@ -2642,12 +3869,24 @@
     "difficulty": "hard",
     "question": "Túnel instável precisa de reset programado sem recriar gateway. Quais dois elementos resetam com segurança? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Reset da conexão VPN" },
-      { "letter": "B", "text": "Reconexão com DPD" },
-      { "letter": "C", "text": "Exclusão do gateway" },
-      { "letter": "D", "text": "Aguardar expirar sozinho" }
+      {
+        "letter": "A",
+        "text": "Reset da conexão VPN"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar expirar sozinho"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão do gateway"
+      },
+      {
+        "letter": "D",
+        "text": "Reconexão com DPD"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Reset da conexão restabelece SAs e DPD reconecta automaticamente. Excluir o gateway é drástico; aguardar expirar sozinho prolonga outage.",
     "source": "original",
     "tags": ["reset", "conexao", "vpn"],
@@ -2663,12 +3902,24 @@
     "difficulty": "hard",
     "question": "Chave pré-compartilhada do túnel vazou e precisa trocar sem downtime prolongado. Quais dois passos executar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Gerar nova PSK forte" },
-      { "letter": "B", "text": "Aplicar dos dois lados com janela" },
-      { "letter": "C", "text": "Manter a vazada" },
-      { "letter": "D", "text": "PSK curta simples" }
+      {
+        "letter": "A",
+        "text": "Manter a vazada"
+      },
+      {
+        "letter": "B",
+        "text": "Gerar nova PSK forte"
+      },
+      {
+        "letter": "C",
+        "text": "Aplicar dos dois lados com janela"
+      },
+      {
+        "letter": "D",
+        "text": "PSK curta simples"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Gerar nova PSK forte e aplicar dos dois lados com janela minimiza queda. Manter a vazada expõe; PSK curta simples quebra.",
     "source": "original",
     "tags": ["psk", "rotacao", "tunel"],
@@ -2684,12 +3935,24 @@
     "difficulty": "hard",
     "question": "Quedas de túnel precisam de alerta com diagnóstico de fase. Quais dois monitoramentos aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Métricas de túnel com alerta de bytes/fluxo" },
-      { "letter": "B", "text": "Logs de diagnóstico IKE/IPsec" },
-      { "letter": "C", "text": "Ping manual ocasional" },
-      { "letter": "D", "text": "Sem monitoramento" }
+      {
+        "letter": "A",
+        "text": "Sem monitoramento"
+      },
+      {
+        "letter": "B",
+        "text": "Logs de diagnóstico IKE/IPsec"
+      },
+      {
+        "letter": "C",
+        "text": "Ping manual ocasional"
+      },
+      {
+        "letter": "D",
+        "text": "Métricas de túnel com alerta de bytes/fluxo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Métricas de túnel com alerta de bytes/fluxo detectam queda e logs IKE/IPsec diagnosticam a fase. Ping manual ocasional atrasa; sem monitoramento cega.",
     "source": "original",
     "tags": ["vpn", "monitoramento", "metricas", "logs"],
@@ -2705,8 +3968,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que throughput VPN é garantido igual ao contratado independente de internet pública. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, garantido sempre" },
-      { "letter": "B", "text": "Não, depende da internet subjacente" }
+      {
+        "letter": "A",
+        "text": "Sim, garantido sempre"
+      },
+      {
+        "letter": "B",
+        "text": "Não, depende da internet subjacente"
+      }
     ],
     "correct": ["B"],
     "explanation": "VPN sobre internet varia com o melhor esforço do caminho subjacente. Assumir throughput garantido igual ao contratado ignora a base pública.",
@@ -2724,8 +3993,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que ExpressRoute garante latência menor que VPN por usar backbone privado. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, backbone privado é mais consistente" },
-      { "letter": "B", "text": "Não, latências são idênticas" }
+      {
+        "letter": "A",
+        "text": "Sim, backbone privado é mais consistente"
+      },
+      {
+        "letter": "B",
+        "text": "Não, latências são idênticas"
+      }
     ],
     "correct": ["A"],
     "explanation": "Backbone privado dedicado evita congestão pública com latência consistente e SLA. Equiparar latências ignora a diferença física entre os caminhos.",
@@ -2743,8 +4018,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que ExpressRoute tem SLA de 99,95% com circuitos redundantes. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, com dual e operadora" },
-      { "letter": "B", "text": "Não, ER não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, com dual e operadora"
+      },
+      {
+        "letter": "B",
+        "text": "Não, ER não tem SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Circuito dual com operadoras distintas contrata 99,95% de SLA. Negar o contrato ignora a tabela; circuito único sem redundância não alcança.",
@@ -2762,8 +4043,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que gateway VPN tem SLA de 99,95% em modo ativo-ativo. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, ativo-ativo contrata 99,95%" },
-      { "letter": "B", "text": "Não, VPN não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, ativo-ativo contrata 99,95%"
+      },
+      {
+        "letter": "B",
+        "text": "Não, VPN não tem SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Gateway em modo ativo-ativo contrata 99,95%; ativo-passivo fica em 99,9%. Negar qualquer SLA ignora a tabela oficial.",
@@ -2781,10 +4068,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que Load Balancer Standard tem SLA 99,99% com distribuição zonal. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, zonal-redundante contrata 99,99%" },
-      { "letter": "B", "text": "Não, LB não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, LB não tem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, zonal-redundante contrata 99,99%"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Load Balancer Standard zone-redundant contrata 99,99% de SLA. Negar ignora o contrato; o Básico de fato não tem SLA.",
     "source": "original",
     "tags": ["lb", "sla", "99-99"],
@@ -2800,8 +4093,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que Application Gateway v2 tem SLA 99,95% (99,99% zonal). Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, conforme distribuição" },
-      { "letter": "B", "text": "Não, AppGW não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, conforme distribuição"
+      },
+      {
+        "letter": "B",
+        "text": "Não, AppGW não tem SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Application Gateway v2 contrata 99,95% (99,99% quando zonal). Negar ignora a tabela oficial; a v1 tem termos próprios.",
@@ -2819,10 +4118,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que Front Door Standard/Premium tem SLA 99,99%. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, 99,99% global" },
-      { "letter": "B", "text": "Não, sem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, sem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, 99,99% global"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Front Door Standard/Premium contrata 99,99% de SLA global. Negar o contrato ignora a tabela oficial de borda.",
     "source": "original",
     "tags": ["front-door", "sla", "99-99"],
@@ -2838,8 +4143,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que Azure DNS (zonas públicas) tem SLA 100%. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, 100% para zonas públicas" },
-      { "letter": "B", "text": "Não, máximo 99,99%" }
+      {
+        "letter": "A",
+        "text": "Sim, 100% para zonas públicas"
+      },
+      {
+        "letter": "B",
+        "text": "Não, máximo 99,99%"
+      }
     ],
     "correct": ["A"],
     "explanation": "DNS público do Azure contrata 100% de disponibilidade de resposta. Achar teto de 99,99% ignora o contrato específico de DNS.",
@@ -2857,8 +4168,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que Traffic Manager tem SLA 99,99% para resolução DNS. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, 99,99% de DNS" },
-      { "letter": "B", "text": "Não, sem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, 99,99% de DNS"
+      },
+      {
+        "letter": "B",
+        "text": "Não, sem SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Traffic Manager contrata 99,99% de resposta DNS. Negar o SLA ignora o contrato oficial do serviço de DNS global.",
@@ -2876,10 +4193,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que Virtual WAN Hub tem SLA 99,95%. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, 99,95% para o hub" },
-      { "letter": "B", "text": "Não, sem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, sem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, 99,95% para o hub"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Virtual WAN Hub contrata 99,95% de disponibilidade. Negar o contrato ignora a tabela oficial de rede do Azure.",
     "source": "original",
     "tags": ["vwan", "sla", "hub"],
@@ -2895,10 +4218,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que Azure Bastion tem SLA 99,95% em SKU Básico ou superior. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, Básico+ contrata 99,95%" },
-      { "letter": "B", "text": "Não, sem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, sem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, Básico+ contrata 99,95%"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Bastion Básico ou superior contrata 99,95% de disponibilidade. Negar o contrato ignora a tabela oficial.",
     "source": "original",
     "tags": ["bastion", "sla", "99-95"],
@@ -2914,10 +4243,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que Azure Firewall tem SLA 99,95% (99,99% zonal). Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, conforme distribuição" },
-      { "letter": "B", "text": "Não, sem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, sem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, conforme distribuição"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Firewall contrata 99,95%, subindo a 99,99% quando zonal. Negar o contrato ignora a tabela oficial de rede.",
     "source": "original",
     "tags": ["firewall", "sla", "zonal"],
@@ -2933,10 +4268,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que NAT Gateway tem SLA 99,9% com zona. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, zonal contrata 99,9%" },
-      { "letter": "B", "text": "Não, sem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, sem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, zonal contrata 99,9%"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "NAT Gateway zonal contrata 99,9% de disponibilidade. Negar o contrato ignora a tabela; sem zona os termos diferem.",
     "source": "original",
     "tags": ["nat", "sla", "zonal"],
@@ -2952,10 +4293,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que NSG tem SLA próprio de 99,99%. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, NSG contrata 99,99%" },
-      { "letter": "B", "text": "Não, NSG não tem SLA próprio" }
+      {
+        "letter": "A",
+        "text": "Não, NSG não tem SLA próprio"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, NSG contrata 99,99%"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "NSG é construção de controle sem SLA próprio; o SLA é dos recursos protegidos. Assumir 99,99% inventa contrato inexistente.",
     "source": "original",
     "tags": ["nsg", "sla", "sem-sla"],
@@ -2971,10 +4318,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que tabela de rotas (UDR) tem SLA próprio de disponibilidade. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, UDR contrata SLA" },
-      { "letter": "B", "text": "Não, UDR não tem SLA próprio" }
+      {
+        "letter": "A",
+        "text": "Não, UDR não tem SLA próprio"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, UDR contrata SLA"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "UDR é configuração de SDN sem SLA próprio. Assumir contrato inventa garantia inexistente na tabela oficial.",
     "source": "original",
     "tags": ["udr", "sla", "sem-sla"],
@@ -2990,10 +4343,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que VNet Peering tem SLA próprio de 99,9%. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, peering contrata 99,9%" },
-      { "letter": "B", "text": "Não, peering não tem SLA próprio" }
+      {
+        "letter": "A",
+        "text": "Não, peering não tem SLA próprio"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, peering contrata 99,9%"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Peering não tem SLA próprio; vale o SLA das VNets/gateways envolvidos. Assumir 99,9% inventa contrato.",
     "source": "original",
     "tags": ["peering", "sla", "sem-sla"],
@@ -3009,10 +4368,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que DNS privado (zonas privadas) tem SLA de 100% igual ao público. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, 100% igual ao público" },
-      { "letter": "B", "text": "Não, 100% vale para zonas públicas" }
+      {
+        "letter": "A",
+        "text": "Não, 100% vale para zonas públicas"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, 100% igual ao público"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Os 100% contratados valem para zonas públicas; privadas seguem termos próprios. Equiparar ignora a distinção oficial.",
     "source": "original",
     "tags": ["dns-privado", "sla", "publico"],
@@ -3028,8 +4393,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que o WAF tem SLA próprio separado do Application Gateway/Front Door. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, WAF contrata à parte" },
-      { "letter": "B", "text": "Não, segue o SLA do recurso hospedeiro" }
+      {
+        "letter": "A",
+        "text": "Sim, WAF contrata à parte"
+      },
+      {
+        "letter": "B",
+        "text": "Não, segue o SLA do recurso hospedeiro"
+      }
     ],
     "correct": ["B"],
     "explanation": "WAF é recurso do gateway/borda e segue o SLA do hospedeiro. Contratar à parte inventa SLA inexistente.",
@@ -3047,8 +4418,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que DDoS Protection tem SLA próprio de mitigação. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, com garantia de mitigação" },
-      { "letter": "B", "text": "Não, sem SLA próprio de mitigação" }
+      {
+        "letter": "A",
+        "text": "Sim, com garantia de mitigação"
+      },
+      {
+        "letter": "B",
+        "text": "Não, sem SLA próprio de mitigação"
+      }
     ],
     "correct": ["B"],
     "explanation": "DDoS Protection não contrata SLA próprio de mitigação; protege os recursos com SLA deles. Assumir garantia inventa contrato.",
@@ -3066,10 +4443,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que VPN ponto-a-site tem o mesmo SLA do site-a-site ativo-ativo. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, SLAs idênticos" },
-      { "letter": "B", "text": "Não, P2S não tem o mesmo compromisso" }
+      {
+        "letter": "A",
+        "text": "Não, P2S não tem o mesmo compromisso"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, SLAs idênticos"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Os 99,95% valem para gateway S2S ativo-ativo; P2S segue termos próprios sem o mesmo compromisso. Equiparar ignora a distinção.",
     "source": "original",
     "tags": ["vpn", "p2s", "sla", "s2s"],
@@ -3085,10 +4468,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que ExpressRoute Direct (porta dedicada) tem SLA distinto do padrão. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, Direct tem termos próprios" },
-      { "letter": "B", "text": "Não, idêntico em tudo" }
+      {
+        "letter": "A",
+        "text": "Não, idêntico em tudo"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, Direct tem termos próprios"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "ER Direct (100 Gbps dedicado) tem termos próprios de disponibilidade distintos do ER padrão. Tratar como idêntico ignora o contrato.",
     "source": "original",
     "tags": ["expressroute", "direct", "sla"],
@@ -3104,10 +4493,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que gateway local (representação on-premises) tem SLA no Azure. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, com 99,9%" },
-      { "letter": "B", "text": "Não, é só registro sem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, é só registro sem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, com 99,9%"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Local network gateway é objeto de configuração sem SLA; o compromisso é do gateway Azure. Atribuir SLA ao registro inventa contrato.",
     "source": "original",
     "tags": ["gateway-local", "sla", "registro"],
@@ -3123,8 +4518,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que o objeto de conexão VPN tem SLA próprio separado do gateway. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, conexão contrata à parte" },
-      { "letter": "B", "text": "Não, segue o SLA do gateway" }
+      {
+        "letter": "A",
+        "text": "Sim, conexão contrata à parte"
+      },
+      {
+        "letter": "B",
+        "text": "Não, segue o SLA do gateway"
+      }
     ],
     "correct": ["B"],
     "explanation": "Conexão é configuração sobre o gateway; o SLA é do gateway. Contratar à parte inventa garantia inexistente.",
@@ -3142,8 +4543,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que IP público Standard tem SLA próprio de disponibilidade. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, IP Standard contrata SLA" },
-      { "letter": "B", "text": "Não, segue o recurso associado" }
+      {
+        "letter": "A",
+        "text": "Sim, IP Standard contrata SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Não, segue o recurso associado"
+      }
     ],
     "correct": ["B"],
     "explanation": "IP público não tem SLA próprio; vale o do recurso (LB, gateway, VM). Assumir contrato do IP inventa garantia.",
@@ -3161,10 +4568,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que NIC de VM tem SLA próprio de disponibilidade. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, NIC contrata SLA" },
-      { "letter": "B", "text": "Não, segue o SLA da VM" }
+      {
+        "letter": "A",
+        "text": "Não, segue o SLA da VM"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, NIC contrata SLA"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "NIC é componente da VM sem SLA próprio; vale o contrato da máquina. Assumir SLA da NIC inventa garantia inexistente.",
     "source": "original",
     "tags": ["nic", "sla", "vm"],
@@ -3180,8 +4593,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que a VNet em si tem SLA de 99,99% como tecido de rede. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, VNet contrata 99,99%" },
-      { "letter": "B", "text": "Não, VNet não tem SLA próprio" }
+      {
+        "letter": "A",
+        "text": "Sim, VNet contrata 99,99%"
+      },
+      {
+        "letter": "B",
+        "text": "Não, VNet não tem SLA próprio"
+      }
     ],
     "correct": ["B"],
     "explanation": "VNet é construção lógica sem SLA próprio; valem SLAs de gateway, LB e VMs. Assumir 99,99% inventa contrato.",
@@ -3199,8 +4618,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que sub-rede tem SLA proporcional ao prefixo. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, maior prefixo maior SLA" },
-      { "letter": "B", "text": "Não, sub-rede não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, maior prefixo maior SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Não, sub-rede não tem SLA"
+      }
     ],
     "correct": ["B"],
     "explanation": "Sub-rede é segmentação lógica sem contrato; prefixo dimensiona endereços, não garantia. Vincular SLA a CIDR inventa regra.",
@@ -3218,8 +4643,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que tabela de rotas com BGP tem SLA maior que estática. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, BGP eleva o SLA" },
-      { "letter": "B", "text": "Não, tabela não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, BGP eleva o SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Não, tabela não tem SLA"
+      }
     ],
     "correct": ["B"],
     "explanation": "UDR não tem SLA em nenhuma forma; BGP melhora resiliência real sem contrato. Confundir resiliência com SLA erra o conceito.",
@@ -3237,10 +4668,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que indisponibilidade causada por dependência do cliente (ISP local) gera crédito. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, qualquer indisponibilidade credita" },
-      { "letter": "B", "text": "Não, fatores fora do Azure são excluídos" }
+      {
+        "letter": "A",
+        "text": "Não, fatores fora do Azure são excluídos"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, qualquer indisponibilidade credita"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "SLA exclui fatores fora do controle Microsoft (ISP, energia do cliente). Qualquer indisponibilidade creditada ignora as exclusões.",
     "source": "original",
     "tags": ["sla", "exclusoes", "dependencia"],
@@ -3256,8 +4693,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que recursos em preview têm SLA reduzido proporcional. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, SLA reduzido em preview" },
-      { "letter": "B", "text": "Não, preview não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, SLA reduzido em preview"
+      },
+      {
+        "letter": "B",
+        "text": "Não, preview não tem SLA"
+      }
     ],
     "correct": ["B"],
     "explanation": "Preview/beta não têm SLA; o contrato nasce no GA. Assumir reduzido planeja sobre garantia inexistente.",
@@ -3275,8 +4718,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que nenhum serviço gratuito do Azure tem SLA. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, grátis nunca tem SLA" },
-      { "letter": "B", "text": "Não, há exceções pontuais" }
+      {
+        "letter": "A",
+        "text": "Sim, grátis nunca tem SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Não, há exceções pontuais"
+      }
     ],
     "correct": ["A"],
     "explanation": "Serviços/tiers gratuitos não contratam SLA por definição. Buscar exceção ignora a regra geral da tabela oficial.",
@@ -3294,8 +4743,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que o crédito de SLA é automático na fatura seguinte sem ação. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, automático sempre" },
-      { "letter": "B", "text": "Não, exige solicitação com evidência" }
+      {
+        "letter": "A",
+        "text": "Sim, automático sempre"
+      },
+      {
+        "letter": "B",
+        "text": "Não, exige solicitação com evidência"
+      }
     ],
     "correct": ["B"],
     "explanation": "Crédito de SLA exige solicitação formal com evidências dentro do prazo contratual. Automático sem ação não existe no processo oficial.",
@@ -3313,10 +4768,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que o SLA é medido por mês-calendário com minutos totais do mês. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, ciclo mensal-calendário" },
-      { "letter": "B", "text": "Não, medido por hora corrida" }
+      {
+        "letter": "A",
+        "text": "Não, medido por hora corrida"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, ciclo mensal-calendário"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "SLAs de disponibilidade usam o mês-calendário como janela de medição. Medir por hora corrida fragmentaria o cálculo oficial.",
     "source": "original",
     "tags": ["sla", "mensal", "janela"],
@@ -3332,8 +4793,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que fevereiro (28 dias) permite menos minutos de downtime que meses de 31 dias no mesmo SLA. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, proporcional aos minutos do mês" },
-      { "letter": "B", "text": "Não, o valor é fixo por SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, proporcional aos minutos do mês"
+      },
+      {
+        "letter": "B",
+        "text": "Não, o valor é fixo por SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Downtime permitido deriva dos minutos do mês-calendário; fevereiro tem menos. Valor fixo ignoraria o calendário.",
@@ -3351,10 +4818,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que sondas do cliente contam como medição oficial de downtime para claim. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, qualquer sonda vale" },
-      { "letter": "B", "text": "Não, vale a telemetria oficial Microsoft" }
+      {
+        "letter": "A",
+        "text": "Não, vale a telemetria oficial Microsoft"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, qualquer sonda vale"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Downtime oficial usa medição Microsoft; sondas do cliente são evidência auxiliar. Aceitar qualquer sonda abriria disputa infinita.",
     "source": "original",
     "tags": ["sla", "medicao", "sonda", "oficial"],
@@ -3370,8 +4843,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que degradação parcial (lentidão sem queda) conta como downtime integral. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, qualquer lentidão é downtime" },
-      { "letter": "B", "text": "Não, SLA define erro/down por serviço" }
+      {
+        "letter": "A",
+        "text": "Sim, qualquer lentidão é downtime"
+      },
+      {
+        "letter": "B",
+        "text": "Não, SLA define erro/down por serviço"
+      }
     ],
     "correct": ["B"],
     "explanation": "Cada SLA define o que é erro elegível (ex.: >5% falho); lentidão genérica nem sempre qualifica. Tratar tudo como down superestima claim.",
@@ -3389,8 +4868,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que manutenção de emergência sem aviso conta como downtime. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, sem aviso conta" },
-      { "letter": "B", "text": "Não, emergências são excluídas" }
+      {
+        "letter": "A",
+        "text": "Sim, sem aviso conta"
+      },
+      {
+        "letter": "B",
+        "text": "Não, emergências são excluídas"
+      }
     ],
     "correct": ["A"],
     "explanation": "Só manutenção planejada anunciada é excluída; emergencial sem aviso conta como indisponibilidade. Generalizar a exclusão ignora a regra.",
@@ -3408,10 +4893,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que desastres naturais e atos de terceiros excluem crédito de SLA. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, força maior é excluída" },
-      { "letter": "B", "text": "Não, tudo gera crédito" }
+      {
+        "letter": "A",
+        "text": "Não, tudo gera crédito"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, força maior é excluída"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Força maior e fatores externos estão nas exclusões padrão. Creditamento universal ignora as cláusulas.",
     "source": "original",
     "tags": ["sla", "forca-maior", "exclusao"],
@@ -3427,10 +4918,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que indisponibilidade causada por ataque DDoS ao cliente gera crédito automaticamente. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, ataque sempre credita" },
-      { "letter": "B", "text": "Não, depende de proteção contratada e causa" }
+      {
+        "letter": "A",
+        "text": "Não, depende de proteção contratada e causa"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, ataque sempre credita"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Ataques externos podem cair em exclusões ou exigir proteção contratada; não há crédito automático universal. Generalizar ignora as cláusulas.",
     "source": "original",
     "tags": ["sla", "ddos", "ataque"],
@@ -3446,8 +4943,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que erro de configuração do próprio cliente anula direito a crédito. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, mau uso é excluído" },
-      { "letter": "B", "text": "Não, cliente sempre recebe" }
+      {
+        "letter": "A",
+        "text": "Sim, mau uso é excluído"
+      },
+      {
+        "letter": "B",
+        "text": "Não, cliente sempre recebe"
+      }
     ],
     "correct": ["A"],
     "explanation": "Mau uso e configuração errada do cliente estão nas exclusões padrão. Creditamento universal ignoraria a responsabilidade compartilhada.",
@@ -3465,10 +4968,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que falha de software de terceiro rodando na VM gera crédito do Azure. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, qualquer falha credita" },
-      { "letter": "B", "text": "Não, terceiros são excluídos" }
+      {
+        "letter": "A",
+        "text": "Não, terceiros são excluídos"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, qualquer falha credita"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Software de terceiros foge ao controle Microsoft e é excluído. Creditamento universal ignoraria a fronteira de responsabilidade.",
     "source": "original",
     "tags": ["sla", "terceiros", "exclusao"],
@@ -3479,20 +4988,26 @@
   {
     "id": "az104-rv-163",
     "domain": "rede-virtual",
-    "subdomain": "sla-beta-conceito",
+    "subdomain": "sla-ga-transicao",
     "type": "yes-no",
     "difficulty": "hard",
-    "question": "Um arquiteto afirma que recursos em beta têm SLA proporcional ao tempo em preview. Essa afirmação está correta?",
+    "question": "Um recurso em beta que atinge disponibilidade geral (GA) passa a contar com o SLA do serviço a partir da data de GA. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, proporcional ao preview" },
-      { "letter": "B", "text": "Não, beta não tem SLA" }
+      {
+        "letter": "A",
+        "text": "Não, o SLA só vale após 12 meses de GA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, o SLA vale a partir da GA"
+      }
     ],
     "correct": ["B"],
-    "explanation": "Beta/preview não contratam SLA em nenhuma proporção. Proporcionalidade inventa contrato inexistente.",
+    "explanation": "O SLA de um serviço Azure aplica-se desde a GA; durante o beta/preview não há compromisso contratual de disponibilidade. Exigência de carência de 12 meses não existe no contrato.",
     "source": "original",
-    "tags": ["beta", "sla", "preview"],
+    "tags": ["beta", "sla", "ga"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-28T02:34:59.960Z",
     "version": 1
   },
   {
@@ -3503,10 +5018,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que abrir chamado de suporte é suficiente para receber o crédito automaticamente. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, chamado basta" },
-      { "letter": "B", "text": "Não, exige claim formal de SLA" }
+      {
+        "letter": "A",
+        "text": "Não, exige claim formal de SLA"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, chamado basta"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Suporte resolve incidente; crédito exige processo próprio de claim com evidências. Confundir os fluxos perde o prazo.",
     "source": "original",
     "tags": ["suporte", "claim", "processo"],
@@ -3522,8 +5043,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que sem logs e evidências o claim de SLA é negado. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, evidência é obrigatória" },
-      { "letter": "B", "text": "Não, basta alegar" }
+      {
+        "letter": "A",
+        "text": "Sim, evidência é obrigatória"
+      },
+      {
+        "letter": "B",
+        "text": "Não, basta alegar"
+      }
     ],
     "correct": ["A"],
     "explanation": "Claim exige comprovação de indisponibilidade elegível no período. Alegação sem dado é negada no processo oficial.",
@@ -3541,10 +5068,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que o claim prescreve se aberto meses após o incidente. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, há prazo para solicitar" },
-      { "letter": "B", "text": "Não, pode pedir a qualquer tempo" }
+      {
+        "letter": "A",
+        "text": "Não, pode pedir a qualquer tempo"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, há prazo para solicitar"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "O processo define janela para solicitação após o mês do incidente. Pedir a qualquer tempo ignora a prescrição oficial.",
     "source": "original",
     "tags": ["prazo", "claim", "prescricao"],
@@ -3560,10 +5093,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que o crédito máximo equivale a 100% da fatura dos serviços afetados. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, teto de 100% do afetado" },
-      { "letter": "B", "text": "Não, sem teto definido" }
+      {
+        "letter": "A",
+        "text": "Não, sem teto definido"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, teto de 100% do afetado"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "As faixas culminam em 100% do valor dos serviços afetados no mês. Sem teto ignora a tabela de créditos.",
     "source": "original",
     "tags": ["credito-maximo", "teto", "fatura"],
@@ -3579,10 +5118,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que o crédito sai como reembolso em dinheiro na conta bancária. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, dinheiro de volta" },
-      { "letter": "B", "text": "Não, crédito na fatura Azure" }
+      {
+        "letter": "A",
+        "text": "Não, crédito na fatura Azure"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, dinheiro de volta"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Crédito abate faturas futuras do serviço afetado, sem reembolso bancário. Esperar dinheiro ignora a mecânica oficial.",
     "source": "original",
     "tags": ["credito", "fatura", "reembolso"],
@@ -3598,10 +5143,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que dois componentes redundantes em paralelo elevam o SLA combinado acima do individual. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, paralelo eleva (1-(1-a)(1-b))" },
-      { "letter": "B", "text": "Não, paralelo reduz" }
+      {
+        "letter": "A",
+        "text": "Não, paralelo reduz"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, paralelo eleva (1-(1-a)(1-b))"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Redundância em paralelo multiplica indisponibilidades (não disponibilidades), elevando o combinado. Achar que reduz inverte a matemática.",
     "source": "original",
     "tags": ["sla", "paralelo", "redundancia", "calculo"],
@@ -3617,8 +5168,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que cada dependência em série reduz o SLA total do sistema. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, série multiplica para baixo" },
-      { "letter": "B", "text": "Não, série mantém o maior" }
+      {
+        "letter": "A",
+        "text": "Sim, série multiplica para baixo"
+      },
+      {
+        "letter": "B",
+        "text": "Não, série mantém o maior"
+      }
     ],
     "correct": ["A"],
     "explanation": "Cadeia em série multiplica disponibilidades, sempre abaixo do elo mais fraco. Manter o maior ignora a composição.",
@@ -3636,8 +5193,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que desacoplar com filas e cache eleva o SLA percebido mesmo com componentes frágeis. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, desacoplamento isola falhas" },
-      { "letter": "B", "text": "Não, acoplamento não afeta SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, desacoplamento isola falhas"
+      },
+      {
+        "letter": "B",
+        "text": "Não, acoplamento não afeta SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Filas/cache absorvem falhas parciais mantendo resposta. Negar ignora resiliência por desacoplamento.",
@@ -3655,8 +5218,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que testes de caos validam o SLA real além do papel. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, caos valida resiliência" },
-      { "letter": "B", "text": "Não, caos invalida o SLA" }
+      {
+        "letter": "A",
+        "text": "Sim, caos valida resiliência"
+      },
+      {
+        "letter": "B",
+        "text": "Não, caos invalida o SLA"
+      }
     ],
     "correct": ["A"],
     "explanation": "Testes de caos (Chaos Studio) provocam falhas controladas e validam resiliência real. Achar que invalida o SLA confunde validação com violação.",
@@ -3674,10 +5243,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que simulados de DR medem RTO real para calibrar o SLA interno. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, drill mede RTO" },
-      { "letter": "B", "text": "Não, drill é só teatro" }
+      {
+        "letter": "A",
+        "text": "Não, drill é só teatro"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, drill mede RTO"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Simulados de DR cronometram failover real e calibram o RTO interno da operação. Chamar de teatro ignora a medição de prontidão.",
     "source": "original",
     "tags": ["drill", "dr", "rto"],
@@ -3693,10 +5268,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que runbooks de failover automatizados reduzem MTTR e sustentam SLA interno. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, automação reduz MTTR" },
-      { "letter": "B", "text": "Não, manual é mais rápido" }
+      {
+        "letter": "A",
+        "text": "Não, manual é mais rápido"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, automação reduz MTTR"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Runbooks executam em segundos o que manual leva minutos. Defender manual ignora a matemática do MTTR.",
     "source": "original",
     "tags": ["runbook", "mttr", "automacao"],
@@ -3712,15 +5293,327 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que sem observabilidade não há como comprovar nem defender SLA. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, evidência exige telemetria" },
-      { "letter": "B", "text": "Não, palavra basta" }
+      {
+        "letter": "A",
+        "text": "Não, palavra basta"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, evidência exige telemetria"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Claims e defesa de SLA exigem métricas e logs como prova. Palavra sem dado não sustenta processo oficial.",
     "source": "original",
     "tags": ["observabilidade", "sla", "evidencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-176",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-segundo-cidr",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VNet 10.0.0.0/16 lotada precisa de um segundo bloco. O novo CIDR precisa ser contíguo ao primeiro?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, só via recriação da VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, contíguo e da mesma classe"
+      },
+      {
+        "letter": "C",
+        "text": "Não — basta não sobrepor"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, com o mesmo prefixo /16"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: o segundo bloco só precisa ser válido e não sobreposto — pode ser não contíguo e de tamanho distinto. B está incorreta: contiguidade e classe não são exigidas. D está incorreta: o novo bloco pode ter prefixo e tamanho diferentes, sem repetir o /16. A está incorreta: adiciona-se em produção, sem recriar.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/manage-virtual-network",
+    "tags": ["vnet", "cidr", "espaco-endereco", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-177",
+    "domain": "rede-virtual",
+    "subdomain": "udr-longest-prefix",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Duas rotas coincidem com o destino: UDR /24 e rota de sistema /16. Qual vence?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A com menor métrica BGP"
+      },
+      {
+        "letter": "B",
+        "text": "Nenhuma — tráfego dropado"
+      },
+      {
+        "letter": "C",
+        "text": "A de sistema /16 por ser nativa"
+      },
+      {
+        "letter": "D",
+        "text": "A UDR /24 (prefixo mais longo)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "D está correta: a UDR /24 vence por longest prefix match, independente da origem da rota. C está incorreta: a de sistema /16 por ser nativa não supera o prefixo mais longo da UDR /24. A está incorreta: a com menor métrica BGP decide apenas entre rotas BGP. B está incorreta: nenhuma — tráfego dropado não ocorre, porque havendo coincidência de destino sempre há uma rota vencedora.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "tags": ["udr", "longest-prefix", "roteamento", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-178",
+    "domain": "rede-virtual",
+    "subdomain": "peering-cross-sub",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VNets em assinaturas distintas do mesmo tenant precisam trocar tráfego privado. O que permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Emparelhamento entre as assinaturas"
+      },
+      {
+        "letter": "B",
+        "text": "DNS público compartilhado"
+      },
+      {
+        "letter": "C",
+        "text": "Migrar tudo para uma assinatura"
+      },
+      {
+        "letter": "D",
+        "text": "IP público em cada VM"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: o emparelhamento entre as assinaturas (e entre tenants, com as permissões devidas) mantém o tráfego privado. D está incorreta: IP público em cada VM manda o tráfego pela internet, o que não é tráfego privado. B está incorreta: DNS público compartilhado resolve nomes, não roteia pacotes entre VNets. C está incorreta: migrar tudo para uma assinatura é desnecessário quando o emparelhamento já resolve.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-peering-overview",
+    "tags": ["peering", "assinaturas", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-179",
+    "domain": "rede-virtual",
+    "subdomain": "ip-alocacao",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "IP público muda a cada deallocate. Qual método de alocação o mantém fixo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Estático"
+      },
+      {
+        "letter": "B",
+        "text": "Por link-local"
+      },
+      {
+        "letter": "C",
+        "text": "Dinâmica"
+      },
+      {
+        "letter": "D",
+        "text": "Por DHCP do SO"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: estático persiste entre stop/start. C está incorreta: dinâmico pode mudar ao desalocar. B está incorreta: link-local não roteia. D está incorreta: DHCP do SO não controla a alocação do Azure.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-addresses",
+    "tags": ["ip-publico", "alocacao", "estatico", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-180",
+    "domain": "rede-virtual",
+    "subdomain": "ip-dns-label",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Onde definir o rótulo DNS que gera o FQDN do endereço IP público?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rótulo DNS no próprio IP público"
+      },
+      {
+        "letter": "B",
+        "text": "Hosts file das VMs"
+      },
+      {
+        "letter": "C",
+        "text": "Registro A na zona privada"
+      },
+      {
+        "letter": "D",
+        "text": "Nome do grupo de recursos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: o rótulo DNS no IP gera FQDN label.local.cloudapp.azure.com. C está incorreta: zona privada não publica na internet. B está incorreta: hosts não escala. D está incorreta: nome de grupo não é DNS.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-addresses",
+    "tags": ["ip-publico", "dns-label", "fqdn", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-181",
+    "domain": "rede-virtual",
+    "subdomain": "udr-next-hop",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tráfego para 10.2.0.0/16 deve sair à internet contornando o firewall. Qual próximo salto na UDR?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway de VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Nenhum (drop)"
+      },
+      {
+        "letter": "C",
+        "text": "Internet"
+      },
+      {
+        "letter": "D",
+        "text": "Virtual appliance"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: próximo salto Internet desvia do NVA. D está incorreta: appliance força inspeção — o oposto do pedido. A está incorreta: gateway leva a VPN/ER. B está incorreta: next-hop nenhum descarta o tráfego de fato.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "tags": ["udr", "next-hop", "internet", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-182",
+    "domain": "rede-virtual",
+    "subdomain": "udr-bgp-propagacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sub-rede com NVA não pode receber rotas BGP do gateway. O que configurar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG negando BGP"
+      },
+      {
+        "letter": "B",
+        "text": "Desligar o gateway"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar a propagação de rotas BGP na sub-rede"
+      },
+      {
+        "letter": "D",
+        "text": "Excluir a tabela de rotas"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: desabilitar a propagação de rotas BGP na sub-rede bloqueia as rotas aprendidas do gateway e mantém as rotas customizadas da NVA. D está incorreta: excluir a tabela de rotas remove também as rotas próprias da sub-rede. A está incorreta: NSG negando BGP não existe — NSG filtra conexão, não protocolo de roteamento. B está incorreta: desligar o gateway derruba toda a conectividade das VNets, não só o BGP.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-peering-overview",
+    "tags": ["udr", "bgp", "propagacao", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-183",
+    "domain": "rede-virtual",
+    "subdomain": "troubleshoot-conexao",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Conexão VM-A para VM-B falha intermitentemente. Quais dois dados o Connection Troubleshoot retorna? Selecione dois.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Resultado das verificações de conectividade"
+      },
+      {
+        "letter": "B",
+        "text": "Logs de fluxo do NSG"
+      },
+      {
+        "letter": "C",
+        "text": "Latência por salto"
+      },
+      {
+        "letter": "D",
+        "text": "Captura completa de pacotes"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "C e A estão corretas: o Connection Troubleshoot mostra a latência por salto; ele também apresenta o resultado das verificações de conectividade. D está incorreta: captura completa de pacotes é a ferramenta packet capture, à parte. B está incorreta: logs de fluxo do NSG são uma análise separada e não vêm no relatório do troubleshoot.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview",
+    "tags": ["troubleshooting", "connection-troubleshoot", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-184",
+    "domain": "rede-virtual",
+    "subdomain": "packet-capture",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Pacotes somem entre duas sub-redes sem log de firewall. Qual ferramenta captura o tráfego para análise?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IP Flow Verify"
+      },
+      {
+        "letter": "B",
+        "text": "Connection Troubleshoot"
+      },
+      {
+        "letter": "C",
+        "text": "Captura de pacotes do Network Watcher"
+      },
+      {
+        "letter": "D",
+        "text": "Ping do Cloud Shell"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: packet capture grava pacotes para análise profunda. A está incorreta: IP Flow só dá o veredito da regra. B está incorreta: troubleshoot dá checks e latência, não pcap. D está incorreta: ping não captura.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-packet-capture-overview",
+    "tags": ["troubleshooting", "packet-capture", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
     "version": 1
   }
 ]

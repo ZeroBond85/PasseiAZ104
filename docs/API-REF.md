@@ -33,7 +33,8 @@
 - `npx tsx scripts/generate-questions.mts --domain X --count N [--dry-run] [--resume]`
 - `npx tsx scripts/build-simulados.mts [N]` — N oficiais fixed/100min
 - `npx tsx scripts/import-community.mts --url ...` — quarentena com `needsReview:true`
-- `node check-seq.mjs <arquivo> <prefixo>` — contagem/dup/sequência do banco
+- `node check-seq.mjs --domain <identidade-governanca|storage|compute|rede-virtual|monitoramento>` — contagem/dup/sequência **por dominio** (concatena arquivos). O argumento é o **nome do dominio**, não o prefixo do id: `--domain ig` falha com `Prefixo nao encontrado`.
+- `node check-seq.mjs <arquivo> <prefixo>` — modo legado (arquivo unico)
 - `node scripts/bump-bank-meta.mjs [--check]` — regenera `countsByDomain`+`updatedAt` do real
 - `npx tsx scripts/validate-migration-types.mts` — colunas SQL × chaves Zod (fail-closed no `ci`)
 - `node scripts/update-readme-test-count.mjs [--check]` — sincroniza contagem no README

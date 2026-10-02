@@ -19,4 +19,4 @@
 ## Particionamento (§9)
 
 - Arquivo `data/*.json` ≤200KB; estourou = particiona por subdomínio (precedentes: `identidade-acesso`, `compute-vms/apps/platform`).
-- Todo lote novo: `node check-seq.mjs` + `npm run validate` antes do commit.
+- Todo lote novo: `node check-seq.mjs --domain <identidade-governanca|storage|compute|rede-virtual|monitoramento>` + `npm run validate` antes do commit. O argumento é o **nome do domínio**; passar o prefixo do id (`ig`, `st`…) sai com `Prefixo nao encontrado`.

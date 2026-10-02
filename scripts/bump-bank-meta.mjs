@@ -11,6 +11,8 @@ const SKIP = new Set([
   'case-studies.json',
   'study-topics.json',
   'exam-syllabus.json',
+  'exam-skills.json',
+  'grounding-map.json',
 ])
 
 const counts = {}

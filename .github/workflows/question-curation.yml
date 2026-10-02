@@ -15,7 +15,7 @@ permissions:
 jobs:
   curate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,6 +27,8 @@ jobs:
       - run: npm run meta:check
       - id: curate
         run: node scripts/question-curation.mjs
+      - name: grounding (cobertura lexical das sourceUrl)
+        run: npx tsx scripts/check-grounding.mts
       - name: Issue em caso de anomalia
         if: failure()
         env:

@@ -9,14 +9,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, Spot nunca serve a produção"
+        "text": "Não, com arquitetura tolerante (fila, checkpoint) Spot compõe produção"
       },
       {
         "letter": "B",
-        "text": "Não, com arquitetura tolerante (fila, checkpoint) Spot compõe produção"
+        "text": "Sim, Spot nunca serve a produção"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Spot com aviso de despejo sustenta produção tolerante a falha (lotes, render, CI) com economia de até 90%. A regra é adequar a arquitetura, não banir o modelo.",
     "source": "original",
     "tags": ["vms", "spot", "arquitetura"],
@@ -63,18 +63,18 @@
       },
       {
         "letter": "B",
-        "text": "Política de remoção com Spot primeiro"
+        "text": "Remoção aleatória sem prioridade"
       },
       {
         "letter": "C",
-        "text": "100% Spot sem base"
+        "text": "Política de remoção com Spot primeiro"
       },
       {
         "letter": "D",
-        "text": "Remoção aleatória sem prioridade"
+        "text": "100% Spot sem base"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Base garante e Spot barateia pico; remover Spot primeiro preserva base. 100% Spot despeja tudo; aleatório mata base.",
     "source": "original",
     "tags": ["vmss", "spot", "prioridade", "remocao"],
@@ -92,22 +92,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Espalhamento zonal por resiliência"
-      },
-      {
-        "letter": "B",
         "text": "Preço Spot por economia"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Tudo numa zona sem preço"
+      },
+      {
+        "letter": "C",
+        "text": "Espalhamento zonal por resiliência"
       },
       {
         "letter": "D",
         "text": "Aleatório sem critério"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Espalhamento zonal protege de falha de datacenter e preço Spot otimiza custo. Tudo numa zona perde redundância; alocação aleatória não otimiza nada.",
     "source": "original",
     "tags": ["alocacao", "zonas", "preco", "spot"],
@@ -125,11 +125,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Percentual da fatura por faixa (ex.: 10/25/100%)"
+        "text": "Valor fixo por minuto parado"
       },
       {
         "letter": "B",
-        "text": "Valor fixo por minuto parado"
+        "text": "Percentual da fatura por faixa (ex.: 10/25/100%)"
       },
       {
         "letter": "C",
@@ -140,7 +140,7 @@
         "text": "Reembolso em dinheiro"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Créditos seguem faixas percentuais da fatura mediante solicitação. Não há valor por minuto; exige claim formal; é crédito, não dinheiro.",
     "source": "original",
     "tags": ["sla", "creditos", "faixas"],
@@ -158,7 +158,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Abrir claim com evidências dentro do prazo contratual"
+        "text": "Abrir chamado um ano depois"
       },
       {
         "letter": "B",
@@ -166,14 +166,14 @@
       },
       {
         "letter": "C",
-        "text": "Ligar para o suporte sem evidência"
+        "text": "Abrir claim com evidências dentro do prazo contratual"
       },
       {
         "letter": "D",
-        "text": "Abrir chamado um ano depois"
+        "text": "Ligar para o suporte sem evidência"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Crédito exige solicitação formal com logs no prazo (geralmente fim do mês seguinte). Automático não existe; sem evidência nega; fora do prazo prescreve.",
     "source": "original",
     "tags": ["sla", "claim", "credito", "prazo"],
@@ -195,15 +195,15 @@
       },
       {
         "letter": "B",
-        "text": "99,9% igual pay-as-you-go"
-      },
-      {
-        "letter": "C",
         "text": "99,95% com reserva"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "99,99% zonal"
+      },
+      {
+        "letter": "D",
+        "text": "99,9% igual pay-as-you-go"
       }
     ],
     "correct": ["A"],
@@ -224,7 +224,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cotas Spot e Regular são pools distintos"
+        "text": "Cota única global"
       },
       {
         "letter": "B",
@@ -232,14 +232,14 @@
       },
       {
         "letter": "C",
-        "text": "Spot não tem cota"
+        "text": "Cotas Spot e Regular são pools distintos"
       },
       {
         "letter": "D",
-        "text": "Cota única global"
+        "text": "Spot não tem cota"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Spot tem pool de cota próprio por região/SKU. Assumir compartilhada confunde o erro; sem cota não existiria limite; única global não existe.",
     "source": "original",
     "tags": ["spot", "cota", "pool"],
@@ -257,22 +257,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cotas de baixa prioridade por região no portal"
-      },
-      {
-        "letter": "B",
-        "text": "Cota regular como proxy"
-      },
-      {
-        "letter": "C",
         "text": "Sem limite para low-priority"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Ticket genérico sem métrica"
+      },
+      {
+        "letter": "C",
+        "text": "Cotas de baixa prioridade por região no portal"
+      },
+      {
+        "letter": "D",
+        "text": "Cota regular como proxy"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Low-priority tem cota própria visível e solicitável. Regular não cobre; sem limite não existe; genérico atrasa.",
     "source": "original",
     "tags": ["low-priority", "cota", "batch"],
@@ -290,22 +290,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cotas são por região, sem transferência"
-      },
-      {
-        "letter": "B",
-        "text": "Cota global compartilhada"
-      },
-      {
-        "letter": "C",
         "text": "Transferência automática"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Cotas são por região, sem transferência"
+      },
+      {
+        "letter": "C",
         "text": "Sem cotas regionais"
+      },
+      {
+        "letter": "D",
+        "text": "Cota global compartilhada"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Cada região tem teto próprio; sobra elsewhere não ajuda. Global não existe; automática não transfere; sem regional ignora o modelo.",
     "source": "original",
     "tags": ["cota", "regiao", "transferencia"],
@@ -327,15 +327,15 @@
       },
       {
         "letter": "B",
-        "text": "Cota única para todas"
+        "text": "Família é só nome"
       },
       {
         "letter": "C",
-        "text": "Sem cota por família"
+        "text": "Cota única para todas"
       },
       {
         "letter": "D",
-        "text": "Família é só nome"
+        "text": "Sem cota por família"
       }
     ],
     "correct": ["A"],
@@ -356,22 +356,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Uso + cotas na subscription do portal"
-      },
-      {
-        "letter": "B",
-        "text": "Fatura mensal"
-      },
-      {
-        "letter": "C",
         "text": "Log da VM"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Métrica de CPU"
+      },
+      {
+        "letter": "C",
+        "text": "Fatura mensal"
+      },
+      {
+        "letter": "D",
+        "text": "Uso + cotas na subscription do portal"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Blade de uso e cotas mostra consumo vs limite por região. Fatura não mostra teto; log e CPU não medem cota.",
     "source": "original",
     "tags": ["cota", "uso", "portal"],
@@ -389,22 +389,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Minutos a horas para automático; dias para grandes"
-      },
-      {
-        "letter": "B",
         "text": "Sempre instantâneo"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Sempre 30 dias"
+      },
+      {
+        "letter": "C",
+        "text": "Minutos a horas para automático; dias para grandes"
       },
       {
         "letter": "D",
         "text": "Nunca aprovado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Pequenos automatizam rápido; grandes exigem revisão de capacidade. Instantâneo sempre não existe; 30 dias exagera; nunca é falso.",
     "source": "original",
     "tags": ["cota", "prazo", "aprovacao"],
@@ -426,15 +426,15 @@
       },
       {
         "letter": "B",
-        "text": "Aguardar meses pela cota"
+        "text": "Cancelar o go-live"
       },
       {
         "letter": "C",
-        "text": "Usar SKU indisponível"
+        "text": "Aguardar meses pela cota"
       },
       {
         "letter": "D",
-        "text": "Cancelar o go-live"
+        "text": "Usar SKU indisponível"
       }
     ],
     "correct": ["A"],
@@ -459,11 +459,11 @@
       },
       {
         "letter": "B",
-        "text": "Aguardar o SKU voltar"
+        "text": "Mudar de região e de arquitetura"
       },
       {
         "letter": "C",
-        "text": "Mudar de região e de arquitetura"
+        "text": "Aguardar o SKU voltar"
       },
       {
         "letter": "D",
@@ -488,22 +488,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Zone balance com SKU alternativo nas 3 zonas"
+        "text": "Uma zona única"
       },
       {
         "letter": "B",
-        "text": "Forçar tudo nas 2 zonas"
-      },
-      {
-        "letter": "C",
         "text": "Desabilitar zonas"
       },
       {
+        "letter": "C",
+        "text": "Zone balance com SKU alternativo nas 3 zonas"
+      },
+      {
         "letter": "D",
-        "text": "Uma zona única"
+        "text": "Forçar tudo nas 2 zonas"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "SKU presente nas 3 zonas equilibra; forçar em 2 desbalanceia; sem zonas perde SLA; única é ponto único.",
     "source": "original",
     "tags": ["sku", "zonas", "balanceamento"],
@@ -521,7 +521,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Restrição de SKU/zona e cota na região"
+        "text": "Cor do portal"
       },
       {
         "letter": "B",
@@ -529,14 +529,14 @@
       },
       {
         "letter": "C",
-        "text": "Cor do portal"
+        "text": "Restrição de SKU/zona e cota na região"
       },
       {
         "letter": "D",
         "text": "Nome do RG"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "AllocationFailed indica falta de capacidade/cota do SKU/zona. Senha, portal e nome não afetam alocação.",
     "source": "original",
     "tags": ["allocationfailed", "capacidade", "cota"],
@@ -554,22 +554,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Trocar SKU/zona ou região pareada"
-      },
-      {
-        "letter": "B",
         "text": "Repetir o mesmo request"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Aumentar timeout do cliente"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Reiniciar o portal"
+      },
+      {
+        "letter": "D",
+        "text": "Trocar SKU/zona ou região pareada"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Mudar SKU/zona/região encontra capacidade livre. Repetir falha igual; timeout não cria hardware; portal não aloca.",
     "source": "original",
     "tags": ["allocationfailed", "workaround", "sku", "zona"],
@@ -587,22 +587,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Relaxar zona ou PPG"
-      },
-      {
-        "letter": "B",
         "text": "Trocar Ultra por Premium"
       },
       {
+        "letter": "B",
+        "text": "Exigir host dedicado"
+      },
+      {
         "letter": "C",
-        "text": "Adicionar mais restrições"
+        "text": "Relaxar zona ou PPG"
       },
       {
         "letter": "D",
-        "text": "Exigir host dedicado"
+        "text": "Adicionar mais restrições"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Relaxar zona/PPG amplia pool e Premium tem mais capacidade que Ultra. Mais restrição piora; dedicado restringe mais.",
     "source": "original",
     "tags": ["restricoes", "alocacao", "flexibilizar"],
@@ -620,7 +620,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Retry com backoff em zona alternativa"
+        "text": "Falhar sem tentar"
       },
       {
         "letter": "B",
@@ -632,10 +632,10 @@
       },
       {
         "letter": "D",
-        "text": "Falhar sem tentar"
+        "text": "Retry com backoff em zona alternativa"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Backoff com zona alternada e fallback de SKU contornam contenção. Loop igual desperdiça; falhar sem tentar desiste cedo.",
     "source": "original",
     "tags": ["retry", "backoff", "fallback", "deploy"],
@@ -653,7 +653,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Erros AllocationFailed por SKU/zona"
+        "text": "Cor do dashboard"
       },
       {
         "letter": "B",
@@ -661,14 +661,14 @@
       },
       {
         "letter": "C",
-        "text": "Cor do dashboard"
+        "text": "Erros AllocationFailed por SKU/zona"
       },
       {
         "letter": "D",
         "text": "Uptime do portal"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Erros por SKU/zona localizam contenção e cota vs limite distingue causa. Dashboard e portal não diagnosticam.",
     "source": "original",
     "tags": ["alocacao", "monitoramento", "cota"],
@@ -686,22 +686,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Reserva de capacidade antecipada"
+        "text": "Confiar no Spot"
       },
       {
         "letter": "B",
-        "text": "Pedido de cota com folga"
-      },
-      {
-        "letter": "C",
         "text": "Esperar o pico chegar"
       },
       {
+        "letter": "C",
+        "text": "Reserva de capacidade antecipada"
+      },
+      {
         "letter": "D",
-        "text": "Confiar no Spot"
+        "text": "Pedido de cota com folga"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Reserva antecipada de capacidade segura hardware e pedido de cota com folga autoriza o uso. Esperar o pico chegar atrasa; confiar no Spot despeja.",
     "source": "original",
     "tags": ["capacidade", "proativo", "reserva", "cota"],
@@ -719,22 +719,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Deploy ativo nas duas regiões"
+        "text": "DNS estático sem probe"
       },
       {
         "letter": "B",
-        "text": "Front Door/Traffic Manager com health"
+        "text": "Deploy ativo nas duas regiões"
       },
       {
         "letter": "C",
-        "text": "Uma região com backup frio"
+        "text": "Front Door/Traffic Manager com health"
       },
       {
         "letter": "D",
-        "text": "DNS estático sem probe"
+        "text": "Uma região com backup frio"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Deploy ativo nas duas regiões com Front Door/Traffic Manager e health probe faz failover em segundos. Uma região com backup frio demora; DNS estático sem probe não detecta.",
     "source": "original",
     "tags": ["multirregiao", "ativo-ativo", "failover"],
@@ -752,7 +752,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Replicação assíncrona entre pares"
+        "text": "Regiões aleatórias sem par"
       },
       {
         "letter": "B",
@@ -760,14 +760,14 @@
       },
       {
         "letter": "C",
-        "text": "Regiões aleatórias sem par"
+        "text": "Replicação assíncrona entre pares"
       },
       {
         "letter": "D",
         "text": "Sem replicação"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Pares replicam e têm prioridade de recuperação na Microsoft. Aleatórias perdem garantia; sem replicar não há DR.",
     "source": "original",
     "tags": ["regiao-pareada", "replicacao", "dr"],
@@ -789,7 +789,7 @@
       },
       {
         "letter": "B",
-        "text": "Teste de restore cross-region"
+        "text": "Sem teste de restore"
       },
       {
         "letter": "C",
@@ -797,10 +797,10 @@
       },
       {
         "letter": "D",
-        "text": "Sem teste de restore"
+        "text": "Teste de restore cross-region"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Cópia GRS na região pareada com teste de restore cross-region prova o DR. LRS local não sai da região; sem teste de restore não há garantia.",
     "source": "original",
     "tags": ["backup", "grs", "cross-region", "teste"],
@@ -822,18 +822,18 @@
       },
       {
         "letter": "B",
-        "text": "Mapeamento de IPs e NSGs"
-      },
-      {
-        "letter": "C",
         "text": "Sem rede na secundária"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "IP novo sem planejamento"
+      },
+      {
+        "letter": "D",
+        "text": "Mapeamento de IPs e NSGs"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "VNet espelho na secundária recebe o failover e mapeamento de IPs e NSGs preserva endereçamento. Sem rede na secundária não há para onde falhar; IP novo sem planejamento conflita.",
     "source": "original",
     "tags": ["asr", "rede", "failover", "vnet"],
@@ -851,14 +851,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, impacta produção"
+        "text": "Não, é isolado em rede de teste"
       },
       {
         "letter": "B",
-        "text": "Não, é isolado em rede de teste"
+        "text": "Sim, impacta produção"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Test failover executa em rede isolada sem tocar a produção replicada. Achar que impacta impede testar o DR com segurança.",
     "source": "original",
     "tags": ["test-failover", "asr", "isolado"],
@@ -951,14 +951,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, compromisso reserva com desconto"
+        "text": "Não, pay-as-you-go sempre"
       },
       {
         "letter": "B",
-        "text": "Não, pay-as-you-go sempre"
+        "text": "Sim, compromisso reserva com desconto"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Commitment tiers reservam throughput com desconto por compromisso. Só PAYG ignora a economia planejada.",
     "source": "original",
     "tags": ["commitment-tier", "desconto", "throughput"],
@@ -1001,14 +1001,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, cooldown estabiliza"
+        "text": "Não, escalar sem pausa é melhor"
       },
       {
         "letter": "B",
-        "text": "Não, escalar sem pausa é melhor"
+        "text": "Sim, cooldown estabiliza"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Cooldown aguarda o efeito antes de nova ação, evitando oscilação do autoscale. Sem pausa o sistema entra em flapping contínuo.",
     "source": "original",
     "tags": ["cooldown", "autoscale", "flapping"],
@@ -1026,14 +1026,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, flapping é anti-padrão"
+        "text": "Não, flapping é saudável"
       },
       {
         "letter": "B",
-        "text": "Não, flapping é saudável"
+        "text": "Sim, flapping é anti-padrão"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Oscilação cria/destrói sem estabilizar, queimando custo e derrubando conexões. Tratar como saudável ignora o anti-padrão.",
     "source": "original",
     "tags": ["flapping", "anti-padrao", "custo"],
@@ -1064,6 +1064,448 @@
     "tags": ["predictive", "autoscale", "ml"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-231",
+    "domain": "compute",
+    "subdomain": "vm-trusted-launch",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VM nova precisa de boot seguro e vTPM contra rootkits, sem agente extra. Qual tipo de segurança escolher na criação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Trusted Launch (Gen2 + secure boot + vTPM)"
+      },
+      {
+        "letter": "B",
+        "text": "Standard sem vTPM"
+      },
+      {
+        "letter": "C",
+        "text": "VM confidencial com TEE dedicado"
+      },
+      {
+        "letter": "D",
+        "text": "ADE com BitLocker manual"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: Trusted Launch exige imagem Gen2 e liga secure boot + vTPM sem agente. B está incorreta: Standard não oferece vTPM. C está incorreta: VM confidencial é outro SKU com isolamento de hardware, overkill para secure boot. D está incorreta: ADE cifra disco via extensão, não protege o boot.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/trusted-launch",
+    "tags": ["vm", "trusted-launch", "secure-boot", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-232",
+    "domain": "compute",
+    "subdomain": "vm-host-cmk",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Criptografia no host deve usar chaves gerenciadas pelo cliente em vez das da plataforma. Onde registrar a chave?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Na extensão ADE de cada VM"
+      },
+      {
+        "letter": "B",
+        "text": "Em conjunto de criptografia de disco (DES) vinculado ao Key Vault"
+      },
+      {
+        "letter": "C",
+        "text": "Em token SAS do disco"
+      },
+      {
+        "letter": "D",
+        "text": "Na chave da conta de armazenamento"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: CMK no host e no storage exige DES referenciando a chave do cofre com purge protection. A está incorreta: extensão ADE é BitLocker/DM-Crypt de convidado, outro modelo. D está incorreta: chave da conta autoriza acesso, não cifra. C está incorreta: SAS delega acesso, não gerencia chave.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption",
+    "tags": ["vm", "host-encryption", "cmk", "des", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-233",
+    "domain": "compute",
+    "subdomain": "vm-mover-rg-assinatura",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Recursos precisam trocar de grupo e uma VM precisa trocar de região. Quais mecanismos usar? Selecione dois.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup e restauração entre regiões quaisquer"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot copiado entre tenants quaisquer"
+      },
+      {
+        "letter": "C",
+        "text": "ARM move que valida e transfere para outro grupo/assinatura"
+      },
+      {
+        "letter": "D",
+        "text": "Site Recovery com replicação para outra região"
+      }
+    ],
+    "correct": ["C", "D"],
+    "explanation": "C está correta: move valida e transfere grupo/assinatura no mesmo tenant. D está correta: região exige replicação e novo deploy via Site Recovery. A está incorreta: backup restaura em geral na mesma região/conta, não migra entre regiões arbitrárias. B está incorreta: snapshot não cruza tenant nem move identidade e recursos.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "tags": ["vm", "mover", "assinatura", "regiao", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-234",
+    "domain": "compute",
+    "subdomain": "vms-tamanhos",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VM de banco precisa de discos SSD Premium. Qual série de VM suporta armazenamento Premium?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Série B básica"
+      },
+      {
+        "letter": "B",
+        "text": "Qualquer série, inclusive sem suporte"
+      },
+      {
+        "letter": "C",
+        "text": "DS/DSv2 (com suporte a Premium Storage)"
+      },
+      {
+        "letter": "D",
+        "text": "Série A av1"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: DS/DSv2 (e as séries ES/Fs) têm cache local e suporte declarado a Premium Storage. B está incorreta: qualquer série, inclusive sem suporte, é falso — nem toda série aceita Premium Storage. D está incorreta: série A av1 é legada e não aceita Premium Storage. A está incorreta: série B básica é burstable, de armazenamento temporário, e não aceita Premium Storage.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "tags": ["vm", "tamanhos", "premium-ssd", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-co-235",
+    "domain": "compute",
+    "subdomain": "vms-discos",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Discos de produção precisam sobreviver à falha de um datacenter com réplica síncrona entre zonas. Qual redundância de disco usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "LRS no mesmo datacenter"
+      },
+      {
+        "letter": "B",
+        "text": "Disco não gerenciado com replicação manual"
+      },
+      {
+        "letter": "C",
+        "text": "ZRS para discos (Premium SSD/Standard)"
+      },
+      {
+        "letter": "D",
+        "text": "GRS assíncrona entre regiões"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: ZRS replica sincronamente em 3 zonas da região. A está incorreta: LRS fica num datacenter. D está incorreta: GRS é assíncrona entre regiões (RPO maior que zero), não atende réplica síncrona zonal. B está incorreta: não gerenciado é legado sem esse recurso.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disks-redundancy",
+    "tags": ["vm", "discos", "zrs", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-co-236",
+    "domain": "compute",
+    "subdomain": "vms-zonas",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Carga precisa de resiliência de zona sem escolher zona 1, 2 ou 3 manualmente. Qual tipo de recurso usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Recurso com redundância de zona (a plataforma distribui)"
+      },
+      {
+        "letter": "B",
+        "text": "Availability set com 2 fault domains"
+      },
+      {
+        "letter": "C",
+        "text": "Recurso zonal fixado na zona 1"
+      },
+      {
+        "letter": "D",
+        "text": "Recurso regional sem zona"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: zone-redundant dispensa pinning — a plataforma espalha entre zonas. C está incorreta: zonal exige escolha e cai com a zona. D está incorreta: regional sem zona não sobrevive à falha de datacenter. B está incorreta: set protege em escopo menor, dentro do datacenter.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "tags": ["vm", "zonas", "zone-redundant", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-237",
+    "domain": "compute",
+    "subdomain": "vmss-auto-os-upgrade",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "VMSS de web precisa de patches do SO sem trocar a imagem nem derrubar instâncias saudáveis. Qual atualização usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Upgrade manual simultâneo"
+      },
+      {
+        "letter": "B",
+        "text": "Rolling upgrade com nova imagem a cada patch"
+      },
+      {
+        "letter": "C",
+        "text": "Recriar o conjunto a cada Patch Tuesday"
+      },
+      {
+        "letter": "D",
+        "text": "Atualizações automáticas do SO com probe de integridade"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "D está correta: automatic OS upgrades aplicam patches in place respeitando saúde via probe. B está incorreta: rolling com nova imagem é para mudança de versão, overkill para patch. A está incorreta: simultâneo derruba tudo. C está incorreta: recriar zera estado e causa indisponibilidade.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade",
+    "tags": ["vmss", "auto-os-upgrade", "patch", "co-vms"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-238",
+    "domain": "compute",
+    "subdomain": "acr-geo-replicacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Filiais na Europa e Ásia puxam imagens com latência alta do registro no Brasil. Como aproximar as imagens sem gerenciar réplicas manuais?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ACR Basic com pull intercontinental"
+      },
+      {
+        "letter": "B",
+        "text": "Docker Hub público espelhado à mão"
+      },
+      {
+        "letter": "C",
+        "text": "Georreplicação do ACR Premium"
+      },
+      {
+        "letter": "D",
+        "text": "Uma VM com disco compartilhado por região"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: georreplicação Premium replica para regiões escolhidas com pull local. A está incorreta: Basic não tem georreplicação e o pull cruza o oceano. B está incorreta: espelho manual perde procedência e automação. D está incorreta: disco compartilhado não é registro.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-geo-replication",
+    "tags": ["acr", "geo-replicacao", "premium", "co-containers"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-239",
+    "domain": "compute",
+    "subdomain": "aci-identity-pull",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "ACI acessa registro privado sem credencial de administrador no manifesto. Qual autenticação usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAS da conta de armazenamento"
+      },
+      {
+        "letter": "B",
+        "text": "Identidade gerenciada com função de pull no registro"
+      },
+      {
+        "letter": "C",
+        "text": "Credencial de admin em texto claro"
+      },
+      {
+        "letter": "D",
+        "text": "Chave SSH do nó"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: identidade gerenciada com função de pull autentica sem segredo no manifesto. C está incorreta: expõe credencial com poder total. A está incorreta: SAS é de Storage, não de registro. D está incorreta: SSH não autentica pull de imagem.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-authentication",
+    "tags": ["aci", "identidade-gerenciada", "acrpull", "co-containers"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-240",
+    "domain": "compute",
+    "subdomain": "aci-secure-env",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Senha de banco em variável de ambiente de contêiner ACI aparece em texto claro no portal. Como protegê-la?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "secureValue em vez de value na variável"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitar o portal para o grupo"
+      },
+      {
+        "letter": "C",
+        "text": "Mesma variável com nome em maiúsculas"
+      },
+      {
+        "letter": "D",
+        "text": "Hardcode no código da imagem"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: secureValue oculta o valor no portal e na CLI. C está incorreta: caixa do nome não protege nada. D está incorreta: segredo na imagem vaza no registro. B está incorreta: o portal exibe por design; o controle é na variável.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-environment-variables",
+    "tags": ["aci", "secure-env", "segredos", "co-containers"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-241",
+    "domain": "compute",
+    "subdomain": "container-apps-revisions",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Nova revisão do app precisa de 10% do tráfego para canário antes do corte total. Quais recursos usar? Selecione dois.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Múltiplas revisões ativas"
+      },
+      {
+        "letter": "B",
+        "text": "Divisão de tráfego por peso entre revisões"
+      },
+      {
+        "letter": "C",
+        "text": "Nova assinatura por revisão"
+      },
+      {
+        "letter": "D",
+        "text": "Um slot de deployment por revisão"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "A e B estão corretas: o Container Apps mantém múltiplas revisões ativas ao mesmo tempo; a divisão de tráfego por peso entre revisões é o que entrega os 10% do canário. D está incorreta: um slot de deployment por revisão é conceito do App Service, não do Container Apps. C está incorreta: nova assinatura por revisão não faz parte do modelo de revisões.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/revisions",
+    "tags": ["container-apps", "revisoes", "canario", "co-containers"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-242",
+    "domain": "compute",
+    "subdomain": "container-apps-escala",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "App com picos imprevisíveis precisa escalar por fila e nunca zerar por causa do warmup. Quais limites configurar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Escalador KEDA da fila com mínimo 1 e máximo N"
+      },
+      {
+        "letter": "B",
+        "text": "Mínimo 0 com warmup ignorado"
+      },
+      {
+        "letter": "C",
+        "text": "Réplicas fixas sem escalador"
+      },
+      {
+        "letter": "D",
+        "text": "Máximo 1 para economizar"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: o escalador KEDA da fila com mínimo 1 e máximo N reage ao acúmulo da fila e mantém uma réplica viva, evitando o cold start do warmup. B está incorreta: mínimo 0 com warmup ignorado deixa a escala zerar e reintroduz a latência de inicialização. C está incorreta: réplicas fixas sem escalador desperdiçam na calmaria e estouram no pico. D está incorreta: máximo 1 para economizar estrangula o pico e derruba o app.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app",
+    "tags": ["container-apps", "keda", "escala", "co-containers"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-243",
+    "domain": "compute",
+    "subdomain": "aci-container-group",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "App e sidecar de coleta de logs precisam compartilhar IP e ciclo de vida no ACI. Onde implantar os dois?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Em VMSS distintos"
+      },
+      {
+        "letter": "B",
+        "text": "Em grupos separados com VNet pareada"
+      },
+      {
+        "letter": "C",
+        "text": "Em assinaturas distintas"
+      },
+      {
+        "letter": "D",
+        "text": "No mesmo grupo de contêineres"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "D está correta: o grupo é a unidade de agendamento — mesmos IP, rede e ciclo de vida. B está incorreta: separar quebra IP compartilhado e ciclo conjunto. A está incorreta: VMSS é para VMs, não contêineres sob demanda. C está incorreta: assinatura distinta isola tudo.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview",
+    "tags": ["aci", "grupo", "sidecar", "co-containers"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
     "version": 1
   }
 ]

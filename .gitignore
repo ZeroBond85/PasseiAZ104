@@ -37,3 +37,6 @@ playwright-report
 .env.*
 !.env.example
 data/.generation-state.json
+
+# auditorias locais (question-curation, grounding): artefato datado, nao versionado
+.agent/

@@ -1,6 +1,5 @@
 import {
   loadProfile,
-  profileKey,
   type StudyProfile,
   saveProfile,
 } from '../study/study-profile.js'
@@ -45,11 +44,6 @@ export async function pullStudyProfile(userId: string) {
       notify: data.preferences?.notify === true,
     },
     updatedAt: remoteAt,
-  }
-  try {
-    localStorage.setItem(profileKey(userId), JSON.stringify(merged))
-  } catch {
-    // quota: mantém local
   }
   saveProfile(userId, merged)
 }

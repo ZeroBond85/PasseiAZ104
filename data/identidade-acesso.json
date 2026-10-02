@@ -9,7 +9,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Conta de usuário membro (Member) no tenant da organização"
+        "text": "Conta de serviço gerenciada pelo sistema operacional"
       },
       {
         "letter": "B",
@@ -17,14 +17,14 @@
       },
       {
         "letter": "C",
-        "text": "Conta local do Windows no computador do funcionário"
+        "text": "Conta de usuário membro (Member) no tenant da organização"
       },
       {
         "letter": "D",
-        "text": "Conta de serviço gerenciada pelo sistema operacional"
+        "text": "Conta local do Windows no computador do funcionário"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Usuários membros do tenant estão sujeitos a políticas de acesso condicional e MFA. MSA sem convite não pertence ao tenant; conta local do Windows e conta de serviço do SO ficam fora do Entra ID e não recebem as políticas.",
     "source": "original",
     "tags": ["entra-id", "usuarios"],
@@ -46,15 +46,15 @@
       },
       {
         "letter": "B",
-        "text": "Grupo de segurança atribuído com adição manual de membros"
-      },
-      {
-        "letter": "C",
         "text": "Grupo do Microsoft 365 usado apenas para e-mail"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Unidade administrativa sem regras de associação"
+      },
+      {
+        "letter": "D",
+        "text": "Grupo de segurança atribuído com adição manual de membros"
       }
     ],
     "correct": ["A"],
@@ -79,15 +79,15 @@
       },
       {
         "letter": "B",
-        "text": "Condição de aplicativo cliente + concessão de sessão persistente"
-      },
-      {
-        "letter": "C",
         "text": "Condição de risco de login + concessão de conformidade de dispositivo"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Condição de plataforma de dispositivo + concessão de aplicativo aprovado"
+      },
+      {
+        "letter": "D",
+        "text": "Condição de aplicativo cliente + concessão de sessão persistente"
       }
     ],
     "correct": ["A"],
@@ -108,22 +108,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Permissão delegada Mail.Read na entidade de serviço do aplicativo"
-      },
-      {
-        "letter": "B",
         "text": "Permissão de aplicativo Mail.ReadWrite sem usuário conectado"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Função RBAC Leitor na assinatura do tenant"
+      },
+      {
+        "letter": "C",
+        "text": "Permissão delegada Mail.Read na entidade de serviço do aplicativo"
       },
       {
         "letter": "D",
         "text": "Chave de acesso de conta de armazenamento do aplicativo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Permissão delegada age em nome do usuário conectado, com consentimento individual. Permissão de aplicativo age sem usuário (daemon); RBAC autoriza plano de gerenciamento do Azure, não Graph; chave de storage não autoriza Graph.",
     "source": "original",
     "tags": ["app-registration", "graph", "permissoes-delegadas"],
@@ -141,22 +141,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Identidade gerenciada atribuída pelo sistema na VM"
-      },
-      {
-        "letter": "B",
-        "text": "Entidade de serviço com segredo de cliente no Key Vault"
-      },
-      {
-        "letter": "C",
         "text": "Conta de usuário com MFA executando o serviço"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Chave SAS com validade de 1 ano no código"
+      },
+      {
+        "letter": "C",
+        "text": "Identidade gerenciada atribuída pelo sistema na VM"
+      },
+      {
+        "letter": "D",
+        "text": "Entidade de serviço com segredo de cliente no Key Vault"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Identidade gerenciada do sistema provisiona credencial automática gerenciada pelo Azure, sem segredo para guardar. Entidade de serviço exige guardar segredo; conta de usuário com MFA não serve a serviço autônomo; SAS no código é exatamente o antípadrão.",
     "source": "original",
     "tags": ["managed-identity", "key-vault"],
@@ -182,11 +182,11 @@
       },
       {
         "letter": "C",
-        "text": "Modo Ativado (On) com exclusão de emergência"
+        "text": "Modo Auditoria via Log Analytics sem política"
       },
       {
         "letter": "D",
-        "text": "Modo Auditoria via Log Analytics sem política"
+        "text": "Modo Ativado (On) com exclusão de emergência"
       }
     ],
     "correct": ["A"],
@@ -207,22 +207,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Função de administrador do Microsoft Entra (ex.: Administrador de Senhas)"
+        "text": "Função RBAC Leitor no grupo de gerenciamento"
       },
       {
         "letter": "B",
-        "text": "Função RBAC Colaborador na assinatura"
+        "text": "Função de administrador do Microsoft Entra (ex.: Administrador de Senhas)"
       },
       {
         "letter": "C",
-        "text": "Função RBAC Leitor no grupo de gerenciamento"
+        "text": "Função RBAC Colaborador na assinatura"
       },
       {
         "letter": "D",
         "text": "Função de Proprietário de Dados de Storage"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Funções do Entra administram identidades (senhas, licenças) sem alcançar o plano de dados do Azure. RBAC do Azure gerencia recursos, não usuários; Leitor não redefine senha; Proprietário de Storage cuida de blobs.",
     "source": "original",
     "tags": ["entra-roles", "rbac", "escopo"],
@@ -240,11 +240,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Proteção de senha do Entra com proxy e agente DC + lista personalizada"
+        "text": "Bloqueio de conta após 3 tentativas no AD"
       },
       {
         "letter": "B",
-        "text": "SSPR habilitado apenas na nuvem"
+        "text": "Proteção de senha do Entra com proxy e agente DC + lista personalizada"
       },
       {
         "letter": "C",
@@ -252,10 +252,10 @@
       },
       {
         "letter": "D",
-        "text": "Bloqueio de conta após 3 tentativas no AD"
+        "text": "SSPR habilitado apenas na nuvem"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "O agente nos DCs valida cada troca contra a lista global e a personalizada via proxy. SSPR na nuvem não alcança o AD; complexidade padrão aceita NomeDaEmpresa123; bloqueio reage a tentativas, não à qualidade da senha.",
     "source": "original",
     "tags": ["password-protection", "hibrido"],
@@ -273,11 +273,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Entidade de serviço com certificado como credencial"
+        "text": "Identidade gerenciada atribuída pelo usuário"
       },
       {
         "letter": "B",
-        "text": "Identidade gerenciada atribuída pelo usuário"
+        "text": "Entidade de serviço com certificado como credencial"
       },
       {
         "letter": "C",
@@ -288,7 +288,7 @@
         "text": "Chave de conta de armazenamento compartilhada"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Entidade de serviço com certificado funciona entre tenants e é mais segura que segredo. Identidade gerenciada limita-se ao próprio tenant; conta de usuário não serve a serviço; chave de storage não autentica entre tenants.",
     "source": "original",
     "tags": ["service-principal", "certificado", "multitenant"],
@@ -306,22 +306,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Exigir autenticação multifator"
-      },
-      {
-        "letter": "B",
-        "text": "Exigir dispositivo em conformidade ou híbrido ingressado"
-      },
-      {
-        "letter": "C",
         "text": "Permitir qualquer dispositivo com senha forte"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Sessão persistente de 90 dias sem reautenticação"
+      },
+      {
+        "letter": "C",
+        "text": "Exigir autenticação multifator"
+      },
+      {
+        "letter": "D",
+        "text": "Exigir dispositivo em conformidade ou híbrido ingressado"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "MFA garante o segundo fator e dispositivo conforme garante a estação íntegra. Permitir qualquer dispositivo anula a garantia; sessão de 90 dias reduz a frequência de verificação exigida.",
     "source": "original",
     "tags": ["conditional-access", "admin", "conformidade"],
@@ -339,22 +339,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Confiança nas políticas do tenant parceiro DESATIVADA nas configurações de acesso entre tenants"
-      },
-      {
-        "letter": "B",
         "text": "Confiança total nas declarações MFA do parceiro sem avaliação local"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Sincronização de senhas entre os dois tenants"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Federação direta sem colaboração B2B"
+      },
+      {
+        "letter": "D",
+        "text": "Confiança nas políticas do tenant parceiro DESATIVADA nas configurações de acesso entre tenants"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Desativar a confiança exige que o acesso satisfaça as políticas do seu tenant (MFA, conformidade). Confiar cegamente delega a segurança; senhas não sincronizam entre tenants; federação direta não dispensa as configurações de confiança.",
     "source": "original",
     "tags": ["cross-tenant", "b2b", "confianca"],
@@ -372,7 +372,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Proteção de token (token protection) na sessão de acesso condicional"
+        "text": "Consentimento do usuário a cada login"
       },
       {
         "letter": "B",
@@ -384,10 +384,10 @@
       },
       {
         "letter": "D",
-        "text": "Consentimento do usuário a cada login"
+        "text": "Proteção de token (token protection) na sessão de acesso condicional"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Token protection vincula criptograficamente o token ao dispositivo registrado, rejeitando replay. Aumentar a vida do token amplia a janela de abuso; sem refresh token quebra a usabilidade sem vincular; consentimento não impede replay.",
     "source": "original",
     "tags": ["token-protection", "sessao", "replay"],
@@ -405,11 +405,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Federação de identidade de carga de trabalho (workload identity federation)"
+        "text": "Segredo de cliente rotacionado a cada 30 dias"
       },
       {
         "letter": "B",
-        "text": "Segredo de cliente rotacionado a cada 30 dias"
+        "text": "Federação de identidade de carga de trabalho (workload identity federation)"
       },
       {
         "letter": "C",
@@ -420,7 +420,7 @@
         "text": "Chave de automação armazenada em variável do pipeline"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Federação troca o token OIDC do GitHub por token do Entra sem nenhum segredo armazenado. Rotação reduz, mas mantém o segredo; conta de usuário com senha é frágil e sem MFA prático; variável de pipeline ainda expõe segredo.",
     "source": "original",
     "tags": ["workload-identity", "github-actions", "federacao"],
@@ -438,22 +438,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Aplicativos cliente: clientes de autenticação legados"
+        "text": "Condição de plataforma Windows atualizada"
       },
       {
         "letter": "B",
-        "text": "Aplicativos cliente: navegadores modernos"
-      },
-      {
-        "letter": "C",
         "text": "Condição de Exchange ActiveSync para EAS legado"
       },
       {
+        "letter": "C",
+        "text": "Aplicativos cliente: clientes de autenticação legados"
+      },
+      {
         "letter": "D",
-        "text": "Condição de plataforma Windows atualizada"
+        "text": "Aplicativos cliente: navegadores modernos"
       }
     ],
-    "correct": ["A", "C"],
+    "correct": ["C", "B"],
     "explanation": "Clientes legados (IMAP/POP/autenticação básica) e o EAS legado identificam o tráfego sem autenticação moderna. Navegadores modernos e Windows atualizado representam justamente o tráfego a preservar.",
     "source": "original",
     "tags": ["conditional-access", "legados", "modern-auth"],
@@ -471,7 +471,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Acesso Privado (Private Access) para aplicativos internos"
+        "text": "Gateway de VPN ponto a site clássico"
       },
       {
         "letter": "B",
@@ -479,14 +479,14 @@
       },
       {
         "letter": "C",
-        "text": "Gateway de VPN ponto a site clássico"
+        "text": "Acesso Privado (Private Access) para aplicativos internos"
       },
       {
         "letter": "D",
         "text": "Roteamento forçado via ExpressRoute sem política"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Private Access publica apps internos sem VPN e Internet Access filtra a navegação, ambos sob acesso condicional. VPN clássica mantém o modelo a substituir; ExpressRoute sem política é conectividade, não Zero Trust.",
     "source": "original",
     "tags": ["global-secure-access", "zero-trust", "private-access"],
@@ -537,22 +537,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Fluxo de solicitação de consentimento do administrador"
+        "text": "Segredo de cliente único para todos os apps"
       },
       {
         "letter": "B",
-        "text": "Classificação e revisão de permissões de aplicativos"
+        "text": "Fluxo de solicitação de consentimento do administrador"
       },
       {
         "letter": "C",
-        "text": "Consentimento irrestrito do usuário para qualquer app"
+        "text": "Classificação e revisão de permissões de aplicativos"
       },
       {
         "letter": "D",
-        "text": "Segredo de cliente único para todos os apps"
+        "text": "Consentimento irrestrito do usuário para qualquer app"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Consents via workflow do admin centralizam aprovação e a revisão classifica permissões arriscadas. Consentimento irrestrito é a vulnerabilidade; segredo único amplia o blast radius entre apps.",
     "source": "original",
     "tags": ["consentimento", "governanca-apps"],
@@ -570,14 +570,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, SSPR elimina senhas de todos os logins"
+        "text": "Não, SSPR apenas permite redefinir a senha mantendo senha como fator"
       },
       {
         "letter": "B",
-        "text": "Não, SSPR apenas permite redefinir a senha mantendo senha como fator"
+        "text": "Sim, SSPR elimina senhas de todos os logins"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "SSPR recupera a senha esquecida, mas o login continua baseado em senha; passwordless exige métodos FIDO2, Hello ou Authenticator. Confundir recuperação com eliminação de senha é erro comum de prova.",
     "source": "original",
     "tags": ["sspr", "passwordless", "conceito"],
@@ -595,11 +595,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Microsoft Entra ID P2 (ou EMS E5)"
+        "text": "Subscription do Azure sem Entra"
       },
       {
         "letter": "B",
-        "text": "Microsoft Entra ID Gratuito"
+        "text": "Microsoft Entra ID P2 (ou EMS E5)"
       },
       {
         "letter": "C",
@@ -607,10 +607,10 @@
       },
       {
         "letter": "D",
-        "text": "Subscription do Azure sem Entra"
+        "text": "Microsoft Entra ID Gratuito"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "P2 libera PIM, Identity Protection, Access Reviews e Entitlement Management. Gratuito e M365 básico não incluem; subscription sem Entra não licencia identidade.",
     "source": "original",
     "tags": ["licencas", "entra-p2"],
@@ -628,22 +628,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "SSO SAML + provisionamento SCIM no app corporativo"
-      },
-      {
-        "letter": "B",
         "text": "Chave de API compartilhada por e-mail"
       },
       {
+        "letter": "B",
+        "text": "SSO SAML + provisionamento SCIM no app corporativo"
+      },
+      {
         "letter": "C",
-        "text": "Senha única sincronizada manualmente"
+        "text": "VPN até o SaaS"
       },
       {
         "letter": "D",
-        "text": "VPN até o SaaS"
+        "text": "Senha única sincronizada manualmente"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "SSO SAML federa o login e SCIM provisiona/desprovisiona contas. Chave por e-mail não federa; senha manual não escala; VPN não autentica SaaS.",
     "source": "original",
     "tags": ["sso", "saml", "scim"],
@@ -661,22 +661,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Excluídas de políticas + credenciais fortes + alerta de uso"
-      },
-      {
-        "letter": "B",
         "text": "MFA obrigatório e sem exclusão"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Contas desabilitadas permanentemente"
+      },
+      {
+        "letter": "C",
+        "text": "Excluídas de políticas + credenciais fortes + alerta de uso"
       },
       {
         "letter": "D",
         "text": "Senha igual para as duas"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Break glass fica fora de CA/MFA (para emergência real), com senha longa e alerta a cada login. Exigir MFA anula o propósito; desabilitada não serve; senha igual duplica risco.",
     "source": "original",
     "tags": ["break-glass", "emergencia"],
@@ -694,22 +694,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Controle de sessão com acesso limitado (Defender for Cloud Apps)"
-      },
-      {
-        "letter": "B",
-        "text": "Bloqueio total do SharePoint"
-      },
-      {
-        "letter": "C",
         "text": "Senha de 20 caracteres"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "VPN obrigatória"
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio total do SharePoint"
+      },
+      {
+        "letter": "D",
+        "text": "Controle de sessão com acesso limitado (Defender for Cloud Apps)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Session control via Defender for Cloud Apps permite visualizar sem baixar em dispositivo não conforme. Bloqueio total impede trabalho; senha não limita download; VPN não controla sessão.",
     "source": "original",
     "tags": ["session-controls", "defender-cloud-apps", "download"],
@@ -727,11 +727,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ingressado no Microsoft Entra (Entra joined)"
+        "text": "Registrado (registered) pessoal"
       },
       {
         "letter": "B",
-        "text": "Registrado (registered) pessoal"
+        "text": "Ingressado no Microsoft Entra (Entra joined)"
       },
       {
         "letter": "C",
@@ -742,7 +742,7 @@
         "text": "Workgroup local"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Entra joined dá identidade primária, SSO e gerenciamento total. Registered é BYOD limitado; híbrido sem sync quebra; workgroup não federa.",
     "source": "original",
     "tags": ["devices", "entra-joined", "intune"],
@@ -760,7 +760,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política de conformidade do Intune consumida pelo acesso condicional"
+        "text": "Nome do computador"
       },
       {
         "letter": "B",
@@ -772,10 +772,10 @@
       },
       {
         "letter": "D",
-        "text": "Nome do computador"
+        "text": "Política de conformidade do Intune consumida pelo acesso condicional"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Intune avalia conformidade e o CA consome o sinal. Grupo estático não mede saúde; senha e nome não atestam conformidade.",
     "source": "original",
     "tags": ["conformidade", "intune", "conditional-access"],
@@ -793,22 +793,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Locais nomeados do acesso condicional (inclui conformidade de país)"
+        "text": "Grupo de recursos"
       },
       {
         "letter": "B",
-        "text": "NSG de cada VNet"
-      },
-      {
-        "letter": "C",
         "text": "Tabela de rotas"
       },
       {
+        "letter": "C",
+        "text": "NSG de cada VNet"
+      },
+      {
         "letter": "D",
-        "text": "Grupo de recursos"
+        "text": "Locais nomeados do acesso condicional (inclui conformidade de país)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Named locations centralizam IPs confiáveis e países para todas as políticas. NSG é por rede; UDR roteia; RG organiza recursos.",
     "source": "original",
     "tags": ["named-locations", "ips", "paises"],
@@ -826,22 +826,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Credenciais vazadas (leaked credentials)"
-      },
-      {
-        "letter": "B",
-        "text": "Viagem impossível (impossible travel)"
-      },
-      {
-        "letter": "C",
         "text": "IP anônimo (Tor/VPN)"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Volume de login normal"
+      },
+      {
+        "letter": "C",
+        "text": "Viagem impossível (impossible travel)"
+      },
+      {
+        "letter": "D",
+        "text": "Credenciais vazadas (leaked credentials)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Leaked credentials cruza breaches conhecidos com seus usuários. Viagem impossível e IP anônimo são detecções de login, não de vazamento; volume normal não é risco.",
     "source": "original",
     "tags": ["identity-protection", "leaked-credentials"],
@@ -859,22 +859,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política de risco de usuário com troca segura de senha"
-      },
-      {
-        "letter": "B",
-        "text": "Política de expiração de 90 dias"
-      },
-      {
-        "letter": "C",
         "text": "Bloqueio de conta permanente"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Política de risco de usuário com troca segura de senha"
+      },
+      {
+        "letter": "C",
         "text": "E-mail de aviso ao usuário"
+      },
+      {
+        "letter": "D",
+        "text": "Política de expiração de 90 dias"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "User risk policy exige password change seguro ao detectar comprometimento. Expiração periódica não reage; bloqueio permanente impede o legítimo; e-mail não impõe.",
     "source": "original",
     "tags": ["user-risk", "remediacao", "senha"],
@@ -896,15 +896,15 @@
       },
       {
         "letter": "B",
-        "text": "Funções RBAC da subscription"
+        "text": "Papéis no código sem registro"
       },
       {
         "letter": "C",
-        "text": "Grupos de segurança como papéis"
+        "text": "Funções RBAC da subscription"
       },
       {
         "letter": "D",
-        "text": "Papéis no código sem registro"
+        "text": "Grupos de segurança como papéis"
       }
     ],
     "correct": ["A"],
@@ -925,7 +925,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Converter o domínio de Federated para Managed no Entra Connect"
+        "text": "Trocar senhas de todos"
       },
       {
         "letter": "B",
@@ -933,14 +933,14 @@
       },
       {
         "letter": "C",
-        "text": "Recriar todos os usuários na nuvem"
+        "text": "Converter o domínio de Federated para Managed no Entra Connect"
       },
       {
         "letter": "D",
-        "text": "Trocar senhas de todos"
+        "text": "Recriar todos os usuários na nuvem"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "A conversão muda o fluxo para nuvem (PHS/PTA) mantendo usuários. Desligar sem converter quebra; recriar perde histórico; trocar senha não muda fluxo.",
     "source": "original",
     "tags": ["federacao", "managed", "adfs", "migracao"],
@@ -962,11 +962,11 @@
       },
       {
         "letter": "B",
-        "text": "Ativação direta em produção"
+        "text": "Log de auditoria após o bloqueio"
       },
       {
         "letter": "C",
-        "text": "Log de auditoria após o bloqueio"
+        "text": "Ativação direta em produção"
       },
       {
         "letter": "D",
@@ -991,22 +991,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Controles de sessão (frequência de login) por política de acesso condicional"
+        "text": "SLA do aplicativo"
       },
       {
         "letter": "B",
-        "text": "Expiração global de senha"
-      },
-      {
-        "letter": "C",
         "text": "Timeout do navegador do usuário"
       },
       {
+        "letter": "C",
+        "text": "Expiração global de senha"
+      },
+      {
         "letter": "D",
-        "text": "SLA do aplicativo"
+        "text": "Controles de sessão (frequência de login) por política de acesso condicional"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Sign-in frequency por política diferencia por contexto (dispositivo/rede). Expiração de senha não limita sessão; navegador é cliente; SLA não controla tempo.",
     "source": "original",
     "tags": ["sessao", "sign-in-frequency", "quiosque"],
@@ -1024,11 +1024,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sessão persistente de navegador negada na política"
+        "text": "Cookie de sessão com 1 ano"
       },
       {
         "letter": "B",
-        "text": "Cookie de sessão com 1 ano"
+        "text": "Token de 24h para todos"
       },
       {
         "letter": "C",
@@ -1036,10 +1036,10 @@
       },
       {
         "letter": "D",
-        "text": "Token de 24h para todos"
+        "text": "Sessão persistente de navegador negada na política"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Negar persistent browser session força reautenticação ao fechar. Cookie longo e senha salva mantêm; token longo ignora contexto.",
     "source": "original",
     "tags": ["sessao-persistente", "navegador", "compartilhado"],
@@ -1065,11 +1065,11 @@
       },
       {
         "letter": "C",
-        "text": "VPN para cada usuário externo"
+        "text": "DNS público direto ao servidor"
       },
       {
         "letter": "D",
-        "text": "DNS público direto ao servidor"
+        "text": "VPN para cada usuário externo"
       }
     ],
     "correct": ["A"],
@@ -1123,7 +1123,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Autenticação baseada em certificado (CBA) com regras de emissor"
+        "text": "Self-signed sem CA confiável"
       },
       {
         "letter": "B",
@@ -1131,14 +1131,14 @@
       },
       {
         "letter": "C",
-        "text": "Senha + PIN do cartão sem validação"
+        "text": "Autenticação baseada em certificado (CBA) com regras de emissor"
       },
       {
         "letter": "D",
-        "text": "Self-signed sem CA confiável"
+        "text": "Senha + PIN do cartão sem validação"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "CBA valida cadeia e mapeia o certificado à conta com regras. PFX no perfil não autentica; PIN sem validação é fraco; self-signed sem âncora não confia.",
     "source": "original",
     "tags": ["cba", "certificado", "smartcard"],
@@ -1156,7 +1156,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "SAML para o legado"
+        "text": "NTLM via SaaS público"
       },
       {
         "letter": "B",
@@ -1164,14 +1164,14 @@
       },
       {
         "letter": "C",
-        "text": "Kerberos direto pela internet"
+        "text": "SAML para o legado"
       },
       {
         "letter": "D",
-        "text": "NTLM via SaaS público"
+        "text": "Kerberos direto pela internet"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "SAML atende legados federados e OIDC é o padrão moderno. Kerberos/NTLM não atravessam internet para SaaS.",
     "source": "original",
     "tags": ["sso", "saml", "oidc", "protocolos"],
@@ -1189,7 +1189,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Provisionamento na admissão"
+        "text": "Manutenção de conta órfã ativa"
       },
       {
         "letter": "B",
@@ -1197,14 +1197,14 @@
       },
       {
         "letter": "C",
-        "text": "Manutenção de conta órfã ativa"
+        "text": "Senha anotada em planilha"
       },
       {
         "letter": "D",
-        "text": "Senha anotada em planilha"
+        "text": "Provisionamento na admissão"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "SCIM cria, atualiza e remove contas no SaaS conforme eventos do RH, sem intervenção manual. Manter órfã ativa é risco de acesso; planilha jamais provisiona.",
     "source": "original",
     "tags": ["scim", "provisionamento", "ciclo"],
@@ -1222,22 +1222,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Bloquear o login de alto risco na hora"
-      },
-      {
-        "letter": "B",
-        "text": "Exigir troca segura de senha no risco de usuário"
-      },
-      {
-        "letter": "C",
         "text": "Ignorar ambos e auditar depois"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Bloquear o login de alto risco na hora"
+      },
+      {
+        "letter": "C",
         "text": "Bloquear o usuário permanentemente"
+      },
+      {
+        "letter": "D",
+        "text": "Exigir troca segura de senha no risco de usuário"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Login arriscado bloqueia a tentativa; conta comprometida remedeia com troca segura. Ignorar atrasa; bloqueio permanente impede o legítimo.",
     "source": "original",
     "tags": ["risco-login", "risco-usuario", "remediacao"],
@@ -1255,22 +1255,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Filtro de dispositivo por conformidade (isCompliant)"
-      },
-      {
-        "letter": "B",
         "text": "Exclusão por padrão de displayName do quiosque"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Filtro por cor do dispositivo"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Exclusão de todos os dispositivos"
+      },
+      {
+        "letter": "D",
+        "text": "Filtro de dispositivo por conformidade (isCompliant)"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Device filter inclui por atributo de conformidade e exclui por nome. Cor não é atributo; excluir tudo anula a política.",
     "source": "original",
     "tags": ["device-filter", "conformidade", "exclusao"],
@@ -1288,22 +1288,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Excluir contas break glass de todas as políticas"
-      },
-      {
-        "letter": "B",
-        "text": "Validar em Report-only antes de On"
-      },
-      {
-        "letter": "C",
         "text": "Incluir break glass no bloqueio"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Ativar tudo direto em produção"
+      },
+      {
+        "letter": "C",
+        "text": "Excluir contas break glass de todas as políticas"
+      },
+      {
+        "letter": "D",
+        "text": "Validar em Report-only antes de On"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Break glass excluído garante recuperação e Report-only valida impacto. Incluir emergência tranca; ativar direto arrisca lockout.",
     "source": "original",
     "tags": ["break-glass", "report-only", "lockout"],
@@ -1321,22 +1321,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Access Review recorrente dos convidados"
-      },
-      {
-        "letter": "B",
-        "text": "Expiração do pacote de acesso"
-      },
-      {
-        "letter": "C",
         "text": "Conta vitalícia sem revisão"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "E-mail manual de cobrança"
+      },
+      {
+        "letter": "C",
+        "text": "Access Review recorrente dos convidados"
+      },
+      {
+        "letter": "D",
+        "text": "Expiração do pacote de acesso"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Review recertifica e expiração remove sem confirmação. Vitalício acumula; e-mail manual não executa.",
     "source": "original",
     "tags": ["convidados", "expiracao", "review"],
@@ -1354,11 +1354,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Workflow de consentimento do administrador"
+        "text": "Revisão periódica de consentimentos concedidos"
       },
       {
         "letter": "B",
-        "text": "Revisão periódica de consentimentos concedidos"
+        "text": "Workflow de consentimento do administrador"
       },
       {
         "letter": "C",
@@ -1369,7 +1369,7 @@
         "text": "Segredo único para todos os apps"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Workflow aprova com trilha e revisão revoga obsoletos. Consentimento irrestrito expõe o diretório; segredo único amplia blast radius.",
     "source": "original",
     "tags": ["consentimento", "workflow", "revisao"],
@@ -1387,22 +1387,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Duas senhas válidas com transição gradual"
-      },
-      {
-        "letter": "B",
         "text": "Registro de rotação com data e responsável"
       },
       {
+        "letter": "B",
+        "text": "Duas senhas válidas com transição gradual"
+      },
+      {
         "letter": "C",
-        "text": "Senha única permanente"
+        "text": "Compartilhamento por chat"
       },
       {
         "letter": "D",
-        "text": "Compartilhamento por chat"
+        "text": "Senha única permanente"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Duas credenciais ativas permitem transição e o registro audita. Senha única impede rotação; chat vaza.",
     "source": "original",
     "tags": ["senhas", "rotacao", "contas-servico"],
@@ -1420,22 +1420,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Bloqueio por familiaridade de local/dispositivo"
-      },
-      {
-        "letter": "B",
         "text": "Contagem diferenciada por origem suspeita"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Bloqueio global após 1 erro"
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio por familiaridade de local/dispositivo"
       },
       {
         "letter": "D",
         "text": "Desabilitação do lockout"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Smart Lockout distingue legítimo de spray por sinais e limiares. Bloquear após 1 erro trava todos; sem lockout libera força bruta.",
     "source": "original",
     "tags": ["smart-lockout", "spray", "forca-bruta"],
@@ -1457,18 +1457,18 @@
       },
       {
         "letter": "B",
-        "text": "Windows Hello for Business"
-      },
-      {
-        "letter": "C",
         "text": "SMS com código"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Voz com confirmação"
+      },
+      {
+        "letter": "D",
+        "text": "Windows Hello for Business"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "FIDO2 e Hello vinculam à origem e dispensam segredo compartilhado. SMS e voz são interceptáveis e sofrem fatigue.",
     "source": "original",
     "tags": ["phishing-resistant", "fido2", "hello"],
@@ -1486,7 +1486,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Number matching no Authenticator"
+        "text": "Aprovação com um toque sem contexto"
       },
       {
         "letter": "B",
@@ -1494,14 +1494,14 @@
       },
       {
         "letter": "C",
-        "text": "Aprovação com um toque sem contexto"
+        "text": "Push ilimitado sem expiração"
       },
       {
         "letter": "D",
-        "text": "Push ilimitado sem expiração"
+        "text": "Number matching no Authenticator"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Número exibido na tela exige atenção e o contexto denuncia origem estranha. Toque cego aprova ataque; push sem expiração amplia janela.",
     "source": "original",
     "tags": ["number-matching", "fatigue", "authenticator"],
@@ -1519,11 +1519,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Relatório de políticas sem uso recente"
+        "text": "Desabilitação de logs"
       },
       {
         "letter": "B",
-        "text": "Cobertura por app/usuário sem política"
+        "text": "Relatório de políticas sem uso recente"
       },
       {
         "letter": "C",
@@ -1531,10 +1531,10 @@
       },
       {
         "letter": "D",
-        "text": "Desabilitação de logs"
+        "text": "Cobertura por app/usuário sem política"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Insights mostram ociosas e descobertas para consolidar. Excluir no escuro quebra; sem log não há diagnóstico.",
     "source": "original",
     "tags": ["ca-insights", "cobertura", "limpeza"],
@@ -1552,14 +1552,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, a política do tenant de recurso vale para convidados"
+        "text": "Não, convidados seguem só a origem"
       },
       {
         "letter": "B",
-        "text": "Não, convidados seguem só a origem"
+        "text": "Sim, a política do tenant de recurso vale para convidados"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "O tenant de recurso impõe sua CA aos guests (salvo confiança explícita). Achar que origem manda sozinha deixa brecha.",
     "source": "original",
     "tags": ["b2b", "mfa", "convidado"],
@@ -1602,22 +1602,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Microsoft Graph /users com $filter e $top + nextLink"
+        "text": "CSV exportado uma vez"
       },
       {
         "letter": "B",
-        "text": "Portal com scroll manual"
+        "text": "Microsoft Graph /users com $filter e $top + nextLink"
       },
       {
         "letter": "C",
-        "text": "CSV exportado uma vez"
+        "text": "Portal com scroll manual"
       },
       {
         "letter": "D",
         "text": "DNS reverso dos UPNs"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Graph com OData filtra no servidor e pagina via nextLink. Portal manual não escala; CSV desatualiza; DNS não lista usuários.",
     "source": "original",
     "tags": ["graph", "odata", "paginacao"],
@@ -1639,11 +1639,11 @@
       },
       {
         "letter": "B",
-        "text": "Bloquear todo consentimento sempre"
+        "text": "Permitir qualquer permissão inclusive Directory.ReadWrite"
       },
       {
         "letter": "C",
-        "text": "Permitir qualquer permissão inclusive Directory.ReadWrite"
+        "text": "Bloquear todo consentimento sempre"
       },
       {
         "letter": "D",
@@ -1668,22 +1668,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Verificação de editor (publisher verification) com MPN"
-      },
-      {
-        "letter": "B",
         "text": "Trocar o nome do app"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Remover todas as permissões"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Publicar na loja pública"
+      },
+      {
+        "letter": "D",
+        "text": "Verificação de editor (publisher verification) com MPN"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Publisher verification valida a organização via Microsoft Partner Network e exibe o selo. Renomear não prova; sem permissões o app não funciona; loja pública não verifica editor.",
     "source": "original",
     "tags": ["publisher-verification", "mpn", "phishing"],
@@ -1701,11 +1701,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "What-if do deployment ARM"
+        "text": "Deploy direto e rollback manual"
       },
       {
         "letter": "B",
-        "text": "Deploy direto e rollback manual"
+        "text": "What-if do deployment ARM"
       },
       {
         "letter": "C",
@@ -1716,7 +1716,7 @@
         "text": "Backup antes de tudo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "What-if prevê o plano (create/modify/delete/ignore) sem aplicar. Direto arrisca; olho não detecta tudo; backup não prevê.",
     "source": "original",
     "tags": ["what-if", "arm", "deploy", "previsao"],
@@ -1734,22 +1734,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Bicep com transpilação para ARM"
-      },
-      {
-        "letter": "B",
-        "text": "JSON manual verboso"
-      },
-      {
-        "letter": "C",
         "text": "CLI imperativa sem código"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Bicep com transpilação para ARM"
+      },
+      {
+        "letter": "C",
         "text": "Portal clicado"
+      },
+      {
+        "letter": "D",
+        "text": "JSON manual verboso"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Bicep é DSL concisa que compila para ARM transparente. JSON verboso atrasa; CLI imperativa não versiona estado; portal não é IaC.",
     "source": "original",
     "tags": ["bicep", "arm", "iac"],
@@ -1767,22 +1767,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Federação OIDC + identidade gerenciada/RBAC no cofre"
+        "text": "SAS longa no pipeline"
       },
       {
         "letter": "B",
-        "text": "Chave do cofre no secret do GitHub"
+        "text": "Federação OIDC + identidade gerenciada/RBAC no cofre"
       },
       {
         "letter": "C",
-        "text": "SAS longa no pipeline"
+        "text": "Chave do cofre no secret do GitHub"
       },
       {
         "letter": "D",
         "text": "Cofre público sem auth"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "OIDC autentica o workflow e a identidade acessa via RBAC, sem segredo. Chave no secret vaza; SAS longa expira mal; público expõe.",
     "source": "original",
     "tags": ["oidc", "key-vault", "managed-identity", "pipeline"],
@@ -1800,11 +1800,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Filtro por atributo customizado do app + exclusão do legado"
+        "text": "Todas as apps sem exceção"
       },
       {
         "letter": "B",
-        "text": "Todas as apps sem exceção"
+        "text": "Filtro por atributo customizado do app + exclusão do legado"
       },
       {
         "letter": "C",
@@ -1815,7 +1815,7 @@
         "text": "Filtro por nome do usuário"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Filtro por atributo do service principal mira sensíveis e a exclusão preserva o legado. Tudo trava o legado; só legado inverte; nome de usuário não filtra app.",
     "source": "original",
     "tags": ["conditional-access", "filtro-app", "atributo"],
@@ -1833,22 +1833,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Condição de rede/conformidade consumida pela política"
+        "text": "VPN ignorando CA"
       },
       {
         "letter": "B",
-        "text": "Regra separada fora do Entra"
+        "text": "Condição de rede/conformidade consumida pela política"
       },
       {
         "letter": "C",
-        "text": "VPN ignorando CA"
+        "text": "Regra separada fora do Entra"
       },
       {
         "letter": "D",
         "text": "Sem política para GSA"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "GSA injeta conformidade de rede/dispositivo na CA unificada. Regra externa fragmenta; VPN sem CA enfraquece; sem política não há controle.",
     "source": "original",
     "tags": ["global-secure-access", "conditional-access", "zero-trust"],
@@ -1866,22 +1866,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sincronização entre tenants (cross-tenant sync)"
-      },
-      {
-        "letter": "B",
         "text": "Convites B2B manuais um a um"
       },
       {
+        "letter": "B",
+        "text": "Federação sem sincronizar objetos"
+      },
+      {
         "letter": "C",
-        "text": "Exportação CSV semanal"
+        "text": "Sincronização entre tenants (cross-tenant sync)"
       },
       {
         "letter": "D",
-        "text": "Federação sem sincronizar objetos"
+        "text": "Exportação CSV semanal"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Cross-tenant sync provisiona e mantém membros/guests entre tenants. Convite manual não escala; CSV atrasa; federação autentica sem criar objeto.",
     "source": "original",
     "tags": ["cross-tenant-sync", "fusao", "sincronizacao"],
@@ -1899,7 +1899,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Diretórios favoritos + PIM por tenant com alertas"
+        "text": "Navegador único sem perfis"
       },
       {
         "letter": "B",
@@ -1907,14 +1907,14 @@
       },
       {
         "letter": "C",
-        "text": "Mesma senha em tudo"
+        "text": "Diretórios favoritos + PIM por tenant com alertas"
       },
       {
         "letter": "D",
-        "text": "Navegador único sem perfis"
+        "text": "Mesma senha em tudo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Favoritos/exibição por tenant + PIM com aprovação e alerta reduzem erro de contexto. Global em tudo amplia blast; mesma senha vaza; sem perfis mistura sessão.",
     "source": "original",
     "tags": ["multitenant", "contexto", "pim"],
@@ -1932,22 +1932,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Exportação de dados do usuário via Graph/portal"
-      },
-      {
-        "letter": "B",
-        "text": "Exclusão sob solicitação com trilha"
-      },
-      {
-        "letter": "C",
         "text": "Manutenção de dados após pedido"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Ignorar o pedido"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão sob solicitação com trilha"
+      },
+      {
+        "letter": "D",
+        "text": "Exportação de dados do usuário via Graph/portal"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "DSR exige localizar/exportar e excluir mediante pedido com evidência. Manter viola; ignorar descumpre a lei.",
     "source": "original",
     "tags": ["lgpd", "dsr", "privacidade"],
@@ -1965,7 +1965,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Validade do certificado de assinatura SAML"
+        "text": "Cor do portal"
       },
       {
         "letter": "B",
@@ -1973,14 +1973,14 @@
       },
       {
         "letter": "C",
-        "text": "Cor do portal"
+        "text": "Tamanho da VM"
       },
       {
         "letter": "D",
-        "text": "Tamanho da VM"
+        "text": "Validade do certificado de assinatura SAML"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Certificado expirado quebra a assinatura SAML e atributo mapeado errado impede provisionar o usuário. Cor do portal e tamanho de VM nada têm a ver com federação.",
     "source": "original",
     "tags": ["sso", "saml", "troubleshooting", "certificado"],
@@ -1998,22 +1998,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Password writeback habilitado no Connect"
-      },
-      {
-        "letter": "B",
         "text": "Permissões da conta de serviço no AD"
       },
       {
+        "letter": "B",
+        "text": "Senha anotada no chamado"
+      },
+      {
         "letter": "C",
-        "text": "SSPR só na nuvem sem writeback"
+        "text": "Password writeback habilitado no Connect"
       },
       {
         "letter": "D",
-        "text": "Senha anotada no chamado"
+        "text": "SSPR só na nuvem sem writeback"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Writeback habilitado com conta de serviço permissionada grava a nova senha no AD local. Só nuvem não reflete no local; anotar senha em chamado vaza credencial.",
     "source": "original",
     "tags": ["password-writeback", "sspr", "hibrido"],
@@ -2031,22 +2031,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Device writeback no Connect com OU alvo"
+        "text": "Dispositivo só na nuvem"
       },
       {
         "letter": "B",
-        "text": "Sincronização de computadores habilitada"
+        "text": "Device writeback no Connect com OU alvo"
       },
       {
         "letter": "C",
-        "text": "Dispositivo só na nuvem"
+        "text": "Sincronização de computadores habilitada"
       },
       {
         "letter": "D",
         "text": "GPO sem objeto"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Device writeback cria o objeto do dispositivo na OU alvo para aplicar GPO legada. Só na nuvem não recebe GPO; sem objeto não existe alvo para a política.",
     "source": "original",
     "tags": ["device-writeback", "gpo", "hibrido"],
@@ -2139,14 +2139,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, inbound é obrigatório"
+        "text": "Não, conectores só fazem outbound"
       },
       {
         "letter": "B",
-        "text": "Não, conectores só fazem outbound"
+        "text": "Sim, inbound é obrigatório"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Conectores abrem conexões de saída e mantêm canal; nenhum inbound é necessário. Exigir inbound inverte o modelo.",
     "source": "original",
     "tags": ["app-proxy", "conector", "outbound"],
@@ -2164,14 +2164,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, managed autentica na nuvem"
+        "text": "Não, todo domínio precisa de federação"
       },
       {
         "letter": "B",
-        "text": "Não, todo domínio precisa de federação"
+        "text": "Sim, managed autentica na nuvem"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Managed usa PHS/PTA na nuvem; federated delega ao IdP. Exigir federação sempre ignora o modelo gerenciado.",
     "source": "original",
     "tags": ["managed", "federated", "dominio"],
@@ -2243,15 +2243,15 @@
       },
       {
         "letter": "B",
-        "text": "Aceitar qualquer formato digitado"
-      },
-      {
-        "letter": "C",
         "text": "Renomear manualmente depois"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Bloquear criação de usuários"
+      },
+      {
+        "letter": "D",
+        "text": "Aceitar qualquer formato digitado"
       }
     ],
     "correct": ["A"],
@@ -2276,11 +2276,11 @@
       },
       {
         "letter": "B",
-        "text": "Permitir a todos sem limite"
+        "text": "Proibir qualquer convidado"
       },
       {
         "letter": "C",
-        "text": "Proibir qualquer convidado"
+        "text": "Permitir a todos sem limite"
       },
       {
         "letter": "D",
@@ -2305,22 +2305,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Patrocinador (sponsor) interno do convidado"
+        "text": "Grupo sem dono"
       },
       {
         "letter": "B",
-        "text": "Nenhum vínculo de responsabilidade"
-      },
-      {
-        "letter": "C",
         "text": "Senha compartilhada do time"
       },
       {
+        "letter": "C",
+        "text": "Nenhum vínculo de responsabilidade"
+      },
+      {
         "letter": "D",
-        "text": "Grupo sem dono"
+        "text": "Patrocinador (sponsor) interno do convidado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Sponsor responde por reviews e expiração do guest. Sem vínculo ninguém recertifica; senha compartilhada vaza; grupo sem dono não revisa.",
     "source": "original",
     "tags": ["sponsor", "convidado", "responsabilidade"],
@@ -2338,22 +2338,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Conta corporativa do domínio convidado, depois MSA"
-      },
-      {
-        "letter": "B",
-        "text": "Sempre MSA primeiro"
-      },
-      {
-        "letter": "C",
         "text": "Conta anônima"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Ordem alfabética de e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "Sempre MSA primeiro"
+      },
+      {
+        "letter": "D",
+        "text": "Conta corporativa do domínio convidado, depois MSA"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Resgate prioriza identidade corporativa federada do e-mail convidado, caindo para MSA/one-time passcode. Sempre MSA ignora federação; anônima não autentica.",
     "source": "original",
     "tags": ["b2b", "resgate", "ordem"],
@@ -2371,22 +2371,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Senha de uso único por e-mail (one-time passcode)"
+        "text": "VPN com usuário genérico"
       },
       {
         "letter": "B",
-        "text": "Login anônimo permanente"
+        "text": "Senha de uso único por e-mail (one-time passcode)"
       },
       {
         "letter": "C",
-        "text": "Senha fixa compartilhada"
+        "text": "Login anônimo permanente"
       },
       {
         "letter": "D",
-        "text": "VPN com usuário genérico"
+        "text": "Senha fixa compartilhada"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "OTP por e-mail autentica sem federação, com código por acesso. Anônimo não identifica; fixa vaza; genérico perde trilha.",
     "source": "original",
     "tags": ["otp", "convidado", "e-mail"],
@@ -2404,22 +2404,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Upgrade de P1 para P2 (CA é P1; PIM/Protection são P2)"
+        "text": "Nada, é bug do portal"
       },
       {
         "letter": "B",
-        "text": "Downgrade para gratuito"
+        "text": "Upgrade de P1 para P2 (CA é P1; PIM/Protection são P2)"
       },
       {
         "letter": "C",
-        "text": "Mais subscriptions Azure"
+        "text": "Downgrade para gratuito"
       },
       {
         "letter": "D",
-        "text": "Nada, é bug do portal"
+        "text": "Mais subscriptions Azure"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "CA base é P1; PIM, Identity Protection e reviews exigem P2. Downgrade piora; subscription não licencia Entra; não é bug.",
     "source": "original",
     "tags": ["licenca", "p1", "p2", "diferencas"],
@@ -2441,15 +2441,15 @@
       },
       {
         "letter": "B",
-        "text": "Sessão de 30 dias para tudo"
-      },
-      {
-        "letter": "C",
         "text": "Desabilitar MFA nas operações"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Senha estática sem expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Sessão de 30 dias para tudo"
       }
     ],
     "correct": ["A"],
@@ -2470,22 +2470,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Avaliação de Acesso Contínuo (CAE) com revogação imediata"
+        "text": "Cache de token local"
       },
       {
         "letter": "B",
-        "text": "Token de 24h sem revogação"
+        "text": "Avaliação de Acesso Contínuo (CAE) com revogação imediata"
       },
       {
         "letter": "C",
-        "text": "Sessão persistente ilimitada"
+        "text": "Token de 24h sem revogação"
       },
       {
         "letter": "D",
-        "text": "Cache de token local"
+        "text": "Sessão persistente ilimitada"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "CAE reage a senha alterada, conta desabilitada e risco em minutos. Token longo sem CAE vaza até expirar; persistente piora; cache local não revoga.",
     "source": "original",
     "tags": ["cae", "revogacao", "token", "continuo"],
@@ -2503,7 +2503,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "CAE + token protection + conditional access por risco"
+        "text": "Desabilitar refresh tokens"
       },
       {
         "letter": "B",
@@ -2511,14 +2511,14 @@
       },
       {
         "letter": "C",
-        "text": "Desabilitar refresh tokens"
+        "text": "CAE + token protection + conditional access por risco"
       },
       {
         "letter": "D",
         "text": "IP fixo por usuário"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "CAE revoga, token protection vincula ao dispositivo e CA por risco bloqueia replay. Senha não protege token; sem refresh quebra UX; IP fixo não escala.",
     "source": "original",
     "tags": ["token", "roubo", "cae", "protection"],
@@ -2536,7 +2536,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Credencial verificável emitida por autoridade (Verified ID)"
+        "text": "Declaração assinada em papel"
       },
       {
         "letter": "B",
@@ -2544,14 +2544,14 @@
       },
       {
         "letter": "C",
-        "text": "Senha provisória por SMS"
+        "text": "Credencial verificável emitida por autoridade (Verified ID)"
       },
       {
         "letter": "D",
-        "text": "Declaração assinada em papel"
+        "text": "Senha provisória por SMS"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Verified ID valida documento com criptografia sem expor base. Selfie por e-mail falsifica; SMS intercepta; papel não escala remoto.",
     "source": "original",
     "tags": ["verified-id", "admissao", "identidade"],
@@ -2573,15 +2573,15 @@
       },
       {
         "letter": "B",
-        "text": "Foto estática comparada a olho"
-      },
-      {
-        "letter": "C",
         "text": "Vídeo sem validação"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Assinatura digitalizada"
+      },
+      {
+        "letter": "D",
+        "text": "Foto estática comparada a olho"
       }
     ],
     "correct": ["A"],
@@ -2602,22 +2602,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "MAM (gerenciamento de aplicativo) sem enrollment"
-      },
-      {
-        "letter": "B",
         "text": "MDM total do pessoal"
       },
       {
+        "letter": "B",
+        "text": "Bloqueio de BYOD total"
+      },
+      {
         "letter": "C",
-        "text": "Sem gerência com BYOD livre"
+        "text": "MAM (gerenciamento de aplicativo) sem enrollment"
       },
       {
         "letter": "D",
-        "text": "Bloqueio de BYOD total"
+        "text": "Sem gerência com BYOD livre"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "MAM protege apps/dados corporativos sem tocar no pessoal. MDM total invade privacidade; livre vaza; bloquear trava mobilidade.",
     "source": "original",
     "tags": ["mam", "byod", "app-protection"],
@@ -2635,22 +2635,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política de proteção de app (PIN, criptografia, sem copy/paste)"
-      },
-      {
-        "letter": "B",
         "text": "Senha do aparelho"
       },
       {
+        "letter": "B",
+        "text": "Política de proteção de app (PIN, criptografia, sem copy/paste)"
+      },
+      {
         "letter": "C",
-        "text": "Proibição de celular"
+        "text": "E-mail só no desktop"
       },
       {
         "letter": "D",
-        "text": "E-mail só no desktop"
+        "text": "Proibição de celular"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "App protection criptografa, exige PIN e bloqueia vazamento entre apps. Senha do aparelho não isola; proibir trava; só desktop reduz mobilidade.",
     "source": "original",
     "tags": ["app-protection", "dlp", "movel"],
@@ -2668,22 +2668,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Report-only com análise de impacto"
-      },
-      {
-        "letter": "B",
         "text": "Exclusão de emergência documentada"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Ativação direta sem teste"
+      },
+      {
+        "letter": "C",
+        "text": "Report-only com análise de impacto"
       },
       {
         "letter": "D",
         "text": "Remoção de logs"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Report-only mede impacto real sem bloquear e a exclusão de emergência documentada salva do lockout. Ativar direto arrisca travar todos; sem log não há auditoria.",
     "source": "original",
     "tags": ["lancamento", "report-only", "emergencia"],
@@ -2705,18 +2705,18 @@
       },
       {
         "letter": "B",
-        "text": "Bloqueio para risco alto"
-      },
-      {
-        "letter": "C",
         "text": "Permitir tudo com log"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Mesma ação para todos"
+      },
+      {
+        "letter": "D",
+        "text": "Bloqueio para risco alto"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Escalonar por nível equilibra fricção e segurança. Permitir tudo vaza; ação única erra nos extremos.",
     "source": "original",
     "tags": ["risco", "escalonamento", "mfa", "bloqueio"],
@@ -2734,22 +2734,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Detecção de IP anônimo/VPN"
-      },
-      {
-        "letter": "B",
-        "text": "Viagem impossível entre logins"
-      },
-      {
-        "letter": "C",
         "text": "Confiar no país declarado"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Detecção de IP anônimo/VPN"
+      },
+      {
+        "letter": "C",
         "text": "Ignorar geolocalização"
+      },
+      {
+        "letter": "D",
+        "text": "Viagem impossível entre logins"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "IP anônimo sinaliza túnel e viagem impossível denuncia salto. Confiar no declarado aceita fraude; ignorar perde o sinal.",
     "source": "original",
     "tags": ["vpn", "mascaramento", "ip-anonimo", "viagem"],
@@ -2767,22 +2767,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Localização de rede confiável"
+        "text": "Sem verificação de rede"
       },
       {
         "letter": "B",
-        "text": "Conformidade do dispositivo/túnel"
-      },
-      {
-        "letter": "C",
         "text": "Qualquer rede com senha"
       },
       {
+        "letter": "C",
+        "text": "Conformidade do dispositivo/túnel"
+      },
+      {
         "letter": "D",
-        "text": "Sem verificação de rede"
+        "text": "Localização de rede confiável"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Rede confiável + dispositivo conforme garantem canal e ponta. Qualquer rede vaza; sem verificar não há controle.",
     "source": "original",
     "tags": ["rede-confiavel", "conformidade", "sigilo"],
@@ -2825,14 +2825,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, lifetimes idênticos"
+        "text": "Não, políticas distintas podem encurtar sessão de guest"
       },
       {
         "letter": "B",
-        "text": "Não, políticas distintas podem encurtar sessão de guest"
+        "text": "Sim, lifetimes idênticos"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "É possível (e comum) limitar sessão de guest via CA/session controls. Assumir igualdade perde endurecimento.",
     "source": "original",
     "tags": ["guest", "token", "sessao"],
@@ -2850,14 +2850,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, duração única global"
+        "text": "Não, cada função define sua duração máxima"
       },
       {
         "letter": "B",
-        "text": "Não, cada função define sua duração máxima"
+        "text": "Sim, duração única global"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Role settings por função definem duração, MFA e aprovação próprios. Assumir global impede calibrar por criticidade.",
     "source": "original",
     "tags": ["pim", "duracao", "role-settings"],
@@ -2875,11 +2875,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Microsoft.Graph com cmdlets de usuário"
+        "text": "Cmdlets do Windows local"
       },
       {
         "letter": "B",
-        "text": "Portal clicando uma a uma"
+        "text": "Microsoft.Graph com cmdlets de usuário"
       },
       {
         "letter": "C",
@@ -2887,10 +2887,10 @@
       },
       {
         "letter": "D",
-        "text": "Cmdlets do Windows local"
+        "text": "Portal clicando uma a uma"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "SDK Microsoft.Graph automatiza em massa via API. Portal não escala; MSOnline foi preterido; cmdlets locais não alcançam nuvem.",
     "source": "original",
     "tags": ["powershell", "graph", "automacao", "massa"],
@@ -2916,11 +2916,11 @@
       },
       {
         "letter": "C",
-        "text": "Telnet no endpoint"
+        "text": "FTP de script"
       },
       {
         "letter": "D",
-        "text": "FTP de script"
+        "text": "Telnet no endpoint"
       }
     ],
     "correct": ["A"],
@@ -2945,7 +2945,7 @@
       },
       {
         "letter": "B",
-        "text": "Nome exibido traduzido"
+        "text": "Nome do usuário"
       },
       {
         "letter": "C",
@@ -2953,7 +2953,7 @@
       },
       {
         "letter": "D",
-        "text": "Nome do usuário"
+        "text": "Nome exibido traduzido"
       }
     ],
     "correct": ["A"],
@@ -2974,11 +2974,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "principalId da identidade no role assignment"
+        "text": "Nome da VM"
       },
       {
         "letter": "B",
-        "text": "Nome da VM"
+        "text": "principalId da identidade no role assignment"
       },
       {
         "letter": "C",
@@ -2989,7 +2989,7 @@
         "text": "Subscription ID"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "principalId referencia o objectId do security principal na atribuição via template. Nome de VM, IP e subscription ID não identificam o principal.",
     "source": "original",
     "tags": ["principal-id", "rbac", "bicep"],
@@ -3007,22 +3007,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "GUID determinístico (guid() de escopo+principal+papel)"
-      },
-      {
-        "letter": "B",
         "text": "GUID aleatório a cada deploy"
       },
       {
+        "letter": "B",
+        "text": "GUID determinístico (guid() de escopo+principal+papel)"
+      },
+      {
         "letter": "C",
-        "text": "Nome do deploy"
+        "text": "Data/hora atual"
       },
       {
         "letter": "D",
-        "text": "Data/hora atual"
+        "text": "Nome do deploy"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "guid() determinístico mantém idempotência entre deploys. Aleatório duplica; nome do deploy colide; data muda sempre.",
     "source": "original",
     "tags": ["guid", "role-assignment", "idempotencia"],
@@ -3040,7 +3040,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "scope: resourceGroup() no módulo de atribuição"
+        "text": "Subscription inteira sempre"
       },
       {
         "letter": "B",
@@ -3048,14 +3048,14 @@
       },
       {
         "letter": "C",
-        "text": "Subscription inteira sempre"
+        "text": "scope: resourceGroup() no módulo de atribuição"
       },
       {
         "letter": "D",
         "text": "Tenant root para tudo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "scope tipado (resourceGroup()/subscription()/tenant()) define o nível. String solta não tipa; subscription/root ampliam demais.",
     "source": "original",
     "tags": ["scope", "bicep", "resourcegroup"],
@@ -3073,11 +3073,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Daemon: application permission; portal: delegated permission"
+        "text": "Ambos com delegated"
       },
       {
         "letter": "B",
-        "text": "Ambos com delegated"
+        "text": "Daemon: application permission; portal: delegated permission"
       },
       {
         "letter": "C",
@@ -3088,7 +3088,7 @@
         "text": "Daemon com delegated"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Sem usuário usa application (admin consent); com usuário usa delegated (user+app). Inverter quebra auth ou expõe.",
     "source": "original",
     "tags": ["delegated", "application", "daemon", "portal"],
@@ -3114,11 +3114,11 @@
       },
       {
         "letter": "C",
-        "text": "Desabilitar o app"
+        "text": "Compartilhar credencial de admin"
       },
       {
         "letter": "D",
-        "text": "Compartilhar credencial de admin"
+        "text": "Desabilitar o app"
       }
     ],
     "correct": ["A"],
@@ -3139,22 +3139,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Classificação de permissões (baixo/alto impacto)"
-      },
-      {
-        "letter": "B",
-        "text": "Documentação externa"
-      },
-      {
-        "letter": "C",
         "text": "Nome do app"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Cor do portal"
+      },
+      {
+        "letter": "C",
+        "text": "Documentação externa"
+      },
+      {
+        "letter": "D",
+        "text": "Classificação de permissões (baixo/alto impacto)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Permission classification marca baixo impacto (auto) vs alto (admin). Doc externa não impõe; nome/cor não classificam.",
     "source": "original",
     "tags": ["classificacao", "permissoes", "impacto"],
@@ -3176,15 +3176,15 @@
       },
       {
         "letter": "B",
-        "text": "Lista alfabética de apps"
+        "text": "Log de deploy"
       },
       {
         "letter": "C",
-        "text": "Fatura de licenças"
+        "text": "Lista alfabética de apps"
       },
       {
         "letter": "D",
-        "text": "Log de deploy"
+        "text": "Fatura de licenças"
       }
     ],
     "correct": ["A"],
@@ -3205,22 +3205,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Risco de identidade de carga de trabalho (credencial vazada)"
+        "text": "Backup da entidade"
       },
       {
         "letter": "B",
-        "text": "Risco de usuário comum"
+        "text": "Risco de identidade de carga de trabalho (credencial vazada)"
       },
       {
         "letter": "C",
-        "text": "Alerta de CPU"
+        "text": "Risco de usuário comum"
       },
       {
         "letter": "D",
-        "text": "Backup da entidade"
+        "text": "Alerta de CPU"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Workload identity risk detecta credencial exposta e sugere rotação. User risk é para pessoas; CPU não detecta; backup não remedeia.",
     "source": "original",
     "tags": ["workload-identity", "risco", "credencial-vazada"],
@@ -3238,22 +3238,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Certificado X.509 como credencial"
-      },
-      {
-        "letter": "B",
         "text": "Secret em texto claro no código"
       },
       {
+        "letter": "B",
+        "text": "Certificado X.509 como credencial"
+      },
+      {
         "letter": "C",
-        "text": "Senha do desenvolvedor"
+        "text": "Token permanente no repo"
       },
       {
         "letter": "D",
-        "text": "Token permanente no repo"
+        "text": "Senha do desenvolvedor"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Certificado prova posse sem compartilhar segredo e expira gerenciado. Texto claro vaza; senha pessoal não serve; token permanente expõe.",
     "source": "original",
     "tags": ["certificado", "client-secret", "x509"],
@@ -3271,22 +3271,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Armazenamento protegido do SO (DPAPI/Keychain)"
-      },
-      {
-        "letter": "B",
-        "text": "Arquivo texto na pasta do app"
-      },
-      {
-        "letter": "C",
         "text": "Variável de ambiente global"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "LocalStorage sem criptografia"
+      },
+      {
+        "letter": "C",
+        "text": "Arquivo texto na pasta do app"
+      },
+      {
+        "letter": "D",
+        "text": "Armazenamento protegido do SO (DPAPI/Keychain)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "DPAPI/Keychain isolam por usuário/processo com criptografia. Texto e env vazam; localStorage sem cripto expõe.",
     "source": "original",
     "tags": ["token-cache", "dpapi", "keychain", "isolamento"],
@@ -3304,22 +3304,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "PKCE (code_challenge/verifier S256)"
-      },
-      {
-        "letter": "B",
         "text": "Implicit flow com token na URL"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Client credentials no app"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Senha do usuário no app (ROPC)"
+      },
+      {
+        "letter": "D",
+        "text": "PKCE (code_challenge/verifier S256)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "PKCE vincula código ao verificador, neutralizando interceptação. Implicit expõe token; client credentials vaza secret; ROPC coleta senha.",
     "source": "original",
     "tags": ["pkce", "oauth", "movel", "authorization-code"],
@@ -3337,7 +3337,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Device Code Flow com verificação em outro aparelho"
+        "text": "Sem autenticação"
       },
       {
         "letter": "B",
@@ -3349,10 +3349,10 @@
       },
       {
         "letter": "D",
-        "text": "Sem autenticação"
+        "text": "Device Code Flow com verificação em outro aparelho"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Device code exibe código para validar no celular/PC. Senha no controle vaza; fixo não revoga; sem auth expõe.",
     "source": "original",
     "tags": ["device-code", "tv", "entrada-limitada"],
@@ -3370,11 +3370,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "On-Behalf-Of (OBO) com assertion do token"
+        "text": "Nova autenticação do usuário"
       },
       {
         "letter": "B",
-        "text": "Client credentials da API meio"
+        "text": "On-Behalf-Of (OBO) com assertion do token"
       },
       {
         "letter": "C",
@@ -3382,10 +3382,10 @@
       },
       {
         "letter": "D",
-        "text": "Nova autenticação do usuário"
+        "text": "Client credentials da API meio"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "OBO troca o token por outro com escopo downstream mantendo usuário. Client credentials perde identidade; repasse viola audiência; reautenticar quebra UX.",
     "source": "original",
     "tags": ["obo", "delegacao", "api", "downstream"],
@@ -3403,22 +3403,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Authorization Code + PKCE com login no Entra"
-      },
-      {
-        "letter": "B",
-        "text": "Manter ROPC com senha forte"
-      },
-      {
-        "letter": "C",
         "text": "Desabilitar MFA para o app"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Senha fixa compartilhada"
+      },
+      {
+        "letter": "C",
+        "text": "Manter ROPC com senha forte"
+      },
+      {
+        "letter": "D",
+        "text": "Authorization Code + PKCE com login no Entra"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Code+PKCE delega login ao Entra com MFA. ROPC coleta senha e quebra com MFA; sem MFA enfraquece; fixa vaza.",
     "source": "original",
     "tags": ["ropc", "migracao", "code-pkce"],
@@ -3469,7 +3469,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Backend-for-Frontend (BFF) com sessão em cookie"
+        "text": "Sem sessão com login por request"
       },
       {
         "letter": "B",
@@ -3481,10 +3481,10 @@
       },
       {
         "letter": "D",
-        "text": "Sem sessão com login por request"
+        "text": "Backend-for-Frontend (BFF) com sessão em cookie"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "BFF guarda tokens no backend e usa cookie HttpOnly/SameSite. LocalStorage expõe a XSS; implicit vaza; por request degrada UX.",
     "source": "original",
     "tags": ["bff", "spa", "cookie", "sessao"],
@@ -3502,7 +3502,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Mapeamento de atributos/claims no SSO do app"
+        "text": "E-mail com departamento"
       },
       {
         "letter": "B",
@@ -3510,14 +3510,14 @@
       },
       {
         "letter": "C",
-        "text": "Grupo com nome do departamento"
+        "text": "Mapeamento de atributos/claims no SSO do app"
       },
       {
         "letter": "D",
-        "text": "E-mail com departamento"
+        "text": "Grupo com nome do departamento"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Claims mapping transforma atributo em claim SAML/OIDC. Renomear quebra UPN; grupo não vira claim sem regra; e-mail não é claim dedicada.",
     "source": "original",
     "tags": ["claims", "mapeamento", "atributos"],
@@ -3535,22 +3535,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Filtrar por grupos atribuídos ao app + overage claim"
-      },
-      {
-        "letter": "B",
         "text": "Emitir todos sempre"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Remover grupos do usuário"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Aumentar limite do header"
+      },
+      {
+        "letter": "D",
+        "text": "Filtrar por grupos atribuídos ao app + overage claim"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Filtro por app + overage (link Graph quando excede) mantém token enxuto. Emitir tudo estoura; remover quebra acesso; header maior não resolve.",
     "source": "original",
     "tags": ["group-claims", "overage", "token-size"],
@@ -3568,22 +3568,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Claims opcionais configuradas no registro"
-      },
-      {
-        "letter": "B",
-        "text": "Chamada Graph por request"
-      },
-      {
-        "letter": "C",
         "text": "Hardcode no cliente"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Log do servidor"
+      },
+      {
+        "letter": "C",
+        "text": "Claims opcionais configuradas no registro"
+      },
+      {
+        "letter": "D",
+        "text": "Chamada Graph por request"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Optional claims embutem dados padrão/extras no token. Graph por request atrasa; hardcode falsifica; log não entrega ao cliente.",
     "source": "original",
     "tags": ["optional-claims", "token", "registro"],
@@ -3601,11 +3601,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Versão do token no manifesto (accessTokenAcceptedVersion)"
+        "text": "Duas entidades idênticas"
       },
       {
         "letter": "B",
-        "text": "Versão no nome do app"
+        "text": "Versão do token no manifesto (accessTokenAcceptedVersion)"
       },
       {
         "letter": "C",
@@ -3613,10 +3613,10 @@
       },
       {
         "letter": "D",
-        "text": "Duas entidades idênticas"
+        "text": "Versão no nome do app"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "accessTokenAcceptedVersion (null/1/2) define o formato por recurso. Nome não versiona; endpoint não muda claim; duplicar fragmenta.",
     "source": "original",
     "tags": ["token-version", "v1", "v2", "manifesto"],
@@ -3634,11 +3634,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Front-channel logout do Entra para os apps"
+        "text": "Manter refresh válido"
       },
       {
         "letter": "B",
-        "text": "Limpeza de sessão local + revogação de refresh"
+        "text": "Front-channel logout do Entra para os apps"
       },
       {
         "letter": "C",
@@ -3646,10 +3646,10 @@
       },
       {
         "letter": "D",
-        "text": "Manter refresh válido"
+        "text": "Limpeza de sessão local + revogação de refresh"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Front-channel propaga logout aos RPs e a limpeza local+revogação encerra. Só fechar aba mantém sessão; refresh válido reabre.",
     "source": "original",
     "tags": ["logout", "front-channel", "sessao"],
@@ -3667,22 +3667,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Revogar sessões (revokeSessions) no Graph"
+        "text": "Trocar foto do perfil"
       },
       {
         "letter": "B",
-        "text": "Redefinir senha com logout forçado"
+        "text": "Revogar sessões (revokeSessions) no Graph"
       },
       {
         "letter": "C",
-        "text": "Aguardar expiração natural"
+        "text": "Redefinir senha com logout forçado"
       },
       {
         "letter": "D",
-        "text": "Trocar foto do perfil"
+        "text": "Aguardar expiração natural"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "RevokeSessions invalida refresh e a troca com logout força reauth. Aguardar mantém invasor; foto não revoga.",
     "source": "original",
     "tags": ["revoke", "sessao", "comprometida"],
@@ -3700,7 +3700,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Bloquear sessão/usuário e forçar troca"
+        "text": "Ignorar por ser teste"
       },
       {
         "letter": "B",
@@ -3708,14 +3708,14 @@
       },
       {
         "letter": "C",
-        "text": "Ignorar por ser teste"
+        "text": "Bloquear sessão/usuário e forçar troca"
       },
       {
         "letter": "D",
         "text": "Aguardar próximo login"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Bloquear sessão/usuário com troca forçada contém o incidente e a coleta de logs com dismiss documenta a remediação. Ignorar como teste cega; aguardar prolonga o dwell time.",
     "source": "original",
     "tags": ["soc", "playbook", "risco-login"],
@@ -3733,11 +3733,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Análise comportamental (UEBA) com baseline"
+        "text": "Mapeamento de entidades (conta/host/IP)"
       },
       {
         "letter": "B",
-        "text": "Mapeamento de entidades (conta/host/IP)"
+        "text": "Log sem correlação"
       },
       {
         "letter": "C",
@@ -3745,10 +3745,10 @@
       },
       {
         "letter": "D",
-        "text": "Log sem correlação"
+        "text": "Análise comportamental (UEBA) com baseline"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "UEBA detecta desvio e entidades correlacionam a trilha. Estática não aprende; sem correlação não investiga.",
     "source": "original",
     "tags": ["sentinel", "ueba", "entidades"],
@@ -3766,7 +3766,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Filtrar RiskLevel alto na tabela de logins"
+        "text": "Listar tudo sem filtro"
       },
       {
         "letter": "B",
@@ -3774,14 +3774,14 @@
       },
       {
         "letter": "C",
-        "text": "Listar tudo sem filtro"
+        "text": "Filtrar RiskLevel alto na tabela de logins"
       },
       {
         "letter": "D",
         "text": "Contar sem agrupar"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Where isola risco e summarize acha a primeira ocorrência por usuário. Sem filtro afoga; sem agrupar não prioriza.",
     "source": "original",
     "tags": ["kql", "hunting", "risco"],
@@ -3799,22 +3799,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Watchlist de VIPs para alertas priorizados"
+        "text": "Lista em papel na parede"
       },
       {
         "letter": "B",
-        "text": "Correlação em regras de hunting"
+        "text": "Watchlist de VIPs para alertas priorizados"
       },
       {
         "letter": "C",
-        "text": "Lista em papel na parede"
+        "text": "Correlação em regras de hunting"
       },
       {
         "letter": "D",
         "text": "Ignorar contas críticas"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Watchlist marca VIPs e contas críticas para alertas priorizados e correlação em regras de hunting KQL. Lista em papel não alerta; ignorar críticas perde o essencial.",
     "source": "original",
     "tags": ["watchlist", "vip", "hunting"],
@@ -3832,11 +3832,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Indicadores no Sentinel para correlação"
+        "text": "Bloqueio via NSG/policies por feed"
       },
       {
         "letter": "B",
-        "text": "Bloqueio via NSG/policies por feed"
+        "text": "Ignorar reputação de IP"
       },
       {
         "letter": "C",
@@ -3844,10 +3844,10 @@
       },
       {
         "letter": "D",
-        "text": "Ignorar reputação de IP"
+        "text": "Indicadores no Sentinel para correlação"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Indicadores de threat intelligence correlacionam no Sentinel e alimentam bloqueio automatizado por feed. Lista manual desatualiza rápido; ignorar reputação de IP cega a defesa.",
     "source": "original",
     "tags": ["threat-intel", "indicadores", "bloqueio"],
@@ -3865,22 +3865,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "ML correlacionando alertas em incidente"
-      },
-      {
-        "letter": "B",
         "text": "Kill chain mapeada por tática"
       },
       {
+        "letter": "B",
+        "text": "ML correlacionando alertas em incidente"
+      },
+      {
         "letter": "C",
-        "text": "Alertas isolados sem junção"
+        "text": "Fechamento manual sem contexto"
       },
       {
         "letter": "D",
-        "text": "Fechamento manual sem contexto"
+        "text": "Alertas isolados sem junção"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "O Fusion usa ML para unir alertas em incidente único mapeado por tática de kill chain. Alertas isolados fragmentam a investigação; fechar sem contexto perde priorização.",
     "source": "original",
     "tags": ["fusion", "correlacao", "kill-chain"],
@@ -3898,7 +3898,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Triagem automatizada com enriquecimento"
+        "text": "Reunião antes de conter"
       },
       {
         "letter": "B",
@@ -3910,10 +3910,10 @@
       },
       {
         "letter": "D",
-        "text": "Reunião antes de conter"
+        "text": "Triagem automatizada com enriquecimento"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Triagem automatizada com enriquecimento acelera e playbooks de contenção em 1 clique reduzem MTTR. Fila manual sem priorização atrasa; reunir antes de conter vaza tempo.",
     "source": "original",
     "tags": ["mttr", "triagem", "playbook"],
@@ -3931,11 +3931,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Secure Score com trilhas de melhoria"
+        "text": "Campanhas de correção por time"
       },
       {
         "letter": "B",
-        "text": "Campanhas de correção por time"
+        "text": "Secure Score com trilhas de melhoria"
       },
       {
         "letter": "C",
@@ -3946,7 +3946,7 @@
         "text": "Ignorar o score"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Secure Score mede a postura com trilhas de melhoria e campanhas por time corrigem com dono. Relatório anual estático desatualiza; ignorar o score mantém o risco.",
     "source": "original",
     "tags": ["secure-score", "postura", "campanhas"],
@@ -3964,7 +3964,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Priorização por impacto/exposição"
+        "text": "Lista sem priorizar"
       },
       {
         "letter": "B",
@@ -3972,14 +3972,14 @@
       },
       {
         "letter": "C",
-        "text": "Lista sem priorizar"
+        "text": "Priorização por impacto/exposição"
       },
       {
         "letter": "D",
         "text": "Adiamento indefinido"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Priorização por impacto/exposição foca no crítico e atribuição com prazo e acompanhamento executa. Lista sem ordem dispersa esforço; adiamento indefinido acumula risco.",
     "source": "original",
     "tags": ["recomendacoes", "priorizacao", "prazo"],
@@ -3997,22 +3997,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política para todos os usuários com MFA"
-      },
-      {
-        "letter": "B",
-        "text": "Exceção só para break glass monitorado"
-      },
-      {
-        "letter": "C",
         "text": "Exceção por departamento inteiro"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "MFA opcional"
+      },
+      {
+        "letter": "C",
+        "text": "Exceção só para break glass monitorado"
+      },
+      {
+        "letter": "D",
+        "text": "Política para todos os usuários com MFA"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Política para todos os usuários com MFA e exceção apenas para break glass monitorado com alerta fecha a cobertura. Exceção por departamento fura; MFA opcional nunca fecha.",
     "source": "original",
     "tags": ["mfa", "cobertura", "break-glass"],
@@ -4030,14 +4030,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, per-user é legado; usar CA"
+        "text": "Não, per-user é o recomendado"
       },
       {
         "letter": "B",
-        "text": "Não, per-user é o recomendado"
+        "text": "Sim, per-user é legado; usar CA"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Per-user não avalia contexto e conflita com CA; a migração para política é o caminho oficial e suportado.",
     "source": "original",
     "tags": ["mfa", "per-user", "legado", "migracao"],
@@ -4055,14 +4055,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, registro combinado unifica"
+        "text": "Não, são registros totalmente separados"
       },
       {
         "letter": "B",
-        "text": "Não, são registros totalmente separados"
+        "text": "Sim, registro combinado unifica"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Registro combinado (combined registration) unifica SSPR e MFA num só fluxo de onboarding de métodos. Manter registros totalmente separados duplica fricção para o usuário.",
     "source": "original",
     "tags": ["registro-combinado", "sspr", "mfa"],
@@ -4080,14 +4080,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, TAP faz bootstrap temporário"
+        "text": "Não, TAP é senha permanente"
       },
       {
         "letter": "B",
-        "text": "Não, TAP é senha permanente"
+        "text": "Sim, TAP faz bootstrap temporário"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "TAP é código de uso único e curta validade para registrar MFA/recuperar. Tratar como permanente vaza.",
     "source": "original",
     "tags": ["tap", "bootstrap", "temporario"],
@@ -4130,14 +4130,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, sempre exige PKI local"
+        "text": "Não, o modelo cloud trust dispensa PKI"
       },
       {
         "letter": "B",
-        "text": "Não, o modelo cloud trust dispensa PKI"
+        "text": "Sim, sempre exige PKI local"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Cloud Kerberos trust elimina PKI local; só híbrido com certificado a exige. Generalizar atrasa adoção.",
     "source": "original",
     "tags": ["hello", "cloud-trust", "pki"],
@@ -4155,14 +4155,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, habilitação + intranet zone"
+        "text": "Não, funciona sem nada"
       },
       {
         "letter": "B",
-        "text": "Não, funciona sem nada"
+        "text": "Sim, habilitação + intranet zone"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Seamless exige feature no Connect e Kerberos via zona de intranet no browser. Sem isso, cai para login manual.",
     "source": "original",
     "tags": ["seamless-sso", "requisito", "intranet"],
@@ -4180,14 +4180,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, múltiplos agentes são ativos com failover"
+        "text": "Não, só um agente funciona por vez"
       },
       {
         "letter": "B",
-        "text": "Não, só um agente funciona por vez"
+        "text": "Sim, múltiplos agentes são ativos com failover"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Múltiplos agentes PTA operam ativos com balanceamento e failover nativos sem configuração extra. Achar que só um funciona por vez mantém ponto único de falha.",
     "source": "original",
     "tags": ["pta", "agentes", "failover"],
@@ -4230,14 +4230,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, AD FS HA basta"
+        "text": "Não, federação adiciona dependência fora do SLA do Entra"
       },
       {
         "letter": "B",
-        "text": "Não, federação adiciona dependência fora do SLA do Entra"
+        "text": "Sim, AD FS HA basta"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Todo login federado depende do IdP; indisponibilidade dele derruba auth mesmo com Entra saudável. Ignorar a dependência superestima SLA.",
     "source": "original",
     "tags": ["federacao", "sla", "dependencia", "adfs"],

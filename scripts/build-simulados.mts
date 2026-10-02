@@ -24,13 +24,23 @@ function mulberry32(seed: number) {
 }
 
 const DATA = new URL('../data/', import.meta.url)
+const SKIP = new Set([
+  'simulados.json',
+  'meta.json',
+  'case-studies.json',
+  'study-topics.json',
+  'exam-syllabus.json',
+  'exam-skills.json',
+  'grounding-map.json',
+  'irt-params.json',
+  '.generation-state.json',
+])
 const pool: Record<string, { id: string; caseStudyId?: string }[]> = {}
 for (const f of readdirSync(DATA).filter(
-  (x) =>
-    x.endsWith('.json') &&
-    !['simulados.json', 'meta.json', 'case-studies.json'].includes(x),
+  (x) => x.endsWith('.json') && !SKIP.has(x),
 )) {
   const arr = JSON.parse(readFileSync(join(DATA.pathname, f), 'utf8'))
+  if (!Array.isArray(arr)) continue
   for (const q of arr) {
     const d = q.domain as string
     pool[d] ??= []

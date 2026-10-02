@@ -87,7 +87,7 @@ export async function generateStudyPlan(userId: string): Promise<StudyPlan> {
   }
 
   const leitnerDue = progress.filter((p) => p.dueAt <= now).length
-  saveProfile(userId, { ...profile, weak })
+  saveProfile(userId, { ...profile, weak, updatedAt: now })
   return {
     weakDomains: weak,
     links,

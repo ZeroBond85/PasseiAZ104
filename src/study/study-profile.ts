@@ -59,8 +59,9 @@ export function loadProfile(userId: string): StudyProfile {
   }
 }
 
+// Só persiste: carimbar updatedAt é responsabilidade de quem mutou o perfil,
+// senão o LWW entre dispositivos se auto-invalida (ver LESSONS.md).
 export function saveProfile(userId: string, p: StudyProfile) {
-  p.updatedAt = Date.now()
   try {
     localStorage.setItem(KEY(userId), JSON.stringify(p))
   } catch {

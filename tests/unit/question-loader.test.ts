@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { ensureSeeded } from '../../src/data/QuestionLoader.js'
+import { ensureSeeded, getBankLine } from '../../src/data/QuestionLoader.js'
 import { questionsCount, seedQuestions } from '../../src/sync/IndexedDB.js'
 
 vi.mock('../../src/sync/IndexedDB.js', () => ({
@@ -85,6 +85,73 @@ describe('QuestionLoader.ensureSeeded', () => {
     )
     const r = await ensureSeeded()
     expect(r).toEqual({ seeded: true, count: 8 })
-    expect(store.get(VERSION_KEY)).toBe('1')
+    expect(store.get(VERSION_KEY)).toBe('2')
+  })
+
+  it('versão antiga no storage (v1) força re-seed na v2', async () => {
+    vi.mocked(seedQuestions).mockClear()
+    store.set(VERSION_KEY, '1')
+    vi.mocked(questionsCount).mockResolvedValue(950)
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => ({ ok: true, json: async () => [validQ] })),
+    )
+    const r = await ensureSeeded()
+    expect(r.seeded).toBe(true)
+    expect(store.get(VERSION_KEY)).toBe('2')
+    expect(vi.mocked(seedQuestions)).toHaveBeenCalled()
+  })
+
+  it('versão atual (v2) com IDB populado pula o seed', async () => {
+    vi.mocked(seedQuestions).mockClear()
+    store.set(VERSION_KEY, '2')
+    vi.mocked(questionsCount).mockResolvedValue(1000)
+    const r = await ensureSeeded()
+    expect(r).toEqual({ seeded: false, count: 1000 })
+    expect(vi.mocked(seedQuestions)).not.toHaveBeenCalled()
+  })
+})
+
+describe('QuestionLoader.getBankLine', () => {
+  const store = new Map<string, string>()
+  const metaQ = {
+    ok: true,
+    json: async () => ({
+      countsByDomain: { a: 500, b: 500 },
+      updatedAt: '2026-09-27T00:00:00.000Z',
+    }),
+  }
+
+  beforeEach(() => {
+    store.clear()
+    vi.stubGlobal('localStorage', {
+      getItem: (k: string) => store.get(k) ?? null,
+      setItem: (k: string, v: string) => {
+        store.set(k, v)
+      },
+      removeItem: (k: string) => {
+        store.delete(k)
+      },
+    })
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => metaQ),
+    )
+  })
+
+  it('anuncia o total quando semeado == meta.total', async () => {
+    vi.mocked(questionsCount).mockResolvedValue(1000)
+    const line = await getBankLine()
+    expect(line).toContain('1000 questões')
+  })
+
+  it('não anuncia quando semeado < meta.total', async () => {
+    vi.mocked(questionsCount).mockResolvedValue(500)
+    await expect(getBankLine()).resolves.toBe('')
+  })
+
+  it('não anuncia quando IDB vazio', async () => {
+    vi.mocked(questionsCount).mockResolvedValue(0)
+    await expect(getBankLine()).resolves.toBe('')
   })
 })

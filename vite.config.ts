@@ -15,7 +15,7 @@ export default defineConfig({
             urlPattern: /\/data\/.*\.json$/,
             handler: 'StaleWhileRevalidate',
             options: {
-              cacheName: 'az104-questions',
+              cacheName: 'az104-questions-v2',
               expiration: {
                 maxEntries: 20,
                 maxAgeSeconds: 60 * 60 * 24 * 30,

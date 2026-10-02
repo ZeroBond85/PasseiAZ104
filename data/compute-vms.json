@@ -9,22 +9,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Série B (burstable, ex.: Standard_B1s)"
+        "text": "Série H (HPC de alto desempenho)"
       },
       {
         "letter": "B",
-        "text": "Série M (otimizada para memória)"
+        "text": "Série B (burstable, ex.: Standard_B1s)"
       },
       {
         "letter": "C",
-        "text": "Série H (HPC de alto desempenho)"
+        "text": "Série M (otimizada para memória)"
       },
       {
         "letter": "D",
         "text": "Série N (GPU para IA)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "A série B acumula créditos de CPU e custa pouco, ideal para picos ocasionais. M, H e N são especializadas (memória, HPC, GPU) e bem mais caras para um site simples.",
     "source": "original",
     "tags": ["vms", "series", "custo"],
@@ -42,22 +42,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "SSD Premium"
-      },
-      {
-        "letter": "B",
-        "text": "HDD Standard"
-      },
-      {
-        "letter": "C",
         "text": "SSD Standard"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Disco não gerenciado em conta de armazenamento"
+      },
+      {
+        "letter": "C",
+        "text": "SSD Premium"
+      },
+      {
+        "letter": "D",
+        "text": "HDD Standard"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "SSD Premium entrega IOPS alto e latência baixa para produção. HDD e SSD Standard são econômicos para dev/teste; disco não gerenciado é legado sem SLA de gerenciamento.",
     "source": "original",
     "tags": ["vms", "discos", "premium-ssd"],
@@ -75,11 +75,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "No mesmo conjunto de disponibilidade (availability set) com 2 fault domains"
+        "text": "Na mesma sub-rede sem conjunto de disponibilidade"
       },
       {
         "letter": "B",
-        "text": "Na mesma sub-rede sem conjunto de disponibilidade"
+        "text": "No mesmo conjunto de disponibilidade (availability set) com 2 fault domains"
       },
       {
         "letter": "C",
@@ -90,7 +90,7 @@
         "text": "No mesmo host dedicado exclusivo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Availability set distribui VMs em fault/update domains, garantindo o SLA de 99,95%. Sem o conjunto não há SLA; regiões distintas exigem outro desenho; host dedicado não isola fault domain.",
     "source": "original",
     "tags": ["vms", "availability-set", "sla"],
@@ -112,11 +112,11 @@
       },
       {
         "letter": "B",
-        "text": "Azure Kubernetes Service (AKS)"
+        "text": "Máquina virtual com Docker manual"
       },
       {
         "letter": "C",
-        "text": "Máquina virtual com Docker manual"
+        "text": "Azure Kubernetes Service (AKS)"
       },
       {
         "letter": "D",
@@ -141,22 +141,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Desalocar (Stop/Deallocate) a VM"
+        "text": "Redimensionar para série maior"
       },
       {
         "letter": "B",
-        "text": "Desligar pelo sistema operacional (shutdown)"
+        "text": "Desalocar (Stop/Deallocate) a VM"
       },
       {
         "letter": "C",
-        "text": "Reiniciar a VM pelo portal"
+        "text": "Desligar pelo sistema operacional (shutdown)"
       },
       {
         "letter": "D",
-        "text": "Redimensionar para série maior"
+        "text": "Reiniciar a VM pelo portal"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Desalocar libera o hardware e zera o custo de computação (discos continuam cobrados). Shutdown pelo SO mantém alocação e custo; reiniciar não economiza; redimensionar para cima piora.",
     "source": "original",
     "tags": ["vms", "custo", "deallocate"],
@@ -182,11 +182,11 @@
       },
       {
         "letter": "C",
-        "text": "VM única com disco Premium"
+        "text": "Host dedicado com reserva de capacidade"
       },
       {
         "letter": "D",
-        "text": "Host dedicado com reserva de capacidade"
+        "text": "VM única com disco Premium"
       }
     ],
     "correct": ["A"],
@@ -207,22 +207,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Extensão de VM aplicada via política ou modelo"
-      },
-      {
-        "letter": "B",
         "text": "Conexão RDP individual em cada VM"
       },
       {
+        "letter": "B",
+        "text": "Extensão de VM aplicada via política ou modelo"
+      },
+      {
         "letter": "C",
-        "text": "Imagem de marketplace diferente por VM"
+        "text": "Disco de dados anexado manualmente"
       },
       {
         "letter": "D",
-        "text": "Disco de dados anexado manualmente"
+        "text": "Imagem de marketplace diferente por VM"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Extensões instalam e configuram software via ARM em todas as VMs de uma vez. RDP individual não escala; trocar imagem recria máquinas; disco de dados não instala agente.",
     "source": "original",
     "tags": ["vms", "extensoes"],
@@ -240,22 +240,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "VM Spot com preço variável e despejo"
+        "text": "Host dedicado para a renderização"
       },
       {
         "letter": "B",
-        "text": "VM pay-as-you-go com prioridade garantida"
-      },
-      {
-        "letter": "C",
         "text": "Reserva de 3 anos para a carga"
       },
       {
+        "letter": "C",
+        "text": "VM pay-as-you-go com prioridade garantida"
+      },
+      {
         "letter": "D",
-        "text": "Host dedicado para a renderização"
+        "text": "VM Spot com preço variável e despejo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Spot usa capacidade ociosa com desconto de até 90% em troca de despejo. Pay-as-you-go garante sem desconto; reserva exige compromisso e uso estável; host dedicado é o mais caro.",
     "source": "original",
     "tags": ["vms", "spot", "custo"],
@@ -273,7 +273,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Imagem gerenciada (generalizada com Sysprep/deprovision)"
+        "text": "Exportação do modelo ARM da VM"
       },
       {
         "letter": "B",
@@ -285,10 +285,10 @@
       },
       {
         "letter": "D",
-        "text": "Exportação do modelo ARM da VM"
+        "text": "Imagem gerenciada (generalizada com Sysprep/deprovision)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Imagem generalizada remove identidade (SID/hostname) permitindo clonar N VMs. Snapshot sem generalizar duplica identidade; backup restaura a mesma VM; modelo ARM replica configuração, não o software instalado.",
     "source": "original",
     "tags": ["vms", "imagens", "sysprep"],
@@ -306,22 +306,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Em zonas de disponibilidade distintas da região"
+        "text": "Na mesma zona de disponibilidade"
       },
       {
         "letter": "B",
-        "text": "No mesmo fault domain do availability set"
+        "text": "Em zonas de disponibilidade distintas da região"
       },
       {
         "letter": "C",
-        "text": "Na mesma zona de disponibilidade"
+        "text": "No mesmo fault domain do availability set"
       },
       {
         "letter": "D",
         "text": "Em uma única sub-rede sem redundância"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Zonas são datacenters fisicamente separados na região; distribuir entre elas tolera perda de um site. Fault domain protege de rack, não de datacenter; mesma zona concentra o risco.",
     "source": "original",
     "tags": ["vms", "zonas", "alta-disponibilidade"],
@@ -343,11 +343,11 @@
       },
       {
         "letter": "B",
-        "text": "Windows Update manual por RDP em cada VM"
+        "text": "Extensão de antivírus em cada VM"
       },
       {
         "letter": "C",
-        "text": "Extensão de antivírus em cada VM"
+        "text": "Windows Update manual por RDP em cada VM"
       },
       {
         "letter": "D",
@@ -405,11 +405,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Azure Bastion na rede virtual"
+        "text": "Regra NSG liberando 3389 para 0.0.0.0/0"
       },
       {
         "letter": "B",
-        "text": "Regra NSG liberando 3389 para 0.0.0.0/0"
+        "text": "VPN site-to-site permanente por VM"
       },
       {
         "letter": "C",
@@ -417,10 +417,10 @@
       },
       {
         "letter": "D",
-        "text": "VPN site-to-site permanente por VM"
+        "text": "Azure Bastion na rede virtual"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Bastion publica RDP/SSH via TLS no portal, sem expor portas. Liberar 3389 viola a política; IP público mantém exposição; VPN por VM é cara e complexa para acesso ocasional.",
     "source": "original",
     "tags": ["vms", "bastion", "rdp"],
@@ -438,22 +438,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Galeria de Computação do Azure (Shared Image Gallery)"
-      },
-      {
-        "letter": "B",
-        "text": "Imagem gerenciada isolada por região"
-      },
-      {
-        "letter": "C",
         "text": "Conta de armazenamento com VHDs avulsos"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Galeria de Computação do Azure (Shared Image Gallery)"
+      },
+      {
+        "letter": "C",
         "text": "Registro de Contêiner (ACR) para VHDs"
+      },
+      {
+        "letter": "D",
+        "text": "Imagem gerenciada isolada por região"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "A Galeria versiona, replica entre regiões e compartilha imagens via RBAC. Imagem isolada não replica; VHD avulso não versiona; ACR guarda contêineres, não imagens de VM.",
     "source": "original",
     "tags": ["vms", "galeria", "imagens"],
@@ -471,22 +471,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Grupo de posicionamento por proximidade (PPG)"
+        "text": "Availability set com 3 fault domains"
       },
       {
         "letter": "B",
-        "text": "Zonas de disponibilidade distintas"
-      },
-      {
-        "letter": "C",
         "text": "Regiões pareadas diferentes"
       },
       {
+        "letter": "C",
+        "text": "Grupo de posicionamento por proximidade (PPG)"
+      },
+      {
         "letter": "D",
-        "text": "Availability set com 3 fault domains"
+        "text": "Zonas de disponibilidade distintas"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "PPG co-localiza VMs no mesmo rack/cluster para latência mínima. Zonas e regiões aumentam a distância; availability set distribui (oposto do pedido).",
     "source": "original",
     "tags": ["vms", "ppg", "latencia"],
@@ -504,7 +504,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Load Balancer Standard com probe HTTP"
+        "text": "Traffic Manager com endpoint externo"
       },
       {
         "letter": "B",
@@ -512,14 +512,14 @@
       },
       {
         "letter": "C",
-        "text": "Application Gateway sem backend pool"
+        "text": "Load Balancer Standard com probe HTTP"
       },
       {
         "letter": "D",
-        "text": "Traffic Manager com endpoint externo"
+        "text": "Application Gateway sem backend pool"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "LB Standard tem SLA, zonas e probes de saúde para o VMSS. Básico não tem SLA nem escala; App Gateway sem pool não distribui; Traffic Manager balanceia por DNS entre regiões, não instâncias.",
     "source": "original",
     "tags": ["vmss", "load-balancer", "probe"],
@@ -541,11 +541,11 @@
       },
       {
         "letter": "B",
-        "text": "Troca para VM Spot equivalente"
+        "text": "Desalocação noturna programada"
       },
       {
         "letter": "C",
-        "text": "Desalocação noturna programada"
+        "text": "Troca para VM Spot equivalente"
       },
       {
         "letter": "D",
@@ -570,22 +570,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Diagnóstico de inicialização (Boot Diagnostics) com conta de armazenamento"
-      },
-      {
-        "letter": "B",
         "text": "Extensão de backup da VM"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Alerta de métrica de CPU"
+      },
+      {
+        "letter": "C",
+        "text": "Diagnóstico de inicialização (Boot Diagnostics) com conta de armazenamento"
       },
       {
         "letter": "D",
         "text": "Rede virtual com DNS personalizado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Boot Diagnostics grava screenshot e log serial na storage para análise offline. Backup restaura, não diagnostica; alerta de CPU não mostra console; DNS não exibe boot.",
     "source": "original",
     "tags": ["vms", "boot-diagnostics"],
@@ -607,15 +607,15 @@
       },
       {
         "letter": "B",
-        "text": "Apenas prioridade Regular em todas as instâncias"
-      },
-      {
-        "letter": "C",
         "text": "Dois VMSS separados sem orquestração"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Availability set com VMs Spot"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas prioridade Regular em todas as instâncias"
       }
     ],
     "correct": ["A"],
@@ -636,22 +636,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Disco Ultra"
+        "text": "HDD Standard com cache"
       },
       {
         "letter": "B",
-        "text": "SSD Premium com bursting"
+        "text": "Disco Ultra"
       },
       {
         "letter": "C",
-        "text": "SSD Standard com ZRS"
+        "text": "SSD Premium com bursting"
       },
       {
         "letter": "D",
-        "text": "HDD Standard com cache"
+        "text": "SSD Standard com ZRS"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Ultra Disk desacopla IOPS, throughput e tamanho para cargas extremas. Premium vincula IOPS ao tamanho; Standard e HDD não alcançam 50k IOPS.",
     "source": "original",
     "tags": ["vms", "ultra-disk", "iops"],
@@ -669,22 +669,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Configuração de manutenção (Scheduled Events + janela) no host/VM"
-      },
-      {
-        "letter": "B",
-        "text": "Desabilitar todos os alertas do Azure Monitor"
-      },
-      {
-        "letter": "C",
         "text": "Mover as VMs para outra assinatura"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Aumentar o número de update domains"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar todos os alertas do Azure Monitor"
+      },
+      {
+        "letter": "D",
+        "text": "Configuração de manutenção (Scheduled Events + janela) no host/VM"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Maintenance control agenda a janela e Scheduled Events avisam antes para preparar. Desligar alertas cega a operação; trocar assinatura não muda o host; update domains protegem de manutenção, não a reagendam.",
     "source": "original",
     "tags": ["vms", "manutencao", "scheduled-events"],
@@ -706,11 +706,11 @@
       },
       {
         "letter": "B",
-        "text": "Série B burstable básica"
+        "text": "Série A legada"
       },
       {
         "letter": "C",
-        "text": "Série A legada"
+        "text": "Série B burstable básica"
       },
       {
         "letter": "D",
@@ -768,22 +768,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Orquestração Flexível (Flexible) com fault domain count"
+        "text": "VMs avulsas com script de escala"
       },
       {
         "letter": "B",
-        "text": "Orquestração Uniforme sem perfis"
-      },
-      {
-        "letter": "C",
         "text": "Availability set estático"
       },
       {
+        "letter": "C",
+        "text": "Orquestração Flexível (Flexible) com fault domain count"
+      },
+      {
         "letter": "D",
-        "text": "VMs avulsas com script de escala"
+        "text": "Orquestração Uniforme sem perfis"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Flexible mistura FD spreading com instâncias heterogêneas e autoscale. Uniforme usa perfil único; availability set não escala; script avulso não é orquestrado.",
     "source": "original",
     "tags": ["vmss", "flexible", "orquestracao"],
@@ -805,15 +805,15 @@
       },
       {
         "letter": "B",
-        "text": "Série de reinicializações da VM"
+        "text": "Redefinição de senha do administrador"
       },
       {
         "letter": "C",
-        "text": "Anexo de disco com o script"
+        "text": "Série de reinicializações da VM"
       },
       {
         "letter": "D",
-        "text": "Redefinição de senha do administrador"
+        "text": "Anexo de disco com o script"
       }
     ],
     "correct": ["A"],
@@ -834,7 +834,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Reserva de capacidade (Capacity Reservation) no grupo"
+        "text": "Spot com prioridade regular"
       },
       {
         "letter": "B",
@@ -846,10 +846,10 @@
       },
       {
         "letter": "D",
-        "text": "Spot com prioridade regular"
+        "text": "Reserva de capacidade (Capacity Reservation) no grupo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Capacity Reservation segura o hardware físico; quota só eleva o limite lógico. Reserved Instance desconta preço sem garantir hardware; Spot pode ser despejado no pico.",
     "source": "original",
     "tags": ["vms", "capacity-reservation", "cota"],
@@ -867,22 +867,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Availability set com múltiplos fault domains"
-      },
-      {
-        "letter": "B",
         "text": "Update domains para manutenção sequencial"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "VM única com disco Ultra"
+      },
+      {
+        "letter": "C",
+        "text": "Availability set com múltiplos fault domains"
       },
       {
         "letter": "D",
         "text": "Snapshot manual antes de cada reboot"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Fault domains isolam falha de rack e update domains sequenciam manutenção sem derrubar tudo. VM única não protege; snapshot é recuperação, não disponibilidade.",
     "source": "original",
     "tags": ["vms", "fault-domain", "update-domain"],
@@ -900,22 +900,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Regra de autoscale por percentual de CPU"
+        "text": "Imagem sem generalização"
       },
       {
         "letter": "B",
-        "text": "Distribuição zonal (zone-balanced)"
+        "text": "Regra de autoscale por percentual de CPU"
       },
       {
         "letter": "C",
-        "text": "Prioridade Spot em 100% das instâncias"
+        "text": "Distribuição zonal (zone-balanced)"
       },
       {
         "letter": "D",
-        "text": "Imagem sem generalização"
+        "text": "Prioridade Spot em 100% das instâncias"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Autoscale por CPU ajusta a contagem e o balanceamento zonal espalha entre datacenters. 100% Spot arrisca despejo total; imagem sem generalizar duplica identidade.",
     "source": "original",
     "tags": ["vmss", "autoscale", "zonas"],
@@ -933,22 +933,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ambiente gerenciado com rede e Dapr"
-      },
-      {
-        "letter": "B",
         "text": "Revisões com divisão de tráfego"
       },
       {
+        "letter": "B",
+        "text": "DaemonSet manual por nó"
+      },
+      {
         "letter": "C",
-        "text": "Node pool próprio com kubelet"
+        "text": "Ambiente gerenciado com rede e Dapr"
       },
       {
         "letter": "D",
-        "text": "DaemonSet manual por nó"
+        "text": "Node pool próprio com kubelet"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Ambiente gerenciado abstrai o Kubernetes (com Dapr opcional) e revisões permitem canário por tráfego. Node pool e DaemonSet são gestão de AKS, contrária ao pedido.",
     "source": "original",
     "tags": ["container-apps", "revisoes", "dapr"],
@@ -966,7 +966,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política de backup com retenção semanal de 52 semanas"
+        "text": "Desabilitar o backup após a primeira cópia"
       },
       {
         "letter": "B",
@@ -974,14 +974,14 @@
       },
       {
         "letter": "C",
-        "text": "Snapshot manual sem agendamento"
+        "text": "Política de backup com retenção semanal de 52 semanas"
       },
       {
         "letter": "D",
-        "text": "Desabilitar o backup após a primeira cópia"
+        "text": "Snapshot manual sem agendamento"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Política com retenção longa guarda o histórico e soft delete recupera itens excluídos por 14 dias. Snapshot manual não agenda; desabilitar backup elimina a proteção.",
     "source": "original",
     "tags": ["vms", "backup", "retencao", "soft-delete"],
@@ -1003,18 +1003,18 @@
       },
       {
         "letter": "B",
-        "text": "RBAC distinto por identidade no Key Vault"
+        "text": "Chave de acesso compartilhada entre as VMs"
       },
       {
         "letter": "C",
-        "text": "Mesma entidade de serviço com segredo único"
+        "text": "RBAC distinto por identidade no Key Vault"
       },
       {
         "letter": "D",
-        "text": "Chave de acesso compartilhada entre as VMs"
+        "text": "Mesma entidade de serviço com segredo único"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Identidade por VM separa o principal de segurança e o RBAC diferencia as permissões. Entidade única com segredo mistura acessos e exige guardar segredo; chave compartilhada idem.",
     "source": "original",
     "tags": ["vms", "managed-identity", "key-vault"],
@@ -1032,11 +1032,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Proteção de instância (scale-in protection) nas instâncias com dados"
+        "text": "Discos efêmeros locais (temp)"
       },
       {
         "letter": "B",
-        "text": "Política de remoção padrão sem proteção"
+        "text": "Proteção de instância (scale-in protection) nas instâncias com dados"
       },
       {
         "letter": "C",
@@ -1044,10 +1044,10 @@
       },
       {
         "letter": "D",
-        "text": "Discos efêmeros locais (temp)"
+        "text": "Política de remoção padrão sem proteção"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Scale-in protection exclui instâncias marcadas da remoção, preservando discos. Remoção padrão apaga; deletar o conjunto destrói tudo; disco temp é efêmero por definição.",
     "source": "original",
     "tags": ["vmss", "scale-in-protection", "stateful"],
@@ -1065,7 +1065,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Disco de SO efêmero (ephemeral) no armazenamento local"
+        "text": "Disco Ultra com 50k IOPS"
       },
       {
         "letter": "B",
@@ -1073,14 +1073,14 @@
       },
       {
         "letter": "C",
-        "text": "Disco Ultra com 50k IOPS"
+        "text": "Disco de SO efêmero (ephemeral) no armazenamento local"
       },
       {
         "letter": "D",
         "text": "Snapshot restaurado a cada build"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "SO efêmero usa o disco local do host: provisiona rápido e descarta no deallocate. Discos remotos copiam pela rede; Ultra é para persistência extrema; snapshot por build é lento.",
     "source": "original",
     "tags": ["vms", "ephemeral-os", "build"],
@@ -1131,7 +1131,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Azure Image Builder com templates e Galeria"
+        "text": "Snapshot agendado sem customização"
       },
       {
         "letter": "B",
@@ -1139,14 +1139,14 @@
       },
       {
         "letter": "C",
-        "text": "Snapshot agendado sem customização"
+        "text": "Azure Image Builder com templates e Galeria"
       },
       {
         "letter": "D",
         "text": "Backup com retenção longa"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Image Builder executa pipeline declarativo (customize, validate, distribute) integrado à Galeria. Sysprep manual não audita; snapshot não customiza; backup não gera imagem nova.",
     "source": "original",
     "tags": ["image-builder", "golden-image", "galeria"],
@@ -1164,22 +1164,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Backup do Azure com política diária"
-      },
-      {
-        "letter": "B",
-        "text": "Site Recovery com replicação entre zonas"
-      },
-      {
-        "letter": "C",
         "text": "Snapshot único sem agendamento"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Desalocação diária da VM"
+      },
+      {
+        "letter": "C",
+        "text": "Site Recovery com replicação entre zonas"
+      },
+      {
+        "letter": "D",
+        "text": "Backup do Azure com política diária"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Backup garante pontos de restauração e Site Recovery replica para failover rápido entre zonas. Snapshot avulso não agenda; desalocar piora disponibilidade.",
     "source": "original",
     "tags": ["vms", "backup", "site-recovery"],
@@ -1201,18 +1201,18 @@
       },
       {
         "letter": "B",
-        "text": "Integração com Azure Policy e Microsoft Defender"
-      },
-      {
-        "letter": "C",
         "text": "Zero gerenciamento de qualquer manifesto"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Custo zero de plano de controle e nós"
+      },
+      {
+        "letter": "D",
+        "text": "Integração com Azure Policy e Microsoft Defender"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "AKS entrega autoscaling, deploys graduais e governança integrada. Manifestos continuam necessários; plano de controle é grátis mas nós custam.",
     "source": "original",
     "tags": ["aks", "orquestracao", "comparativo"],
@@ -1230,11 +1230,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Inicialização confiável (Trusted Launch) com vTPM e boot seguro"
+        "text": "Disk Encryption com chaves do Key Vault"
       },
       {
         "letter": "B",
-        "text": "Disk Encryption com chaves do Key Vault"
+        "text": "Inicialização confiável (Trusted Launch) com vTPM e boot seguro"
       },
       {
         "letter": "C",
@@ -1245,7 +1245,7 @@
         "text": "Conta de administrador compartilhada"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Trusted Launch atesta integridade do boot e Disk Encryption protege dados com sua chave. IP exposto e conta compartilhada violam o compliance.",
     "source": "original",
     "tags": ["vms", "trusted-launch", "encryption"],
@@ -1263,22 +1263,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Defender for Containers com varredura de imagens"
+        "text": "Tag latest mutável sem retenção"
       },
       {
         "letter": "B",
-        "text": "Content trust (assinatura Notary) no registro Premium"
-      },
-      {
-        "letter": "C",
         "text": "Repositório público sem autenticação"
       },
       {
+        "letter": "C",
+        "text": "Defender for Containers com varredura de imagens"
+      },
+      {
         "letter": "D",
-        "text": "Tag latest mutável sem retenção"
+        "text": "Content trust (assinatura Notary) no registro Premium"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Defender varre CVEs e content trust garante procedência assinada. Repo público expõe; latest mutável sem política impede rastreabilidade.",
     "source": "original",
     "tags": ["acr", "defender", "content-trust"],
@@ -1296,22 +1296,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Reparo automático (automatic repairs) com probe de integridade"
+        "text": "Desabilitação do probe de saúde"
       },
       {
         "letter": "B",
-        "text": "Grupo de ação do Monitor para alerta"
+        "text": "Reparo automático (automatic repairs) com probe de integridade"
       },
       {
         "letter": "C",
-        "text": "Deleção manual semanal das instâncias"
+        "text": "Grupo de ação do Monitor para alerta"
       },
       {
         "letter": "D",
-        "text": "Desabilitação do probe de saúde"
+        "text": "Deleção manual semanal das instâncias"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Automatic repairs recria instância doente via probe e o action group notifica. Deleção manual não escala; sem probe não há detecção.",
     "source": "original",
     "tags": ["vmss", "automatic-repairs", "health-probe"],
@@ -1329,22 +1329,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Microsoft Defender for Servers com alertas"
+        "text": "Desabilitação do agente de monitoramento"
       },
       {
         "letter": "B",
-        "text": "Regra de alerta com runbook de correção"
-      },
-      {
-        "letter": "C",
         "text": "Log manual consultado mensalmente"
       },
       {
+        "letter": "C",
+        "text": "Microsoft Defender for Servers com alertas"
+      },
+      {
         "letter": "D",
-        "text": "Desabilitação do agente de monitoramento"
+        "text": "Regra de alerta com runbook de correção"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Defender detecta ameaças e a regra com runbook reage sozinha (isolar, reiniciar). Log mensal é lento; sem agente não há telemetria.",
     "source": "original",
     "tags": ["vms", "defender", "alertas", "runbook"],
@@ -1362,14 +1362,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, computação zera e discos continuam cobrados"
+        "text": "Não, desalocar zera todos os custos incluindo discos"
       },
       {
         "letter": "B",
-        "text": "Não, desalocar zera todos os custos incluindo discos"
+        "text": "Sim, computação zera e discos continuam cobrados"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Desalocar libera o hardware (fim do custo de computação), mas discos, IPs e outros recursos alocados continuam cobrados. Achar que tudo zera é erro clássico de custo.",
     "source": "original",
     "tags": ["vms", "custo", "deallocate"],
@@ -1387,22 +1387,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Hibernação da VM com disco do SO gerenciado"
+        "text": "Snapshot manual antes de parar"
       },
       {
         "letter": "B",
-        "text": "Desalocação simples sem hibernação"
+        "text": "Hibernação da VM com disco do SO gerenciado"
       },
       {
         "letter": "C",
-        "text": "Snapshot manual antes de parar"
+        "text": "Desalocação simples sem hibernação"
       },
       {
         "letter": "D",
         "text": "Manter ligada 24/7"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Hibernação salva RAM no disco e retoma rápido sem custo de computação. Desalocar simples perde RAM; snapshot manual atrasa; ligada desperdiça.",
     "source": "original",
     "tags": ["vms", "hibernacao", "dev"],
@@ -1424,15 +1424,15 @@
       },
       {
         "letter": "B",
-        "text": "Windows Update automático sem script"
+        "text": "Backup sem patch"
       },
       {
         "letter": "C",
-        "text": "Reinicialização manual"
+        "text": "Windows Update automático sem script"
       },
       {
         "letter": "D",
-        "text": "Backup sem patch"
+        "text": "Reinicialização manual"
       }
     ],
     "correct": ["A"],
@@ -1453,7 +1453,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Notificação de término agendada (terminate notification)"
+        "text": "Reinicialização periódica"
       },
       {
         "letter": "B",
@@ -1461,14 +1461,14 @@
       },
       {
         "letter": "C",
-        "text": "Log após o despejo"
+        "text": "Notificação de término agendada (terminate notification)"
       },
       {
         "letter": "D",
-        "text": "Reinicialização periódica"
+        "text": "Log após o despejo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Scheduled events avisam despejo/exclusão com antecedência para drenar. Probe detecta doença, não despejo; log posterior não previne; restart não avisa.",
     "source": "original",
     "tags": ["vmss", "spot", "terminate-notification", "drenagem"],
@@ -1494,11 +1494,11 @@
       },
       {
         "letter": "C",
-        "text": "Excluir e recriar do zero"
+        "text": "Aguardar o host recuperar"
       },
       {
         "letter": "D",
-        "text": "Aguardar o host recuperar"
+        "text": "Excluir e recriar do zero"
       }
     ],
     "correct": ["A"],
@@ -1519,22 +1519,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Console serial do Azure via SAC"
-      },
-      {
-        "letter": "B",
         "text": "RDP pela internet"
       },
       {
+        "letter": "B",
+        "text": "Console serial do Azure via SAC"
+      },
+      {
         "letter": "C",
-        "text": "Bastion sem agente"
+        "text": "Reinstalação do SO"
       },
       {
         "letter": "D",
-        "text": "Reinstalação do SO"
+        "text": "Bastion sem agente"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Serial console acessa o SAC/terminal da VM sem rede via portal. RDP é só Windows; Bastion exige conectividade; reinstalar apaga dados.",
     "source": "original",
     "tags": ["serial-console", "emergencia", "sac"],
@@ -1556,15 +1556,15 @@
       },
       {
         "letter": "B",
-        "text": "Extensão manual por portal"
+        "text": "Aguardar onboarding automático"
       },
       {
         "letter": "C",
-        "text": "Script por RDP em massa"
+        "text": "Extensão manual por portal"
       },
       {
         "letter": "D",
-        "text": "Aguardar onboarding automático"
+        "text": "Script por RDP em massa"
       }
     ],
     "correct": ["A"],
@@ -1585,11 +1585,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Automanage com perfil de produção"
+        "text": "Tags manuais por VM"
       },
       {
         "letter": "B",
-        "text": "Tags manuais por VM"
+        "text": "Automanage com perfil de produção"
       },
       {
         "letter": "C",
@@ -1600,7 +1600,7 @@
         "text": "Policy só de auditoria"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Automanage aplica e corrige baseline continuamente. Tags não aplicam; trimestral atrasa; só auditar não corrige.",
     "source": "original",
     "tags": ["automanage", "baseline", "vm"],
@@ -1622,7 +1622,7 @@
       },
       {
         "letter": "B",
-        "text": "Backup diário como DR"
+        "text": "Segunda VM fria desligada"
       },
       {
         "letter": "C",
@@ -1630,7 +1630,7 @@
       },
       {
         "letter": "D",
-        "text": "Segunda VM fria desligada"
+        "text": "Backup diário como DR"
       }
     ],
     "correct": ["A"],
@@ -1651,7 +1651,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Extensão de integridade (app health) reportando"
+        "text": "Sem probe de saúde"
       },
       {
         "letter": "B",
@@ -1659,14 +1659,14 @@
       },
       {
         "letter": "C",
-        "text": "Upgrade simultâneo total"
+        "text": "Extensão de integridade (app health) reportando"
       },
       {
         "letter": "D",
-        "text": "Sem probe de saúde"
+        "text": "Upgrade simultâneo total"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Health extension sinaliza e o rolling pausa/rollback em lote doente. Simultâneo derruba; sem probe não detecta.",
     "source": "original",
     "tags": ["vmss", "rolling", "app-health"],
@@ -1692,11 +1692,11 @@
       },
       {
         "letter": "C",
-        "text": "Disco sem criptografia"
+        "text": "Host compartilhado sem isolamento"
       },
       {
         "letter": "D",
-        "text": "Host compartilhado sem isolamento"
+        "text": "Disco sem criptografia"
       }
     ],
     "correct": ["A", "B"],
@@ -1717,22 +1717,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Particionamento MIG em GPUs compatíveis"
-      },
-      {
-        "letter": "B",
-        "text": "VMs NVads com GPU fracionada"
-      },
-      {
-        "letter": "C",
         "text": "GPU física dedicada por job leve"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Particionamento MIG em GPUs compatíveis"
+      },
+      {
+        "letter": "C",
         "text": "CPU comum sem GPU"
+      },
+      {
+        "letter": "D",
+        "text": "VMs NVads com GPU fracionada"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "MIG fatia a GPU e NVads virtualiza frações para VDI/inferência. Dedicada desperdiça; CPU não acelera.",
     "source": "original",
     "tags": ["gpu", "mig", "nvads", "fracionada"],
@@ -1750,11 +1750,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Subida mais rápida com instâncias extras temporárias"
+        "text": "Nomes/prefixos imprevisíveis durante excesso"
       },
       {
         "letter": "B",
-        "text": "Nomes/prefixos imprevisíveis durante excesso"
+        "text": "Custo zero das extras"
       },
       {
         "letter": "C",
@@ -1762,10 +1762,10 @@
       },
       {
         "letter": "D",
-        "text": "Custo zero das extras"
+        "text": "Subida mais rápida com instâncias extras temporárias"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Overprovision acelera com sobra temporária, mas numeração varia. Não garante instantâneo; extras cobram se persistirem.",
     "source": "original",
     "tags": ["vmss", "overprovision", "escala"],
@@ -1783,14 +1783,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, PPG é multizona"
+        "text": "Não, PPG limita-se a um datacenter/zona"
       },
       {
         "letter": "B",
-        "text": "Não, PPG limita-se a um datacenter/zona"
+        "text": "Sim, PPG é multizona"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "PPG co-localiza no mesmo site; multizona contraria o propósito de latência mínima. Assumir abrangência quebra o desenho.",
     "source": "original",
     "tags": ["ppg", "zonas", "proximidade"],
@@ -1808,14 +1808,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, efêmero persiste como gerenciado"
+        "text": "Não, deallocate apaga o disco local"
       },
       {
         "letter": "B",
-        "text": "Não, deallocate apaga o disco local"
+        "text": "Sim, efêmero persiste como gerenciado"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Disco efêmero vive no armazenamento local do host; desalocar ou destruir a VM apaga tudo. Tratar como persistente causa perda irreversível de dados.",
     "source": "original",
     "tags": ["ephemeral-os", "persistencia", "deallocate"],
@@ -1833,22 +1833,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Gerar par SSH no portal/CLI e injetar a pública na VM"
+        "text": "Telnet na porta 23"
       },
       {
         "letter": "B",
-        "text": "Senha simples igual em todas"
+        "text": "Gerar par SSH no portal/CLI e injetar a pública na VM"
       },
       {
         "letter": "C",
-        "text": "Login root sem chave"
+        "text": "Senha simples igual em todas"
       },
       {
         "letter": "D",
-        "text": "Telnet na porta 23"
+        "text": "Login root sem chave"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Par SSH (pública na VM, privada com o admin) elimina senha. Senha única vaza; root sem chave expõe; Telnet transmite em claro.",
     "source": "original",
     "tags": ["vms", "ssh", "chaves", "linux"],
@@ -1874,11 +1874,11 @@
       },
       {
         "letter": "C",
-        "text": "Senha vazia no administrador"
+        "text": "RDP anônimo"
       },
       {
         "letter": "D",
-        "text": "RDP anônimo"
+        "text": "Senha vazia no administrador"
       }
     ],
     "correct": ["A"],
@@ -1903,7 +1903,7 @@
       },
       {
         "letter": "B",
-        "text": "Login manual por instância"
+        "text": "E-mail com instruções"
       },
       {
         "letter": "C",
@@ -1911,7 +1911,7 @@
       },
       {
         "letter": "D",
-        "text": "E-mail com instruções"
+        "text": "Login manual por instância"
       }
     ],
     "correct": ["A"],
@@ -1940,11 +1940,11 @@
       },
       {
         "letter": "C",
-        "text": "Cache do SO apenas"
+        "text": "Desligar o pico"
       },
       {
         "letter": "D",
-        "text": "Desligar o pico"
+        "text": "Cache do SO apenas"
       }
     ],
     "correct": ["A"],
@@ -1965,22 +1965,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Compartilhamento da Galeria via RBAC/controle de acesso"
-      },
-      {
-        "letter": "B",
         "text": "VHD público para download"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "E-mail com link SAS eterna"
+      },
+      {
+        "letter": "C",
+        "text": "Compartilhamento da Galeria via RBAC/controle de acesso"
       },
       {
         "letter": "D",
         "text": "Cópia manual por subscription"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Gallery sharing com RBAC (inclusive cross-tenant) controla acesso. VHD público expõe IP; SAS eterna vaza; cópia manual diverge.",
     "source": "original",
     "tags": ["galeria", "compartilhar", "rbac"],
@@ -2002,7 +2002,7 @@
       },
       {
         "letter": "B",
-        "text": "Backup completo com dias"
+        "text": "Imagem generalizada"
       },
       {
         "letter": "C",
@@ -2010,7 +2010,7 @@
       },
       {
         "letter": "D",
-        "text": "Imagem generalizada"
+        "text": "Backup completo com dias"
       }
     ],
     "correct": ["A"],
@@ -2031,7 +2031,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política de rolling upgrade (maxBatch, pauseTime, rollback)"
+        "text": "Recriação total do conjunto"
       },
       {
         "letter": "B",
@@ -2039,14 +2039,14 @@
       },
       {
         "letter": "C",
-        "text": "Recriação total do conjunto"
+        "text": "Política de rolling upgrade (maxBatch, pauseTime, rollback)"
       },
       {
         "letter": "D",
         "text": "Imagem sem versionar"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Rolling policy controla lote, pausa e reversão por saúde. Simultâneo derruba; recriar zera; sem versão não audita.",
     "source": "original",
     "tags": ["vmss", "rolling", "policy"],
@@ -2064,7 +2064,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Probe de integridade da aplicação (HTTP custom)"
+        "text": "Métrica de disco"
       },
       {
         "letter": "B",
@@ -2072,14 +2072,14 @@
       },
       {
         "letter": "C",
-        "text": "Métrica de disco"
+        "text": "Log de boot"
       },
       {
         "letter": "D",
-        "text": "Log de boot"
+        "text": "Probe de integridade da aplicação (HTTP custom)"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Probe HTTP da app detecta trava lógica e tira do pool. Ping vê SO; disco não é saúde; boot é pontual.",
     "source": "original",
     "tags": ["lb", "app-health", "probe"],
@@ -2097,22 +2097,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Atestação de convidado (guest attestation) com relatório"
+        "text": "Certificado TLS do site"
       },
       {
         "letter": "B",
-        "text": "Declaração do administrador"
+        "text": "Atestação de convidado (guest attestation) com relatório"
       },
       {
         "letter": "C",
-        "text": "Log do aplicativo"
+        "text": "Declaração do administrador"
       },
       {
         "letter": "D",
-        "text": "Certificado TLS do site"
+        "text": "Log do aplicativo"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Attestation emite claims verificáveis do TEE/boot. Declaração não prova; log falsifica; TLS prova canal, não ambiente.",
     "source": "original",
     "tags": ["attestation", "tee", "convidado"],
@@ -2130,22 +2130,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Secure Boot + vTPM com boot medido"
-      },
-      {
-        "letter": "B",
         "text": "BIOS legado sem medição"
       },
       {
+        "letter": "B",
+        "text": "Antivírus pós-boot"
+      },
+      {
         "letter": "C",
-        "text": "Senha do bootloader"
+        "text": "Secure Boot + vTPM com boot medido"
       },
       {
         "letter": "D",
-        "text": "Antivírus pós-boot"
+        "text": "Senha do bootloader"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Secure Boot valida assinaturas e vTPM ancora medições. Legado não mede; senha não atesta; antivírus age tarde.",
     "source": "original",
     "tags": ["secure-boot", "vtpm", "boot-medido"],
@@ -2163,7 +2163,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Key Vault com purge protection + extensão ADE por VM"
+        "text": "Desabilitar criptografia padrão"
       },
       {
         "letter": "B",
@@ -2175,10 +2175,10 @@
       },
       {
         "letter": "D",
-        "text": "Desabilitar criptografia padrão"
+        "text": "Key Vault com purge protection + extensão ADE por VM"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Cofre protegido + extensão aplica BitLocker/DM-Crypt in place. Manual não escala; recriar interrompe; desligar padrão piora.",
     "source": "original",
     "tags": ["ade", "cmk", "key-vault", "extensao"],
@@ -2196,22 +2196,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Criptografia no host (encryption at host)"
-      },
-      {
-        "letter": "B",
-        "text": "Desabilitar o cache"
-      },
-      {
-        "letter": "C",
         "text": "Disco maior"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Criptografia no host (encryption at host)"
+      },
+      {
+        "letter": "C",
         "text": "Snapshot do cache"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar o cache"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Encryption at host cifra temp/cache com chaves da plataforma. Desligar perde performance; maior não cifra; snapshot não protege.",
     "source": "original",
     "tags": ["encryption-at-host", "cache", "temporario"],
@@ -2229,22 +2229,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Disco de SO confidencial (confidential OS disk)"
-      },
-      {
-        "letter": "B",
         "text": "Disco Standard sem vínculo"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Disco compartilhado entre VMs"
+      },
+      {
+        "letter": "C",
+        "text": "Disco de SO confidencial (confidential OS disk)"
       },
       {
         "letter": "D",
         "text": "Disco local temporário"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Confidential OS disk vincula chave ao vTPM/boot medido. Standard não vincula; compartilhado quebra isolamento; temp não persiste.",
     "source": "original",
     "tags": ["confidential-os-disk", "vtpm", "vm-confidencial"],
@@ -2262,22 +2262,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Shared Disk Premium/Ultra com SCSI persistente"
-      },
-      {
-        "letter": "B",
-        "text": "Disco Standard exclusivo"
-      },
-      {
-        "letter": "C",
         "text": "Blob com lease"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "File share SMB"
+      },
+      {
+        "letter": "C",
+        "text": "Disco Standard exclusivo"
+      },
+      {
+        "letter": "D",
+        "text": "Shared Disk Premium/Ultra com SCSI persistente"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Shared disks permitem multi-attach com reservas SCSI para cluster. Exclusivo não compartilha; blob não é bloco; SMB não serve a cluster de disco.",
     "source": "original",
     "tags": ["shared-disk", "cluster", "failover"],
@@ -2295,7 +2295,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ultra Disk na zona com VM"
+        "text": "Disco Standard com SLA de rack"
       },
       {
         "letter": "B",
@@ -2307,10 +2307,10 @@
       },
       {
         "letter": "D",
-        "text": "Disco Standard com SLA de rack"
+        "text": "Ultra Disk na zona com VM"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Ultra exige zonal e é incompatível com availability set; usa-se VM zonal/VMSS flex. Assumir Ultra em avset quebra deploy; Standard não dá IOPS.",
     "source": "original",
     "tags": ["ultra-disk", "availability-set", "limitacao"],
@@ -2328,11 +2328,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "PPG co-localiza para latência mínima"
+        "text": "Regiões distintas no mesmo PPG"
       },
       {
         "letter": "B",
-        "text": "PPG pode referenciar um availability set para FD spreading"
+        "text": "PPG co-localiza para latência mínima"
       },
       {
         "letter": "C",
@@ -2340,10 +2340,10 @@
       },
       {
         "letter": "D",
-        "text": "Regiões distintas no mesmo PPG"
+        "text": "PPG pode referenciar um availability set para FD spreading"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "PPG aproxima e pode incluir avset para distribuir fault domains. PPG não é multizona nem multirregião.",
     "source": "original",
     "tags": ["ppg", "availability-set", "latencia"],
@@ -2361,14 +2361,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, Regular prevalece sobre Spot"
+        "text": "Não, Spot tem preferência"
       },
       {
         "letter": "B",
-        "text": "Não, Spot tem preferência"
+        "text": "Sim, Regular prevalece sobre Spot"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Em contenção, Spot é despejado primeiro preservando Regular. Inverter a premissa quebra o desenho de base garantida.",
     "source": "original",
     "tags": ["vmss", "regular", "spot", "prioridade"],
@@ -2511,22 +2511,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "az vm repair create/run/restore"
+        "text": "Aguardar autorecuperação"
       },
       {
         "letter": "B",
-        "text": "Exclusão da VM corrompida"
-      },
-      {
-        "letter": "C",
         "text": "RDP no disco corrompido"
       },
       {
+        "letter": "C",
+        "text": "az vm repair create/run/restore"
+      },
+      {
         "letter": "D",
-        "text": "Aguardar autorecuperação"
+        "text": "Exclusão da VM corrompida"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "az vm repair orquestra resgate, correção e troca de SO. Excluir perde; RDP não alcança disco morto; aguardar não repara.",
     "source": "original",
     "tags": ["vm-repair", "cli", "resgate", "linux"],
@@ -2544,7 +2544,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Run Command em lote via CLI/Policy"
+        "text": "E-mail pedindo logs"
       },
       {
         "letter": "B",
@@ -2552,14 +2552,14 @@
       },
       {
         "letter": "C",
-        "text": "E-mail pedindo logs"
+        "text": "Desligar todas as VMs"
       },
       {
         "letter": "D",
-        "text": "Desligar todas as VMs"
+        "text": "Run Command em lote via CLI/Policy"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Run Command em escala via CLI executa e agrega saída. Individual não escala; e-mail não executa; desligar destrói evidência.",
     "source": "original",
     "tags": ["run-command", "escala", "logs"],
@@ -2577,7 +2577,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Automation State Configuration (DSC) com LCM"
+        "text": "Edição manual por RDP"
       },
       {
         "letter": "B",
@@ -2589,10 +2589,10 @@
       },
       {
         "letter": "D",
-        "text": "Edição manual por RDP"
+        "text": "Automation State Configuration (DSC) com LCM"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "State Configuration aplica MOF idempotente e corrige drift. Script único diverge; imagem por mudança é lenta; manual não escala.",
     "source": "original",
     "tags": ["automation", "dsc", "baseline", "drift"],
@@ -2610,7 +2610,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Anéis (rings) com waves e health check"
+        "text": "Ordem alfabética de VM"
       },
       {
         "letter": "B",
@@ -2618,14 +2618,14 @@
       },
       {
         "letter": "C",
-        "text": "Ordem alfabética de VM"
+        "text": "Aleatório sem critério"
       },
       {
         "letter": "D",
-        "text": "Aleatório sem critério"
+        "text": "Anéis (rings) com waves e health check"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Rings graduam exposição com validação entre ondas. Tudo junto derruba; alfabeto não é risco; aleatório não controla.",
     "source": "original",
     "tags": ["update-rings", "canario", "patch"],
@@ -2643,22 +2643,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Hotpatch com imagem e canal habilitados"
-      },
-      {
-        "letter": "B",
-        "text": "Patch normal com reboot forçado"
-      },
-      {
-        "letter": "C",
         "text": "Desabilitar updates"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Snapshot antes de cada boot"
+      },
+      {
+        "letter": "C",
+        "text": "Patch normal com reboot forçado"
+      },
+      {
+        "letter": "D",
+        "text": "Hotpatch com imagem e canal habilitados"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Hotpatch aplica em memória sem reboot em SKUs suportados. Normal reinicia; desligar vulnerabiliza; snapshot não evita boot.",
     "source": "original",
     "tags": ["hotpatch", "sem-reboot", "windows"],
@@ -2680,11 +2680,11 @@
       },
       {
         "letter": "B",
-        "text": "Manual pelo SO"
+        "text": "Desabilitado permanente"
       },
       {
         "letter": "C",
-        "text": "Desabilitado permanente"
+        "text": "Manual pelo SO"
       },
       {
         "letter": "D",
@@ -2709,22 +2709,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Avaliação periódica (assessment) por VM"
-      },
-      {
-        "letter": "B",
-        "text": "Relatório de conformidade pendente"
-      },
-      {
-        "letter": "C",
         "text": "Instalação imediata em tudo"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Desligamento do agente"
+      },
+      {
+        "letter": "C",
+        "text": "Relatório de conformidade pendente"
+      },
+      {
+        "letter": "D",
+        "text": "Avaliação periódica (assessment) por VM"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Assessment lista pendências e o relatório prioriza. Instalar direto pula avaliação; sem agente não há dado.",
     "source": "original",
     "tags": ["assessment", "avaliacao", "relatorio"],
@@ -2742,22 +2742,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Agendamento com janela de manutenção"
+        "text": "Silêncio total sem aviso"
       },
       {
         "letter": "B",
-        "text": "Notificação e exceção de calendário"
+        "text": "Agendamento com janela de manutenção"
       },
       {
         "letter": "C",
-        "text": "Execução imediata sem janela"
+        "text": "Notificação e exceção de calendário"
       },
       {
         "letter": "D",
-        "text": "Silêncio total sem aviso"
+        "text": "Execução imediata sem janela"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Janela contém o impacto e aviso/exceção respeitam negócio. Imediato quebra horário; silêncio surpreende.",
     "source": "original",
     "tags": ["agendamento", "janela", "notificacao"],
@@ -2775,22 +2775,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ordem por dependência (pre/post)"
-      },
-      {
-        "letter": "B",
-        "text": "Health check entre lotes"
-      },
-      {
-        "letter": "C",
         "text": "Reboot simultâneo geral"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Sem validação"
+      },
+      {
+        "letter": "C",
+        "text": "Ordem por dependência (pre/post)"
+      },
+      {
+        "letter": "D",
+        "text": "Health check entre lotes"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Ordem por dependência (pre/post) sequencia os reboots e o health check pausa em falha. Reboot simultâneo derruba tudo; sem validação o erro se propaga.",
     "source": "original",
     "tags": ["reboot", "ordem", "health-check"],
@@ -2808,11 +2808,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ponto de restauração pré-patch"
+        "text": "Rollback da imagem/versão com registro"
       },
       {
         "letter": "B",
-        "text": "Rollback da imagem/versão com registro"
+        "text": "Ponto de restauração pré-patch"
       },
       {
         "letter": "C",
@@ -2823,7 +2823,7 @@
         "text": "Aguardar próximo patch"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Restore point volta estado e rollback de versão registra. Reinstalar demora; aguardar prolonga outage.",
     "source": "original",
     "tags": ["rollback", "restore-point", "reversao"],
@@ -2991,22 +2991,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Galeria com replicação regional e replica count"
+        "text": "Snapshot manual por zona"
       },
       {
         "letter": "B",
-        "text": "Imagem isolada por região"
-      },
-      {
-        "letter": "C",
         "text": "VHD avulso por região"
       },
       {
+        "letter": "C",
+        "text": "Galeria com replicação regional e replica count"
+      },
+      {
         "letter": "D",
-        "text": "Snapshot manual por zona"
+        "text": "Imagem isolada por região"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Galeria replica versões com contagem configurável por região. Isolada não replica; VHD avulso não versiona; snapshot manual não distribui.",
     "source": "original",
     "tags": ["galeria", "replicacao", "regioes"],
@@ -3024,22 +3024,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "ReadOnly no SO + None/ReadOnly nos dados conforme carga"
+        "text": "Cache de escrita no temporário"
       },
       {
         "letter": "B",
-        "text": "ReadWrite em todos os discos"
+        "text": "ReadOnly no SO + None/ReadOnly nos dados conforme carga"
       },
       {
         "letter": "C",
-        "text": "Sem cache em nenhum disco"
+        "text": "ReadWrite em todos os discos"
       },
       {
         "letter": "D",
-        "text": "Cache de escrita no temporário"
+        "text": "Sem cache em nenhum disco"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "ReadOnly no SO acelera boot e dados sem escrita arriscada (None ou RO). ReadWrite em dados arrisca perda; sem cache perde performance; temp não persiste.",
     "source": "original",
     "tags": ["discos", "cache", "readonly", "banco"],
@@ -3057,7 +3057,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Write Accelerator em discos Premium M-series"
+        "text": "Disco Standard com burst"
       },
       {
         "letter": "B",
@@ -3065,14 +3065,14 @@
       },
       {
         "letter": "C",
-        "text": "Disco Standard com burst"
+        "text": "Write Accelerator em discos Premium M-series"
       },
       {
         "letter": "D",
         "text": "Blob com tier Hot"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Write Accelerator zera latência de escrita em Premium suportado. Leitura não ajuda escrita; Standard não alcança; blob não é disco de VM.",
     "source": "original",
     "tags": ["write-accelerator", "latencia", "log"],
@@ -3090,22 +3090,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Striping (RAID 0) via Storage Spaces no SO"
-      },
-      {
-        "letter": "B",
         "text": "Um disco maior apenas"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Snapshot dos discos"
+      },
+      {
+        "letter": "C",
+        "text": "Striping (RAID 0) via Storage Spaces no SO"
       },
       {
         "letter": "D",
         "text": "Backup mais frequente"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Striping soma throughput dos discos no SO. Disco maior tem teto; snapshot não soma; backup não acelera.",
     "source": "original",
     "tags": ["striping", "raid0", "throughput"],
@@ -3156,22 +3156,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Status do agente convidado (provisionamento)"
-      },
-      {
-        "letter": "B",
-        "text": "Status por extensão com substatus"
-      },
-      {
-        "letter": "C",
         "text": "Cor do portal"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Tamanho do disco"
+      },
+      {
+        "letter": "C",
+        "text": "Status por extensão com substatus"
+      },
+      {
+        "letter": "D",
+        "text": "Status do agente convidado (provisionamento)"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Status do agente convidado e substatus por extensão mostram saúde e erros detalhados. Cor do portal e tamanho de disco nada dizem sobre extensões.",
     "source": "original",
     "tags": ["agente", "extensao", "status"],
@@ -3189,22 +3189,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sequenciamento com dependsOn entre extensões"
-      },
-      {
-        "letter": "B",
         "text": "Provisionamento sequencial com espera"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Instalação simultânea forçada"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Remoção de ambas"
+      },
+      {
+        "letter": "D",
+        "text": "Sequenciamento com dependsOn entre extensões"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Dependência (dependsOn) ordena a instalação e a espera garante conclusão antes da próxima. Instalação simultânea forçada conflita e corrompe config; remover tudo perde a função.",
     "source": "original",
     "tags": ["extensao", "sequencia", "dependencia"],
@@ -3222,22 +3222,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Tamanho do lote (maxBatchInstancePercent)"
-      },
-      {
-        "letter": "B",
-        "text": "Pausa e rollback em falha de saúde"
-      },
-      {
-        "letter": "C",
         "text": "Upgrade de tudo de uma vez"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Sem monitoramento"
+      },
+      {
+        "letter": "C",
+        "text": "Pausa e rollback em falha de saúde"
+      },
+      {
+        "letter": "D",
+        "text": "Tamanho do lote (maxBatchInstancePercent)"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Tamanho do lote limita o blast radius e a pausa/rollback em falha de saúde protege o restante. Atualizar tudo de uma vez derruba o serviço; sem monitoramento não há detecção.",
     "source": "original",
     "tags": ["vmss", "rolling", "lote", "rollback"],
@@ -3255,22 +3255,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sobra (surge) acima da contagem durante upgrade"
+        "text": "Parada total do serviço"
       },
       {
         "letter": "B",
-        "text": "Substituição gradual mantendo capacidade"
-      },
-      {
-        "letter": "C",
         "text": "Remoção prévia de metade"
       },
       {
+        "letter": "C",
+        "text": "Sobra (surge) acima da contagem durante upgrade"
+      },
+      {
         "letter": "D",
-        "text": "Parada total do serviço"
+        "text": "Substituição gradual mantendo capacidade"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Sobra temporária (surge) acima da contagem permite substituir instâncias sem degradar capacidade. Remover metade antes reduz; parar o serviço zera disponibilidade.",
     "source": "original",
     "tags": ["vmss", "rolling", "lote", "rollback"],
@@ -3288,22 +3288,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Tentar Spot primeiro pelo custo"
+        "text": "Ignorar contenção"
       },
       {
         "letter": "B",
-        "text": "Substituir por Regular em despejo"
-      },
-      {
-        "letter": "C",
         "text": "Travar só em Spot"
       },
       {
+        "letter": "C",
+        "text": "Substituir por Regular em despejo"
+      },
+      {
         "letter": "D",
-        "text": "Ignorar contenção"
+        "text": "Tentar Spot primeiro pelo custo"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Estratégia Spot-first economiza no excedente e o fallback para Regular garante capacidade no despejo. Travar só em Spot despeja tudo; ignorar contenção quebra o serviço.",
     "source": "original",
     "tags": ["spot", "fallback", "regular", "policy"],
@@ -3321,22 +3321,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Anexar disco a VM de resgate"
-      },
-      {
-        "letter": "B",
-        "text": "Reparo offline com chroot"
-      },
-      {
-        "letter": "C",
         "text": "Formatar o disco original"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Anexar disco a VM de resgate"
+      },
+      {
+        "letter": "C",
         "text": "Excluir o backup"
+      },
+      {
+        "letter": "D",
+        "text": "Reparo offline com chroot"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Resgate anexa e chroot repara sem perder dados. Formatar apaga; excluir backup remove rede de segurança.",
     "source": "original",
     "tags": ["recuperacao", "resgate", "chroot"],
@@ -3358,18 +3358,18 @@
       },
       {
         "letter": "B",
-        "text": "RBAC de operador serial na VM"
-      },
-      {
-        "letter": "C",
         "text": "RDP aberto à internet"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Senha em branco"
+      },
+      {
+        "letter": "D",
+        "text": "RBAC de operador serial na VM"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Habilitação do console serial na subscription mais RBAC de operador na VM controlam o acesso de emergência. RDP aberto à internet expõe; senha em branco anula autenticação.",
     "source": "original",
     "tags": ["serial-console", "rbac", "emergencia"],
@@ -3387,7 +3387,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Boot diagnostics gerenciado pela plataforma"
+        "text": "Storage próprio com chave"
       },
       {
         "letter": "B",
@@ -3395,14 +3395,14 @@
       },
       {
         "letter": "C",
-        "text": "Storage próprio com chave"
+        "text": "Boot diagnostics gerenciado pela plataforma"
       },
       {
         "letter": "D",
         "text": "Sem diagnóstico"
       }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Boot diagnostics gerenciado dispensa storage próprio usando conta da plataforma. Storage próprio exige gestão de chaves; sem diagnóstico não há console em falha.",
     "source": "original",
     "tags": ["boot-diagnostics", "gerenciado", "storage"],
@@ -3495,14 +3495,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, alterna a qualquer momento"
+        "text": "Não, exige recriação do conjunto"
       },
       {
         "letter": "B",
-        "text": "Não, exige recriação do conjunto"
+        "text": "Sim, alterna a qualquer momento"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Modo Uniform/Flexible é definido na criação; mudança exige novo conjunto. Assumir alternância quebra planejamento.",
     "source": "original",
     "tags": ["vmss", "orquestracao", "modo"],
@@ -3520,14 +3520,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, máximo 2 sem zonas"
+        "text": "Não, são 3 fault domains por padrão"
       },
       {
         "letter": "B",
-        "text": "Não, são 3 fault domains por padrão"
+        "text": "Sim, máximo 2 sem zonas"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Região sem zonas suporta no máximo 2 fault domains por availability set; com zonas, 3. Assumir 3 FDs em toda região quebra a distribuição de racks.",
     "source": "original",
     "tags": ["fault-domain", "availability-set", "regiao"],
@@ -3595,14 +3595,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, ainda recomendados"
+        "text": "Não, preteridos em favor de gerenciados"
       },
       {
         "letter": "B",
-        "text": "Não, preteridos em favor de gerenciados"
+        "text": "Sim, ainda recomendados"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Discos não gerenciados foram preteridos; novas VMs devem usar gerenciados. Recomendar unmanaged para deploy novo acumula dívida técnica e perde SLA.",
     "source": "original",
     "tags": ["unmanaged", "preterido", "gerenciados"],
@@ -3670,11 +3670,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Correlacionar mapa + NSG flow logs + processo dono"
+        "text": "Desligar a VM imediatamente"
       },
       {
         "letter": "B",
-        "text": "Desligar a VM imediatamente"
+        "text": "Reinstalar o SO"
       },
       {
         "letter": "C",
@@ -3682,10 +3682,10 @@
       },
       {
         "letter": "D",
-        "text": "Reinstalar o SO"
+        "text": "Correlacionar mapa + NSG flow logs + processo dono"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Mapa mostra quem, flow logs mostram volume/destino e processo identifica o binário. Desligar destrói evidência; ignorar é negligência; reinstalar apaga trilha.",
     "source": "original",
     "tags": ["vm-insights", "dependencias", "investigacao"],
@@ -3707,15 +3707,15 @@
       },
       {
         "letter": "B",
-        "text": "Desligamento e religamento"
-      },
-      {
-        "letter": "C",
         "text": "Snapshot e restore"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Failover de DNS"
+      },
+      {
+        "letter": "D",
+        "text": "Desligamento e religamento"
       }
     ],
     "correct": ["A"],
@@ -3736,7 +3736,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Atualização com preservação de memória do host"
+        "text": "Pausa longa das cargas"
       },
       {
         "letter": "B",
@@ -3744,14 +3744,14 @@
       },
       {
         "letter": "C",
-        "text": "Pausa longa das cargas"
+        "text": "Atualização com preservação de memória do host"
       },
       {
         "letter": "D",
         "text": "Migração manual por RDP"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Memory-preserving update mantém guests vivos no host atualizado. Reboot interrompe; pausa degrada; manual não escala.",
     "source": "original",
     "tags": ["host-update", "memoria", "zero-downtime"],
@@ -3802,22 +3802,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "99,95% para o conjunto"
-      },
-      {
-        "letter": "B",
         "text": "99,99% como zonas"
       },
       {
+        "letter": "B",
+        "text": "100% garantido"
+      },
+      {
         "letter": "C",
-        "text": "99,9% de VM única"
+        "text": "99,95% para o conjunto"
       },
       {
         "letter": "D",
-        "text": "100% garantido"
+        "text": "99,9% de VM única"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Availability set com discos gerenciados contrata 99,95%. 99,99% exige zonas; 99,9% é VM única Premium; 100% não existe.",
     "source": "original",
     "tags": ["sla", "availability-set", "99-95"],
@@ -3835,22 +3835,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "99,9% para VM única com disco Premium"
-      },
-      {
-        "letter": "B",
         "text": "99,95% como availability set"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "99,99% como zonas"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Sem SLA"
+      },
+      {
+        "letter": "D",
+        "text": "99,9% para VM única com disco Premium"
       }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "VM única com Premium/Ultra contrata 99,9%. 99,95% exige availability set; 99,99% exige zonas; sem Premium não há SLA de VM única.",
     "source": "original",
     "tags": ["sla", "vm-unica", "99-9"],
@@ -3868,7 +3868,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "99,99% para VMs zonais"
+        "text": "99,9% de VM única"
       },
       {
         "letter": "B",
@@ -3876,14 +3876,14 @@
       },
       {
         "letter": "C",
-        "text": "99,9% de VM única"
+        "text": "99,99% para VMs zonais"
       },
       {
         "letter": "D",
         "text": "99,5% sem contrato"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Duas ou mais VMs em zonas distintas com discos gerenciados contratam 99,99%. Availability set dá 99,95%; única 99,9%; 99,5% não existe no contrato.",
     "source": "original",
     "tags": ["sla", "zonas", "99-99"],
@@ -3905,7 +3905,7 @@
       },
       {
         "letter": "B",
-        "text": "99,99% automático"
+        "text": "Sem SLA"
       },
       {
         "letter": "C",
@@ -3913,7 +3913,7 @@
       },
       {
         "letter": "D",
-        "text": "Sem SLA"
+        "text": "99,99% automático"
       }
     ],
     "correct": ["A"],
@@ -3938,15 +3938,15 @@
       },
       {
         "letter": "B",
-        "text": "Maior dos dois (99,99%)"
-      },
-      {
-        "letter": "C",
         "text": "Menor dos dois (99,95%)"
       },
       {
-        "letter": "D",
+        "letter": "C",
         "text": "Soma dos dois"
+      },
+      {
+        "letter": "D",
+        "text": "Maior dos dois (99,99%)"
       }
     ],
     "correct": ["A"],
@@ -3967,22 +3967,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cerca de 43 minutos"
-      },
-      {
-        "letter": "B",
         "text": "Cerca de 4 minutos"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Cerca de 7 horas"
+      },
+      {
+        "letter": "C",
+        "text": "Cerca de 43 minutos"
       },
       {
         "letter": "D",
         "text": "Zero minuto"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "0,1% de 43.200 minutos ≈ 43 min de downtime. 4 min seria 99,99%; 7h seria 99%; zero downtime não existe em nenhum SLA.",
     "source": "original",
     "tags": ["sla", "downtime", "calculo", "99-9"],
@@ -4000,7 +4000,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cerca de 22 minutos"
+        "text": "Cerca de 4 minutos"
       },
       {
         "letter": "B",
@@ -4008,14 +4008,14 @@
       },
       {
         "letter": "C",
-        "text": "Cerca de 4 minutos"
+        "text": "Cerca de 22 minutos"
       },
       {
         "letter": "D",
         "text": "Cerca de 8 horas"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "0,05% de 43.200 ≈ 22 min de downtime mensal. 43 min equivalem a 99,9%; 4 min a 99,99%; 8h seria cerca de 98%.",
     "source": "original",
     "tags": ["sla", "downtime", "99-95", "calculo"],
@@ -4033,22 +4033,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Não, manutenções anunciadas são excluídas"
+        "text": "Conta o dobro"
       },
       {
         "letter": "B",
-        "text": "Sim, tudo conta sempre"
+        "text": "Não, manutenções anunciadas são excluídas"
       },
       {
         "letter": "C",
-        "text": "Conta o dobro"
+        "text": "Sim, tudo conta sempre"
       },
       {
         "letter": "D",
         "text": "Conta só em feriado"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "SLAs excluem manutenção planejada anunciada do cálculo. Contar tudo ignora a cláusula; dobro não existe; feriado é irrelevante.",
     "source": "original",
     "tags": ["sla", "manutencao", "exclusao"],
@@ -4066,22 +4066,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Não, causas do cliente são excluídas"
-      },
-      {
-        "letter": "B",
-        "text": "Sim, sempre gera"
-      },
-      {
-        "letter": "C",
         "text": "Gera o dobro"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Não, causas do cliente são excluídas"
+      },
+      {
+        "letter": "C",
         "text": "Gera se reclamar alto"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, sempre gera"
       }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "SLA exclui mau uso, força maior e causas do cliente. Gerar sempre ignora exclusões; dobrar não existe; reclamar não cria direito.",
     "source": "original",
     "tags": ["sla", "exclusoes", "cliente"],
@@ -4099,22 +4099,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Nenhum SLA"
+        "text": "99,99% promocional"
       },
       {
         "letter": "B",
-        "text": "99,95% igual ao Básico"
-      },
-      {
-        "letter": "C",
         "text": "99,9% reduzido"
       },
       {
+        "letter": "C",
+        "text": "Nenhum SLA"
+      },
+      {
         "letter": "D",
-        "text": "99,99% promocional"
+        "text": "99,95% igual ao Básico"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Planos Free e Shared não têm SLA contratual. Equiparar ao plano Básico ignora a tabela oficial de SLAs do App Service.",
     "source": "original",
     "tags": ["sla", "gratuito", "compartilhado"],
@@ -4132,7 +4132,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "az vm list-skus com filtros de região e zona"
+        "text": "Usar qualquer SKU indisponível"
       },
       {
         "letter": "B",
@@ -4140,14 +4140,14 @@
       },
       {
         "letter": "C",
-        "text": "Ticket de suporte genérico"
+        "text": "az vm list-skus com filtros de região e zona"
       },
       {
         "letter": "D",
-        "text": "Usar qualquer SKU indisponível"
+        "text": "Ticket de suporte genérico"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "list-skus mostra disponibilidade por região/zona com restrições. Tentativa e erro atrasa; ticket genérico não resolve; SKU indisponível falha.",
     "source": "original",
     "tags": ["skus", "capacidade", "regiao", "cli"],
@@ -4165,22 +4165,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Solicitação de aumento de cota no portal com justificativa"
+        "text": "Reduzir para série menor sem solicitar"
       },
       {
         "letter": "B",
-        "text": "Criar nova subscription para cada VM"
-      },
-      {
-        "letter": "C",
         "text": "Usar Spot sem cota"
       },
       {
+        "letter": "C",
+        "text": "Solicitação de aumento de cota no portal com justificativa"
+      },
+      {
         "letter": "D",
-        "text": "Reduzir para série menor sem solicitar"
+        "text": "Criar nova subscription para cada VM"
       }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Quota increase formal eleva o limite com aprovação. Nova sub por VM fragmenta; Spot tem cota própria; reduzir sem pedir não resolve o teto.",
     "source": "original",
     "tags": ["cota", "vcpu", "limite", "aumento"],

@@ -2,6 +2,7 @@ import { css, html, LitElement, svg } from 'lit'
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
 import type { Question } from '../engine/question-schema.js'
 import { btnStyles, cardStyles } from '../styles/shared.js'
+import { changeUserRole } from '../sync/admin.js'
 import { getUserId } from '../sync/auth.js'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 import type { AttemptRecord, DoubtRecord } from '../sync/types.js'
@@ -179,18 +180,23 @@ export class AdminPanel extends LitElement {
   private async setRole(userId: string, role: 'admin' | 'user') {
     if (!supabase) return
     this.confirmRole = null
-    const { error } = await supabase
-      .from('az104_profiles')
-      .update({ role })
-      .eq('user_id', userId)
-    if (error) {
-      this.error = `Falha ao alterar role: ${error.message}`
-    } else {
-      this.loaded = false
-      await this.load()
+    const actorId = await getUserId()
+    if (!actorId) {
+      this.error = 'Sem sessao para auditar a alteracao.'
+      this.requestUpdate()
       return
     }
-    this.requestUpdate()
+    const r = await changeUserRole(actorId, userId, role)
+    if (!r.ok) {
+      this.error = r.error ?? 'Falha ao alterar role'
+    } else {
+      // Auditoria e best-effort: a role ja foi alterada mesmo se o log falhou.
+      this.error = r.audited
+        ? ''
+        : 'Role alterada, mas o registro de auditoria falhou.'
+    }
+    this.loaded = false
+    await this.load()
   }
 
   private buildQuestions(

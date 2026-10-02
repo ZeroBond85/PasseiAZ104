@@ -28,7 +28,6 @@ import {
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 import type { ErrorTag } from '../sync/types.js'
 import { logger } from '../utils/logger.js'
-import './admin-panel.js'
 import './catalog-screen.js'
 import './login-screen.js'
 import './navigator-grid.js'
@@ -110,6 +109,7 @@ export class AppShell extends LitElement {
   declare seedError: string | null
   declare online: boolean
   declare bankLine: string
+  declare adminPanelLoaded: boolean
   private unsubAuth: () => void = () => undefined
 
   private quizCtl = new QuizController(
@@ -137,6 +137,7 @@ export class AppShell extends LitElement {
     this.seedError = null
     this.online = typeof navigator !== 'undefined' ? navigator.onLine : true
     this.bankLine = ''
+    this.adminPanelLoaded = false
     this.quizCtl.onExpire(() => void this.finish(true))
   }
 
@@ -296,6 +297,12 @@ export class AppShell extends LitElement {
     if (tab === 'quiz' && !this.pendingSpec)
       this.pendingSpec = buildDynamicSpec()
     if (tab === 'estudo') void this.loadEstudo()
+    if (tab === 'admin' && !this.adminPanelLoaded) {
+      void import('./admin-panel.js').then(() => {
+        this.adminPanelLoaded = true
+        this.requestUpdate()
+      })
+    }
   }
 
   private async startQuiz(spec: SimuladoSpec) {
@@ -742,6 +749,9 @@ export class AppShell extends LitElement {
   private renderAdmin() {
     if (!this.isAdmin)
       return html`<main><p>Área restrita — só para administradores.</p></main>`
+    if (!this.adminPanelLoaded) {
+      return html`<main class="loading">Carregando painel de administração…</main>`
+    }
     return html`<admin-panel></admin-panel>`
   }
 

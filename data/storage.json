@@ -7,12 +7,24 @@
     "difficulty": "easy",
     "question": "Dados acessados raramente (1 vez por ano) precisam do menor custo de armazenamento, aceitando horas para leitura. Qual camada de blob deve ser usada?",
     "options": [
-      { "letter": "A", "text": "Camada Archive (arquivo morto)" },
-      { "letter": "B", "text": "Camada Hot (quente)" },
-      { "letter": "C", "text": "Camada Cool (fria)" },
-      { "letter": "D", "text": "Disco Premium gerenciado" }
+      {
+        "letter": "A",
+        "text": "Disco Premium gerenciado"
+      },
+      {
+        "letter": "B",
+        "text": "Camada Hot (quente)"
+      },
+      {
+        "letter": "C",
+        "text": "Camada Archive (arquivo morto)"
+      },
+      {
+        "letter": "D",
+        "text": "Camada Cool (fria)"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Archive custa centavos por GB para acesso raríssimo, com reidratação em horas. Hot é para acesso frequente; Cool para mensal; disco Premium não é blob.",
     "source": "original",
     "tags": ["blob", "tiers", "archive"],
@@ -28,13 +40,22 @@
     "difficulty": "easy",
     "question": "Uma conta precisa sobreviver à perda de um datacenter inteiro na região com cópias em datacenters separados. Qual redundância replica entre zonas?",
     "options": [
-      { "letter": "A", "text": "ZRS (Zone-Redundant Storage)" },
+      {
+        "letter": "A",
+        "text": "ZRS (Zone-Redundant Storage)"
+      },
       {
         "letter": "B",
         "text": "LRS (Locally-Redundant, 3 cópias no mesmo DC)"
       },
-      { "letter": "C", "text": "Uma única cópia local" },
-      { "letter": "D", "text": "Cache do navegador" }
+      {
+        "letter": "C",
+        "text": "Cache do navegador"
+      },
+      {
+        "letter": "D",
+        "text": "Uma única cópia local"
+      }
     ],
     "correct": ["A"],
     "explanation": "ZRS replica sincronamente em 3 zonas da região. LRS fica num datacenter; cópia única não protege; cache de navegador não é redundância.",
@@ -52,12 +73,24 @@
     "difficulty": "easy",
     "question": "Duas VMs Windows precisam compartilhar arquivos com protocolo SMB e letra de unidade mapeada. Qual serviço fornece compartilhamento SMB gerenciado?",
     "options": [
-      { "letter": "A", "text": "Azure Files com compartilhamento SMB" },
-      { "letter": "B", "text": "Blob com contêiner privado" },
-      { "letter": "C", "text": "Fila de Storage" },
-      { "letter": "D", "text": "Tabela de Storage" }
+      {
+        "letter": "A",
+        "text": "Fila de Storage"
+      },
+      {
+        "letter": "B",
+        "text": "Azure Files com compartilhamento SMB"
+      },
+      {
+        "letter": "C",
+        "text": "Blob com contêiner privado"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela de Storage"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Azure Files expõe SMB/NFS montável como unidade. Blob é objeto via REST; filas guardam mensagens; tabelas guardam entidades.",
     "source": "original",
     "tags": ["files", "smb"],
@@ -75,13 +108,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Chave da conta de armazenamento"
+      },
+      {
+        "letter": "B",
+        "text": "Senha do administrador"
+      },
+      {
+        "letter": "C",
         "text": "SAS de blob com expiração de 24h e só leitura"
       },
-      { "letter": "B", "text": "Chave da conta de armazenamento" },
-      { "letter": "C", "text": "String de conexão completa" },
-      { "letter": "D", "text": "Senha do administrador" }
+      {
+        "letter": "D",
+        "text": "String de conexão completa"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "SAS delega acesso limitado (recurso, permissão, tempo) sem expor a chave. Chave e connection string dão poder total; senha de admin não autoriza storage.",
     "source": "original",
     "tags": ["sas", "acesso-temporario"],
@@ -97,10 +139,22 @@
     "difficulty": "easy",
     "question": "Um site estático (HTML/CSS/JS) precisa ser hospedado com custo mínimo e URL pública direta do Storage. Qual recurso publica o conteúdo estático?",
     "options": [
-      { "letter": "A", "text": "Hospedagem de site estático no Blob ($web)" },
-      { "letter": "B", "text": "Fila de Storage com mensagens HTML" },
-      { "letter": "C", "text": "Tabela com entidades de página" },
-      { "letter": "D", "text": "Disco gerenciado com IIS" }
+      {
+        "letter": "A",
+        "text": "Hospedagem de site estático no Blob ($web)"
+      },
+      {
+        "letter": "B",
+        "text": "Disco gerenciado com IIS"
+      },
+      {
+        "letter": "C",
+        "text": "Fila de Storage com mensagens HTML"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela com entidades de página"
+      }
     ],
     "correct": ["A"],
     "explanation": "Static website serve index/erro do contêiner $web com endpoint. Filas e tabelas não servem HTTP; disco com IIS exige VM.",
@@ -118,13 +172,22 @@
     "difficulty": "easy",
     "question": "Você precisa copiar 2 TB do storage local para um contêiner de blob mantendo hierarquia de pastas. Qual ferramenta de linha de comando faz a cópia otimizada?",
     "options": [
-      { "letter": "A", "text": "AzCopy com cópia recursiva e paralelismo" },
-      { "letter": "B", "text": "Upload manual pelo portal arquivo a arquivo" },
       {
-        "letter": "C",
+        "letter": "A",
+        "text": "AzCopy com cópia recursiva e paralelismo"
+      },
+      {
+        "letter": "B",
         "text": "Conexão RDP copiando pela área de transferência"
       },
-      { "letter": "D", "text": "E-mail com anexos para o suporte" }
+      {
+        "letter": "C",
+        "text": "Upload manual pelo portal arquivo a arquivo"
+      },
+      {
+        "letter": "D",
+        "text": "E-mail com anexos para o suporte"
+      }
     ],
     "correct": ["A"],
     "explanation": "AzCopy transfere em paralelo com retomada e preserva hierarquia. Portal arquivo a arquivo não escala; RDP não move TB; e-mail não transfere dados.",
@@ -142,12 +205,24 @@
     "difficulty": "easy",
     "question": "Pedidos precisam aguardar processamento assíncrono entre o site e o worker, com entrega garantida e ordem aproximada. Qual serviço enfileira essas mensagens?",
     "options": [
-      { "letter": "A", "text": "Fila do Storage (Queue Storage)" },
-      { "letter": "B", "text": "Blob de blocos" },
-      { "letter": "C", "text": "Compartilhamento de arquivos" },
-      { "letter": "D", "text": "Tabela de entidades" }
+      {
+        "letter": "A",
+        "text": "Blob de blocos"
+      },
+      {
+        "letter": "B",
+        "text": "Compartilhamento de arquivos"
+      },
+      {
+        "letter": "C",
+        "text": "Fila do Storage (Queue Storage)"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela de entidades"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Queue Storage desacopla produtor e consumidor com mensagens persistentes. Blob guarda objetos; Files compartilha SMB; Table guarda dados estruturados.",
     "source": "original",
     "tags": ["queues", "mensagens"],
@@ -163,12 +238,24 @@
     "difficulty": "easy",
     "question": "Milhões de registros de telemetria semiestruturados precisam de leitura por chave com custo mínimo, sem SQL. Qual serviço NoSQL de chave-valor serve?",
     "options": [
-      { "letter": "A", "text": "Tabela do Storage (Table Storage)" },
-      { "letter": "B", "text": "SQL Database com DTUs" },
-      { "letter": "C", "text": "Blob com um arquivo por registro" },
-      { "letter": "D", "text": "Fila com mensagens de 64KB" }
+      {
+        "letter": "A",
+        "text": "Fila com mensagens de 64KB"
+      },
+      {
+        "letter": "B",
+        "text": "SQL Database com DTUs"
+      },
+      {
+        "letter": "C",
+        "text": "Tabela do Storage (Table Storage)"
+      },
+      {
+        "letter": "D",
+        "text": "Blob com um arquivo por registro"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Table Storage indexa por PartitionKey/RowKey a centavos. SQL cobra motor relacional; blob por registro é ineficiente; fila não consulta por chave.",
     "source": "original",
     "tags": ["tables", "nosql"],
@@ -186,13 +273,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Chave compartilhada com todos"
+      },
+      {
+        "letter": "B",
         "text": "Negar acesso público + firewall por VNet na conta"
       },
-      { "letter": "B", "text": "SAS pública sem expiração" },
-      { "letter": "C", "text": "Chave compartilhada com todos" },
-      { "letter": "D", "text": "Contêiner com acesso anônimo de blob" }
+      {
+        "letter": "C",
+        "text": "Contêiner com acesso anônimo de blob"
+      },
+      {
+        "letter": "D",
+        "text": "SAS pública sem expiração"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Bloquear public access + firewall por rede selecionada fecha a conta. SAS aberta, chave compartilhada e blob anônimo expõem.",
     "source": "original",
     "tags": ["firewall", "acesso-publico", "vnet"],
@@ -212,9 +308,18 @@
         "letter": "A",
         "text": "Gerenciamento do ciclo de vida (lifecycle policy) do Blob"
       },
-      { "letter": "B", "text": "Script manual mensal de exclusão" },
-      { "letter": "C", "text": "Snapshot diário de cada blob" },
-      { "letter": "D", "text": "Replicação para outra conta" }
+      {
+        "letter": "B",
+        "text": "Snapshot diário de cada blob"
+      },
+      {
+        "letter": "C",
+        "text": "Script manual mensal de exclusão"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação para outra conta"
+      }
     ],
     "correct": ["A"],
     "explanation": "Lifecycle policy move camadas e exclui por idade automaticamente. Script manual falha; snapshot preserva em vez de transicionar; replicação copia, não gerencia idade.",
@@ -232,12 +337,24 @@
     "difficulty": "medium",
     "question": "A conta precisa sobreviver à perda de uma região inteira com leitura na secundária durante o outage. Qual redundância oferece failover geográfico com leitura?",
     "options": [
-      { "letter": "A", "text": "RA-GRS (leitura na secundária)" },
-      { "letter": "B", "text": "LRS com 3 cópias locais" },
-      { "letter": "C", "text": "ZRS em zona única" },
-      { "letter": "D", "text": "Backup manual semanal" }
+      {
+        "letter": "A",
+        "text": "ZRS em zona única"
+      },
+      {
+        "letter": "B",
+        "text": "LRS com 3 cópias locais"
+      },
+      {
+        "letter": "C",
+        "text": "Backup manual semanal"
+      },
+      {
+        "letter": "D",
+        "text": "RA-GRS (leitura na secundária)"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "RA-GRS replica para região pareada com endpoint de leitura. LRS/ZRS não cruzam região; backup manual não dá leitura contínua.",
     "source": "original",
     "tags": ["ra-grs", "georredundancia", "failover"],
@@ -253,10 +370,22 @@
     "difficulty": "medium",
     "question": "Blobs excluídos por engano precisam ser recuperáveis por 30 dias sem restaurar backup externo. Qual proteção retém blobs apagados?",
     "options": [
-      { "letter": "A", "text": "Exclusão reversível (soft delete) de blobs" },
-      { "letter": "B", "text": "Controle de versão sem retenção" },
-      { "letter": "C", "text": "Snapshot manual por blob" },
-      { "letter": "D", "text": "Lixeira do portal por 7 dias" }
+      {
+        "letter": "A",
+        "text": "Exclusão reversível (soft delete) de blobs"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot manual por blob"
+      },
+      {
+        "letter": "C",
+        "text": "Controle de versão sem retenção"
+      },
+      {
+        "letter": "D",
+        "text": "Lixeira do portal por 7 dias"
+      }
     ],
     "correct": ["A"],
     "explanation": "Soft delete mantém blobs excluídos pelo período configurado para undelete. Versão sem retenção não recupera exclusão; snapshot manual não escala; não há lixeira de portal.",
@@ -274,12 +403,24 @@
     "difficulty": "medium",
     "question": "Cada gravação num blob deve gerar versão recuperável para auditoria de alterações. Qual recurso versiona automaticamente cada sobrescrita?",
     "options": [
-      { "letter": "A", "text": "Controle de versão de blob" },
-      { "letter": "B", "text": "Snapshot manual a cada escrita" },
-      { "letter": "C", "text": "SAS com versão no nome" },
-      { "letter": "D", "text": "Replicação GRS" }
+      {
+        "letter": "A",
+        "text": "Snapshot manual a cada escrita"
+      },
+      {
+        "letter": "B",
+        "text": "SAS com versão no nome"
+      },
+      {
+        "letter": "C",
+        "text": "Replicação GRS"
+      },
+      {
+        "letter": "D",
+        "text": "Controle de versão de blob"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Versionamento cria versão prévia a cada escrita automaticamente. Snapshot manual exige chamada; SAS não versiona; GRS replica o atual, não o histórico.",
     "source": "original",
     "tags": ["versionamento", "blob", "auditoria"],
@@ -295,12 +436,24 @@
     "difficulty": "medium",
     "question": "VMs Linux precisam de compartilhamento POSIX com bloqueio de arquivo e alta taxa de transferência. Qual protocolo do Azure Files atende Linux nativamente?",
     "options": [
-      { "letter": "A", "text": "NFS 4.1 no Azure Files Premium" },
-      { "letter": "B", "text": "SMB 3.0 com AD" },
-      { "letter": "C", "text": "FTP anônimo" },
-      { "letter": "D", "text": "Blob via REST" }
+      {
+        "letter": "A",
+        "text": "SMB 3.0 com AD"
+      },
+      {
+        "letter": "B",
+        "text": "FTP anônimo"
+      },
+      {
+        "letter": "C",
+        "text": "Blob via REST"
+      },
+      {
+        "letter": "D",
+        "text": "NFS 4.1 no Azure Files Premium"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "NFS 4.1 Premium dá semântica POSIX a Linux. SMB é para Windows; FTP não é gerenciado; Blob REST não monta POSIX.",
     "source": "original",
     "tags": ["files", "nfs", "linux", "posix"],
@@ -318,13 +471,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Autenticação AD DS no Azure Files com permissões NTFS"
+        "text": "SAS anônima por pasta"
       },
-      { "letter": "B", "text": "Chave da conta para todos os usuários" },
-      { "letter": "C", "text": "SAS anônima por pasta" },
-      { "letter": "D", "text": "Login local por VM" }
+      {
+        "letter": "B",
+        "text": "Login local por VM"
+      },
+      {
+        "letter": "C",
+        "text": "Chave da conta para todos os usuários"
+      },
+      {
+        "letter": "D",
+        "text": "Autenticação AD DS no Azure Files com permissões NTFS"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Integração AD DS autentica por Kerberos com ACLs NTFS reais. Chave única não distingue usuário; SAS não faz NTFS; login local não centraliza.",
     "source": "original",
     "tags": ["files", "ad-ds", "ntfs", "smb"],
@@ -340,12 +502,24 @@
     "difficulty": "medium",
     "question": "Cem terabytes locais precisam migrar com link de 100 Mbps saturado por meses. Qual dispositivo físico da Microsoft acelera a ingestão offline?",
     "options": [
-      { "letter": "A", "text": "Azure Data Box para transferência física" },
-      { "letter": "B", "text": "AzCopy pela internet saturada" },
-      { "letter": "C", "text": "VPN com mais banda contratada" },
-      { "letter": "D", "text": "Upload pelo portal em partes" }
+      {
+        "letter": "A",
+        "text": "Upload pelo portal em partes"
+      },
+      {
+        "letter": "B",
+        "text": "AzCopy pela internet saturada"
+      },
+      {
+        "letter": "C",
+        "text": "Azure Data Box para transferência física"
+      },
+      {
+        "letter": "D",
+        "text": "VPN com mais banda contratada"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Data Box envia o disco físico e a Microsoft injeta no storage. AzCopy no link saturado levaria meses; VPN não cria banda; portal não move TB.",
     "source": "original",
     "tags": ["databox", "migracao-offline"],
@@ -361,12 +535,24 @@
     "difficulty": "medium",
     "question": "Blobs novos em um contêiner precisam ser replicados para outra conta na mesma região em tempo real. Qual recurso replica por política de objeto?",
     "options": [
-      { "letter": "A", "text": "Replicação de objetos do Blob" },
-      { "letter": "B", "text": "GRS entre regiões" },
-      { "letter": "C", "text": "AzCopy agendado por cron" },
-      { "letter": "D", "text": "Snapshot manual cruzado" }
+      {
+        "letter": "A",
+        "text": "AzCopy agendado por cron"
+      },
+      {
+        "letter": "B",
+        "text": "GRS entre regiões"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot manual cruzado"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação de objetos do Blob"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Object replication copia por regra (prefixo, tipo) entre contas. GRS replica a conta inteira entre regiões; cron atrasa; snapshot é pontual.",
     "source": "original",
     "tags": ["object-replication", "blob"],
@@ -382,10 +568,22 @@
     "difficulty": "medium",
     "question": "Contêineres diferentes precisam de chaves de criptografia distintas gerenciadas pelo cliente. Qual escopo isola chaves por contêiner?",
     "options": [
-      { "letter": "A", "text": "Escopo de criptografia por contêiner" },
-      { "letter": "B", "text": "Uma chave única para a conta inteira" },
-      { "letter": "C", "text": "TLS no transporte apenas" },
-      { "letter": "D", "text": "SAS com criptografia embutida" }
+      {
+        "letter": "A",
+        "text": "Escopo de criptografia por contêiner"
+      },
+      {
+        "letter": "B",
+        "text": "Uma chave única para a conta inteira"
+      },
+      {
+        "letter": "C",
+        "text": "TLS no transporte apenas"
+      },
+      {
+        "letter": "D",
+        "text": "SAS com criptografia embutida"
+      }
     ],
     "correct": ["A"],
     "explanation": "Encryption scopes vinculam chaves CMK por contêiner/fila. Chave única mistura domínios; TLS protege trânsito, não repouso; SAS não criptografa.",
@@ -403,12 +601,24 @@
     "difficulty": "medium",
     "question": "O site estático no Storage precisa de HTTPS com domínio próprio e cache global. O que colocar na frente do endpoint $web?",
     "options": [
-      { "letter": "A", "text": "Azure CDN/Front Door com TLS gerenciado" },
-      { "letter": "B", "text": "DNS público direto ao $web" },
-      { "letter": "C", "text": "VPN até o $web" },
-      { "letter": "D", "text": "Bastion na frente do storage" }
+      {
+        "letter": "A",
+        "text": "DNS público direto ao $web"
+      },
+      {
+        "letter": "B",
+        "text": "Bastion na frente do storage"
+      },
+      {
+        "letter": "C",
+        "text": "Azure CDN/Front Door com TLS gerenciado"
+      },
+      {
+        "letter": "D",
+        "text": "VPN até o $web"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "CDN/Front Door entrega HTTPS, domínio próprio e edge cache. DNS direto não dá TLS gerenciado; VPN não publica; Bastion não serve site.",
     "source": "original",
     "tags": ["static-website", "cdn", "https"],
@@ -424,12 +634,24 @@
     "difficulty": "medium",
     "question": "Servidores de arquivos locais precisam espelhar para o Azure Files com cache local dos arquivos quentes. Qual serviço sincroniza com tiering na nuvem?",
     "options": [
-      { "letter": "A", "text": "Azure File Sync com cloud tiering" },
-      { "letter": "B", "text": "Robocopy manual semanal" },
-      { "letter": "C", "text": "DFS Replication entre filiais" },
-      { "letter": "D", "text": "Backup do Windows Server" }
+      {
+        "letter": "A",
+        "text": "Robocopy manual semanal"
+      },
+      {
+        "letter": "B",
+        "text": "DFS Replication entre filiais"
+      },
+      {
+        "letter": "C",
+        "text": "Backup do Windows Server"
+      },
+      {
+        "letter": "D",
+        "text": "Azure File Sync com cloud tiering"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "File Sync replica para Files com tiering (quentes locais, frios na nuvem). Robocopy manual não sincroniza; DFSR não integra Files; backup não espelha acesso.",
     "source": "original",
     "tags": ["file-sync", "tiering", "hibrido"],
@@ -445,10 +667,22 @@
     "difficulty": "medium",
     "question": "Auditoria mensal precisa de relatório CSV com todos os blobs, camadas e retenções da conta. Qual recurso gera esse inventário automaticamente?",
     "options": [
-      { "letter": "A", "text": "Inventário de Blobs com relatório agendado" },
-      { "letter": "B", "text": "Listagem manual pelo portal" },
-      { "letter": "C", "text": "Métricas de capacidade do Monitor" },
-      { "letter": "D", "text": "Log de leitura de cada blob" }
+      {
+        "letter": "A",
+        "text": "Inventário de Blobs com relatório agendado"
+      },
+      {
+        "letter": "B",
+        "text": "Métricas de capacidade do Monitor"
+      },
+      {
+        "letter": "C",
+        "text": "Listagem manual pelo portal"
+      },
+      {
+        "letter": "D",
+        "text": "Log de leitura de cada blob"
+      }
     ],
     "correct": ["A"],
     "explanation": "Blob Inventory emite CSV/Parquet agendado com propriedades. Portal manual não escala; métrica agrega sem detalhar; log de leitura registra acesso, não inventário.",
@@ -466,12 +700,24 @@
     "difficulty": "medium",
     "question": "Um pipeline precisa reagir a cada criação e exclusão de blob em ordem, sem polling. Qual feed publica essas mudanças para consumo?",
     "options": [
-      { "letter": "A", "text": "Feed de alterações (Change Feed) do Blob" },
-      { "letter": "B", "text": "Métrica de transações por minuto" },
-      { "letter": "C", "text": "Snapshot diário da conta" },
-      { "letter": "D", "text": "Log de auditoria do portal" }
+      {
+        "letter": "A",
+        "text": "Métrica de transações por minuto"
+      },
+      {
+        "letter": "B",
+        "text": "Feed de alterações (Change Feed) do Blob"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot diário da conta"
+      },
+      {
+        "letter": "D",
+        "text": "Log de auditoria do portal"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Change Feed registra mutações ordenadas para pipelines. Métrica agrega; snapshot é pontual; auditoria do portal registra ações ARM, não dados.",
     "source": "original",
     "tags": ["change-feed", "blob", "pipeline"],
@@ -487,10 +733,22 @@
     "difficulty": "medium",
     "question": "Análises big data precisam de hierarquia de pastas com ACLs POSIX sobre o mesmo storage de blobs. Qual recurso adiciona namespace hierárquico?",
     "options": [
-      { "letter": "A", "text": "Data Lake Gen2 com namespace hierárquico" },
-      { "letter": "B", "text": "Blob plano sem pastas" },
-      { "letter": "C", "text": "File Sync com tiering" },
-      { "letter": "D", "text": "Tabela com partições" }
+      {
+        "letter": "A",
+        "text": "Data Lake Gen2 com namespace hierárquico"
+      },
+      {
+        "letter": "B",
+        "text": "Blob plano sem pastas"
+      },
+      {
+        "letter": "C",
+        "text": "File Sync com tiering"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela com partições"
+      }
     ],
     "correct": ["A"],
     "explanation": "Gen2 habilita diretórios reais e ACLs POSIX sobre blob. Blob plano simula pastas; File Sync é SMB; tabela não guarda arquivos.",
@@ -508,12 +766,24 @@
     "difficulty": "medium",
     "question": "Parceiros legados enviam arquivos via SFTP e você quer eliminar o servidor intermediário. Qual endpoint nativo do Storage recebe SFTP direto?",
     "options": [
-      { "letter": "A", "text": "Suporte SFTP do Blob Storage" },
-      { "letter": "B", "text": "Fila com mensagens binárias" },
-      { "letter": "C", "text": "Tabela com anexos" },
-      { "letter": "D", "text": "VM com OpenSSH e script" }
+      {
+        "letter": "A",
+        "text": "VM com OpenSSH e script"
+      },
+      {
+        "letter": "B",
+        "text": "Fila com mensagens binárias"
+      },
+      {
+        "letter": "C",
+        "text": "Suporte SFTP do Blob Storage"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela com anexos"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Blob com SFTP habilitado recebe clientes legados sem VM. Fila/tabela não falam SFTP; VM intermediária é o que se quer eliminar.",
     "source": "original",
     "tags": ["sftp", "blob", "legado"],
@@ -529,12 +799,24 @@
     "difficulty": "medium",
     "question": "Aplicação de trading grava milhares de pequenos blobs por segundo com latência mínima. Qual camada de blob de blocos atende alta transação?",
     "options": [
-      { "letter": "A", "text": "Premium (block blobs Premium)" },
-      { "letter": "B", "text": "Archive com reidratação" },
-      { "letter": "C", "text": "Cool com penalidade de leitura" },
-      { "letter": "D", "text": "HDD Standard" }
+      {
+        "letter": "A",
+        "text": "Archive com reidratação"
+      },
+      {
+        "letter": "B",
+        "text": "Premium (block blobs Premium)"
+      },
+      {
+        "letter": "C",
+        "text": "Cool com penalidade de leitura"
+      },
+      {
+        "letter": "D",
+        "text": "HDD Standard"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Premium dá throughput e latência para transação intensa. Archive/Cool penalizam leitura; HDD não é blob.",
     "source": "original",
     "tags": ["premium", "block-blob", "latencia"],
@@ -550,12 +832,24 @@
     "difficulty": "medium",
     "question": "Mensagens com formato inválido falham repetidamente e bloqueiam o worker. Para onde mover automaticamente após 5 tentativas?",
     "options": [
-      { "letter": "A", "text": "Fila poison (-poison) para análise" },
-      { "letter": "B", "text": "Exclusão imediata sem registro" },
-      { "letter": "C", "text": "Blob de blocos público" },
-      { "letter": "D", "text": "Tabela de auditoria manual" }
+      {
+        "letter": "A",
+        "text": "Tabela de auditoria manual"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão imediata sem registro"
+      },
+      {
+        "letter": "C",
+        "text": "Fila poison (-poison) para análise"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de blocos público"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Após maxDequeueCount, a mensagem vai à poison queue para triagem. Excluir perde evidência; blob público expõe; tabela manual não é automática.",
     "source": "original",
     "tags": ["queues", "poison", "retentativas"],
@@ -573,13 +867,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Sem chaves, com scan completo"
+      },
+      {
+        "letter": "B",
+        "text": "PartitionKey única para toda a tabela"
+      },
+      {
+        "letter": "C",
         "text": "PartitionKey por entidade lógica + RowKey ordenável (data invertida)"
       },
-      { "letter": "B", "text": "PartitionKey única para toda a tabela" },
-      { "letter": "C", "text": "GUID aleatório como PartitionKey" },
-      { "letter": "D", "text": "Sem chaves, com scan completo" }
+      {
+        "letter": "D",
+        "text": "GUID aleatório como PartitionKey"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Partição por entidade + RowKey ordenável permite range eficiente. Partição única limita throughput; GUID espalha sem ordem; scan é o mais lento.",
     "source": "original",
     "tags": ["tables", "partitionkey", "rowkey", "modelagem"],
@@ -597,13 +900,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Backup do Azure para Files com política e retenção"
+        "text": "Replicação GRS como backup"
       },
-      { "letter": "B", "text": "Cópia manual para blob semanal" },
-      { "letter": "C", "text": "Snapshot único sem agenda" },
-      { "letter": "D", "text": "Replicação GRS como backup" }
+      {
+        "letter": "B",
+        "text": "Cópia manual para blob semanal"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot único sem agenda"
+      },
+      {
+        "letter": "D",
+        "text": "Backup do Azure para Files com política e retenção"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Backup gerenciado agenda snapshots com retenção e restauração. Cópia manual falha; snapshot único não retém; GRS replica, não versiona contra ransomware.",
     "source": "original",
     "tags": ["files", "backup", "snapshot", "ransomware"],
@@ -619,12 +931,24 @@
     "difficulty": "medium",
     "question": "A carga usa blobs hierárquicos (Data Lake), filas e tabelas na mesma conta. Quais dois tipos de conta suportam esse conjunto? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "StorageV2 (propósito geral v2)" },
-      { "letter": "B", "text": "Premium block blobs para tudo" },
-      { "letter": "C", "text": "Premium file shares para filas" },
-      { "letter": "D", "text": "BlobStorage (blobs sem Data Lake)" }
+      {
+        "letter": "A",
+        "text": "Premium file shares para filas"
+      },
+      {
+        "letter": "B",
+        "text": "StorageV2 (propósito geral v2)"
+      },
+      {
+        "letter": "C",
+        "text": "Premium block blobs para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "BlobStorage (blobs sem Data Lake)"
+      }
     ],
-    "correct": ["A", "D"],
+    "correct": ["B", "D"],
     "explanation": "StorageV2 suporta blobs+Data Lake+filas+tabelas; BlobStorage suporta blobs (sem hierarchical namespace completo). Premium block blobs não tem filas/tabelas; file shares não tem filas.",
     "source": "original",
     "tags": ["conta", "storagev2", "tipos"],
@@ -640,15 +964,24 @@
     "difficulty": "medium",
     "question": "Dois cenários: (1) acesso a um blob específico por horas; (2) delegação ampla por política armazenada revogável. Quais SAS atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "SAS de serviço para o blob com expiração" },
       {
-        "letter": "B",
+        "letter": "A",
         "text": "SAS de conta com política de acesso armazenada"
       },
-      { "letter": "C", "text": "Chave da conta sem expiração" },
-      { "letter": "D", "text": "Token do Entra sem escopo" }
+      {
+        "letter": "B",
+        "text": "SAS de serviço para o blob com expiração"
+      },
+      {
+        "letter": "C",
+        "text": "Token do Entra sem escopo"
+      },
+      {
+        "letter": "D",
+        "text": "Chave da conta sem expiração"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Service SAS limita ao recurso/tempo e account SAS com stored policy revoga em massa. Chave sem expiração é permanente; token sem escopo não limita.",
     "source": "original",
     "tags": ["sas", "servico", "conta", "politica"],
@@ -666,13 +999,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Colaborador da Conta de Armazenamento (gerência)"
+        "text": "Leitor clássico com chaves"
       },
-      { "letter": "B", "text": "Leitor de Dados de Blob (leitura de dados)" },
-      { "letter": "C", "text": "Proprietário da assinatura para tudo" },
-      { "letter": "D", "text": "Leitor clássico com chaves" }
+      {
+        "letter": "B",
+        "text": "Proprietário da assinatura para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Leitor de Dados de Blob (leitura de dados)"
+      },
+      {
+        "letter": "D",
+        "text": "Colaborador da Conta de Armazenamento (gerência)"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Colaborador gerencia o recurso e Leitor de Dados lê blobs via Entra, sem chaves. Proprietário mistura; leitor clássico usa chaves.",
     "source": "original",
     "tags": ["rbac", "dados", "entra-id", "chaves"],
@@ -688,12 +1030,24 @@
     "difficulty": "medium",
     "question": "Blobs em Archive precisam voltar ao online com prioridades distintas por urgência. Quais duas opções de reidratação existem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Prioridade Standard (até 15h)" },
-      { "letter": "B", "text": "Prioridade Alta (menos de 1h, custo maior)" },
-      { "letter": "C", "text": "Leitura direta do Archive" },
-      { "letter": "D", "text": "Exclusão e reupload" }
+      {
+        "letter": "A",
+        "text": "Exclusão e reupload"
+      },
+      {
+        "letter": "B",
+        "text": "Prioridade Standard (até 15h)"
+      },
+      {
+        "letter": "C",
+        "text": "Prioridade Alta (menos de 1h, custo maior)"
+      },
+      {
+        "letter": "D",
+        "text": "Leitura direta do Archive"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Reidratação tem Standard e High com custo/tempo distintos. Archive não lê direto; reupload perde metadados e custa mais.",
     "source": "original",
     "tags": ["archive", "reidratacao", "prioridade"],
@@ -709,12 +1063,24 @@
     "difficulty": "medium",
     "question": "Proteção contra sobrescrita acidental e contra exclusão precisam de mecanismos distintos. Quais dois usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Versionamento contra sobrescrita" },
-      { "letter": "B", "text": "Soft delete contra exclusão" },
-      { "letter": "C", "text": "SAS sem expiração" },
-      { "letter": "D", "text": "Container público" }
+      {
+        "letter": "A",
+        "text": "Container público"
+      },
+      {
+        "letter": "B",
+        "text": "Versionamento contra sobrescrita"
+      },
+      {
+        "letter": "C",
+        "text": "SAS sem expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Soft delete contra exclusão"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Versões guardam pré-escrita e soft delete retém excluídos. SAS e container público são exposição, não proteção.",
     "source": "original",
     "tags": ["versionamento", "soft-delete", "protecao"],
@@ -730,12 +1096,24 @@
     "difficulty": "medium",
     "question": "Compartilhamentos Premium com arquivos frios precisam baratear sem perder acesso. Quais duas camadas de Files atendem quente e frio? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Premium transacional para quentes" },
-      { "letter": "B", "text": "Cool/Archive via ciclo de vida para frios" },
-      { "letter": "C", "text": "Disco Ultra para arquivos" },
-      { "letter": "D", "text": "Fila para arquivos" }
+      {
+        "letter": "A",
+        "text": "Cool/Archive via ciclo de vida para frios"
+      },
+      {
+        "letter": "B",
+        "text": "Disco Ultra para arquivos"
+      },
+      {
+        "letter": "C",
+        "text": "Fila para arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "Premium transacional para quentes"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Premium serve IOPS e lifecycle move frios a camadas baratas. Ultra não é Files; fila não guarda arquivos.",
     "source": "original",
     "tags": ["files", "premium", "lifecycle", "camadas"],
@@ -751,12 +1129,24 @@
     "difficulty": "medium",
     "question": "Migração de 500 GB com link livre e outra de 200 TB com link saturado exigem estratégias distintas. Quais duas usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "AzCopy online para os 500 GB" },
-      { "letter": "B", "text": "Data Box offline para os 200 TB" },
-      { "letter": "C", "text": "Portal para os 200 TB" },
-      { "letter": "D", "text": "E-mail com links para 500 GB" }
+      {
+        "letter": "A",
+        "text": "Data Box offline para os 200 TB"
+      },
+      {
+        "letter": "B",
+        "text": "AzCopy online para os 500 GB"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail com links para 500 GB"
+      },
+      {
+        "letter": "D",
+        "text": "Portal para os 200 TB"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "AzCopy online move os 500 GB com paralelismo e o Data Box transporta os 200 TB fisicamente. Portal não move terabytes; e-mail jamais migra dados.",
     "source": "original",
     "tags": ["migracao", "azcopy", "databox"],
@@ -780,8 +1170,14 @@
         "letter": "B",
         "text": "Retenção legal (legal hold) permanente sem prazo"
       },
-      { "letter": "C", "text": "Snapshot diário sem bloqueio" },
-      { "letter": "D", "text": "SAS de leitura por 7 anos" }
+      {
+        "letter": "C",
+        "text": "Snapshot diário sem bloqueio"
+      },
+      {
+        "letter": "D",
+        "text": "SAS de leitura por 7 anos"
+      }
     ],
     "correct": ["A"],
     "explanation": "Time-based retention trava escrita/exclusão pelo prazo e libera após. Legal hold é indefinido até remoção explícita; snapshot sem lock permite apagar; SAS não impede escrita.",
@@ -803,9 +1199,18 @@
         "letter": "A",
         "text": "Private Endpoint + zona privatelink vinculada"
       },
-      { "letter": "B", "text": "Service Endpoint sem DNS" },
-      { "letter": "C", "text": "IP público com SAS" },
-      { "letter": "D", "text": "Peering sem endpoint" }
+      {
+        "letter": "B",
+        "text": "Service Endpoint sem DNS"
+      },
+      {
+        "letter": "C",
+        "text": "Peering sem endpoint"
+      },
+      {
+        "letter": "D",
+        "text": "IP público com SAS"
+      }
     ],
     "correct": ["A"],
     "explanation": "Endpoint dá o IP privado e a zona resolve o FQDN internamente. Service Endpoint sem DNS falha resolução; IP público expõe; peering sozinho não projeta PaaS.",
@@ -825,13 +1230,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Trocar a connection string para LRS"
+      },
+      {
+        "letter": "B",
         "text": "Failover iniciado pelo cliente (não planejado)"
       },
-      { "letter": "B", "text": "Aguardar failover gerenciado pela Microsoft" },
-      { "letter": "C", "text": "Trocar a connection string para LRS" },
-      { "letter": "D", "text": "Restaurar backup na secundária" }
+      {
+        "letter": "C",
+        "text": "Aguardar failover gerenciado pela Microsoft"
+      },
+      {
+        "letter": "D",
+        "text": "Restaurar backup na secundária"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Customer-initiated failover promove a secundária a escrita imediatamente. Aguardar o gerenciado demora; trocar string não move dados; restore é lento.",
     "source": "original",
     "tags": ["failover", "grs", "secundaria"],
@@ -847,12 +1261,24 @@
     "difficulty": "hard",
     "question": "Antes do failover, você precisa estimar a perda de dados verificando até quando a secundária está sincronizada. Qual propriedade indica o ponto de sincronismo?",
     "options": [
-      { "letter": "A", "text": "Last Sync Time da conta secundária" },
-      { "letter": "B", "text": "Métrica de transações da primária" },
-      { "letter": "C", "text": "Tamanho total da conta" },
-      { "letter": "D", "text": "Tempo de resposta do portal" }
+      {
+        "letter": "A",
+        "text": "Tempo de resposta do portal"
+      },
+      {
+        "letter": "B",
+        "text": "Tamanho total da conta"
+      },
+      {
+        "letter": "C",
+        "text": "Métrica de transações da primária"
+      },
+      {
+        "letter": "D",
+        "text": "Last Sync Time da conta secundária"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Last Sync Time mostra o timestamp garantido na secundária (RPO real). Transações da primária não dizem o replicado; tamanho não indica tempo; portal não mede replicação.",
     "source": "original",
     "tags": ["last-sync-time", "rpo", "replicacao"],
@@ -870,13 +1296,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Chave da conta destino embutida na origem"
+      },
+      {
+        "letter": "B",
+        "text": "SAS pública sem expiração"
+      },
+      {
+        "letter": "C",
         "text": "Identidade gerenciada atribuída pelo sistema da conta origem"
       },
-      { "letter": "B", "text": "Chave da conta destino embutida na origem" },
-      { "letter": "C", "text": "SAS pública sem expiração" },
-      { "letter": "D", "text": "Senha do administrador do tenant" }
+      {
+        "letter": "D",
+        "text": "Senha do administrador do tenant"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "A conta origem usa sua identidade gerenciada com RBAC na destino, sem segredos. Chave embutida vaza; SAS aberta expõe; senha não autoriza replicação.",
     "source": "original",
     "tags": ["replicacao", "cross-tenant", "managed-identity"],
@@ -896,9 +1331,18 @@
         "letter": "A",
         "text": "Provisiona capacidade+IOPS fixos (paga o provisionado)"
       },
-      { "letter": "B", "text": "Cobra só pelo usado como Standard" },
-      { "letter": "C", "text": "Escala IOPS por arquivo individual" },
-      { "letter": "D", "text": "Herda IOPS do disco da VM" }
+      {
+        "letter": "B",
+        "text": "Cobra só pelo usado como Standard"
+      },
+      {
+        "letter": "C",
+        "text": "Escala IOPS por arquivo individual"
+      },
+      {
+        "letter": "D",
+        "text": "Herda IOPS do disco da VM"
+      }
     ],
     "correct": ["A"],
     "explanation": "Files Premium provisiona (capacidade, IOPS, throughput) e cobra o reservado. Standard paga uso; IOPS é do share; disco da VM não afeta Files.",
@@ -918,16 +1362,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Verificação de malware no upload (hash + análise)"
+        "text": "Antivírus instalado no blob"
       },
       {
         "letter": "B",
-        "text": "Detecção de ameaças com alertas de exfiltração"
+        "text": "Verificação de malware no upload (hash + análise)"
       },
-      { "letter": "C", "text": "Antivírus instalado no blob" },
-      { "letter": "D", "text": "Firewall desligado para inspeção" }
+      {
+        "letter": "C",
+        "text": "Firewall desligado para inspeção"
+      },
+      {
+        "letter": "D",
+        "text": "Detecção de ameaças com alertas de exfiltração"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Malware scanning analisa uploads e threat detection alerta padrões anômalos. Blob não executa antivírus; desligar firewall expõe.",
     "source": "original",
     "tags": ["defender", "malware", "threat-detection"],
@@ -943,12 +1393,24 @@
     "difficulty": "hard",
     "question": "A conta deve aceitar a VNet de produção e o IP do escritório, negando todo o resto incluindo Microsoft. Quais duas regras compõem isso? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Regra de rede para a VNet/sub-rede" },
-      { "letter": "B", "text": "Regra de IP para o escritório" },
-      { "letter": "C", "text": "Exceção para serviços Microsoft confiáveis" },
-      { "letter": "D", "text": "Acesso público irrestrito" }
+      {
+        "letter": "A",
+        "text": "Exceção para serviços Microsoft confiáveis"
+      },
+      {
+        "letter": "B",
+        "text": "Regra de rede para a VNet/sub-rede"
+      },
+      {
+        "letter": "C",
+        "text": "Regra de IP para o escritório"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso público irrestrito"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Regras de VNet e IP liberam exatamente os dois, com default deny. Exceção Microsoft abriria mais; acesso irrestrito anula tudo.",
     "source": "original",
     "tags": ["firewall", "vnet", "ip-rules"],
@@ -964,10 +1426,22 @@
     "difficulty": "hard",
     "question": "Criptografia com chaves do cliente exige controle de acesso à chave e rotação sem downtime. Quais dois elementos compõem o CMK? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Key Vault com RBAC e purge protection" },
-      { "letter": "B", "text": "Rotação com versionamento de chave" },
-      { "letter": "C", "text": "Chave exportada por e-mail" },
-      { "letter": "D", "text": "Desabilitação do TLS" }
+      {
+        "letter": "A",
+        "text": "Key Vault com RBAC e purge protection"
+      },
+      {
+        "letter": "B",
+        "text": "Rotação com versionamento de chave"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitação do TLS"
+      },
+      {
+        "letter": "D",
+        "text": "Chave exportada por e-mail"
+      }
     ],
     "correct": ["A", "B"],
     "explanation": "Key Vault protegido guarda a chave e o versionamento permite rolar sem reescrever dados. E-mail vaza; sem TLS expõe trânsito.",
@@ -985,12 +1459,24 @@
     "difficulty": "hard",
     "question": "Relatório mensal de blobs antigos e exclusão automática dos órfãos exigem dois recursos combinados. Quais são eles? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Inventário para listar por idade" },
-      { "letter": "B", "text": "Lifecycle policy para excluir por regra" },
-      { "letter": "C", "text": "Snapshot manual de tudo" },
-      { "letter": "D", "text": "Replicação para outra conta" }
+      {
+        "letter": "A",
+        "text": "Replicação para outra conta"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot manual de tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Lifecycle policy para excluir por regra"
+      },
+      {
+        "letter": "D",
+        "text": "Inventário para listar por idade"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "O inventário lista blobs por idade para auditoria e a lifecycle policy exclui órfãos por regra. Snapshot preserva em vez de limpar; replicação apenas copia.",
     "source": "original",
     "tags": ["inventory", "lifecycle", "governanca"],
@@ -1006,15 +1492,24 @@
     "difficulty": "hard",
     "question": "Fila com milhões de mensagens precisa de vazão máxima e visibilidade controlada. Quais dois ajustes elevam throughput com segurança? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Batch size e paralelismo por consumidor" },
+      {
+        "letter": "A",
+        "text": "Uma única thread com polling lento"
+      },
       {
         "letter": "B",
+        "text": "Mensagens sem TTL infinito"
+      },
+      {
+        "letter": "C",
         "text": "Visibility timeout calibrado por processamento"
       },
-      { "letter": "C", "text": "Uma única thread com polling lento" },
-      { "letter": "D", "text": "Mensagens sem TTL infinito" }
+      {
+        "letter": "D",
+        "text": "Batch size e paralelismo por consumidor"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Lote+paralelismo elevam vazão e visibility evita reprocessamento prematuro. Thread única estrangula; sem TTL a fila cresce sem fim.",
     "source": "original",
     "tags": ["queues", "throughput", "visibility-timeout"],
@@ -1030,8 +1525,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que com GRS padrão (sem RA) é possível ler dados na região secundária durante um outage da primária. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, GRS sempre permite leitura secundária" },
-      { "letter": "B", "text": "Não, leitura secundária exige RA-GRS" }
+      {
+        "letter": "A",
+        "text": "Sim, GRS sempre permite leitura secundária"
+      },
+      {
+        "letter": "B",
+        "text": "Não, leitura secundária exige RA-GRS"
+      }
     ],
     "correct": ["B"],
     "explanation": "GRS replica sem endpoint de leitura; só RA-GRS expõe a secundária. Confundir replicação com legibilidade é erro clássico.",
@@ -1051,11 +1552,14 @@
     "options": [
       {
         "letter": "A",
-        "text": "Sim, sem chave só restam Entra ID e user-delegation SAS"
+        "text": "Não, a chave continua acessível internamente"
       },
-      { "letter": "B", "text": "Não, a chave continua acessível internamente" }
+      {
+        "letter": "B",
+        "text": "Sim, sem chave só restam Entra ID e user-delegation SAS"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "AllowSharedKeyAccess=false remove auth por chave; dados passam a exigir Entra ou SAS delegada. É o endurecimento recomendado.",
     "source": "original",
     "tags": ["chave-compartilhada", "entra-id", "endurecimento"],
@@ -1075,7 +1579,10 @@
         "letter": "A",
         "text": "Sim, a conversão LRS→GRS é suportada na conta existente"
       },
-      { "letter": "B", "text": "Não, é preciso recriar a conta e copiar tudo" }
+      {
+        "letter": "B",
+        "text": "Não, é preciso recriar a conta e copiar tudo"
+      }
     ],
     "correct": ["A"],
     "explanation": "O portal permite elevar LRS→GRS/RA-GRS in place (com restrições para Premium e ZRS→outros). Recriar é desnecessário.",
@@ -1093,10 +1600,16 @@
     "difficulty": "hard",
     "question": "Um auditor afirma que configurar MinimumTlsVersion 1.2 na conta bloqueia clientes legados TLS 1.0/1.1. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, a conta recusa handshake abaixo de 1.2" },
-      { "letter": "B", "text": "Não, o mínimo é apenas recomendação" }
+      {
+        "letter": "A",
+        "text": "Não, o mínimo é apenas recomendação"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, a conta recusa handshake abaixo de 1.2"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "MinimumTlsVersion impõe o piso criptográfico no handshake e clientes legados falham ao conectar. É controle efetivo de segurança, não mera sugestão de configuração.",
     "source": "original",
     "tags": ["tls", "versao-minima", "seguranca"],
@@ -1116,9 +1629,18 @@
         "letter": "A",
         "text": "Data Box para a carga inicial + AzCopy para deltas"
       },
-      { "letter": "B", "text": "AzCopy online de tudo pelo link saturado" },
-      { "letter": "C", "text": "Upload pelo portal em lotes manuais" },
-      { "letter": "D", "text": "E-mail com links dos arquivos" }
+      {
+        "letter": "B",
+        "text": "E-mail com links dos arquivos"
+      },
+      {
+        "letter": "C",
+        "text": "Upload pelo portal em lotes manuais"
+      },
+      {
+        "letter": "D",
+        "text": "AzCopy online de tudo pelo link saturado"
+      }
     ],
     "correct": ["A"],
     "explanation": "Data Box carrega o bulk offline e o AzCopy sincroniza deltas. 40 TB em 200 Mbps levaria meses; portal e e-mail não movem esse volume.",
@@ -1141,9 +1663,18 @@
         "letter": "A",
         "text": "Autenticação AD DS com permissões NTFS herdadas"
       },
-      { "letter": "B", "text": "Chave da conta distribuída por e-mail" },
-      { "letter": "C", "text": "SAS anônima por departamento" },
-      { "letter": "D", "text": "Acesso anônimo ao compartilhamento" }
+      {
+        "letter": "B",
+        "text": "Chave da conta distribuída por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "SAS anônima por departamento"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso anônimo ao compartilhamento"
+      }
     ],
     "correct": ["A"],
     "explanation": "AD DS com NTFS preserva identidade e ACLs por pasta. Chave única, SAS anônima e acesso anônimo destroem o controle por departamento.",
@@ -1166,9 +1697,18 @@
         "letter": "A",
         "text": "Backup do Azure Files com snapshots e retenção"
       },
-      { "letter": "B", "text": "Lixeira do Windows local" },
-      { "letter": "C", "text": "Replicação GRS como versão" },
-      { "letter": "D", "text": "SAS de leitura dos arquivos" }
+      {
+        "letter": "B",
+        "text": "Lixeira do Windows local"
+      },
+      {
+        "letter": "C",
+        "text": "SAS de leitura dos arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação GRS como versão"
+      }
     ],
     "correct": ["A"],
     "explanation": "Backup com snapshots versiona por compartilhamento para restore granular. Lixeira local não existe na nuvem; GRS replica o criptografado; SAS não restaura.",
@@ -1189,13 +1729,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Azure File Sync com cloud tiering para arquivos frios"
+        "text": "Compactar manualmente por pasta"
       },
-      { "letter": "B", "text": "Exclusão dos arquivos antigos" },
-      { "letter": "C", "text": "Mover tudo para discos Premium" },
-      { "letter": "D", "text": "Compactar manualmente por pasta" }
+      {
+        "letter": "B",
+        "text": "Exclusão dos arquivos antigos"
+      },
+      {
+        "letter": "C",
+        "text": "Mover tudo para discos Premium"
+      },
+      {
+        "letter": "D",
+        "text": "Azure File Sync com cloud tiering para arquivos frios"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Cloud tiering mantém namespace SMB com frios na nuvem barata. Excluir perde dados; Premium encarece; compactação manual não escala.",
     "source": "original",
     "tags": ["case", "tiering", "file-sync"],
@@ -1214,13 +1763,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "SAS pública distribuída"
+      },
+      {
+        "letter": "B",
         "text": "Private Endpoint + zona privatelink.file.core.windows.net"
       },
-      { "letter": "B", "text": "IP público com firewall aberto" },
-      { "letter": "C", "text": "SAS pública distribuída" },
-      { "letter": "D", "text": "Service Endpoint sem DNS" }
+      {
+        "letter": "C",
+        "text": "Service Endpoint sem DNS"
+      },
+      {
+        "letter": "D",
+        "text": "IP público com firewall aberto"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Private Endpoint com zona resolve o FQDN para IP privado via VPN. IP público expõe; SAS não é rede; service endpoint sem DNS quebra SMB por nome.",
     "source": "original",
     "tags": ["case", "private-endpoint", "smb"],
@@ -1237,12 +1795,24 @@
     "difficulty": "medium",
     "question": "Logs de aplicação com escrita sequencial contínua precisam de blob otimizado para append. Qual tipo de blob usar?",
     "options": [
-      { "letter": "A", "text": "Blob de acréscimo (append blob)" },
-      { "letter": "B", "text": "Blob de blocos para streaming" },
-      { "letter": "C", "text": "Blob de páginas para VHD" },
-      { "letter": "D", "text": "Fila com mensagens de log" }
+      {
+        "letter": "A",
+        "text": "Blob de páginas para VHD"
+      },
+      {
+        "letter": "B",
+        "text": "Fila com mensagens de log"
+      },
+      {
+        "letter": "C",
+        "text": "Blob de acréscimo (append blob)"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de blocos para streaming"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Append blob otimiza escrita sequencial de logs. Blocos servem a objetos; páginas a discos; fila a mensagens.",
     "source": "original",
     "tags": ["append-blob", "logs", "sequencial"],
@@ -1258,12 +1828,24 @@
     "difficulty": "medium",
     "question": "VHDs de VM e arquivos de banco exigem escrita aleatória por páginas de 512 bytes. Qual tipo de blob sustenta isso?",
     "options": [
-      { "letter": "A", "text": "Blob de páginas (page blob)" },
-      { "letter": "B", "text": "Blob de blocos" },
-      { "letter": "C", "text": "Blob de acréscimo" },
-      { "letter": "D", "text": "Tabela de páginas" }
+      {
+        "letter": "A",
+        "text": "Tabela de páginas"
+      },
+      {
+        "letter": "B",
+        "text": "Blob de páginas (page blob)"
+      },
+      {
+        "letter": "C",
+        "text": "Blob de blocos"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de acréscimo"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Page blob permite escrita aleatória por página para VHDs. Blocos são imutáveis por upload; append é sequencial; tabela não é blob.",
     "source": "original",
     "tags": ["page-blob", "vhd", "aleatoria"],
@@ -1283,9 +1865,18 @@
         "letter": "A",
         "text": "Blocos de 100 MB (limite 50k blocos por blob)"
       },
-      { "letter": "B", "text": "Blocos de 1 KB" },
-      { "letter": "C", "text": "Bloco único de 200 GB" },
-      { "letter": "D", "text": "1 byte por bloco" }
+      {
+        "letter": "B",
+        "text": "1 byte por bloco"
+      },
+      {
+        "letter": "C",
+        "text": "Bloco único de 200 GB"
+      },
+      {
+        "letter": "D",
+        "text": "Blocos de 1 KB"
+      }
     ],
     "correct": ["A"],
     "explanation": "Blocos grandes (até 4000 MB em versões novas, 50k por blob) paralelizam bem. KB gera overhead; único estoura limite; 1 byte é absurdo.",
@@ -1305,13 +1896,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Planilha externa de catálogo"
+      },
+      {
+        "letter": "B",
+        "text": "Nomes de arquivo gigantes"
+      },
+      {
+        "letter": "C",
         "text": "Tags de índice de blob com consulta por filtro"
       },
-      { "letter": "B", "text": "Pastas aninhadas por projeto/ano" },
-      { "letter": "C", "text": "Nomes de arquivo gigantes" },
-      { "letter": "D", "text": "Planilha externa de catálogo" }
+      {
+        "letter": "D",
+        "text": "Pastas aninhadas por projeto/ano"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Blob index tags permitem find por chave-valor sem hierarquia. Pastas limitam a uma dimensão; nomes gigantes quebram; planilha desatualiza.",
     "source": "original",
     "tags": ["blob-index", "tags", "busca"],
@@ -1327,12 +1927,24 @@
     "difficulty": "medium",
     "question": "Contêineres excluídos com milhares de blobs precisam de recuperação por 14 dias. O que retém contêineres apagados?",
     "options": [
-      { "letter": "A", "text": "Exclusão reversível de contêiner" },
-      { "letter": "B", "text": "Soft delete só de blobs" },
-      { "letter": "C", "text": "Snapshot por blob" },
-      { "letter": "D", "text": "Lixeira do portal" }
+      {
+        "letter": "A",
+        "text": "Lixeira do portal"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão reversível de contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Soft delete só de blobs"
+      },
+      {
+        "letter": "D",
+        "text": "Snapshot por blob"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Container soft delete restaura contêiner e conteúdo. Blob soft delete não cobre o contêiner; snapshot por blob não escala; portal não tem lixeira.",
     "source": "original",
     "tags": ["container", "soft-delete", "restauracao"],
@@ -1348,12 +1960,24 @@
     "difficulty": "medium",
     "question": "App JavaScript no navegador precisa ler blobs de outra origem sem proxy. O que liberar no Storage para CORS?",
     "options": [
-      { "letter": "A", "text": "Regras CORS na conta com origens e métodos" },
-      { "letter": "B", "text": "SAS sem origem" },
-      { "letter": "C", "text": "Firewall liberando tudo" },
-      { "letter": "D", "text": "JSONP manual" }
+      {
+        "letter": "A",
+        "text": "Firewall liberando tudo"
+      },
+      {
+        "letter": "B",
+        "text": "SAS sem origem"
+      },
+      {
+        "letter": "C",
+        "text": "Regras CORS na conta com origens e métodos"
+      },
+      {
+        "letter": "D",
+        "text": "JSONP manual"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "CORS na conta autoriza origens/métodos do browser. SAS não controla origem; firewall aberto expõe; JSONP é legado inseguro.",
     "source": "original",
     "tags": ["cors", "navegador", "origens"],
@@ -1371,13 +1995,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Sem cache em nada"
+      },
+      {
+        "letter": "B",
         "text": "Cache-Control por blob (longo nos assets, no-cache no index)"
       },
-      { "letter": "B", "text": "Mesmo cache para tudo" },
-      { "letter": "C", "text": "Sem cache em nada" },
-      { "letter": "D", "text": "Renomear arquivos a cada deploy manual" }
+      {
+        "letter": "C",
+        "text": "Mesmo cache para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "Renomear arquivos a cada deploy manual"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Cache-Control por blob diferencia assets imutáveis do index dinâmico. Uniforme quebra atualização ou performance; sem cache atrasa; renomear manual erra.",
     "source": "original",
     "tags": ["static-website", "cache-control", "headers"],
@@ -1393,12 +2026,24 @@
     "difficulty": "medium",
     "question": "Dois workers disputam o mesmo blob de controle e apenas um pode escrever por vez. Como garantir exclusão mútua distribuída?",
     "options": [
-      { "letter": "A", "text": "Lease (concessão) exclusiva no blob" },
-      { "letter": "B", "text": "Escrita simultânea sem controle" },
-      { "letter": "C", "text": "Arquivo local de lock" },
-      { "letter": "D", "text": "E-mail de coordenação" }
+      {
+        "letter": "A",
+        "text": "Escrita simultânea sem controle"
+      },
+      {
+        "letter": "B",
+        "text": "E-mail de coordenação"
+      },
+      {
+        "letter": "C",
+        "text": "Arquivo local de lock"
+      },
+      {
+        "letter": "D",
+        "text": "Lease (concessão) exclusiva no blob"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Blob lease dá lock distribuído com renovação e quebra. Simultâneo corrompe; local não coordena; e-mail não sincroniza.",
     "source": "original",
     "tags": ["lease", "lock", "concorrencia"],
@@ -1414,10 +2059,22 @@
     "difficulty": "medium",
     "question": "Mensagem processada por 5 minutos não pode ser pega por outro worker nesse intervalo. Qual parâmetro oculta durante o processamento?",
     "options": [
-      { "letter": "A", "text": "Visibility timeout de 5 minutos" },
-      { "letter": "B", "text": "TTL zero na mensagem" },
-      { "letter": "C", "text": "Exclusão imediata ao ler" },
-      { "letter": "D", "text": "Fila sem configuração" }
+      {
+        "letter": "A",
+        "text": "Visibility timeout de 5 minutos"
+      },
+      {
+        "letter": "B",
+        "text": "Fila sem configuração"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão imediata ao ler"
+      },
+      {
+        "letter": "D",
+        "text": "TTL zero na mensagem"
+      }
     ],
     "correct": ["A"],
     "explanation": "Visibility timeout esconde durante o processamento e reaparece em falha. TTL zero apaga; excluir ao ler perde em crash; sem config duplica.",
@@ -1435,12 +2092,24 @@
     "difficulty": "medium",
     "question": "Mensagens não processadas em 7 dias devem expirar automaticamente sem worker de limpeza. O que define a vida útil?",
     "options": [
-      { "letter": "A", "text": "TTL da mensagem em 7 dias" },
-      { "letter": "B", "text": "Fila sem expiração" },
-      { "letter": "C", "text": "Deleção manual semanal" },
-      { "letter": "D", "text": "Aumento do visibility" }
+      {
+        "letter": "A",
+        "text": "Aumento do visibility"
+      },
+      {
+        "letter": "B",
+        "text": "TTL da mensagem em 7 dias"
+      },
+      {
+        "letter": "C",
+        "text": "Fila sem expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Deleção manual semanal"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "TTL da mensagem define vida útil e o serviço expira sozinho sem worker de limpeza. Sem expiração a fila acumula; deleção manual atrasa; visibility não expira.",
     "source": "original",
     "tags": ["queues", "ttl", "expiracao"],
@@ -1460,9 +2129,18 @@
         "letter": "A",
         "text": "Transação em lote (batch) na mesma PartitionKey"
       },
-      { "letter": "B", "text": "Escritas avulsas sem transação" },
-      { "letter": "C", "text": "Transação entre partições distintas" },
-      { "letter": "D", "text": "SQL com BEGIN TRAN" }
+      {
+        "letter": "B",
+        "text": "Escritas avulsas sem transação"
+      },
+      {
+        "letter": "C",
+        "text": "SQL com BEGIN TRAN"
+      },
+      {
+        "letter": "D",
+        "text": "Transação entre partições distintas"
+      }
     ],
     "correct": ["A"],
     "explanation": "Batch transacional exige mesma partição e limite de 100 entidades/4MB. Avulsas não atomicizam; cross-partition não suporta; SQL não é Table.",
@@ -1482,13 +2160,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Exportar para CSV e grep"
+      },
+      {
+        "letter": "B",
+        "text": "Scan completo com filtro"
+      },
+      {
+        "letter": "C",
         "text": "Tabela secundária com PartitionKey igual ao e-mail"
       },
-      { "letter": "B", "text": "Scan completo com filtro" },
-      { "letter": "C", "text": "Um registro por tabela" },
-      { "letter": "D", "text": "Exportar para CSV e grep" }
+      {
+        "letter": "D",
+        "text": "Um registro por tabela"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Índice secundário (tabela espelho) resolve por e-mail em O(1). Scan é O(n); uma por tabela explode; CSV não consulta.",
     "source": "original",
     "tags": ["tables", "indice-secundario", "email"],
@@ -1506,13 +2193,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Política de snapshot com agendamento e retenção"
+        "text": "Cópia para blob sem agenda"
       },
-      { "letter": "B", "text": "Snapshot manual quando lembrar" },
-      { "letter": "C", "text": "Cópia para blob sem agenda" },
-      { "letter": "D", "text": "Backup sem snapshots" }
+      {
+        "letter": "B",
+        "text": "Backup sem snapshots"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot manual quando lembrar"
+      },
+      {
+        "letter": "D",
+        "text": "Política de snapshot com agendamento e retenção"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Política agenda e expira sozinha. Manual falha; cópia sem agenda atrasa; backup sem snapshot perde granularidade.",
     "source": "original",
     "tags": ["files", "snapshot", "politica", "retencao"],
@@ -1528,12 +2224,24 @@
     "difficulty": "hard",
     "question": "SMB precisa autenticar identidades Entra ID nativas sem AD DS. Qual integração permite Kerberos com identidades da nuvem?",
     "options": [
-      { "letter": "A", "text": "Autenticação Kerberos do Entra ID no Files" },
-      { "letter": "B", "text": "Chave compartilhada para todos" },
-      { "letter": "C", "text": "AD DS obrigatório sempre" },
-      { "letter": "D", "text": "Acesso anônimo com SAS" }
+      {
+        "letter": "A",
+        "text": "Chave compartilhada para todos"
+      },
+      {
+        "letter": "B",
+        "text": "Acesso anônimo com SAS"
+      },
+      {
+        "letter": "C",
+        "text": "Autenticação Kerberos do Entra ID no Files"
+      },
+      {
+        "letter": "D",
+        "text": "AD DS obrigatório sempre"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Kerberos do Entra autentica identidades híbridas/nuvem sem AD DS. Chave única não identifica; AD nem sempre existe; anônimo expõe.",
     "source": "original",
     "tags": ["files", "kerberos", "entra-id", "smb"],
@@ -1549,10 +2257,22 @@
     "difficulty": "hard",
     "question": "Cargas Linux precisam de POSIX sobre blob barato com hierarquia. Qual protocolo expõe o blob como filesystem?",
     "options": [
-      { "letter": "A", "text": "NFS 3.0 no Blob Storage" },
-      { "letter": "B", "text": "SMB com AD obrigatório" },
-      { "letter": "C", "text": "REST sem montagem" },
-      { "letter": "D", "text": "FTP legado" }
+      {
+        "letter": "A",
+        "text": "NFS 3.0 no Blob Storage"
+      },
+      {
+        "letter": "B",
+        "text": "REST sem montagem"
+      },
+      {
+        "letter": "C",
+        "text": "SMB com AD obrigatório"
+      },
+      {
+        "letter": "D",
+        "text": "FTP legado"
+      }
     ],
     "correct": ["A"],
     "explanation": "NFS 3.0 no Blob monta o storage como filesystem POSIX para Linux. SMB exige Windows/AD; REST não monta volume; FTP é protocolo legado.",
@@ -1570,12 +2290,24 @@
     "difficulty": "hard",
     "question": "Pastas do Data Lake precisam de leitura para analistas e escrita só para engenharia, herdadas por padrão. Quais dois níveis de ACL usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "ACL de acesso para permissões efetivas" },
-      { "letter": "B", "text": "ACL padrão (default) herdada pelos filhos" },
-      { "letter": "C", "text": "SAS única para todos" },
-      { "letter": "D", "text": "Container público" }
+      {
+        "letter": "A",
+        "text": "Container público"
+      },
+      {
+        "letter": "B",
+        "text": "ACL padrão (default) herdada pelos filhos"
+      },
+      {
+        "letter": "C",
+        "text": "ACL de acesso para permissões efetivas"
+      },
+      {
+        "letter": "D",
+        "text": "SAS única para todos"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "ACL de acesso define permissões efetivas e a default propaga aos filhos por herança. SAS única mistura acessos; container público expõe dados.",
     "source": "original",
     "tags": ["datalake", "acl", "heranca", "posix"],
@@ -1591,12 +2323,24 @@
     "difficulty": "hard",
     "question": "SAS para parceiro deve valer só do IP dele e só via HTTPS. Quais duas restrições aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Restrição por IP de origem" },
-      { "letter": "B", "text": "Protocolo HTTPS obrigatório" },
-      { "letter": "C", "text": "Qualquer IP com HTTP" },
-      { "letter": "D", "text": "Sem expiração" }
+      {
+        "letter": "A",
+        "text": "Protocolo HTTPS obrigatório"
+      },
+      {
+        "letter": "B",
+        "text": "Restrição por IP de origem"
+      },
+      {
+        "letter": "C",
+        "text": "Qualquer IP com HTTP"
+      },
+      {
+        "letter": "D",
+        "text": "Sem expiração"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Restrição por IP de origem mais HTTPS obrigatório vinculam origem e canal criptografado. Qualquer IP com HTTP expõe; SAS sem expiração eterniza o acesso.",
     "source": "original",
     "tags": ["sas", "ip", "https", "restricao"],
@@ -1612,12 +2356,24 @@
     "difficulty": "hard",
     "question": "Centenas de SAS emitidas precisam de revogação central sem reemitir. Quais dois elementos da política armazenada permitem isso? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Política de acesso armazenada referenciada" },
-      { "letter": "B", "text": "Revogação alterando/excluindo a política" },
-      { "letter": "C", "text": "SAS ad-hoc sem política" },
-      { "letter": "D", "text": "Chave compartilhada por e-mail" }
+      {
+        "letter": "A",
+        "text": "Revogação alterando/excluindo a política"
+      },
+      {
+        "letter": "B",
+        "text": "Política de acesso armazenada referenciada"
+      },
+      {
+        "letter": "C",
+        "text": "Chave compartilhada por e-mail"
+      },
+      {
+        "letter": "D",
+        "text": "SAS ad-hoc sem política"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Política de acesso armazenada centraliza parâmetros e permite revogar centenas de SAS de uma vez. SAS ad-hoc exige reemitir uma por uma; chave por e-mail vaza.",
     "source": "original",
     "tags": ["sas", "stored-policy", "revogacao"],
@@ -1633,12 +2389,24 @@
     "difficulty": "hard",
     "question": "SAS sem armazenar chave da conta, vinculada à identidade Entra com expiração curta. Quais dois elementos compõem user delegation? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Chave de delegação do usuário via Entra" },
-      { "letter": "B", "text": "SAS assinada com a chave delegada" },
-      { "letter": "C", "text": "Chave da conta embutida" },
-      { "letter": "D", "text": "Acesso anônimo" }
+      {
+        "letter": "A",
+        "text": "Chave de delegação do usuário via Entra"
+      },
+      {
+        "letter": "B",
+        "text": "Chave da conta embutida"
+      },
+      {
+        "letter": "C",
+        "text": "SAS assinada com a chave delegada"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso anônimo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "User delegation key via Entra assina SAS sem expor chave da conta. Embutir vaza; anônimo não autentica.",
     "source": "original",
     "tags": ["user-delegation", "sas", "entra-id"],
@@ -1654,13 +2422,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que marcar 'permitir serviços Microsoft confiáveis' no firewall mantém a conta acessível a qualquer serviço do Azure. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, qualquer serviço Azure acessa" },
+      {
+        "letter": "A",
+        "text": "Não, só serviços da lista de confiáveis com identidade"
+      },
       {
         "letter": "B",
-        "text": "Não, só serviços da lista de confiáveis com identidade"
+        "text": "Sim, qualquer serviço Azure acessa"
       }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "A exceção vale para serviços confiáveis autenticados (ex.: Backup, Monitor), não para todo Azure. Assumir abertura geral é falha grave.",
     "source": "original",
     "tags": ["firewall", "excecao", "confiaveis"],
@@ -1678,13 +2449,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Nunca, criptografado é final"
+      },
+      {
+        "letter": "B",
+        "text": "Somente nas últimas 24h"
+      },
+      {
+        "letter": "C",
         "text": "Dentro da retenção configurada (ex.: 30 dias)"
       },
-      { "letter": "B", "text": "Somente nas últimas 24h" },
-      { "letter": "C", "text": "Apenas com backup externo" },
-      { "letter": "D", "text": "Nunca, criptografado é final" }
+      {
+        "letter": "D",
+        "text": "Apenas com backup externo"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Soft delete retém versões/excluídos pelo período configurado para undelete. Limite de 24h não existe; backup externo é complementar; criptografado com retenção volta.",
     "source": "original",
     "tags": ["soft-delete", "retencao", "ransomware", "pit"],
@@ -1702,13 +2482,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Failover geográfico"
+      },
+      {
+        "letter": "B",
+        "text": "Recriação manual da conta"
+      },
+      {
+        "letter": "C",
         "text": "Restauração point-in-time da conta (com versionamento + change feed)"
       },
-      { "letter": "B", "text": "Snapshot individual por blob" },
-      { "letter": "C", "text": "Recriação manual da conta" },
-      { "letter": "D", "text": "Failover geográfico" }
+      {
+        "letter": "D",
+        "text": "Snapshot individual por blob"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "PITR restaura a conta a ponto no passado com pré-requisitos ligados. Snapshot por blob não escala; recriar perde; failover muda região sem voltar no tempo.",
     "source": "original",
     "tags": ["pitr", "restauracao", "conta"],
@@ -1726,13 +2515,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Backup de VM do cofre Recovery"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot semanal manual"
+      },
+      {
+        "letter": "C",
         "text": "Backup operacional de blobs (contínuo, sem cofre)"
       },
-      { "letter": "B", "text": "Backup de VM do cofre Recovery" },
-      { "letter": "C", "text": "Cópia manual para outra conta" },
-      { "letter": "D", "text": "Snapshot semanal manual" }
+      {
+        "letter": "D",
+        "text": "Cópia manual para outra conta"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Operational backup protege blobs continuamente com políticas. Cofre de VM não cobre blob; cópia manual falha; snapshot manual atrasa.",
     "source": "original",
     "tags": ["backup-operacional", "blobs", "continuo"],
@@ -1748,12 +2546,24 @@
     "difficulty": "medium",
     "question": "Files críticos exigem cópias isoladas em cofre com retenção de anos para compliance. Qual backup em cofre atende?",
     "options": [
-      { "letter": "A", "text": "Backup em cofre (vaulted) do Azure Files" },
-      { "letter": "B", "text": "Snapshot local sem cofre" },
-      { "letter": "C", "text": "Replicação GRS como backup" },
-      { "letter": "D", "text": "Exportação CSV" }
+      {
+        "letter": "A",
+        "text": "Snapshot local sem cofre"
+      },
+      {
+        "letter": "B",
+        "text": "Backup em cofre (vaulted) do Azure Files"
+      },
+      {
+        "letter": "C",
+        "text": "Replicação GRS como backup"
+      },
+      {
+        "letter": "D",
+        "text": "Exportação CSV"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Vaulted backup isola cópias com retenção longa auditável. Snapshot local não isola; GRS replica sem versionar; CSV não guarda arquivos.",
     "source": "original",
     "tags": ["backup-cofre", "files", "retencao", "compliance"],
@@ -1771,13 +2581,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Backup do SO via agente"
+      },
+      {
+        "letter": "B",
+        "text": "Cópia do VHD por AzCopy"
+      },
+      {
+        "letter": "C",
         "text": "Backup de disco (snapshot incremental gerenciado)"
       },
-      { "letter": "B", "text": "Cópia do VHD por AzCopy" },
-      { "letter": "C", "text": "Backup do SO via agente" },
-      { "letter": "D", "text": "Imagem mensal manual" }
+      {
+        "letter": "D",
+        "text": "Imagem mensal manual"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Disk backup usa snapshots incrementais sem agente. AzCopy copia atual sem histórico; agente adiciona gestão; imagem mensal perde RPO.",
     "source": "original",
     "tags": ["backup-disco", "snapshot", "incremental"],
@@ -1793,12 +2612,24 @@
     "difficulty": "medium",
     "question": "Backups de VMs, Files, discos e blobs precisam de visão única com conformidade. Onde centralizar a gestão?",
     "options": [
-      { "letter": "A", "text": "Centro de Backup (Backup Center) unificado" },
-      { "letter": "B", "text": "Um cofre por recurso sem visão" },
-      { "letter": "C", "text": "Planilha de controle" },
-      { "letter": "D", "text": "E-mail de confirmação" }
+      {
+        "letter": "A",
+        "text": "Planilha de controle"
+      },
+      {
+        "letter": "B",
+        "text": "Um cofre por recurso sem visão"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail de confirmação"
+      },
+      {
+        "letter": "D",
+        "text": "Centro de Backup (Backup Center) unificado"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Backup Center agrega cofres, políticas e conformidade. Cofres isolados fragmentam; planilha desatualiza; e-mail não gerencia.",
     "source": "original",
     "tags": ["backup-center", "centralizacao", "conformidade"],
@@ -1818,9 +2649,18 @@
         "letter": "A",
         "text": "Restauração entre regiões habilitada no cofre (com GRS)"
       },
-      { "letter": "B", "text": "Backup local apenas" },
-      { "letter": "C", "text": "Failover manual de DNS" },
-      { "letter": "D", "text": "Recriação do zero" }
+      {
+        "letter": "B",
+        "text": "Recriação do zero"
+      },
+      {
+        "letter": "C",
+        "text": "Backup local apenas"
+      },
+      {
+        "letter": "D",
+        "text": "Failover manual de DNS"
+      }
     ],
     "correct": ["A"],
     "explanation": "Cross-region restore usa cópias GRS na secundária. Local não alcança outra região; DNS não restaura dados; recriar perde histórico.",
@@ -1840,13 +2680,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Três cofres separados manuais"
+      },
+      {
+        "letter": "B",
         "text": "Política de backup com retenções diária/semanal/mensal"
       },
-      { "letter": "B", "text": "Três cofres separados manuais" },
-      { "letter": "C", "text": "Snapshot único anual" },
-      { "letter": "D", "text": "Sem política com backup manual" }
+      {
+        "letter": "C",
+        "text": "Snapshot único anual"
+      },
+      {
+        "letter": "D",
+        "text": "Sem política com backup manual"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Política combina camadas de retenção automaticamente. Cofres manuais divergem; snapshot único não cobre; sem política falha.",
     "source": "original",
     "tags": ["politica", "retencao", "camadas"],
@@ -1862,12 +2711,24 @@
     "difficulty": "medium",
     "question": "Restauração de VM precisa voltar em minutos a partir de snapshot local antes do cofre. O que mantém cópias instantâneas?",
     "options": [
-      { "letter": "A", "text": "Retenção de snapshot instantâneo na política" },
-      { "letter": "B", "text": "Restauração só do cofre distante" },
-      { "letter": "C", "text": "Recriação da VM" },
-      { "letter": "D", "text": "Failover geográfico" }
+      {
+        "letter": "A",
+        "text": "Failover geográfico"
+      },
+      {
+        "letter": "B",
+        "text": "Retenção de snapshot instantâneo na política"
+      },
+      {
+        "letter": "C",
+        "text": "Recriação da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Restauração só do cofre distante"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Instant restore mantém snapshots locais por dias para volta rápida. Só cofre demora; recriar perde; failover muda região.",
     "source": "original",
     "tags": ["instant-restore", "snapshot", "rapido"],
@@ -1887,9 +2748,18 @@
         "letter": "A",
         "text": "Alertas de backup do Backup Center ao Monitor"
       },
-      { "letter": "B", "text": "Verificação manual diária" },
-      { "letter": "C", "text": "E-mail do operador" },
-      { "letter": "D", "text": "Log local do agente" }
+      {
+        "letter": "B",
+        "text": "Log local do agente"
+      },
+      {
+        "letter": "C",
+        "text": "Verificação manual diária"
+      },
+      {
+        "letter": "D",
+        "text": "E-mail do operador"
+      }
     ],
     "correct": ["A"],
     "explanation": "Alertas integrados disparam action groups com contexto. Manual atrasa; e-mail do operador não escala; local não centraliza.",
@@ -1909,13 +2779,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Prints do portal"
+      },
+      {
+        "letter": "B",
         "text": "Relatórios de backup no Backup Center (Log Analytics)"
       },
-      { "letter": "B", "text": "Consulta item por item" },
-      { "letter": "C", "text": "Prints do portal" },
-      { "letter": "D", "text": "E-mail do fornecedor" }
+      {
+        "letter": "C",
+        "text": "E-mail do fornecedor"
+      },
+      {
+        "letter": "D",
+        "text": "Consulta item por item"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Relatórios agregam conformidade via LA. Item a item não escala; prints não auditam; fornecedor não tem os dados.",
     "source": "original",
     "tags": ["backup", "relatorios", "auditoria"],
@@ -1931,10 +2810,22 @@
     "difficulty": "medium",
     "question": "Recurso descomissionado deve parar backup mantendo pontos existentes pelo prazo. O que interrompe sem apagar histórico?",
     "options": [
-      { "letter": "A", "text": "Parar proteção mantendo dados retidos" },
-      { "letter": "B", "text": "Excluir o cofre inteiro" },
-      { "letter": "C", "text": "Desligar o recurso" },
-      { "letter": "D", "text": "Ignorar cobranças" }
+      {
+        "letter": "A",
+        "text": "Parar proteção mantendo dados retidos"
+      },
+      {
+        "letter": "B",
+        "text": "Excluir o cofre inteiro"
+      },
+      {
+        "letter": "C",
+        "text": "Desligar o recurso"
+      },
+      {
+        "letter": "D",
+        "text": "Ignorar cobranças"
+      }
     ],
     "correct": ["A"],
     "explanation": "Stop protection with retain mantém histórico pelo prazo. Excluir cofre apaga tudo; desligar não para backup; ignorar acumula custo.",
@@ -1952,12 +2843,24 @@
     "difficulty": "medium",
     "question": "Proteção pausada precisa retomar sem perder histórico nem reconfigurar tudo. O que retoma a mesma política?",
     "options": [
-      { "letter": "A", "text": "Retomar proteção no mesmo item/cofre" },
-      { "letter": "B", "text": "Criar backup novo do zero" },
-      { "letter": "C", "text": "Novo cofre por retomada" },
-      { "letter": "D", "text": "Aguardar expiração total" }
+      {
+        "letter": "A",
+        "text": "Novo cofre por retomada"
+      },
+      {
+        "letter": "B",
+        "text": "Criar backup novo do zero"
+      },
+      {
+        "letter": "C",
+        "text": "Aguardar expiração total"
+      },
+      {
+        "letter": "D",
+        "text": "Retomar proteção no mesmo item/cofre"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Resume mantém histórico e política no item. Novo do zero perde cadeia; novo cofre fragmenta; aguardar atrasa.",
     "source": "original",
     "tags": ["resume", "protecao", "retomar"],
@@ -1975,13 +2878,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Cópia manual do backup"
+      },
+      {
+        "letter": "B",
         "text": "Restauração em nível de arquivo/pasta do snapshot"
       },
-      { "letter": "B", "text": "Restauração total obrigatória" },
-      { "letter": "C", "text": "Recriação do compartilhamento" },
-      { "letter": "D", "text": "Cópia manual do backup" }
+      {
+        "letter": "C",
+        "text": "Recriação do compartilhamento"
+      },
+      {
+        "letter": "D",
+        "text": "Restauração total obrigatória"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Item-level restore recupera pasta/arquivo do snapshot. Total afetaria o resto; recriar perde; manual atrasa.",
     "source": "original",
     "tags": ["restore", "arquivo", "granular", "files"],
@@ -1997,12 +2909,24 @@
     "difficulty": "medium",
     "question": "Restauração deve voltar ao local original sobrescrevendo ou para local alternativo para análise. Quais opções o restore oferece?",
     "options": [
-      { "letter": "A", "text": "Local original ou alternativo" },
-      { "letter": "B", "text": "Apenas novo recurso" },
-      { "letter": "C", "text": "Apenas download local" },
-      { "letter": "D", "text": "Sem opção de destino" }
+      {
+        "letter": "A",
+        "text": "Apenas download local"
+      },
+      {
+        "letter": "B",
+        "text": "Sem opção de destino"
+      },
+      {
+        "letter": "C",
+        "text": "Local original ou alternativo"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas novo recurso"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Restore permite OLR (sobrescreve) ou ALR (alternativo para forense). Só novo impede retorno; só download não restaura serviço; sem destino não há restore.",
     "source": "original",
     "tags": ["restore", "olr", "alr", "destino"],
@@ -2018,12 +2942,24 @@
     "difficulty": "hard",
     "question": "Backups precisam de criptografia com chaves próprias e imutabilidade contra ransomware. Quais dois recursos combinam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "CMK nos cofres com Key Vault" },
-      { "letter": "B", "text": "Imutabilidade (soft delete + lock) do cofre" },
-      { "letter": "C", "text": "Cofre sem proteção" },
-      { "letter": "D", "text": "Chaves compartilhadas por e-mail" }
+      {
+        "letter": "A",
+        "text": "Imutabilidade (soft delete + lock) do cofre"
+      },
+      {
+        "letter": "B",
+        "text": "Chaves compartilhadas por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "CMK nos cofres com Key Vault"
+      },
+      {
+        "letter": "D",
+        "text": "Cofre sem proteção"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "CMK controla chaves e imutabilidade impede apagar backups. Sem proteção o ransomware limpa; e-mail vaza chaves.",
     "source": "original",
     "tags": ["backup", "cmk", "imutabilidade", "ransomware"],
@@ -2039,12 +2975,24 @@
     "difficulty": "hard",
     "question": "Tráfego de backup não pode sair para internet e precisa de DNS privado. Quais dois elementos isolam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Private Endpoints para Backup" },
-      { "letter": "B", "text": "Zona DNS privada do backup" },
-      { "letter": "C", "text": "Endpoint público liberado" },
-      { "letter": "D", "text": "Sem DNS com IP fixo" }
+      {
+        "letter": "A",
+        "text": "Zona DNS privada do backup"
+      },
+      {
+        "letter": "B",
+        "text": "Endpoint público liberado"
+      },
+      {
+        "letter": "C",
+        "text": "Sem DNS com IP fixo"
+      },
+      {
+        "letter": "D",
+        "text": "Private Endpoints para Backup"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Private Endpoints isolam o tráfego de backup da internet e a zona DNS privada resolve internamente. Endpoint público expõe; sem DNS a resolução quebra.",
     "source": "original",
     "tags": ["backup", "private-endpoint", "dns"],
@@ -2060,12 +3008,24 @@
     "difficulty": "hard",
     "question": "Exclusão de backup crítica exige aprovação de segundo operador. Quais dois elementos do MUA protegem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Autorização multissuário (MUA) no cofre" },
-      { "letter": "B", "text": "Resource Guard como aprovador" },
-      { "letter": "C", "text": "Exclusão por operador único" },
-      { "letter": "D", "text": "Sem aprovação" }
+      {
+        "letter": "A",
+        "text": "Exclusão por operador único"
+      },
+      {
+        "letter": "B",
+        "text": "Resource Guard como aprovador"
+      },
+      {
+        "letter": "C",
+        "text": "Sem aprovação"
+      },
+      {
+        "letter": "D",
+        "text": "Autorização multissuário (MUA) no cofre"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "MUA exige segundo aprovador via Resource Guard para ações críticas. Único exclui sozinho; sem aprovação não há controle.",
     "source": "original",
     "tags": ["mua", "resource-guard", "exclusao"],
@@ -2081,12 +3041,24 @@
     "difficulty": "hard",
     "question": "Restore precisa ocorrer em subscription distinta para isolamento. Quais dois requisitos permitem cross-subscription? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Permissão entre subscriptions (RBAC)" },
-      { "letter": "B", "text": "Recurso de restore cross-sub habilitado" },
-      { "letter": "C", "text": "Mesma subscription obrigatória" },
-      { "letter": "D", "text": "Sem RBAC" }
+      {
+        "letter": "A",
+        "text": "Permissão entre subscriptions (RBAC)"
+      },
+      {
+        "letter": "B",
+        "text": "Mesma subscription obrigatória"
+      },
+      {
+        "letter": "C",
+        "text": "Sem RBAC"
+      },
+      {
+        "letter": "D",
+        "text": "Recurso de restore cross-sub habilitado"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "D"],
     "explanation": "Permissão RBAC entre subscriptions autoriza e o recurso de restore cross-sub habilitado permite. Exigir mesma subscription limita o DR; sem RBAC o acesso nega.",
     "source": "original",
     "tags": ["cross-subscription", "restore", "rbac"],
@@ -2102,12 +3074,24 @@
     "difficulty": "hard",
     "question": "Cofre de backup precisa sobreviver a falha de zona com replicação. Quais dois elementos dão redundância zonal? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Armazenamento com redundância de zona" },
-      { "letter": "B", "text": "Cofre em região com zonas" },
-      { "letter": "C", "text": "LRS em região sem zona" },
-      { "letter": "D", "text": "Cofre único sem réplica" }
+      {
+        "letter": "A",
+        "text": "Cofre único sem réplica"
+      },
+      {
+        "letter": "B",
+        "text": "Cofre em região com zonas"
+      },
+      {
+        "letter": "C",
+        "text": "Armazenamento com redundância de zona"
+      },
+      {
+        "letter": "D",
+        "text": "LRS em região sem zona"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "ZRS no cofre em região zonal tolera perda de datacenter. LRS sem zona não tolera; único sem réplica é ponto único.",
     "source": "original",
     "tags": ["cofre", "zrs", "zonas", "redundancia"],
@@ -2123,12 +3107,24 @@
     "difficulty": "hard",
     "question": "Janela de backup não pode impactar pico das 9h às 18h. Quais dois controles agendam fora do pico? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Agendamento noturno/madrugada" },
-      { "letter": "B", "text": "Janela de manutenção aprovada" },
-      { "letter": "C", "text": "Backup no pico" },
-      { "letter": "D", "text": "Sem janela definida" }
+      {
+        "letter": "A",
+        "text": "Janela de manutenção aprovada"
+      },
+      {
+        "letter": "B",
+        "text": "Sem janela definida"
+      },
+      {
+        "letter": "C",
+        "text": "Agendamento noturno/madrugada"
+      },
+      {
+        "letter": "D",
+        "text": "Backup no pico"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Agendamento noturno fora do pico com janela de manutenção aprovada evita impacto. Backup no horário de pico degrada produção; sem janela definida é imprevisível.",
     "source": "original",
     "tags": ["janela", "agendamento", "pico"],
@@ -2144,12 +3140,24 @@
     "difficulty": "hard",
     "question": "Retenção legal não pode ser reduzida nem por administradores. Quais dois travamentos garantem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Bloqueio de retenção (retention lock)" },
-      { "letter": "B", "text": "MUA para alterar política" },
-      { "letter": "C", "text": "Política editável livremente" },
-      { "letter": "D", "text": "Sem retenção" }
+      {
+        "letter": "A",
+        "text": "MUA para alterar política"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio de retenção (retention lock)"
+      },
+      {
+        "letter": "C",
+        "text": "Sem retenção"
+      },
+      {
+        "letter": "D",
+        "text": "Política editável livremente"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Lock impede redução e MUA exige aprovação para mudar. Editável livre viola compliance; sem retenção perde dados.",
     "source": "original",
     "tags": ["retention-lock", "mua", "compliance"],
@@ -2165,12 +3173,24 @@
     "difficulty": "hard",
     "question": "Backups precisam de teste periódico de restaurabilidade com evidência. Quais dois elementos validam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Restore de teste em ambiente isolado" },
-      { "letter": "B", "text": "Relatório de sucesso do teste" },
-      { "letter": "C", "text": "Confiança sem testar" },
-      { "letter": "D", "text": "Restore em produção direto" }
+      {
+        "letter": "A",
+        "text": "Restore de teste em ambiente isolado"
+      },
+      {
+        "letter": "B",
+        "text": "Restore em produção direto"
+      },
+      {
+        "letter": "C",
+        "text": "Relatório de sucesso do teste"
+      },
+      {
+        "letter": "D",
+        "text": "Confiança sem testar"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Restore de teste em ambiente isolado valida sem risco e o relatório de sucesso evidencia. Confiar sem testar cega; restaurar direto em produção arrisca.",
     "source": "original",
     "tags": ["teste-restore", "validacao", "isolado"],
@@ -2186,12 +3206,24 @@
     "difficulty": "hard",
     "question": "Cópias precisam de isolamento lógico (air gap) contra ransomware com acesso restrito. Quais dois elementos isolam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Cofre isolado com imutabilidade" },
-      { "letter": "B", "text": "Acesso restrito com MUA" },
-      { "letter": "C", "text": "Backup na mesma conta" },
-      { "letter": "D", "text": "Acesso aberto ao cofre" }
+      {
+        "letter": "A",
+        "text": "Backup na mesma conta"
+      },
+      {
+        "letter": "B",
+        "text": "Cofre isolado com imutabilidade"
+      },
+      {
+        "letter": "C",
+        "text": "Acesso restrito com MUA"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso aberto ao cofre"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Cofre isolado com imutabilidade mais acesso restrito com MUA criam air gap lógico. Backup na mesma conta cai junto no ataque; acesso aberto ao cofre expõe.",
     "source": "original",
     "tags": ["air-gap", "isolamento", "imutabilidade"],
@@ -2207,12 +3239,24 @@
     "difficulty": "hard",
     "question": "Contrato exige RPO 1h e RTO 4h para arquivos críticos. Quais dois parâmetros da política atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Frequência horária de backup (RPO)" },
-      { "letter": "B", "text": "Restore testado dentro de 4h (RTO)" },
-      { "letter": "C", "text": "Backup semanal" },
-      { "letter": "D", "text": "Restore sem teste" }
+      {
+        "letter": "A",
+        "text": "Restore testado dentro de 4h (RTO)"
+      },
+      {
+        "letter": "B",
+        "text": "Frequência horária de backup (RPO)"
+      },
+      {
+        "letter": "C",
+        "text": "Restore sem teste"
+      },
+      {
+        "letter": "D",
+        "text": "Backup semanal"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Frequência horária garante RPO e restore testado garante RTO. Semanal estoura RPO; sem teste não prova RTO.",
     "source": "original",
     "tags": ["rpo", "rto", "sla", "backup"],
@@ -2228,12 +3272,24 @@
     "difficulty": "hard",
     "question": "Custos de backup precisam cair sem perder RPO, com camadas baratas. Quais duas alavancas otimizam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Camada Archive para retenções longas" },
-      { "letter": "B", "text": "Retenção ajustada por criticidade" },
-      { "letter": "C", "text": "Tudo em Premium quente" },
-      { "letter": "D", "text": "Retenção infinita geral" }
+      {
+        "letter": "A",
+        "text": "Retenção ajustada por criticidade"
+      },
+      {
+        "letter": "B",
+        "text": "Camada Archive para retenções longas"
+      },
+      {
+        "letter": "C",
+        "text": "Retenção infinita geral"
+      },
+      {
+        "letter": "D",
+        "text": "Tudo em Premium quente"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Archive barateia longo prazo e retenção por criticidade evita excesso. Tudo Premium custa; infinito acumula.",
     "source": "original",
     "tags": ["custo", "archive", "retencao"],
@@ -2249,12 +3305,24 @@
     "difficulty": "hard",
     "question": "Falhas silenciosas de backup precisam de detecção com métricas e alertas. Quais dois monitoramentos aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Métricas de jobs com alerta de falha" },
-      { "letter": "B", "text": "Relatório diário de conformidade" },
-      { "letter": "C", "text": "Verificação anual manual" },
-      { "letter": "D", "text": "Sem monitoramento" }
+      {
+        "letter": "A",
+        "text": "Métricas de jobs com alerta de falha"
+      },
+      {
+        "letter": "B",
+        "text": "Sem monitoramento"
+      },
+      {
+        "letter": "C",
+        "text": "Relatório diário de conformidade"
+      },
+      {
+        "letter": "D",
+        "text": "Verificação anual manual"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["A", "C"],
     "explanation": "Métricas de jobs com alerta de falha detectam na hora e o relatório diário audita cobertura. Verificação anual manual atrasa meses; sem monitoramento não há detecção.",
     "source": "original",
     "tags": ["monitoramento", "metricas", "relatorio"],
@@ -2270,12 +3338,24 @@
     "difficulty": "hard",
     "question": "Tráfego de backup não pode competir com produção nem sair à internet. Quais dois controles de rede aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Private Endpoints para o tráfego" },
-      { "letter": "B", "text": "Janela fora do pico" },
-      { "letter": "C", "text": "Endpoint público no pico" },
-      { "letter": "D", "text": "Sem controle" }
+      {
+        "letter": "A",
+        "text": "Endpoint público no pico"
+      },
+      {
+        "letter": "B",
+        "text": "Janela fora do pico"
+      },
+      {
+        "letter": "C",
+        "text": "Sem controle"
+      },
+      {
+        "letter": "D",
+        "text": "Private Endpoints para o tráfego"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Private Endpoints mantêm o tráfego fora da internet e a janela fora do pico evita contenção. Endpoint público expõe dados; sem controle o backup compete com produção.",
     "source": "original",
     "tags": ["rede", "private-endpoint", "janela"],
@@ -2291,12 +3371,24 @@
     "difficulty": "hard",
     "question": "Backups em trânsito e repouso precisam de criptografia ponta a ponta. Quais dois mecanismos garantem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "TLS no transporte" },
-      { "letter": "B", "text": "CMK no cofre em repouso" },
-      { "letter": "C", "text": "HTTP sem TLS" },
-      { "letter": "D", "text": "Sem criptografia" }
+      {
+        "letter": "A",
+        "text": "Sem criptografia"
+      },
+      {
+        "letter": "B",
+        "text": "CMK no cofre em repouso"
+      },
+      {
+        "letter": "C",
+        "text": "HTTP sem TLS"
+      },
+      {
+        "letter": "D",
+        "text": "TLS no transporte"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "TLS protege o transporte e CMK no cofre protege o repouso com suas chaves. HTTP sem TLS expõe em trânsito; sem criptografia viola compliance.",
     "source": "original",
     "tags": ["criptografia", "tls", "cmk"],
@@ -2312,12 +3404,24 @@
     "difficulty": "hard",
     "question": "Restaurar um arquivo de VM sem voltar o disco inteiro exige dois recursos. Quais são eles? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Recuperação em nível de arquivo do backup" },
-      { "letter": "B", "text": "Montagem do ponto de recuperação" },
-      { "letter": "C", "text": "Restore total obrigatório" },
-      { "letter": "D", "text": "Formatação do disco" }
+      {
+        "letter": "A",
+        "text": "Restore total obrigatório"
+      },
+      {
+        "letter": "B",
+        "text": "Montagem do ponto de recuperação"
+      },
+      {
+        "letter": "C",
+        "text": "Recuperação em nível de arquivo do backup"
+      },
+      {
+        "letter": "D",
+        "text": "Formatação do disco"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Monta-se o ponto de recuperação e extrai-se apenas o arquivo necessário. Restore total obrigatório afeta o disco inteiro; formatar o disco apaga tudo.",
     "source": "original",
     "tags": ["granular", "arquivo", "montagem"],
@@ -2333,12 +3437,24 @@
     "difficulty": "hard",
     "question": "Bancos SQL em VM precisam de backup transacional com truncamento de log. Quais dois elementos compõem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Backup com workload de SQL Server" },
-      { "letter": "B", "text": "Truncamento de log após backup" },
-      { "letter": "C", "text": "Snapshot de disco sem quiesce" },
-      { "letter": "D", "text": "Cópia dos MDF com banco online" }
+      {
+        "letter": "A",
+        "text": "Snapshot de disco sem quiesce"
+      },
+      {
+        "letter": "B",
+        "text": "Truncamento de log após backup"
+      },
+      {
+        "letter": "C",
+        "text": "Cópia dos MDF com banco online"
+      },
+      {
+        "letter": "D",
+        "text": "Backup com workload de SQL Server"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Workload SQL garante consistência e o truncamento libera log. Snapshot sem quiesce corrompe; copiar MDF online quebra.",
     "source": "original",
     "tags": ["sql", "backup", "log", "truncamento"],
@@ -2354,10 +3470,22 @@
     "difficulty": "hard",
     "question": "HANA em VM precisa de backup certificado pela SAP com snapshots. Quais dois elementos atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Backup certificado para SAP HANA" },
-      { "letter": "B", "text": "Snapshots de armazenamento integrados" },
-      { "letter": "C", "text": "Dump manual sem certificação" },
-      { "letter": "D", "text": "Backup de arquivos genérico" }
+      {
+        "letter": "A",
+        "text": "Backup certificado para SAP HANA"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshots de armazenamento integrados"
+      },
+      {
+        "letter": "C",
+        "text": "Backup de arquivos genérico"
+      },
+      {
+        "letter": "D",
+        "text": "Dump manual sem certificação"
+      }
     ],
     "correct": ["A", "B"],
     "explanation": "Solução certificada SAP com snapshots garante suporte. Dump manual não certifica; genérico não entende HANA.",
@@ -2375,12 +3503,24 @@
     "difficulty": "hard",
     "question": "Servidor físico legado precisa de backup em nuvem sem infraestrutura nova. Quais dois agentes atendem? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Agente MARS para arquivos/pastas" },
-      { "letter": "B", "text": "DPM para cargas completas" },
-      { "letter": "C", "text": "Sem agente com cópia manual" },
-      { "letter": "D", "text": "FTP para storage" }
+      {
+        "letter": "A",
+        "text": "DPM para cargas completas"
+      },
+      {
+        "letter": "B",
+        "text": "Sem agente com cópia manual"
+      },
+      {
+        "letter": "C",
+        "text": "FTP para storage"
+      },
+      {
+        "letter": "D",
+        "text": "Agente MARS para arquivos/pastas"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Agente MARS protege arquivos e pastas e o DPM cobre cargas on-prem completas. Sem agente não há backup gerenciado; FTP para storage não versiona nem agenda.",
     "source": "original",
     "tags": ["mars", "dpm", "legado", "on-premises"],
@@ -2396,8 +3536,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que excluir uma VM com soft delete no cofre permite restaurar a máquina inteira depois. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, soft delete do cofre restaura a VM" },
-      { "letter": "B", "text": "Não, é preciso backup da VM com retenção" }
+      {
+        "letter": "A",
+        "text": "Sim, soft delete do cofre restaura a VM"
+      },
+      {
+        "letter": "B",
+        "text": "Não, é preciso backup da VM com retenção"
+      }
     ],
     "correct": ["B"],
     "explanation": "Soft delete do cofre protege backups, não cria backup de VM sem proteção. Assumir restauração sem backup é falha grave.",
@@ -2415,8 +3561,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que o backup sob demanda (Backup Now) respeita a mesma retenção da política agendada. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, segue a política vigente" },
-      { "letter": "B", "text": "Não, usa retenção própria configurada" }
+      {
+        "letter": "A",
+        "text": "Sim, segue a política vigente"
+      },
+      {
+        "letter": "B",
+        "text": "Não, usa retenção própria configurada"
+      }
     ],
     "correct": ["B"],
     "explanation": "On-demand define retenção própria no disparo, distinta da agenda. Assumir igualdade estoura ou encurta guarda.",
@@ -2434,10 +3586,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que parar proteção com retenção mantém os pontos existentes cobrando só armazenamento. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, retém cobrando storage" },
-      { "letter": "B", "text": "Não, parar apaga tudo imediatamente" }
+      {
+        "letter": "A",
+        "text": "Não, parar apaga tudo imediatamente"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, retém cobrando storage"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Stop with retain interrompe novos backups e guarda o histórico pelo prazo, cobrando storage. Achar que apaga impede descomissionar certo.",
     "source": "original",
     "tags": ["stop-protection", "reter", "cobranca"],
@@ -2453,10 +3611,16 @@
     "difficulty": "hard",
     "question": "Um admin afirma que excluir um cofre com itens protegidos é bloqueado até remover proteções e retenções. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, há travas de exclusão" },
-      { "letter": "B", "text": "Não, exclui direto com tudo" }
+      {
+        "letter": "A",
+        "text": "Não, exclui direto com tudo"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, há travas de exclusão"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Cofre com itens, MUA e soft delete trava exclusão até limpar. Assumir exclusão direta subestima proteções.",
     "source": "original",
     "tags": ["cofre", "exclusao", "travas"],
@@ -2472,8 +3636,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que o soft delete do cofre vem habilitado por padrão e não pode ser desligado em novos cofres. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, padrão e obrigatório" },
-      { "letter": "B", "text": "Não, é opcional e configurável" }
+      {
+        "letter": "A",
+        "text": "Sim, padrão e obrigatório"
+      },
+      {
+        "letter": "B",
+        "text": "Não, é opcional e configurável"
+      }
     ],
     "correct": ["A"],
     "explanation": "Soft delete é padrão em cofres novos como proteção base contra ransomware. Achar opcional ignora a defesa padrão.",
@@ -2491,10 +3661,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que cofre com imutabilidade impede até administradores de excluir backups no prazo. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, imutável bloqueia todos" },
-      { "letter": "B", "text": "Não, Owner sempre exclui" }
+      {
+        "letter": "A",
+        "text": "Não, Owner sempre exclui"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, imutável bloqueia todos"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Immutability trava exclusão/alteração até expirar, inclusive para admins. Assumir override quebra compliance.",
     "source": "original",
     "tags": ["imutabilidade", "cofre", "compliance"],
@@ -2510,10 +3686,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que restore cross-region exige GRS com CRR habilitado no cofre. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, GRS + CRR habilitam" },
-      { "letter": "B", "text": "Não, LRS basta" }
+      {
+        "letter": "A",
+        "text": "Não, LRS basta"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, GRS + CRR habilitam"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Restore cross-region exige cópia GRS com CRR habilitado no cofre. LRS não sai da região primária, inviabilizando a restauração distante.",
     "source": "original",
     "tags": ["grs", "crr", "cross-region"],
@@ -2529,8 +3711,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que restore zonal (para outra zona) exige backup com redundância de zona. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, ZRS habilita restore zonal" },
-      { "letter": "B", "text": "Não, qualquer backup restaura em zona" }
+      {
+        "letter": "A",
+        "text": "Sim, ZRS habilita restore zonal"
+      },
+      {
+        "letter": "B",
+        "text": "Não, qualquer backup restaura em zona"
+      }
     ],
     "correct": ["A"],
     "explanation": "Restauração entre zonas precisa de cópia com redundância zonal. LRS comum não oferece alvo em outra zona para o restore.",
@@ -2548,10 +3736,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que restore de backup CMK exige acesso ao Key Vault original no momento da restauração. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, sem a chave não há restore" },
-      { "letter": "B", "text": "Não, restore dispensa a chave" }
+      {
+        "letter": "A",
+        "text": "Não, restore dispensa a chave"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, sem a chave não há restore"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Dados protegidos por CMK só descriptografam com a chave do Key Vault no momento do restore. Sem cofre e chave acessíveis, a restauração falha.",
     "source": "original",
     "tags": ["cmk", "restore", "key-vault"],
@@ -2567,10 +3761,16 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que restore via Private Endpoint mantém todo o tráfego fora da internet pública. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, PE isola o plano de dados" },
-      { "letter": "B", "text": "Não, restore sempre usa internet" }
+      {
+        "letter": "A",
+        "text": "Não, restore sempre usa internet"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, PE isola o plano de dados"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Private Endpoints mantêm backup e restore na backbone privada sem internet pública. Assumir tráfego público ignora o isolamento de rede disponível.",
     "source": "original",
     "tags": ["private-endpoint", "restore", "isolamento"],
@@ -2586,8 +3786,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que throughput de backup pode ser limitado para não impactar produção em horário comercial. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, via agendamento e limites" },
-      { "letter": "B", "text": "Não, backup sempre usa banda total" }
+      {
+        "letter": "A",
+        "text": "Sim, via agendamento e limites"
+      },
+      {
+        "letter": "B",
+        "text": "Não, backup sempre usa banda total"
+      }
     ],
     "correct": ["A"],
     "explanation": "Janelas e limites (ex.: MARS throttling) contêm impacto. Assumir banda total impede conviver com produção.",
@@ -2605,10 +3811,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que falha de um backup diário inviabiliza toda a cadeia de restauração. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, perde-se tudo" },
-      { "letter": "B", "text": "Não, pontos anteriores e retry cobrem" }
+      {
+        "letter": "A",
+        "text": "Não, pontos anteriores e retry cobrem"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, perde-se tudo"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "Falha isolada gera retry e pontos anteriores seguem válidos. Achar perda total ignora retenção e nova tentativa.",
     "source": "original",
     "tags": ["falha", "retry", "cadeia"],
@@ -2624,8 +3836,14 @@
     "difficulty": "hard",
     "question": "Um admin afirma que migrar cofre clássico para Backup Center preserva políticas e históricos. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, com migração assistida" },
-      { "letter": "B", "text": "Não, perde-se todo histórico" }
+      {
+        "letter": "A",
+        "text": "Sim, com migração assistida"
+      },
+      {
+        "letter": "B",
+        "text": "Não, perde-se todo histórico"
+      }
     ],
     "correct": ["A"],
     "explanation": "Migrar cofre clássico para o Backup Center preserva itens, políticas e histórico com fluxo assistido. Assumir perda total impede modernizar sem necessidade.",
@@ -2643,8 +3861,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que alertas de backup têm severidade fixa e não permitem supressão por janela. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, fixos e sempre ativos" },
-      { "letter": "B", "text": "Não, há severidade e regras de supressão" }
+      {
+        "letter": "A",
+        "text": "Sim, fixos e sempre ativos"
+      },
+      {
+        "letter": "B",
+        "text": "Não, há severidade e regras de supressão"
+      }
     ],
     "correct": ["B"],
     "explanation": "Alertas de backup têm severidades Sev0-Sev4 com processing rules de supressão e agrupamento. Assumir severidade fixa gera fadiga de alerta.",
@@ -2662,8 +3886,14 @@
     "difficulty": "hard",
     "question": "Um auditor afirma que relatórios de backup podem ser exportados para CSV/Power BI para evidência. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, via Log Analytics e exportação" },
-      { "letter": "B", "text": "Não, só visual no portal" }
+      {
+        "letter": "A",
+        "text": "Sim, via Log Analytics e exportação"
+      },
+      {
+        "letter": "B",
+        "text": "Não, só visual no portal"
+      }
     ],
     "correct": ["A"],
     "explanation": "Relatórios baseados em LA exportam e alimentam Power BI. Limitar ao portal impede evidência auditável.",
@@ -2681,8 +3911,14 @@
     "difficulty": "hard",
     "question": "Um arquiteto afirma que backup cross-tenant exige lighthouse/delegação entre tenants. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, com delegação entre tenants" },
-      { "letter": "B", "text": "Não, qualquer tenant acessa" }
+      {
+        "letter": "A",
+        "text": "Sim, com delegação entre tenants"
+      },
+      {
+        "letter": "B",
+        "text": "Não, qualquer tenant acessa"
+      }
     ],
     "correct": ["A"],
     "explanation": "Backup cross-tenant exige delegação via Lighthouse com RBAC entre os tenants. Acesso livre de qualquer tenant violaria o isolamento de segurança.",
@@ -2700,8 +3936,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que backups no cofre são criptografados em repouso por padrão, mesmo sem CMK. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, criptografia padrão da plataforma" },
-      { "letter": "B", "text": "Não, sem CMK ficam em claro" }
+      {
+        "letter": "A",
+        "text": "Sim, criptografia padrão da plataforma"
+      },
+      {
+        "letter": "B",
+        "text": "Não, sem CMK ficam em claro"
+      }
     ],
     "correct": ["A"],
     "explanation": "Cofres criptografam por padrão com chaves Microsoft; CMK adiciona controle. Achar texto claro ignora o padrão.",
@@ -2719,10 +3961,22 @@
     "difficulty": "medium",
     "question": "Aplicação precisa mover blob para Cool via API sem portal. Qual operação da REST define a camada?",
     "options": [
-      { "letter": "A", "text": "Set Blob Tier na API REST/SDK" },
-      { "letter": "B", "text": "Renomear o blob" },
-      { "letter": "C", "text": "Copiar para outra conta" },
-      { "letter": "D", "text": "Alterar a chave da conta" }
+      {
+        "letter": "A",
+        "text": "Set Blob Tier na API REST/SDK"
+      },
+      {
+        "letter": "B",
+        "text": "Renomear o blob"
+      },
+      {
+        "letter": "C",
+        "text": "Copiar para outra conta"
+      },
+      {
+        "letter": "D",
+        "text": "Alterar a chave da conta"
+      }
     ],
     "correct": ["A"],
     "explanation": "Set Blob Tier muda Hot/Cool/Archive via API. Renomear não muda camada; copiar é migração; chave não define tier.",
@@ -2740,10 +3994,22 @@
     "difficulty": "medium",
     "question": "Cópia server-side de 500 GB entre contas precisa acompanhar progresso sem manter cliente ligado. Como copiar assíncrono?",
     "options": [
-      { "letter": "A", "text": "Copy Blob assíncrono com polling de status" },
-      { "letter": "B", "text": "Download e reupload pelo cliente" },
-      { "letter": "C", "text": "AzCopy sem --follow-symlinks" },
-      { "letter": "D", "text": "Snapshot como cópia" }
+      {
+        "letter": "A",
+        "text": "Copy Blob assíncrono com polling de status"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot como cópia"
+      },
+      {
+        "letter": "C",
+        "text": "Download e reupload pelo cliente"
+      },
+      {
+        "letter": "D",
+        "text": "AzCopy sem --follow-symlinks"
+      }
     ],
     "correct": ["A"],
     "explanation": "Copy Blob server-side copia sem tráfego pelo cliente, com status consultável. Download/reupload trafega tudo; flag irrelevante; snapshot não copia entre contas.",
@@ -2761,12 +4027,24 @@
     "difficulty": "medium",
     "question": "Cópia errada de 1 TB precisa ser cancelada antes de concluir. Qual operação aborta pelo copy-id?",
     "options": [
-      { "letter": "A", "text": "Abort Copy Blob com o copy-id" },
-      { "letter": "B", "text": "Excluir a conta de destino" },
-      { "letter": "C", "text": "Aguardar concluir sempre" },
-      { "letter": "D", "text": "Reiniciar o portal" }
+      {
+        "letter": "A",
+        "text": "Excluir a conta de destino"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar concluir sempre"
+      },
+      {
+        "letter": "C",
+        "text": "Reiniciar o portal"
+      },
+      {
+        "letter": "D",
+        "text": "Abort Copy Blob com o copy-id"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Abort Copy cancela pelo identificador da operação. Excluir conta é drástico; aguardar desperdiça; portal não aborta.",
     "source": "original",
     "tags": ["abort-copy", "cancelar", "copy-id"],
@@ -2782,10 +4060,22 @@
     "difficulty": "medium",
     "question": "Worker travado mantém lease infinito bloqueando o blob de controle. Como quebrar a concessão para retomar?",
     "options": [
-      { "letter": "A", "text": "Break Lease liberando imediatamente" },
-      { "letter": "B", "text": "Aguardar expiração inexistente" },
-      { "letter": "C", "text": "Excluir o blob com lease" },
-      { "letter": "D", "text": "Criar conta nova" }
+      {
+        "letter": "A",
+        "text": "Break Lease liberando imediatamente"
+      },
+      {
+        "letter": "B",
+        "text": "Excluir o blob com lease"
+      },
+      {
+        "letter": "C",
+        "text": "Aguardar expiração inexistente"
+      },
+      {
+        "letter": "D",
+        "text": "Criar conta nova"
+      }
     ],
     "correct": ["A"],
     "explanation": "Break Lease quebra concessão travada para retomada. Infinito não expira; excluir com lease ativo nega; nova conta não resolve.",
@@ -2803,12 +4093,24 @@
     "difficulty": "medium",
     "question": "Processamento longo precisa manter o lease válido renovando periodicamente. Qual operação estende a concessão?",
     "options": [
-      { "letter": "A", "text": "Renew Lease antes de expirar" },
-      { "letter": "B", "text": "Nova concessão a cada segundo" },
-      { "letter": "C", "text": "Lease infinito sem renovar" },
-      { "letter": "D", "text": "Sem lease com retry" }
+      {
+        "letter": "A",
+        "text": "Lease infinito sem renovar"
+      },
+      {
+        "letter": "B",
+        "text": "Nova concessão a cada segundo"
+      },
+      {
+        "letter": "C",
+        "text": "Renew Lease antes de expirar"
+      },
+      {
+        "letter": "D",
+        "text": "Sem lease com retry"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Renew estende a concessão ativa. Nova a cada segundo conflita; infinito sem renovar expira igual; sem lease duplica processamento.",
     "source": "original",
     "tags": ["lease", "renew", "renovar"],
@@ -2824,10 +4126,22 @@
     "difficulty": "medium",
     "question": "Exclusão acidental de contêiner inteiro por automação precisa de trava. O que impede delete do contêiner?",
     "options": [
-      { "letter": "A", "text": "Lease no contêiner bloqueando exclusão" },
-      { "letter": "B", "text": "Nome longo do contêiner" },
-      { "letter": "C", "text": "Tag de aviso" },
-      { "letter": "D", "text": "E-mail de confirmação" }
+      {
+        "letter": "A",
+        "text": "Lease no contêiner bloqueando exclusão"
+      },
+      {
+        "letter": "B",
+        "text": "Nome longo do contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Tag de aviso"
+      },
+      {
+        "letter": "D",
+        "text": "E-mail de confirmação"
+      }
     ],
     "correct": ["A"],
     "explanation": "Lease em contêiner bloqueia delete e alteração enquanto vigente. Nome longo não protege; tag não bloqueia; e-mail não impõe trava.",
@@ -2847,13 +4161,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Uma conta por projeto"
+      },
+      {
+        "letter": "B",
         "text": "Tags de blob como dimensão em Cost Management"
       },
-      { "letter": "B", "text": "Uma conta por projeto" },
-      { "letter": "C", "text": "Fatura única sem dimensão" },
-      { "letter": "D", "text": "Planilha manual" }
+      {
+        "letter": "C",
+        "text": "Fatura única sem dimensão"
+      },
+      {
+        "letter": "D",
+        "text": "Planilha manual"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Index tags viram filtro/dimensão de custo. Conta por projeto fragmenta; única sem dimensão mistura; planilha desatualiza.",
     "source": "original",
     "tags": ["tags", "custo", "rateio", "projeto"],
@@ -2871,13 +4194,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Número de chaves"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas latência de leitura"
+      },
+      {
+        "letter": "C",
         "text": "Capacidade usada + contagem de objetos com alerta"
       },
-      { "letter": "B", "text": "Apenas latência de leitura" },
-      { "letter": "C", "text": "Cor do portal" },
-      { "letter": "D", "text": "Número de chaves" }
+      {
+        "letter": "D",
+        "text": "Cor do portal"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "BlobCapacity e contagem de objetos projetam esgotamento com alerta antecipado. Latência não mede volume; cor do portal e número de chaves são irrelevantes.",
     "source": "original",
     "tags": ["metricas", "capacidade", "projecao"],
@@ -2893,10 +4225,22 @@
     "difficulty": "medium",
     "question": "Throttling por transações precisa de visibilidade por API e resposta. Quais dimensões analisar?",
     "options": [
-      { "letter": "A", "text": "Transactions por API, status e latência" },
-      { "letter": "B", "text": "Total genérico sem dimensão" },
-      { "letter": "C", "text": "Apenas sucessos" },
-      { "letter": "D", "text": "Logs de VM" }
+      {
+        "letter": "A",
+        "text": "Transactions por API, status e latência"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas sucessos"
+      },
+      {
+        "letter": "C",
+        "text": "Logs de VM"
+      },
+      {
+        "letter": "D",
+        "text": "Total genérico sem dimensão"
+      }
     ],
     "correct": ["A"],
     "explanation": "Dimensões por operação/status/latência localizam gargalo. Genérico não isola; só sucesso esconde erro; VM não é storage.",
@@ -2914,12 +4258,24 @@
     "difficulty": "medium",
     "question": "Top contêineres por transação e falhas precisam de visão pronta sem KQL. Onde ver insights de storage?",
     "options": [
-      { "letter": "A", "text": "Storage Insights no Monitor" },
-      { "letter": "B", "text": "Métrica bruta sem agregação" },
-      { "letter": "C", "text": "Portal de billing" },
-      { "letter": "D", "text": "SSH na conta" }
+      {
+        "letter": "A",
+        "text": "SSH na conta"
+      },
+      {
+        "letter": "B",
+        "text": "Métrica bruta sem agregação"
+      },
+      {
+        "letter": "C",
+        "text": "Portal de billing"
+      },
+      {
+        "letter": "D",
+        "text": "Storage Insights no Monitor"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Storage Insights agrega topologia, falhas e latência prontos. Bruta exige montar; billing não monitora; SSH inexistente.",
     "source": "original",
     "tags": ["insights", "storage", "monitor"],
@@ -2937,13 +4293,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "E-mail por request"
+      },
+      {
+        "letter": "B",
         "text": "Logs de diagnóstico do Storage ao Log Analytics"
       },
-      { "letter": "B", "text": "Métrica de disponibilidade" },
-      { "letter": "C", "text": "Console do portal" },
-      { "letter": "D", "text": "E-mail por request" }
+      {
+        "letter": "C",
+        "text": "Console do portal"
+      },
+      {
+        "letter": "D",
+        "text": "Métrica de disponibilidade"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Diagnostic logs registram operação por operação com retenção. Métrica agrega; console não retém; e-mail por request é inviável.",
     "source": "original",
     "tags": ["diagnostico", "logs", "auditoria"],
@@ -2959,12 +4324,24 @@
     "difficulty": "medium",
     "question": "Alertas precisam de granularidade de 1 minuto em vez de hora. Qual configuração de métrica reduz o intervalo?",
     "options": [
-      { "letter": "A", "text": "Métricas por minuto habilitadas na conta" },
-      { "letter": "B", "text": "Métricas horárias padrão" },
-      { "letter": "C", "text": "Log diário" },
-      { "letter": "D", "text": "Sem métricas" }
+      {
+        "letter": "A",
+        "text": "Log diário"
+      },
+      {
+        "letter": "B",
+        "text": "Métricas por minuto habilitadas na conta"
+      },
+      {
+        "letter": "C",
+        "text": "Sem métricas"
+      },
+      {
+        "letter": "D",
+        "text": "Métricas horárias padrão"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "Minute metrics com granularidade de 1 minuto disparam alertas rápidos. Métrica horária atrasa a detecção; log diário piora; sem nada o incidente passa batido.",
     "source": "original",
     "tags": ["metricas", "minuto", "granularidade"],
@@ -2980,10 +4357,22 @@
     "difficulty": "medium",
     "question": "Tendência de 90 dias de capacidade precisa de métricas horárias retidas. Qual retenção configurar?",
     "options": [
-      { "letter": "A", "text": "Retenção de métricas horárias por 90 dias" },
-      { "letter": "B", "text": "Retenção de 1 dia" },
-      { "letter": "C", "text": "Sem retenção" },
-      { "letter": "D", "text": "Screenshot diário" }
+      {
+        "letter": "A",
+        "text": "Retenção de métricas horárias por 90 dias"
+      },
+      {
+        "letter": "B",
+        "text": "Screenshot diário"
+      },
+      {
+        "letter": "C",
+        "text": "Retenção de 1 dia"
+      },
+      {
+        "letter": "D",
+        "text": "Sem retenção"
+      }
     ],
     "correct": ["A"],
     "explanation": "Retenção de métricas horárias por 90 dias permite tendência trimestral de capacidade. Retenção de 1 dia apaga histórico; sem retenção não há projeção; print não é dado.",
@@ -3003,13 +4392,22 @@
     "options": [
       {
         "letter": "A",
+        "text": "Desabilitar alertas"
+      },
+      {
+        "letter": "B",
+        "text": "Manter clássicas indefinidamente"
+      },
+      {
+        "letter": "C",
         "text": "Métricas novas do Monitor (migração de alertas)"
       },
-      { "letter": "B", "text": "Manter clássicas indefinidamente" },
-      { "letter": "C", "text": "Desabilitar alertas" },
-      { "letter": "D", "text": "E-mail manual" }
+      {
+        "letter": "D",
+        "text": "E-mail manual"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["C"],
     "explanation": "Migração para novas métricas mantém cobertura suportada. Clássicas aposentam; sem alerta cega; manual não escala.",
     "source": "original",
     "tags": ["metricas", "classicas", "migracao"],
@@ -3027,13 +4425,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Dimensões (container, API) na regra de alerta"
+        "text": "Alerta genérico da conta"
       },
-      { "letter": "B", "text": "Alerta genérico da conta" },
-      { "letter": "C", "text": "Um alerta por blob" },
-      { "letter": "D", "text": "Sem alerta" }
+      {
+        "letter": "B",
+        "text": "Um alerta por blob"
+      },
+      {
+        "letter": "C",
+        "text": "Sem alerta"
+      },
+      {
+        "letter": "D",
+        "text": "Dimensões (container, API) na regra de alerta"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["D"],
     "explanation": "Dimensões segmentam por contêiner/API com um alerta só. Genérico não isola; por blob explode; sem nada cega.",
     "source": "original",
     "tags": ["alertas", "dimensoes", "container"],
@@ -3049,12 +4456,24 @@
     "difficulty": "hard",
     "question": "Fatura precisa separar transações, banda e capacidade por projeto. Quais duas dimensões usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Tags de custo por projeto" },
-      { "letter": "B", "text": "Medidores (meters) por operação" },
-      { "letter": "C", "text": "Fatura única agregada" },
-      { "letter": "D", "text": "Estimativa sem medidor" }
+      {
+        "letter": "A",
+        "text": "Estimativa sem medidor"
+      },
+      {
+        "letter": "B",
+        "text": "Fatura única agregada"
+      },
+      {
+        "letter": "C",
+        "text": "Medidores (meters) por operação"
+      },
+      {
+        "letter": "D",
+        "text": "Tags de custo por projeto"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Tags de custo alocam por projeto e medidores detalham cada operação para auditoria. Fatura única agregada mistura tudo; estimativa sem medidor não audita.",
     "source": "original",
     "tags": ["fatura", "tags", "medidores"],
@@ -3070,12 +4489,24 @@
     "difficulty": "hard",
     "question": "Egress para internet domina a fatura e precisa cair com cache e região. Quais duas alavancas aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "CDN na frente com cache" },
-      { "letter": "B", "text": "Manter origem na região do consumo" },
-      { "letter": "C", "text": "Egress direto sem cache" },
-      { "letter": "D", "text": "Replicar tudo para todas as regiões" }
+      {
+        "letter": "A",
+        "text": "Egress direto sem cache"
+      },
+      {
+        "letter": "B",
+        "text": "CDN na frente com cache"
+      },
+      {
+        "letter": "C",
+        "text": "Manter origem na região do consumo"
+      },
+      {
+        "letter": "D",
+        "text": "Replicar tudo para todas as regiões"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "CDN na frente absorve egress com cache e origem na região do consumo reduz transferência. Egress direto sem cache paga cheio; replicar tudo multiplica storage.",
     "source": "original",
     "tags": ["egress", "cdn", "custo", "regiao"],
@@ -3091,12 +4522,24 @@
     "difficulty": "hard",
     "question": "Milhões de leituras pequenas dominam custo por transação. Quais duas otimizações reduzem operações? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Cache/CDN absorvendo leituras" },
-      { "letter": "B", "text": "Lotes e listagens paginadas eficientes" },
-      { "letter": "C", "text": "Polling a cada segundo" },
-      { "letter": "D", "text": "Leitura individual por byte" }
+      {
+        "letter": "A",
+        "text": "Leitura individual por byte"
+      },
+      {
+        "letter": "B",
+        "text": "Lotes e listagens paginadas eficientes"
+      },
+      {
+        "letter": "C",
+        "text": "Polling a cada segundo"
+      },
+      {
+        "letter": "D",
+        "text": "Cache/CDN absorvendo leituras"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "B"],
     "explanation": "Cache e CDN absorvem leituras repetidas e lotes com listagens paginadas reduzem chamadas. Polling a cada segundo queima transações; leitura individual por byte multiplica custo.",
     "source": "original",
     "tags": ["custo", "transacoes", "cache", "lotes"],
@@ -3112,12 +4555,24 @@
     "difficulty": "hard",
     "question": "Camada Cool barateia guarda mas penaliza leitura e saída antecipada. Quais dois custos considerar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Custo maior por leitura/operação" },
-      { "letter": "B", "text": "Penalidade por exclusão precoce (<30 dias)" },
-      { "letter": "C", "text": "Leitura gratuita ilimitada" },
-      { "letter": "D", "text": "Sem penalidade" }
+      {
+        "letter": "A",
+        "text": "Penalidade por exclusão precoce (<30 dias)"
+      },
+      {
+        "letter": "B",
+        "text": "Sem penalidade"
+      },
+      {
+        "letter": "C",
+        "text": "Custo maior por leitura/operação"
+      },
+      {
+        "letter": "D",
+        "text": "Leitura gratuita ilimitada"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Camada Cool cobra mais por leitura/operação e penaliza exclusão precoce antes de 30 dias. Leitura gratuita ilimitada não existe; achar sem penalidade ignora a regra.",
     "source": "original",
     "tags": ["cool", "penalidade", "leitura", "exclusao-precoce"],
@@ -3133,12 +4588,24 @@
     "difficulty": "hard",
     "question": "Archive exige permanência mínima e reidratação custa por prioridade. Quais dois custos planejar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Permanência mínima de 180 dias" },
-      { "letter": "B", "text": "Custo de reidratação por prioridade" },
-      { "letter": "C", "text": "Exclusão livre a qualquer momento" },
-      { "letter": "D", "text": "Leitura direta gratuita" }
+      {
+        "letter": "A",
+        "text": "Custo de reidratação por prioridade"
+      },
+      {
+        "letter": "B",
+        "text": "Leitura direta gratuita"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão livre a qualquer momento"
+      },
+      {
+        "letter": "D",
+        "text": "Permanência mínima de 180 dias"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Archive cobra exclusão antecipada antes de 180 dias e reidratação por prioridade de urgência. Exclusão livre a qualquer momento ignora a regra; leitura direta gratuita não existe.",
     "source": "original",
     "tags": ["archive", "permanencia", "reidratacao"],
@@ -3154,12 +4621,24 @@
     "difficulty": "hard",
     "question": "Capacidade estável de 100 TB por 3 anos precisa de desconto previsível. Quais dois elementos da reserva aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Capacidade reservada de 100 TB/3 anos" },
-      { "letter": "B", "text": "Escopo (subscription/RG) da reserva" },
-      { "letter": "C", "text": "Pay-as-you-go sem compromisso" },
-      { "letter": "D", "text": "Reserva diária flexível" }
+      {
+        "letter": "A",
+        "text": "Escopo (subscription/RG) da reserva"
+      },
+      {
+        "letter": "B",
+        "text": "Capacidade reservada de 100 TB/3 anos"
+      },
+      {
+        "letter": "C",
+        "text": "Reserva diária flexível"
+      },
+      {
+        "letter": "D",
+        "text": "Pay-as-you-go sem compromisso"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "A"],
     "explanation": "Capacidade reservada trava preço por volume, prazo e escopo (subscription/RG). PAYG sem compromisso não desconta; reserva diária flexível não existe para storage.",
     "source": "original",
     "tags": ["reserved-capacity", "reserva", "desconto"],
@@ -3175,12 +4654,24 @@
     "difficulty": "hard",
     "question": "Transferência entre regiões e zonas gera custo invisível no projeto. Quais dois fluxos tarifados mapear? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Egress inter-regiões" },
-      { "letter": "B", "text": "Tráfego entre zonas" },
-      { "letter": "C", "text": "Tráfego na mesma zona/VNet" },
-      { "letter": "D", "text": "Ingress da internet" }
+      {
+        "letter": "A",
+        "text": "Tráfego na mesma zona/VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Tráfego entre zonas"
+      },
+      {
+        "letter": "C",
+        "text": "Egress inter-regiões"
+      },
+      {
+        "letter": "D",
+        "text": "Ingress da internet"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Egress inter-regiões e tráfego entre zonas são tarifados; mesma zona/VNet e ingress são gratuitos. Ignorar o mapeamento estima custo errado.",
     "source": "original",
     "tags": ["transferencia", "egress", "zonas", "custo"],
@@ -3196,12 +4687,24 @@
     "difficulty": "hard",
     "question": "Primeiros 100 GB de egress mensais e tráfego interno precisam de tratamento distinto. Quais dois são gratuitos? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Franquia de egress inicial por subscription" },
-      { "letter": "B", "text": "Tráfego interno mesma região/VNet" },
-      { "letter": "C", "text": "Egress intercontinental ilimitado" },
-      { "letter": "D", "text": "Tudo tarifado sem exceção" }
+      {
+        "letter": "A",
+        "text": "Tráfego interno mesma região/VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Tudo tarifado sem exceção"
+      },
+      {
+        "letter": "C",
+        "text": "Franquia de egress inicial por subscription"
+      },
+      {
+        "letter": "D",
+        "text": "Egress intercontinental ilimitado"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Franquia inicial cobre o começo e tráfego interno não tarifa. Egress intercontinental ilimitado não existe; achar tudo tarifado ignora gratuidades.",
     "source": "original",
     "tags": ["banda", "franquia", "gratuito", "egress"],
@@ -3217,12 +4720,24 @@
     "difficulty": "hard",
     "question": "Contas com tier errado e blobs órfãos desperdiçam. Quais duas recomendações do Advisor aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Mover para tier adequado por acesso" },
-      { "letter": "B", "text": "Remover blobs/contas órfãs" },
-      { "letter": "C", "text": "Manter tudo em Premium" },
-      { "letter": "D", "text": "Ignorar recomendações" }
+      {
+        "letter": "A",
+        "text": "Ignorar recomendações"
+      },
+      {
+        "letter": "B",
+        "text": "Manter tudo em Premium"
+      },
+      {
+        "letter": "C",
+        "text": "Remover blobs/contas órfãs"
+      },
+      {
+        "letter": "D",
+        "text": "Mover para tier adequado por acesso"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Tier adequado por padrão de acesso mais remoção de blobs e contas órfãs cortam desperdício. Tudo em Premium custa caro sem necessidade; ignorar recomendações mantém gasto.",
     "source": "original",
     "tags": ["advisor", "custo", "tier", "orfaos"],
@@ -3238,12 +4753,24 @@
     "difficulty": "hard",
     "question": "Estouro de custo de storage precisa de trava com aviso progressivo. Quais dois controles combinar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Budget com alertas em 50/80/100%" },
-      { "letter": "B", "text": "Ação (runbook/webhook) no estouro" },
-      { "letter": "C", "text": "Sem budget com revisão anual" },
-      { "letter": "D", "text": "Alerta único no fim" }
+      {
+        "letter": "A",
+        "text": "Alerta único no fim"
+      },
+      {
+        "letter": "B",
+        "text": "Budget com alertas em 50/80/100%"
+      },
+      {
+        "letter": "C",
+        "text": "Ação (runbook/webhook) no estouro"
+      },
+      {
+        "letter": "D",
+        "text": "Sem budget com revisão anual"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Budgets com alertas progressivos em 50/80/100% avisam cedo e ação (runbook/webhook) contém. Sem budget o estouro surpreende; alerta único no fim atrasa.",
     "source": "original",
     "tags": ["budgets", "alertas", "acao"],
@@ -3259,12 +4786,24 @@
     "difficulty": "hard",
     "question": "Discos desanexados de VMs excluídas cobram sem uso. Quais dois passos limpam com segurança? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Identificar unattached via Advisor/queries" },
-      { "letter": "B", "text": "Snapshot antes de excluir" },
-      { "letter": "C", "text": "Manter todos por precaução" },
-      { "letter": "D", "text": "Excluir a subscription" }
+      {
+        "letter": "A",
+        "text": "Manter todos por precaução"
+      },
+      {
+        "letter": "B",
+        "text": "Excluir a subscription"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot antes de excluir"
+      },
+      {
+        "letter": "D",
+        "text": "Identificar unattached via Advisor/queries"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Identificar discos desanexados via Advisor/queries e fotografar com snapshot antes de excluir limpa com segurança. Manter todos por precaução desperdiça; excluir a subscription é drástico.",
     "source": "original",
     "tags": ["discos-orfaos", "limpeza", "snapshot"],
@@ -3280,12 +4819,24 @@
     "difficulty": "hard",
     "question": "Snapshots antigos sem retenção acumulam custo silencioso. Quais dois controles limpam? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Política de retenção/expiração" },
-      { "letter": "B", "text": "Auditoria periódica de idade" },
-      { "letter": "C", "text": "Manter todos para sempre" },
-      { "letter": "D", "text": "Desabilitar snapshots" }
+      {
+        "letter": "A",
+        "text": "Auditoria periódica de idade"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitar snapshots"
+      },
+      {
+        "letter": "C",
+        "text": "Política de retenção/expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Manter todos para sempre"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "A"],
     "explanation": "Política de retenção/expiração remove snapshots velhos e auditoria periódica de idade encontra órfãos. Manter todos para sempre custa; desabilitar snapshots perde proteção.",
     "source": "original",
     "tags": ["snapshots", "retencao", "limpeza"],
@@ -3301,12 +4852,24 @@
     "difficulty": "hard",
     "question": "Dados com curva quente→frio→arquivo→exclusão precisam de ciclo completo automático. Quais dois estágios configurar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Transições Hot→Cool→Archive por idade" },
-      { "letter": "B", "text": "Exclusão ao fim da vida útil" },
-      { "letter": "C", "text": "Tudo em Hot permanente" },
-      { "letter": "D", "text": "Exclusão manual anual" }
+      {
+        "letter": "A",
+        "text": "Tudo em Hot permanente"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão ao fim da vida útil"
+      },
+      {
+        "letter": "C",
+        "text": "Transições Hot→Cool→Archive por idade"
+      },
+      {
+        "letter": "D",
+        "text": "Exclusão manual anual"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "B"],
     "explanation": "Transições Hot→Cool→Archive por idade barateiam e exclusão ao fim da vida útil fecha o ciclo. Tudo em Hot permanente custa caro; exclusão manual anual atrasa.",
     "source": "original",
     "tags": ["lifecycle", "ciclo-vida", "custo"],
@@ -3322,12 +4885,24 @@
     "difficulty": "hard",
     "question": "Payloads grandes precisam de menos bytes e sigilo antes do upload. Quais duas transformações aplicar no cliente? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Compressão antes do upload" },
-      { "letter": "B", "text": "Criptografia client-side" },
-      { "letter": "C", "text": "Upload bruto sem tratar" },
-      { "letter": "D", "text": "Texto claro com gzip do servidor" }
+      {
+        "letter": "A",
+        "text": "Upload bruto sem tratar"
+      },
+      {
+        "letter": "B",
+        "text": "Texto claro com gzip do servidor"
+      },
+      {
+        "letter": "C",
+        "text": "Compressão antes do upload"
+      },
+      {
+        "letter": "D",
+        "text": "Criptografia client-side"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Comprimir antes do upload reduz bytes e criptografia client-side garante sigilo ponta a ponta. Upload bruto sem tratar custa e expõe; gzip do servidor não cifra.",
     "source": "original",
     "tags": ["compressao", "criptografia", "client-side"],
@@ -3343,12 +4918,24 @@
     "difficulty": "hard",
     "question": "Upload de 1 TB precisa de vazão máxima com retomada em falha. Quais dois parâmetros do AzCopy ajustar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Paralelismo (concurrency) elevado" },
-      { "letter": "B", "text": "Blocos grandes com resume" },
-      { "letter": "C", "text": "Thread única sequencial" },
-      { "letter": "D", "text": "Sem log nem retomada" }
+      {
+        "letter": "A",
+        "text": "Sem log nem retomada"
+      },
+      {
+        "letter": "B",
+        "text": "Thread única sequencial"
+      },
+      {
+        "letter": "C",
+        "text": "Blocos grandes com resume"
+      },
+      {
+        "letter": "D",
+        "text": "Paralelismo (concurrency) elevado"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Paralelismo (concurrency) elevado com blocos grandes e journal retoma rápido em falha. Thread única sequencial é lenta; sem log nem retomada não há recuperação.",
     "source": "original",
     "tags": ["azcopy", "paralelismo", "retomada"],
@@ -3364,12 +4951,24 @@
     "difficulty": "hard",
     "question": "Cópias pequenas síncronas e grandes assíncronas exigem APIs distintas. Quais duas usar conforme o tamanho? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Put Blob (síncrona) para pequenos" },
-      { "letter": "B", "text": "Copy Blob (assíncrona) para grandes" },
-      { "letter": "C", "text": "Síncrona para 1 TB" },
-      { "letter": "D", "text": "Assíncrona para 1 KB" }
+      {
+        "letter": "A",
+        "text": "Síncrona para 1 TB"
+      },
+      {
+        "letter": "B",
+        "text": "Assíncrona para 1 KB"
+      },
+      {
+        "letter": "C",
+        "text": "Put Blob (síncrona) para pequenos"
+      },
+      {
+        "letter": "D",
+        "text": "Copy Blob (assíncrona) para grandes"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["C", "D"],
     "explanation": "Put Blob síncrona atende pequenos de uma vez; Copy Blob assíncrona move grandes server-side. Síncrona para 1 TB estoura; assíncrona para 1 KB desperdiça.",
     "source": "original",
     "tags": ["put-blob", "copy-blob", "sincrono", "assincrono"],
@@ -3385,12 +4984,24 @@
     "difficulty": "hard",
     "question": "Migração com exclusões por padrão e preservação de permissões exige flags certas. Quais duas usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "--exclude-pattern para pular temporários" },
-      { "letter": "B", "text": "--preserve-smb-permissions para ACLs" },
-      { "letter": "C", "text": "Sem flags com tudo incluído" },
-      { "letter": "D", "text": "--delete-destination sempre" }
+      {
+        "letter": "A",
+        "text": "--preserve-smb-permissions para ACLs"
+      },
+      {
+        "letter": "B",
+        "text": "--delete-destination sempre"
+      },
+      {
+        "letter": "C",
+        "text": "Sem flags com tudo incluído"
+      },
+      {
+        "letter": "D",
+        "text": "--exclude-pattern para pular temporários"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "A"],
     "explanation": "Exclude-pattern filtra temporários e preserve-smb-permissions mantém ACLs na migração. Sem flags copia lixo; delete-destination sempre apaga o destino.",
     "source": "original",
     "tags": ["azcopy", "flags", "exclude", "permissoes"],
@@ -3406,12 +5017,24 @@
     "difficulty": "hard",
     "question": "AzCopy em pipeline sem segredos e com auditoria de identidade. Quais dois mecanismos de auth usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Login Entra ID (azcopy login)" },
-      { "letter": "B", "text": "Identidade gerenciada na VM de migração" },
-      { "letter": "C", "text": "Chave no script versionado" },
-      { "letter": "D", "text": "SAS eterna no repo" }
+      {
+        "letter": "A",
+        "text": "Chave no script versionado"
+      },
+      {
+        "letter": "B",
+        "text": "Login Entra ID (azcopy login)"
+      },
+      {
+        "letter": "C",
+        "text": "Identidade gerenciada na VM de migração"
+      },
+      {
+        "letter": "D",
+        "text": "SAS eterna no repo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Login Entra ID e identidade gerenciada autenticam o AzCopy sem segredo, com trilha de auditoria. Chave versionada no script vaza; SAS eterna no repo expira mal.",
     "source": "original",
     "tags": ["azcopy", "entra-id", "managed-identity"],
@@ -3427,12 +5050,24 @@
     "difficulty": "hard",
     "question": "Espelho contínuo origem-destino com remoção de órfãos no destino. Quais dois comportamentos do sync usar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Sync incremental por hash/data" },
-      { "letter": "B", "text": "Delete-destination para órfãos" },
-      { "letter": "C", "text": "Cópia total sempre" },
-      { "letter": "D", "text": "Manual arquivo a arquivo" }
+      {
+        "letter": "A",
+        "text": "Cópia total sempre"
+      },
+      {
+        "letter": "B",
+        "text": "Sync incremental por hash/data"
+      },
+      {
+        "letter": "C",
+        "text": "Manual arquivo a arquivo"
+      },
+      {
+        "letter": "D",
+        "text": "Delete-destination para órfãos"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "D"],
     "explanation": "Sync incremental copia só o diff por hash/data e delete-destination espelha remoções. Cópia total sempre desperdiça banda; manual arquivo a arquivo não escala.",
     "source": "original",
     "tags": ["azcopy", "sync", "espelho"],
@@ -3448,12 +5083,24 @@
     "difficulty": "hard",
     "question": "Pedido de Data Box com cadeia de custódia e devolução segura exige dois controles. Quais são eles? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Rastreio e lacre da remessa" },
-      { "letter": "B", "text": "Apagamento certificado na devolução" },
-      { "letter": "C", "text": "Envio comum sem rastreio" },
-      { "letter": "D", "text": "Manter dados no device" }
+      {
+        "letter": "A",
+        "text": "Envio comum sem rastreio"
+      },
+      {
+        "letter": "B",
+        "text": "Rastreio e lacre da remessa"
+      },
+      {
+        "letter": "C",
+        "text": "Apagamento certificado na devolução"
+      },
+      {
+        "letter": "D",
+        "text": "Manter dados no device"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["B", "C"],
     "explanation": "Cadeia de custódia com rastreio e lacre acompanha a remessa e o apagamento certificado limpa na devolução. Envio comum sem rastreio perde; manter dados no device vaza.",
     "source": "original",
     "tags": ["databox", "cadeia-custodia", "wipe"],
@@ -3469,12 +5116,24 @@
     "difficulty": "hard",
     "question": "Dados no Data Box precisam de validação de integridade antes do upload. Quais duas verificações aplicar? Selecione duas.",
     "options": [
-      { "letter": "A", "text": "Checksum/hash por arquivo" },
-      { "letter": "B", "text": "Validação de formato e contagem" },
-      { "letter": "C", "text": "Confiança visual" },
-      { "letter": "D", "text": "Upload sem validar" }
+      {
+        "letter": "A",
+        "text": "Confiança visual"
+      },
+      {
+        "letter": "B",
+        "text": "Upload sem validar"
+      },
+      {
+        "letter": "C",
+        "text": "Validação de formato e contagem"
+      },
+      {
+        "letter": "D",
+        "text": "Checksum/hash por arquivo"
+      }
     ],
-    "correct": ["A", "B"],
+    "correct": ["D", "C"],
     "explanation": "Checksum/hash por arquivo garante integridade e validação de formato e contagem confere completude. Confiança visual não escala; upload sem validar corrompe.",
     "source": "original",
     "tags": ["databox", "checksum", "validacao"],
@@ -3490,10 +5149,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que sem rede o app carrega questões do IDB semeado na primeira carga. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, IDB-first após seed" },
-      { "letter": "B", "text": "Não, sem rede nada funciona" }
+      {
+        "letter": "A",
+        "text": "Não, sem rede nada funciona"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, IDB-first após seed"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "QuestionLoader semeia no primeiro fetch e depois lê do IDB offline. Achar dependência total de rede ignora o ADR-001.",
     "source": "original",
     "tags": ["offline", "idb", "seed"],
@@ -3509,10 +5174,16 @@
     "difficulty": "hard",
     "question": "Um dev afirma que o bundle baixa as 900 questões junto porque o JSON está no repo. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, tudo vai no bundle" },
-      { "letter": "B", "text": "Não, fetch + IDB sob demanda" }
+      {
+        "letter": "A",
+        "text": "Não, fetch + IDB sob demanda"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, tudo vai no bundle"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "ADR-001 busca por fetch e cacheia; bundle não embute o banco. Assumir bundle gigante ignora o desenho.",
     "source": "original",
     "tags": ["bundle", "fetch", "idb", "adr"],
@@ -3528,8 +5199,14 @@
     "difficulty": "hard",
     "question": "Um colega afirma que nova versão do banco resemeia o IDB via seedVersion do meta.json. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, versão nova dispara reseed" },
-      { "letter": "B", "text": "Não, IDB nunca atualiza" }
+      {
+        "letter": "A",
+        "text": "Sim, versão nova dispara reseed"
+      },
+      {
+        "letter": "B",
+        "text": "Não, IDB nunca atualiza"
+      }
     ],
     "correct": ["A"],
     "explanation": "A constante SEED_VERSION compara a versão e resemeia o IDB quando muda. Achar o banco imutável ignora a migração de seed.",
@@ -3547,10 +5224,16 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que o service worker faz precache dos JSONs para offline total. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, precache + IDB cobrem offline" },
-      { "letter": "B", "text": "Não, SW não cacheia nada" }
+      {
+        "letter": "A",
+        "text": "Não, SW não cacheia nada"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, precache + IDB cobrem offline"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "O VitePWA faz precache dos assets e o IDB guarda os dados; juntos cobrem o modo offline. Negar o precache ignora o desenho PWA do projeto.",
     "source": "original",
     "tags": ["precache", "sw", "offline"],
@@ -3566,8 +5249,14 @@
     "difficulty": "hard",
     "question": "Um dev afirma que public/data é symlink para ../data e o Vite segue servindo os JSONs. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, verificado no build" },
-      { "letter": "B", "text": "Não, Vite ignora symlinks" }
+      {
+        "letter": "A",
+        "text": "Sim, verificado no build"
+      },
+      {
+        "letter": "B",
+        "text": "Não, Vite ignora symlinks"
+      }
     ],
     "correct": ["A"],
     "explanation": "Symlink versionado resolve e o build copia dist/data (verificado). Achar que ignora contraria o teste real.",
@@ -3585,10 +5274,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que arquivo data/*.json acima de 200KB falha o pre-commit exigindo partição. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, SIZE GUARD bloqueia e particiona" },
-      { "letter": "B", "text": "Não, tamanho é livre" }
+      {
+        "letter": "A",
+        "text": "Não, tamanho é livre"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, SIZE GUARD bloqueia e particiona"
+      }
     ],
-    "correct": ["A"],
+    "correct": ["B"],
     "explanation": "A guarda de 200KB por arquivo com partição por subdomínio mantém diffs revisáveis e builds saudáveis. Tamanho livre incha o repositório.",
     "source": "original",
     "tags": ["size-guard", "200kb", "particao"],
@@ -3604,8 +5299,14 @@
     "difficulty": "hard",
     "question": "Um técnico afirma que o validate detecta questão duplicada por hash FNV-1a do enunciado normalizado. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, dedup por hash de conteúdo" },
-      { "letter": "B", "text": "Não, só valida ID único" }
+      {
+        "letter": "A",
+        "text": "Sim, dedup por hash de conteúdo"
+      },
+      {
+        "letter": "B",
+        "text": "Não, só valida ID único"
+      }
     ],
     "correct": ["A"],
     "explanation": "O validate checa id único e hash FNV-1a do enunciado normalizado para dedup. Validar só ID deixaria passar duplicata textual.",
@@ -3623,10 +5324,16 @@
     "difficulty": "hard",
     "question": "Um colega afirma que questão com needsReview:true entra no banco sem revisão quando o WIP estoura. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, entra direto" },
-      { "letter": "B", "text": "Não, WIP >50 pausa generate e foca review" }
+      {
+        "letter": "A",
+        "text": "Não, WIP >50 pausa generate e foca review"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, entra direto"
+      }
     ],
-    "correct": ["B"],
+    "correct": ["A"],
     "explanation": "O WIP trava a geração até revisar a fila quando needsReview passa de 50. Entrar direto no banco violaria qualidade sobre volume.",
     "source": "original",
     "tags": ["needsreview", "wip", "qualidade"],
@@ -3642,8 +5349,14 @@
     "difficulty": "hard",
     "question": "Um dev afirma que questão sem source é rejeitada pelo schema Zod no validate. Essa afirmação está correta?",
     "options": [
-      { "letter": "A", "text": "Sim, source é obrigatório" },
-      { "letter": "B", "text": "Não, source é opcional" }
+      {
+        "letter": "A",
+        "text": "Sim, source é obrigatório"
+      },
+      {
+        "letter": "B",
+        "text": "Não, source é opcional"
+      }
     ],
     "correct": ["A"],
     "explanation": "Source é enum obrigatório, com sourceUrl exigido para community/mslearn. Sem origem declarada não há governança do banco.",
@@ -3651,6 +5364,346 @@
     "tags": ["source", "obrigatorio", "zod"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-171",
+    "domain": "storage",
+    "subdomain": "blob-soft-delete-pit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Para proteger contêineres excluídos, você habilita a exclusão reversível de contêiner. Qual pré-requisito a conta de armazenamento exige antes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Habilitar o controle de versão de blobs primeiro."
+      },
+      {
+        "letter": "B",
+        "text": "Habilitar a exclusão reversível de blobs primeiro."
+      },
+      {
+        "letter": "C",
+        "text": "Habilitar a restauração pontual (point-in-time restore) primeiro."
+      },
+      {
+        "letter": "D",
+        "text": "Usar conta premium com replicação GZRS."
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: habilitar a exclusão reversível de blobs primeiro é o pré-requisito — sem ela a exclusão reversível de contêiner é rejeitada. A está incorreta: habilitar o controle de versão de blobs mantém histórico de sobrescrita, mas não é pré-requisito da exclusão de contêiner. C está incorreta: habilitar a restauração pontual (point-in-time restore) é recurso separado de restauração da conta, não é gate da exclusão de contêiner. D está incorreta: usar conta premium com replicação GZRS não é exigido — o recurso funciona em contas standard.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-container-overview",
+    "tags": ["soft-delete", "container", "pre-requisito", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-172",
+    "domain": "storage",
+    "subdomain": "versionamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Versões anteriores de um blob se acumulam há 6 meses e o custo subiu. Qual recurso remove automaticamente versões com mais de 90 dias?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de gerenciamento do ciclo de vida com regra por idade da versão."
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão reversível com retenção de 90 dias."
+      },
+      {
+        "letter": "C",
+        "text": "Script manual que lista e exclui versões antigas."
+      },
+      {
+        "letter": "D",
+        "text": "SAS com expiração de 90 dias nos blobs."
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: a política de gerenciamento do ciclo de vida com regra por idade da versão filtra as versões anteriores e as exclui automaticamente, sem operação manual. B está incorreta: exclusão reversível com retenção de 90 dias guarda o que foi apagado para recuperação, em vez de limpar versões antigas. C está incorreta: script manual que lista e exclui versões antigas até resolve, mas exige automação própria e não é recurso nativo da conta. D está incorreta: SAS com expiração de 90 dias nos blobs revoga o acesso ao blob, não exclui o dado.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/lifecycle-management-overview",
+    "tags": ["versionamento", "lifecycle", "custo", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-173",
+    "domain": "storage",
+    "subdomain": "files-soft-delete-retencao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Compartilhamentos de arquivo excluídos por engano precisam de rede de segurança sem configurar nada. Por quantos dias a exclusão reversível os retém por padrão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "1 dia"
+      },
+      {
+        "letter": "B",
+        "text": "365 dias"
+      },
+      {
+        "letter": "C",
+        "text": "7 dias"
+      },
+      {
+        "letter": "D",
+        "text": "30 dias"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: a exclusão reversível de compartilhamentos vem habilitada por padrão com retenção de 7 dias, ajustável para mais ou menos. D está incorreta: 30 dias é cenário típico de blobs, não o padrão de Files. A e B estão incorretas: 1 dia seria o mínimo configurável, não o padrão; 365 dias é o teto da retenção de blobs, não o padrão de Files.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-enable-soft-delete",
+    "tags": ["files", "soft-delete", "retencao", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-174",
+    "domain": "storage",
+    "subdomain": "versionamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria exige identificar exatamente qual gravação gerou cada estado de um blob. O que identifica imutavelmente cada versão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nome do blob com timestamp"
+      },
+      {
+        "letter": "B",
+        "text": "Controle de versão anterior por ID de versão"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot manual nomeado"
+      },
+      {
+        "letter": "D",
+        "text": "ETag do blob atual"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: cada versão recebe um VersionId imutável gerado pelo serviço, permitindo leitura e auditoria exata por versão. D está incorreta: ETag identifica só o estado atual e muda a cada gravação. A está incorreta: nome não distingue versões. C está incorreta: snapshot manual não é automático por gravação.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/versioning-overview",
+    "tags": ["versionamento", "versionid", "auditoria", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-175",
+    "domain": "storage",
+    "subdomain": "container-naming",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "O nome 'LOGS_2026' falha ao criar um contêiner. Quais regras de nomenclatura valem para contêineres? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apenas minúsculas, números e hífen"
+      },
+      {
+        "letter": "B",
+        "text": "Maiúsculas e sublinhado são válidos"
+      },
+      {
+        "letter": "C",
+        "text": "Entre 3 e 63 caracteres"
+      },
+      {
+        "letter": "D",
+        "text": "Mínimo de 10 caracteres"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "A e C estão corretas: o nome usa apenas minúsculas, números e hífen; o comprimento vai de 3 a 63 caracteres e começa por letra ou número — 'LOGS_2026' quebra justamente nas maiúsculas e no sublinhado. B está incorreta: maiúsculas e sublinhado são inválidos em nome de contêiner. D está incorreta: mínimo de 10 caracteres não existe — o mínimo é 3.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/storage-blobs-introduction",
+    "tags": ["container", "nomenclatura", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-176",
+    "domain": "storage",
+    "subdomain": "container-acesso-publico",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs de um contêiner devem ser legíveis anonimamente por URL, mas a lista do contêiner não pode ser enumerada. Qual nível de acesso público usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nível contêiner: lista e blobs anônimos"
+      },
+      {
+        "letter": "B",
+        "text": "Nível blob: acesso anônimo aos blobs sem listar o contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Nenhum — acesso anônimo não existe"
+      },
+      {
+        "letter": "D",
+        "text": "Nível privado com SAS de conta"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: o nível blob dá acesso anônimo aos blobs sem listar o contêiner, que é exatamente o requisito. A está incorreta: o nível contêiner expõe a lista e a enumeração dos blobs, violando o requisito. D está incorreta: o nível privado com SAS de conta bloqueia o acesso anônimo por URL. C está incorreta: nenhum — acesso anônimo não existe como afirma a opção, ele existe em dois níveis.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
+    "tags": ["container", "acesso-publico", "anonimo", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-177",
+    "domain": "storage",
+    "subdomain": "lifecycle",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Regra de ciclo de vida com filtro de prefixo move blobs para camada fria e exclui após 365 dias. Quais filtro e ação usar? Selecione dois.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Filtro por localização da conta"
+      },
+      {
+        "letter": "B",
+        "text": "Filtro por prefixo 'logs/'"
+      },
+      {
+        "letter": "C",
+        "text": "Aprovação manual no portal"
+      },
+      {
+        "letter": "D",
+        "text": "Ação de camada fria com exclusão em 365 dias"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "B e D estão corretas: o filtro por prefixo 'logs/' restringe quais blobs entram na regra; a ação de camada fria com exclusão em 365 dias executa a transição e a exclusão no prazo. A está incorreta: filtro por localização da conta não é um filtro de regra de ciclo de vida. C está incorreta: aprovação manual no portal não existe no ciclo de vida, que roda automaticamente.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/lifecycle-management-overview",
+    "tags": ["lifecycle", "filtros", "prefixmatch", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-178",
+    "domain": "storage",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Conformidade exige reter blobs excluídos por 1 ano inteiro. A retenção da exclusão reversível permite quantos dias no máximo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "365 dias"
+      },
+      {
+        "letter": "B",
+        "text": "7 dias"
+      },
+      {
+        "letter": "C",
+        "text": "30 dias"
+      },
+      {
+        "letter": "D",
+        "text": "90 dias"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: 365 dias é o teto da retenção da exclusão reversível, configurável de 1 a 365 dias, cobrindo o ano inteiro. B está incorreta: 7 dias é o padrão da exclusão de compartilhamentos de arquivo, não o teto do soft delete. C está incorreta: 30 dias é a penalidade de exclusão antecipada da camada Cool, não o teto do soft delete. D está incorreta: 90 dias é o mínimo da camada Cold, não o teto do soft delete.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "tags": ["soft-delete", "retencao", "conformidade", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-179",
+    "domain": "storage",
+    "subdomain": "file-shares",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Conta FileStorage com compartilhamentos Premium precisa guardar também contêineres de blob. O que a conta permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Só compartilhamentos de arquivo"
+      },
+      {
+        "letter": "B",
+        "text": "Blobs e arquivos juntos"
+      },
+      {
+        "letter": "C",
+        "text": "Filas e tabelas, mas não arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "Blobs se converter a conta para premium"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: só compartilhamentos de arquivo — é o que uma conta FileStorage suporta. D está incorreta: blobs se converter a conta para premium não resolve, porque blobs exigem conta GPv2, BlobStorage ou BlockBlobStorage. B está incorreta: blobs e arquivos juntos na mesma conta não é possível em FileStorage. C está incorreta: filas e tabelas, mas não arquivos inverte o modelo — FileStorage não comporta filas nem tabelas.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "tags": ["files", "filestorage", "tipos-conta", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-180",
+    "domain": "storage",
+    "subdomain": "blob-tiers",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Dados acessados poucas vezes ao ano precisam de leitura imediata quando acessados, com custo menor que a camada Cool. Qual camada usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Camada Cold (fria)"
+      },
+      {
+        "letter": "B",
+        "text": "Premium SSD"
+      },
+      {
+        "letter": "C",
+        "text": "Camada Archive"
+      },
+      {
+        "letter": "D",
+        "text": "Camada Cool"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: Cold é online com leitura imediata e armazenamento mais barato que Cool, com permanência mínima de 90 dias. C está incorreta: Archive exige reidratação em horas, violando a leitura imediata. D está incorreta: Cool custa mais armazenamento para o mesmo padrão de acesso. B está incorreta: Premium é para IOPS intensivo, não para custo mínimo.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/access-tiers-overview",
+    "tags": ["blob", "tiers", "cold", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
     "version": 1
   }
 ]
