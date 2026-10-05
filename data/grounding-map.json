@@ -94,7 +94,14 @@
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-conditions",
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/howto-conditional-access-insights-reporting",
         "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks",
-        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/overview"
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/overview",
+        "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview",
+        "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use",
+        "https://learn.microsoft.com/pt-br/entra/id-governance/what-are-lifecycle-workflows",
+        "https://learn.microsoft.com/pt-br/entra/id-governance/what-is-provisioning",
+        "https://learn.microsoft.com/pt-br/entra/id-governance/identity-governance-overview",
+        "https://learn.microsoft.com/pt-br/entra/id-governance/create-access-review-pim-for-groups"
       ]
     },
     "ig-subscriptions-governance#1": {

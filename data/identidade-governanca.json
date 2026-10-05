@@ -401,7 +401,8 @@
     "tags": ["access-reviews", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview"
   },
   {
     "id": "az104-ig-019",
@@ -602,7 +603,8 @@
     "tags": ["terms-of-use", "b2b"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use"
   },
   {
     "id": "az104-ig-027",
@@ -635,7 +637,8 @@
     "tags": ["entitlement-management", "access-package"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview"
   },
   {
     "id": "az104-ig-028",
@@ -935,7 +938,8 @@
     "tags": ["lifecycle-workflows", "joiner-mover-leaver"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/what-are-lifecycle-workflows"
   },
   {
     "id": "az104-ig-043",
@@ -1103,7 +1107,8 @@
     "tags": ["provisionamento", "rh", "inbound"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/what-is-provisioning"
   },
   {
     "id": "az104-ig-054",
@@ -1404,7 +1409,8 @@
     "tags": ["connected-org", "parceiros", "politicas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview"
   },
   {
     "id": "az104-ig-078",
@@ -1437,7 +1443,8 @@
     "tags": ["terms-of-use", "versao", "evidencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use"
   },
   {
     "id": "az104-ig-082",
@@ -1504,7 +1511,8 @@
     "tags": ["pim", "grupos", "review"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/create-access-review-pim-for-groups"
   },
   {
     "id": "az104-ig-102",
@@ -1835,7 +1843,8 @@
     "tags": ["access-review", "recorrencia", "auto-apply"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview"
   },
   {
     "id": "az104-ig-114",
@@ -2169,7 +2178,8 @@
     "tags": ["governanca", "dashboard", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/identity-governance-overview"
   },
   {
     "id": "az104-ig-132",
