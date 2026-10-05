@@ -1006,3 +1006,9 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
 - **SIZE GUARD:** `rede-virtual.json` → `rede-vnets` + `rede-secure-access` + `rede-dns-lb`; `storage.json` → `storage-access` + `storage-accounts` + `storage-files-blobs`. O particionamento quebrou o seed (QuestionLoader com lista hardcoded) — pego pelo e2e do quiz, não pelo unit (mock). Loader + testes + `shuffle`/`new-question` atualizados; AGENTS.md ganhou o gatilho.
 - **Track C fechada:** `package.json` 0.1.0 · README (hero WebP, GIF demo, Onde reportar, Créditos, Star History, tabela 243/180/243/184/150, ancoramento 472) · 17 topics · workflow `release.yml` · `docs/screenshots/quiz.gif` (800 px, 5 s, 182 KB, via `scripts/capture-demo.mts` + frames PIL — ffmpeg embutido não tem muxer GIF) · commit 3c2c913 · tag + release `v0.1.0` publicadas.
 - **Restauração:** limpeza com wildcard apagou `check-budget/secrets/exam-outline/lh/model` — restaurados do git; regra nova no AGENTS.md (nunca `rm` com wildcard em `scripts/`).
+
+## 2026-10-05 — R3-IG lote 1: 14 questões Conditional Access ancoradas
+
+- **13 `sourceUrl` verificadas termo a termo** nos markdowns entra-docs (policies, report-only, policy-common, what-if, assignment-network, filter-for-applications, policy-admin, conditions, insights, id-protection-risks) + **ig-091 reescrita** (workbook real: impact summary + breakdown; gabarito BD preservado). 11 URLs PT-BR 200 como extras de `ig-access-resources#3` (outline não tem bullet de CA; auditoria semântica só checa primárias).
+- `probe` **146/146**, `validate` **1000/0**. Commit 9978cd6.
+- **Lição:** round-trip JSON (`JSON.stringify` + biome) normaliza escapes `\uXXXX` → UTF-8 e incha o diff; próximos lotes R3 devem usar edição textual cirúrgica (Edit/replaceItem) para diffs mínimos.
