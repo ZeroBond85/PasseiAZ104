@@ -134,7 +134,13 @@
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sso",
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sso-quick-start",
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta",
-        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/configure-permission-classifications",
+        "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk",
+        "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-assign-users",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/protect-against-consent-phishing"
       ]
     },
     "ig-subscriptions-governance#1": {

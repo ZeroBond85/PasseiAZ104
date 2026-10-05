@@ -565,7 +565,8 @@
     "tags": ["consentimento", "governanca-apps"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
   },
   {
     "id": "az104-ig-051",
@@ -872,11 +873,11 @@
     "subdomain": "app-roles",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um SaaS interno precisa de papéis (Admin, Leitor) atribuídos a usuários e grupos dentro do aplicativo. Onde esses papéis são definidos?",
+    "question": "Um SaaS interno precisa ser disponibilizado apenas a usuários e grupos específicos, não ao tenant inteiro. Onde controlar quem pode acessar o aplicativo corporativo?",
     "options": [
       {
         "letter": "A",
-        "text": "Funções de aplicativo (app roles) no manifesto do registro"
+        "text": "Atribuição de usuários e grupos ao aplicativo no portal, com seleção de função"
       },
       {
         "letter": "B",
@@ -892,12 +893,13 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "App roles no manifesto expõem papéis atribuíveis via Entra. RBAC da subscription gerencia Azure; grupos sozinhos não viram claim de papel; código sem registro não integra.",
+    "explanation": "A atribuição no portal define quais usuários e grupos acessam o app, com seleção de função. RBAC da subscription gerencia o Azure; código sem registro não integra ao Entra. Fonte: add-application-portal-assign-users.",
     "source": "original",
     "tags": ["app-roles", "manifesto", "saas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:55:33.377Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-assign-users"
   },
   {
     "id": "az104-ig-067",
@@ -1344,7 +1346,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Revisão periódica de consentimentos concedidos"
+        "text": "Classificação da permissão como alto impacto exigindo admin"
       },
       {
         "letter": "B",
@@ -1360,12 +1362,13 @@
       }
     ],
     "correct": ["B", "A"],
-    "explanation": "Workflow aprova com trilha e revisão revoga obsoletos. Consentimento irrestrito expõe o diretório; segredo único amplia blast radius.",
+    "explanation": "Workflow aprova com trilha e classificação alto-impacto exige admin. Consentimento irrestrito expõe o diretório; segredo único amplia blast radius.",
     "source": "original",
     "tags": ["consentimento", "workflow", "revisao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:55:33.377Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
   },
   {
     "id": "az104-ig-087",
@@ -1602,7 +1605,8 @@
     "tags": ["consentimento", "classificacao", "baixo-impacto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
   },
   {
     "id": "az104-ig-108",
@@ -1610,11 +1614,11 @@
     "subdomain": "publisher-verification",
     "type": "single",
     "difficulty": "medium",
-    "question": "Apps de fornecedores devem exibir selo de editor verificado para reduzir phishing por consentimento. O que o fornecedor precisa concluir?",
+    "question": "Apps maliciosos imitam nomes legítimos para obter consentimento. Qual medida de endurecimento a Microsoft recomenda?",
     "options": [
       {
         "letter": "A",
-        "text": "Trocar o nome do app"
+        "text": "Confiar no nome e no domínio exibidos pelo app"
       },
       {
         "letter": "B",
@@ -1626,16 +1630,17 @@
       },
       {
         "letter": "D",
-        "text": "Verificação de editor (publisher verification) com MPN"
+        "text": "Priorizar aplicativos de publicadores verificados e restringir o consentimento"
       }
     ],
     "correct": ["D"],
-    "explanation": "Publisher verification valida a organização via Microsoft Partner Network e exibe o selo. Renomear não prova; sem permissões o app não funciona; loja pública não verifica editor.",
+    "explanation": "Não confie em nome e domínio exibidos (spoofing); prefira publicadores verificados e limite o consentimento a apps verificados e permissões de baixo risco. Renomear não prova; sem permissões o app não funciona; loja pública não verifica editor. Fonte: protect-against-consent-phishing.",
     "source": "original",
     "tags": ["publisher-verification", "mpn", "phishing"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:55:33.377Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/protect-against-consent-phishing"
   },
   {
     "id": "az104-ig-121",
@@ -2876,7 +2881,8 @@
     "tags": ["delegated", "application", "daemon", "portal"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
   },
   {
     "id": "az104-ig-188",
@@ -2909,7 +2915,8 @@
     "tags": ["admin-consent", "workflow", "aprovacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
   },
   {
     "id": "az104-ig-189",
@@ -2942,7 +2949,8 @@
     "tags": ["classificacao", "permissoes", "impacto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/configure-permission-classifications"
   },
   {
     "id": "az104-ig-190",
@@ -2950,11 +2958,11 @@
     "subdomain": "risky-apps",
     "type": "single",
     "difficulty": "medium",
-    "question": "Apps com permissões excessivas e sem uso precisam de priorização de remediação. Onde ver o risco agregado por aplicativo?",
+    "question": "Várias entidades de carga de trabalho acumulam permissões e credenciais antigas. Onde ver o risco agregado para priorizar a remediação?",
     "options": [
       {
         "letter": "A",
-        "text": "Relatório de apps arriscados (risky apps) do Identity Protection"
+        "text": "Relatório de workload identities arriscadas do Identity Protection"
       },
       {
         "letter": "B",
@@ -2970,12 +2978,13 @@
       }
     ],
     "correct": ["A"],
-    "explanation": "Risky apps pontua por permissões e comportamento. Alfabética não prioriza; fatura não mede risco; deploy não avalia app.",
+    "explanation": "O relatório de workload identities arriscadas agrega detecções por entidade para priorizar rotação e limpeza. Lista alfabética não prioriza; fatura não mede risco; log de deploy não avalia app. Fonte: concept-workload-identity-risk.",
     "source": "original",
     "tags": ["risky-apps", "priorizacao", "remediacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:55:33.377Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk"
   },
   {
     "id": "az104-ig-191",
@@ -3008,7 +3017,8 @@
     "tags": ["workload-identity", "risco", "credencial-vazada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk"
   },
   {
     "id": "az104-ig-193",
@@ -3041,7 +3051,8 @@
     "tags": ["certificado", "client-secret", "x509"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal"
   },
   {
     "id": "az104-ig-194",
