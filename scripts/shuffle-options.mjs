@@ -18,11 +18,15 @@ import { fileURLToPath } from 'node:url'
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
 const DATA = join(ROOT, 'data')
 const FILES = [
-  'storage.json',
+  'storage-access.json',
+  'storage-accounts.json',
+  'storage-files-blobs.json',
   'compute-vms.json',
   'compute-apps.json',
   'compute-platform.json',
-  'rede-virtual.json',
+  'rede-vnets.json',
+  'rede-secure-access.json',
+  'rede-dns-lb.json',
   'monitoramento.json',
   'identidade-governanca.json',
   'identidade-acesso.json',

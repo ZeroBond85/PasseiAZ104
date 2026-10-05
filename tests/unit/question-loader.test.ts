@@ -56,12 +56,12 @@ describe('QuestionLoader.ensureSeeded', () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(async (url: string) => {
-        if (String(url).includes('rede-virtual.json'))
+        if (String(url).includes('rede-dns-lb.json'))
           return { ok: false, status: 500 }
         return { ok: true, json: async () => [validQ] }
       }),
     )
-    await expect(ensureSeeded()).rejects.toThrow(/seed parcial: 7\/8/)
+    await expect(ensureSeeded()).rejects.toThrow(/seed parcial: 11\/12/)
     expect(store.has(VERSION_KEY)).toBe(false)
   })
 
@@ -69,12 +69,12 @@ describe('QuestionLoader.ensureSeeded', () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(async (url: string) => {
-        if (String(url).includes('storage.json'))
+        if (String(url).includes('storage-accounts.json'))
           throw new Error('network down')
         return { ok: true, json: async () => [validQ] }
       }),
     )
-    await expect(ensureSeeded()).rejects.toThrow(/seed parcial: 7\/8/)
+    await expect(ensureSeeded()).rejects.toThrow(/seed parcial: 11\/12/)
     expect(store.has(VERSION_KEY)).toBe(false)
   })
 
@@ -84,7 +84,7 @@ describe('QuestionLoader.ensureSeeded', () => {
       vi.fn(async () => ({ ok: true, json: async () => [validQ] })),
     )
     const r = await ensureSeeded()
-    expect(r).toEqual({ seeded: true, count: 8 })
+    expect(r).toEqual({ seeded: true, count: 12 })
     expect(store.get(VERSION_KEY)).toBe('2')
   })
 

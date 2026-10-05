@@ -1,0 +1,1807 @@
+[
+  {
+    "id": "az104-rv-001",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-subnets",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Você precisa segmentar uma rede virtual 10.0.0.0/16 em sub-redes para web, aplicação e banco de dados. Qual prefixo de sub-rede comporta cerca de 250 hosts utilizáveis em cada camada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "10.0.0.0/16 repetido em cada camada"
+      },
+      {
+        "letter": "B",
+        "text": "10.0.1.0/30 para cada sub-rede"
+      },
+      {
+        "letter": "C",
+        "text": "192.168.0.0/8 sobreposto à VNet"
+      },
+      {
+        "letter": "D",
+        "text": "10.0.1.0/24 para cada sub-rede"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "/24 entrega 251 IPs utilizáveis (Azure reserva 5), ideal por camada. /30 só tem 2 úteis; repetir /16 sobrepõe e é inválido; 192.168/8 externo não segmenta a VNet.",
+    "source": "mslearn",
+    "tags": ["vnet", "subnets", "cidr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-003",
+    "domain": "rede-virtual",
+    "subdomain": "peering",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Duas VNets na mesma região com espaços 10.1.0.0/16 e 10.2.0.0/16 precisam comunicar com latência de backbone. Qual recurso conecta as duas sem gateway?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rota 0.0.0.0/0 para a internet"
+      },
+      {
+        "letter": "B",
+        "text": "VPN site-to-site entre as VNets"
+      },
+      {
+        "letter": "C",
+        "text": "Emparelhamento de VNet (VNet Peering)"
+      },
+      {
+        "letter": "D",
+        "text": "IP público nas VMs com NSG aberta"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Peering une VNets pelo backbone com baixa latência e sem gateway. VPN entre VNets (VNet-to-VNet) exige gateways e é mais lenta; IP público expõe; rota default não conecta redes privadas.",
+    "source": "mslearn",
+    "tags": ["peering", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-014",
+    "domain": "rede-virtual",
+    "subdomain": "udr",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Tráfego da sub-rede de banco deve passar pelo firewall central antes de sair. Onde a rota personalizada que força esse caminho deve ser associada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tabela de rotas (UDR) associada à sub-rede do banco"
+      },
+      {
+        "letter": "B",
+        "text": "NSG do firewall com rota"
+      },
+      {
+        "letter": "C",
+        "text": "Tabela de rotas associada ao firewall"
+      },
+      {
+        "letter": "D",
+        "text": "Peering com gateway desativado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "UDR associada à sub-rede de origem redireciona o próximo salto ao firewall. Associar no firewall não afeta a origem; NSG não roteia; peering sem gateway não inspeciona.",
+    "source": "mslearn",
+    "tags": ["udr", "rotas", "firewall"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-021",
+    "domain": "rede-virtual",
+    "subdomain": "peering-transitividade",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Três VNets em cadeia (A-B, B-C) precisam que A alcance C passando por B, que tem firewall. Por que o peering direto A-C falha sem o hub e o que resolve?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering é transitivo por padrão"
+      },
+      {
+        "letter": "B",
+        "text": "Basta criar DNS privado em C"
+      },
+      {
+        "letter": "C",
+        "text": "Basta abrir NSG em A"
+      },
+      {
+        "letter": "D",
+        "text": "Peering não é transitivo; usar gateway transit ou UDR via firewall do hub"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Peering não transita: A não alcança C via B sem permitir trânsito de gateway ou rotas pelo firewall. DNS e NSG não criam rota; transitividade exige desenho hub-spoke explícito.",
+    "source": "mslearn",
+    "tags": ["peering", "transitividade", "hub-spoke"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-029",
+    "domain": "rede-virtual",
+    "subdomain": "connection-monitor",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Latência entre VM e App Service via Private Endpoint precisa de série histórica com alerta. Qual recurso do Network Watcher monitora continuamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Topologia estática da VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Captura de pacote única"
+      },
+      {
+        "letter": "C",
+        "text": "Diagnóstico de boot da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Monitor de Conexão (Connection Monitor) com testes periódicos"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Connection Monitor testa periodicamente e gera métricas/alertas. Captura única não historica; topologia é mapa; boot não mede rede.",
+    "source": "mslearn",
+    "tags": ["network-watcher", "connection-monitor"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-030",
+    "domain": "rede-virtual",
+    "subdomain": "packet-capture",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pacotes entre duas VMs precisam ser inspecionados no Wireshark por 5 minutos. Qual recurso captura e exporta o tráfego para análise?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Flow log do NSG (apenas metadados)"
+      },
+      {
+        "letter": "B",
+        "text": "Captura de Pacotes do Network Watcher na VM"
+      },
+      {
+        "letter": "C",
+        "text": "Log de DNS privado"
+      },
+      {
+        "letter": "D",
+        "text": "Métrica de bytes do Monitor"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Packet Capture grava PCAP para Wireshark. Flow log registra 5-tuplas, não payload; métrica agrega bytes; log DNS mostra nomes, não pacotes.",
+    "source": "original",
+    "tags": ["network-watcher", "packet-capture"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-031",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-integration-limites",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A integração VNet do App Service parou após troca de certificado do gateway. Qual causa raiz explica a quebra do túnel ponto-a-site interno?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Habilitação de logs em Blob"
+      },
+      {
+        "letter": "B",
+        "text": "Certificado do gateway alterado sem ressincronizar a integração"
+      },
+      {
+        "letter": "C",
+        "text": "Escala do plano para Premium"
+      },
+      {
+        "letter": "D",
+        "text": "Criação de slot de homologação"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A integração usa certificados do gateway P2S; trocá-los exige ressincronizar. Escala, slots e logs não quebram o túnel.",
+    "source": "mslearn",
+    "tags": ["vnet-integration", "certificado", "gateway"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-032",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-flow-logs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria exige registrar todas as conexões permitidas e negadas pela NSG por 90 dias para investigação. Onde os fluxos com retenção devem ser enviados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "E-mail de alerta por conexão"
+      },
+      {
+        "letter": "B",
+        "text": "Logs de fluxo NSG para Log Analytics/Storage com retenção"
+      },
+      {
+        "letter": "C",
+        "text": "Console ao vivo do portal"
+      },
+      {
+        "letter": "D",
+        "text": "Métricas de 30 dias do Monitor"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Flow logs gravam 5-tuplas com retenção configurável no LA/Storage. Console ao vivo não retém; métricas agregam; e-mail por conexão é inviável.",
+    "source": "mslearn",
+    "tags": ["nsg", "flow-logs", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-033",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "IPs públicos de produção sofrem floods volumétricos e precisam de mitigação automática com telemetria. Qual plano protege esses IPs?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DDoS Protection no nível da VNet"
+      },
+      {
+        "letter": "B",
+        "text": "WAF do Application Gateway"
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio de IP manual por alerta"
+      },
+      {
+        "letter": "D",
+        "text": "NSG com limite de taxa (rate limit)"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "DDoS Protection mitiga L3/L4 na borda com telemetria. NSG não tem rate limit nativo; WAF protege L7 de apps específicos; bloqueio manual não acompanha flood.",
+    "source": "original",
+    "tags": ["ddos", "protecao", "l3-l4"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-035",
+    "domain": "rede-virtual",
+    "subdomain": "vwan",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Trinta filiais com VPN e ExpressRoute precisam de hub gerenciado com roteamento automático entre tudo. Qual arquitetura centraliza sem configurar cada peering?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering manual em malha completa"
+      },
+      {
+        "letter": "B",
+        "text": "Uma VNet gigante para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Trinta gateways isolados sem hub"
+      },
+      {
+        "letter": "D",
+        "text": "Virtual WAN com hubs e roteamento automático"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "vWAN abstrai hubs com VPN/ER e roteia automaticamente. Gateways isolados não se falam; malha manual não escala; VNet única mistura domínios e limites.",
+    "source": "original",
+    "tags": ["vwan", "hub", "filiais"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-040",
+    "domain": "rede-virtual",
+    "subdomain": "ipv6",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma aplicação precisa de conectividade IPv6 fim-a-fim nas VNets mantendo o IPv4 atual. O que deve ser adicionado à VNet e às sub-redes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NAT64 sem espaço IPv6"
+      },
+      {
+        "letter": "B",
+        "text": "Espaço IPv6 na VNet com sub-redes dual-stack"
+      },
+      {
+        "letter": "C",
+        "text": "Troca de todo IPv4 por IPv6"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas AAAA no DNS público"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Dual-stack adiciona prefixo IPv6 à VNet/sub-redes convivendo com IPv4. Só DNS não cria rota; NAT64 traduz sem fim-a-fim; trocar tudo quebra o legado.",
+    "source": "mslearn",
+    "tags": ["ipv6", "dual-stack"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-048",
+    "domain": "rede-virtual",
+    "subdomain": "network-manager",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cinquenta VNets precisam das mesmas regras de segurança e topologia mesh gerenciadas centralmente. Qual serviço aplica configuração em escala multirregião?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG copiada manualmente por VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Uma NSG global única"
+      },
+      {
+        "letter": "C",
+        "text": "Peering manual em malha"
+      },
+      {
+        "letter": "D",
+        "text": "Azure Virtual Network Manager com grupos e configs"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Network Manager agrupa VNets e aplica segurança/conectividade centralmente. Cópia manual diverge; malha manual não escala; não existe NSG global.",
+    "source": "original",
+    "tags": ["network-manager", "escala", "mesh"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-049",
+    "domain": "rede-virtual",
+    "subdomain": "peering-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Para emparelhar duas VNets com gateway compartilhado e tráfego só criptografado, quais duas opções do peering devem ser marcadas? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Desabilitar o peering após criar"
+      },
+      {
+        "letter": "B",
+        "text": "Usar gateway remoto (use remote gateway)"
+      },
+      {
+        "letter": "C",
+        "text": "Permitir trânsito de gateway (allow gateway transit)"
+      },
+      {
+        "letter": "D",
+        "text": "Bloquear todo o tráfego entre VNets"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Allow transit exporta o gateway e use remote o consome na spoke. Bloquear anula; desabilitar desfaz o peering.",
+    "source": "mslearn",
+    "tags": ["peering", "gateway-transit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-057",
+    "domain": "rede-virtual",
+    "subdomain": "hub-spoke-firewall-avancado",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Spokes trocam tráfego entre si passando pelo firewall do hub, mas pacotes retornam assimétricos e caem. Qual configuração de roteamento garante ida e volta pelo mesmo firewall?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering direto entre spokes"
+      },
+      {
+        "letter": "B",
+        "text": "UDR nas sub-redes do firewall (GatewaySubnet/firewall) forçando retorno simétrico"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar o firewall do hub"
+      },
+      {
+        "letter": "D",
+        "text": "Remover todas as UDRs dos spokes"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Rota na sub-rede do firewall preserva simetria do fluxo inspecionado. Remover UDRs desvia do firewall; desabilitar perde inspeção; peering direto contorna o hub.",
+    "source": "original",
+    "tags": ["hub-spoke", "firewall", "udr", "simetria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-058",
+    "domain": "rede-virtual",
+    "subdomain": "forced-tunneling",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Todo o tráfego de internet das VNets deve sair pelo datacenter local para inspeção corporativa. Qual desenho força esse retorno on-premises?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rota 0.0.0.0/0 para a internet"
+      },
+      {
+        "letter": "B",
+        "text": "Bastion como proxy de saída"
+      },
+      {
+        "letter": "C",
+        "text": "Forced tunneling com UDR 0.0.0.0/0 para o gateway VPN/ER"
+      },
+      {
+        "letter": "D",
+        "text": "NAT Gateway com IP fixo no Azure"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "UDR default para o gateway devolve tudo ao local (forced tunnel). NAT sai pelo Azure; rota internet ignora inspeção; Bastion não proxya saída.",
+    "source": "original",
+    "tags": ["forced-tunneling", "udr", "on-premises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-061",
+    "domain": "rede-virtual",
+    "subdomain": "nva-ha",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um NVA de terceiro em VM única é ponto único de falha no caminho forçado. Como obter alta disponibilidade do inspection path sem reescrever rotas por falha?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Conjunto com LB interno (Gateway LB) distribuindo aos NVAs ativos"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot diário do NVA"
+      },
+      {
+        "letter": "C",
+        "text": "NSG com failover automático"
+      },
+      {
+        "letter": "D",
+        "text": "Uma VM maior para o NVA"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Gateway LB encadeia NVAs com HA transparente ao roteamento. VM maior não elimina ponto único; snapshot recupera, não evita; NSG não faz failover.",
+    "source": "original",
+    "tags": ["nva", "gateway-lb", "ha"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-065",
+    "domain": "rede-virtual",
+    "subdomain": "hub-spoke-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O hub precisa inspecionar spoke-to-spoke e internet com failover do firewall. Quais dois elementos compõem o desenho resiliente? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering direto entre todos os spokes"
+      },
+      {
+        "letter": "B",
+        "text": "UDRs dos spokes apontando ao firewall"
+      },
+      {
+        "letter": "C",
+        "text": "Firewall em múltiplas zonas de disponibilidade"
+      },
+      {
+        "letter": "D",
+        "text": "Firewall único sem zona"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "Firewall zonalmente redundante elimina ponto único e UDRs forçam inspeção. Peering direto contorna o hub; firewall sem zona cai com o datacenter.",
+    "source": "mslearn",
+    "tags": ["hub-spoke", "firewall", "zonas", "udr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-068",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Durante um ataque volumétrico, a equipe precisa de mitigação automática e visibilidade do vetor. Quais dois recursos do DDoS Protection entregam isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Bloqueio manual de /8"
+      },
+      {
+        "letter": "B",
+        "text": "Mitigação always-on na borda"
+      },
+      {
+        "letter": "C",
+        "text": "Telemetria e alertas do ataque"
+      },
+      {
+        "letter": "D",
+        "text": "Desligamento dos IPs públicos"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Mitigação contínua absorve o flood e a telemetria mostra vetores para resposta. Bloqueio /8 manual é lento e amplo; desligar IPs derruba o serviço.",
+    "source": "mslearn",
+    "tags": ["ddos", "mitigacao", "telemetria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-072",
+    "domain": "rede-virtual",
+    "subdomain": "vwan-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A Virtual WAN precisa segmentar filiais por perfil (lojas vs fábricas) com políticas distintas. Quais dois construtos segmentam e aplicam política? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rótulos (labels) agrupando conexões"
+      },
+      {
+        "letter": "B",
+        "text": "Tabelas de rota personalizadas por segmento"
+      },
+      {
+        "letter": "C",
+        "text": "Hub único sem segmentação"
+      },
+      {
+        "letter": "D",
+        "text": "Rota default para tudo"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Labels agrupam conexões e route tables por segmento isolam com políticas próprias. Hub único mistura; default único não segmenta.",
+    "source": "mslearn",
+    "tags": ["vwan", "segmentacao", "labels"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-075",
+    "domain": "rede-virtual",
+    "subdomain": "peering-crossregion-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VNets em regiões distintas precisam de conectividade privada com failover de rota. Quais dois elementos atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering global entre as regiões"
+      },
+      {
+        "letter": "B",
+        "text": "DNS público como rota"
+      },
+      {
+        "letter": "C",
+        "text": "IP público com NSG aberta"
+      },
+      {
+        "letter": "D",
+        "text": "Gateway transit com rotas propagadas"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "Peering global une regiões pelo backbone e o transit propaga rotas de gateway. IP público sai à internet; DNS não roteia.",
+    "source": "mslearn",
+    "tags": ["peering-global", "regioes", "gateway-transit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-076",
+    "domain": "rede-virtual",
+    "subdomain": "nva-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dois NVAs ativo-passivo precisam de failover de rota sem intervenção manual. Quais dois elementos automatizam a troca? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IP flutuante interno movido entre NVAs"
+      },
+      {
+        "letter": "B",
+        "text": "Rota estática fixa em um NVA"
+      },
+      {
+        "letter": "C",
+        "text": "Probe de saúde com reescrita de UDR por automação"
+      },
+      {
+        "letter": "D",
+        "text": "Desligamento manual do primário"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Probe detecta falha e a automação move rota/IP flutuante ao secundário. Rota fixa não falha over; processo manual é lento.",
+    "source": "mslearn",
+    "tags": ["nva", "failover", "udr", "ip-flutuante"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-081",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-address-plan",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cinco VNets precisam de peering futuro sem sobreposição, reservando espaço para 4 sub-redes /24 cada. Qual bloco por VNet comporta o plano?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Mesmo /24 em todas"
+      },
+      {
+        "letter": "B",
+        "text": "10.0.0.0/16 igual em todas"
+      },
+      {
+        "letter": "C",
+        "text": "/30 por VNet"
+      },
+      {
+        "letter": "D",
+        "text": "10.x.0.0/21 por VNet (8x /24, 4 usadas + reserva)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "/21 dá 8 /24 (4 em uso + reserva) com x distinto por VNet sem sobrepor. Mesmo /16 sobrepõe; /30 é insuficiente; /24 igual conflita.",
+    "source": "mslearn",
+    "tags": ["vnet", "enderecamento", "planejamento", "cidr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-082",
+    "domain": "rede-virtual",
+    "subdomain": "reserved-ips",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sub-rede /26 precisa acomodar 40 VMs com IPs do Azure reservados. Quantos endereços restam utilizáveis?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "30 utilizáveis"
+      },
+      {
+        "letter": "B",
+        "text": "40 exatos sem reserva"
+      },
+      {
+        "letter": "C",
+        "text": "59 utilizáveis (64 menos 5 reservados)"
+      },
+      {
+        "letter": "D",
+        "text": "64 utilizáveis todos"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Azure reserva 5 por sub-rede (.0-.3 + broadcast); /26 tem 64, sobram 59. Ignorar a reserva estoura o plano.",
+    "source": "mslearn",
+    "tags": ["subnets", "ips-reservados", "calculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-083",
+    "domain": "rede-virtual",
+    "subdomain": "static-vs-dynamic-ip",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VM crítica precisa manter o IP privado após desalocar. Qual alocação garante persistência do privado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nova NIC a cada boot"
+      },
+      {
+        "letter": "B",
+        "text": "IP dinâmico padrão"
+      },
+      {
+        "letter": "C",
+        "text": "IP privado estático na NIC"
+      },
+      {
+        "letter": "D",
+        "text": "IP público dinâmico"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Estático reserva o privado além do ciclo de vida. Dinâmico pode mudar ao desalocar; público não fixa privado; nova NIC troca tudo.",
+    "source": "mslearn",
+    "tags": ["ip-privado", "estatico", "nic"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-084",
+    "domain": "rede-virtual",
+    "subdomain": "public-ip-sku",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "IP público precisa de zona, roteamento e SLA para o LB Standard. Qual SKU atende?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IP Básico dinâmico"
+      },
+      {
+        "letter": "B",
+        "text": "IP de link-local"
+      },
+      {
+        "letter": "C",
+        "text": "IP privado sem SKU"
+      },
+      {
+        "letter": "D",
+        "text": "IP Standard (zonal, com SLA)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Standard dá zona, estático e SLA, combinando com LB Standard. Básico não tem zona/SLA; privado não é público; link-local não roteia.",
+    "source": "mslearn",
+    "tags": ["ip-publico", "sku", "standard"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-085",
+    "domain": "rede-virtual",
+    "subdomain": "public-prefix",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dez serviços precisam de IPs públicos contíguos reservados de uma vez. O que reserva o bloco?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Um IP compartilhado"
+      },
+      {
+        "letter": "B",
+        "text": "IPs dinâmicos por serviço"
+      },
+      {
+        "letter": "C",
+        "text": "Dez IPs avulsos manuais"
+      },
+      {
+        "letter": "D",
+        "text": "Prefixo de IP público (/28 com 16 endereços)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Public prefix reserva bloco contíguo gerenciado. Avulsos fragmentam; compartilhado conflita; dinâmicos mudam.",
+    "source": "mslearn",
+    "tags": ["prefixo-ip", "bloco", "contiguo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-086",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-bypass",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tráfego legítimo de parceiro é mitigado como flood pelo DDoS Protection. Como permitir a origem confiável?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aumentar o ataque"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitar a proteção"
+      },
+      {
+        "letter": "C",
+        "text": "Remover o IP público"
+      },
+      {
+        "letter": "D",
+        "text": "Lista de permissões (allowlist) no plano DDoS"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Allowlist isenta origens confiáveis da mitigação. Desligar expõe; remover IP derruba; aumentar piora.",
+    "source": "original",
+    "tags": ["ddos", "allowlist", "falso-positivo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-087",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-telemetry",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Durante ataque, o SOC precisa de volume por protocolo e ações de mitigação em tempo real. Onde ver a telemetria?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Telemetria do DDoS Protection no Monitor"
+      },
+      {
+        "letter": "B",
+        "text": "Log do aplicativo"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail do ISP"
+      },
+      {
+        "letter": "D",
+        "text": "Fatura do mês"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Telemetria mostra vetores, volume e mitigação ao vivo. App não vê rede; fatura atrasa; ISP não tem o dado.",
+    "source": "original",
+    "tags": ["ddos", "telemetria", "soc"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-101",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-tap-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Tráfego espelhado da VM precisa ir ao coletor para IDS sem agente. Quais dois elementos do TAP usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Espelho para internet"
+      },
+      {
+        "letter": "B",
+        "text": "Agente instalado na origem"
+      },
+      {
+        "letter": "C",
+        "text": "Configuração TAP na NIC de origem"
+      },
+      {
+        "letter": "D",
+        "text": "Destino coletor (VM/LB) na mesma região"
+      }
+    ],
+    "correct": ["C", "D"],
+    "explanation": "Configuração TAP na NIC espelha sem agente para o coletor regional (VM/LB). Agente instalado contradiz o modelo sem-agente; espelho para internet expõe.",
+    "source": "mslearn",
+    "tags": ["vnet-tap", "espelho", "ids"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-102",
+    "domain": "rede-virtual",
+    "subdomain": "ddos-plan-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dez VNets precisam de proteção DDoS com custo compartilhado. Quais dois elementos do plano usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Plano DDoS associado às VNets"
+      },
+      {
+        "letter": "B",
+        "text": "Plano por IP individual"
+      },
+      {
+        "letter": "C",
+        "text": "IPs públicos sob o plano"
+      },
+      {
+        "letter": "D",
+        "text": "Sem plano com NSG"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Plano DDoS associado às VNets protege os IPs públicos com custo diluído. Plano por IP individual multiplica; sem plano com NSG não há mitigação.",
+    "source": "mslearn",
+    "tags": ["ddos", "plano", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-176",
+    "domain": "rede-virtual",
+    "subdomain": "vnet-segundo-cidr",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VNet 10.0.0.0/16 lotada precisa de um segundo bloco. O novo CIDR precisa ser contíguo ao primeiro?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, só via recriação da VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, contíguo e da mesma classe"
+      },
+      {
+        "letter": "C",
+        "text": "Não — basta não sobrepor"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, com o mesmo prefixo /16"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: o segundo bloco só precisa ser válido e não sobreposto — pode ser não contíguo e de tamanho distinto. B está incorreta: contiguidade e classe não são exigidas. D está incorreta: o novo bloco pode ter prefixo e tamanho diferentes, sem repetir o /16. A está incorreta: adiciona-se em produção, sem recriar.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/manage-virtual-network",
+    "tags": ["vnet", "cidr", "espaco-endereco", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-177",
+    "domain": "rede-virtual",
+    "subdomain": "udr-longest-prefix",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Duas rotas coincidem com o destino: UDR /24 e rota de sistema /16. Qual vence?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A com menor métrica BGP"
+      },
+      {
+        "letter": "B",
+        "text": "Nenhuma — tráfego dropado"
+      },
+      {
+        "letter": "C",
+        "text": "A de sistema /16 por ser nativa"
+      },
+      {
+        "letter": "D",
+        "text": "A UDR /24 (prefixo mais longo)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "D está correta: a UDR /24 vence por longest prefix match, independente da origem da rota. C está incorreta: a de sistema /16 por ser nativa não supera o prefixo mais longo da UDR /24. A está incorreta: a com menor métrica BGP decide apenas entre rotas BGP. B está incorreta: nenhuma — tráfego dropado não ocorre, porque havendo coincidência de destino sempre há uma rota vencedora.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "tags": ["udr", "longest-prefix", "roteamento", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-178",
+    "domain": "rede-virtual",
+    "subdomain": "peering-cross-sub",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VNets em assinaturas distintas do mesmo tenant precisam trocar tráfego privado. O que permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Emparelhamento entre as assinaturas"
+      },
+      {
+        "letter": "B",
+        "text": "DNS público compartilhado"
+      },
+      {
+        "letter": "C",
+        "text": "Migrar tudo para uma assinatura"
+      },
+      {
+        "letter": "D",
+        "text": "IP público em cada VM"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: o emparelhamento entre as assinaturas (e entre tenants, com as permissões devidas) mantém o tráfego privado. D está incorreta: IP público em cada VM manda o tráfego pela internet, o que não é tráfego privado. B está incorreta: DNS público compartilhado resolve nomes, não roteia pacotes entre VNets. C está incorreta: migrar tudo para uma assinatura é desnecessário quando o emparelhamento já resolve.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-peering-overview",
+    "tags": ["peering", "assinaturas", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-179",
+    "domain": "rede-virtual",
+    "subdomain": "ip-alocacao",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "IP público muda a cada deallocate. Qual método de alocação o mantém fixo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Estático"
+      },
+      {
+        "letter": "B",
+        "text": "Por link-local"
+      },
+      {
+        "letter": "C",
+        "text": "Dinâmica"
+      },
+      {
+        "letter": "D",
+        "text": "Por DHCP do SO"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: estático persiste entre stop/start. C está incorreta: dinâmico pode mudar ao desalocar. B está incorreta: link-local não roteia. D está incorreta: DHCP do SO não controla a alocação do Azure.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-addresses",
+    "tags": ["ip-publico", "alocacao", "estatico", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-180",
+    "domain": "rede-virtual",
+    "subdomain": "ip-dns-label",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Onde definir o rótulo DNS que gera o FQDN do endereço IP público?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rótulo DNS no próprio IP público"
+      },
+      {
+        "letter": "B",
+        "text": "Hosts file das VMs"
+      },
+      {
+        "letter": "C",
+        "text": "Registro A na zona privada"
+      },
+      {
+        "letter": "D",
+        "text": "Nome do grupo de recursos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: o rótulo DNS no IP gera FQDN label.local.cloudapp.azure.com. C está incorreta: zona privada não publica na internet. B está incorreta: hosts não escala. D está incorreta: nome de grupo não é DNS.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-addresses",
+    "tags": ["ip-publico", "dns-label", "fqdn", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-181",
+    "domain": "rede-virtual",
+    "subdomain": "udr-next-hop",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tráfego para 10.2.0.0/16 deve sair à internet contornando o firewall. Qual próximo salto na UDR?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway de VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Nenhum (drop)"
+      },
+      {
+        "letter": "C",
+        "text": "Internet"
+      },
+      {
+        "letter": "D",
+        "text": "Virtual appliance"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: próximo salto Internet desvia do NVA. D está incorreta: appliance força inspeção — o oposto do pedido. A está incorreta: gateway leva a VPN/ER. B está incorreta: next-hop nenhum descarta o tráfego de fato.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "tags": ["udr", "next-hop", "internet", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-182",
+    "domain": "rede-virtual",
+    "subdomain": "udr-bgp-propagacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Sub-rede com NVA não pode receber rotas BGP do gateway. O que configurar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG negando BGP"
+      },
+      {
+        "letter": "B",
+        "text": "Desligar o gateway"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar a propagação de rotas BGP na sub-rede"
+      },
+      {
+        "letter": "D",
+        "text": "Excluir a tabela de rotas"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: desabilitar a propagação de rotas BGP na sub-rede bloqueia as rotas aprendidas do gateway e mantém as rotas customizadas da NVA. D está incorreta: excluir a tabela de rotas remove também as rotas próprias da sub-rede. A está incorreta: NSG negando BGP não existe — NSG filtra conexão, não protocolo de roteamento. B está incorreta: desligar o gateway derruba toda a conectividade das VNets, não só o BGP.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-peering-overview",
+    "tags": ["udr", "bgp", "propagacao", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-184",
+    "domain": "rede-virtual",
+    "subdomain": "packet-capture",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Pacotes somem entre duas sub-redes sem log de firewall. Qual ferramenta captura o tráfego para análise?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IP Flow Verify"
+      },
+      {
+        "letter": "B",
+        "text": "Connection Troubleshoot"
+      },
+      {
+        "letter": "C",
+        "text": "Captura de pacotes do Network Watcher"
+      },
+      {
+        "letter": "D",
+        "text": "Ping do Cloud Shell"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: packet capture grava pacotes para análise profunda. A está incorreta: IP Flow só dá o veredito da regra. B está incorreta: troubleshoot dá checks e latência, não pcap. D está incorreta: ping não captura.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-packet-capture-overview",
+    "tags": ["troubleshooting", "packet-capture", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-185",
+    "domain": "rede-virtual",
+    "subdomain": "peering-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que o emparelhamento de VNets é transitivo por padrão, permitindo que a VNet A alcance a C através da B sem configuração adicional. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, peering sempre transita entre VNets emparelhadas"
+      },
+      {
+        "letter": "B",
+        "text": "Não, peering não é transitivo e exige desenho explícito"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, desde que as três VNets estejam emparelhadas em topologia de hub com gateway compartilhado"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a transitividade só falha quando o emparelhamento envolve um gateway de VPN"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Peering conecta pares; trânsito exige gateway transit ou NVA com rotas. Assumir transitividade é o erro clássico de hub-spoke.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T02:11:52.930Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-188",
+    "domain": "rede-virtual",
+    "subdomain": "sobreposicao-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que duas VNets com espaços sobrepostos (10.0.0.0/16 em ambas) podem ser emparelhadas normalmente, pois o Azure traduz os endereços. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, o peering resolve sobreposição com NAT"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, porque o emparelhamento traduz automaticamente os endereços para o espaço da VNet remota"
+      },
+      {
+        "letter": "C",
+        "text": "Não, espaços sobrepostos impedem o peering"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas desde que as sub-redes sobrepostas estejam em gateways diferentes em cada VNet"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Peering exige espaços disjuntos; sobreposição bloqueia a criação. NAT entre VNets não é função do peering.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T02:11:52.930Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-189",
+    "domain": "rede-virtual",
+    "subdomain": "bandwidth-vpn-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que throughput VPN é garantido igual ao contratado independente de internet pública. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, garantido sempre"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que o SKU contratado seja do tipo Standard e o gateway tenha escala automática"
+      },
+      {
+        "letter": "C",
+        "text": "Não, depende da internet subjacente"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o throughput é garantido apenas no sentido de upload, ficando o download por conta da operadora"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "VPN sobre internet varia com o melhor esforço do caminho subjacente. Assumir throughput garantido igual ao contratado ignora a base pública.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T02:11:52.930Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-190",
+    "domain": "rede-virtual",
+    "subdomain": "latency-er-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que ExpressRoute garante latência menor que VPN por usar backbone privado. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, latências são idênticas"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque o ExpressRoute tem latência necessariamente maior que a VPN ao atravessar a rede pública"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas a diferença só é observável em circuitos com largura de banda acima de 10 Gbps"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, backbone privado é mais consistente"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Backbone privado dedicado evita congestão pública com latência consistente e SLA. Equiparar latências ignora a diferença física entre os caminhos.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T02:11:52.930Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-212",
+    "domain": "rede-virtual",
+    "subdomain": "udr-prefixos-none",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O Azure cria rotas de sistema padrão para cada sub-rede de uma rede virtual. Para quais prefixos o next hop type dessas rotas é None, a menos que você use a faixa no espaço de endereços da rede virtual?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Para 0.0.0.0/0 e para o prefixo correspondente ao espaço de endereços da rede virtual"
+      },
+      {
+        "letter": "B",
+        "text": "Para 10.0.0.0/8, 172.16.0.0/12 e 192.168.0.0/16, mas para 100.64.0.0/10 o next hop type é Internet"
+      },
+      {
+        "letter": "C",
+        "text": "Para nenhum prefixo, porque todas as rotas de sistema têm next hop type Virtual network"
+      },
+      {
+        "letter": "D",
+        "text": "Para 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Além da rota do próprio espaço de endereços e da rota 0.0.0.0/0 para Internet, o Azure cria com next hop type None as rotas de 10.0.0.0/8, 172.16.0.0/12 e 192.168.0.0/16, reservados para uso privado pela RFC 1918, e a de 100.64.0.0/10, reservada pela RFC 6598. Tráfego roteado para None é descartado dentro da sub-rede, em vez de sair dela. A ressalva do enunciado está no próprio doc: se você atribuir uma dessas faixas ao espaço de endereços da rede virtual, o Azure muda o next hop type de None para Virtual network, e o tráfego passa a ser roteado dentro da rede.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-213",
+    "domain": "rede-virtual",
+    "subdomain": "udr-next-hop-internet-backbone",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma sub-rede mantém a rota de sistema 0.0.0.0/0 com next hop type Internet, sem nenhuma rota definida pelo usuário. Para onde vai o tráfego destinado ao endereço IP público de um serviço do Azure, como o Armazenamento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Pela internet, usando o IP público do serviço como destino final da conexão"
+      },
+      {
+        "letter": "B",
+        "text": "Pela internet, mas traduzindo o IP público do serviço para o IP privado do endpoint"
+      },
+      {
+        "letter": "C",
+        "text": "Para a sub-rede Gateway, porque serviços do Azure são alcançados pelo gateway de rede virtual"
+      },
+      {
+        "letter": "D",
+        "text": "Direto ao serviço, pela rede backbone do Azure, sem passar pela internet"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A rota 0.0.0.0/0 com next hop type Internet leva à internet qualquer endereço não coberto por outro prefixo, com uma exceção: quando o destino é um serviço do Azure, o tráfego vai direto ao serviço pela rede backbone do Azure em vez de sair para a internet. Não importa a região da rede virtual nem a região da instância do serviço, e o tráfego entre serviços do Azure não atravessa a internet. Essa preferência só é perdida quando você sobrescreve a 0.0.0.0/0 com next hop Virtual network gateway ou Virtual appliance: aí todo o tráfego, inclusive o destinado a IPs públicos de serviços do Azure sem service endpoint habilitado, vai para esse next hop.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-214",
+    "domain": "rede-virtual",
+    "subdomain": "udr-sobrescreve-sistema-invalid",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma sub-rede recebe uma rota definida pelo usuário com o prefixo 10.0.0.0/16 e next hop type Virtual appliance. Ela já tinha a rota de sistema 10.0.0.0/16 com next hop type Virtual network. Como o Azure exibe a rota de sistema depois disso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Com estado Active, e a rota do usuário é ignorada porque rotas de sistema não podem ser alteradas"
+      },
+      {
+        "letter": "B",
+        "text": "A rota do usuário sobrescreve a rota de sistema, que deixa de ser usada"
+      },
+      {
+        "letter": "C",
+        "text": "Com estado Active, e as duas rotas competem por longest prefix match"
+      },
+      {
+        "letter": "D",
+        "text": "Com as duas em Active, e o tráfego escolhe a rota de sistema por ser a rota padrão"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Rotas de sistema não podem ser criadas nem removidas, mas algumas podem ser sobrescritas por rotas do usuário. Quando a tabela de rotas é associada à sub-rede, as rotas dela são combinadas com as rotas padrão da sub-rede e, havendo prefixo idêntico, a rota do usuário prevalece sobre a rota de sistema. O exemplo do doc mostra que a rota de sistema deixa de ser aplicada quando entra a rota do usuário do mesmo prefixo, enquanto continua aplicável nas sub-redes sem a tabela associada. Não é competição por longest prefix match, porque as duas rotas têm prefixos idênticos. Fonte: virtual-networks-udr-overview (custom routes).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-215",
+    "domain": "rede-virtual",
+    "subdomain": "udr-prioridade-mesmo-prefixo",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Duas rotas com o mesmo prefixo 0.0.0.0/0 coexistem na tabela de rotas de uma sub-rede: uma rota definida pelo usuário com next hop type Virtual appliance e uma rota de sistema com next hop type Internet. Qual rota o Azure usa para o tráfego?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A rota de sistema, porque 0.0.0.0/0 é a rota padrão da sub-rede"
+      },
+      {
+        "letter": "B",
+        "text": "A rota cujo next hop tem endereço IP privado definido"
+      },
+      {
+        "letter": "C",
+        "text": "A rota de sistema, porque rotas de serviço do Azure têm precedência sobre rotas do usuário"
+      },
+      {
+        "letter": "D",
+        "text": "A rota do usuário, porque a prioridade é rota do usuário, depois rota BGP e, por último, rota de sistema"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A seleção de rota tem duas etapas. Primeiro o Azure aplica longest prefix match pelo endereço de destino: com 10.0.0.0/24 e 10.0.0.0/16 na tabela, 10.0.0.5 segue pelo /24 e 10.0.1.5 pelo /16. Só quando várias rotas têm exatamente o mesmo prefixo é que vale a prioridade por tipo: primeiro rota definida pelo usuário, depois rota BGP e por último rota de sistema. Neste caso os prefixos são idênticos, então a rota do usuário é a vencedora. A preferência por rotas de serviço do Azure não se aplica aqui, porque ela existe para rotas de rede virtual, peering e service endpoint.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-216",
+    "domain": "rede-virtual",
+    "subdomain": "udr-zero-default-sem-acesso-direto",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma tabela de rotas com uma rota 0.0.0.0/0 e next hop type Virtual appliance é associada a uma sub-rede. O que acontece com o acesso da internet aos recursos dessa sub-rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Continua igual, porque a rota de sistema para Internet permanece disponível como alternativa"
+      },
+      {
+        "letter": "B",
+        "text": "Deixa de funcionar apenas para o tráfego de saída, e a entrada continua direta"
+      },
+      {
+        "letter": "C",
+        "text": "Continua funcionando desde que o appliance de rede virtual esteja na mesma sub-rede"
+      },
+      {
+        "letter": "D",
+        "text": "O acesso direto da internet deixa de funcionar: o tráfego passa a depender do appliance, que precisa fazer NAT, encaminhamento ou proxy"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Um dos efeitos colaterais de sobrescrever a 0.0.0.0/0 é que os recursos da sub-rede não podem mais ser acessados diretamente pela internet. O acesso passa a ser indireto, e o dispositivo indicado como next hop precisa processar o tráfego de entrada: estar acessível da internet, ter IP público atribuído, não ter regra de grupo de segurança de rede que impeça a comunicação e ser capaz de fazer NAT e encaminhamento, ou proxy, do tráfego até o recurso da sub-rede e devolvê-lo à internet. Quando o next hop da 0.0.0.0/0 é Internet, nenhum desses requisitos se aplica.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-217",
+    "domain": "rede-virtual",
+    "subdomain": "udr-gateway-subnet-zero-default",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma rede virtual tem Azure VPN Gateway. O administrador associa à subnet Gateway uma tabela de rotas que contém uma rota 0.0.0.0/0. O que a documentação diz sobre essa configuração?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "É a configuração recomendada, porque força todo o tráfego do gateway pelo appliance de rede virtual"
+      },
+      {
+        "letter": "B",
+        "text": "Não tem efeito, porque a subnet Gateway ignora as tabelas de rotas associadas"
+      },
+      {
+        "letter": "C",
+        "text": "Não é recomendado e pode impedir o gateway de funcionar corretamente"
+      },
+      {
+        "letter": "D",
+        "text": "Faz o gateway enviar o tráfego da internet diretamente, sem passar pela tabela de rotas"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Se a rede virtual estiver conectada a um Azure VPN gateway, não associe à subnet Gateway uma tabela de rotas que inclua uma rota com destino 0.0.0.0/0: isso pode impedir o gateway de funcionar corretamente. A mesma direção da rota que funciona bem nas sub-redes comuns é problemática na subnet do gateway, porque o tráfego que o gateway origina e recebe depende de rotas que a própria plataforma precisa manter.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-218",
+    "domain": "rede-virtual",
+    "subdomain": "udr-enable-ip-forwarding",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma rota definida pelo usuário usa next hop type Virtual appliance apontando para o IP privado da interface de rede de uma máquina virtual que encaminha tráfego para outros destinos. O que a documentação exige dessa interface de rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A opção Enable IP forwarding do Azure, que desativa a verificação de origem e destino feita pelo Azure na interface"
+      },
+      {
+        "letter": "B",
+        "text": "Um prefixo 0.0.0.0/0 na tabela de rotas, porque o appliance não aceita tráfego de prefixo específico"
+      },
+      {
+        "letter": "C",
+        "text": "Uma segunda interface de rede sem IP privado, para o appliance atuar como gateway"
+      },
+      {
+        "letter": "D",
+        "text": "A desativação do registro de fluxo, para o appliance poder encaminhar os pacotes"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Ao criar uma rota com next hop type Virtual appliance, você informa o endereço IP do próximo salto, que pode ser o IP privado de uma interface de rede anexada a uma máquina virtual. Qualquer interface de rede que encaminhe tráfego para um endereço diferente do próprio precisa ter a opção Enable IP forwarding do Azure habilitada, e essa opção desativa a verificação de origem e destino que o Azure faz na interface. Se o appliance precisar encaminhar tráfego para um IP público, ele deve fazer proxy ou NAT do IP privado de origem para o próprio IP privado, e o Azure faz a conversão para o IP público. O próximo salto também precisa ter conectividade direta, sem passar por ExpressRoute ou Virtual WAN, sob pena de a configuração da rota ser inválida.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-219",
+    "domain": "rede-virtual",
+    "subdomain": "udr-appliance-mesma-subnet-loop",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma rota definida pelo usuário usa next hop type Virtual appliance. A documentação afirma que o endereço IP do próximo salto pode ser qual dos seguintes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O endereço IP público do appliance de rede virtual"
+      },
+      {
+        "letter": "B",
+        "text": "O endereço IP do gateway de rede virtual da sub-rede"
+      },
+      {
+        "letter": "C",
+        "text": "Qualquer endereço IP da sub-rede onde o appliance está implantado"
+      },
+      {
+        "letter": "D",
+        "text": "O endereço IP privado de uma interface de rede anexada a uma máquina virtual"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Ao criar uma rota com next hop type Virtual appliance, você informa o endereço IP do próximo salto, que pode ser o endereço IP privado de uma interface de rede anexada a uma máquina virtual. A documentação também alerta que o próximo salto precisa ter conectividade direta, sem passar por ExpressRoute ou Virtual WAN, sob pena de a configuração da rota ser inválida. Fonte: virtual-networks-udr-overview (Virtual appliance next hop).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-220",
+    "domain": "rede-virtual",
+    "subdomain": "udr-service-tags-limite",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "É possível usar uma service tag como prefixo de endereço em uma rota definida pelo usuário. Quantas rotas com service tag uma tabela de rotas aceita?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Quantas forem necessárias, sem limite, porque o Azure gerencia os endereços da service tag"
+      },
+      {
+        "letter": "B",
+        "text": "400 rotas, o mesmo limite aplicado às rotas com prefixo de IP explícito"
+      },
+      {
+        "letter": "C",
+        "text": "25 rotas por sub-rede, o que permite mais de 25 no total em uma mesma tabela"
+      },
+      {
+        "letter": "D",
+        "text": "Até 25 rotas com service tag por tabela de rotas"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Uma service tag representa um grupo de prefixos de IP de um serviço específico do Azure, e a Microsoft gerencia esses prefixos e os atualiza à medida que os endereços mudam, o que reduz a complexidade de manutenção das rotas. O uso de service tag como prefixo de uma rota definida pelo usuário tem limite próprio: 25 ou menos rotas com service tags em cada tabela de rotas, contra o limite padrão de 400 rotas com prefixo explícito, que sobe para 1.000 quando se usa a configuração de roteamento do Azure Virtual Network Manager. Há ainda preferência na avaliação: quando há correspondência exata de prefixo entre uma rota com IP explícito e outra com service tag, o prefixo explícito vence; entre service tags, a ordem é tag regional, tag de topo, tag regional do AzureCloud e, por último, AzureCloud.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-221",
+    "domain": "rede-virtual",
+    "subdomain": "udr-service-endpoint-nao-sobrescreve",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma sub-rede tem service endpoint habilitado, e a tabela de rotas mostra uma rota de sistema com next hop type VirtualNetworkServiceEndpoint. O que uma tabela de rotas associada a essa sub-rede consegue fazer com essa rota?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sobrescrevê-la com uma rota do usuário, porque rota do usuário vence qualquer rota de sistema"
+      },
+      {
+        "letter": "B",
+        "text": "Nada: rotas de sistema de rede virtual, peering e service endpoint são preferidas e não podem ser sobrescritas"
+      },
+      {
+        "letter": "C",
+        "text": "Sobrescrevê-la somente se a rota do usuário tiver prefixo mais específico"
+      },
+      {
+        "letter": "D",
+        "text": "Removê-la da tabela, definindo next hop type None para o prefixo do serviço"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Azure cria rotas com next hop type VirtualNetworkServiceEndpoint quando um service endpoint é habilitado, e com Virtual network peering quando um peering é criado; essas rotas são adicionadas somente nas sub-redes de redes virtuais criadas pelo modelo de implantação Resource Manager. As rotas de sistema de rede virtual, de peering e de service endpoint são rotas preferidas, mesmo que uma rota BGP seja mais específica, e rotas com next hop type VirtualNetworkServiceEndpoint não podem ser sobrescritas nem com uma tabela de rotas. Também não é possível especificar Virtual network peering ou VirtualNetworkServiceEndpoint como next hop em rota do usuário.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-222",
+    "domain": "rede-virtual",
+    "subdomain": "udr-propagacao-gateway-subnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Em uma rede virtual com ExpressRoute, o administrador desabilita a propagação de rotas na tabela de rotas da subnet Gateway. O que acontece com o gateway?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nada, porque a propagação só tem efeito em sub-redes comuns da rede virtual"
+      },
+      {
+        "letter": "B",
+        "text": "O gateway passa a ignorar as rotas propagadas e a usar somente as rotas estáticas da tabela"
+      },
+      {
+        "letter": "C",
+        "text": "A propagação é desabilitada apenas para as rotas do ExpressRoute, e as do VPN Gateway permanecem"
+      },
+      {
+        "letter": "D",
+        "text": "Ele deixa de funcionar, porque a documentação Diz para não desabilitar a propagação de rotas na subnet Gateway"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "É possível desabilitar a propagação de rotas de ExpressRoute e do Azure VPN Gateway em uma sub-rede por meio de uma propriedade da tabela de rotas, e a desativação vale tanto para rotas estáticas quanto para rotas BGP. A ressalva explícita do doc é que a propagação não deve ser desabilitada na subnet Gateway: se essa propriedade estiver desabilitada, o gateway não funciona. A conectividade com conexões VPN é obtida por rotas do usuário com next hop type Virtual network gateway, e não pela propagação desligada.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
+    "needsReview": true,
+    "tags": ["udr", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:55:43.822Z",
+    "version": 3
+  }
+]

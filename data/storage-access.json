@@ -1,0 +1,816 @@
+[
+  {
+    "id": "az104-st-004",
+    "domain": "storage",
+    "subdomain": "sas",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "A página de visão geral de SAS (Assinatura de Acesso Compartilhado) descreve a delegação de acesso. Qual credencial delegada permite acesso a um único blob por 24h com permissão de leitura, sem expor a chave da conta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chave de acesso da conta (acesso total)"
+      },
+      {
+        "letter": "B",
+        "text": "SAS de serviço com recurso 'b' (blob), permissão 'r' (leitura), expiração 24h"
+      },
+      {
+        "letter": "C",
+        "text": "String de conexão completa da conta"
+      },
+      {
+        "letter": "D",
+        "text": "Chave de conta com rotação manual"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de visão geral de SAS explica que SAS delega acesso com escopo restrito (recurso, permissão, expiração). SAS de blob com recurso 'b', permissão 'r' e expiração 24h concede leitura a um único blob. Chave da conta e string de conexão dão acesso total; rotação manual não delega.",
+    "source": "mslearn",
+    "tags": ["sas", "acesso-temporario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:24:08.275Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
+  },
+  {
+    "id": "az104-st-009",
+    "domain": "storage",
+    "subdomain": "firewall-conta",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "A página de segurança de rede do armazenamento descreve regras de firewall. Qual regra permite acesso apenas de redes virtuais específicas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de IP público com intervalo 0.0.0.0/0"
+      },
+      {
+        "letter": "B",
+        "text": "Regra de rede virtual (Virtual Network) permitindo sub-redes específicas"
+      },
+      {
+        "letter": "C",
+        "text": "Acesso total sem restrição de rede"
+      },
+      {
+        "letter": "D",
+        "text": "Endpoint privado para todos os serviços"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de segurança de rede descreve: regras de IP público (intervalo CIDR) e regras de rede virtual (sub-redes específicas). Regra de rede virtual permite apenas sub-redes específicas. IP 0.0.0.0/0 abre para todos; endpoint privado é para PaaS, não regra de firewall; acesso total desabilita o firewall.",
+    "source": "mslearn",
+    "tags": ["firewall", "acesso-publico", "vnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:24:08.275Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+  },
+  {
+    "id": "az104-st-015",
+    "domain": "storage",
+    "subdomain": "ad-files",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O compartilhamento SMB precisa autenticar usuários do AD local com ACLs NTFS por pasta. Qual integração de identidade habilita isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAS anônima por pasta"
+      },
+      {
+        "letter": "B",
+        "text": "Login local por VM"
+      },
+      {
+        "letter": "C",
+        "text": "Chave da conta para todos os usuários"
+      },
+      {
+        "letter": "D",
+        "text": "Autenticação AD DS no Azure Files com permissões NTFS"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Integração AD DS autentica por Kerberos com ACLs NTFS reais. Chave única não distingue usuário; SAS não faz NTFS; login local não centraliza.",
+    "source": "mslearn",
+    "tags": ["files", "ad-ds", "ntfs", "smb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:40:58.778Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
+  },
+  {
+    "id": "az104-st-018",
+    "domain": "storage",
+    "subdomain": "encryption-scope",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres diferentes precisam de chaves de criptografia distintas gerenciadas pelo cliente. Qual escopo isola chaves por contêiner?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Escopo de criptografia por contêiner"
+      },
+      {
+        "letter": "B",
+        "text": "Uma chave única para a conta inteira"
+      },
+      {
+        "letter": "C",
+        "text": "TLS no transporte apenas"
+      },
+      {
+        "letter": "D",
+        "text": "SAS com criptografia embutida"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Encryption scopes vinculam chaves CMK por contêiner/fila. Chave única mistura domínios; TLS protege trânsito, não repouso; SAS não criptografa.",
+    "source": "original",
+    "tags": ["encryption-scope", "cmk", "chaves"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-030",
+    "domain": "storage",
+    "subdomain": "sas-tipos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Dois cenários: (1) acesso a um blob específico por horas; (2) delegação ampla por política armazenada revogável. Quais SAS atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAS de conta com política de acesso armazenada"
+      },
+      {
+        "letter": "B",
+        "text": "SAS de serviço para o blob com expiração"
+      },
+      {
+        "letter": "C",
+        "text": "Token do Entra sem escopo"
+      },
+      {
+        "letter": "D",
+        "text": "Chave da conta sem expiração"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Service SAS limita ao recurso/tempo e account SAS com stored policy revoga em massa. Chave sem expiração é permanente; token sem escopo não limita.",
+    "source": "mslearn",
+    "tags": ["sas", "servico", "conta", "politica"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:23:11.091Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
+  },
+  {
+    "id": "az104-st-031",
+    "domain": "storage",
+    "subdomain": "rbac-dados-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Separar quem gerencia a conta de quem lê blobs, ambos via Entra ID sem chaves. Quais duas funções RBAC compõem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Leitor clássico com chaves"
+      },
+      {
+        "letter": "B",
+        "text": "Proprietário da assinatura para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Leitor de Dados de Blob (leitura de dados)"
+      },
+      {
+        "letter": "D",
+        "text": "Colaborador da Conta de Armazenamento (gerência)"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Colaborador gerencia o recurso e Leitor de Dados lê blobs via Entra, sem chaves. Proprietário mistura; leitor clássico usa chaves.",
+    "source": "original",
+    "tags": ["rbac", "dados", "entra-id", "chaves"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-043",
+    "domain": "storage",
+    "subdomain": "network-rules-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A conta deve aceitar a VNet de produção e o IP do escritório, negando todo o resto incluindo Microsoft. Quais duas regras compõem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exceção para serviços Microsoft confiáveis"
+      },
+      {
+        "letter": "B",
+        "text": "Regra de rede para a VNet/sub-rede"
+      },
+      {
+        "letter": "C",
+        "text": "Regra de IP para o escritório"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso público irrestrito"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Regras de VNet e IP liberam exatamente os dois, com default deny. Exceção Microsoft abriria mais; acesso irrestrito anula tudo.",
+    "source": "mslearn",
+    "tags": ["firewall", "vnet", "ip-rules"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.146Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+  },
+  {
+    "id": "az104-st-044",
+    "domain": "storage",
+    "subdomain": "cmk-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Criptografia com chaves do cliente exige controle de acesso à chave e rotação sem downtime. Quais dois elementos compõem o CMK? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Key Vault com RBAC e purge protection"
+      },
+      {
+        "letter": "B",
+        "text": "Rotação com versionamento de chave"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitação do TLS"
+      },
+      {
+        "letter": "D",
+        "text": "Chave exportada por e-mail"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Key Vault protegido guarda a chave e o versionamento permite rolar sem reescrever dados. E-mail vaza; sem TLS expõe trânsito.",
+    "source": "original",
+    "tags": ["cmk", "key-vault", "rotacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-048",
+    "domain": "storage",
+    "subdomain": "chave-compartilhada",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A página de gerenciamento de chaves de acesso descreve a rotação. Qual prática a Microsoft recomenda para chaves de acesso da conta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nunca rotacionar; chave fixa é mais segura"
+      },
+      {
+        "letter": "B",
+        "text": "Rotacionar periodicamente e regenerar chaves não utilizadas"
+      },
+      {
+        "letter": "C",
+        "text": "Compartilhar chave primária com todos os desenvolvedores"
+      },
+      {
+        "letter": "D",
+        "text": "Usar apenas a chave secundária"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de gerenciamento de chaves recomenda rotação periódica e regeneração de chaves não utilizadas. Chave fixa expõe risco; compartilhar primária vaza acesso; chave secundária também concede acesso total. Rotação planejada reduz janela de exposição.",
+    "source": "mslearn",
+    "tags": ["chave-compartilhada", "entra-id", "endurecimento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:24:08.276Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-keys-manage"
+  },
+  {
+    "id": "az104-st-050",
+    "domain": "storage",
+    "subdomain": "tls-versao",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Uma organização exige que todas as conexões à conta de armazenamento usem TLS 1.2 ou superior, bloqueando TLS 1.0/1.1. Qual configuração na conta de armazenamento impõe esse requisito?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "AllowBlobPublicAccess = false"
+      },
+      {
+        "letter": "B",
+        "text": "MinimumTlsVersion = TLS1_2"
+      },
+      {
+        "letter": "C",
+        "text": "AllowSharedKeyAccess = false"
+      },
+      {
+        "letter": "D",
+        "text": "DefaultToOAuthAuthentication = true"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A configuração MinimumTlsVersion na conta de armazenamento impõe o piso criptográfico no handshake TLS; conexões com TLS 1.0/1.1 são recusadas. AllowBlobPublicAccess controla acesso anônimo; AllowSharedKeyAccess controla chave compartilhada; DefaultToOAuthAuthentication força OAuth. A página de criação de conta documenta essa configuração de segurança.",
+    "source": "mslearn",
+    "tags": ["tls", "versao-minima", "seguranca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:11:18.252Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-069",
+    "domain": "storage",
+    "subdomain": "files-identity-entra",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "SMB precisa autenticar identidades Entra ID nativas sem AD DS. Qual integração permite Kerberos com identidades da nuvem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chave compartilhada para todos"
+      },
+      {
+        "letter": "B",
+        "text": "Acesso anônimo com SAS"
+      },
+      {
+        "letter": "C",
+        "text": "Autenticação Kerberos do Entra ID no Files"
+      },
+      {
+        "letter": "D",
+        "text": "AD DS obrigatório sempre"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Kerberos do Entra autentica identidades híbridas/nuvem sem AD DS. Chave única não identifica; AD nem sempre existe; anônimo expõe.",
+    "source": "mslearn",
+    "tags": ["files", "kerberos", "entra-id", "smb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:40:58.778Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
+  },
+  {
+    "id": "az104-st-072",
+    "domain": "storage",
+    "subdomain": "sas-ip-protocol",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A visão geral de SAS lista o parâmetro 'ip' para restringir acesso por endereço IP. Qual formato o parâmetro 'ip' aceita para definir um intervalo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "CIDR (ex.: 192.168.1.0/24)"
+      },
+      {
+        "letter": "B",
+        "text": "Lista separada por vírgula (ex.: 10.0.0.1,10.0.0.2)"
+      },
+      {
+        "letter": "C",
+        "text": "Apenas IP único (ex.: 10.0.0.1)"
+      },
+      {
+        "letter": "D",
+        "text": "Nome de domínio (ex.: exemplo.com)"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A documentação de SAS especifica que o parâmetro 'ip' aceita endereço único ou intervalo em notação CIDR (ex.: 192.168.1.0/24). Lista separada por vírgula não é suportada; IP único é caso especial de CIDR /32; domínio não é aceito.",
+    "source": "mslearn",
+    "tags": ["sas", "ip", "https", "restricao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:25:56.216Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
+  },
+  {
+    "id": "az104-st-073",
+    "domain": "storage",
+    "subdomain": "stored-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Centenas de SAS emitidas precisam de revogação central sem reemitir. Quais dois elementos da política armazenada permitem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Revogação alterando/excluindo a política"
+      },
+      {
+        "letter": "B",
+        "text": "Política de acesso armazenada referenciada"
+      },
+      {
+        "letter": "C",
+        "text": "Chave compartilhada por e-mail"
+      },
+      {
+        "letter": "D",
+        "text": "SAS ad-hoc sem política"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Política de acesso armazenada centraliza parâmetros e permite revogar centenas de SAS de uma vez. SAS ad-hoc exige reemitir uma por uma; chave por e-mail vaza.",
+    "source": "mslearn",
+    "tags": ["sas", "stored-policy", "revogacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.146Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure"
+  },
+  {
+    "id": "az104-st-074",
+    "domain": "storage",
+    "subdomain": "user-delegation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "SAS sem armazenar chave da conta, vinculada à identidade Entra com expiração curta. Quais dois elementos compõem user delegation? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chave de delegação do usuário via Entra"
+      },
+      {
+        "letter": "B",
+        "text": "Chave da conta embutida"
+      },
+      {
+        "letter": "C",
+        "text": "SAS assinada com a chave delegada"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso anônimo"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "User delegation key via Entra assina SAS sem expor chave da conta. Embutir vaza; anônimo não autentica.",
+    "source": "original",
+    "tags": ["user-delegation", "sas", "entra-id"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-075",
+    "domain": "storage",
+    "subdomain": "firewall-excecao",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A página de segurança de rede menciona exceções de firewall. O que a configuração 'Allow trusted Microsoft services' permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Acesso de qualquer IP público"
+      },
+      {
+        "letter": "B",
+        "text": "Serviços Microsoft confiáveis (ex.: Azure Backup, Azure Sync) acessarem a conta"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilita totalmente o firewall"
+      },
+      {
+        "letter": "D",
+        "text": "Permite apenas IPs corporativos"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de firewall descreve a opção 'Allow trusted Microsoft services' (Permitir serviços Microsoft confiáveis) que habilita serviços como Azure Backup, Azure File Sync, Azure Monitor a acessar a conta mesmo com firewall habilitado. Não desabilita o firewall; não abre para qualquer IP; não restringe a IPs corporativos.",
+    "source": "mslearn",
+    "tags": ["firewall", "excecao", "confiaveis"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:24:08.276Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+  },
+  {
+    "id": "az104-st-091",
+    "domain": "storage",
+    "subdomain": "encryption-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups precisam de criptografia com chaves próprias e imutabilidade contra ransomware. Quais dois recursos combinam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Imutabilidade (soft delete + lock) do cofre"
+      },
+      {
+        "letter": "B",
+        "text": "Chaves compartilhadas por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "CMK nos cofres com Key Vault"
+      },
+      {
+        "letter": "D",
+        "text": "Cofre sem proteção"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "CMK controla chaves e imutabilidade impede apagar backups. Sem proteção o ransomware limpa; e-mail vaza chaves.",
+    "source": "original",
+    "tags": ["backup", "cmk", "imutabilidade", "ransomware"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-103",
+    "domain": "storage",
+    "subdomain": "network-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Tráfego de backup não pode competir com produção nem sair à internet. Quais dois controles de rede aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Endpoint público no pico"
+      },
+      {
+        "letter": "B",
+        "text": "Janela fora do pico"
+      },
+      {
+        "letter": "C",
+        "text": "Sem controle"
+      },
+      {
+        "letter": "D",
+        "text": "Private Endpoints para o tráfego"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Private Endpoints mantêm o tráfego fora da internet e a janela fora do pico evita contenção. Endpoint público expõe dados; sem controle o backup compete com produção.",
+    "source": "original",
+    "tags": ["rede", "private-endpoint", "janela"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-104",
+    "domain": "storage",
+    "subdomain": "encryption-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups em trânsito e repouso precisam de criptografia ponta a ponta. Quais dois mecanismos garantem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem criptografia"
+      },
+      {
+        "letter": "B",
+        "text": "CMK no cofre em repouso"
+      },
+      {
+        "letter": "C",
+        "text": "HTTP sem TLS"
+      },
+      {
+        "letter": "D",
+        "text": "TLS no transporte"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "TLS protege o transporte e CMK no cofre protege o repouso com suas chaves. HTTP sem TLS expõe em trânsito; sem criptografia viola compliance.",
+    "source": "original",
+    "tags": ["criptografia", "tls", "cmk"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-189",
+    "domain": "storage",
+    "subdomain": "encryption-restore-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que restore de backup CMK exige acesso ao Key Vault original no momento da restauração. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, sem a chave não há restore"
+      },
+      {
+        "letter": "B",
+        "text": "Não, restore dispensa a chave"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque a chave gerenciada pelo cliente fica armazenada no cofre e dispensa novo acesso"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o acesso ao cofre só é exigido se o backup tiver sido configurado com Criptografia de chaos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Dados protegidos por CMK só descriptografam com a chave do Key Vault no momento do restore. Sem cofre e chave acessíveis, a restauração falha.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-202",
+    "domain": "storage",
+    "subdomain": "anonymous-network-security",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma conta de armazenamento tem o acesso anônimo habilitado no serviço de Blob e, ao mesmo tempo, uma regra de firewall que restringe o acesso à rede virtual corporativa. Como as duas configurações se combinam?",
+    "options": [
+      {
+        "letter": "D",
+        "text": "As duas coexistem: o acesso anônimo se aplica a quem já estiver autorizado pela regra de rede"
+      },
+      {
+        "letter": "A",
+        "text": "O acesso anônimo é desativado automaticamente ao criar a regra de firewall"
+      },
+      {
+        "letter": "B",
+        "text": "A regra de firewall é ignorada para qualquer requisição anônima"
+      },
+      {
+        "letter": "C",
+        "text": "O acesso anônimo exige desabilitar a proteção por chave de conta"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "As regras de rede de uma conta de armazenamento se aplicam a todas as requisições, anônimas ou autenticadas. Habilitar o acesso anônimo permite ler um contêiner sem Shared Access Signature, mas a avaliação da rede continua valendo: um cliente fora da faixa autorizada é bloqueado mesmo em contêiner com acesso anônimo. O acesso anônimo nunca ignora a regra de rede.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
+    "needsReview": true,
+    "tags": ["anonymous", "network-security", "st-access"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-203",
+    "domain": "storage",
+    "subdomain": "account-keys-rotacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma aplicação acessa um serviço de armazenamento usando a chave da conta e o time quer reduzir a exposição dessa credencial sem adotar Shared Access Signature. Qual prática a Microsoft recomenda?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Guardar a chave em um cofre de chaves e rotacioná-la periodicamente"
+      },
+      {
+        "letter": "B",
+        "text": "Publicar a chave como variável de ambiente no repositório para facilitar a leitura"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar o acesso à rede pública da conta para eliminar a necessidade da chave"
+      },
+      {
+        "letter": "D",
+        "text": "Gerar uma subchave da conta para cada aplicação cliente"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A chave de conta equivale a uma senha de administrador: quem a possui tem acesso total à conta. A recomendação é mantê-la fora do código, em um cofre de chaves, e rotacioná-la; para acesso com escopo restrito, preferir Shared Access Signature. Desabilitar o acesso à rede pública não substitui a proteção da chave e aumenta o impacto de um vazamento dela.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-keys-manage",
+    "needsReview": true,
+    "tags": ["keys", "security", "st-access"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-204",
+    "domain": "storage",
+    "subdomain": "replicacao-geografica",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma organização quer resiliência geográfica de seus blobs e mantém contas de armazenamento em regiões diferentes. Qual recurso copia os objetos de forma nativa entre essas contas?",
+    "options": [
+      {
+        "letter": "B",
+        "text": "A replicação de objetos, que replica as operações de blob entre contas de origem e destino"
+      },
+      {
+        "letter": "A",
+        "text": "A exclusão suave, que retém o blob na conta de origem por um período"
+      },
+      {
+        "letter": "C",
+        "text": "O Azure Files com Active Directory, que autentica o acesso ao compartilhamento de arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "O Storage Explorer, que gerencia as contas pelo portal ou pela IDE"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A replicação de objetos mantém contas de armazenamento sincronizadas, propagando blobs de origem para contas de destino em outras regiões, e atende a requisitos de ressiliência geográfica e de recuperação de desastre. A exclusão suave é proteção contra exclusão; o Azure Files com Active Directory é autenticação do compartilhamento; e o Storage Explorer é ferramenta de gerenciamento.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/object-replication-overview",
+    "needsReview": true,
+    "tags": ["replication", "dr", "st-accounts"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-205",
+    "domain": "storage",
+    "subdomain": "service-encryption",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O time de segurança quer que os dados em repouso de uma conta de armazenamento sejam criptografados com uma chave sob controle da organização. Qual opção atende a esse requisito?",
+    "options": [
+      {
+        "letter": "C",
+        "text": "A criptografia com chave gerenciada pelo cliente, fornecida por um cofre de chaves da organização"
+      },
+      {
+        "letter": "A",
+        "text": "A criptografia padrão da conta, que já impede o administrador da conta de ler os dados"
+      },
+      {
+        "letter": "B",
+        "text": "O TLS em trânsito, que criptografa os dados enquanto trafegam pela rede"
+      },
+      {
+        "letter": "D",
+        "text": "A criptografia com chave gerenciada pela Microsoft, que já é o padrão da conta"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Na criptografia padrão e na de chave gerenciada pelo cliente em um HSM dedicado, o provedor não tem acesso ao texto claro. A chave gerenciada pelo cliente deixa a posse da chave sob controle da organização e permite revogá-la. O TLS protege apenas o trânsito e não se aplica a dados em repouso. O que distingue as opções é quem controla a chave, não o algoritmo.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-service-encryption",
+    "needsReview": true,
+    "tags": ["encryption", "compliance", "st-accounts"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-206",
+    "domain": "storage",
+    "subdomain": "azure-files-entra",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O time de segurança precisa de um compartilhamento de arquivos do Azure cujas permissões sejam controladas pelo domínio do Active Directory, com grupos do domínio e herança de ACLs. Qual recurso atende a esse requisito?",
+    "options": [
+      {
+        "letter": "D",
+        "text": "O Azure Files com integração do Active Directory Domain Services"
+      },
+      {
+        "letter": "A",
+        "text": "Um compartilhamento de arquivos do Azure com autenticação por chave de conta"
+      },
+      {
+        "letter": "B",
+        "text": "Um contêiner de blobs com acesso anônimo habilitado"
+      },
+      {
+        "letter": "C",
+        "text": "Uma fila de Armazenamento com autenticação por Shared Access Signature de conta"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "O Azure Files com Active Directory Domain Services, via SMB, atribui permissões no nível de arquivo a entidades de segurança do diretório, o que permite usar grupos do domínio e herança de ACLs no estilo NTFS. A chave de conta e o acesso anônimo não têm noção de identidade de usuário nem de grupo, e a integração com AD local exige sincronização híbrida. Para a configuração SMB com integração de identidade, é necessário AD Domain Services.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "needsReview": true,
+    "tags": ["azure-files", "entra", "st-access"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  }
+]

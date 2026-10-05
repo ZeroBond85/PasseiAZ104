@@ -31,8 +31,12 @@ const FILES = [
   'compute-platform.json',
   'identidade-governanca.json',
   'monitoramento.json',
-  'rede-virtual.json',
-  'storage.json',
+  'rede-vnets.json',
+  'rede-secure-access.json',
+  'rede-dns-lb.json',
+  'storage-access.json',
+  'storage-accounts.json',
+  'storage-files-blobs.json',
 ]
 
 /** Menções de letra que fazem parte de uma alegação ("A", "A e B", "A, B e C"). */

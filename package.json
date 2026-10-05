@@ -1,7 +1,7 @@
 {
   "name": "az104",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simulado AZ-104 no formato oficial + revisão espaçada + Study Hub com Microsoft Learn. PWA offline-first, custo $0.",
   "type": "module",
   "repository": {

@@ -1,0 +1,400 @@
+[
+  {
+    "id": "az104-st-003",
+    "domain": "storage",
+    "subdomain": "file-shares",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Duas VMs Windows precisam compartilhar arquivos com protocolo SMB e letra de unidade mapeada. Qual serviço fornece compartilhamento SMB gerenciado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fila de Storage"
+      },
+      {
+        "letter": "B",
+        "text": "Azure Files com compartilhamento SMB"
+      },
+      {
+        "letter": "C",
+        "text": "Blob com contêiner privado"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela de Storage"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Azure Files expõe SMB/NFS montável como unidade. Blob é objeto via REST; filas guardam mensagens; tabelas guardam entidades.",
+    "source": "original",
+    "tags": ["files", "smb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-007",
+    "domain": "storage",
+    "subdomain": "queues",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Pedidos precisam aguardar processamento assíncrono entre o site e o worker, com entrega garantida e ordem aproximada. Qual serviço enfileira essas mensagens?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Blob de blocos"
+      },
+      {
+        "letter": "B",
+        "text": "Compartilhamento de arquivos"
+      },
+      {
+        "letter": "C",
+        "text": "Fila do Storage (Queue Storage)"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela de entidades"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Queue Storage desacopla produtor e consumidor com mensagens persistentes. Blob guarda objetos; Files compartilha SMB; Table guarda dados estruturados.",
+    "source": "original",
+    "tags": ["queues", "mensagens"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-008",
+    "domain": "storage",
+    "subdomain": "tables",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Milhões de registros de telemetria semiestruturados precisam de leitura por chave com custo mínimo, sem SQL. Qual serviço NoSQL de chave-valor serve?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fila com mensagens de 64KB"
+      },
+      {
+        "letter": "B",
+        "text": "SQL Database com DTUs"
+      },
+      {
+        "letter": "C",
+        "text": "Tabela do Storage (Table Storage)"
+      },
+      {
+        "letter": "D",
+        "text": "Blob com um arquivo por registro"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Table Storage indexa por PartitionKey/RowKey a centavos. SQL cobra motor relacional; blob por registro é ineficiente; fila não consulta por chave.",
+    "source": "original",
+    "tags": ["tables", "nosql"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-021",
+    "domain": "storage",
+    "subdomain": "file-shares",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma organização precisa criar compartilhamentos de arquivos Premium para uma aplicação de baixa latência. Qual tipo de conta de armazenamento suporta exclusivamente compartilhamentos de arquivos Premium?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "StorageV2 (uso geral v2)"
+      },
+      {
+        "letter": "B",
+        "text": "FileStorage (apenas compartilhamentos Premium)"
+      },
+      {
+        "letter": "C",
+        "text": "BlobStorage (apenas blobs)"
+      },
+      {
+        "letter": "D",
+        "text": "StorageV1 (uso geral v1)"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de visão geral da conta de armazenamento lista os tipos: StorageV2, BlobStorage, FileStorage. Apenas o tipo FileStorage suporta compartilhamentos de arquivos Premium. StorageV2 suporta compartilhamentos padrão; BlobStorage é apenas blobs; StorageV1 é legado.",
+    "source": "mslearn",
+    "tags": ["blob-inventory", "auditoria", "relatorio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:10:18.202Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-026",
+    "domain": "storage",
+    "subdomain": "queue-poison",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mensagens com formato inválido falham repetidamente e bloqueiam o worker. Para onde mover automaticamente após 5 tentativas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tabela de auditoria manual"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão imediata sem registro"
+      },
+      {
+        "letter": "C",
+        "text": "Fila poison (-poison) para análise"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de blocos público"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Após maxDequeueCount, a mensagem vai à poison queue para triagem. Excluir perde evidência; blob público expõe; tabela manual não é automática.",
+    "source": "original",
+    "tags": ["queues", "poison", "retentativas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-027",
+    "domain": "storage",
+    "subdomain": "table-query",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Consultas por intervalo de RowKey dentro de uma partição estão lentas porque varrem partições cruzadas. Como modelar a chave para consulta eficiente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem chaves, com scan completo"
+      },
+      {
+        "letter": "B",
+        "text": "PartitionKey única para toda a tabela"
+      },
+      {
+        "letter": "C",
+        "text": "PartitionKey por entidade lógica + RowKey ordenável (data invertida)"
+      },
+      {
+        "letter": "D",
+        "text": "GUID aleatório como PartitionKey"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Partição por entidade + RowKey ordenável permite range eficiente. Partição única limita throughput; GUID espalha sem ordem; scan é o mais lento.",
+    "source": "original",
+    "tags": ["tables", "partitionkey", "rowkey", "modelagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-046",
+    "domain": "storage",
+    "subdomain": "queue-scaling-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Fila com milhões de mensagens precisa de vazão máxima e visibilidade controlada. Quais dois ajustes elevam throughput com segurança? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Uma única thread com polling lento"
+      },
+      {
+        "letter": "B",
+        "text": "Mensagens sem TTL infinito"
+      },
+      {
+        "letter": "C",
+        "text": "Visibility timeout calibrado por processamento"
+      },
+      {
+        "letter": "D",
+        "text": "Batch size e paralelismo por consumidor"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Lote+paralelismo elevam vazão e visibility evita reprocessamento prematuro. Thread única estrangula; sem TTL a fila cresce sem fim.",
+    "source": "original",
+    "tags": ["queues", "throughput", "visibility-timeout"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-064",
+    "domain": "storage",
+    "subdomain": "queue-visibility",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mensagem processada por 5 minutos não pode ser pega por outro worker nesse intervalo. Qual parâmetro oculta durante o processamento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Visibility timeout de 5 minutos"
+      },
+      {
+        "letter": "B",
+        "text": "Fila sem configuração"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão imediata ao ler"
+      },
+      {
+        "letter": "D",
+        "text": "TTL zero na mensagem"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Visibility timeout esconde durante o processamento e reaparece em falha. TTL zero apaga; excluir ao ler perde em crash; sem config duplica.",
+    "source": "original",
+    "tags": ["queues", "visibility-timeout", "processamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-065",
+    "domain": "storage",
+    "subdomain": "queue-ttl",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Mensagens não processadas em 7 dias devem expirar automaticamente sem worker de limpeza. O que define a vida útil?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aumento do visibility"
+      },
+      {
+        "letter": "B",
+        "text": "TTL da mensagem em 7 dias"
+      },
+      {
+        "letter": "C",
+        "text": "Fila sem expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Deleção manual semanal"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "TTL da mensagem define vida útil e o serviço expira sozinho sem worker de limpeza. Sem expiração a fila acumula; deleção manual atrasa; visibility não expira.",
+    "source": "original",
+    "tags": ["queues", "ttl", "expiracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-066",
+    "domain": "storage",
+    "subdomain": "table-transactions",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Lote de entidades precisa de atomicidade (tudo ou nada) na mesma partição. Qual operação transaciona o batch?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Transação em lote (batch) na mesma PartitionKey"
+      },
+      {
+        "letter": "B",
+        "text": "Escritas avulsas sem transação"
+      },
+      {
+        "letter": "C",
+        "text": "SQL com BEGIN TRAN"
+      },
+      {
+        "letter": "D",
+        "text": "Transação entre partições distintas"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Batch transacional exige mesma partição e limite de 100 entidades/4MB. Avulsas não atomicizam; cross-partition não suporta; SQL não é Table.",
+    "source": "original",
+    "tags": ["tables", "transacao", "batch", "atomicidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-067",
+    "domain": "storage",
+    "subdomain": "table-secondary-index",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Consultas por e-mail do usuário são lentas porque a chave é ID numérico. Como indexar acesso por e-mail sem scan?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exportar para CSV e grep"
+      },
+      {
+        "letter": "B",
+        "text": "Scan completo com filtro"
+      },
+      {
+        "letter": "C",
+        "text": "Tabela secundária com PartitionKey igual ao e-mail"
+      },
+      {
+        "letter": "D",
+        "text": "Um registro por tabela"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Índice secundário (tabela espelho) resolve por e-mail em O(1). Scan é O(n); uma por tabela explode; CSV não consulta.",
+    "source": "original",
+    "tags": ["tables", "indice-secundario", "email"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-179",
+    "domain": "storage",
+    "subdomain": "file-shares",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Conta FileStorage com compartilhamentos Premium precisa guardar também contêineres de blob. O que a conta permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Só compartilhamentos de arquivo"
+      },
+      {
+        "letter": "B",
+        "text": "Blobs e arquivos juntos"
+      },
+      {
+        "letter": "C",
+        "text": "Filas e tabelas, mas não arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "Blobs se converter a conta para premium"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: só compartilhamentos de arquivo — é o que uma conta FileStorage suporta. D está incorreta: blobs se converter a conta para premium não resolve, porque blobs exigem conta GPv2, BlobStorage ou BlockBlobStorage. B está incorreta: blobs e arquivos juntos na mesma conta não é possível em FileStorage. C está incorreta: filas e tabelas, mas não arquivos inverte o modelo — FileStorage não comporta filas nem tabelas.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "tags": ["files", "filestorage", "tipos-conta", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  }
+]

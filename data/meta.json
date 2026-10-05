@@ -8,13 +8,13 @@
     "mo": "monitoramento"
   },
   "countsByDomain": {
-    "identidade-governanca": 214,
-    "storage": 154,
-    "compute": 205,
-    "rede-virtual": 126,
-    "monitoramento": 137
+    "identidade-governanca": 243,
+    "storage": 180,
+    "compute": 243,
+    "rede-virtual": 184,
+    "monitoramento": 150
   },
   "generatedWith": null,
   "seedVersion": 1,
-  "updatedAt": "2026-10-02T23:49:39.660Z"
+  "updatedAt": "2026-10-04T01:45:47.191Z"
 }

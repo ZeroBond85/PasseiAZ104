@@ -1,6 +1,7 @@
 // build-simulados.mts — S7: N simulados oficiais (fixed, 50q, 12/9/12/10/7 + 1 case contíguo).
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { SimuladoSchema } from '../src/engine/question-schema.js'
 
 const QUOTAS: Record<string, number> = {
@@ -39,7 +40,9 @@ const pool: Record<string, { id: string; caseStudyId?: string }[]> = {}
 for (const f of readdirSync(DATA).filter(
   (x) => x.endsWith('.json') && !SKIP.has(x),
 )) {
-  const arr = JSON.parse(readFileSync(join(DATA.pathname, f), 'utf8'))
+  // fileURLToPath, nao DATA.pathname: sob o share UNC o pathname ja vem com o
+  // nome do share (/Debian/home/...) e o win32.join prefixa a raiz de novo.
+  const arr = JSON.parse(readFileSync(join(fileURLToPath(DATA), f), 'utf8'))
   if (!Array.isArray(arr)) continue
   for (const q of arr) {
     const d = q.domain as string
@@ -117,7 +120,7 @@ for (let s = 0; s < N; s++) {
 }
 
 writeFileSync(
-  join(DATA.pathname, 'simulados.json'),
+  join(fileURLToPath(DATA), 'simulados.json'),
   `${JSON.stringify(simulados, null, 2)}\n`,
 )
 console.log(`OK: ${simulados.length} simulados oficiais em data/simulados.json`)

@@ -46,7 +46,7 @@ describe('rotação letra↔razão (bugs reais que a valve achou)', () => {
   // opções. O conteúdo factual estava certo — quem estava errado era o
   // acoplamento. Nada na automação detectaria isso sem o gate de simetria.
   it('az104-st-178: cada dia está preso à letra que o oferece', () => {
-    const q = questao('storage.json', 'az104-st-178')
+    const q = questao('storage-accounts.json', 'az104-st-178')
     expect(q.explanation).toMatch(/B está incorreta: 7 dias/)
     expect(q.explanation).toMatch(/C está incorreta: 30 dias/)
     expect(q.explanation).toMatch(/D está incorreta: 90 dias/)
@@ -80,17 +80,17 @@ describe('rotação letra↔razão (bugs reais que a valve achou)', () => {
       ['monitoramento.json', 'az104-mo-147'],
       ['monitoramento.json', 'az104-mo-149'],
       ['monitoramento.json', 'az104-mo-151'],
-      ['rede-virtual.json', 'az104-rv-177'],
-      ['rede-virtual.json', 'az104-rv-178'],
-      ['rede-virtual.json', 'az104-rv-182'],
-      ['rede-virtual.json', 'az104-rv-183'],
-      ['storage.json', 'az104-st-171'],
-      ['storage.json', 'az104-st-172'],
-      ['storage.json', 'az104-st-175'],
-      ['storage.json', 'az104-st-176'],
-      ['storage.json', 'az104-st-177'],
-      ['storage.json', 'az104-st-178'],
-      ['storage.json', 'az104-st-179'],
+      ['rede-vnets.json', 'az104-rv-177'],
+      ['rede-vnets.json', 'az104-rv-178'],
+      ['rede-vnets.json', 'az104-rv-182'],
+      ['rede-dns-lb.json', 'az104-rv-183'],
+      ['storage-accounts.json', 'az104-st-171'],
+      ['storage-accounts.json', 'az104-st-172'],
+      ['storage-accounts.json', 'az104-st-175'],
+      ['storage-accounts.json', 'az104-st-176'],
+      ['storage-accounts.json', 'az104-st-177'],
+      ['storage-accounts.json', 'az104-st-178'],
+      ['storage-files-blobs.json', 'az104-st-179'],
     ]
     for (const [arquivo, id] of ids) {
       const q = questao(arquivo, id)

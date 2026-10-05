@@ -1,0 +1,4824 @@
+[
+  {
+    "id": "az104-st-001",
+    "domain": "storage",
+    "subdomain": "blob-tiers",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Dados acessados raramente (1 vez por ano) precisam do menor custo de armazenamento, aceitando horas para leitura. Qual camada de blob deve ser usada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Disco Premium gerenciado"
+      },
+      {
+        "letter": "B",
+        "text": "Camada Hot (quente)"
+      },
+      {
+        "letter": "C",
+        "text": "Camada Archive (arquivo morto)"
+      },
+      {
+        "letter": "D",
+        "text": "Camada Cool (fria)"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Archive custa centavos por GB para acesso raríssimo, com reidratação em horas. Hot é para acesso frequente; Cool para mensal; disco Premium não é blob.",
+    "source": "mslearn",
+    "tags": ["blob", "tiers", "archive"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-002",
+    "domain": "storage",
+    "subdomain": "redundancia",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "A página de criação de conta de armazenamento lista as opções de redundância. Qual opção replica os dados entre zonas de disponibilidade na mesma região, sobrevivendo à perda de um datacenter?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ZRS (Zone-Redundant Storage)"
+      },
+      {
+        "letter": "B",
+        "text": "LRS (Locally-Redundant Storage, 3 cópias no mesmo datacenter)"
+      },
+      {
+        "letter": "C",
+        "text": "GRS (Geo-Redundant Storage, região secundária)"
+      },
+      {
+        "letter": "D",
+        "text": "R-GRS (Read-Access Geo-Redundant Storage)"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A página de criação de conta lista: LRS (3 cópias no mesmo DC), ZRS (entre zonas de disponibilidade na região), GRS (região secundária), R-GRS (leitura na secundária). ZRS replica entre zonas na mesma região, sobrevivendo à perda de um DC. LRS não sai do DC; GRS/R-GRS vão para região secundária.",
+    "source": "mslearn",
+    "tags": ["redundancia", "zrs", "lrs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:18:45.591Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+  },
+  {
+    "id": "az104-st-005",
+    "domain": "storage",
+    "subdomain": "static-website",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um site estático (HTML/CSS/JS) precisa ser hospedado com custo mínimo e URL pública direta do Storage. Qual recurso publica o conteúdo estático?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Hospedagem de site estático no Blob ($web)"
+      },
+      {
+        "letter": "B",
+        "text": "Disco gerenciado com IIS"
+      },
+      {
+        "letter": "C",
+        "text": "Fila de Storage com mensagens HTML"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela com entidades de página"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Static website serve index/erro do contêiner $web com endpoint. Filas e tabelas não servem HTTP; disco com IIS exige VM.",
+    "source": "original",
+    "tags": ["static-website", "blob", "web"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-006",
+    "domain": "storage",
+    "subdomain": "storage-explorer",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "O Azure Storage Explorer é uma ferramenta gráfica para gerenciar contas de armazenamento. Qual protocolo ele usa para autenticação ao conectar via string de conexão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chave compartilhada (Shared Key) via HTTPS"
+      },
+      {
+        "letter": "B",
+        "text": "Autenticação Windows Integrada"
+      },
+      {
+        "letter": "C",
+        "text": "OAuth 2.0 com Azure AD"
+      },
+      {
+        "letter": "D",
+        "text": "Certificado de cliente X.509"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "O Storage Explorer autentica via chave compartilhada (Shared Key) ou SAS ao usar string de conexão. A página do Storage Explorer menciona autenticação via chave de conta. OAuth/AD é para login interativo; certificado X.509 não é usado para string de conexão; Windows Integrated não se aplica.",
+    "source": "mslearn",
+    "tags": ["azcopy", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:25:56.206Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+  },
+  {
+    "id": "az104-st-010",
+    "domain": "storage",
+    "subdomain": "lifecycle",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Blobs de log devem ir para Cool após 30 dias e ser excluídos após 365, sem intervenção manual. Qual recurso aplica essas transições por regra?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gerenciamento do ciclo de vida (lifecycle policy) do Blob"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot diário de cada blob"
+      },
+      {
+        "letter": "C",
+        "text": "Script manual mensal de exclusão"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação para outra conta"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Lifecycle policy move camadas e exclui por idade automaticamente. Script manual falha; snapshot preserva em vez de transicionar; replicação copia, não gerencia idade.",
+    "source": "original",
+    "tags": ["lifecycle", "blob", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-011",
+    "domain": "storage",
+    "subdomain": "grs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A conta precisa sobreviver à perda de uma região inteira com leitura na secundária durante o outage. Qual redundância oferece failover geográfico com leitura?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ZRS em zona única"
+      },
+      {
+        "letter": "B",
+        "text": "LRS com 3 cópias locais"
+      },
+      {
+        "letter": "C",
+        "text": "Backup manual semanal"
+      },
+      {
+        "letter": "D",
+        "text": "RA-GRS (leitura na secundária)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "RA-GRS replica para região pareada com endpoint de leitura. LRS/ZRS não cruzam região; backup manual não dá leitura contínua.",
+    "source": "original",
+    "tags": ["ra-grs", "georredundancia", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-012",
+    "domain": "storage",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs excluídos por engano precisam ser recuperáveis por 30 dias sem restaurar backup externo. Qual proteção retém blobs apagados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exclusão reversível (soft delete) de blobs"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot manual por blob"
+      },
+      {
+        "letter": "C",
+        "text": "Controle de versão sem retenção"
+      },
+      {
+        "letter": "D",
+        "text": "Lixeira do portal por 7 dias"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Soft delete mantém blobs excluídos pelo período configurado para undelete. Versão sem retenção não recupera exclusão; snapshot manual não escala; não há lixeira de portal.",
+    "source": "mslearn",
+    "tags": ["soft-delete", "blob", "recuperacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+  },
+  {
+    "id": "az104-st-013",
+    "domain": "storage",
+    "subdomain": "versionamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada gravação num blob deve gerar versão recuperável para auditoria de alterações. Qual recurso versiona automaticamente cada sobrescrita?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Snapshot manual a cada escrita"
+      },
+      {
+        "letter": "B",
+        "text": "SAS com versão no nome"
+      },
+      {
+        "letter": "C",
+        "text": "Replicação GRS"
+      },
+      {
+        "letter": "D",
+        "text": "Controle de versão de blob"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Versionamento cria versão prévia a cada escrita automaticamente. Snapshot manual exige chamada; SAS não versiona; GRS replica o atual, não o histórico.",
+    "source": "mslearn",
+    "tags": ["versionamento", "blob", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-014",
+    "domain": "storage",
+    "subdomain": "nfs",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs Linux precisam de compartilhamento POSIX com bloqueio de arquivo e alta taxa de transferência. Qual protocolo do Azure Files atende Linux nativamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SMB 3.0 com AD"
+      },
+      {
+        "letter": "B",
+        "text": "FTP anônimo"
+      },
+      {
+        "letter": "C",
+        "text": "Blob via REST"
+      },
+      {
+        "letter": "D",
+        "text": "NFS 4.1 no Azure Files Premium"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "NFS 4.1 Premium dá semântica POSIX a Linux. SMB é para Windows; FTP não é gerenciado; Blob REST não monta POSIX.",
+    "source": "original",
+    "tags": ["files", "nfs", "linux", "posix"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-016",
+    "domain": "storage",
+    "subdomain": "databox",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cem terabytes locais precisam migrar com link de 100 Mbps saturado por meses. Qual dispositivo físico da Microsoft acelera a ingestão offline?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Upload pelo portal em partes"
+      },
+      {
+        "letter": "B",
+        "text": "AzCopy pela internet saturada"
+      },
+      {
+        "letter": "C",
+        "text": "Azure Data Box para transferência física"
+      },
+      {
+        "letter": "D",
+        "text": "VPN com mais banda contratada"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Data Box envia o disco físico e a Microsoft injeta no storage. AzCopy no link saturado levaria meses; VPN não cria banda; portal não move TB.",
+    "source": "original",
+    "tags": ["databox", "migracao-offline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-017",
+    "domain": "storage",
+    "subdomain": "object-replication",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs novos em um contêiner precisam ser replicados para outra conta na mesma região em tempo real. Qual recurso replica por política de objeto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "AzCopy agendado por cron"
+      },
+      {
+        "letter": "B",
+        "text": "GRS entre regiões"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot manual cruzado"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação de objetos do Blob"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Object replication copia por regra (prefixo, tipo) entre contas. GRS replica a conta inteira entre regiões; cron atrasa; snapshot é pontual.",
+    "source": "mslearn",
+    "tags": ["object-replication", "blob"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+  },
+  {
+    "id": "az104-st-019",
+    "domain": "storage",
+    "subdomain": "static-website-cdn",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O site estático no Storage precisa de HTTPS com domínio próprio e cache global. O que colocar na frente do endpoint $web?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DNS público direto ao $web"
+      },
+      {
+        "letter": "B",
+        "text": "Bastion na frente do storage"
+      },
+      {
+        "letter": "C",
+        "text": "Azure CDN/Front Door com TLS gerenciado"
+      },
+      {
+        "letter": "D",
+        "text": "VPN até o $web"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "CDN/Front Door entrega HTTPS, domínio próprio e edge cache. DNS direto não dá TLS gerenciado; VPN não publica; Bastion não serve site.",
+    "source": "original",
+    "tags": ["static-website", "cdn", "https"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-020",
+    "domain": "storage",
+    "subdomain": "file-sync",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Servidores de arquivos locais precisam espelhar para o Azure Files com cache local dos arquivos quentes. Qual serviço sincroniza com tiering na nuvem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Robocopy manual semanal"
+      },
+      {
+        "letter": "B",
+        "text": "DFS Replication entre filiais"
+      },
+      {
+        "letter": "C",
+        "text": "Backup do Windows Server"
+      },
+      {
+        "letter": "D",
+        "text": "Azure File Sync com cloud tiering"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "File Sync replica para Files com tiering (quentes locais, frios na nuvem). Robocopy manual não sincroniza; DFSR não integra Files; backup não espelha acesso.",
+    "source": "original",
+    "tags": ["file-sync", "tiering", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-022",
+    "domain": "storage",
+    "subdomain": "change-feed",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um pipeline precisa reagir a cada criação e exclusão de blob em ordem, sem polling. Qual feed publica essas mudanças para consumo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Métrica de transações por minuto"
+      },
+      {
+        "letter": "B",
+        "text": "Feed de alterações (Change Feed) do Blob"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot diário da conta"
+      },
+      {
+        "letter": "D",
+        "text": "Log de auditoria do portal"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Change Feed registra mutações ordenadas para pipelines. Métrica agrega; snapshot é pontual; auditoria do portal registra ações ARM, não dados.",
+    "source": "original",
+    "tags": ["change-feed", "blob", "pipeline"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-023",
+    "domain": "storage",
+    "subdomain": "datalake-gen2",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Análises big data precisam de hierarquia de pastas com ACLs POSIX sobre o mesmo storage de blobs. Qual recurso adiciona namespace hierárquico?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Data Lake Gen2 com namespace hierárquico"
+      },
+      {
+        "letter": "B",
+        "text": "Blob plano sem pastas"
+      },
+      {
+        "letter": "C",
+        "text": "File Sync com tiering"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela com partições"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Gen2 habilita diretórios reais e ACLs POSIX sobre blob. Blob plano simula pastas; File Sync é SMB; tabela não guarda arquivos.",
+    "source": "original",
+    "tags": ["datalake-gen2", "hierarquia", "posix"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-024",
+    "domain": "storage",
+    "subdomain": "sftp",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Parceiros legados enviam arquivos via SFTP e você quer eliminar o servidor intermediário. Qual endpoint nativo do Storage recebe SFTP direto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "VM com OpenSSH e script"
+      },
+      {
+        "letter": "B",
+        "text": "Fila com mensagens binárias"
+      },
+      {
+        "letter": "C",
+        "text": "Suporte SFTP do Blob Storage"
+      },
+      {
+        "letter": "D",
+        "text": "Tabela com anexos"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Blob com SFTP habilitado recebe clientes legados sem VM. Fila/tabela não falam SFTP; VM intermediária é o que se quer eliminar.",
+    "source": "original",
+    "tags": ["sftp", "blob", "legado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-025",
+    "domain": "storage",
+    "subdomain": "premium-blockblob",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação de trading grava milhares de pequenos blobs por segundo com latência mínima. Qual camada de blob de blocos atende alta transação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Archive com reidratação"
+      },
+      {
+        "letter": "B",
+        "text": "Premium (block blobs Premium)"
+      },
+      {
+        "letter": "C",
+        "text": "Cool com penalidade de leitura"
+      },
+      {
+        "letter": "D",
+        "text": "HDD Standard"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Premium dá throughput e latência para transação intensa. Archive/Cool penalizam leitura; HDD não é blob.",
+    "source": "mslearn",
+    "tags": ["premium", "block-blob", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-028",
+    "domain": "storage",
+    "subdomain": "files-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Compartilhamentos Azure Files precisam de snapshots agendados com retenção para ransomware. Qual backup protege Files com política?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Replicação GRS como backup"
+      },
+      {
+        "letter": "B",
+        "text": "Cópia manual para blob semanal"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot único sem agenda"
+      },
+      {
+        "letter": "D",
+        "text": "Backup do Azure para Files com política e retenção"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Backup gerenciado agenda snapshots com retenção e restauração. Cópia manual falha; snapshot único não retém; GRS replica, não versiona contra ransomware.",
+    "source": "original",
+    "tags": ["files", "backup", "snapshot", "ransomware"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-029",
+    "domain": "storage",
+    "subdomain": "conta-tipos-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "A carga usa blobs hierárquicos (Data Lake), filas e tabelas na mesma conta. Quais dois tipos de conta suportam esse conjunto? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Premium file shares para filas"
+      },
+      {
+        "letter": "B",
+        "text": "StorageV2 (propósito geral v2)"
+      },
+      {
+        "letter": "C",
+        "text": "Premium block blobs para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "BlobStorage (blobs sem Data Lake)"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "StorageV2 suporta blobs+Data Lake+filas+tabelas; BlobStorage suporta blobs (sem hierarchical namespace completo). Premium block blobs não tem filas/tabelas; file shares não tem filas.",
+    "source": "original",
+    "tags": ["conta", "storagev2", "tipos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-032",
+    "domain": "storage",
+    "subdomain": "rehidratacao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Blobs em Archive precisam voltar ao online com prioridades distintas por urgência. Quais duas opções de reidratação existem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exclusão e reupload"
+      },
+      {
+        "letter": "B",
+        "text": "Prioridade Standard (até 15h)"
+      },
+      {
+        "letter": "C",
+        "text": "Prioridade Alta (menos de 1h, custo maior)"
+      },
+      {
+        "letter": "D",
+        "text": "Leitura direta do Archive"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Reidratação tem Standard e High com custo/tempo distintos. Archive não lê direto; reupload perde metadados e custa mais.",
+    "source": "original",
+    "tags": ["archive", "reidratacao", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-033",
+    "domain": "storage",
+    "subdomain": "snapshot-vs-versao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Proteção contra sobrescrita acidental e contra exclusão precisam de mecanismos distintos. Quais dois usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Container público"
+      },
+      {
+        "letter": "B",
+        "text": "Versionamento contra sobrescrita"
+      },
+      {
+        "letter": "C",
+        "text": "SAS sem expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Soft delete contra exclusão"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "Versões guardam pré-escrita e soft delete retém excluídos. SAS e container público são exposição, não proteção.",
+    "source": "mslearn",
+    "tags": ["versionamento", "soft-delete", "protecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-034",
+    "domain": "storage",
+    "subdomain": "files-tiering-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Compartilhamentos Premium com arquivos frios precisam baratear sem perder acesso. Quais duas camadas de Files atendem quente e frio? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cool/Archive via ciclo de vida para frios"
+      },
+      {
+        "letter": "B",
+        "text": "Disco Ultra para arquivos"
+      },
+      {
+        "letter": "C",
+        "text": "Fila para arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "Premium transacional para quentes"
+      }
+    ],
+    "correct": ["D", "A"],
+    "explanation": "Premium serve IOPS e lifecycle move frios a camadas baratas. Ultra não é Files; fila não guarda arquivos.",
+    "source": "mslearn",
+    "tags": ["files", "premium", "lifecycle", "camadas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-035",
+    "domain": "storage",
+    "subdomain": "migracao-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Migração de 500 GB com link livre e outra de 200 TB com link saturado exigem estratégias distintas. Quais duas usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Data Box offline para os 200 TB"
+      },
+      {
+        "letter": "B",
+        "text": "AzCopy online para os 500 GB"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail com links para 500 GB"
+      },
+      {
+        "letter": "D",
+        "text": "Portal para os 200 TB"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "AzCopy online move os 500 GB com paralelismo e o Data Box transporta os 200 TB fisicamente. Portal não move terabytes; e-mail jamais migra dados.",
+    "source": "original",
+    "tags": ["migracao", "azcopy", "databox"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-036",
+    "domain": "storage",
+    "subdomain": "conta-tipos",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Uma organização precisa armazenar dados com imutabilidade WORM (Write Once, Read Many) por 7 anos para conformidade legal. Qual tipo de conta de armazenamento suporta políticas de imutabilidade de blob?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "StorageV2 (uso geral v2) — suporta políticas de imutabilidade"
+      },
+      {
+        "letter": "B",
+        "text": "BlobStorage (apenas blobs) — suporta apenas hot/cool/archive"
+      },
+      {
+        "letter": "C",
+        "text": "FileStorage (apenas arquivos) — não suporta blobs"
+      },
+      {
+        "letter": "D",
+        "text": "StorageV1 (uso geral v1) — legado, sem imutabilidade"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A página de visão geral da conta de armazenamento lista os tipos: StorageV2, BlobStorage, FileStorage. Apenas StorageV2 (uso geral v2) suporta políticas de imutabilidade de blob (time-based retention e legal hold). BlobStorage é apenas para blobs mas sem imutabilidade WORM; FileStorage é apenas para Arquivos do Azure; StorageV1 é legado.",
+    "source": "mslearn",
+    "tags": ["immutable", "worm", "retencao", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:10:58.737Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-037",
+    "domain": "storage",
+    "subdomain": "private-link-storage",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A conta deve ser acessível só via IP privado com resolução automática, mantendo firewall negando todo o resto. Quais dois componentes combinam rede e nome?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Private Endpoint + zona privatelink vinculada"
+      },
+      {
+        "letter": "B",
+        "text": "Service Endpoint sem DNS"
+      },
+      {
+        "letter": "C",
+        "text": "Peering sem endpoint"
+      },
+      {
+        "letter": "D",
+        "text": "IP público com SAS"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Endpoint dá o IP privado e a zona resolve o FQDN internamente. Service Endpoint sem DNS falha resolução; IP público expõe; peering sozinho não projeta PaaS.",
+    "source": "original",
+    "tags": ["private-endpoint", "dns", "firewall"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-038",
+    "domain": "storage",
+    "subdomain": "failover-grs",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A região primária caiu e a aplicação precisa ler e escrever na secundária imediatamente, aceitando possível perda de dados recentes. Qual failover permite escrita na secundária?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Trocar a connection string para LRS"
+      },
+      {
+        "letter": "B",
+        "text": "Failover iniciado pelo cliente (não planejado)"
+      },
+      {
+        "letter": "C",
+        "text": "Aguardar failover gerenciado pela Microsoft"
+      },
+      {
+        "letter": "D",
+        "text": "Restaurar backup na secundária"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Customer-initiated failover promove a secundária a escrita imediatamente. Aguardar o gerenciado demora; trocar string não move dados; restore é lento.",
+    "source": "original",
+    "tags": ["failover", "grs", "secundaria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-039",
+    "domain": "storage",
+    "subdomain": "last-sync-time",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Antes do failover, você precisa estimar a perda de dados verificando até quando a secundária está sincronizada. Qual propriedade indica o ponto de sincronismo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tempo de resposta do portal"
+      },
+      {
+        "letter": "B",
+        "text": "Tamanho total da conta"
+      },
+      {
+        "letter": "C",
+        "text": "Métrica de transações da primária"
+      },
+      {
+        "letter": "D",
+        "text": "Last Sync Time da conta secundária"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Last Sync Time mostra o timestamp garantido na secundária (RPO real). Transações da primária não dizem o replicado; tamanho não indica tempo; portal não mede replicação.",
+    "source": "original",
+    "tags": ["last-sync-time", "rpo", "replicacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-040",
+    "domain": "storage",
+    "subdomain": "cross-tenant-replication",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Blobs precisam ser replicados para conta em outro tenant com autenticação sem chaves compartilhadas. Qual identidade a política de replicação usa?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chave da conta destino embutida na origem"
+      },
+      {
+        "letter": "B",
+        "text": "SAS pública sem expiração"
+      },
+      {
+        "letter": "C",
+        "text": "Identidade gerenciada atribuída pelo sistema da conta origem"
+      },
+      {
+        "letter": "D",
+        "text": "Senha do administrador do tenant"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "A conta origem usa sua identidade gerenciada com RBAC na destino, sem segredos. Chave embutida vaza; SAS aberta expõe; senha não autoriza replicação.",
+    "source": "mslearn",
+    "tags": ["replicacao", "cross-tenant", "managed-identity"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+  },
+  {
+    "id": "az104-st-041",
+    "domain": "storage",
+    "subdomain": "premium-files-provisionamento",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Um compartilhamento Premium precisa de 20 TB com 100k IOPS provisionados independentemente do uso. Como o provisionamento Premium funciona?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Provisiona capacidade+IOPS fixos (paga o provisionado)"
+      },
+      {
+        "letter": "B",
+        "text": "Cobra só pelo usado como Standard"
+      },
+      {
+        "letter": "C",
+        "text": "Escala IOPS por arquivo individual"
+      },
+      {
+        "letter": "D",
+        "text": "Herda IOPS do disco da VM"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Files Premium provisiona (capacidade, IOPS, throughput) e cobra o reservado. Standard paga uso; IOPS é do share; disco da VM não afeta Files.",
+    "source": "original",
+    "tags": ["files", "premium", "provisionamento", "iops"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-042",
+    "domain": "storage",
+    "subdomain": "defender-storage-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Malware enviado por upload e exfiltração incomum precisam de detecção na conta. Quais dois recursos do Defender for Storage atuam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Antivírus instalado no blob"
+      },
+      {
+        "letter": "B",
+        "text": "Verificação de malware no upload (hash + análise)"
+      },
+      {
+        "letter": "C",
+        "text": "Firewall desligado para inspeção"
+      },
+      {
+        "letter": "D",
+        "text": "Detecção de ameaças com alertas de exfiltração"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "Malware scanning analisa uploads e threat detection alerta padrões anômalos. Blob não executa antivírus; desligar firewall expõe.",
+    "source": "original",
+    "tags": ["defender", "malware", "threat-detection"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-045",
+    "domain": "storage",
+    "subdomain": "inventory-lifecycle-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Relatório mensal de blobs antigos e exclusão automática dos órfãos exigem dois recursos combinados. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Replicação para outra conta"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot manual de tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Lifecycle policy para excluir por regra"
+      },
+      {
+        "letter": "D",
+        "text": "Inventário para listar por idade"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "O inventário lista blobs por idade para auditoria e a lifecycle policy exclui órfãos por regra. Snapshot preserva em vez de limpar; replicação apenas copia.",
+    "source": "original",
+    "tags": ["inventory", "lifecycle", "governanca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-051",
+    "domain": "storage",
+    "subdomain": "case-contoso-migracao",
+    "type": "case-study",
+    "difficulty": "medium",
+    "question": "Caso Contoso: com 40 TB e link de 200 Mbps saturado, qual estratégia move os dados em tempo viável mantendo a hierarquia de pastas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Data Box para a carga inicial + AzCopy para deltas"
+      },
+      {
+        "letter": "B",
+        "text": "E-mail com links dos arquivos"
+      },
+      {
+        "letter": "C",
+        "text": "Upload pelo portal em lotes manuais"
+      },
+      {
+        "letter": "D",
+        "text": "AzCopy online de tudo pelo link saturado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Data Box carrega o bulk offline e o AzCopy sincroniza deltas. 40 TB em 200 Mbps levaria meses; portal e e-mail não movem esse volume.",
+    "source": "original",
+    "tags": ["case", "databox", "azcopy"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-052",
+    "domain": "storage",
+    "subdomain": "case-contoso-identidade",
+    "type": "case-study",
+    "difficulty": "medium",
+    "question": "Caso Contoso: usuários do AD local devem acessar o SMB com as mesmas ACLs NTFS por departamento. O que configurar no Azure Files?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticação AD DS com permissões NTFS herdadas"
+      },
+      {
+        "letter": "B",
+        "text": "Chave da conta distribuída por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "SAS anônima por departamento"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso anônimo ao compartilhamento"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "AD DS com NTFS preserva identidade e ACLs por pasta. Chave única, SAS anônima e acesso anônimo destroem o controle por departamento.",
+    "source": "mslearn",
+    "tags": ["case", "ad-ds", "ntfs"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
+  },
+  {
+    "id": "az104-st-053",
+    "domain": "storage",
+    "subdomain": "case-contoso-ransomware",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Contoso: após a migração, um ransomware criptografa arquivos pelo SMB. Qual combinação permite restaurar versões anteriores por pasta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup do Azure Files com snapshots e retenção"
+      },
+      {
+        "letter": "B",
+        "text": "Lixeira do Windows local"
+      },
+      {
+        "letter": "C",
+        "text": "SAS de leitura dos arquivos"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação GRS como versão"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Backup com snapshots versiona por compartilhamento para restore granular. Lixeira local não existe na nuvem; GRS replica o criptografado; SAS não restaura.",
+    "source": "original",
+    "tags": ["case", "backup", "ransomware"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-054",
+    "domain": "storage",
+    "subdomain": "files-tiering",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Uma organização usa Azure Files (SMB) e tem 70% dos arquivos não acessados há 2 anos. Qual recurso move automaticamente arquivos frios para a nuvem mantendo o acesso SMB transparente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Compactação manual por script"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão de arquivos não acessados"
+      },
+      {
+        "letter": "C",
+        "text": "Migração manual para camada fria"
+      },
+      {
+        "letter": "D",
+        "text": "Azure File Sync com cloud tiering habilitado"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Azure File Sync com cloud tiering faz o tiering automático: arquivos frios vão para a nuvem (camada fria) e apenas o namespace fica local, mantendo o acesso SMB transparente. A página de visão geral da conta menciona FileStorage para compartilhamentos Premium e Arquivos do Azure com tiering. Compactação/exclusão manual não escala; mover para Premium aumenta custo.",
+    "source": "mslearn",
+    "tags": ["case", "tiering", "file-sync"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:11:41.150Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-055",
+    "domain": "storage",
+    "subdomain": "case-contoso-rede",
+    "type": "case-study",
+    "difficulty": "hard",
+    "question": "Caso Contoso: o file share não pode ter endpoint público e os escritórios alcançam via VPN. Como expor o SMB só na rede privada com resolução de nomes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAS pública distribuída"
+      },
+      {
+        "letter": "B",
+        "text": "Private Endpoint + zona privatelink.file.core.windows.net"
+      },
+      {
+        "letter": "C",
+        "text": "Service Endpoint sem DNS"
+      },
+      {
+        "letter": "D",
+        "text": "IP público com firewall aberto"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Private Endpoint com zona resolve o FQDN para IP privado via VPN. IP público expõe; SAS não é rede; service endpoint sem DNS quebra SMB por nome.",
+    "source": "original",
+    "tags": ["case", "private-endpoint", "smb"],
+    "caseStudyId": "case-st-01",
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-056",
+    "domain": "storage",
+    "subdomain": "blob-append",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Logs de aplicação com escrita sequencial contínua precisam de blob otimizado para append. Qual tipo de blob usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Blob de páginas para VHD"
+      },
+      {
+        "letter": "B",
+        "text": "Fila com mensagens de log"
+      },
+      {
+        "letter": "C",
+        "text": "Blob de acréscimo (append blob)"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de blocos para streaming"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Append blob otimiza escrita sequencial de logs. Blocos servem a objetos; páginas a discos; fila a mensagens.",
+    "source": "mslearn",
+    "tags": ["append-blob", "logs", "sequencial"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-057",
+    "domain": "storage",
+    "subdomain": "blob-page",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A página de visão geral da conta de armazenamento lista os tipos de blob suportados. Qual tipo de blob é otimizado para escrita aleatória em páginas de 512 bytes, ideal para VHDs de VM?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Blob de blocos (block blob)"
+      },
+      {
+        "letter": "B",
+        "text": "Blob de páginas (page blob)"
+      },
+      {
+        "letter": "C",
+        "text": "Blob de acréscimo (append blob)"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de tabela"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de visão geral lista: blobs de blocos (dados não estruturados), blobs de páginas (escrita aleatória 512 bytes, ideal para VHDs), blobs de acréscimo (logs). Page blob suporta escrita aleatória em páginas de 512 bytes, ideal para discos de VM.",
+    "source": "mslearn",
+    "tags": ["page-blob", "vhd", "aleatoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:12:06.267Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-058",
+    "domain": "storage",
+    "subdomain": "block-size-limits",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Upload de arquivo de 200 GB precisa de paralelismo eficiente. Qual tamanho de bloco equilibra throughput e contagem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Blocos de 100 MB (limite 50k blocos por blob)"
+      },
+      {
+        "letter": "B",
+        "text": "1 byte por bloco"
+      },
+      {
+        "letter": "C",
+        "text": "Bloco único de 200 GB"
+      },
+      {
+        "letter": "D",
+        "text": "Blocos de 1 KB"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Blocos grandes (até 4000 MB em versões novas, 50k por blob) paralelizam bem. KB gera overhead; único estoura limite; 1 byte é absurdo.",
+    "source": "original",
+    "tags": ["block-blob", "blocos", "upload", "limites"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-059",
+    "domain": "storage",
+    "subdomain": "conta-tipos",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A visão geral da conta de armazenamento lista os tipos de conta. Qual tipo suporta exclusivamente compartilhamentos de arquivos Premium (FileStorage) para cargas de baixa latência via SMB?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "StorageV2 (uso geral v2)"
+      },
+      {
+        "letter": "B",
+        "text": "FileStorage (apenas compartilhamentos Premium)"
+      },
+      {
+        "letter": "C",
+        "text": "BlobStorage (apenas blobs)"
+      },
+      {
+        "letter": "D",
+        "text": "StorageV1 (uso geral v1)"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de visão geral lista os tipos: StorageV2 (uso geral), BlobStorage (apenas blobs), FileStorage (apenas compartilhamentos Premium), StorageV1 (legado). Apenas FileStorage suporta exclusivamente compartilhamentos de arquivos Premium para SMB de baixa latência. StorageV2 suporta compartilhamentos padrão; BlobStorage é apenas blobs; StorageV1 é legado.",
+    "source": "mslearn",
+    "tags": ["blob-index", "tags", "busca"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:14:05.083Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-060",
+    "domain": "storage",
+    "subdomain": "container-delete-retention",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Contêineres excluídos com milhares de blobs precisam de recuperação por 14 dias. O que retém contêineres apagados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Lixeira do portal"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão reversível de contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Soft delete só de blobs"
+      },
+      {
+        "letter": "D",
+        "text": "Snapshot por blob"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Container soft delete restaura contêiner e conteúdo. Blob soft delete não cobre o contêiner; snapshot por blob não escala; portal não tem lixeira.",
+    "source": "mslearn",
+    "tags": ["container", "soft-delete", "restauracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+  },
+  {
+    "id": "az104-st-061",
+    "domain": "storage",
+    "subdomain": "cors-storage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "App JavaScript no navegador precisa ler blobs de outra origem sem proxy. O que liberar no Storage para CORS?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Firewall liberando tudo"
+      },
+      {
+        "letter": "B",
+        "text": "SAS sem origem"
+      },
+      {
+        "letter": "C",
+        "text": "Regras CORS na conta com origens e métodos"
+      },
+      {
+        "letter": "D",
+        "text": "JSONP manual"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "CORS na conta autoriza origens/métodos do browser. SAS não controla origem; firewall aberto expõe; JSONP é legado inseguro.",
+    "source": "original",
+    "tags": ["cors", "navegador", "origens"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-062",
+    "domain": "storage",
+    "subdomain": "static-headers",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Arquivos do site estático precisam de cache longo no navegador, exceto o index.html sempre fresco. Como controlar cache por arquivo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem cache em nada"
+      },
+      {
+        "letter": "B",
+        "text": "Cache-Control por blob (longo nos assets, no-cache no index)"
+      },
+      {
+        "letter": "C",
+        "text": "Mesmo cache para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "Renomear arquivos a cada deploy manual"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Cache-Control por blob diferencia assets imutáveis do index dinâmico. Uniforme quebra atualização ou performance; sem cache atrasa; renomear manual erra.",
+    "source": "original",
+    "tags": ["static-website", "cache-control", "headers"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-063",
+    "domain": "storage",
+    "subdomain": "blob-lease",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A visão geral da conta de armazenamento lista os tipos de blob suportados pela conta. Qual tipo de blob suporta leases (concessões) para exclusão mútua distribuída?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Blob de blocos (block blob)"
+      },
+      {
+        "letter": "B",
+        "text": "Blob de páginas (page blob)"
+      },
+      {
+        "letter": "C",
+        "text": "Blob de acréscimo (append blob)"
+      },
+      {
+        "letter": "D",
+        "text": "Blob de tabelas"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de visão geral lista os tipos de blob: blobs de blocos, blobs de páginas, blobs de acréscimo. Blobs de páginas suportam leases (concessões) para exclusão mútua distribuída, ideal para coordenação de workers. Blobs de blocos e acréscimo não suportam leases.",
+    "source": "mslearn",
+    "tags": ["lease", "lock", "concorrencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:15:22.327Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-068",
+    "domain": "storage",
+    "subdomain": "files-snapshot-policy",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Snapshots de Files devem ocorrer a cada 6h com retenção de 30 dias e limpeza automática. O que agenda e expira?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cópia para blob sem agenda"
+      },
+      {
+        "letter": "B",
+        "text": "Backup sem snapshots"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot manual quando lembrar"
+      },
+      {
+        "letter": "D",
+        "text": "Política de snapshot com agendamento e retenção"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Política agenda e expira sozinha. Manual falha; cópia sem agenda atrasa; backup sem snapshot perde granularidade.",
+    "source": "original",
+    "tags": ["files", "snapshot", "politica", "retencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-070",
+    "domain": "storage",
+    "subdomain": "blob-nfs31",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Cargas Linux precisam de POSIX sobre blob barato com hierarquia. Qual protocolo expõe o blob como filesystem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NFS 3.0 no Blob Storage"
+      },
+      {
+        "letter": "B",
+        "text": "REST sem montagem"
+      },
+      {
+        "letter": "C",
+        "text": "SMB com AD obrigatório"
+      },
+      {
+        "letter": "D",
+        "text": "FTP legado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "NFS 3.0 no Blob monta o storage como filesystem POSIX para Linux. SMB exige Windows/AD; REST não monta volume; FTP é protocolo legado.",
+    "source": "mslearn",
+    "tags": ["blob", "nfs", "posix", "linux"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-071",
+    "domain": "storage",
+    "subdomain": "hns-acl-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pastas do Data Lake precisam de leitura para analistas e escrita só para engenharia, herdadas por padrão. Quais dois níveis de ACL usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Container público"
+      },
+      {
+        "letter": "B",
+        "text": "ACL padrão (default) herdada pelos filhos"
+      },
+      {
+        "letter": "C",
+        "text": "ACL de acesso para permissões efetivas"
+      },
+      {
+        "letter": "D",
+        "text": "SAS única para todos"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "ACL de acesso define permissões efetivas e a default propaga aos filhos por herança. SAS única mistura acessos; container público expõe dados.",
+    "source": "original",
+    "tags": ["datalake", "acl", "heranca", "posix"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-076",
+    "domain": "storage",
+    "subdomain": "blob-soft-delete-pit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Ransomware criptografou blobs ontem e a restauração precisa do estado de anteontem. Até quando o soft delete permite voltar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nunca, criptografado é final"
+      },
+      {
+        "letter": "B",
+        "text": "Somente nas últimas 24h"
+      },
+      {
+        "letter": "C",
+        "text": "Dentro da retenção configurada (ex.: 30 dias)"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas com backup externo"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Soft delete retém versões/excluídos pelo período configurado para undelete. Limite de 24h não existe; backup externo é complementar; criptografado com retenção volta.",
+    "source": "mslearn",
+    "tags": ["soft-delete", "retencao", "ransomware", "pit"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+  },
+  {
+    "id": "az104-st-077",
+    "domain": "storage",
+    "subdomain": "point-in-time-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Conta inteira precisa voltar ao estado de 3 dias atrás incluindo blobs e contêineres. Qual restauração pontual atende?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Failover geográfico"
+      },
+      {
+        "letter": "B",
+        "text": "Recriação manual da conta"
+      },
+      {
+        "letter": "C",
+        "text": "Restauração point-in-time da conta (com versionamento + change feed)"
+      },
+      {
+        "letter": "D",
+        "text": "Snapshot individual por blob"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "PITR restaura a conta a ponto no passado com pré-requisitos ligados. Snapshot por blob não escala; recriar perde; failover muda região sem voltar no tempo.",
+    "source": "original",
+    "tags": ["pitr", "restauracao", "conta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-078",
+    "domain": "storage",
+    "subdomain": "operational-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs operacionais precisam de backup contínuo sem janela nem cofre separado. Qual backup nativo protege sem agendar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup de VM do cofre Recovery"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot semanal manual"
+      },
+      {
+        "letter": "C",
+        "text": "Backup operacional de blobs (contínuo, sem cofre)"
+      },
+      {
+        "letter": "D",
+        "text": "Cópia manual para outra conta"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Operational backup protege blobs continuamente com políticas. Cofre de VM não cobre blob; cópia manual falha; snapshot manual atrasa.",
+    "source": "original",
+    "tags": ["backup-operacional", "blobs", "continuo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-079",
+    "domain": "storage",
+    "subdomain": "vaulted-backup-files",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Files críticos exigem cópias isoladas em cofre com retenção de anos para compliance. Qual backup em cofre atende?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Snapshot local sem cofre"
+      },
+      {
+        "letter": "B",
+        "text": "Backup em cofre (vaulted) do Azure Files"
+      },
+      {
+        "letter": "C",
+        "text": "Replicação GRS como backup"
+      },
+      {
+        "letter": "D",
+        "text": "Exportação CSV"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Vaulted backup isola cópias com retenção longa auditável. Snapshot local não isola; GRS replica sem versionar; CSV não guarda arquivos.",
+    "source": "original",
+    "tags": ["backup-cofre", "files", "retencao", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-080",
+    "domain": "storage",
+    "subdomain": "disks-backup",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Discos de VM precisam de backup incremental sem agente com restauração pontual. Qual solução protege discos gerenciados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup do SO via agente"
+      },
+      {
+        "letter": "B",
+        "text": "Cópia do VHD por AzCopy"
+      },
+      {
+        "letter": "C",
+        "text": "Backup de disco (snapshot incremental gerenciado)"
+      },
+      {
+        "letter": "D",
+        "text": "Imagem mensal manual"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Disk backup usa snapshots incrementais sem agente. AzCopy copia atual sem histórico; agente adiciona gestão; imagem mensal perde RPO.",
+    "source": "original",
+    "tags": ["backup-disco", "snapshot", "incremental"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-081",
+    "domain": "storage",
+    "subdomain": "backup-center",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Backups de VMs, Files, discos e blobs precisam de visão única com conformidade. Onde centralizar a gestão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Planilha de controle"
+      },
+      {
+        "letter": "B",
+        "text": "Um cofre por recurso sem visão"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail de confirmação"
+      },
+      {
+        "letter": "D",
+        "text": "Centro de Backup (Backup Center) unificado"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Backup Center agrega cofres, políticas e conformidade. Cofres isolados fragmentam; planilha desatualiza; e-mail não gerencia.",
+    "source": "original",
+    "tags": ["backup-center", "centralizacao", "conformidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-082",
+    "domain": "storage",
+    "subdomain": "cross-region-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restauração precisa ocorrer na região secundária durante desastre da primária. O que habilita restore cross-region?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restauração entre regiões habilitada no cofre (com GRS)"
+      },
+      {
+        "letter": "B",
+        "text": "Recriação do zero"
+      },
+      {
+        "letter": "C",
+        "text": "Backup local apenas"
+      },
+      {
+        "letter": "D",
+        "text": "Failover manual de DNS"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Cross-region restore usa cópias GRS na secundária. Local não alcança outra região; DNS não restaura dados; recriar perde histórico.",
+    "source": "original",
+    "tags": ["cross-region", "restore", "dr"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-083",
+    "domain": "storage",
+    "subdomain": "backup-policy-retention",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Política exige diário 30 dias, semanal 12 semanas e mensal 5 anos. Onde definir essas três camadas de retenção?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Três cofres separados manuais"
+      },
+      {
+        "letter": "B",
+        "text": "Política de backup com retenções diária/semanal/mensal"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot único anual"
+      },
+      {
+        "letter": "D",
+        "text": "Sem política com backup manual"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Política combina camadas de retenção automaticamente. Cofres manuais divergem; snapshot único não cobre; sem política falha.",
+    "source": "original",
+    "tags": ["politica", "retencao", "camadas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-084",
+    "domain": "storage",
+    "subdomain": "instant-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restauração de VM precisa voltar em minutos a partir de snapshot local antes do cofre. O que mantém cópias instantâneas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Failover geográfico"
+      },
+      {
+        "letter": "B",
+        "text": "Retenção de snapshot instantâneo na política"
+      },
+      {
+        "letter": "C",
+        "text": "Recriação da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Restauração só do cofre distante"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Instant restore mantém snapshots locais por dias para volta rápida. Só cofre demora; recriar perde; failover muda região.",
+    "source": "mslearn",
+    "tags": ["instant-restore", "snapshot", "rapido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-085",
+    "domain": "storage",
+    "subdomain": "backup-alerts",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Falhas de backup precisam alertar o time com severidade e contexto. De onde vêm alertas integrados ao Monitor?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alertas de backup do Backup Center ao Monitor"
+      },
+      {
+        "letter": "B",
+        "text": "Log local do agente"
+      },
+      {
+        "letter": "C",
+        "text": "Verificação manual diária"
+      },
+      {
+        "letter": "D",
+        "text": "E-mail do operador"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Alertas integrados disparam action groups com contexto. Manual atrasa; e-mail do operador não escala; local não centraliza.",
+    "source": "original",
+    "tags": ["backup", "alertas", "monitor"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-086",
+    "domain": "storage",
+    "subdomain": "backup-reports",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria mensal de conformidade de backup de centenas de itens precisa de relatório agregado. Onde gerar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Prints do portal"
+      },
+      {
+        "letter": "B",
+        "text": "Relatórios de backup no Backup Center (Log Analytics)"
+      },
+      {
+        "letter": "C",
+        "text": "E-mail do fornecedor"
+      },
+      {
+        "letter": "D",
+        "text": "Consulta item por item"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Relatórios agregam conformidade via LA. Item a item não escala; prints não auditam; fornecedor não tem os dados.",
+    "source": "original",
+    "tags": ["backup", "relatorios", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-087",
+    "domain": "storage",
+    "subdomain": "stop-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Recurso descomissionado deve parar backup mantendo pontos existentes pelo prazo. O que interrompe sem apagar histórico?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Parar proteção mantendo dados retidos"
+      },
+      {
+        "letter": "B",
+        "text": "Excluir o cofre inteiro"
+      },
+      {
+        "letter": "C",
+        "text": "Desligar o recurso"
+      },
+      {
+        "letter": "D",
+        "text": "Ignorar cobranças"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Stop protection with retain mantém histórico pelo prazo. Excluir cofre apaga tudo; desligar não para backup; ignorar acumula custo.",
+    "source": "original",
+    "tags": ["stop-protection", "reter", "descomissionar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-088",
+    "domain": "storage",
+    "subdomain": "resume-protection",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Proteção pausada precisa retomar sem perder histórico nem reconfigurar tudo. O que retoma a mesma política?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Novo cofre por retomada"
+      },
+      {
+        "letter": "B",
+        "text": "Criar backup novo do zero"
+      },
+      {
+        "letter": "C",
+        "text": "Aguardar expiração total"
+      },
+      {
+        "letter": "D",
+        "text": "Retomar proteção no mesmo item/cofre"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Resume mantém histórico e política no item. Novo do zero perde cadeia; novo cofre fragmenta; aguardar atrasa.",
+    "source": "original",
+    "tags": ["resume", "protecao", "retomar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-089",
+    "domain": "storage",
+    "subdomain": "file-restore-point",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restaurar pasta específica de 3 dias atrás sem afetar o restante. Qual granularidade o restore de Files oferece?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cópia manual do backup"
+      },
+      {
+        "letter": "B",
+        "text": "Restauração em nível de arquivo/pasta do snapshot"
+      },
+      {
+        "letter": "C",
+        "text": "Recriação do compartilhamento"
+      },
+      {
+        "letter": "D",
+        "text": "Restauração total obrigatória"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Item-level restore recupera pasta/arquivo do snapshot. Total afetaria o resto; recriar perde; manual atrasa.",
+    "source": "original",
+    "tags": ["restore", "arquivo", "granular", "files"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-090",
+    "domain": "storage",
+    "subdomain": "original-location-restore",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Restauração deve voltar ao local original sobrescrevendo ou para local alternativo para análise. Quais opções o restore oferece?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apenas download local"
+      },
+      {
+        "letter": "B",
+        "text": "Sem opção de destino"
+      },
+      {
+        "letter": "C",
+        "text": "Local original ou alternativo"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas novo recurso"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Restore permite OLR (sobrescreve) ou ALR (alternativo para forense). Só novo impede retorno; só download não restaura serviço; sem destino não há restore.",
+    "source": "original",
+    "tags": ["restore", "olr", "alr", "destino"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-092",
+    "domain": "storage",
+    "subdomain": "private-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Tráfego de backup não pode sair para internet e precisa de DNS privado. Quais dois elementos isolam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zona DNS privada do backup"
+      },
+      {
+        "letter": "B",
+        "text": "Endpoint público liberado"
+      },
+      {
+        "letter": "C",
+        "text": "Sem DNS com IP fixo"
+      },
+      {
+        "letter": "D",
+        "text": "Private Endpoints para Backup"
+      }
+    ],
+    "correct": ["D", "A"],
+    "explanation": "Private Endpoints isolam o tráfego de backup da internet e a zona DNS privada resolve internamente. Endpoint público expõe; sem DNS a resolução quebra.",
+    "source": "original",
+    "tags": ["backup", "private-endpoint", "dns"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-093",
+    "domain": "storage",
+    "subdomain": "mua-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Exclusão de backup crítica exige aprovação de segundo operador. Quais dois elementos do MUA protegem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exclusão por operador único"
+      },
+      {
+        "letter": "B",
+        "text": "Resource Guard como aprovador"
+      },
+      {
+        "letter": "C",
+        "text": "Sem aprovação"
+      },
+      {
+        "letter": "D",
+        "text": "Autorização multissuário (MUA) no cofre"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "MUA exige segundo aprovador via Resource Guard para ações críticas. Único exclui sozinho; sem aprovação não há controle.",
+    "source": "original",
+    "tags": ["mua", "resource-guard", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-094",
+    "domain": "storage",
+    "subdomain": "cross-sub-restore-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Restore precisa ocorrer em subscription distinta para isolamento. Quais dois requisitos permitem cross-subscription? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Permissão entre subscriptions (RBAC)"
+      },
+      {
+        "letter": "B",
+        "text": "Mesma subscription obrigatória"
+      },
+      {
+        "letter": "C",
+        "text": "Sem RBAC"
+      },
+      {
+        "letter": "D",
+        "text": "Recurso de restore cross-sub habilitado"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "Permissão RBAC entre subscriptions autoriza e o recurso de restore cross-sub habilitado permite. Exigir mesma subscription limita o DR; sem RBAC o acesso nega.",
+    "source": "original",
+    "tags": ["cross-subscription", "restore", "rbac"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-095",
+    "domain": "storage",
+    "subdomain": "zone-redundant-vault-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cofre de backup precisa sobreviver a falha de zona com replicação. Quais dois elementos dão redundância zonal? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cofre único sem réplica"
+      },
+      {
+        "letter": "B",
+        "text": "Cofre em região com zonas"
+      },
+      {
+        "letter": "C",
+        "text": "Armazenamento com redundância de zona"
+      },
+      {
+        "letter": "D",
+        "text": "LRS em região sem zona"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "ZRS no cofre em região zonal tolera perda de datacenter. LRS sem zona não tolera; único sem réplica é ponto único.",
+    "source": "mslearn",
+    "tags": ["cofre", "zrs", "zonas", "redundancia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+  },
+  {
+    "id": "az104-st-096",
+    "domain": "storage",
+    "subdomain": "backup-windows-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Janela de backup não pode impactar pico das 9h às 18h. Quais dois controles agendam fora do pico? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Janela de manutenção aprovada"
+      },
+      {
+        "letter": "B",
+        "text": "Sem janela definida"
+      },
+      {
+        "letter": "C",
+        "text": "Agendamento noturno/madrugada"
+      },
+      {
+        "letter": "D",
+        "text": "Backup no pico"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Agendamento noturno fora do pico com janela de manutenção aprovada evita impacto. Backup no horário de pico degrada produção; sem janela definida é imprevisível.",
+    "source": "original",
+    "tags": ["janela", "agendamento", "pico"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-097",
+    "domain": "storage",
+    "subdomain": "retention-lock-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Retenção legal não pode ser reduzida nem por administradores. Quais dois travamentos garantem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "MUA para alterar política"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio de retenção (retention lock)"
+      },
+      {
+        "letter": "C",
+        "text": "Sem retenção"
+      },
+      {
+        "letter": "D",
+        "text": "Política editável livremente"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Lock impede redução e MUA exige aprovação para mudar. Editável livre viola compliance; sem retenção perde dados.",
+    "source": "original",
+    "tags": ["retention-lock", "mua", "compliance"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-098",
+    "domain": "storage",
+    "subdomain": "test-restore-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Backups precisam de teste periódico de restaurabilidade com evidência. Quais dois elementos validam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restore de teste em ambiente isolado"
+      },
+      {
+        "letter": "B",
+        "text": "Restore em produção direto"
+      },
+      {
+        "letter": "C",
+        "text": "Relatório de sucesso do teste"
+      },
+      {
+        "letter": "D",
+        "text": "Confiança sem testar"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Restore de teste em ambiente isolado valida sem risco e o relatório de sucesso evidencia. Confiar sem testar cega; restaurar direto em produção arrisca.",
+    "source": "original",
+    "tags": ["teste-restore", "validacao", "isolado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-099",
+    "domain": "storage",
+    "subdomain": "airgap-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cópias precisam de isolamento lógico (air gap) contra ransomware com acesso restrito. Quais dois elementos isolam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup na mesma conta"
+      },
+      {
+        "letter": "B",
+        "text": "Cofre isolado com imutabilidade"
+      },
+      {
+        "letter": "C",
+        "text": "Acesso restrito com MUA"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso aberto ao cofre"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Cofre isolado com imutabilidade mais acesso restrito com MUA criam air gap lógico. Backup na mesma conta cai junto no ataque; acesso aberto ao cofre expõe.",
+    "source": "original",
+    "tags": ["air-gap", "isolamento", "imutabilidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-100",
+    "domain": "storage",
+    "subdomain": "rpo-rto-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Contrato exige RPO 1h e RTO 4h para arquivos críticos. Quais dois parâmetros da política atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restore testado dentro de 4h (RTO)"
+      },
+      {
+        "letter": "B",
+        "text": "Frequência horária de backup (RPO)"
+      },
+      {
+        "letter": "C",
+        "text": "Restore sem teste"
+      },
+      {
+        "letter": "D",
+        "text": "Backup semanal"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Frequência horária garante RPO e restore testado garante RTO. Semanal estoura RPO; sem teste não prova RTO.",
+    "source": "original",
+    "tags": ["rpo", "rto", "sla", "backup"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-101",
+    "domain": "storage",
+    "subdomain": "cost-optimized-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Custos de backup precisam cair sem perder RPO, com camadas baratas. Quais duas alavancas otimizam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Retenção ajustada por criticidade"
+      },
+      {
+        "letter": "B",
+        "text": "Camada Archive para retenções longas"
+      },
+      {
+        "letter": "C",
+        "text": "Retenção infinita geral"
+      },
+      {
+        "letter": "D",
+        "text": "Tudo em Premium quente"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Archive barateia longo prazo e retenção por criticidade evita excesso. Tudo Premium custa; infinito acumula.",
+    "source": "original",
+    "tags": ["custo", "archive", "retencao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-102",
+    "domain": "storage",
+    "subdomain": "monitor-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falhas silenciosas de backup precisam de detecção com métricas e alertas. Quais dois monitoramentos aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Métricas de jobs com alerta de falha"
+      },
+      {
+        "letter": "B",
+        "text": "Sem monitoramento"
+      },
+      {
+        "letter": "C",
+        "text": "Relatório diário de conformidade"
+      },
+      {
+        "letter": "D",
+        "text": "Verificação anual manual"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Métricas de jobs com alerta de falha detectam na hora e o relatório diário audita cobertura. Verificação anual manual atrasa meses; sem monitoramento não há detecção.",
+    "source": "original",
+    "tags": ["monitoramento", "metricas", "relatorio"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-105",
+    "domain": "storage",
+    "subdomain": "granular-vm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Restaurar um arquivo de VM sem voltar o disco inteiro exige dois recursos. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restore total obrigatório"
+      },
+      {
+        "letter": "B",
+        "text": "Montagem do ponto de recuperação"
+      },
+      {
+        "letter": "C",
+        "text": "Recuperação em nível de arquivo do backup"
+      },
+      {
+        "letter": "D",
+        "text": "Formatação do disco"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "Monta-se o ponto de recuperação e extrai-se apenas o arquivo necessário. Restore total obrigatório afeta o disco inteiro; formatar o disco apaga tudo.",
+    "source": "original",
+    "tags": ["granular", "arquivo", "montagem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-106",
+    "domain": "storage",
+    "subdomain": "sql-backup-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Bancos SQL em VM precisam de backup transacional com truncamento de log. Quais dois elementos compõem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Snapshot de disco sem quiesce"
+      },
+      {
+        "letter": "B",
+        "text": "Truncamento de log após backup"
+      },
+      {
+        "letter": "C",
+        "text": "Cópia dos MDF com banco online"
+      },
+      {
+        "letter": "D",
+        "text": "Backup com workload de SQL Server"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Workload SQL garante consistência e o truncamento libera log. Snapshot sem quiesce corrompe; copiar MDF online quebra.",
+    "source": "original",
+    "tags": ["sql", "backup", "log", "truncamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-107",
+    "domain": "storage",
+    "subdomain": "sap-hana-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "HANA em VM precisa de backup certificado pela SAP com snapshots. Quais dois elementos atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup certificado para SAP HANA"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshots de armazenamento integrados"
+      },
+      {
+        "letter": "C",
+        "text": "Backup de arquivos genérico"
+      },
+      {
+        "letter": "D",
+        "text": "Dump manual sem certificação"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Solução certificada SAP com snapshots garante suporte. Dump manual não certifica; genérico não entende HANA.",
+    "source": "original",
+    "tags": ["sap", "hana", "backup", "certificado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-108",
+    "domain": "storage",
+    "subdomain": "dpm-mars-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Servidor físico legado precisa de backup em nuvem sem infraestrutura nova. Quais dois agentes atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DPM para cargas completas"
+      },
+      {
+        "letter": "B",
+        "text": "Sem agente com cópia manual"
+      },
+      {
+        "letter": "C",
+        "text": "FTP para storage"
+      },
+      {
+        "letter": "D",
+        "text": "Agente MARS para arquivos/pastas"
+      }
+    ],
+    "correct": ["D", "A"],
+    "explanation": "Agente MARS protege arquivos e pastas e o DPM cobre cargas on-prem completas. Sem agente não há backup gerenciado; FTP para storage não versiona nem agenda.",
+    "source": "original",
+    "tags": ["mars", "dpm", "legado", "on-premises"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-109",
+    "domain": "storage",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A pagina de visao geral de exclusao reversivel de blob descreve a retencao. Qual afirmacao sobre o periodo de retencao e correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Retencao minima 1 dia, maxima 365 dias"
+      },
+      {
+        "letter": "B",
+        "text": "Retencao fixa de 7 dias, nao configuravel"
+      },
+      {
+        "letter": "C",
+        "text": "Retencao ilimitada, sem expiracao"
+      },
+      {
+        "letter": "D",
+        "text": "Retencao configurada no nivel da conta, nao do blob"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A pagina de exclusao reversivel de blob especifica: retencao configuravel entre 1 e 365 dias. Nao e fixa em 7 dias; nao e ilimitada; e configurada no nivel do container (politica de exclusao reversivel), nao da conta. O blob herda a politica do container.",
+    "source": "mslearn",
+    "tags": ["soft-delete", "vm", "conceito"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:29:16.285Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+  },
+  {
+    "id": "az104-st-113",
+    "domain": "storage",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "A pagina de exclusao reversivel de blob menciona a recuperacao. Como um blob excluido e restaurado quando a exclusao reversivel esta habilitada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Restauracao automatica apos expiracao da retencao"
+      },
+      {
+        "letter": "B",
+        "text": "Undelete via API (Set Blob Properties com header x-ms-undelete)"
+      },
+      {
+        "letter": "C",
+        "text": "Copia de backup gerenciada pelo Azure Backup"
+      },
+      {
+        "letter": "D",
+        "text": "Snapshot anterior promovido a blob base"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A pagina de exclusao reversivel explica: blob excluido entra em estado deleted e pode ser restaurado com Undelete (Set Blob Properties com header x-ms-undelete) durante o periodo de retencao. Nao e automatico; Azure Backup e servico separado; snapshot e copia ponto-no-tempo, nao restauracao de delete.",
+    "source": "mslearn",
+    "tags": ["soft-delete", "padrao", "cofre"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:29:16.294Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+  },
+  {
+    "id": "az104-st-126",
+    "domain": "storage",
+    "subdomain": "blob-access-tier-api",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação precisa mover blob para Cool via API sem portal. Qual operação da REST define a camada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Set Blob Tier na API REST/SDK"
+      },
+      {
+        "letter": "B",
+        "text": "Renomear o blob"
+      },
+      {
+        "letter": "C",
+        "text": "Copiar para outra conta"
+      },
+      {
+        "letter": "D",
+        "text": "Alterar a chave da conta"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Set Blob Tier muda Hot/Cool/Archive via API. Renomear não muda camada; copiar é migração; chave não define tier.",
+    "source": "mslearn",
+    "tags": ["tier", "api", "set-blob-tier"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-127",
+    "domain": "storage",
+    "subdomain": "copy-blob-async",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A visão geral da conta de armazenamento menciona capacidades de gerenciamento de blobs. Qual operação permite copiar um blob de 500 GB entre contas de forma assíncrona, sem manter o cliente conectado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Copy Blob assíncrono com polling de status via x-ms-copy-status"
+      },
+      {
+        "letter": "B",
+        "text": "Snapshot do blob como cópia"
+      },
+      {
+        "letter": "C",
+        "text": "Download e reupload pelo cliente"
+      },
+      {
+        "letter": "D",
+        "text": "AzCopy com --async-copy"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A visão geral menciona capacidades de blob. O Copy Blob assíncrono (Put Blob From URL) copia server-side entre contas; o cliente só inicia e faz polling de x-ms-copy-status. Snapshot não copia dados; download/upload usa banda do cliente; AzCopy --async-copy não existe como flag nativa.",
+    "source": "mslearn",
+    "tags": ["copy-blob", "assincrono", "server-side"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:16:05.315Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-128",
+    "domain": "storage",
+    "subdomain": "abort-copy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cópia errada de 1 TB precisa ser cancelada antes de concluir. Qual operação aborta pelo copy-id?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Excluir a conta de destino"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar concluir sempre"
+      },
+      {
+        "letter": "C",
+        "text": "Reiniciar o portal"
+      },
+      {
+        "letter": "D",
+        "text": "Abort Copy Blob com o copy-id"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Abort Copy cancela pelo identificador da operação. Excluir conta é drástico; aguardar desperdiça; portal não aborta.",
+    "source": "original",
+    "tags": ["abort-copy", "cancelar", "copy-id"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-129",
+    "domain": "storage",
+    "subdomain": "lease-break",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Worker travado mantém lease infinito bloqueando o blob de controle. Como quebrar a concessão para retomar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Break Lease liberando imediatamente"
+      },
+      {
+        "letter": "B",
+        "text": "Excluir o blob com lease"
+      },
+      {
+        "letter": "C",
+        "text": "Aguardar expiração inexistente"
+      },
+      {
+        "letter": "D",
+        "text": "Criar conta nova"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Break Lease quebra concessão travada para retomada. Infinito não expira; excluir com lease ativo nega; nova conta não resolve.",
+    "source": "original",
+    "tags": ["lease", "break", "travado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-130",
+    "domain": "storage",
+    "subdomain": "lease-renew",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Processamento longo precisa manter o lease válido renovando periodicamente. Qual operação estende a concessão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Lease infinito sem renovar"
+      },
+      {
+        "letter": "B",
+        "text": "Nova concessão a cada segundo"
+      },
+      {
+        "letter": "C",
+        "text": "Renew Lease antes de expirar"
+      },
+      {
+        "letter": "D",
+        "text": "Sem lease com retry"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Renew estende a concessão ativa. Nova a cada segundo conflita; infinito sem renovar expira igual; sem lease duplica processamento.",
+    "source": "original",
+    "tags": ["lease", "renew", "renovar"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-131",
+    "domain": "storage",
+    "subdomain": "container-lease",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A visão geral da conta de armazenamento lista os tipos de blob. Qual recurso protege um contêiner contra exclusão acidental por automação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Lease (concessão) no contêiner impedindo exclusão"
+      },
+      {
+        "letter": "B",
+        "text": "Nome longo do contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Tag de aviso no contêiner"
+      },
+      {
+        "letter": "D",
+        "text": "Confirmação por e-mail antes de excluir"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A página de visão geral lista os tipos de blob e capacidades. Lease (concessão) no contêiner bloqueia operações de exclusão enquanto ativo, protegendo contra automação acidental. Nome longo, tag ou e-mail não impedem a operação de delete.",
+    "source": "mslearn",
+    "tags": ["lease", "container", "exclusao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:17:06.512Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-132",
+    "domain": "storage",
+    "subdomain": "blob-tags-billing",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A visão geral da conta de armazenamento menciona recursos de custo. Como ratear custos de storage por projeto usando a conta de armazenamento?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Criar uma conta de armazenamento separada por projeto"
+      },
+      {
+        "letter": "B",
+        "text": "Usar tags de blob (blob index tags) como dimensão de custo no Cost Management"
+      },
+      {
+        "letter": "C",
+        "text": "Aceitar fatura única sem rateio"
+      },
+      {
+        "letter": "D",
+        "text": "Planilha manual de rateio mensal"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "A página de visão geral menciona capacidades de custo. Tags de blob (blob index tags) tornam-se dimensões de custo no Cost Management, permitindo rateio por projeto sem criar contas separadas. Uma conta por projeto aumenta complexidade; fatura única e planilha não automatizam.",
+    "source": "mslearn",
+    "tags": ["tags", "custo", "rateio", "projeto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:17:40.714Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+  },
+  {
+    "id": "az104-st-133",
+    "domain": "storage",
+    "subdomain": "metrics-capacity",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Crescimento de 10% ao mês precisa de projeção de capacidade e alerta. Quais métricas monitorar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Número de chaves"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas latência de leitura"
+      },
+      {
+        "letter": "C",
+        "text": "Capacidade usada + contagem de objetos com alerta"
+      },
+      {
+        "letter": "D",
+        "text": "Cor do portal"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "BlobCapacity e contagem de objetos projetam esgotamento com alerta antecipado. Latência não mede volume; cor do portal e número de chaves são irrelevantes.",
+    "source": "original",
+    "tags": ["metricas", "capacidade", "projecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-134",
+    "domain": "storage",
+    "subdomain": "metrics-transactions",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Throttling por transações precisa de visibilidade por API e resposta. Quais dimensões analisar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Transactions por API, status e latência"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas sucessos"
+      },
+      {
+        "letter": "C",
+        "text": "Logs de VM"
+      },
+      {
+        "letter": "D",
+        "text": "Total genérico sem dimensão"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Dimensões por operação/status/latência localizam gargalo. Genérico não isola; só sucesso esconde erro; VM não é storage.",
+    "source": "original",
+    "tags": ["metricas", "transacoes", "throttling"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-135",
+    "domain": "storage",
+    "subdomain": "insights-storage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Top contêineres por transação e falhas precisam de visão pronta sem KQL. Onde ver insights de storage?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SSH na conta"
+      },
+      {
+        "letter": "B",
+        "text": "Métrica bruta sem agregação"
+      },
+      {
+        "letter": "C",
+        "text": "Portal de billing"
+      },
+      {
+        "letter": "D",
+        "text": "Storage Insights no Monitor"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Storage Insights agrega topologia, falhas e latência prontos. Bruta exige montar; billing não monitora; SSH inexistente.",
+    "source": "original",
+    "tags": ["insights", "storage", "monitor"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-136",
+    "domain": "storage",
+    "subdomain": "diagnostic-storage",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Cada request (leitura/escrita/exclusão) precisa de log para auditoria com retenção. O que envia logs do Storage ao workspace?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "E-mail por request"
+      },
+      {
+        "letter": "B",
+        "text": "Logs de diagnóstico do Storage ao Log Analytics"
+      },
+      {
+        "letter": "C",
+        "text": "Console do portal"
+      },
+      {
+        "letter": "D",
+        "text": "Métrica de disponibilidade"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Diagnostic logs registram operação por operação com retenção. Métrica agrega; console não retém; e-mail por request é inviável.",
+    "source": "original",
+    "tags": ["diagnostico", "logs", "auditoria"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-137",
+    "domain": "storage",
+    "subdomain": "minute-metrics",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alertas precisam de granularidade de 1 minuto em vez de hora. Qual configuração de métrica reduz o intervalo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Log diário"
+      },
+      {
+        "letter": "B",
+        "text": "Métricas por minuto habilitadas na conta"
+      },
+      {
+        "letter": "C",
+        "text": "Sem métricas"
+      },
+      {
+        "letter": "D",
+        "text": "Métricas horárias padrão"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Minute metrics com granularidade de 1 minuto disparam alertas rápidos. Métrica horária atrasa a detecção; log diário piora; sem nada o incidente passa batido.",
+    "source": "original",
+    "tags": ["metricas", "minuto", "granularidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-138",
+    "domain": "storage",
+    "subdomain": "hour-metrics-retention",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Tendência de 90 dias de capacidade precisa de métricas horárias retidas. Qual retenção configurar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Retenção de métricas horárias por 90 dias"
+      },
+      {
+        "letter": "B",
+        "text": "Screenshot diário"
+      },
+      {
+        "letter": "C",
+        "text": "Retenção de 1 dia"
+      },
+      {
+        "letter": "D",
+        "text": "Sem retenção"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Retenção de métricas horárias por 90 dias permite tendência trimestral de capacidade. Retenção de 1 dia apaga histórico; sem retenção não há projeção; print não é dado.",
+    "source": "original",
+    "tags": ["metricas", "retencao", "tendencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-139",
+    "domain": "storage",
+    "subdomain": "classic-metrics",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alertas legados usam métricas clássicas que serão descontinuadas. Para onde migrar os alertas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Desabilitar alertas"
+      },
+      {
+        "letter": "B",
+        "text": "Manter clássicas indefinidamente"
+      },
+      {
+        "letter": "C",
+        "text": "Métricas novas do Monitor (migração de alertas)"
+      },
+      {
+        "letter": "D",
+        "text": "E-mail manual"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Migração para novas métricas mantém cobertura suportada. Clássicas aposentam; sem alerta cega; manual não escala.",
+    "source": "original",
+    "tags": ["metricas", "classicas", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-140",
+    "domain": "storage",
+    "subdomain": "alert-dimensions",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Alerta deve disparar por contêiner específico com latência alta, não pela conta toda. Como segmentar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alerta genérico da conta"
+      },
+      {
+        "letter": "B",
+        "text": "Um alerta por blob"
+      },
+      {
+        "letter": "C",
+        "text": "Sem alerta"
+      },
+      {
+        "letter": "D",
+        "text": "Dimensões (container, API) na regra de alerta"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Dimensões segmentam por contêiner/API com um alerta só. Genérico não isola; por blob explode; sem nada cega.",
+    "source": "original",
+    "tags": ["alertas", "dimensoes", "container"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-141",
+    "domain": "storage",
+    "subdomain": "split-billing-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Fatura precisa separar transações, banda e capacidade por projeto. Quais duas dimensões usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Estimativa sem medidor"
+      },
+      {
+        "letter": "B",
+        "text": "Fatura única agregada"
+      },
+      {
+        "letter": "C",
+        "text": "Medidores (meters) por operação"
+      },
+      {
+        "letter": "D",
+        "text": "Tags de custo por projeto"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Tags de custo alocam por projeto e medidores detalham cada operação para auditoria. Fatura única agregada mistura tudo; estimativa sem medidor não audita.",
+    "source": "original",
+    "tags": ["fatura", "tags", "medidores"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-142",
+    "domain": "storage",
+    "subdomain": "egress-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Egress para internet domina a fatura e precisa cair com cache e região. Quais duas alavancas aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Egress direto sem cache"
+      },
+      {
+        "letter": "B",
+        "text": "CDN na frente com cache"
+      },
+      {
+        "letter": "C",
+        "text": "Manter origem na região do consumo"
+      },
+      {
+        "letter": "D",
+        "text": "Replicar tudo para todas as regiões"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "CDN na frente absorve egress com cache e origem na região do consumo reduz transferência. Egress direto sem cache paga cheio; replicar tudo multiplica storage.",
+    "source": "original",
+    "tags": ["egress", "cdn", "custo", "regiao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-143",
+    "domain": "storage",
+    "subdomain": "operations-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Milhões de leituras pequenas dominam custo por transação. Quais duas otimizações reduzem operações? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Leitura individual por byte"
+      },
+      {
+        "letter": "B",
+        "text": "Lotes e listagens paginadas eficientes"
+      },
+      {
+        "letter": "C",
+        "text": "Polling a cada segundo"
+      },
+      {
+        "letter": "D",
+        "text": "Cache/CDN absorvendo leituras"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Cache e CDN absorvem leituras repetidas e lotes com listagens paginadas reduzem chamadas. Polling a cada segundo queima transações; leitura individual por byte multiplica custo.",
+    "source": "original",
+    "tags": ["custo", "transacoes", "cache", "lotes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-144",
+    "domain": "storage",
+    "subdomain": "cool-read-penalty-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Camada Cool barateia guarda mas penaliza leitura e saída antecipada. Quais dois custos considerar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Penalidade por exclusão precoce (<30 dias)"
+      },
+      {
+        "letter": "B",
+        "text": "Sem penalidade"
+      },
+      {
+        "letter": "C",
+        "text": "Custo maior por leitura/operação"
+      },
+      {
+        "letter": "D",
+        "text": "Leitura gratuita ilimitada"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Camada Cool cobra mais por leitura/operação e penaliza exclusão precoce antes de 30 dias. Leitura gratuita ilimitada não existe; achar sem penalidade ignora a regra.",
+    "source": "original",
+    "tags": ["cool", "penalidade", "leitura", "exclusao-precoce"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-145",
+    "domain": "storage",
+    "subdomain": "archive-early-delete-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Archive exige permanência mínima e reidratação custa por prioridade. Quais dois custos planejar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Custo de reidratação por prioridade"
+      },
+      {
+        "letter": "B",
+        "text": "Leitura direta gratuita"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão livre a qualquer momento"
+      },
+      {
+        "letter": "D",
+        "text": "Permanência mínima de 180 dias"
+      }
+    ],
+    "correct": ["D", "A"],
+    "explanation": "Archive cobra exclusão antecipada antes de 180 dias e reidratação por prioridade de urgência. Exclusão livre a qualquer momento ignora a regra; leitura direta gratuita não existe.",
+    "source": "original",
+    "tags": ["archive", "permanencia", "reidratacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-146",
+    "domain": "storage",
+    "subdomain": "reserved-capacity-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Capacidade estável de 100 TB por 3 anos precisa de desconto previsível. Quais dois elementos da reserva aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Escopo (subscription/RG) da reserva"
+      },
+      {
+        "letter": "B",
+        "text": "Capacidade reservada de 100 TB/3 anos"
+      },
+      {
+        "letter": "C",
+        "text": "Reserva diária flexível"
+      },
+      {
+        "letter": "D",
+        "text": "Pay-as-you-go sem compromisso"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Capacidade reservada trava preço por volume, prazo e escopo (subscription/RG). PAYG sem compromisso não desconta; reserva diária flexível não existe para storage.",
+    "source": "original",
+    "tags": ["reserved-capacity", "reserva", "desconto"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-147",
+    "domain": "storage",
+    "subdomain": "data-transfer-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Transferência entre regiões e zonas gera custo invisível no projeto. Quais dois fluxos tarifados mapear? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tráfego na mesma zona/VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Tráfego entre zonas"
+      },
+      {
+        "letter": "C",
+        "text": "Egress inter-regiões"
+      },
+      {
+        "letter": "D",
+        "text": "Ingress da internet"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "Egress inter-regiões e tráfego entre zonas são tarifados; mesma zona/VNet e ingress são gratuitos. Ignorar o mapeamento estima custo errado.",
+    "source": "original",
+    "tags": ["transferencia", "egress", "zonas", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-148",
+    "domain": "storage",
+    "subdomain": "bandwidth-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Primeiros 100 GB de egress mensais e tráfego interno precisam de tratamento distinto. Quais dois são gratuitos? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tráfego interno mesma região/VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Tudo tarifado sem exceção"
+      },
+      {
+        "letter": "C",
+        "text": "Franquia de egress inicial por subscription"
+      },
+      {
+        "letter": "D",
+        "text": "Egress intercontinental ilimitado"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Franquia inicial cobre o começo e tráfego interno não tarifa. Egress intercontinental ilimitado não existe; achar tudo tarifado ignora gratuidades.",
+    "source": "original",
+    "tags": ["banda", "franquia", "gratuito", "egress"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-149",
+    "domain": "storage",
+    "subdomain": "advisor-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Contas com tier errado e blobs órfãos desperdiçam. Quais duas recomendações do Advisor aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ignorar recomendações"
+      },
+      {
+        "letter": "B",
+        "text": "Manter tudo em Premium"
+      },
+      {
+        "letter": "C",
+        "text": "Remover blobs/contas órfãs"
+      },
+      {
+        "letter": "D",
+        "text": "Mover para tier adequado por acesso"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Tier adequado por padrão de acesso mais remoção de blobs e contas órfãs cortam desperdício. Tudo em Premium custa caro sem necessidade; ignorar recomendações mantém gasto.",
+    "source": "original",
+    "tags": ["advisor", "custo", "tier", "orfaos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-150",
+    "domain": "storage",
+    "subdomain": "budgets-alerts-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Estouro de custo de storage precisa de trava com aviso progressivo. Quais dois controles combinar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Alerta único no fim"
+      },
+      {
+        "letter": "B",
+        "text": "Budget com alertas em 50/80/100%"
+      },
+      {
+        "letter": "C",
+        "text": "Ação (runbook/webhook) no estouro"
+      },
+      {
+        "letter": "D",
+        "text": "Sem budget com revisão anual"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Budgets com alertas progressivos em 50/80/100% avisam cedo e ação (runbook/webhook) contém. Sem budget o estouro surpreende; alerta único no fim atrasa.",
+    "source": "original",
+    "tags": ["budgets", "alertas", "acao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-151",
+    "domain": "storage",
+    "subdomain": "orphaned-disks-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Discos desanexados de VMs excluídas cobram sem uso. Quais dois passos limpam com segurança? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Manter todos por precaução"
+      },
+      {
+        "letter": "B",
+        "text": "Excluir a subscription"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot antes de excluir"
+      },
+      {
+        "letter": "D",
+        "text": "Identificar unattached via Advisor/queries"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Identificar discos desanexados via Advisor/queries e fotografar com snapshot antes de excluir limpa com segurança. Manter todos por precaução desperdiça; excluir a subscription é drástico.",
+    "source": "original",
+    "tags": ["discos-orfaos", "limpeza", "snapshot"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-152",
+    "domain": "storage",
+    "subdomain": "old-snapshots-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Snapshots antigos sem retenção acumulam custo silencioso. Quais dois controles limpam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Auditoria periódica de idade"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitar snapshots"
+      },
+      {
+        "letter": "C",
+        "text": "Política de retenção/expiração"
+      },
+      {
+        "letter": "D",
+        "text": "Manter todos para sempre"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Política de retenção/expiração remove snapshots velhos e auditoria periódica de idade encontra órfãos. Manter todos para sempre custa; desabilitar snapshots perde proteção.",
+    "source": "original",
+    "tags": ["snapshots", "retencao", "limpeza"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-153",
+    "domain": "storage",
+    "subdomain": "lifecycle-cost-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dados com curva quente→frio→arquivo→exclusão precisam de ciclo completo automático. Quais dois estágios configurar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tudo em Hot permanente"
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão ao fim da vida útil"
+      },
+      {
+        "letter": "C",
+        "text": "Transições Hot→Cool→Archive por idade"
+      },
+      {
+        "letter": "D",
+        "text": "Exclusão manual anual"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "Transições Hot→Cool→Archive por idade barateiam e exclusão ao fim da vida útil fecha o ciclo. Tudo em Hot permanente custa caro; exclusão manual anual atrasa.",
+    "source": "original",
+    "tags": ["lifecycle", "ciclo-vida", "custo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-154",
+    "domain": "storage",
+    "subdomain": "compress-encrypt-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Payloads grandes precisam de menos bytes e sigilo antes do upload. Quais duas transformações aplicar no cliente? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Upload bruto sem tratar"
+      },
+      {
+        "letter": "B",
+        "text": "Texto claro com gzip do servidor"
+      },
+      {
+        "letter": "C",
+        "text": "Compressão antes do upload"
+      },
+      {
+        "letter": "D",
+        "text": "Criptografia client-side"
+      }
+    ],
+    "correct": ["C", "D"],
+    "explanation": "Comprimir antes do upload reduz bytes e criptografia client-side garante sigilo ponta a ponta. Upload bruto sem tratar custa e expõe; gzip do servidor não cifra.",
+    "source": "original",
+    "tags": ["compressao", "criptografia", "client-side"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-155",
+    "domain": "storage",
+    "subdomain": "parallel-upload-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Upload de 1 TB precisa de vazão máxima com retomada em falha. Quais dois parâmetros do AzCopy ajustar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem log nem retomada"
+      },
+      {
+        "letter": "B",
+        "text": "Thread única sequencial"
+      },
+      {
+        "letter": "C",
+        "text": "Blocos grandes com resume"
+      },
+      {
+        "letter": "D",
+        "text": "Paralelismo (concurrency) elevado"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Paralelismo (concurrency) elevado com blocos grandes e journal retoma rápido em falha. Thread única sequencial é lenta; sem log nem retomada não há recuperação.",
+    "source": "original",
+    "tags": ["azcopy", "paralelismo", "retomada"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-156",
+    "domain": "storage",
+    "subdomain": "sync-vs-async-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Cópias pequenas síncronas e grandes assíncronas exigem APIs distintas. Quais duas usar conforme o tamanho? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Síncrona para 1 TB"
+      },
+      {
+        "letter": "B",
+        "text": "Assíncrona para 1 KB"
+      },
+      {
+        "letter": "C",
+        "text": "Put Blob (síncrona) para pequenos"
+      },
+      {
+        "letter": "D",
+        "text": "Copy Blob (assíncrona) para grandes"
+      }
+    ],
+    "correct": ["C", "D"],
+    "explanation": "Put Blob síncrona atende pequenos de uma vez; Copy Blob assíncrona move grandes server-side. Síncrona para 1 TB estoura; assíncrona para 1 KB desperdiça.",
+    "source": "original",
+    "tags": ["put-blob", "copy-blob", "sincrono", "assincrono"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-157",
+    "domain": "storage",
+    "subdomain": "storage-explorer",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O Gerenciador de Armazenamento (Storage Explorer) permite gerenciar filas. Qual recurso NAO esta disponivel na interface do Explorer para filas do Armazenamento de Filas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Criar e excluir filas"
+      },
+      {
+        "letter": "B",
+        "text": "Adicionar e remover mensagens (enfileirar/desenfileirar)"
+      },
+      {
+        "letter": "C",
+        "text": "Configurar politica de retentativa (retry policy) e dead-letter queue"
+      },
+      {
+        "letter": "D",
+        "text": "Exibir propriedades da fila (contagem, metadados)"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "O Storage Explorer suporta gerenciar filas: criar/excluir, adicionar/remover mensagens, ver propriedades. Configurar politica de retentativa (retry policy) e dead-letter queue requer Azure Portal, CLI ou SDK; nao esta exposto no Explorer. A pagina do Gerenciador de Armazenamento lista operacoes suportadas; retentativa e dead-letter nao estao listadas.",
+    "source": "mslearn",
+    "tags": ["azcopy", "flags", "exclude", "permissoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:30:22.182Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+  },
+  {
+    "id": "az104-st-158",
+    "domain": "storage",
+    "subdomain": "storage-explorer",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O Storage Explorer permite gerenciar tabelas do Azure Table Storage. Qual recurso NÃO está disponível na interface gráfica?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Consultar entidades com filtro OData"
+      },
+      {
+        "letter": "B",
+        "text": "Importar/exportar entidades em CSV/JSON"
+      },
+      {
+        "letter": "C",
+        "text": "Criar índice secundário personalizado"
+      },
+      {
+        "letter": "D",
+        "text": "Adicionar/editar/excluir entidades individuais"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "O Explorer suporta consulta OData, import/export CSV/JSON e CRUD de entidades. Criar índice secundário personalizado não é suportado no Table Storage (apenas PartitionKey/RowKey são índices); requer design no modelo de dados, não na ferramenta.",
+    "source": "mslearn",
+    "tags": ["azcopy", "entra-id", "managed-identity"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:25:56.216Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+  },
+  {
+    "id": "az104-st-159",
+    "domain": "storage",
+    "subdomain": "storage-explorer",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O Gerenciador de Armazenamento (Storage Explorer) conecta-se a contas via string de conexao. Qual componente identifica unicamente a conta na string?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "AccountName"
+      },
+      {
+        "letter": "B",
+        "text": "AccountKey"
+      },
+      {
+        "letter": "C",
+        "text": "DefaultEndpointsProtocol"
+      },
+      {
+        "letter": "D",
+        "text": "EndpointSuffix"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A string de conexao padrao e DefaultEndpointsProtocol=https;AccountName=<nome>;AccountKey=<chave>;EndpointSuffix=core.windows.net. AccountName identifica unicamente a conta; AccountKey e a credencial; EndpointSuffix e o sufixo DNS (core.windows.net, core.chinacloudapi.cn, etc.). A pagina do Gerenciador de Armazenamento menciona a string de conexao com AccountName e AccountKey.",
+    "source": "mslearn",
+    "tags": ["azcopy", "sync", "espelho"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T21:30:05.683Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+  },
+  {
+    "id": "az104-st-160",
+    "domain": "storage",
+    "subdomain": "databox-order-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pedido de Data Box com cadeia de custódia e devolução segura exige dois controles. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Envio comum sem rastreio"
+      },
+      {
+        "letter": "B",
+        "text": "Rastreio e lacre da remessa"
+      },
+      {
+        "letter": "C",
+        "text": "Apagamento certificado na devolução"
+      },
+      {
+        "letter": "D",
+        "text": "Manter dados no device"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Cadeia de custódia com rastreio e lacre acompanha a remessa e o apagamento certificado limpa na devolução. Envio comum sem rastreio perde; manter dados no device vaza.",
+    "source": "original",
+    "tags": ["databox", "cadeia-custodia", "wipe"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-161",
+    "domain": "storage",
+    "subdomain": "databox-validation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Dados no Data Box precisam de validação de integridade antes do upload. Quais duas verificações aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Confiança visual"
+      },
+      {
+        "letter": "B",
+        "text": "Upload sem validar"
+      },
+      {
+        "letter": "C",
+        "text": "Validação de formato e contagem"
+      },
+      {
+        "letter": "D",
+        "text": "Checksum/hash por arquivo"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Checksum/hash por arquivo garante integridade e validação de formato e contagem confere completude. Confiança visual não escala; upload sem validar corrompe.",
+    "source": "original",
+    "tags": ["databox", "checksum", "validacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-171",
+    "domain": "storage",
+    "subdomain": "blob-soft-delete-pit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Para proteger contêineres excluídos, você habilita a exclusão reversível de contêiner. Qual pré-requisito a conta de armazenamento exige antes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Habilitar o controle de versão de blobs primeiro."
+      },
+      {
+        "letter": "B",
+        "text": "Habilitar a exclusão reversível de blobs primeiro."
+      },
+      {
+        "letter": "C",
+        "text": "Habilitar a restauração pontual (point-in-time restore) primeiro."
+      },
+      {
+        "letter": "D",
+        "text": "Usar conta premium com replicação GZRS."
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: habilitar a exclusão reversível de blobs primeiro é o pré-requisito — sem ela a exclusão reversível de contêiner é rejeitada. A está incorreta: habilitar o controle de versão de blobs mantém histórico de sobrescrita, mas não é pré-requisito da exclusão de contêiner. C está incorreta: habilitar a restauração pontual (point-in-time restore) é recurso separado de restauração da conta, não é gate da exclusão de contêiner. D está incorreta: usar conta premium com replicação GZRS não é exigido — o recurso funciona em contas standard.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-container-overview",
+    "tags": ["soft-delete", "container", "pre-requisito", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-10-02T16:07:44.000Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-172",
+    "domain": "storage",
+    "subdomain": "versionamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Versões anteriores de um blob se acumulam há 6 meses e o custo subiu. Qual recurso remove automaticamente versões com mais de 90 dias?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política de gerenciamento do ciclo de vida com regra por idade da versão."
+      },
+      {
+        "letter": "B",
+        "text": "Exclusão reversível com retenção de 90 dias."
+      },
+      {
+        "letter": "C",
+        "text": "Script manual que lista e exclui versões antigas."
+      },
+      {
+        "letter": "D",
+        "text": "SAS com expiração de 90 dias nos blobs."
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: a política de gerenciamento do ciclo de vida com regra por idade da versão filtra as versões anteriores e as exclui automaticamente, sem operação manual. B está incorreta: exclusão reversível com retenção de 90 dias guarda o que foi apagado para recuperação, em vez de limpar versões antigas. C está incorreta: script manual que lista e exclui versões antigas até resolve, mas exige automação própria e não é recurso nativo da conta. D está incorreta: SAS com expiração de 90 dias nos blobs revoga o acesso ao blob, não exclui o dado.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/lifecycle-management-overview",
+    "tags": ["versionamento", "lifecycle", "custo", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-173",
+    "domain": "storage",
+    "subdomain": "files-soft-delete-retencao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Compartilhamentos de arquivo excluídos por engano precisam de rede de segurança sem configurar nada. Por quantos dias a exclusão reversível os retém por padrão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "1 dia"
+      },
+      {
+        "letter": "B",
+        "text": "365 dias"
+      },
+      {
+        "letter": "C",
+        "text": "7 dias"
+      },
+      {
+        "letter": "D",
+        "text": "30 dias"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "C está correta: a exclusão reversível de compartilhamentos vem habilitada por padrão com retenção de 7 dias, ajustável para mais ou menos. D está incorreta: 30 dias é cenário típico de blobs, não o padrão de Files. A e B estão incorretas: 1 dia seria o mínimo configurável, não o padrão; 365 dias é o teto da retenção de blobs, não o padrão de Files.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-enable-soft-delete",
+    "tags": ["files", "soft-delete", "retencao", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-174",
+    "domain": "storage",
+    "subdomain": "versionamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Auditoria exige identificar exatamente qual gravação gerou cada estado de um blob. O que identifica imutavelmente cada versão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nome do blob com timestamp"
+      },
+      {
+        "letter": "B",
+        "text": "Controle de versão anterior por ID de versão"
+      },
+      {
+        "letter": "C",
+        "text": "Snapshot manual nomeado"
+      },
+      {
+        "letter": "D",
+        "text": "ETag do blob atual"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: cada versão recebe um VersionId imutável gerado pelo serviço, permitindo leitura e auditoria exata por versão. D está incorreta: ETag identifica só o estado atual e muda a cada gravação. A está incorreta: nome não distingue versões. C está incorreta: snapshot manual não é automático por gravação.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/versioning-overview",
+    "tags": ["versionamento", "versionid", "auditoria", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-175",
+    "domain": "storage",
+    "subdomain": "container-naming",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "O nome 'LOGS_2026' falha ao criar um contêiner. Quais regras de nomenclatura valem para contêineres? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apenas minúsculas, números e hífen"
+      },
+      {
+        "letter": "B",
+        "text": "Maiúsculas e sublinhado são válidos"
+      },
+      {
+        "letter": "C",
+        "text": "Entre 3 e 63 caracteres"
+      },
+      {
+        "letter": "D",
+        "text": "Mínimo de 10 caracteres"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "A e C estão corretas: o nome usa apenas minúsculas, números e hífen; o comprimento vai de 3 a 63 caracteres e começa por letra ou número — 'LOGS_2026' quebra justamente nas maiúsculas e no sublinhado. B está incorreta: maiúsculas e sublinhado são inválidos em nome de contêiner. D está incorreta: mínimo de 10 caracteres não existe — o mínimo é 3.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/storage-blobs-introduction",
+    "tags": ["container", "nomenclatura", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-176",
+    "domain": "storage",
+    "subdomain": "container-acesso-publico",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Blobs de um contêiner devem ser legíveis anonimamente por URL, mas a lista do contêiner não pode ser enumerada. Qual nível de acesso público usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nível contêiner: lista e blobs anônimos"
+      },
+      {
+        "letter": "B",
+        "text": "Nível blob: acesso anônimo aos blobs sem listar o contêiner"
+      },
+      {
+        "letter": "C",
+        "text": "Nenhum — acesso anônimo não existe"
+      },
+      {
+        "letter": "D",
+        "text": "Nível privado com SAS de conta"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "B está correta: o nível blob dá acesso anônimo aos blobs sem listar o contêiner, que é exatamente o requisito. A está incorreta: o nível contêiner expõe a lista e a enumeração dos blobs, violando o requisito. D está incorreta: o nível privado com SAS de conta bloqueia o acesso anônimo por URL. C está incorreta: nenhum — acesso anônimo não existe como afirma a opção, ele existe em dois níveis.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
+    "tags": ["container", "acesso-publico", "anonimo", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-177",
+    "domain": "storage",
+    "subdomain": "lifecycle",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Regra de ciclo de vida com filtro de prefixo move blobs para camada fria e exclui após 365 dias. Quais filtro e ação usar? Selecione dois.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Filtro por localização da conta"
+      },
+      {
+        "letter": "B",
+        "text": "Filtro por prefixo 'logs/'"
+      },
+      {
+        "letter": "C",
+        "text": "Aprovação manual no portal"
+      },
+      {
+        "letter": "D",
+        "text": "Ação de camada fria com exclusão em 365 dias"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "B e D estão corretas: o filtro por prefixo 'logs/' restringe quais blobs entram na regra; a ação de camada fria com exclusão em 365 dias executa a transição e a exclusão no prazo. A está incorreta: filtro por localização da conta não é um filtro de regra de ciclo de vida. C está incorreta: aprovação manual no portal não existe no ciclo de vida, que roda automaticamente.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/lifecycle-management-overview",
+    "tags": ["lifecycle", "filtros", "prefixmatch", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-178",
+    "domain": "storage",
+    "subdomain": "soft-delete-blob",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Conformidade exige reter blobs excluídos por 1 ano inteiro. A retenção da exclusão reversível permite quantos dias no máximo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "365 dias"
+      },
+      {
+        "letter": "B",
+        "text": "7 dias"
+      },
+      {
+        "letter": "C",
+        "text": "30 dias"
+      },
+      {
+        "letter": "D",
+        "text": "90 dias"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: 365 dias é o teto da retenção da exclusão reversível, configurável de 1 a 365 dias, cobrindo o ano inteiro. B está incorreta: 7 dias é o padrão da exclusão de compartilhamentos de arquivo, não o teto do soft delete. C está incorreta: 30 dias é a penalidade de exclusão antecipada da camada Cool, não o teto do soft delete. D está incorreta: 90 dias é o mínimo da camada Cold, não o teto do soft delete.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "tags": ["soft-delete", "retencao", "conformidade", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-180",
+    "domain": "storage",
+    "subdomain": "blob-tiers",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Dados acessados poucas vezes ao ano precisam de leitura imediata quando acessados, com custo menor que a camada Cool. Qual camada usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Camada Cold (fria)"
+      },
+      {
+        "letter": "B",
+        "text": "Premium SSD"
+      },
+      {
+        "letter": "C",
+        "text": "Camada Archive"
+      },
+      {
+        "letter": "D",
+        "text": "Camada Cool"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A está correta: Cold é online com leitura imediata e armazenamento mais barato que Cool, com permanência mínima de 90 dias. C está incorreta: Archive exige reidratação em horas, violando a leitura imediata. D está incorreta: Cool custa mais armazenamento para o mesmo padrão de acesso. B está incorreta: Premium é para IOPS intensivo, não para custo mínimo.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/access-tiers-overview",
+    "tags": ["blob", "tiers", "cold", "st-files-blobs"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-181",
+    "domain": "storage",
+    "subdomain": "grs-leitura-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que com GRS padrão (sem RA) é possível ler dados na região secundária durante um outage da primária. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, GRS sempre permite leitura secundária"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, porque a replicação GRS sempre expõe um endpoint de leitura na região secundária"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas apenas quando a região primária está completamente inacessível por mais de 24 horas"
+      },
+      {
+        "letter": "D",
+        "text": "Não, leitura secundária exige RA-GRS"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "GRS replica sem endpoint de leitura; só RA-GRS expõe a secundária. Confundir replicação com legibilidade é erro clássico.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-182",
+    "domain": "storage",
+    "subdomain": "redundancia-mudanca",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A página de criação de conta de armazenamento permite alterar a redundância após a criação. É possível converter uma conta LRS existente para GRS sem recriar a conta nem migrar dados manualmente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, é preciso recriar a conta e copiar todos os dados manualmente"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque a redundância é imutável após a criação da conta e qualquer alteração exige recriar a conta"
+      },
+      {
+        "letter": "C",
+        "text": "Não, mas apenas para contas com redundância zonal, que são a única que aceita alteração de redundância"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, a conversão LRS→GRS/RA-GRS é suportada na conta existente (com restrições para Premium e ZRS)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A página de criação menciona que a redundância pode ser alterada após a criação. O portal permite elevar LRS→GRS/RA-GRS in-place (com restrições: Premium block blobs, ZRS→outros). Recriar a conta é desnecessário na maioria dos casos.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-183",
+    "domain": "storage",
+    "subdomain": "backup-now-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um técnico afirma que o backup sob demanda (Backup Now) respeita a mesma retenção da política agendada. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, usa retenção própria configurada"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, segue a política vigente"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, desde que a retenção da política agendada seja igual ou superior à data do disparo"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o backup sob demanda sempre estende a retenção para o máximo configurado no cofre"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "On-demand define retenção própria no disparo, distinta da agenda. Assumir igualdade estoura ou encurta guarda.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-184",
+    "domain": "storage",
+    "subdomain": "stop-with-retain-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que parar proteção com retenção mantém os pontos existentes cobrando só armazenamento. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, parar apaga tudo imediatamente"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas os pontos deixam de ser cobrados assim que a proteção é parada com retenção"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque parar a proteção sempre exclui todos os pontos existentes no mesmo instante"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, retém cobrando storage"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Stop with retain interrompe novos backups e guarda o histórico pelo prazo, cobrando storage. Achar que apaga impede descomissionar certo.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-185",
+    "domain": "storage",
+    "subdomain": "delete-vault-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um admin afirma que excluir um cofre com itens protegidos é bloqueado até remover proteções e retenções. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, exclui direto com tudo"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque o cofre é excluído de imediato e as proteções são removidas em cascata pelo serviço"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas apenas quando o cofre não possui itens em cofre Localmente-redundante-Zonal"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, há travas de exclusão"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Cofre com itens, MUA e soft delete trava exclusão até limpar. Assumir exclusão direta subestima proteções.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-186",
+    "domain": "storage",
+    "subdomain": "immutable-vault-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que cofre com imutabilidade impede até administradores de excluir backups no prazo. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, Owner sempre exclui"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque o Proprietário do cofre tem poder de exclusão mesmo dentro do prazo de imutabilidade"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas apenas para exclusão; a alteração da retenção continua livre para o administrador"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, imutável bloqueia todos"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Immutability trava exclusão/alteração até expirar, inclusive para admins. Assumir override quebra compliance.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-187",
+    "domain": "storage",
+    "subdomain": "grs-restore-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que restore cross-region exige GRS com CRR habilitado no cofre. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, LRS basta"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque o restore entre regiões é possível com redundância local desde que o cofre esteja na mesma Charges"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas basta habilitar o cofre Localmente-redundante-Zonal sem necessidade de replicação GRS"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, GRS + CRR habilitam"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Restore cross-region exige cópia GRS com CRR habilitado no cofre. LRS não sai da região primária, inviabilizando a restauração distante.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-188",
+    "domain": "storage",
+    "subdomain": "zone-restore-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um técnico afirma que restore zonal (para outra zona) exige backup com redundância de zona. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, qualquer backup restaura em zona"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, ZRS habilita restore zonal"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque qualquer backup pode ser restaurado em qualquer zona de disponibilidade da região"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas quando o backup usa redundância Localmente-redundante-Zonal ou superior"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Restauração entre zonas precisa de cópia com redundância zonal. LRS comum não oferece alvo em outra zona para o restore.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-190",
+    "domain": "storage",
+    "subdomain": "private-restore-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que restore via Private Endpoint mantém todo o tráfego fora da internet pública. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, restore sempre usa internet"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque o restore sempre trafega pela internet pública antes de alcançar o plano de dados"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, PE isola o plano de dados"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas o plano de dados é isolado; os metadados do cofre continuam públicos"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Private Endpoints mantêm backup e restore na backbone privada sem internet pública. Assumir tráfego público ignora o isolamento de rede disponível.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-191",
+    "domain": "storage",
+    "subdomain": "throttled-backup-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um técnico afirma que throughput de backup pode ser limitado para não impactar produção em horário comercial. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, via agendamento e limites"
+      },
+      {
+        "letter": "B",
+        "text": "Não, backup sempre usa banda total"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque o serviço de backup consome toda a largura de banda disponível do cofre"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o limite de throughput só é aplicável a backups grandes, acima de um terabyte"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Janelas e limites (ex.: MARS throttling) contêm impacto. Assumir banda total impede conviver com produção.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-192",
+    "domain": "storage",
+    "subdomain": "backup-failure-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que falha de um backup diário inviabiliza toda a cadeia de restauração. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, perde-se tudo"
+      },
+      {
+        "letter": "B",
+        "text": "Não, pontos anteriores e retry cobrem"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque a cadeia de restauração é estritamente sequencial e não aceita pontos anteriores"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas quando não existe política de retenção que faça o backup ser reaproveitado"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Falha isolada gera retry e pontos anteriores seguem válidos. Achar perda total ignora retenção e nova tentativa.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-193",
+    "domain": "storage",
+    "subdomain": "vault-upgrade-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um admin afirma que migrar cofre clássico para Backup Center preserva políticas e históricos. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, perde-se todo histórico"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque a migração para o Backup Center reinicia o histórico e exige novo backup completo"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas apenas para as políticas; os pontos de backup históricos precisam ser reexecutados"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, com migração assistida"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Migrar cofre clássico para o Backup Center preserva itens, políticas e histórico com fluxo assistido. Assumir perda total impede modernizar sem necessidade.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-194",
+    "domain": "storage",
+    "subdomain": "alert-severity-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um técnico afirma que alertas de backup têm severidade fixa e não permitem supressão por janela. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, fixos e sempre ativos"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, porque a severidade é fixa pela natureza do evento e não existe supressão configurável"
+      },
+      {
+        "letter": "C",
+        "text": "Não, há severidade e regras de supressão"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas as regras de supressão só se aplicam a alertas de cofre, nunca aos da conta"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Alertas de backup têm severidades Sev0-Sev4 com processing rules de supressão e agrupamento. Assumir severidade fixa gera fadiga de alerta.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-195",
+    "domain": "storage",
+    "subdomain": "report-export-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um auditor afirma que relatórios de backup podem ser exportados para CSV/Power BI para evidência. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, só visual no portal"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, via Log Analytics e exportação"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque os relatórios ficam presos ao portal e não existe caminho de exportação autorizado"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a exportação só é possível em PDF, sem integração nativa com o Power BI"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Relatórios baseados em LA exportam e alimentam Power BI. Limitar ao portal impede evidência auditável.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-196",
+    "domain": "storage",
+    "subdomain": "cross-tenant-backup-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que backup cross-tenant exige lighthouse/delegação entre tenants. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, qualquer tenant acessa"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, com delegação entre tenants"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque a ADMIN asks de Fog Multi-cloud dá acesso de leitura a todos os tenants por padrão"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas basta cadastrar o tenant de destino na lista de permitidos do cofre de origem"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Backup cross-tenant exige delegação via Lighthouse com RBAC entre os tenants. Acesso livre de qualquer tenant violaria o isolamento de segurança.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-197",
+    "domain": "storage",
+    "subdomain": "backup-encryption-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que backups no cofre são criptografados em repouso por padrão, mesmo sem CMK. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, sem CMK ficam em claro"
+      },
+      {
+        "letter": "B",
+        "text": "Não, porque sem chave gerenciada pelo cliente os backups permanecem legíveis em texto claro no cofre"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, criptografia padrão da plataforma"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a criptografia padrão só é aplicada quando o cofre é criado com redundantemente redundante-Zonal"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Cofres criptografam por padrão com chaves Microsoft; CMK adiciona controle. Achar texto claro ignora o padrão.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:52.972Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-198",
+    "domain": "storage",
+    "subdomain": "soft-delete-recuperacao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma equipe guarda contratos de clientes em um contêiner de blobs e quer recuperá-los depois de uma exclusão acidental, sem restaurar o contêiner inteiro. Qual recurso do serviço de Blob atende a esse caso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exclusão suave (soft delete), que retém o blob excluído por um período configurável antes da remoção definitiva"
+      },
+      {
+        "letter": "B",
+        "text": "Redundância GZRS, que mantém uma segunda cópia viva em outra região"
+      },
+      {
+        "letter": "C",
+        "text": "Versionamento de blob, que impede a remoção física de qualquer versão"
+      },
+      {
+        "letter": "D",
+        "text": "Replicação de objetos, que copia o blob para outra conta de armazenamento"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A exclusão suave do serviço de Blob retém os dados excluídos por um período definido na conta e permite restaurá-los antes da remoção definitiva. É proteção contra exclusão acidental, não contra perda de datacenter. A redundância GZRS trata de disponibilidade; a replicação de objetos copia blobs entre contas; e o versionamento mantém o histórico de alterações, mas uma versão pode ser removida por operação explícita.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "needsReview": true,
+    "tags": ["soft-delete", "blob", "st-files-blobs"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-199",
+    "domain": "storage",
+    "subdomain": "versioning-blob",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um analista precisa consultar todas as versões pelas quais um blob passou ao longo de meses. Qual recurso do serviço de Blob atende a esse requisito?",
+    "options": [
+      {
+        "letter": "B",
+        "text": "O versionamento de blobs, que mantém e expõe todas as versões anteriores de cada blob"
+      },
+      {
+        "letter": "A",
+        "text": "A exclusão suave, que restaura apenas a versão mais recente do blob"
+      },
+      {
+        "letter": "C",
+        "text": "As camadas de acesso, que movem o blob entre os níveis quente, frio e arquivo"
+      },
+      {
+        "letter": "D",
+        "text": "O ciclo de vida, que arquiva o blob automaticamente conforme a idade"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "O versionamento de blobs mantém cada versão gravada de um blob, permitindo listar e ler as versões anteriores, e pode ser combinado com a exclusão suave para recuperar uma versão específica. As camadas de acesso e as políticas de ciclo de vida atuam sobre a versão atual do blob e não preservam o histórico de alterações.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/versioning-overview",
+    "needsReview": true,
+    "tags": ["versioning", "blob", "st-files-blobs"],
+    "createdAt": "2026-10-04T02:11:52.972Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  },
+  {
+    "id": "az104-st-200",
+    "domain": "storage",
+    "subdomain": "conta-tipos",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A visão geral da conta de armazenamento lista os tipos de conta disponíveis. Ao migrar de StorageV1 (legado) para StorageV2, o que acontece com as funcionalidades?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, StorageV2 adiciona suporte a todos os serviços (blobs, arquivos, filas, tabelas) e recursos modernos"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, StorageV2 mantém todas as limitações do v1"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque a migração para StorageV2 apenas renomeia o tipo sem liberar serviços adicionais"
+      },
+      {
+        "letter": "D",
+        "text": "Não, porque a migração para StorageV2 exige recriar a conta e exportar todo o conteúdo"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A página de visão geral explica que StorageV1 (uso geral v1) é legado e StorageV2 (uso geral v2) é a conta recomendada, suportando todos os serviços (blobs, arquivos, filas, tabelas) e recursos modernos como camadas de acesso, imutabilidade, etc. StorageV1 tem limitações; a migração para v2 expande as capacidades.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:52.973Z",
+    "version": 1
+  },
+  {
+    "id": "az104-st-201",
+    "domain": "storage",
+    "subdomain": "access-tiers-blob",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O dono de um blob quer reduzir o custo das leituras frequentes sem perder a durabilidade dos dados. Para qual camada ele deve promover o blob recém-gravado?",
+    "options": [
+      {
+        "letter": "C",
+        "text": "Camada quente (Hot), que é a camada padrão para dados acessados com frequência"
+      },
+      {
+        "letter": "A",
+        "text": "Camada fria (Cool), que é a camada padrão para dados acessados raramente"
+      },
+      {
+        "letter": "B",
+        "text": "Camada arquivo (Archive), que é a camada padrão para dados acessados esporadicamente"
+      },
+      {
+        "letter": "D",
+        "text": "Camada fria (Cool), que passa a ser a padrão depois de trinta dias sem leitura"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "A camada quente é a padrão e tem o menor preço por transação e por leitura, indicada para dados acessados com frequência. A fria é a padrão para acesso mensal ou pouco frequente, e a arquivo o padrão para acesso esporádico, com reidratação em horas. A troca de camada ocorre quando o blob é lido ou escrito, não por tempo de repouso, e uma conta nova define os padrões quente, fria e arquivo nessa ordem.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/access-tiers-overview",
+    "needsReview": true,
+    "tags": ["access-tiers", "blob", "st-files-blobs"],
+    "createdAt": "2026-10-04T02:11:52.973Z",
+    "updatedAt": "2026-10-04T02:11:53.189Z",
+    "version": 2
+  }
+]

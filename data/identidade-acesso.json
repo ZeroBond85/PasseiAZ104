@@ -3809,5 +3809,652 @@
     "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+  },
+  {
+    "id": "az104-ig-244",
+    "domain": "identidade-governanca",
+    "subdomain": "passwordless-conceitos",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que habilitar SSPR automaticamente converte o tenant para autentica\u00e7\u00e3o sem senha (passwordless) em todos os logins. Essa afirma\u00e7\u00e3o est\u00e1 correta diante do comportamento real do recurso no Entra ID?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, SSPR elimina senhas de todos os logins"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que a redefini\u00e7\u00e3o esteja habilitada, o tenant inteiro passa a aceitar apenas m\u00e9todos sem senha"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas somente para usu\u00e1rios que nunca definiram uma senha pessoal no tenant"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, SSPR apenas permite redefinir a senha mantendo senha como fator"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "SSPR recupera a senha esquecida, mas o login continua baseado em senha; passwordless exige m\u00e9todos FIDO2, Hello ou Authenticator. Confundir recupera\u00e7\u00e3o com elimina\u00e7\u00e3o de senha \u00e9 erro comum de prova.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-245",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-mfa-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que pol\u00edticas de MFA do seu tenant se aplicam a convidados B2B mesmo que o tenant de origem n\u00e3o exija MFA. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, convidados seguem s\u00f3 a origem"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, a pol\u00edtica do tenant de recurso vale para convidados"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque as pol\u00edticas de MFA do tenant de origem sempre prevalecem sobre as do tenant de recurso"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas se o usu\u00e1rio convidado tiver conclu\u00eddo amultifatora\u00e7\u00e3o no tenant de origem"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "O tenant de recurso imp\u00f5e sua CA aos guests (salvo confian\u00e7a expl\u00edcita). Achar que origem manda sozinha deixa brecha.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/external-identities-overview",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-246",
+    "domain": "identidade-governanca",
+    "subdomain": "b2b-redeem-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um parceiro afirma que convite B2B aceito com conta pessoal (MSA) recebe as mesmas pol\u00edticas de acesso condicional dos membros. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, MSA convidada equivale a membro"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que o parceiro aceite os termos de uso, o que converte a conta pessoal em membro do diret\u00f3rio"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas as pol\u00edticas de acesso condicional s\u00f3 se aplicam depois do primeiro recurso acessado"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, guests t\u00eam escopo e pol\u00edticas distintas"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Guests t\u00eam userType distinto e pol\u00edticas pr\u00f3prias; MSA resgatada n\u00e3o vira membro. Equiparar quebra segmenta\u00e7\u00e3o.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-247",
+    "domain": "identidade-governanca",
+    "subdomain": "sso-seamless-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que o logon \u00fanico cont\u00ednuo (seamless SSO) dispensa qualquer credencial at\u00e9 em m\u00e1quina fora do dom\u00ednio corporativo. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, funciona em qualquer m\u00e1quina"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, exige m\u00e1quina ingressada na rede corporativa"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, desde que o usu\u00e1rio esteja com o navegador em qualquer vers\u00e3o atualizada"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas quando o tenant tem habilitado previouslysign-in experience para dom\u00ednios internos"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Seamless SSO usa Kerberos da m\u00e1quina ingressada; fora do dom\u00ednio n\u00e3o h\u00e1 ticket. Assumir ub\u00edquo quebra o desenho.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-248",
+    "domain": "identidade-governanca",
+    "subdomain": "pta-vs-phs-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que PTA continua autenticando na nuvem mesmo com todos os agentes e o AD locais indispon\u00edveis. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, PTA depende do local a cada login"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, PTA tem cache na nuvem"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque o agente mant\u00e9m um cache local das credenciais de todos os usu\u00e1rios por 30 dias"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas somente enquanto o usu\u00e1rio mantiver uma sess\u00e3o ativa no portal do Microsoft Entra"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "PTA valida no AD a cada login; sem agentes/AD n\u00e3o autentica (diferente do PHS). Assumir cache \u00e9 erro de resili\u00eancia.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-249",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-invite-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que convite B2B resgatado cria objeto Guest que conta na cota do diret\u00f3rio como qualquer objeto. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, convidados s\u00e3o isentos de cota"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque objetos de convidado s\u00e3o isentos de contagem no diret\u00f3rio do tenant"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas a cota s\u00f3 \u00e9 consumida se o convidado for promovido a membro do grupo administrativo"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, guests contam na cota de objetos"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Guest resgatado vira objeto do diret\u00f3rio e consome cota como qualquer usu\u00e1rio. Achar convidado isento estoura o planejamento de capacidade em escala.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-250",
+    "domain": "identidade-governanca",
+    "subdomain": "app-proxy-connector-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um engenheiro afirma que conectores do App Proxy exigem inbound liberado no firewall local para a nuvem alcan\u00e7\u00e1-los. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, inbound \u00e9 obrigat\u00f3rio"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que a porta 443 de sa\u00edda esteja liberada em dire\u00e7\u00e3o ao servi\u00e7o do Microsoft Entra"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, conectores s\u00f3 fazem outbound"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas quando o conector \u00e9 instalado no servidor deapplications, n\u00e3o no cliente"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Conectores abrem conex\u00f5es de sa\u00edda e mant\u00eam canal; nenhum inbound \u00e9 necess\u00e1rio. Exigir inbound inverte o modelo.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-251",
+    "domain": "identidade-governanca",
+    "subdomain": "managed-vs-federated-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que dom\u00ednios gerenciados (managed) autenticam na nuvem sem depender de federa\u00e7\u00e3o ativa. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, todo dom\u00ednio precisa de federa\u00e7\u00e3o"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque todo dom\u00ednio no Microsoft Entra precisa de uma rela\u00e7\u00e3o de federa\u00e7\u00e3o configurada"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, managed autentica na nuvem"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas quando o dom\u00ednio tem o sufixo de verifica\u00e7\u00e3o TXT publicado no DNS"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Managed usa PHS/PTA na nuvem; federated delega ao IdP. Exigir federa\u00e7\u00e3o sempre ignora o modelo gerenciado.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-252",
+    "domain": "identidade-governanca",
+    "subdomain": "ca-order-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que, com v\u00e1rias pol\u00edticas de acesso condicional, basta uma concess\u00e3o de bloqueio para negar, mesmo que outras concedam acesso. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, a \u00faltima pol\u00edtica criada decide"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque as pol\u00edticas s\u00e3o avaliadas na ordem cronol\u00f3gica de cria\u00e7\u00e3o e a mais recente prevalece"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, bloqueio prevalece sobre concess\u00f5es"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a concess\u00e3o s\u00f3 \u00e9 bloqueada quando vem da mesma pol\u00edtica que inclui o usu\u00e1rio"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Avalia\u00e7\u00e3o l\u00f3gica: qualquer Block aplic\u00e1vel nega, independente de allows. Ordem de cria\u00e7\u00e3o n\u00e3o decide; bloqueio vence.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-253",
+    "domain": "identidade-governanca",
+    "subdomain": "report-only-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que pol\u00edtica em Report-only registra o resultado 'n\u00e3o aplicado' nos logs de login sem impactar o usu\u00e1rio. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, Report-only bloqueia em sil\u00eancio"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, avalia e registra sem impor"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque Report-only bloqueia o acesso e apenas evita exibir a mensagem de erro ao usu\u00e1rio"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o registro do resultado s\u00f3 passa a ocorrer depois da ativa\u00e7\u00e3o manual da pol\u00edtica"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Report-only avalia e marca o resultado sem conceder/negar diferente. Achar que bloqueia confunde com On.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-254",
+    "domain": "identidade-governanca",
+    "subdomain": "guest-token-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um parceiro afirma que tokens de convidado t\u00eam o mesmo tempo de vida e escopo dos tokens de membros por padr\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, lifetimes id\u00eanticos"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que o token seja emitido pela mesma autoridade do Microsoft Entra, o tempo de vida \u00e9 id\u00eantico"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, pol\u00edticas distintas podem encurtar sess\u00e3o de guest"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a diferen\u00e7a de escopo s\u00f3 se manifesta em tokens emitidos para o pr\u00f3prio tenant de origem"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "\u00c9 poss\u00edvel (e comum) limitar sess\u00e3o de guest via CA/session controls. Assumir igualdade perde endurecimento.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-255",
+    "domain": "identidade-governanca",
+    "subdomain": "combined-registration-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que o registro combinado de SSPR + MFA unifica o onboarding de m\u00e9todos em um s\u00f3 fluxo. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, s\u00e3o registros totalmente separados"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, registro combinado unifica"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o registro combinado s\u00f3 unifica os fluxos quando a licenciamento \u00e9 do tipo Microsoft Entra ID P2"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o usu\u00e1rio ainda precisa registrar cada m\u00e9todo separadamente em dois fluxos consecutivos"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Registro combinado (combined registration) unifica SSPR e MFA num s\u00f3 fluxo de onboarding de m\u00e9todos. Manter registros totalmente separados duplica fric\u00e7\u00e3o para o usu\u00e1rio.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-256",
+    "domain": "identidade-governanca",
+    "subdomain": "temp-access-pass-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que o Temporary Access Pass permite bootstrap de MFA sem senha, com validade curta. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, TAP faz bootstrap tempor\u00e1rio"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, TAP \u00e9 senha permanente"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o Temporary Access Pass exige um dispositivo f\u00edsico do usu\u00e1rio Registered previamente"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas o c\u00f3digo permanece v\u00e1lido por 90 dias e pode ser reutilizado at\u00e9 a ativa\u00e7\u00e3o do m\u00e9todo"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "TAP \u00e9 c\u00f3digo de uso \u00fanico e curta validade para registrar MFA/recuperar. Tratar como permanente vaza.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-257",
+    "domain": "identidade-governanca",
+    "subdomain": "authenticator-backup-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um usu\u00e1rio afirma que o backup em nuvem do Authenticator restaura contas sem nova verifica\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, restaura sem verificar"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que o backup tenha sido criado no mesmo dispositivo em que a restaura\u00e7\u00e3o ocorreu"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, exige verifica\u00e7\u00e3o da conta Microsoft"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a verifica\u00e7\u00e3o da conta s\u00f3 \u00e9 exigida quando o backup envolve mais de um aplicativo"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Restaura\u00e7\u00e3o do backup do Authenticator exige login e verifica\u00e7\u00e3o na conta Microsoft de backup. Sem essa verifica\u00e7\u00e3o, qualquer pessoa clonaria o MFA.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-258",
+    "domain": "identidade-governanca",
+    "subdomain": "hello-deployment-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que Windows Hello for Business exige infraestrutura de certificado on-premises em todos os modelos. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, sempre exige PKI local"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que o dom\u00ednio federation tenha o atributo de emissor de certificado configurado"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o Windows Hello for Business exige tamb\u00e9m uma autoridade de certifica\u00e7\u00e3o local no modelo cloud"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, o modelo cloud trust dispensa PKI"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Cloud Kerberos trust elimina PKI local; s\u00f3 h\u00edbrido com certificado a exige. Generalizar atrasa ado\u00e7\u00e3o.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-259",
+    "domain": "identidade-governanca",
+    "subdomain": "sso-seamless-requirement-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que o seamless SSO exige o recurso instalado via Entra Connect com URL de logon na zona de intranet. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, funciona sem nada"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque o seamless SSO funciona apenas em m\u00e1quinas que j\u00e1 est\u00e3o ingressadas no dom\u00ednio local"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, habilita\u00e7\u00e3o + intranet zone"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a zona de intranet s\u00f3 \u00e9 necess\u00e1ria para navegadores que n\u00e3o suportam Kerberos nativo"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Seamless exige feature no Connect e Kerberos via zona de intranet no browser. Sem isso, cai para login manual.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-260",
+    "domain": "identidade-governanca",
+    "subdomain": "pta-agent-count-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que dois agentes PTA fazem balanceamento e failover autom\u00e1ticos sem configura\u00e7\u00e3o extra. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, s\u00f3 um agente funciona por vez"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, m\u00faltiplos agentes s\u00e3o ativos com failover"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o Microsoft Entra Connect s\u00f3 aceita um agente de PTA por floresta conectada ao tenant"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, e o segundo agente exige reconfigura\u00e7\u00e3o manual da porta de escuta para evitar conflito"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "M\u00faltiplos agentes PTA operam ativos com balanceamento e failover nativos sem configura\u00e7\u00e3o extra. Achar que s\u00f3 um funciona por vez mant\u00e9m ponto \u00fanico de falha.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-261",
+    "domain": "identidade-governanca",
+    "subdomain": "phs-cloud-only-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que com PHS a autentica\u00e7\u00e3o ocorre na nuvem mesmo com o AD local desligado. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, PHS exige AD online"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque o hash sincronizado fica inv\u00e1lido quando o controlador de dom\u00ednio local \u00e9 desligado"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, hash sincronizado autentica na nuvem"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas enquanto houver um token de sess\u00e3o em cache no pr\u00f3prio navegador do usu\u00e1rio"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "PHS valida contra o hash na nuvem, sobrevivendo a outage local. Confundir com PTA erra o desenho de resili\u00eancia.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
+  },
+  {
+    "id": "az104-ig-262",
+    "domain": "identidade-governanca",
+    "subdomain": "federation-sla-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que federa\u00e7\u00e3o com AD FS altamente dispon\u00edvel mant\u00e9m o SLA de autentica\u00e7\u00e3o sem depend\u00eancia extra. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, AD FS HA basta"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, porque o cluster do AD FS em par j\u00e1 \u00e9 coberto pelo SLA do Microsoft Entra sem custo adicional"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas a indisponibilidade do AD FS apenas degrada o logon, sem afetar a disponibilidade do tenant"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, federa\u00e7\u00e3o adiciona depend\u00eancia fora do SLA do Entra"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Todo login federado depende do IdP; indisponibilidade dele derruba auth mesmo com Entra saud\u00e1vel. Ignorar a depend\u00eancia superestima SLA.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.813Z",
+    "updatedAt": "2026-10-04T02:11:52.813Z",
+    "version": 1
   }
 ]

@@ -1,0 +1,2150 @@
+[
+  {
+    "id": "az104-rv-004",
+    "domain": "rede-virtual",
+    "subdomain": "dns-privado",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VMs em VNets emparelhadas precisam resolver app.privado.local para o IP privado do App Service com Private Endpoint. Qual zona DNS resolve esse nome internamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zona DNS pública na internet"
+      },
+      {
+        "letter": "B",
+        "text": "DNS do provedor de internet local"
+      },
+      {
+        "letter": "C",
+        "text": "Zona DNS Privada do Azure vinculada às VNets"
+      },
+      {
+        "letter": "D",
+        "text": "Arquivo hosts editado em cada VM"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Zona privada vinculada às VNets resolve nomes internos com registros automáticos do Private Endpoint. Zona pública expõe; hosts não escala; DNS do ISP não conhece a zona privada.",
+    "source": "mslearn",
+    "tags": ["dns-privado", "private-endpoint"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:23:06.439Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/private-dns-privatednszone"
+  },
+  {
+    "id": "az104-rv-007",
+    "domain": "rede-virtual",
+    "subdomain": "load-balancer",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Três VMs precisam receber tráfego TCP na porta 80 distribuído igualmente, com IP público único na frente. Qual recurso distribui esse tráfego na camada 4?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG com regra de balanceamento"
+      },
+      {
+        "letter": "B",
+        "text": "Load Balancer Standard com pool de backend"
+      },
+      {
+        "letter": "C",
+        "text": "Application Gateway sem listener"
+      },
+      {
+        "letter": "D",
+        "text": "Traffic Manager com perfil aninhado"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Load Balancer distribui TCP/UDP (L4) pelo frontend IP ao backend pool. App Gateway sem listener não recebe; Traffic Manager é DNS; NSG filtra, não balanceia.",
+    "source": "mslearn",
+    "tags": ["load-balancer", "camada-4"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview"
+  },
+  {
+    "id": "az104-rv-008",
+    "domain": "rede-virtual",
+    "subdomain": "app-gateway",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um e-commerce precisa de roteamento por URL (/api para um pool, /site para outro) com WAF. Qual recurso faz balanceamento de camada 7 com firewall web?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Application Gateway com WAF e regras de roteamento"
+      },
+      {
+        "letter": "B",
+        "text": "DNS privado com registros A"
+      },
+      {
+        "letter": "C",
+        "text": "VPN Gateway com BGP"
+      },
+      {
+        "letter": "D",
+        "text": "Load Balancer Básico"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "App Gateway opera em L7 (host/URL) e o WAF filtra OWASP. LB Básico é L4 sem SLA; VPN não balanceia HTTP; DNS não inspeciona conteúdo.",
+    "source": "original",
+    "tags": ["app-gateway", "waf", "camada-7"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-009",
+    "domain": "rede-virtual",
+    "subdomain": "nat-gateway",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VMs sem IP público precisam sair à internet por um único IP fixo para allowlist do parceiro. Qual recurso fornece SNAT com IP previsível?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rota para firewall sem SNAT"
+      },
+      {
+        "letter": "B",
+        "text": "Load Balancer com regra de entrada"
+      },
+      {
+        "letter": "C",
+        "text": "IP público em cada VM"
+      },
+      {
+        "letter": "D",
+        "text": "NAT Gateway com IP público fixo na sub-rede"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "NAT Gateway centraliza a saída da sub-rede em IP fixo. IP por VM multiplica allowlist; LB de entrada não faz saída; rota sem SNAT não traduz origem.",
+    "source": "original",
+    "tags": ["nat-gateway", "snat", "saida"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-012",
+    "domain": "rede-virtual",
+    "subdomain": "traffic-manager",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Usuários globais devem cair no App Service mais próximo (Brasil ou Europa) automaticamente. Qual serviço dirige por DNS com base em geografia?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Load Balancer regional único"
+      },
+      {
+        "letter": "B",
+        "text": "Traffic Manager com roteamento geográfico"
+      },
+      {
+        "letter": "C",
+        "text": "Zona DNS privada"
+      },
+      {
+        "letter": "D",
+        "text": "VNet peering global"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Traffic Manager responde DNS por método (geográfico, performance, prioridade). LB é regional; peering conecta redes; zona privada não resolve internet.",
+    "source": "original",
+    "tags": ["traffic-manager", "dns", "global"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-013",
+    "domain": "rede-virtual",
+    "subdomain": "front-door",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Um site global precisa de entrada única com aceleração, WAF e failover entre regiões. Qual borda global entrega esses três juntos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure Front Door (Standard/Premium)"
+      },
+      {
+        "letter": "B",
+        "text": "Application Gateway regional"
+      },
+      {
+        "letter": "C",
+        "text": "Bastion por região"
+      },
+      {
+        "letter": "D",
+        "text": "VPN ponto a site"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Front Door é CDN+borda global com WAF e failover multirregião. App Gateway é regional; Bastion é acesso VM; VPN não publica site.",
+    "source": "original",
+    "tags": ["front-door", "waf", "global"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-020",
+    "domain": "rede-virtual",
+    "subdomain": "dns-hub-spoke",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Em topologia hub-spoke, spokes precisam resolver nomes privados do hub sem zona em cada VNet. Como centralizar a resolução privada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DNS externo com forward condicional"
+      },
+      {
+        "letter": "B",
+        "text": "Zona pública replicada por região"
+      },
+      {
+        "letter": "C",
+        "text": "Hosts file distribuído por extensão"
+      },
+      {
+        "letter": "D",
+        "text": "Zona DNS privada vinculada ao hub com propagação via peering"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Zona vinculada ao hub resolve para spokes emparelhados (com link e sem sobreposição). Zona pública expõe; hosts não escala; DNS externo não conhece a zona privada.",
+    "source": "mslearn",
+    "tags": ["dns-privado", "hub-spoke"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview"
+  },
+  {
+    "id": "az104-rv-023",
+    "domain": "rede-virtual",
+    "subdomain": "lb-probe",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Instâncias doentes continuam recebendo tráfego porque o probe valida só TCP na porta. O que garante remoção de instância com aplicativo travado mas porta aberta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Desabilitar o probe do backend"
+      },
+      {
+        "letter": "B",
+        "text": "Aumentar o timeout de ociosidade"
+      },
+      {
+        "letter": "C",
+        "text": "Probe TCP com intervalo maior"
+      },
+      {
+        "letter": "D",
+        "text": "Probe HTTP com caminho de saúde da aplicação"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Probe HTTP valida resposta da app (200 no /health), detectando trava lógica. TCP só checa handshake; sem probe tudo recebe; timeout de ociosidade é sobre conexão, não saúde.",
+    "source": "mslearn",
+    "tags": ["load-balancer", "health-probe", "http"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:23:06.439Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-custom-probe-overview"
+  },
+  {
+    "id": "az104-rv-024",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-ssl",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O App Gateway deve terminar TLS com certificado do Key Vault renovado automaticamente. Onde referenciar o certificado com renovação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Certificado PFX enviado por e-mail ao gateway"
+      },
+      {
+        "letter": "B",
+        "text": "Listener HTTPS com certificado referenciado do Key Vault"
+      },
+      {
+        "letter": "C",
+        "text": "Backend HTTP sem TLS"
+      },
+      {
+        "letter": "D",
+        "text": "Probe TCP na porta 443"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Listener referencia o segredo no Key Vault (com identidade gerenciada) e acompanha renovações. PFX por e-mail é inseguro e estático; backend HTTP quebra fim-a-fim; probe não termina TLS.",
+    "source": "original",
+    "tags": ["app-gateway", "tls", "key-vault"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-028",
+    "domain": "rede-virtual",
+    "subdomain": "frontdoor-origin",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O Front Door deve enviar /api ao App Service e /assets ao Storage estático, com failover por origem. O que define destinos e grupos de failover?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Origens agrupadas em grupos de origem com rotas por padrão"
+      },
+      {
+        "letter": "B",
+        "text": "Uma origem única para todos os caminhos"
+      },
+      {
+        "letter": "C",
+        "text": "DNS CNAME direto ao Storage"
+      },
+      {
+        "letter": "D",
+        "text": "NSG na borda global"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Origin groups com health probe fazem failover e rotas por padrão dividem por caminho. Origem única não separa; CNAME direto perde a borda; NSG não existe no Front Door.",
+    "source": "original",
+    "tags": ["front-door", "origens", "rotas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-034",
+    "domain": "rede-virtual",
+    "subdomain": "dns-forward",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs precisam resolver nomes on-premises (corp.local) via DNS local e nomes Azure via padrão, sem trocar DNS da VNet por VM. Como encaminhar condicionalmente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Zona pública para corp.local"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitar a resolução do Azure"
+      },
+      {
+        "letter": "C",
+        "text": "Hosts file idêntico em todas as VMs"
+      },
+      {
+        "letter": "D",
+        "text": "Conjunto de regras de encaminhamento do resolvedor privado de DNS"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Private DNS Resolver com ruleset encaminha corp.local ao DNS local e o resto ao Azure. Hosts não escala; zona pública expõe interno; desabilitar quebra a resolução Azure.",
+    "source": "mslearn",
+    "tags": ["dns", "resolvedor-privado", "encaminhamento", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:23:06.439Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/private-resolver-endpoints-rulesets"
+  },
+  {
+    "id": "az104-rv-036",
+    "domain": "rede-virtual",
+    "subdomain": "lb-outbound",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "VMs no backend de um LB Standard perderam a saída padrão para a internet. Como restaurar a saída explícita e previsível?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de saída (outbound rule) com frontend IP dedicado"
+      },
+      {
+        "letter": "B",
+        "text": "Probe TCP na porta 22"
+      },
+      {
+        "letter": "C",
+        "text": "IP público em cada VM do backend"
+      },
+      {
+        "letter": "D",
+        "text": "Regra de entrada na porta 80"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "LB Standard remove SNAT padrão; outbound rule com frontend próprio restaura saída. Regra de entrada não faz saída; IP por VM foge do desenho; probe monitora, não roteia.",
+    "source": "mslearn",
+    "tags": ["load-balancer", "outbound", "snat"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:09:48.181Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/outbound-rules"
+  },
+  {
+    "id": "az104-rv-037",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-rewrite",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O App Gateway precisa adicionar cabeçalho de correlação e remover versão do servidor nas respostas. Qual conjunto de regras transforma cabeçalhos HTTP?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Listener TCP puro"
+      },
+      {
+        "letter": "B",
+        "text": "Probe de saúde com cabeçalho"
+      },
+      {
+        "letter": "C",
+        "text": "Regras de reescrita (rewrite rules) no conjunto de regras"
+      },
+      {
+        "letter": "D",
+        "text": "Backend pool sem HTTP"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Rewrite rules alteram cabeçalhos/URL de pedido e resposta. Probe monitora; listener TCP não interpreta HTTP; pool sem HTTP não serve.",
+    "source": "original",
+    "tags": ["app-gateway", "rewrite", "cabecalhos"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-043",
+    "domain": "rede-virtual",
+    "subdomain": "lb-sku-diferencas",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O LB Básico atual não suporta zona nem backend por IP e precisa de SLA. Qual migração resolve sem trocar o modelo de distribuição?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Adicionar zonas ao SKU Básico"
+      },
+      {
+        "letter": "B",
+        "text": "Migrar para Load Balancer Standard (há caminho de migração)"
+      },
+      {
+        "letter": "C",
+        "text": "Habilitar SLA no Básico por ticket"
+      },
+      {
+        "letter": "D",
+        "text": "Trocar por Traffic Manager"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Standard traz zonas, backend por IP e SLA com migração assistida. Básico não recebe zonas; Traffic Manager muda para DNS; SLA não se habilita por ticket.",
+    "source": "mslearn",
+    "tags": ["load-balancer", "sku", "standard", "migracao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:09:48.181Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/skus"
+  },
+  {
+    "id": "az104-rv-044",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-v2",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O Application Gateway v1 precisa de autoscaling e zonas, indisponíveis no SKU atual. Para qual SKU migrar mantendo listeners e pools?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Trocar por Front Door sem pools"
+      },
+      {
+        "letter": "B",
+        "text": "Manter v1 com mais instâncias fixas"
+      },
+      {
+        "letter": "C",
+        "text": "Trocar por Load Balancer Básico"
+      },
+      {
+        "letter": "D",
+        "text": "SKU v2 (Standard_v2/WAF_v2) com migração de configuração"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "v2 adiciona autoscale, zonas e performance com migração de config. v1 fixo não escala sozinho; LB Básico perde L7; Front Door não importa pools do gateway.",
+    "source": "original",
+    "tags": ["app-gateway", "v2", "autoscaling", "zonas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-047",
+    "domain": "rede-virtual",
+    "subdomain": "dns-private-resolver-inbound",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O DNS on-premises precisa resolver nomes das zonas privadas do Azure (privatelink.*). Qual endpoint do resolvedor recebe essas consultas do local?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Endpoint de entrada (inbound) do Private DNS Resolver"
+      },
+      {
+        "letter": "B",
+        "text": "Zona pública com os registros privados"
+      },
+      {
+        "letter": "C",
+        "text": "Forwarder no DNS da internet"
+      },
+      {
+        "letter": "D",
+        "text": "Endpoint de saída (outbound) do resolvedor"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Inbound expõe IP na VNet para o DNS local encaminhar zonas privadas. Outbound faz o caminho inverso (Azure→local); zona pública expõe; forwarder externo não alcança zona privada.",
+    "source": "mslearn",
+    "tags": ["dns", "inbound-endpoint", "hibrido"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-051",
+    "domain": "rede-virtual",
+    "subdomain": "dns-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Um Private Endpoint do Storage precisa de resolução privada automática e vinculada às VNets. Quais dois elementos garantem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vínculo (link) da zona às VNets"
+      },
+      {
+        "letter": "B",
+        "text": "Registro A manual no DNS público"
+      },
+      {
+        "letter": "C",
+        "text": "Zona privada privatelink.blob.core.windows.net"
+      },
+      {
+        "letter": "D",
+        "text": "Hosts file no cliente"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "A zona privatelink recebe o registro do endpoint e o link a publica nas VNets. Registro público expõe; hosts não escala.",
+    "source": "mslearn",
+    "tags": ["dns-privado", "private-endpoint", "privatelink"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-052",
+    "domain": "rede-virtual",
+    "subdomain": "lb-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Um LB Standard precisa de alta disponibilidade zonal e backend por IP (VMs e on-premises). Quais duas características atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Frontend zonal-redundante"
+      },
+      {
+        "letter": "B",
+        "text": "Backend pool por endereço IP"
+      },
+      {
+        "letter": "C",
+        "text": "Probe desabilitado"
+      },
+      {
+        "letter": "D",
+        "text": "SKU Básico com IP dinâmico"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Frontend zone-redundant tolera zona e backend por IP inclui até on-premises via VPN/ER. Básico não tem zonas; sem probe não há saúde.",
+    "source": "mslearn",
+    "tags": ["load-balancer", "zonas", "backend-ip"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:23:06.439Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-overview"
+  },
+  {
+    "id": "az104-rv-055",
+    "domain": "rede-virtual",
+    "subdomain": "frontdoor-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O Front Door precisa de TLS gerenciado e proteção WAF na borda. Quais dois recursos compõem essa frente segura? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política WAF associada ao frontend"
+      },
+      {
+        "letter": "B",
+        "text": "Certificado gerenciado com renovação automática"
+      },
+      {
+        "letter": "C",
+        "text": "Certificado expirado fixo"
+      },
+      {
+        "letter": "D",
+        "text": "Backend HTTP sem TLS"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Certificado gerenciado renova sozinho e o WAF filtra OWASP na borda. Cert expirado quebra; backend sem TLS expõe o trecho interno.",
+    "source": "mslearn",
+    "tags": ["front-door", "tls", "waf"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-059",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-end-to-end-tls",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Compliance exige TLS fim-a-fim com re-criptografia e validação do certificado do backend. Quais duas pontas do App Gateway devem usar TLS com backend confiável?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Listener TCP + pool TCP"
+      },
+      {
+        "letter": "B",
+        "text": "Listener HTTPS + pool HTTP"
+      },
+      {
+        "letter": "C",
+        "text": "Listener HTTP + pool HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "Listener HTTPS + pool HTTPS com certificado válido no backend"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "TLS nas duas pontas com cert válido no backend garante fim-a-fim. HTTP em qualquer ponta quebra a cadeia; TCP não termina TLS.",
+    "source": "original",
+    "tags": ["app-gateway", "tls", "end-to-end"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-060",
+    "domain": "rede-virtual",
+    "subdomain": "afd-private-origin",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O Front Door Premium precisa alcançar um App Service sem expô-lo à internet. Como conectar a origem de forma privada pela backbone?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "VPN do Front Door ao App Service"
+      },
+      {
+        "letter": "B",
+        "text": "DNS público com IP interno"
+      },
+      {
+        "letter": "C",
+        "text": "Restrição de IP ao range público do Front Door"
+      },
+      {
+        "letter": "D",
+        "text": "Private Link do Front Door ao App Service (origem privada)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Origem privada via Private Link mantém tráfego na backbone sem exposição. Restringir por IP público ainda expõe; DNS não cria caminho; Front Door não faz VPN.",
+    "source": "mslearn",
+    "tags": ["front-door", "private-link", "origem-privada"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-063",
+    "domain": "rede-virtual",
+    "subdomain": "dns-split-horizon",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O mesmo nome app.empresa.com deve resolver para IP privado dentro das VNets e IP público na internet. Qual desenho entrega as duas visões do mesmo nome?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apenas zona privada exposta"
+      },
+      {
+        "letter": "B",
+        "text": "Zona privada + zona pública homônimas (split-horizon)"
+      },
+      {
+        "letter": "C",
+        "text": "Hosts file com duas entradas"
+      },
+      {
+        "letter": "D",
+        "text": "Apenas zona pública com IP privado"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Zonas homônimas dão visão interna e externa do mesmo FQDN. Zona pública com IP privado vaza topologia; privada exposta quebra; hosts não escala.",
+    "source": "mslearn",
+    "tags": ["dns", "split-horizon", "visoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview"
+  },
+  {
+    "id": "az104-rv-067",
+    "domain": "rede-virtual",
+    "subdomain": "appgw-autoscale-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O App Gateway v2 precisa escalar sozinho e manter reserva mínima para picos repentinos. Quais dois parâmetros configuram isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autoscaling habilitado com máximo de instâncias"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitação de zonas"
+      },
+      {
+        "letter": "C",
+        "text": "SKU v1 com instâncias fixas"
+      },
+      {
+        "letter": "D",
+        "text": "Contagem mínima de instâncias reservadas"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "Autoscale define o teto e o mínimo reserva capacidade quente. v1 fixo não escala; sem zonas perde resiliência.",
+    "source": "mslearn",
+    "tags": ["app-gateway", "autoscaling", "v2"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-069",
+    "domain": "rede-virtual",
+    "subdomain": "tm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Failover entre regiões com retorno automático ao primário exige dois comportamentos do Traffic Manager. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Failback automático ao recuperar o primário"
+      },
+      {
+        "letter": "B",
+        "text": "Monitoramento com probe e failover por prioridade"
+      },
+      {
+        "letter": "C",
+        "text": "TTL infinito sem rechecagem"
+      },
+      {
+        "letter": "D",
+        "text": "Endpoint único sem secundário"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Probe detecta queda e prioridade desvia; ao recuperar, o tráfego volta sozinho. TTL infinito prende no secundário; sem secundário não há para onde falhar.",
+    "source": "mslearn",
+    "tags": ["traffic-manager", "failover", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-070",
+    "domain": "rede-virtual",
+    "subdomain": "nat-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Milhares de conexões simultâneas esgotam portas SNAT do NAT Gateway. Quais dois ajustes ampliam portas e resiliência? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IPs públicos adicionais no NAT Gateway"
+      },
+      {
+        "letter": "B",
+        "text": "Um único IP com timeout mínimo"
+      },
+      {
+        "letter": "C",
+        "text": "Zonalidade do NAT com IPs por zona"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar o NAT e usar IP por VM"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Mais IPs multiplicam portas SNAT e a zonalidade distribui por zona. IP único esgota; voltar a IP por VM perde o desenho central.",
+    "source": "mslearn",
+    "tags": ["nat-gateway", "snat", "portas", "zonas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-071",
+    "domain": "rede-virtual",
+    "subdomain": "dnssec-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "A zona pública precisa de autenticidade contra spoofing com cadeia válida até a raiz. Quais dois elementos compõem o DNSSEC? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "TTL zero em todos os registros"
+      },
+      {
+        "letter": "B",
+        "text": "Registro DS na zona pai"
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitação da validação do resolvedor"
+      },
+      {
+        "letter": "D",
+        "text": "Assinatura da zona com chaves (KSK/ZSK)"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Assinatura prova os registros e o DS ancora a cadeia no pai. TTL zero degrada sem autenticar; sem validação não há verificação.",
+    "source": "mslearn",
+    "tags": ["dns", "dnssec", "assinatura"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-073",
+    "domain": "rede-virtual",
+    "subdomain": "lb-regra-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Sessões com estado exigem afinidade ao mesmo backend e flutuação de porta tolerante. Quais dois ajustes da regra LB atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Probe removido do backend"
+      },
+      {
+        "letter": "B",
+        "text": "Distribuição por 5-tuplas com afinidade"
+      },
+      {
+        "letter": "C",
+        "text": "Persistência de sessão por IP de origem"
+      },
+      {
+        "letter": "D",
+        "text": "Floating IP desabilitado sempre"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "Persistência por origem fixa a sessão e 5-tuplas distribuem mantendo afinidade configurada. Sem floating IP alguns cenários (SQL AO) quebram; sem probe não há saúde.",
+    "source": "mslearn",
+    "tags": ["load-balancer", "afinidade", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:23:06.439Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/components"
+  },
+  {
+    "id": "az104-rv-074",
+    "domain": "rede-virtual",
+    "subdomain": "cm-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "O Connection Monitor precisa cobrir conectividade e latência fim-a-fim com alertas. Quais dois elementos compõem o monitoramento completo? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Testes com origem, destino e protocolo"
+      },
+      {
+        "letter": "B",
+        "text": "Teste único sem repetição"
+      },
+      {
+        "letter": "C",
+        "text": "Alertas sobre métricas dos testes"
+      },
+      {
+        "letter": "D",
+        "text": "Topologia sem testes"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Testes periódicos medem perda/latência e alertas reagem a degradação. Teste único não historica; topologia sem teste não mede.",
+    "source": "mslearn",
+    "tags": ["connection-monitor", "testes", "alertas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-091",
+    "domain": "rede-virtual",
+    "subdomain": "afd-caching",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Assets estáticos precisam de cache de borda com purga sob deploy. Como configurar cache e invalidação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Desabilitar o Front Door"
+      },
+      {
+        "letter": "B",
+        "text": "Sem cache com origem direta"
+      },
+      {
+        "letter": "C",
+        "text": "Regras de cache + purga por caminho no deploy"
+      },
+      {
+        "letter": "D",
+        "text": "Cache eterno sem purga"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Cache rules armazenam e purga invalida no deploy. Sem cache sobrecarrega origem; eterno serve velho; sem FD perde borda.",
+    "source": "original",
+    "tags": ["front-door", "cache", "purga"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-092",
+    "domain": "rede-virtual",
+    "subdomain": "afd-health-probe",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Failover precisa detectar origem doente em segundos, não minutos. Como calibrar a sonda?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Probe no DNS apenas"
+      },
+      {
+        "letter": "B",
+        "text": "Probe a cada hora"
+      },
+      {
+        "letter": "C",
+        "text": "Sem probe com failover manual"
+      },
+      {
+        "letter": "D",
+        "text": "Probe frequente com poucas falhas toleradas"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Intervalo curto + threshold baixo detectam rápido. Hora atrasa; manual não escala; DNS não mede app.",
+    "source": "original",
+    "tags": ["front-door", "health-probe", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-093",
+    "domain": "rede-virtual",
+    "subdomain": "tm-performance",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Usuários devem cair no endpoint de menor latência medido em tempo real. Qual método de roteamento usar?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Performance (latência medida)"
+      },
+      {
+        "letter": "B",
+        "text": "Prioridade fixa"
+      },
+      {
+        "letter": "C",
+        "text": "Peso igual estático"
+      },
+      {
+        "letter": "D",
+        "text": "Geográfico por país"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Performance dirige pela latência real sondada. Prioridade fixa não mede; peso não otimiza; geográfico aproxima sem medir.",
+    "source": "original",
+    "tags": ["traffic-manager", "performance", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-094",
+    "domain": "rede-virtual",
+    "subdomain": "tm-weighted",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Migração gradual precisa de 90% no antigo e 10% no novo via DNS. Qual método distribui por peso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ponderado (weighted) 90/10"
+      },
+      {
+        "letter": "B",
+        "text": "Geográfico por cidade"
+      },
+      {
+        "letter": "C",
+        "text": "Prioridade com failover"
+      },
+      {
+        "letter": "D",
+        "text": "Performance puro"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Weighted divide por peso configurado para canário. Performance ignora proporção; prioridade não divide; geográfico não pondera.",
+    "source": "original",
+    "tags": ["traffic-manager", "ponderado", "canario"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-095",
+    "domain": "rede-virtual",
+    "subdomain": "tm-multivalue",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Resolução DNS deve retornar múltiplos IPs saudáveis para o cliente escolher. Qual método retorna vários endpoints?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Registro A estático"
+      },
+      {
+        "letter": "B",
+        "text": "Multivalue com health check"
+      },
+      {
+        "letter": "C",
+        "text": "Prioridade com um ativo"
+      },
+      {
+        "letter": "D",
+        "text": "Geográfico com um por país"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Multivalue retorna N IPs saudáveis. Prioridade ativa um; geográfico um por região; A estático não monitora.",
+    "source": "original",
+    "tags": ["traffic-manager", "multivalue", "dns"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-096",
+    "domain": "rede-virtual",
+    "subdomain": "tm-subnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Faixas de IP corporativas devem ir ao endpoint interno e o resto ao público. Qual método roteia por sub-rede de origem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sub-rede (subnet routing)"
+      },
+      {
+        "letter": "B",
+        "text": "Performance global"
+      },
+      {
+        "letter": "C",
+        "text": "Peso igual"
+      },
+      {
+        "letter": "D",
+        "text": "Prioridade única"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Subnet routing mapeia faixa de origem a endpoint. Performance ignora origem; peso divide; prioridade não segmenta.",
+    "source": "mslearn",
+    "tags": ["traffic-manager", "subnet", "origem"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-097",
+    "domain": "rede-virtual",
+    "subdomain": "dns-alias",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Zona raiz (apex) precisa apontar ao Front Door sem CNAME (proibido no apex). Qual registro resolve o apex para o Azure?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "TXT com o IP"
+      },
+      {
+        "letter": "B",
+        "text": "Registro A com IP fixo do Front Door"
+      },
+      {
+        "letter": "C",
+        "text": "CNAME no apex"
+      },
+      {
+        "letter": "D",
+        "text": "Registro Alias para o recurso do Azure"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Alias aponta apex a recurso Azure acompanhando mudanças. CNAME no apex viola RFC; IP fixo do FD não existe; TXT não resolve.",
+    "source": "mslearn",
+    "tags": ["dns", "alias", "apex"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:09:48.181Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-alias"
+  },
+  {
+    "id": "az104-rv-098",
+    "domain": "rede-virtual",
+    "subdomain": "dns-caa",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Somente uma CA específica pode emitir certificados para o domínio, bloqueando as demais. Qual registro autoriza a CA?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Registro CAA com a CA autorizada"
+      },
+      {
+        "letter": "B",
+        "text": "Registro TXT genérico"
+      },
+      {
+        "letter": "C",
+        "text": "Registro A da CA"
+      },
+      {
+        "letter": "D",
+        "text": "Registro MX da CA"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Registro CAA restringe emissão à CA listada. MX roteia e-mail; TXT genérico não autoriza emissão; A aponta endereço IP.",
+    "source": "mslearn",
+    "tags": ["dns", "caa", "certificados"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:23:06.439Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-zones-records"
+  },
+  {
+    "id": "az104-rv-099",
+    "domain": "rede-virtual",
+    "subdomain": "dns-private-resolver-ruleset",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Múltiplas VNets precisam compartilhar o mesmo conjunto de regras de encaminhamento DNS. Como vincular o ruleset a várias redes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vínculo do ruleset a cada VNet"
+      },
+      {
+        "letter": "B",
+        "text": "Hosts por VM"
+      },
+      {
+        "letter": "C",
+        "text": "Zona pública por VNet"
+      },
+      {
+        "letter": "D",
+        "text": "Um resolvedor por rua"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Vínculo do ruleset (ruleset link) compartilha regras entre múltiplas VNets. Um resolvedor por rua fragmenta; zona pública expõe; hosts por VM não escala.",
+    "source": "mslearn",
+    "tags": ["dns", "ruleset", "vinculo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-100",
+    "domain": "rede-virtual",
+    "subdomain": "dns-forwarding-ruleset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Regras para corp.local ao DNS local e resto ao Azure exigem dois elementos. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra de encaminhamento para o IP local"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio de todo DNS"
+      },
+      {
+        "letter": "C",
+        "text": "Resolução padrão Azure para o restante"
+      },
+      {
+        "letter": "D",
+        "text": "Zona pública para corp.local"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Regra de encaminhamento direciona o sufixo corp.local e a resolução padrão Azure resolve o restante. Bloquear todo DNS quebra; zona pública expõe o interno.",
+    "source": "mslearn",
+    "tags": ["dns", "encaminhamento", "ruleset"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-105",
+    "domain": "rede-virtual",
+    "subdomain": "nat-timeout-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Conexões idle caem cedo demais e longas ocupam portas. Quais dois timeouts calibrar no NAT? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Timeout UDP específico"
+      },
+      {
+        "letter": "B",
+        "text": "Timeout de ociosidade TCP"
+      },
+      {
+        "letter": "C",
+        "text": "Sem timeout (infinito)"
+      },
+      {
+        "letter": "D",
+        "text": "Timeout zero para tudo"
+      }
+    ],
+    "correct": ["B", "A"],
+    "explanation": "Calibrar timeout TCP e UDP equilibra queda precoce e ocupação de portas. Timeout zero para tudo derruba; infinito esgota portas SNAT.",
+    "source": "mslearn",
+    "tags": ["nat", "timeout", "ociosidade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-106",
+    "domain": "rede-virtual",
+    "subdomain": "idle-timeout-lb-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Conexões de banco ociosas caem no LB antes do timeout da app. Quais dois timeouts alinhar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Idle timeout da regra LB acima do app"
+      },
+      {
+        "letter": "B",
+        "text": "Keepalive da aplicação abaixo do LB"
+      },
+      {
+        "letter": "C",
+        "text": "Timeout mínimo em ambos"
+      },
+      {
+        "letter": "D",
+        "text": "Sem keepalive"
+      }
+    ],
+    "correct": ["A", "B"],
+    "explanation": "Idle timeout da regra LB acima do timeout da app, com keepalive abaixo, evita corte silencioso. Mínimo em ambos derruba; sem keepalive o LB fecha.",
+    "source": "mslearn",
+    "tags": ["lb", "idle-timeout", "keepalive"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-107",
+    "domain": "rede-virtual",
+    "subdomain": "tcp-reset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Falha de backend deixa conexões penduradas sem notificação. Quais dois comportamentos do TCP reset ajudam? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "RST no idle timeout do LB"
+      },
+      {
+        "letter": "B",
+        "text": "Silêncio sem RST"
+      },
+      {
+        "letter": "C",
+        "text": "RST em probe falho"
+      },
+      {
+        "letter": "D",
+        "text": "Retry infinito do cliente"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "RST no idle timeout e em probe falho notifica o cliente para reconectar rápido. Silêncio sem RST pendura até timeout; retry infinito do cliente agrava.",
+    "source": "mslearn",
+    "tags": ["tcp-reset", "lb", "probe"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-108",
+    "domain": "rede-virtual",
+    "subdomain": "ha-ports-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "NVA ativo-passivo precisa de todas as portas com failover rápido. Quais dois elementos da regra HA usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem probe"
+      },
+      {
+        "letter": "B",
+        "text": "Probe de saúde do NVA"
+      },
+      {
+        "letter": "C",
+        "text": "Regra por porta individual"
+      },
+      {
+        "letter": "D",
+        "text": "Regra HA ports (todas as portas, frontend+backend)"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Regra HA ports cobre todas as portas com probe de saúde para failover do NVA. Regra por porta individual não escala; sem probe não há detecção.",
+    "source": "mslearn",
+    "tags": ["ha-ports", "nva", "failover"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-183",
+    "domain": "rede-virtual",
+    "subdomain": "troubleshoot-conexao",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Conexão VM-A para VM-B falha intermitentemente. Quais dois dados o Connection Troubleshoot retorna? Selecione dois.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Resultado das verificações de conectividade"
+      },
+      {
+        "letter": "B",
+        "text": "Logs de fluxo do NSG"
+      },
+      {
+        "letter": "C",
+        "text": "Latência por salto"
+      },
+      {
+        "letter": "D",
+        "text": "Captura completa de pacotes"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "C e A estão corretas: o Connection Troubleshoot mostra a latência por salto; ele também apresenta o resultado das verificações de conectividade. D está incorreta: captura completa de pacotes é a ferramenta packet capture, à parte. B está incorreta: logs de fluxo do NSG são uma análise separada e não vêm no relatório do troubleshoot.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview",
+    "tags": ["troubleshooting", "connection-troubleshoot", "rv-vnets"],
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-191",
+    "domain": "rede-virtual",
+    "subdomain": "lb-ha-ports",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa quer que um appliance virtual de rede que termina milhares de portas receba tráfego em todas elas sem definir uma regra por porta. Como o balanceador atende a esse caso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Com uma regra por porta na qual cada porta é declarada individualmente no balanceador público do SKU Standard"
+      },
+      {
+        "letter": "B",
+        "text": "Com uma única regra de portas de alta disponibilidade, disponível tanto no balanceador interno quanto no público do SKU Standard"
+      },
+      {
+        "letter": "C",
+        "text": "Com uma única regra de portas de alta disponibilidade, com protocolo Todos e porta 0, disponível apenas no balanceador interno do SKU Standard"
+      },
+      {
+        "letter": "D",
+        "text": "Com a ativação da conversão de rede na regra, que entrega todas as portas do frontend de uma vez às VMs do pool"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "As portas de alta disponibilidade sao configuradas como uma regra unica com protocolo Todos e porta 0, e distribuem todos os fluxos TCP e UDP que chegam em todas as portas, com decisao por conexao baseada no quinteplo. Esse recurso e restrito ao balanceador interno do SKU Standard: nem o balanceador publico o oferece. O caso tipico sao appliances de rede virtual, onde declarar uma regra por porta seria inviavel. A conversao de rede apenas traduz enderecos e portas de uma regra comum.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-ha-ports-overview",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-192",
+    "domain": "rede-virtual",
+    "subdomain": "lb-floating-ip",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Duas regras de balanceamento de frontends diferentes encaminham o tráfego para o mesmo pool e a mesma porta de backend. As VMs não conseguem distinguir de qual frontend a conexão chegou. Como corrigir?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Habilitando o modo Híbrido nas regras, que faz o frontend público rotear para o IP privado da VM"
+      },
+      {
+        "letter": "B",
+        "text": "Habilitando as portas de alta disponibilidade nas regras, que liberam a porta de frontend para as VMs do pool"
+      },
+      {
+        "letter": "C",
+        "text": "Habilitando a conversão de rede nas regras, que traduz o IP de destino para o IP privado da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Habilitando o IP flutuante em cada regra, o que preserva o IP do frontend como destino e exige configurar nas VMs um endereço secundário ou loopback correspondente"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Sem IP flutuante, o balanceador traduz o endereco de destino para o IP privado da VM. Quando dois frontends apontam para a mesma porta de backend, a VM recebe trafego no mesmo IP e porta e nao consegue distinguir os fluxos. Com IP flutuante, o pacote e entregue com o IP do frontend preservado como destino, e a VM precisa de um loopback ou IP secundario correspondente para aceitar e responder corretamente. Modo Hibrido combina frontends privado e publico em um balanceador; portas de alta disponibilidade liberam a porta de frontend; conversao de rede traduz enderecos sem entregar o IP do frontend a VM.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-floating-ip",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-193",
+    "domain": "rede-virtual",
+    "subdomain": "lb-probe-http",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Todas as VMs de um pool aparecem como insalubris e o balanceador não entrega tráfego. A VM responde na porta 443 e o grupo de segurança de rede não tem regra para a origem da sonda. O que a documentação indica?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "É preciso permitir a origem do balanceador público do frontend, que varia conforme a regra criada"
+      },
+      {
+        "letter": "B",
+        "text": "É preciso desabilitar a sonda de integridade, já que o SKU Standard aceita sondas TCP, HTTP ou HTTPS e a aplicação não tem certificado válido"
+      },
+      {
+        "letter": "C",
+        "text": "É preciso alterar o limiar da sonda para 1, porque o padrão exige duas respostas consecutivas para marcar a VM como sadia"
+      },
+      {
+        "letter": "D",
+        "text": "É preciso permitir a origem 168.63.129.16, que a marca de serviço AzureLoadBalancer representa nos grupos de segurança de rede"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Todas as sondas de saude do balanceador originate do endereco 168.63.129.16, e a marca de servico AzureLoadBalancer identifica essa origem nos grupos de seguranca de rede e permite o trafego de sonda por padrao. Se a politica de firewall ou a NSG nao permitir essa origem, a sonda falha e a instancia e marcada como fora do ar, o que produz exatamente esse sintoma. A origem nao e o IP publico do frontend nem muda conforme a regra. O limiar so controla quantas respostas consecutivas sao necessarias, e desabilitar a sonda nao e a solucao.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-custom-probe-overview",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-194",
+    "domain": "rede-virtual",
+    "subdomain": "lb-idle-timeout",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma instância do pool de back-end ficou não saudável depois que parou de responder à sonda de integridade. O que acontece com as conexões TCP já estabelecidas para essa instância?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "São encerradas imediatamente assim que a sonda de integridade marca a instância como não saudável"
+      },
+      {
+        "letter": "B",
+        "text": "São redirecionadas para outra instância do pool de back-end assim que a sonda falha"
+      },
+      {
+        "letter": "C",
+        "text": "Elas continuam até que o aplicativo encerre o fluxo, ocorra um tempo limite de inatividade ou a máquina virtual seja desligada"
+      },
+      {
+        "letter": "D",
+        "text": "Permanecem ativas indefinidamente enquanto a máquina virtual estiver ligada"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Quando uma sonda falha, o balanceador para de enviar novas conexões à instância, mas as conexões TCP estabelecidas prosseguem até que o aplicativo as feche, ocorra o tempo limite de inatividade (idle timeout) ou a VM seja desligada. Fluxos UDP não estabelecidos movem-se para instância saudável; se todas estiverem não saudáveis, terminam. Fonte: components.md (health probes).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/components",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-195",
+    "domain": "rede-virtual",
+    "subdomain": "lb-outbound-snat",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "As VMs de uma sub-rede precisam de conectividade de saída para a internet. Ao revisar o desenho, o time encontra três alternativas: anexar um gateway NAT à sub-rede, atribuir IP público a cada VM e usar o frontend do balanceador com regras de saída. Qual é a ordem de precedência documentada pelo Azure quando mais de um método está presente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway NAT na sub-rede tem precedência sobre o balanceador e sobre o IP público da instância,"
+      },
+      {
+        "letter": "B",
+        "text": "O IP público atribuído à VM tem precedência sobre o gateway NAT, por ser uma tradução estática de um para um"
+      },
+      {
+        "letter": "C",
+        "text": "O frontend do balanceador com regras de saída tem precedência sobre o gateway NAT, por permitir controle declarativo total"
+      },
+      {
+        "letter": "D",
+        "text": "Os três métodos são equivalentes e a escolha depende apenas da região onde os recursos são implantados"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A documentação define uma ordem de precedencia explicita: gateway NAT anexado a sub-rede tem prioridade sobre IP publico de instancia e sobre o frontend do balanceador, e e apontado como melhor opcao para producao, ja que nao sofre com esgotamento de portas SNAT. O IP publico na interface da VM corresponde a uma relacao um para um e o frontend com regras de saida e a opcao menos indicada das tres, por nao escalar. As VMs que nao tem nenhum metodo explicito recebem acesso de saida padrao, que a Microsoft desrecommenda.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-outbound-connections",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-196",
+    "domain": "rede-virtual",
+    "subdomain": "lb-interno-frontend",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um balanceador de carga já está em produção e a equipe precisa disponibilizar um segundo serviço, com o próprio endereço IP público, no mesmo recurso. O que o Azure permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não é possível: cada balanceador de carga aceita apenas uma configuração de frontend IP"
+      },
+      {
+        "letter": "B",
+        "text": "É necessário criar um segundo balanceador de carga e um segundo pool de back-end"
+      },
+      {
+        "letter": "C",
+        "text": "Adicionar uma nova configuração de frontend IP ao mesmo balanceador, sem recriar o recurso"
+      },
+      {
+        "letter": "D",
+        "text": "É possível, mas apenas adicionando o endereço ao pool de back-end existente"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "O Azure Load Balancer suporta múltiplas configurações de frontend IP em um único recurso. Cada frontend é um ponto de entrada independente para tráfego de entrada. A documentação afirma explicitamente: \"você pode adicionar frontends depois sem recriar o recurso\". Fonte: load-balancer-multivip-overview.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-multivip-overview",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-197",
+    "domain": "rede-virtual",
+    "subdomain": "lb-padrao-portas",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra de balanceador de carga deve encaminhar o tráfego que chega na porta 443 do frontend para a porta 8443 das instâncias do pool de back-end. O que a regra faz?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Reparte o tráfego igualmente entre a porta de frontend 443 e a porta de back-end 8443, sem tratar a diferença de portas"
+      },
+      {
+        "letter": "B",
+        "text": "Encaminha a porta 443 para a porta 8443, mas somente quando a regra é do tipo portas de alta disponibilidade"
+      },
+      {
+        "letter": "C",
+        "text": "Mapeia a configuração de frontend IP e a porta de frontend para os endereços e as portas das instâncias de back-end"
+      },
+      {
+        "letter": "D",
+        "text": "Ignora as portas e distribui a conexão pela configuração de frontend IP e pelo protocolo, escolhendo a porta de back-end automaticamente"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Uma regra de balanceamento define como o tráfego de entrada é distribuído a todas as instâncias do pool de back-end. A regra mapeia uma configuração de frontend IP e porta para múltiplos endereços IP e portas de back-end. As regras aplicam-se apenas a tráfego de entrada. Fonte: components.md (Load balancer rules).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/components",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-198",
+    "domain": "rede-virtual",
+    "subdomain": "lb-alcance",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra de balanceador foi criada em uma sub-rede, mas as VMs do pool estão em outra sub-rede de uma segunda rede virtual da mesma região. O que a documentação determina?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Que a regra é válida, pois a documentação só exige que os recursos estejam na mesma região"
+      },
+      {
+        "letter": "B",
+        "text": "Que a regra é válida desde que as VMs do pool estejam em sub-redes diferentes da rede do frontend"
+      },
+      {
+        "letter": "C",
+        "text": "Que todos os frontends e as instâncias de back-end devem estar em uma única rede virtual, e uma regra não pode atravessar duas VNets"
+      },
+      {
+        "letter": "D",
+        "text": "Que basta criar um emparelhamento entre as duas VNets para que a regra atravesse as redes"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Uma regra de balanceamento nao pode se estender por duas redes virtuais: todos os frontends e todas as instancias de back-end precisam pertencer a uma unica VNet, o que ainda permite atender varias sub-redes dentro dela. A restricao e de rede virtual, e nao de regiao nem de sub-rede. Para expor aplicacoes distribuidas entre redes diferentes existem outros recursos, como o Front Door ou a saida por gateway NAT.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/components",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-199",
+    "domain": "rede-virtual",
+    "subdomain": "lb-interno-acesso",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa quer balancear o tráfego entre VMs sem expor o serviço na internet. Qual afirmação descreve corretamente o balanceador de carga interno?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ele só pode ser acessado de dentro da própria rede virtual, sem nenhuma conexão com redes locais"
+      },
+      {
+        "letter": "B",
+        "text": "Ele exige um endereço IP público no frontend para atender tráfego de entrada"
+      },
+      {
+        "letter": "C",
+        "text": "Ele não oferece conectividade de entrada, servindo apenas para tráfego de saída das VMs"
+      },
+      {
+        "letter": "D",
+        "text": "Ele fornece conectividade de entrada para as VMs em cenários de rede privada, como acessar o frontend do balanceador a partir de uma rede local em um cenário híbrido"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "O balanceador interno (privado) é usado para balancear tráfego dentro de uma rede virtual. Ele fornece conectividade de entrada para VMs em cenários de rede privada, como acessar o frontend do balanceador a partir de uma rede local em um cenário híbrido. Fonte: load-balancer-overview.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-overview",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-200",
+    "domain": "rede-virtual",
+    "subdomain": "lb-std-obrigatorio",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa quer balanceadores com Availability Zones, portas de alta disponibilidade e saída com SNAT. Qual opção atende a todos esses requisitos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O SKU Basic, que já oferece zonas de disponibilidade e portas de alta disponibilidade desde sua criação"
+      },
+      {
+        "letter": "B",
+        "text": "O SKU Gateway, que reúne os recursos do Standard e do balanceador de gateway em um único produto"
+      },
+      {
+        "letter": "C",
+        "text": "O SKU Standard ou o Gateway, desde que a conta esteja inscrita no programa de acesso antecipado"
+      },
+      {
+        "letter": "D",
+        "text": "O SKU Standard combina suporte a zonas de disponibilidade, portas de alta disponibilidade (HA ports) e regras de saída (NAT declarativo)"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A tabela de SKUs mostra: Availability Zones (frontend zonal/zone-redundant), HA Ports (disponível no balanceador interno Standard), Outbound Rules (configuração declarativa de NAT de saída). O Basic não tem nenhuma dessas três capacidades.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/skus",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-233",
+    "domain": "rede-virtual",
+    "subdomain": "dns-private-resolver-hibrido",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa quer resolver nomes de zonas DNS privadas do Azure a partir de seu datacenter on-premises e vice-versa, sem implantar servidores DNS baseados em VM. Qual recurso do Azure DNS atende a esse cenário?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure Public DNS, que estende a resolucao publica para redes privadas por meio de encaminhamento condicional"
+      },
+      {
+        "letter": "B",
+        "text": "Azure DNS Private Resolver, que permite consultar zonas privadas do Azure a partir de on-premises e vice-versa sem servidores DNS de VM"
+      },
+      {
+        "letter": "C",
+        "text": "Azure Private DNS com autoregistration, que registra automaticamente VMs mas nao resolve on-premises"
+      },
+      {
+        "letter": "D",
+        "text": "Azure Traffic Manager, que usa DNS para balanceamento de carga global mas nao para resolucao hibrida de zonas privadas"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "O Azure DNS Private Resolver e um servico que permite consultar zonas DNS privadas do Azure a partir de um ambiente on-premises e vice-versa, sem a necessidade de implantar servidores DNS baseados em VM. E um dos cenarios habilitados pelo Azure DNS listados na visao geral. Fonte: dns-overview.md (cenarios habilitados).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview",
+    "needsReview": true,
+    "tags": ["azure-dns", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-234",
+    "domain": "rede-virtual",
+    "subdomain": "dns-politica-resolver-seguranca",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um administrador quer bloquear a resolucao de dominios maliciosos conhecidos no nivel da rede virtual, usando inteligencia de ameacas do Microsoft Security Response Center (MSRC). Qual recurso do Azure DNS fornece essa capacidade?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure Private DNS, que gerencia zonas privadas mas nao filtra dominios maliciosos por padrao"
+      },
+      {
+        "letter": "B",
+        "text": "Azure Public DNS, que hospeda dominios publicos e nao inclui protecao contra ameacas em nivel de VNet"
+      },
+      {
+        "letter": "C",
+        "text": "Azure Traffic Manager, que distribui trafego por DNS mas nao inspeciona ou bloqueia consultas maliciosas"
+      },
+      {
+        "letter": "D",
+        "text": "DNS Resolver Policy, que inclui um feed de Threat Intelligence do MSRC para bloquear dominios maliciosos na resolucao de nomes"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "O DNS Resolver Policy oferece a capacidade de filtrar e registrar consultas DNS no nivel da rede virtual, e inclui um feed de Threat Intelligence que permite deteccao e prevencao precoces de incidentes de seguranca, bloqueando dominios maliciosos conhecidos provenientes do MSRC. Fonte: dns-overview.md (DNS Resolver Policy).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview",
+    "needsReview": true,
+    "tags": ["azure-dns", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-235",
+    "domain": "rede-virtual",
+    "subdomain": "dns-autoregistration-vms",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma equipe habilita uma zona DNS privada do Azure com autoregistration para uma rede virtual. O que acontece automaticamente quando uma VM e criada nessa rede virtual?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A VM recebe um registro DNS publico apontando para seu IP publico"
+      },
+      {
+        "letter": "B",
+        "text": "A zona DNS privada cria um registro CNAME para o FQDN publico da VM"
+      },
+      {
+        "letter": "C",
+        "text": "Nada, a autoregistration so funciona para VMs em conjuntos de disponibilidade"
+      },
+      {
+        "letter": "D",
+        "text": "A VM e registrada automaticamente na zona DNS privada com seu nome de host e IP privado"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Um dos cenarios habilitados pelo Azure DNS e 'Enable autoregistration for VMs': ao habilitar uma zona DNS privada com autoregistration, as VMs criadas na rede virtual sao registradas automaticamente na zona com seu nome de host e endereco IP privado. Fonte: dns-overview.md (cenarios habilitados).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview",
+    "needsReview": true,
+    "tags": ["azure-dns", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-236",
+    "domain": "rede-virtual",
+    "subdomain": "dns-traffic-manager-linked-records",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Como o Azure DNS pode vincular registros DNS diretamente a perfis do Azure Traffic Manager para balanceamento de carga baseado em DNS?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Criando um registro CNAME manual para o endpoint do Traffic Manager em cada zona"
+      },
+      {
+        "letter": "B",
+        "text": "Configurando o Traffic Manager como servidor DNS autoritativo da zona"
+      },
+      {
+        "letter": "C",
+        "text": "Habilitando o encaminhamento condicional do DNS privado para o Traffic Manager"
+      },
+      {
+        "letter": "D",
+        "text": "Usando registros alias que apontam diretamente para o perfil do Traffic Manager, sem precisar de IP intermediario"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A visao geral do Azure DNS lista como cenario habilitado 'Link DNS records directly to Traffic Manager profiles': o Azure DNS permite criar registros alias que referenciam diretamente um perfil do Traffic Manager, eliminando a necessidade de gerenciar IPs intermediarios. Fonte: dns-overview.md (cenarios habilitados).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview",
+    "needsReview": true,
+    "tags": ["azure-dns", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-237",
+    "domain": "rede-virtual",
+    "subdomain": "cx-agente-less-troubleshoot",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A partir de qual versao o Connection Troubleshoot do Network Watcher passou a suportar execucao sem instalar a extensao de agente de VM nas maquinas virtuais de origem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A experiencia agentless (atualmente em preview) permite testes de conectividade sem instalar a extensao Network Watcher agent VM extension nas VMs de origem"
+      },
+      {
+        "letter": "B",
+        "text": "Sempre foi necessario instalar a extensao em todas as VMs de origem, sem excecao"
+      },
+      {
+        "letter": "C",
+        "text": "O agente so e dispensado quando a origem e um Application Gateway v2"
+      },
+      {
+        "letter": "D",
+        "text": "A experiencia agentless exige que a VM de destino tenha a extensao, mas a de origem nao"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "O Connection Troubleshoot agora suporta uma experiencia agentless (em preview): testes de conectividade podem ser iniciados sem instalar a extensao Network Watcher agent VM extension nas VMs de origem Windows ou Linux. Todos os diagnosticos sao feitos por meio de APIs da plataforma Azure. Fonte: connection-troubleshoot-overview.md (Agentless experience).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview",
+    "needsReview": true,
+    "tags": ["network-watcher", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-238",
+    "domain": "rede-virtual",
+    "subdomain": "cx-tipos-destino-suportados",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Quais tipos de destino o Connection Troubleshoot pode testar conectividade a partir de uma VM de origem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apenas maquinas virtuais e enderecos IP na mesma regiao"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas FQDNs e URIs que resolvam para IPs privados do Azure"
+      },
+      {
+        "letter": "C",
+        "text": "Maquinas virtuais, nomes de dominio totalmente qualificados (FQDNs), URIs e enderecos IP"
+      },
+      {
+        "letter": "D",
+        "text": "Qualquer recurso do Azure, exceto Application Gateways v2"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "O Connection Troubleshoot pode testar conexoes TCP ou ICMP para destinos que incluem: maquinas virtuais, FQDNs, URIs e enderecos IP. As fontes suportadas sao VMs, VM scale sets, Azure Bastion e Application Gateways v2 (exceto Private Deployment). Fonte: connection-troubleshoot-overview.md (Supported source e destination types).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview",
+    "needsReview": true,
+    "tags": ["network-watcher", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-239",
+    "domain": "rede-virtual",
+    "subdomain": "cx-issues-detected-bgproute",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Durante um teste de Connection Troubleshoot, o resultado mostra um erro do tipo 'UserDefinedRoute' com contexto indicando next hop type 'None'. O que esse erro significa?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O agente de origem nao consegue alcancar o next hop configurado na rota do usuario"
+      },
+      {
+        "letter": "B",
+        "text": "A rota de sistema para o destino esta faltando na tabela de rotas efetiva"
+      },
+      {
+        "letter": "C",
+        "text": "O trafego esta sendo bloqueado por uma regra de NSG que nega o prefixo da rota"
+      },
+      {
+        "letter": "D",
+        "text": "Uma rota definida pelo usuario roteia o trafego para um next hop None, criando um blackhole de roteamento que descarta o trafego"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A tabela de erros do Connection Troubleshoot define 'UserDefinedRoute' como: 'A UserDefinedRoute was found que routes traffic to a None next hop, creating a blackhole routing.' Isso significa que uma UDR envia trafego para next hop None, o que descarta o trafego (blackhole). Fonte: connection-troubleshoot-overview.md (Errors table).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/connection-troubleshoot-overview",
+    "needsReview": true,
+    "tags": ["network-watcher", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-240",
+    "domain": "rede-virtual",
+    "subdomain": "nw-connection-monitor-vs-troubleshoot",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Qual a diferenca fundamental entre o Connection Monitor e o Connection Troubleshoot do Network Watcher?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Connection Monitor monitora a conectividade continuamente ao longo do tempo; Connection Troubleshoot testa a conectividade em um ponto no tempo"
+      },
+      {
+        "letter": "B",
+        "text": "Connection Monitor so funciona com VMs; Connection Troubleshoot funciona com qualquer recurso"
+      },
+      {
+        "letter": "C",
+        "text": "Connection Troubleshoot exige a extensao de agente; Connection Monitor funciona agentless"
+      },
+      {
+        "letter": "D",
+        "text": "Connection Monitor mede latencia; Connection Troubleshoot so verifica se a porta esta aberta"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "O Connection Monitor fornece monitoramento de conectividade ponta a ponta para endpoints Azure e hibridos, ajudando a entender o desempenho de rede entre endpoints. O Connection Troubleshoot testa a conectividade em um ponto no tempo, retornando informacao similar mas sem monitoramento continuo. Fonte: network-watcher-overview.md (Connection monitor vs Connection troubleshoot).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-overview",
+    "needsReview": true,
+    "tags": ["network-watcher", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-241",
+    "domain": "rede-virtual",
+    "subdomain": "nw-effective-security-rules-escopo",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A ferramenta Effective Security Rules do Network Watcher mostra as regras de seguranca aplicadas a uma interface de rede. De onde vao essas regras?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apenas das regras do NSG associado diretamente a interface de rede"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas das regras do NSG associado a sub-rede, ignorando o NSG da interface"
+      },
+      {
+        "letter": "C",
+        "text": "Das regras do Azure Firewall configurado na mesma rede virtual"
+      },
+      {
+        "letter": "D",
+        "text": "Da agregacao de todas as regras aplicadas a interface de rede, a sub-rede onde ela esta, e a ambas combinadas"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A ferramenta Effective Security Rules mostra todas as regras de seguranca aplicadas a interface de rede, a sub-rede onde a interface esta, e a agregacao de ambas. Isso permite ver o resultado efetivo da combinacao de NSGs em niveis diferentes. Fonte: network-watcher-overview.md (Effective security rules).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-overview",
+    "needsReview": true,
+    "tags": ["network-watcher", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  },
+  {
+    "id": "az104-rv-242",
+    "domain": "rede-virtual",
+    "subdomain": "nw-next-hop-tipo-retorno",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A ferramenta Next Hop do Network Watcher verifica se o trafego e roteado corretamente para um destino. Que informacoes ela retorna sobre o proximo salto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Next hop type, endereco IP do proximo salto e ID da tabela de rotas associada a rota retornada"
+      },
+      {
+        "letter": "B",
+        "text": "Apenas o tipo de proximo salto (Internet, VirtualAppliance, etc.) sem detalhes de IP ou rota"
+      },
+      {
+        "letter": "C",
+        "text": "O caminho completo de todos os saltos ate o destino, incluindo latencia por salto"
+      },
+      {
+        "letter": "D",
+        "text": "As regras de NSG e UDR que foram avaliadas no caminho, mas nao o tipo de proximo salto"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A ferramenta Next Hop permite detectar problemas de roteamento. Ela verifica se o trafego e roteado corretamente para o destino pretendido e fornece informacoes sobre o Next hop type, endereco IP e Route table ID para um endereco IP de destino especifico. Fonte: network-watcher-overview.md (Next hop).",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-overview",
+    "needsReview": true,
+    "tags": ["network-watcher", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T17:53:00.285Z",
+    "version": 2
+  }
+]

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-02T16:07:44.000Z",
+  "updatedAt": "2026-10-05T02:19:46.181Z",
   "source": "data/exam-skills.json (outline 2026-04-17)",
   "bullets": {
     "ig-entra-users-groups#1": {
       "domain": "identidade-governanca",
       "groupId": "ig-entra-users-groups",
-      "label": "Criar usu\u00e1rios e grupos",
+      "label": "Criar usuários e grupos",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/entra/identity/users",
       "verifiedAt": "2026-10-02T16:14:30.574Z",
@@ -17,7 +17,7 @@
     "ig-entra-users-groups#2": {
       "domain": "identidade-governanca",
       "groupId": "ig-entra-users-groups",
-      "label": "Gerenciar propriedades do usu\u00e1rio e do grupo",
+      "label": "Gerenciar propriedades do usuário e do grupo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/entra/identity/users/users-bulk-add",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -28,7 +28,7 @@
     "ig-entra-users-groups#3": {
       "domain": "identidade-governanca",
       "groupId": "ig-entra-users-groups",
-      "label": "Gerenciar as licen\u00e7as no Microsoft Entra ID",
+      "label": "Gerenciar as licenças no Microsoft Entra ID",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -37,7 +37,7 @@
     "ig-entra-users-groups#4": {
       "domain": "identidade-governanca",
       "groupId": "ig-entra-users-groups",
-      "label": "Gerenciar usu\u00e1rios externos",
+      "label": "Gerenciar usuários externos",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/entra/external-id/external-identities-overview",
       "verifiedAt": "2026-10-02T16:14:30.863Z",
@@ -48,7 +48,7 @@
     "ig-entra-users-groups#5": {
       "domain": "identidade-governanca",
       "groupId": "ig-entra-users-groups",
-      "label": "Configurar a SSPR (Redefini\u00e7\u00e3o de senha por autoatendimento)",
+      "label": "Configurar a SSPR (Redefinição de senha por autoatendimento)",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -56,7 +56,7 @@
     "ig-access-resources#1": {
       "domain": "identidade-governanca",
       "groupId": "ig-access-resources",
-      "label": "Gerenciar fun\u00e7\u00f5es internas do Azure",
+      "label": "Gerenciar funções internas do Azure",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -67,7 +67,7 @@
     "ig-access-resources#2": {
       "domain": "identidade-governanca",
       "groupId": "ig-access-resources",
-      "label": "Atribuir fun\u00e7\u00f5es em escopos diferentes",
+      "label": "Atribuir funções em escopos diferentes",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -75,7 +75,7 @@
     "ig-access-resources#3": {
       "domain": "identidade-governanca",
       "groupId": "ig-access-resources",
-      "label": "Interpretar atribui\u00e7\u00f5es de acesso",
+      "label": "Interpretar atribuições de acesso",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments",
       "verifiedAt": "2026-10-02T16:14:31.144Z",
@@ -96,7 +96,7 @@
       "extraUrls": [
         "https://learn.microsoft.com/pt-br/azure/governance/policy/concepts/exemption-structure",
         "https://learn.microsoft.com/pt-br/azure/governance/policy/overview",
-        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-mode"
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-server"
       ]
     },
     "ig-subscriptions-governance#2": {
@@ -138,7 +138,7 @@
     "ig-subscriptions-governance#6": {
       "domain": "identidade-governanca",
       "groupId": "ig-subscriptions-governance",
-      "label": "Gerenciar custos usando alertas, or\u00e7amentos e recomenda\u00e7\u00f5es do Assistente do Azure",
+      "label": "Gerenciar custos usando alertas, orçamentos e recomendações do Assistente do Azure",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview",
       "verifiedAt": "2026-10-02T16:14:30.750Z",
@@ -172,7 +172,7 @@
     "st-access#3": {
       "domain": "storage",
       "groupId": "st-access",
-      "label": "Configurar pol\u00edticas de acesso armazenadas",
+      "label": "Configurar políticas de acesso armazenadas",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -207,7 +207,7 @@
     "st-accounts#2": {
       "domain": "storage",
       "groupId": "st-accounts",
-      "label": "Configurar a redund\u00e2ncia de Armazenamento do Azure",
+      "label": "Configurar a redundância de Armazenamento do Azure",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-redundancy",
       "verifiedAt": "2026-10-02T16:14:31.792Z"
@@ -215,7 +215,7 @@
     "st-accounts#3": {
       "domain": "storage",
       "groupId": "st-accounts",
-      "label": "Configurar a replica\u00e7\u00e3o de objeto",
+      "label": "Configurar a replicação de objeto",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/object-replication-overview",
       "verifiedAt": "2026-10-02T16:14:31.863Z"
@@ -250,7 +250,7 @@
     "st-files-blobs#2": {
       "domain": "storage",
       "groupId": "st-files-blobs",
-      "label": "Criar e configurar um cont\u00eainer no Armazenamento de Blobs do Azure",
+      "label": "Criar e configurar um contêiner no Armazenamento de Blobs do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/storage-quickstart-blobs-portal",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -269,7 +269,7 @@
     "st-files-blobs#4": {
       "domain": "storage",
       "groupId": "st-files-blobs",
-      "label": "Configurar o soft delete para blobs e cont\u00eaineres",
+      "label": "Configurar o soft delete para blobs e contêineres",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -280,7 +280,7 @@
     "st-files-blobs#5": {
       "domain": "storage",
       "groupId": "st-files-blobs",
-      "label": "Configurar instant\u00e2neos e exclus\u00e3o tempor\u00e1ria para Arquivos do Azure",
+      "label": "Configurar instantâneos e exclusão temporária para Arquivos do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-enable-soft-delete",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -296,7 +296,7 @@
     "st-files-blobs#7": {
       "domain": "storage",
       "groupId": "st-files-blobs",
-      "label": "Configurar o controle de vers\u00e3o de blobs",
+      "label": "Configurar o controle de versão de blobs",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/versioning-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -343,7 +343,7 @@
     "co-arm-bicep#5": {
       "domain": "compute",
       "groupId": "co-arm-bicep",
-      "label": "Exportar uma implanta\u00e7\u00e3o como um modelo do Azure Resource Manager ou converter um modelo do Azure Resource Manager em um arquivo Bicep",
+      "label": "Exportar uma implantação como um modelo do Azure Resource Manager ou converter um modelo do Azure Resource Manager em um arquivo Bicep",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/templates/export-template-portal",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -351,7 +351,7 @@
     "co-vms#1": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Criar uma m\u00e1quina virtual",
+      "label": "Criar uma máquina virtual",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/windows/quick-create-portal",
       "verifiedAt": "2026-10-02T16:14:31.186Z",
@@ -362,7 +362,7 @@
     "co-vms#2": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Configurar a criptografia no host para m\u00e1quinas virtuais do Azure",
+      "label": "Configurar a criptografia no host para máquinas virtuais do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/disk-encryption",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -370,7 +370,7 @@
     "co-vms#3": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Mover uma m\u00e1quina virtual para outro grupo de recursos, assinatura ou regi\u00e3o",
+      "label": "Mover uma máquina virtual para outro grupo de recursos, assinatura ou região",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
       "verifiedAt": "2026-10-02T16:14:32.258Z"
@@ -378,7 +378,7 @@
     "co-vms#4": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Gerenciar os tamanhos de m\u00e1quinas virtuais",
+      "label": "Gerenciar os tamanhos de máquinas virtuais",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
       "verifiedAt": "2026-10-02T16:14:31.286Z",
@@ -389,7 +389,7 @@
     "co-vms#5": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Gerenciar os discos de m\u00e1quinas virtuais",
+      "label": "Gerenciar os discos de máquinas virtuais",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/managed-disks-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -400,7 +400,7 @@
     "co-vms#6": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Implantar m\u00e1quinas virtuais em zonas de disponibilidade e conjuntos de disponibilidade",
+      "label": "Implantar máquinas virtuais em zonas de disponibilidade e conjuntos de disponibilidade",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -408,7 +408,7 @@
     "co-vms#7": {
       "domain": "compute",
       "groupId": "co-vms",
-      "label": "Implantar e configurar Conjuntos de Dimensionamento de M\u00e1quinas Virtuais do Azure",
+      "label": "Implantar e configurar Conjuntos de Dimensionamento de Máquinas Virtuais do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-machine-scale-sets/overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -419,7 +419,7 @@
     "co-containers#1": {
       "domain": "compute",
       "groupId": "co-containers",
-      "label": "Criar e gerenciar um Registro de Cont\u00eainer do Azure",
+      "label": "Criar e gerenciar um Registro de Contêiner do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -431,7 +431,7 @@
     "co-containers#2": {
       "domain": "compute",
       "groupId": "co-containers",
-      "label": "Provisionar um cont\u00eainer usando Inst\u00e2ncias de Cont\u00eainer do Azure",
+      "label": "Provisionar um contêiner usando Instâncias de Contêiner do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/container-instances/container-instances-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -442,7 +442,7 @@
     "co-containers#3": {
       "domain": "compute",
       "groupId": "co-containers",
-      "label": "Provisionar um cont\u00eainer usando Aplicativos de Cont\u00eainer do Azure",
+      "label": "Provisionar um contêiner usando Aplicativos de Contêiner do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/container-apps/overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -453,7 +453,7 @@
     "co-containers#4": {
       "domain": "compute",
       "groupId": "co-containers",
-      "label": "Gerenciar dimensionamento e escala para cont\u00eaineres, incluindo Inst\u00e2ncias de Cont\u00eainer do Azure e Aplicativos de Cont\u00eainer do Azure",
+      "label": "Gerenciar dimensionamento e escala para contêineres, incluindo Instâncias de Contêiner do Azure e Aplicativos de Contêiner do Azure",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/container-apps/scale-app",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -461,7 +461,7 @@
     "co-app-service#1": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Provisionar um plano de Servi\u00e7o de Aplica\u00e7\u00f5es",
+      "label": "Provisionar um plano de Serviço de Aplicações",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/overview-hosting-plans",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -469,7 +469,7 @@
     "co-app-service#2": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Configurar escalonamento para um Plano de Servi\u00e7o de Aplicativo",
+      "label": "Configurar escalonamento para um Plano de Serviço de Aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/manage-scale-up",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -477,7 +477,7 @@
     "co-app-service#3": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Criar um Servi\u00e7o de Aplicativo",
+      "label": "Criar um Serviço de Aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/overview",
       "verifiedAt": "2026-10-02T16:14:32.279Z"
@@ -485,7 +485,7 @@
     "co-app-service#4": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Configurar certificados e a Seguran\u00e7a da Camada de Transporte (TLS) para um servi\u00e7o de aplicativo",
+      "label": "Configurar certificados e a Segurança da Camada de Transporte (TLS) para um serviço de aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -493,7 +493,7 @@
     "co-app-service#5": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Mapear um nome DNS personalizado existente para um Servi\u00e7o de Aplicativo",
+      "label": "Mapear um nome DNS personalizado existente para um Serviço de Aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/app-service-web-tutorial-custom-domain",
       "verifiedAt": "2026-10-02T16:14:32.351Z"
@@ -501,7 +501,7 @@
     "co-app-service#6": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Configurar backup para um Servi\u00e7o de Aplicativo",
+      "label": "Configurar backup para um Serviço de Aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/manage-backup",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -509,7 +509,7 @@
     "co-app-service#7": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Definir configura\u00e7\u00f5es de rede para um servi\u00e7o de aplicativo",
+      "label": "Definir configurações de rede para um serviço de aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/configure-vnet-integration-routing",
       "verifiedAt": "2026-10-02T16:14:32.389Z"
@@ -517,7 +517,7 @@
     "co-app-service#8": {
       "domain": "compute",
       "groupId": "co-app-service",
-      "label": "Configurar slots de implanta\u00e7\u00e3o para um Servi\u00e7o de Aplicativo",
+      "label": "Configurar slots de implantação para um Serviço de Aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/app-service/deploy-staging-slots",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -544,7 +544,7 @@
     "rv-vnets#3": {
       "domain": "rede-virtual",
       "groupId": "rv-vnets",
-      "label": "Configurar endere\u00e7os IP p\u00fablicos",
+      "label": "Configurar endereços IP públicos",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-addresses",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -552,7 +552,7 @@
     "rv-vnets#4": {
       "domain": "rede-virtual",
       "groupId": "rv-vnets",
-      "label": "Configurar rotas definidas pelo usu\u00e1rio",
+      "label": "Configurar rotas definidas pelo usuário",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -572,15 +572,19 @@
     "rv-secure-access#1": {
       "domain": "rede-virtual",
       "groupId": "rv-secure-access",
-      "label": "Criar e configurar NSGs (Grupos de Seguran\u00e7a de Rede) e Grupos de Seguran\u00e7a de Aplicativo",
+      "label": "Criar e configurar NSGs (Grupos de Segurança de Rede) e Grupos de Segurança de Aplicativo",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
-      "verifiedAt": "2026-09-28T21:01:48.453Z"
+      "verifiedAt": "2026-09-28T21:01:48.453Z",
+      "extraUrls": [
+        "https://learn.microsoft.com/pt-br/azure/virtual-network/service-tags-overview",
+        "https://learn.microsoft.com/pt-br/azure/virtual-network/application-security-groups"
+      ]
     },
     "rv-secure-access#2": {
       "domain": "rede-virtual",
       "groupId": "rv-secure-access",
-      "label": "Avaliar as regras de seguran\u00e7a efetivas nos NSGs",
+      "label": "Avaliar as regras de segurança efetivas nos NSGs",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/network-watcher/effective-security-rules-overview",
       "verifiedAt": "2026-10-02T16:14:31.226Z",
@@ -600,10 +604,13 @@
     "rv-secure-access#4": {
       "domain": "rede-virtual",
       "groupId": "rv-secure-access",
-      "label": "Configurar endere\u00e7os de servi\u00e7o para a plataforma como servi\u00e7o (PaaS) do Azure",
+      "label": "Configurar endereços de serviço para a plataforma como serviço (PaaS) do Azure",
       "minorSince": null,
-      "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/service-tags-overview",
-      "verifiedAt": "2026-10-02T16:14:32.479Z"
+      "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-service-endpoints-overview",
+      "verifiedAt": "2026-10-02T16:14:32.479Z",
+      "extraUrls": [
+        "https://learn.microsoft.com/pt-br/azure/virtual-network/service-tags-overview"
+      ]
     },
     "rv-secure-access#5": {
       "domain": "rede-virtual",
@@ -621,25 +628,30 @@
       "url": "https://learn.microsoft.com/pt-br/azure/dns/dns-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
       "extraUrls": [
-        "https://learn.microsoft.com/pt-br/azure/dns/private-resolver",
+        "https://learn.microsoft.com/pt-br/azure/dns/dns-private-resolver-overview",
         "https://learn.microsoft.com/pt-br/azure/dns/dns-alias",
-        "https://learn.microsoft.com/pt-br/azure/dns/dns-forwarding",
-        "https://learn.microsoft.com/pt-br/azure/dns/caa-record"
+        "https://learn.microsoft.com/pt-br/azure/dns/private-resolver-endpoints-rulesets",
+        "https://learn.microsoft.com/pt-br/azure/dns/dns-zones-records",
+        "https://learn.microsoft.com/pt-br/azure/dns/private-dns-privatednszone"
       ]
     },
     "rv-dns-lb#2": {
       "domain": "rede-virtual",
       "groupId": "rv-dns-lb",
-      "label": "Configurar um balanceador de carga interno ou p\u00fablico",
+      "label": "Configurar um balanceador de carga interno ou público",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-overview",
       "verifiedAt": "2026-10-02T16:14:32.519Z",
       "extraUrls": [
         "https://learn.microsoft.com/pt-br/azure/load-balancer/outbound-rules",
         "https://learn.microsoft.com/pt-br/azure/load-balancer/skus",
-        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-health-probes",
-        "https://learn.microsoft.com/pt-br/azure/load-balancer/overview",
-        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-rule-overview"
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-custom-probe-overview",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/components",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-multivip-overview",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-outbound-connections",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/quickstart-load-balancer-standard-internal-portal",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-ha-ports-overview",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-floating-ip"
       ]
     },
     "rv-dns-lb#3": {
@@ -648,12 +660,16 @@
       "label": "Solucionar problemas de balanceamento de carga",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-troubleshoot",
-      "verifiedAt": "2026-10-02T16:14:32.694Z"
+      "verifiedAt": "2026-10-02T16:14:32.694Z",
+      "extraUrls": [
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-custom-probe-overview",
+        "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-overview"
+      ]
     },
     "mo-monitor#1": {
       "domain": "monitoramento",
       "groupId": "mo-monitor",
-      "label": "Interpretar m\u00e9tricas no Azure Monitor",
+      "label": "Interpretar métricas no Azure Monitor",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -661,7 +677,7 @@
     "mo-monitor#2": {
       "domain": "monitoramento",
       "groupId": "mo-monitor",
-      "label": "Definir configura\u00e7\u00f5es de log no Azure Monitor",
+      "label": "Definir configurações de log no Azure Monitor",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/diagnostic-settings",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -680,7 +696,7 @@
     "mo-monitor#4": {
       "domain": "monitoramento",
       "groupId": "mo-monitor",
-      "label": "Configurar regras de alerta, grupos de a\u00e7\u00f5es e regras de processamento de alertas no Azure Monitor",
+      "label": "Configurar regras de alerta, grupos de ações e regras de processamento de alertas no Azure Monitor",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
       "verifiedAt": "2026-10-02T16:14:32.720Z"
@@ -688,7 +704,7 @@
     "mo-monitor#5": {
       "domain": "monitoramento",
       "groupId": "mo-monitor",
-      "label": "Configurar e interpretar o monitoramento de m\u00e1quinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
+      "label": "Configurar e interpretar o monitoramento de máquinas virtuais, contas de armazenamento e redes usando o Azure Monitor Insights",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/visualize/insights-overview",
       "verifiedAt": "2026-10-02T16:14:31.734Z",
@@ -699,7 +715,7 @@
     "mo-monitor#6": {
       "domain": "monitoramento",
       "groupId": "mo-monitor",
-      "label": "Usar o Observador de Rede do Azure e o Monitor de Conex\u00e3o",
+      "label": "Usar o Observador de Rede do Azure e o Monitor de Conexão",
       "minorSince": "2026-04-17",
       "url": "https://learn.microsoft.com/pt-br/azure/network-watcher/network-watcher-overview",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
@@ -712,7 +728,7 @@
     "mo-backup-recovery#1": {
       "domain": "monitoramento",
       "groupId": "mo-backup-recovery",
-      "label": "Criar um cofre dos Servi\u00e7os de Recupera\u00e7\u00e3o",
+      "label": "Criar um cofre dos Serviços de Recuperação",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
       "verifiedAt": "2026-10-02T16:14:32.751Z"
@@ -728,7 +744,7 @@
     "mo-backup-recovery#3": {
       "domain": "monitoramento",
       "groupId": "mo-backup-recovery",
-      "label": "Criar e configurar uma pol\u00edtica de backup",
+      "label": "Criar e configurar uma política de backup",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-architecture",
       "verifiedAt": "2026-10-02T16:14:31.256Z",
@@ -740,7 +756,7 @@
     "mo-backup-recovery#4": {
       "domain": "monitoramento",
       "groupId": "mo-backup-recovery",
-      "label": "Executar opera\u00e7\u00f5es de backup e restaura\u00e7\u00e3o usando o Backup do Azure",
+      "label": "Executar operações de backup e restauração usando o Backup do Azure",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/backup/backup-azure-arm-restore-vms",
       "verifiedAt": "2026-10-02T16:14:32.791Z"
@@ -756,7 +772,7 @@
     "mo-backup-recovery#6": {
       "domain": "monitoramento",
       "groupId": "mo-backup-recovery",
-      "label": "Executar um failover para uma regi\u00e3o secund\u00e1ria usando o Site Recovery",
+      "label": "Executar um failover para uma região secundária usando o Site Recovery",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/site-recovery/azure-to-azure-tutorial-failover-failback",
       "verifiedAt": "2026-09-28T21:01:48.453Z"
@@ -764,41 +780,10 @@
     "mo-backup-recovery#7": {
       "domain": "monitoramento",
       "groupId": "mo-backup-recovery",
-      "label": "Configurar e interpretar relat\u00f3rios e alertas para backups",
+      "label": "Configurar e interpretar relatórios e alertas para backups",
       "minorSince": null,
       "url": "https://learn.microsoft.com/pt-br/azure/backup/monitor-backup",
       "verifiedAt": "2026-10-02T16:14:32.876Z"
-    },
-    "rv-vnets#6": {
-      "domain": "rede-virtual",
-      "groupId": "rv-vnets",
-      "label": "SLA de Rede Virtual",
-      "minorSince": null,
-      "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/sla",
-      "verifiedAt": "2026-10-02T23:00:00.000Z",
-      "extraUrls": [
-        "https://learn.microsoft.com/pt-br/azure/virtual-network/public-ip-address-sla",
-        "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-udr-sla",
-        "https://learn.microsoft.com/pt-br/azure/virtual-network/peering-sla"
-      ]
-    },
-    "rv-secure-access#6": {
-      "domain": "rede-virtual",
-      "groupId": "rv-secure-access",
-      "label": "SLA de Seguran\u00e7a de Rede",
-      "minorSince": null,
-      "url": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-sla",
-      "verifiedAt": "2026-10-02T23:00:00.000Z",
-      "extraUrls": ["https://learn.microsoft.com/pt-br/azure/bastion/sla"]
-    },
-    "rv-dns-lb#4": {
-      "domain": "rede-virtual",
-      "groupId": "rv-dns-lb",
-      "label": "SLA de DNS e Load Balancer",
-      "minorSince": null,
-      "url": "https://learn.microsoft.com/pt-br/azure/load-balancer/sla",
-      "verifiedAt": "2026-10-02T23:00:00.000Z",
-      "extraUrls": ["https://learn.microsoft.com/pt-br/azure/dns/sla"]
     }
   },
   "stems": {}

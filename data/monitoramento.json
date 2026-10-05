@@ -4575,5 +4575,449 @@
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
     "version": 1
+  },
+  {
+    "id": "az104-mo-152",
+    "domain": "monitoramento",
+    "subdomain": "retencao-legal-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que aumentar a reten\u00e7\u00e3o do workspace para 2 anos permite consultar qualquer dia com a mesma velocidade dos \u00faltimos 30 dias. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, reten\u00e7\u00e3o longa mant\u00e9m performance interativa"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, dados antigos v\u00e3o para archive com consulta mais lenta"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, desde que o workspace esteja no plano que d\u00e1 direito a dois anos de reten\u00e7\u00e3o interativa"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas para Logs Analytics, enquanto o Application Insights mant\u00e9m lat\u00eancia constante"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Reten\u00e7\u00e3o longa usa tabelas archive com reidrata\u00e7\u00e3o; s\u00f3 o quente (at\u00e9 ~2 anos interativo conforme SKU) \u00e9 r\u00e1pido. Assumir velocidade igual \u00e9 erro de custo.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-153",
+    "domain": "monitoramento",
+    "subdomain": "metrica-custom-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um desenvolvedor afirma que m\u00e9tricas customizadas via API t\u00eam a mesma lat\u00eancia de alerta das m\u00e9tricas de plataforma (cerca de 1 minuto). Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, toda m\u00e9trica alerta em 1 minuto"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, porque a API de m\u00e9tricas customizadas usa o mesmo pipeline otimizado das m\u00e9tricas de plataforma"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, mas a lat\u00eancia das m\u00e9tricas customizadas \u00e9 sempre superior a quinze minutos, o que inviabiliza alertas"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, customizadas podem levar v\u00e1rios minutos"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "M\u00e9tricas de plataforma t\u00eam pipeline otimizado; customizadas agregam com lat\u00eancia maior. Assumir 1 minuto para tudo gera SLO incorreto.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/essentials/metrics-getting-started",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-154",
+    "domain": "monitoramento",
+    "subdomain": "amostragem-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que a amostragem adaptativa do Application Insights descarta erros e distorce taxas de falha. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, amostragem perde erros e corrompe m\u00e9tricas"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, porque a amostragem adaptativa seleciona apenas requisi\u00e7\u00f5es bem-sucedidas para reduzir custo"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o distorno s\u00f3 atinge m\u00e9tricas de dura\u00e7\u00e3o, enquanto as taxas de falha permanecem exatas"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, a amostragem preserva itens at\u00edpicos e ajusta contagens"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Adaptive sampling mant\u00e9m exce\u00e7\u00f5es e pondera contagens (itemCount). Achar que perde erro \u00e9 o mito que impede economizar ingest\u00e3o.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-155",
+    "domain": "monitoramento",
+    "subdomain": "action-group-limite-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um engenheiro afirma que um grupo de a\u00e7\u00e3o pode ser reutilizado por qualquer regra de alerta da mesma assinatura sem restri\u00e7\u00f5es de RBAC. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, o uso exige permiss\u00e3o e habilita\u00e7\u00e3o por tipo de a\u00e7\u00e3o"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, action groups s\u00e3o globais e livres"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, desde que a regra de alerta perten\u00e7a \u00e0 mesma assinatura, o que dispensa qualquer permiss\u00e3o adicional"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque cada regra de alerta precisa ter seu pr\u00f3prio grupo de a\u00e7\u00e3o, sem compartilhamento"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Usar e editar action groups exige RBAC, e a\u00e7\u00f5es como voz/SMS/ITSM t\u00eam habilita\u00e7\u00e3o e limites. Tratar como livre quebra least privilege.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-156",
+    "domain": "monitoramento",
+    "subdomain": "pitr-blob-mo-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que PITR de blobs exige versionamento e change feed habilitados. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, funciona sem nada"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas o change feed \u00e9 opcional e serves apenas para detectar altera\u00e7\u00f5es antes da exclus\u00e3o"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o PITR de blobs depende apenas da reten\u00e7\u00e3o configurada na conta de armazenamento"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, pr\u00e9-requisitos obrigat\u00f3rios"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "PITR de blobs requer versionamento, change feed e soft delete habilitados. Sem esses pr\u00e9-requisitos n\u00e3o h\u00e1 ponto de restaura\u00e7\u00e3o no passado.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-157",
+    "domain": "monitoramento",
+    "subdomain": "retention-vs-pitr-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que o ponto mais antigo restaur\u00e1vel \u00e9 limitado pela reten\u00e7\u00e3o configurada. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, restaura qualquer \u00e9poca"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque o ponto mais antigo restaur\u00e1vel \u00e9 sempre a data de cria\u00e7\u00e3o da conta de armazenamento"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o limite vale somente para blobs, enquanto os arquivos t\u00eam reten\u00e7\u00e3o independente"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, reten\u00e7\u00e3o limita o passado"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "PITR s\u00f3 alcan\u00e7a dentro da reten\u00e7\u00e3o configurada para o passado. Restaurar qualquer \u00e9poca ignora o limite de guarda do banco.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-158",
+    "domain": "monitoramento",
+    "subdomain": "or-pitr-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que restore operacional e PITR podem coexistir na mesma conta. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, coexistem com pol\u00edticas distintas"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, s\u00e3o mutuamente exclusivos"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o Azure exige escolher entre restore operacional e PITR no momento da cria\u00e7\u00e3o da conta"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas apenas quando as duas pol\u00edticas t\u00eam o mesmo n\u00famero de dias de reten\u00e7\u00e3o configurado"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Restore operacional cont\u00ednuo e PITR atendem casos distintos e coexistem na mesma conta. Exclusividade m\u00fatua entre eles n\u00e3o existe na plataforma.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-159",
+    "domain": "monitoramento",
+    "subdomain": "vault-tier-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que camada de cofre (vault tier) barateia reten\u00e7\u00e3o longa de blobs operacionais. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, s\u00f3 existe tier quente"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas a camada de cofre aplica um desconto apenas a c\u00f3pias de mais de cinco anos"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque a camada de cofre s\u00f3 reduz custo quando o blob \u00e9 movido manualmente para a camada fria"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, vault tier reduz custo longo"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Camada de cofre (vault tier) move c\u00f3pias antigas para reten\u00e7\u00e3o barata de longo prazo. Achar que s\u00f3 existe tier quente ignora a hierarquia de custo.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/backup/backup-overview",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-160",
+    "domain": "monitoramento",
+    "subdomain": "always-on-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que App Service sem Always On recicla em ociosidade, matando cache e cron. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, fica sempre ativo"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas somente em estilo de consumo, j\u00e1 que os planos dedicados mant\u00eam o processo sempre aquecido"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o Always On \u00e9 habilitado por padr\u00e3o em todas as aplica\u00e7\u00f5es hospedadas no App Service"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, sem Always On h\u00e1 unload"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Sem Always On o worker descarrega quando ocioso, matando warmup, cache e timers. Assumir sempre ativo ignora o ciclo de vida do plano.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-161",
+    "domain": "monitoramento",
+    "subdomain": "arr-affinity-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que afinidade ARR deve ficar ligada por padr\u00e3o para performance. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, sempre ligada"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, desligada salvo estado em mem\u00f3ria"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque a afinidade mant\u00e9m a mesma inst\u00e2ncia e elimina a lat\u00eancia de cada novo handshake"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, mas o padr\u00e3o do portal \u00e9 ligado e deve ser desligado manualmente em cada aplica\u00e7\u00e3o"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Afinidade ARR s\u00f3 serve a estado em mem\u00f3ria local; ligada quebra distribui\u00e7\u00e3o e escala. O padr\u00e3o correto \u00e9 desligada salvo necessidade expl\u00edcita.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-162",
+    "domain": "monitoramento",
+    "subdomain": "health-check-path-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que health check path do App Service remove inst\u00e2ncia doente do LB. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, \u00e9 s\u00f3 informativo"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, porque o balanceador considera apenas a resposta do pr\u00f3prio endpoint padr\u00e3o da aplica\u00e7\u00e3o"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, unhealthy sai do pool"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a remo\u00e7\u00e3o da inst\u00e2ncia doente s\u00f3 ocorre depois de cinco minutos de falha consecutiva"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Health check path monitora e exclui a inst\u00e2ncia doente do balanceamento. Tratar como s\u00f3 informativo mant\u00e9m tr\u00e1fego no erro.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-163",
+    "domain": "monitoramento",
+    "subdomain": "auto-heal-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que auto-heal reinicia o app em condi\u00e7\u00f5es como mem\u00f3ria alta ou lentid\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, auto-heal n\u00e3o existe"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas apenas quando a reinicializa\u00e7\u00e3o autom\u00e1tica est\u00e1 habilitada nas configura\u00e7\u00f5es do plano"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, com gatilhos e a\u00e7\u00f5es"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque o auto-heal s\u00f3 reinicia a aplica\u00e7\u00e3o em caso de falha de inicializa\u00e7\u00e3o, nunca em execu\u00e7\u00e3o"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Auto-heal monitora contadores (mem\u00f3ria, lentid\u00e3o) e recicla em condi\u00e7\u00e3o configurada. Negar a exist\u00eancia ignora o recurso nativo da plataforma.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
+  },
+  {
+    "id": "az104-mo-164",
+    "domain": "monitoramento",
+    "subdomain": "local-cache-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que cache local copia o conte\u00fado para o disco da inst\u00e2ncia melhorando leitura. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, piora a performance"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas a c\u00f3pia para o disco ocorre de forma ass\u00edncrona e s\u00f3 vale a partir da segunda requisi\u00e7\u00e3o"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque o cache local \u00e9 desativado por padr\u00e3o e exige habilita\u00e7\u00e3o manual em cada inst\u00e2ncia"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, local cache acelera leitura"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Cache local replica o conte\u00fado para o disco da inst\u00e2ncia reduzindo lat\u00eancia de leitura. Dizer que piora a performance inverte o prop\u00f3sito do recurso.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.891Z",
+    "updatedAt": "2026-10-04T02:11:52.891Z",
+    "version": 1
   }
 ]

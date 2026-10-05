@@ -1,6 +1,7 @@
 // validate-questions.mts — Zod §3 + cross-file (FK caseStudyId, ids únicos, FNV-1a dedup).
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { validateQuestion } from '../src/engine/question-schema.js'
 import {
   normText,
@@ -92,7 +93,11 @@ const files = readdirSync(DATA).filter(
 )
 const banks: unknown[][] = []
 for (const f of files) {
-  const arr = JSON.parse(readFileSync(join(DATA.pathname, f), 'utf8'))
+  // fileURLToPath, nao DATA.pathname: sob o share UNC o pathname ja vem com o
+  // nome do share (/Debian/home/...) e o win32.join prefixa a raiz de novo,
+  // produzindo \\wsl$\Debian\Debian\home\... . No Linux os dois coincidem,
+  // entao o bug so aparece no Windows.
+  const arr = JSON.parse(readFileSync(join(fileURLToPath(DATA), f), 'utf8'))
   if (!Array.isArray(arr)) {
     fail(`${f}: raiz deve ser array`)
     continue

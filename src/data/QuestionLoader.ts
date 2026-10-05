@@ -21,11 +21,15 @@ export async function ensureSeeded(): Promise<{
   const files = [
     'identidade-governanca.json',
     'identidade-acesso.json',
-    'storage.json',
+    'storage-access.json',
+    'storage-accounts.json',
+    'storage-files-blobs.json',
     'compute-vms.json',
     'compute-apps.json',
     'compute-platform.json',
-    'rede-virtual.json',
+    'rede-vnets.json',
+    'rede-secure-access.json',
+    'rede-dns-lb.json',
     'monitoramento.json',
   ]
   const base = import.meta.env.BASE_URL

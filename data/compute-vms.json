@@ -3601,5 +3601,864 @@
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+  },
+  {
+    "id": "az104-co-257",
+    "domain": "compute",
+    "subdomain": "vms-conceito-final",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que desalocar uma VM pelo portal interrompe a cobran\u00e7a de computa\u00e7\u00e3o mas mant\u00e9m a cobran\u00e7a dos discos gerenciados anexados. Essa afirma\u00e7\u00e3o sobre o modelo de cobran\u00e7a est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, desalocar zera todos os custos incluindo discos"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, computa\u00e7\u00e3o zera e discos continuam cobrados"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o desalocamento tamb\u00e9m isenta a cobran\u00e7a dos endere\u00e7os IP p\u00fablicos associados \u00e0 VM"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque o portal suspende a VM sem desaloc\u00e1-la e a cobran\u00e7a de computa\u00e7\u00e3o continua ativa enquanto o recurso existir"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Desalocar libera o hardware (fim do custo de computa\u00e7\u00e3o), mas discos, IPs e outros recursos alocados continuam cobrados. Achar que tudo zera \u00e9 erro cl\u00e1ssico de custo.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-258",
+    "domain": "compute",
+    "subdomain": "proximity-zone-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que grupo de posicionamento por proximidade pode abranger VMs em zonas de disponibilidade distintas. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, PPG \u00e9 multizona"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, desde que o grupo seja criado com a op\u00e7\u00e3o de distribui\u00e7\u00e3o entre zonas habilitada"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, mas apenas porque o PPG exige licen\u00e7a Premium; o n\u00famero de zonas n\u00e3o tem rela\u00e7\u00e3o com o dimensionamento do grupo"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, PPG limita-se a um datacenter/zona"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "PPG co-localiza no mesmo site; multizona contraria o prop\u00f3sito de lat\u00eancia m\u00ednima. Assumir abrang\u00eancia quebra o desenho.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-259",
+    "domain": "compute",
+    "subdomain": "ephemeral-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que disco de SO ef\u00eamero sobrevive a desaloca\u00e7\u00e3o e mant\u00e9m dados entre paradas. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, ef\u00eamero persiste como gerenciado"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, apenas destruir a VM apaga o disco; a desaloca\u00e7\u00e3o preserva o conte\u00fado para retomada posterior"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, desde que a VM tenha o disco de SO ef\u00eamero habilitado na imagem, o que garante a persist\u00eancia"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, deallocate apaga o disco local"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Disco ef\u00eamero vive no armazenamento local do host; desalocar ou destruir a VM apaga tudo. Tratar como persistente causa perda irrevers\u00edvel de dados.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-260",
+    "domain": "compute",
+    "subdomain": "priority-regular-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que inst\u00e2ncias Regular (pay-as-you-go) no VMSS t\u00eam prioridade de capacidade sobre Spot em conten\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, Spot tem prefer\u00eancia"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas apenas enquanto houver capacidade de Spot sobrando; esgotada a capacidade, a prefer\u00eancia se inverte"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque as duas classes disputam a mesma capacidade e o Azure n\u00e3o diferencia Regular de Spot na conten\u00e7\u00e3o"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, Regular prevalece sobre Spot"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Em conten\u00e7\u00e3o, Spot \u00e9 despejado primeiro preservando Regular. Inverter a premissa quebra o desenho de base garantida.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-261",
+    "domain": "compute",
+    "subdomain": "eviction-policy-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que a pol\u00edtica de despejo Delete remove VM e discos, enquanto Deallocate preserva discos para retomar depois. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, ambas preservam tudo"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas a diferen\u00e7a vale apenas para o disco de SO; os discos de dados s\u00e3o sempre preservados nas duas pol\u00edticas"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque as duas pol\u00edticas removem a VM e exigem recria\u00e7\u00e3o completa, inclusive dos discos anexados"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, Delete apaga e Deallocate preserva discos"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Eviction Delete remove a VM (discos conforme config) e Deallocate libera mantendo discos. Assumir igualdade perde dados ou desperdi\u00e7a.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-262",
+    "domain": "compute",
+    "subdomain": "max-price-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que definir pre\u00e7o m\u00e1ximo no Spot garante a VM enquanto o pre\u00e7o de mercado ficar abaixo do teto, sem despejo por capacidade. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, teto elimina despejo por capacidade"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, mas apenas quando a capacidade de todas as regi\u00f5es aplic\u00e1veis estiver esgotada simultaneamente"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, falta de capacidade despeja mesmo abaixo do teto"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, porque o pre\u00e7o m\u00e1ximo impede que o pre\u00e7o de mercado suba acima do teto definido"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Spot despeja por capacidade independente de pre\u00e7o; teto s\u00f3 limita custo. Confiar s\u00f3 no pre\u00e7o ignora conten\u00e7\u00e3o.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-263",
+    "domain": "compute",
+    "subdomain": "capacity-behavior-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que capacidade Spot excedente sempre existe em todas as regi\u00f5es e SKUs a qualquer hora. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, Spot \u00e9 ilimitado"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, mas o portal oferece uma pr\u00e9via da disponibilidade antes da cria\u00e7\u00e3o, o que elimina a incerteza"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque a Microsoft compensa automaticamente a falta de capacidade Spot com capacidade em outras regi\u00f5es"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, varia por regi\u00e3o, SKU e hor\u00e1rio"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Capacidade Spot excedente flutua por regi\u00e3o, SKU e hor\u00e1rio do dia. Assumir oferta ilimitada quebra o planejamento de escala e causa indisponibilidade.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-264",
+    "domain": "compute",
+    "subdomain": "try-spot-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um dev afirma que d\u00e1 para testar carga Spot sem compromisso usando pre\u00e7o atual com despejo simulado antes de migrar. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, s\u00f3 migrando tudo de uma vez"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, via simula\u00e7\u00e3o de despejo e pre\u00e7o Spot"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas a simula\u00e7\u00e3o de despejo s\u00f3 est\u00e1 dispon\u00edvel para conjuntos de dimensionamento, n\u00e3o para VMs individuais"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque o Azure pro\u00edbe simular despejos em ambiente de teste e a valida\u00e7\u00e3o exige migra\u00e7\u00e3o total"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "\u00c9 poss\u00edvel validar toler\u00e2ncia com eviction simulada e monitorar pre\u00e7o. Migrar \u00e0s cegas arrisca produ\u00e7\u00e3o.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-265",
+    "domain": "compute",
+    "subdomain": "restore-spot-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que ap\u00f3s despejo Spot a aplica\u00e7\u00e3o retoma sozinha sem checkpoint porque a plataforma preserva estado. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, a plataforma preserva tudo"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, desde que a VM use disco de SO gerenciado, o que permite retomar o processo interrompido"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque o despejo por capacidade \u00e9 sempre anunciado com 30 segundos de anteced\u00eancia"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, a app precisa de checkpoint/retomada"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Spot n\u00e3o preserva estado da aplica\u00e7\u00e3o; a carga precisa de checkpoint e l\u00f3gica de retomada. Assumir preserva\u00e7\u00e3o autom\u00e1tica perde todo o trabalho.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-266",
+    "domain": "compute",
+    "subdomain": "kernel-live-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um admin afirma que hotpatch do Windows dispensa reboot em qualquer VM, independente de SKU e imagem. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, exige SKU/imagem e canal compat\u00edveis"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, vale para todas"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, mas apenas em VMs com sistema operacional Linux, j\u00e1 que o hotpatch \u00e9 exclusivo do Windows"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, desde que a VM tenha o canal de atualiza\u00e7\u00e3o Preview habilitado em qualquer SKU"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Hotpatch exige Datacenter Azure Edition em SKUs suportados com canal habilitado. Assumir cobertura universal quebra o planejamento de janelas.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-267",
+    "domain": "compute",
+    "subdomain": "assessment-only-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que o modo avalia\u00e7\u00e3o (assessment) instala patches automaticamente ao detectar pend\u00eancia. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, s\u00f3 avalia e reporta"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, avalia e instala"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, mas o Azure Update Manager agenda a instala\u00e7\u00e3o para a pr\u00f3xima janela de manuten\u00e7\u00e3o autom\u00e1tica"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, porque o modo avalia\u00e7\u00e3o instala o patch imediatamente e apenas suprime o relat\u00f3rio de pend\u00eancia"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Assessment lista sem instalar; instala\u00e7\u00e3o exige deployment. Confundir avalia com aplica gera janela inesperada.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-268",
+    "domain": "compute",
+    "subdomain": "patch-class-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que d\u00e1 para incluir s\u00f3 patches de seguran\u00e7a, excluindo feature packs, na mesma janela. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, janela aplica tudo ou nada"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas apenas para patches marcados como cr\u00edticos; security exige instala\u00e7\u00e3o imediata fora de janela"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, porque a janela de manuten\u00e7\u00e3o sempre aplica todas as classifica\u00e7\u00f5es de uma s\u00f3 vez"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, via classifica\u00e7\u00e3o de patch"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Classifica\u00e7\u00f5es (security, critical, outros) filtram o escopo. Achar tudo-ou-nada impede janelas cir\u00fargicas.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-269",
+    "domain": "compute",
+    "subdomain": "reboot-required-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um admin afirma que todo patch do Windows exige reboot, sem exce\u00e7\u00e3o. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, sempre reinicia"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, mas somente com hotpatch; pacotes comuns sempre exigem rein\u00edcio imediato da VM"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, hotpatch e alguns pacotes dispensam"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, porque o mecanismo de instala\u00e7\u00e3o do Windows exige rein\u00edcio para gravar as altera\u00e7\u00f5es no registro"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Hotpatch e pacotes sem componente de kernel dispensam reboot. Generalizar que tudo reinicia paralisa opera\u00e7\u00f5es sem necessidade t\u00e9cnica.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-270",
+    "domain": "compute",
+    "subdomain": "orchestration-vs-manual-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que orquestra\u00e7\u00e3o de patch pelo Azure elimina a necessidade de janela de manuten\u00e7\u00e3o aprovada. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, orquestra sem janela"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, mas a janela pode ser dispensada quando o patch \u00e9 classificado como n\u00e3o cr\u00edtico"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, porque a orquestra\u00e7\u00e3o detecta a janela aprovada e a dispensa automaticamente nas VMs do escopo"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, janela aprovada continua obrigat\u00f3ria"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Orquestra\u00e7\u00e3o executa dentro da janela aprovada; sem ela, reboot cai em hor\u00e1rio cr\u00edtico. Automatizar n\u00e3o dispensa governan\u00e7a.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-271",
+    "domain": "compute",
+    "subdomain": "drift-patch-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que VMs fora do escopo de patch convergem sozinhas ao baseline com o tempo. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, convergem sozinhas"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, sem escopo acumulam drift"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, desde que a VM esteja vinculada a uma imagem gerenciada, o que converge o baseline sozinho"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, porque o Azure Update Manager reavalia VMs fora do escopo em ciclos autom\u00e1ticos de 24 horas"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Sem escopo/DSC, drift s\u00f3 cresce; converg\u00eancia exige aplica\u00e7\u00e3o cont\u00ednua. Assumir auto-cura deixa d\u00edvida.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-272",
+    "domain": "compute",
+    "subdomain": "scale-set-id-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que todas as inst\u00e2ncias de um VMSS compartilham o mesmo ID de computador (SID/hostname). Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, inst\u00e2ncias s\u00e3o id\u00eanticas inclusive ID"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, cada inst\u00e2ncia tem identidade \u00fanica"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, mas o hostname \u00e9 compartilhado e apenas o SID \u00e9 distinto entre as inst\u00e2ncias"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, desde que o conjunto use orquestra\u00e7\u00e3o Uniform, que replica a identidade em todas as VMs"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Sysprep/generaliza\u00e7\u00e3o garante SID/hostname \u00fanicos por inst\u00e2ncia. IDs iguais quebrariam dom\u00ednio e Kerberos.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-273",
+    "domain": "compute",
+    "subdomain": "instance-name-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que nomes de inst\u00e2ncia do VMSS seguem padr\u00e3o previs\u00edvel com sufixo num\u00e9rico sequencial. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, nomes s\u00e3o aleat\u00f3rios"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas o sufixo \u00e9 um identificador global \u00fanico (GUID) e n\u00e3o um n\u00famero incremental"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, os nomes s\u00e3o atribu\u00eddos pelo provisionador de recursos e n\u00e3o seguem nenhum padr\u00e3o documentado"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, padr\u00e3o com sufixo sequencial"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Nomenclatura segue prefixo + base-36 sequencial (com overprovision pode saltar). Assumir aleat\u00f3rio quebra automa\u00e7\u00e3o.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-274",
+    "domain": "compute",
+    "subdomain": "single-placement-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que grupos de posicionamento \u00fanico (single placement group) limitam o VMSS a 100 inst\u00e2ncias do mesmo SKU. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, limite de 100 por grupo \u00fanico"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, escala ilimitada em qualquer modo"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o limite \u00e9 de 1000 inst\u00e2ncias, o que costuma bastar para a maioria das cargas"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, o limite de 100 aplica-se a availability sets e n\u00e3o a grupos de posicionamento do VMSS"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Single placement group limita a ~100 VMs do mesmo tipo; m\u00faltiplos grupos escalam a milhares. Ignorar o limite trava escala.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-275",
+    "domain": "compute",
+    "subdomain": "orchestration-mode-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que o modo de orquestra\u00e7\u00e3o do VMSS pode ser alterado livremente ap\u00f3s a cria\u00e7\u00e3o sem recriar. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, alterna a qualquer momento"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, exige recria\u00e7\u00e3o do conjunto"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, desde que nenhuma inst\u00e2ncia esteja em execu\u00e7\u00e3o, \u00e9 poss\u00edvel alternar o modo sem recriar"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, porque o modo de orquestra\u00e7\u00e3o \u00e9 uma propriedade do conjunto e pode ser alterada a qualquer tempo"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Modo Uniform/Flexible \u00e9 definido na cria\u00e7\u00e3o; mudan\u00e7a exige novo conjunto. Assumir altern\u00e2ncia quebra planejamento.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-276",
+    "domain": "compute",
+    "subdomain": "fault-domain-count-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que regi\u00e3o sem zonas suporta no m\u00e1ximo 2 fault domains em availability set. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, m\u00e1ximo 2 sem zonas"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, s\u00e3o 3 fault domains por padr\u00e3o"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o n\u00famero de fault domains \u00e9 sempre 3, e o limite de 2 vale apenas para regi\u00f5es antigas"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque availability sets sempre distribuem VMs em 3 fault domains, mesmo sem zonas dispon\u00edveis"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Regi\u00e3o sem zonas suporta no m\u00e1ximo 2 fault domains por availability set; com zonas, 3. Assumir 3 FDs em toda regi\u00e3o quebra a distribui\u00e7\u00e3o de racks.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-277",
+    "domain": "compute",
+    "subdomain": "update-domain-count-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um colega afirma que availability set permite at\u00e9 20 update domains configur\u00e1veis. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, o m\u00e1ximo \u00e9 5 UDs"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, at\u00e9 20 UDs"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o padr\u00e3o \u00e9 5 e o limite m\u00e1ximo configur\u00e1vel permanece em 5"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, o limite \u00e9 de 5 update domains e \u00e9 fixo em todas as regi\u00f5es"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "O limite \u00e9 20 update domains por availability set. Assumir 5 (padr\u00e3o) subestima a granularidade poss\u00edvel.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-278",
+    "domain": "compute",
+    "subdomain": "managed-disk-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um arquiteto afirma que discos gerenciados dispensam conta de armazenamento do cliente para VHDs. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, exigem conta do cliente"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, a plataforma gerencia o storage"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas o cliente deve criar uma conta de armazenamento para rastrear o custo dos VHDs"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque discos gerenciados continuam exigindo uma conta de armazenamento na mesma regi\u00e3o da VM"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Discos gerenciados abstraem a conta de armazenamento; a plataforma Microsoft gerencia o storage. Exigir conta do cliente \u00e9 o modelo legado n\u00e3o gerenciado.",
+    "source": "original",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-279",
+    "domain": "compute",
+    "subdomain": "unmanaged-retired-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um t\u00e9cnico afirma que discos n\u00e3o gerenciados continuam recomendados para novas VMs por simplicidade. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, ainda recomendados"
+      },
+      {
+        "letter": "B",
+        "text": "N\u00e3o, mas apenas a edi\u00e7\u00e3o Premium foi preterida; a Standard continua com suporte total"
+      },
+      {
+        "letter": "C",
+        "text": "N\u00e3o, preteridos em favor de gerenciados"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, porque discos n\u00e3o gerenciados oferecem melhor compatibilidade com VMs de carga cr\u00edtica"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Discos n\u00e3o gerenciados foram preteridos; novas VMs devem usar gerenciados. Recomendar unmanaged para deploy novo acumula d\u00edvida t\u00e9cnica e perde SLA.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-280",
+    "domain": "compute",
+    "subdomain": "temp-disk-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um dev afirma que o disco tempor\u00e1rio (D:) da VM \u00e9 seguro para pagefile e dados descart\u00e1veis, mas nunca para dados persistentes. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, temp persiste como gerenciado"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, temp \u00e9 ef\u00eamero por defini\u00e7\u00e3o"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas apenas quando a VM \u00e9 criada com o disco tempor\u00e1rio desabilitado na configura\u00e7\u00e3o"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque o disco tempor\u00e1rio \u00e9 um disco gerenciado comum e persiste entre reinicializa\u00e7\u00f5es"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Disco temp \u00e9 local e ef\u00eamero; ideal para pagefile/swap, fatal para dados. Tratar como persistente perde dados.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
+  },
+  {
+    "id": "az104-co-281",
+    "domain": "compute",
+    "subdomain": "os-disk-swap-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um admin afirma que \u00e9 poss\u00edvel trocar o disco de SO de uma VM por outro disco gerenciado sem recriar a m\u00e1quina. Essa afirma\u00e7\u00e3o est\u00e1 correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "N\u00e3o, exige recria\u00e7\u00e3o total"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, via swap de disco de SO"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, mas a VM precisa estar desallocada e com o novo disco anexado como disco de dados antes da troca"
+      },
+      {
+        "letter": "D",
+        "text": "N\u00e3o, porque o disco de SO est\u00e1 vinculado ao recurso e o Azure n\u00e3o permite substitu\u00ed-lo em VMs existentes"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Troca de disco de SO (swap) substitui o disco com a VM parada preservando NICs e dados. Recriar a m\u00e1quina do zero \u00e9 trabalho desnecess\u00e1rio.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.774Z",
+    "updatedAt": "2026-10-04T02:11:52.774Z",
+    "version": 1
   }
 ]

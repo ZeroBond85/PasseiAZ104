@@ -1,0 +1,2323 @@
+[
+  {
+    "id": "az104-rv-002",
+    "domain": "rede-virtual",
+    "subdomain": "nsg",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma VM web precisa aceitar HTTPS de qualquer origem, mas SSH somente do IP do escritório 200.10.5.1. Qual configuração de NSG aplica isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra única Allow * para todas as portas"
+      },
+      {
+        "letter": "B",
+        "text": "NSG aplicada apenas no gateway da VPN"
+      },
+      {
+        "letter": "C",
+        "text": "Regra Deny 443 de qualquer origem"
+      },
+      {
+        "letter": "D",
+        "text": "Regra 443 Allow de * + regra 22 Allow só de 200.10.5.1 com prioridade maior"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Duas regras de entrada: 443 aberta e 22 restrita ao IP (prioridade menor número = avaliada antes do Deny padrão). Abrir tudo viola; negar 443 quebra o site; NSG em gateway não filtra a VM.",
+    "source": "mslearn",
+    "tags": ["nsg", "regras", "prioridade"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-005",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-gateway",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "O escritório precisa de túnel criptografado permanente até a VNet do Azure pela internet. Qual recurso cria esse túnel site-to-site?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rota definida pelo usuário para 0.0.0.0/0"
+      },
+      {
+        "letter": "B",
+        "text": "Gateway de VPN com conexão IPsec/IKE"
+      },
+      {
+        "letter": "C",
+        "text": "Load Balancer com regra NAT"
+      },
+      {
+        "letter": "D",
+        "text": "Bastion na VNet"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "VPN Gateway termina túneis IPsec site-to-site e ponto-a-site. Load Balancer distribui, não tunela; Bastion dá shell, não rede; UDR sozinha não criptografa.",
+    "source": "original",
+    "tags": ["vpn", "site-to-site", "ipsec"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-006",
+    "domain": "rede-virtual",
+    "subdomain": "expressroute",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "O banco exige link privado dedicado ao Azure sem passar pela internet pública, com SLA de conectividade. Qual serviço fornece esse circuito privado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering entre VNets"
+      },
+      {
+        "letter": "B",
+        "text": "VPN site-to-site pela internet"
+      },
+      {
+        "letter": "C",
+        "text": "Front Door com backend privado"
+      },
+      {
+        "letter": "D",
+        "text": "ExpressRoute com circuito via provedor"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "ExpressRoute é link privado dedicado com SLA, fora da internet. VPN passa pela internet; peering é entre VNets; Front Door é entrada pública, não link privado.",
+    "source": "mslearn",
+    "tags": ["expressroute", "link-privado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-010",
+    "domain": "rede-virtual",
+    "subdomain": "firewall",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Todo o tráfego de saída das VNets precisa passar por inspeção central com regras de FQDN e TLS. Qual serviço filtra esse tráfego como firewall gerenciado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Azure Firewall com políticas e inspeção TLS"
+      },
+      {
+        "letter": "B",
+        "text": "NSG com regras de porta"
+      },
+      {
+        "letter": "C",
+        "text": "Route table sem próximo salto"
+      },
+      {
+        "letter": "D",
+        "text": "Bastion com sessão gravada"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Firewall inspeciona L3-L7 com FQDN e TLS centralizados. NSG filtra portas sem inspeção de conteúdo; UDR sozinha não filtra; Bastion dá acesso, não filtra saída.",
+    "source": "original",
+    "tags": ["firewall", "fqdn", "inspecao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-011",
+    "domain": "rede-virtual",
+    "subdomain": "private-endpoint",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Uma conta de armazenamento deve ser acessada só por IP privado dentro da VNet, sem endpoint público. Qual recurso projeta o serviço PaaS para dentro da rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Service Endpoint aberto à internet"
+      },
+      {
+        "letter": "B",
+        "text": "Firewall da conta com Allow All"
+      },
+      {
+        "letter": "C",
+        "text": "Private Endpoint com Private Link"
+      },
+      {
+        "letter": "D",
+        "text": "SAS com IP liberado"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Private Endpoint cria NIC privada para o PaaS, sem tráfego público. Service Endpoint estende a VNet mas mantém endpoint público; SAS é credencial, não rede; Allow All expõe.",
+    "source": "mslearn",
+    "tags": ["private-endpoint", "private-link", "paas"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-015",
+    "domain": "rede-virtual",
+    "subdomain": "service-endpoint",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "VMs precisam acessar o Storage sem sair para a internet, identificando-se pela sub-rede no firewall da conta. Qual recurso estende a identidade da VNet ao serviço?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ExpressRoute com peering público"
+      },
+      {
+        "letter": "B",
+        "text": "IP público na VM com SAS"
+      },
+      {
+        "letter": "C",
+        "text": "Service Endpoint da sub-rede para o Storage"
+      },
+      {
+        "letter": "D",
+        "text": "Private Endpoint com DNS privado"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Service Endpoint mantém o tráfego no backbone e permite filtrar por sub-rede no firewall da conta. Private Endpoint também isola, mas com IP privado (outro desenho); IP público sai à internet; peering público é para serviços Microsoft via ExpressRoute.",
+    "source": "mslearn",
+    "tags": ["service-endpoint", "storage"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-016",
+    "domain": "rede-virtual",
+    "subdomain": "bastion",
+    "type": "single",
+    "difficulty": "easy",
+    "question": "Administradores precisam de RDP via navegador sem expor portas das VMs. Qual sub-rede especial o Bastion exige na VNet?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sub-rede com delegação ao App Service"
+      },
+      {
+        "letter": "B",
+        "text": "GatewaySubnet compartilhada"
+      },
+      {
+        "letter": "C",
+        "text": "Qualquer sub-rede com NSG aberta"
+      },
+      {
+        "letter": "D",
+        "text": "AzureBastionSubnet com /26 ou maior"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Bastion exige sub-rede dedicada AzureBastionSubnet (/26+). GatewaySubnet é do gateway VPN; qualquer sub-rede não serve; delegação é para PaaS, não Bastion.",
+    "source": "mslearn",
+    "tags": ["bastion", "sub-rede"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview"
+  },
+  {
+    "id": "az104-rv-017",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-fluxo",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Conexões legítimas estão caindo e você suspeita de regra NSG. Qual ferramenta mostra, pacote a pacote, quais regras permitem ou negam o fluxo entre dois IPs?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Diagnóstico de inicialização da VM"
+      },
+      {
+        "letter": "B",
+        "text": "Verificação de fluxo IP (IP Flow Verify) do Network Watcher"
+      },
+      {
+        "letter": "C",
+        "text": "Métricas de CPU da VM"
+      },
+      {
+        "letter": "D",
+        "text": "Log de atividade da assinatura"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "IP Flow Verify simula o pacote contra NSGs e diz permitir/negar com a regra. Log de atividade registra operações ARM; CPU não mostra rede; boot diagnostics mostra console.",
+    "source": "mslearn",
+    "tags": ["network-watcher", "ip-flow-verify", "nsg"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-018",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-p2s",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Desenvolvedores remotos precisam de túnel individual ao Azure a partir de notebooks com certificado. Qual conexão do gateway atende usuários avulsos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ponto a site (P2S) com autenticação por certificado"
+      },
+      {
+        "letter": "B",
+        "text": "Peering entre VNets"
+      },
+      {
+        "letter": "C",
+        "text": "ExpressRoute com circuito dedicado"
+      },
+      {
+        "letter": "D",
+        "text": "Site a site com dispositivo VPN local"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "P2S conecta clientes individuais via certificado/RADIUS. S2S liga redes inteiras via appliance; peering é VNet-VNet; ExpressRoute é link dedicado corporativo.",
+    "source": "original",
+    "tags": ["vpn", "p2s", "certificado"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-019",
+    "domain": "rede-virtual",
+    "subdomain": "gateway-subnet",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "A implantação do gateway de VPN falhou porque a sub-rede do gateway foi criada com NSG e nome personalizado. Quais são os requisitos dessa sub-rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sub-rede delegada ao App Service"
+      },
+      {
+        "letter": "B",
+        "text": "Nome GatewaySubnet com /29"
+      },
+      {
+        "letter": "C",
+        "text": "Nome exato GatewaySubnet, sem NSG e /27 ou maior"
+      },
+      {
+        "letter": "D",
+        "text": "Qualquer nome com NSG restritiva"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Gateway exige GatewaySubnet, sem NSG/UDR e /27+ para IPs do cluster ativo-passivo. Nome livre, NSG ou /29 quebram o deploy; delegação é para outros PaaS.",
+    "source": "mslearn",
+    "tags": ["vpn", "gateway-subnet"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-022",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-service-tags",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra precisa liberar o acesso ao Storage e ao SQL sem listar centenas de IPs que mudam. Qual construção representa esses serviços na NSG?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DNS reverso dinâmico"
+      },
+      {
+        "letter": "B",
+        "text": "Tags de serviço (Storage, Sql) como destino"
+      },
+      {
+        "letter": "C",
+        "text": "IPs fixos manuais por região"
+      },
+      {
+        "letter": "D",
+        "text": "Allow All de saída"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Service tags agrupam prefixos dos serviços gerenciados pela Microsoft. IPs manuais quebram a cada mudança; Allow All viola; DNS reverso não é origem válida de regra.",
+    "source": "mslearn",
+    "tags": ["nsg", "service-tags"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-025",
+    "domain": "rede-virtual",
+    "subdomain": "firewall-policy",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dez firewalls regionais precisam das mesmas regras de aplicativo versionadas em um só lugar. Como centralizar e herdar essas regras?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG global única"
+      },
+      {
+        "letter": "B",
+        "text": "Política de Firewall com grupos de regras herdados"
+      },
+      {
+        "letter": "C",
+        "text": "Regras locais repetidas por firewall"
+      },
+      {
+        "letter": "D",
+        "text": "UDR com regras de aplicativo"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Firewall Policy centraliza rule collections com herança pai-filho. Regras locais divergem; NSG não é global nem L7; UDR roteia, não filtra conteúdo.",
+    "source": "original",
+    "tags": ["firewall", "policy", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-026",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-bgp",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dois túneis S2S ativo-ativo precisam escolher rotas dinamicamente sem UDR manual por prefixo. Qual protocolo o gateway usa para trocar rotas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DNS dinâmico nos túneis"
+      },
+      {
+        "letter": "B",
+        "text": "RIP versão 1"
+      },
+      {
+        "letter": "C",
+        "text": "BGP entre gateway Azure e dispositivo local"
+      },
+      {
+        "letter": "D",
+        "text": "ARP entre gateways"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "BGP anuncia prefixos e converte em failover ativo-ativo. DNS não roteia; ARP é enlace local; RIPv1 é obsoleto e sem suporte.",
+    "source": "original",
+    "tags": ["vpn", "bgp", "ativo-ativo"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-027",
+    "domain": "rede-virtual",
+    "subdomain": "expressroute-peering",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Pelo ExpressRoute, o tráfego do Microsoft 365 deve seguir rota distinta da replicação privada das VNets. Quais peerings separam esses tráfegos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Peering Microsoft (365/serviços) e peering Privado (VNets)"
+      },
+      {
+        "letter": "B",
+        "text": "Peering público para VNets"
+      },
+      {
+        "letter": "C",
+        "text": "Um único peering para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "Dois peerings privados idênticos"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Peering Microsoft carrega serviços públicos e o Privado, as VNets. Dois privados duplicam; público não alcança VNet; um só mistura políticas distintas.",
+    "source": "mslearn",
+    "tags": ["expressroute", "peering", "microsoft365"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-038",
+    "domain": "rede-virtual",
+    "subdomain": "private-link-service",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um serviço interno atrás de Load Balancer Standard precisa ser consumido por outra VNet sem expor IPs nem emparelhar redes. Como publicar esse serviço privadamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Serviço Private Link referenciando o LB Standard"
+      },
+      {
+        "letter": "B",
+        "text": "IP público no LB com NSG aberta"
+      },
+      {
+        "letter": "C",
+        "text": "DNS público apontando ao IP interno"
+      },
+      {
+        "letter": "D",
+        "text": "Peering com gateway transit"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Private Link Service expõe o LB como endpoint privado consumível cross-VNet. IP público expõe; peering acopla redes; DNS público não alcança IP privado.",
+    "source": "mslearn",
+    "tags": ["private-link", "servico", "lb"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-039",
+    "domain": "rede-virtual",
+    "subdomain": "az-firewall-dnat",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Acesso RDP pontual a uma VM sem IP público deve passar pelo IP do firewall com tradução de destino. Qual regra publica esse acesso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regra DNAT do Firewall para a VM:3389"
+      },
+      {
+        "letter": "B",
+        "text": "Regra de rede com Allow interno"
+      },
+      {
+        "letter": "C",
+        "text": "Regra de aplicativo para HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "UDR apontando ao Bastion"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "DNAT traduz destino do IP do firewall para a VM/porta interna. Regra de app filtra FQDN; regra de rede não traduz; UDR ao Bastion não publica RDP.",
+    "source": "original",
+    "tags": ["firewall", "dnat", "rdp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-041",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-prioridades-avancado",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra Allow 443 com prioridade 200 não surte efeito e o tráfego cai numa regra Deny de prioridade 150. Por que a permissão é ignorada e como corrigir?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NSG avalia por prioridade crescente; ajustar o Allow para número menor que 150"
+      },
+      {
+        "letter": "B",
+        "text": "É preciso recriar a VNet"
+      },
+      {
+        "letter": "C",
+        "text": "Allow sempre vence Deny independente de prioridade"
+      },
+      {
+        "letter": "D",
+        "text": "NSG avalia por ordem alfabética do nome"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Primeira regra coincidente em ordem crescente de prioridade decide; 150 vence 200. Nome não ordena; Allow não tem precedência automática; VNet não precisa ser recriada.",
+    "source": "mslearn",
+    "tags": ["nsg", "prioridade", "deny"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+  },
+  {
+    "id": "az104-rv-042",
+    "domain": "rede-virtual",
+    "subdomain": "asg",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Regras entre web e banco quebram a cada troca de IP das VMs. Como agrupar NICs por função para referenciá-las nas regras sem IPs fixos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IPs reservados manuais por VM"
+      },
+      {
+        "letter": "B",
+        "text": "Tags de serviço personalizadas"
+      },
+      {
+        "letter": "C",
+        "text": "Grupos de Segurança de Aplicativo (ASG) nas NICs referenciados na NSG"
+      },
+      {
+        "letter": "D",
+        "text": "DNS interno com TTL baixo"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "ASG agrupa NICs por papel e a NSG referencia o grupo, imune a troca de IP. IP fixo por VM não escala; tags de serviço são da Microsoft; DNS não é origem de regra NSG.",
+    "source": "original",
+    "tags": ["nsg", "asg", "agrupamento"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-045",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-sku",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O gateway VPN Básico precisa de BGP, S2S+P2S simultâneos e 1 Gbps. Qual SKU atende aos três requisitos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "VpnGw2 (ou superior) com BGP e multiprotocolo"
+      },
+      {
+        "letter": "B",
+        "text": "Dois gateways Básicos em paralelo"
+      },
+      {
+        "letter": "C",
+        "text": "Trocar por ExpressRoute local"
+      },
+      {
+        "letter": "D",
+        "text": "Manter Básico com overprovision"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "VpnGw2+ entrega throughput, BGP e S2S+P2S juntos. Básico não tem BGP nem 1 Gbps; ExpressRoute é outro produto; dois Básicos não somam recursos.",
+    "source": "original",
+    "tags": ["vpn", "sku", "vpngw2", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-046",
+    "domain": "rede-virtual",
+    "subdomain": "er-globalreach",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Dois datacenters on-premises em continentes distintos precisam trocar tráfego via backbone Microsoft sem passar pela internet. Qual recurso conecta os circuitos ExpressRoute entre si?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "VPN pela internet entre filiais"
+      },
+      {
+        "letter": "B",
+        "text": "Front Door entre datacenters"
+      },
+      {
+        "letter": "C",
+        "text": "Peering entre VNets do Azure"
+      },
+      {
+        "letter": "D",
+        "text": "Global Reach ligando os circuitos"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Global Reach une circuitos ER pelo backbone privado. Peering VNet não alcança on-prem; VPN volta à internet; Front Door publica HTTP, não interliga sites.",
+    "source": "original",
+    "tags": ["expressroute", "global-reach"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-050",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Uma DMZ precisa permitir HTTP/HTTPS de qualquer origem e negar todo o resto na entrada, com saída liberada para updates. Quais duas regras de entrada compõem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Deny de saída para a internet"
+      },
+      {
+        "letter": "B",
+        "text": "Allow 80/443 de * com prioridade alta (número baixo)"
+      },
+      {
+        "letter": "C",
+        "text": "Allow 22 de * com prioridade máxima"
+      },
+      {
+        "letter": "D",
+        "text": "Deny * de * com prioridade logo abaixo"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "Allow web primeiro e Deny geral depois fecha a entrada; a saída usa o Allow padrão. SSH aberto viola; negar saída quebra updates.",
+    "source": "mslearn",
+    "tags": ["nsg", "dmz", "regras"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-053",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Alta disponibilidade do túnel S2S exige dois túneis ativos com failover automático. Quais dois elementos compõem o ativo-ativo? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway em modo ativo-ativo com dois IPs públicos"
+      },
+      {
+        "letter": "B",
+        "text": "Um único túnel com DPD"
+      },
+      {
+        "letter": "C",
+        "text": "BGP para convergência de rotas"
+      },
+      {
+        "letter": "D",
+        "text": "Gateway Básico sem zona"
+      }
+    ],
+    "correct": ["A", "C"],
+    "explanation": "Ativo-ativo usa duas instâncias/IPs e o BGP converge rotas na falha. Túnel único é ponto único de falha; Básico não faz ativo-ativo.",
+    "source": "mslearn",
+    "tags": ["vpn", "ativo-ativo", "ha", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-054",
+    "domain": "rede-virtual",
+    "subdomain": "firewall-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O firewall precisa inspecionar TLS de saída e filtrar por FQDN com política central. Quais dois recursos atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Inspeção TLS com CA intermediária gerenciada"
+      },
+      {
+        "letter": "B",
+        "text": "Bypass de inspeção para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Regras de porta sem inspeção"
+      },
+      {
+        "letter": "D",
+        "text": "Regras de aplicativo com FQDNs na política"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "TLS inspection abre o tráfego com CA e as regras de app filtram por FQDN. Só porta não vê conteúdo; bypass geral anula a inspeção.",
+    "source": "mslearn",
+    "tags": ["firewall", "tls-inspection", "fqdn"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-056",
+    "domain": "rede-virtual",
+    "subdomain": "expressroute-multiplos",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "O circuito ExpressRoute precisa de redundância física e criptografia sobre o link privado. Quais dois elementos atendem? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Circuito único sem redundância"
+      },
+      {
+        "letter": "B",
+        "text": "IPsec sobre o peering privado"
+      },
+      {
+        "letter": "C",
+        "text": "Conexões primária e secundária do circuito"
+      },
+      {
+        "letter": "D",
+        "text": "Rota pública sem autenticação"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "Duas conexões dão redundância física e o IPsec cifra sobre o privado. Circuito único é ponto único de falha; rota pública sem auth expõe.",
+    "source": "mslearn",
+    "tags": ["expressroute", "redundancia", "ipsec"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-062",
+    "domain": "rede-virtual",
+    "subdomain": "er-fastpath",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "Tráfego ExpressRoute para uma VM sofre latência do gateway e precisa bypass direto à VNet. Qual recurso permite o caminho direto gateway-bypass?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "BGP sem FastPath"
+      },
+      {
+        "letter": "B",
+        "text": "FastPath no gateway Ultra/ErGw3AZ com VNet peering"
+      },
+      {
+        "letter": "C",
+        "text": "UDR para a internet"
+      },
+      {
+        "letter": "D",
+        "text": "Aumentar o SKU do gateway VPN"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "FastPath desvia o fluxo direto à VNet, cortando o salto do gateway. SKU VPN não afeta ER; UDR internet piora; BGP sozinho ainda passa pelo gateway.",
+    "source": "original",
+    "tags": ["expressroute", "fastpath", "latencia"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-064",
+    "domain": "rede-virtual",
+    "subdomain": "waf-tuning",
+    "type": "single",
+    "difficulty": "hard",
+    "question": "O WAF bloqueia requisições legítimas com payload JSON grande (falso positivo). Qual ajuste preserva proteção sem quebrar a API?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Mudar o WAF para modo Detecção permanente"
+      },
+      {
+        "letter": "B",
+        "text": "Desabilitar o conjunto de regras OWASP"
+      },
+      {
+        "letter": "C",
+        "text": "Remover o listener HTTPS"
+      },
+      {
+        "letter": "D",
+        "text": "Exclusões por atributo + elevação do limite de corpo"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Exclusões cirúrgicas e limite de corpo calibrado mantêm bloqueio real. Desligar OWASP cega; Detecção permanente nunca bloqueia; sem listener não há WAF.",
+    "source": "original",
+    "tags": ["waf", "tuning", "falso-positivo", "owasp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-066",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-er-coex-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "VPN e ExpressRoute coexistirão no mesmo gateway com failover da VPN para o ER. Quais dois requisitos viabilizam a coexistência? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway com SKU que suporta coexistência (não Básico)"
+      },
+      {
+        "letter": "B",
+        "text": "Gateway Básico com rota estática"
+      },
+      {
+        "letter": "C",
+        "text": "Dois gateways na mesma GatewaySubnet"
+      },
+      {
+        "letter": "D",
+        "text": "BGP habilitado nos dois caminhos"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "SKU compatível comporta os dois túneis e o BGP decide o ativo. Básico não coexiste; dois gateways disputam a mesma sub-rede.",
+    "source": "mslearn",
+    "tags": ["vpn", "expressroute", "coexistencia", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-088",
+    "domain": "rede-virtual",
+    "subdomain": "waf-bot",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Bots de scraping derrubam o catálogo com milhares de requests. Qual proteção do WAF barra bots maliciosos?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Proteção contra bots (bot manager) do WAF"
+      },
+      {
+        "letter": "B",
+        "text": "Aumentar instâncias do app"
+      },
+      {
+        "letter": "C",
+        "text": "Captcha em todas as páginas"
+      },
+      {
+        "letter": "D",
+        "text": "Desabilitar o WAF"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Bot manager classifica e bloqueia bots ruins. Escalar absorve sem bloquear; sem WAF expõe; captcha geral degrada UX.",
+    "source": "original",
+    "tags": ["waf", "bots", "scraping"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-089",
+    "domain": "rede-virtual",
+    "subdomain": "waf-rate-limit",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Login sofre força bruta distribuída com 100 tentativas/min por IP. Qual regra do WAF limita taxa por origem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Limite de taxa (rate limit) por IP/janela"
+      },
+      {
+        "letter": "B",
+        "text": "Senha mais longa"
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio do país inteiro"
+      },
+      {
+        "letter": "D",
+        "text": "Desligar o login"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Rate limit barra rajada por IP/janela. País inteiro bloqueia legítimos; senha não limita taxa; desligar para o negócio.",
+    "source": "original",
+    "tags": ["waf", "rate-limit", "forca-bruta"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-090",
+    "domain": "rede-virtual",
+    "subdomain": "waf-geo-filter",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Aplicação só atende Brasil e sofre scans do exterior. Como restringir por geografia no WAF?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DNS geográfico sem WAF"
+      },
+      {
+        "letter": "B",
+        "text": "Bloqueio de IP único"
+      },
+      {
+        "letter": "C",
+        "text": "Desligar a internet"
+      },
+      {
+        "letter": "D",
+        "text": "Filtro geográfico permitindo só BR"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Geo-filter permite/bloqueia por país na borda. IP único não cobre scans; DNS não bloqueia; desligar inviabiliza.",
+    "source": "original",
+    "tags": ["waf", "geo-filter", "pais"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-103",
+    "domain": "rede-virtual",
+    "subdomain": "bastion-host-scaling-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Pico de acessos simultâneos ao Bastion exige escala sem trocar SKU. Quais dois parâmetros ajustar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Contagem de instâncias do Bastion"
+      },
+      {
+        "letter": "B",
+        "text": "Desligar sessões ativas"
+      },
+      {
+        "letter": "C",
+        "text": "Básico fixo para tudo"
+      },
+      {
+        "letter": "D",
+        "text": "SKU com escala (Standard+)"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "Contagem de instâncias escala sessões simultâneas no SKU Standard ou superior. Básico fixa sem escala; desligar sessões ativas derruba usuários.",
+    "source": "mslearn",
+    "tags": ["bastion", "escala", "sessoes"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview"
+  },
+  {
+    "id": "az104-rv-104",
+    "domain": "rede-virtual",
+    "subdomain": "bastion-shareable-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Suporte precisa compartilhar sessão RDP com o cliente sem expor credencial. Quais dois recursos usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sessão sem credencial exposta"
+      },
+      {
+        "letter": "B",
+        "text": "Senha por e-mail"
+      },
+      {
+        "letter": "C",
+        "text": "Link compartilhável do Bastion"
+      },
+      {
+        "letter": "D",
+        "text": "RDP público temporário"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Link compartilhável do Bastion concede acesso ao cliente sem expor credencial. Senha por e-mail vaza; RDP público temporário expõe.",
+    "source": "mslearn",
+    "tags": ["bastion", "compartilhar", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview"
+  },
+  {
+    "id": "az104-rv-109",
+    "domain": "rede-virtual",
+    "subdomain": "gateway-sku-er-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Throughput de 10 Gbps com FastPath no ExpressRoute exige dois requisitos. Quais são eles? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Gateway Básico"
+      },
+      {
+        "letter": "B",
+        "text": "FastPath habilitado no peering/VNet"
+      },
+      {
+        "letter": "C",
+        "text": "Sem gateway"
+      },
+      {
+        "letter": "D",
+        "text": "Gateway Ultra/ErGw3AZ"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Gateway Ultra/ErGw3AZ suporta FastPath que faz bypass do gateway. Básico não tem o recurso; sem gateway não há ExpressRoute.",
+    "source": "mslearn",
+    "tags": ["expressroute", "gateway", "fastpath"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-110",
+    "domain": "rede-virtual",
+    "subdomain": "vpn-device-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Appliance local precisa de interoperabilidade validada com o Azure. Quais dois pontos conferir? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Qualquer roteador doméstico"
+      },
+      {
+        "letter": "B",
+        "text": "Matriz de dispositivos VPN validados"
+      },
+      {
+        "letter": "C",
+        "text": "Sem criptografia"
+      },
+      {
+        "letter": "D",
+        "text": "Parâmetros IPsec/IKE compatíveis"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "Matriz de dispositivos validados lista appliances suportados e parâmetros IPsec/IKE alinham a proposta. Roteador doméstico não suporta; sem criptografia não há túnel.",
+    "source": "mslearn",
+    "tags": ["vpn", "dispositivo", "interoperabilidade", "ipsec"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-111",
+    "domain": "rede-virtual",
+    "subdomain": "custom-ipsec-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Compliance exige AES-256 e DH Group 24, fora do padrão. Onde customizar a proposta IPsec? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Política IPsec/IKE customizada na conexão"
+      },
+      {
+        "letter": "B",
+        "text": "Padrão DES/MD5"
+      },
+      {
+        "letter": "C",
+        "text": "Sem política"
+      },
+      {
+        "letter": "D",
+        "text": "Parâmetros de criptografia e PFS alinhados"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "Política IPsec/IKE customizada define algoritmos e PFS alinhado. Padrão DES/MD5 viola compliance; sem política usa padrão fraco.",
+    "source": "mslearn",
+    "tags": ["ipsec", "custom", "criptografia", "pfs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-112",
+    "domain": "rede-virtual",
+    "subdomain": "dpd-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Túnel caído precisa ser detectado e restabelecido sem manual. Quais dois mecanismos DPD usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Recriação do gateway"
+      },
+      {
+        "letter": "B",
+        "text": "Reconexão automática do túnel"
+      },
+      {
+        "letter": "C",
+        "text": "Detecção de peer morto (DPD)"
+      },
+      {
+        "letter": "D",
+        "text": "Ping manual periódico"
+      }
+    ],
+    "correct": ["C", "B"],
+    "explanation": "DPD detecta peer morto e o gateway restabelece o túnel sozinho. Ping manual periódico atrasa; recriar o gateway é drástico.",
+    "source": "mslearn",
+    "tags": ["dpd", "tunel", "reconexao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-113",
+    "domain": "rede-virtual",
+    "subdomain": "nat-traversal-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Appliance atrás de NAT precisa estabelecer IPsec através da tradução. Quais dois recursos atravessam o NAT? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Detecção de NAT no handshake"
+      },
+      {
+        "letter": "B",
+        "text": "ESP puro sem UDP"
+      },
+      {
+        "letter": "C",
+        "text": "Porta 500 bloqueada"
+      },
+      {
+        "letter": "D",
+        "text": "NAT-T com UDP 4500"
+      }
+    ],
+    "correct": ["D", "A"],
+    "explanation": "NAT-T encapsula IPsec em UDP 4500 após detectar NAT no handshake. ESP puro não atravessa tradução; bloquear a porta 500 impede o túnel.",
+    "source": "mslearn",
+    "tags": ["nat-t", "ipsec", "udp-4500"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-114",
+    "domain": "rede-virtual",
+    "subdomain": "ike-versions-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Interoperabilidade exige IKEv2 com fallback controlado. Quais duas configurações usar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem IKE"
+      },
+      {
+        "letter": "B",
+        "text": "Só IKEv1 legado"
+      },
+      {
+        "letter": "C",
+        "text": "Fallback IKEv1 documentado"
+      },
+      {
+        "letter": "D",
+        "text": "IKEv2 preferencial na conexão"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "IKEv2 preferencial com fallback IKEv1 documentado cobre appliances legados. Só IKEv1 legado perde recursos; sem IKE não há túnel.",
+    "source": "mslearn",
+    "tags": ["ikev2", "ikev1", "fallback"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-115",
+    "domain": "rede-virtual",
+    "subdomain": "pfs-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Chaves de sessão comprometidas não podem descriptografar tráfego passado. Quais dois elementos do PFS garantem isso? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem troca de chaves"
+      },
+      {
+        "letter": "B",
+        "text": "Chave estática reutilizada"
+      },
+      {
+        "letter": "C",
+        "text": "Grupos DH efêmeros por sessão"
+      },
+      {
+        "letter": "D",
+        "text": "Perfect Forward Secrecy habilitado"
+      }
+    ],
+    "correct": ["D", "C"],
+    "explanation": "Perfect Forward Secrecy com grupos DH efêmeros por sessão isola o passado. Chave estática reutilizada vaza tudo; sem troca de chaves não há segredo.",
+    "source": "mslearn",
+    "tags": ["pfs", "dh", "sessao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-116",
+    "domain": "rede-virtual",
+    "subdomain": "sa-lifetime-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Associações de segurança precisam de renovação periódica sem queda. Quais dois lifetimes calibrar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SA permanente sem renovar"
+      },
+      {
+        "letter": "B",
+        "text": "Renovação manual anual"
+      },
+      {
+        "letter": "C",
+        "text": "Lifetime da SA IKE (fase 1)"
+      },
+      {
+        "letter": "D",
+        "text": "Lifetime da SA IPsec (fase 2)"
+      }
+    ],
+    "correct": ["C", "D"],
+    "explanation": "Lifetimes das SAs IKE (fase 1) e IPsec (fase 2) renovam sem interromper. SA permanente acumula risco; renovação manual anual atrasa.",
+    "source": "mslearn",
+    "tags": ["sa-lifetime", "ike", "ipsec", "renovacao"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-117",
+    "domain": "rede-virtual",
+    "subdomain": "traffic-selector-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Túnel deve carregar só prefixos corporativos, não toda internet. Quais dois seletores restringir? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Seletores remotos (VNets)"
+      },
+      {
+        "letter": "B",
+        "text": "0.0.0.0/0 para tudo"
+      },
+      {
+        "letter": "C",
+        "text": "Seletores locais (prefixos on-prem)"
+      },
+      {
+        "letter": "D",
+        "text": "Sem seletor"
+      }
+    ],
+    "correct": ["C", "A"],
+    "explanation": "Seletores locais (prefixos on-prem) e remotos (VNets) limitam o túnel ao necessário. Enviar 0.0.0.0/0 para tudo força internet; sem seletor não há negociação.",
+    "source": "mslearn",
+    "tags": ["traffic-selector", "prefixos", "tunel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-118",
+    "domain": "rede-virtual",
+    "subdomain": "route-based-vs-policy-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Múltiplos túneis com failover e BGP exigem modo de VPN específico. Quais dois motivos escolhem route-based? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem criptografia"
+      },
+      {
+        "letter": "B",
+        "text": "Suporte a BGP e failover"
+      },
+      {
+        "letter": "C",
+        "text": "Policy-based com um SA"
+      },
+      {
+        "letter": "D",
+        "text": "Múltiplos SAs por túnel"
+      }
+    ],
+    "correct": ["B", "D"],
+    "explanation": "Route-based roteia com BGP e múltiplos SAs por túnel. Policy-based limita a um par; sem criptografia não há VPN.",
+    "source": "mslearn",
+    "tags": ["route-based", "policy-based", "bgp"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-119",
+    "domain": "rede-virtual",
+    "subdomain": "connection-reset-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Túnel instável precisa de reset programado sem recriar gateway. Quais dois elementos resetam com segurança? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Reset da conexão VPN"
+      },
+      {
+        "letter": "B",
+        "text": "Aguardar expirar sozinho"
+      },
+      {
+        "letter": "C",
+        "text": "Exclusão do gateway"
+      },
+      {
+        "letter": "D",
+        "text": "Reconexão com DPD"
+      }
+    ],
+    "correct": ["A", "D"],
+    "explanation": "Reset da conexão restabelece SAs e DPD reconecta automaticamente. Excluir o gateway é drástico; aguardar expirar sozinho prolonga outage.",
+    "source": "mslearn",
+    "tags": ["reset", "conexao", "vpn"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-120",
+    "domain": "rede-virtual",
+    "subdomain": "shared-key-rotation-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Chave pré-compartilhada do túnel vazou e precisa trocar sem downtime prolongado. Quais dois passos executar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Manter a vazada"
+      },
+      {
+        "letter": "B",
+        "text": "Gerar nova PSK forte"
+      },
+      {
+        "letter": "C",
+        "text": "Aplicar dos dois lados com janela"
+      },
+      {
+        "letter": "D",
+        "text": "PSK curta simples"
+      }
+    ],
+    "correct": ["B", "C"],
+    "explanation": "Gerar nova PSK forte e aplicar dos dois lados com janela minimiza queda. Manter a vazada expõe; PSK curta simples quebra.",
+    "source": "mslearn",
+    "tags": ["psk", "rotacao", "tunel"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-121",
+    "domain": "rede-virtual",
+    "subdomain": "monitor-vpn-multiplos",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "Quedas de túnel precisam de alerta com diagnóstico de fase. Quais dois monitoramentos aplicar? Selecione duas.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sem monitoramento"
+      },
+      {
+        "letter": "B",
+        "text": "Logs de diagnóstico IKE/IPsec"
+      },
+      {
+        "letter": "C",
+        "text": "Ping manual ocasional"
+      },
+      {
+        "letter": "D",
+        "text": "Métricas de túnel com alerta de bytes/fluxo"
+      }
+    ],
+    "correct": ["D", "B"],
+    "explanation": "Métricas de túnel com alerta de bytes/fluxo detectam queda e logs IKE/IPsec diagnosticam a fase. Ping manual ocasional atrasa; sem monitoramento cega.",
+    "source": "mslearn",
+    "tags": ["vpn", "monitoramento", "metricas", "logs"],
+    "createdAt": "2026-09-12T00:00:00.000Z",
+    "updatedAt": "2026-10-02T22:02:04.163Z",
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+  },
+  {
+    "id": "az104-rv-186",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-padrao-conceito",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um engenheiro afirma que, sem nenhuma regra personalizada, uma NSG permite todo o tráfego de saída para a internet por causa das regras padrão. Essa afirmação está correta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, o padrão nega toda saída até criar regra"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, o AllowInternetOutBound padrão libera a saída"
+      },
+      {
+        "letter": "C",
+        "text": "Não, porque o tráfego de saída é negado por padrão e só é liberado com regra de entrada correspondente"
+      },
+      {
+        "letter": "D",
+        "text": "Sim, mas a regra padrão se aplica somente a endereços de serviço e não à internet aberta"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "As regras padrão incluem AllowVnetOutBound e AllowInternetOutBound; a negação só vem depois. Achar que padrão nega tudo é o erro comum.",
+    "source": "mslearn",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false,
+    "tags": ["g16"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T02:11:52.930Z",
+    "version": 1
+  },
+  {
+    "id": "az104-rv-187",
+    "domain": "rede-virtual",
+    "subdomain": "lb-nsg-obrigatorio",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um balanceador público do SKU Standard foi criado com um frontend que atende a porta 443, mas o time testa o acesso e o tráfego é bloqueado. Nenhuma regra de entrada foi criada em nenhum grupo de segurança de rede. O que explica o bloqueio?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O SKU Standard é aberto à internet por padrão, e o bloqueio vem da sonda de integridade configurada para uma porta diferente da do frontend"
+      },
+      {
+        "letter": "B",
+        "text": "O SKU Standard é fechado para conexões de entrada por padrão e exige regras explícitas em um NSG, na sub-rede ou na interface de rede"
+      },
+      {
+        "letter": "C",
+        "text": "O SKU Standard é fechado por padrão, mas o bloqueio ocorre porque o pool de back-end não pode conter endereços privados"
+      },
+      {
+        "letter": "D",
+        "text": "O SKU Standard é fechado por padrão, e basta adicionar uma regra de saída no NSG para liberar o tráfego de entrada"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "O balanceador Standard e o IP publico do SKU Standard sao fechados para conexcoes de entrada por padrao, como parte do modelo de seguranca de confianca zero: o trafego e bloqueado quando nao existe NSG na sub-rede ou na interface de rede. Por isso a liberacao exige uma regra explicita de entrada, tipicamente de origem com a marca de servico AzureLoadBalancer e destino a porta da aplicacao. O padrao aberto era caracteristico do SKU Basic, que foi descontinuado em 30 de setembro de 2025. Regra de saida nao libera entrada, e o pool aceita VMs sem IP publico.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/load-balancer/load-balancer-overview",
+    "needsReview": true,
+    "tags": ["load-balancer", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T15:44:32.246Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-201",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-apenas-novas-conexoes",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma sessão SSH ativa para uma VM e, em seguida, um administrador remove a regra de segurança que permitia aquele tráfego. O que acontece com a sessão?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A sessão é encerrada imediatamente, porque a remoção da regra invalida todo o fluxo já estabelecido"
+      },
+      {
+        "letter": "B",
+        "text": "A sessão existente continua funcionando, porque as regras de NSG só se aplicam a novas conexões; as novas tentativas de SSH serão bloqueadas"
+      },
+      {
+        "letter": "C",
+        "text": "A sessão continua e as novas conexões também passam, porque a regra padrão AllowVnetOutBound restaura o acesso"
+      },
+      {
+        "letter": "D",
+        "text": "A sessão é mantida apenas se houver uma segunda regra de mesma prioridade na direção oposta"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "As regras de um grupo de segurança de rede afetam somente conexões novas. O doc dá um exemplo explícito: ao remover a regra que permitia SSH com uma sessão ativa, a sessão corrente permanece conectada e funcional, enquanto novas tentativas são bloqueadas. A razão é o registro de fluxo que o NSG mantém para cada conexão: a comunicação é permitida ou negada com base no estado de conexão desse registro, e regras novas ou atualizadas valem apenas para conexões novas. Por isso, mudar regra não é mecanismo para derrubar conexão em andamento, e não depende de regra de mesma prioridade na direção oposta.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-202",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-ordem-prioridade",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um NSG tem uma regra de entrada que nega todo o tráfego de Internet na porta 22 com prioridade 100, e outra que permite SSH apenas de 10.0.1.0/24 na mesma porta com prioridade 200. O que acontece com uma conexão vinda de 10.0.1.5 para a porta 22?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A conexão é negada, porque a regra de prioridade 100 é processada primeiro, casa com o tráfego e encerra a avaliação"
+      },
+      {
+        "letter": "B",
+        "text": "A conexão é permitida, porque a regra de prioridade 200 é mais específica e sobrepõe a regra mais ampla"
+      },
+      {
+        "letter": "C",
+        "text": "A conexão é permitida, porque regras de mesma direção não podem ter prioridades diferentes"
+      },
+      {
+        "letter": "D",
+        "text": "A conexão é negada, porque regras de mesma direção precisam ter números de prioridade diferentes entre si"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "As regras são processadas em ordem de prioridade, do número menor para o maior, porque números menores têm prioridade mais alta. O ponto decisivo é que, assim que o tráfego casa com uma regra, o processamento para: as regras de prioridade menor, isto é números maiores, não são processadas. Com a negação em 100, o tráfego de 10.0.1.5 na porta 22 é barrado antes de a regra 200 ser considerada, mesmo que ela seja mais específica. Para permitir um recorte dentro de um bloco já negado, a regra de permissão precisa de número menor que o da negação. E como não se podem criar duas regras de segurança com a mesma prioridade e direção, nem esse par de regras seria válido no NSG.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-203",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-regras-padrao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um administrador quer eliminar a regra padrão DenyAllInbound de um grupo de segurança de rede para simplificar a visualização. O que a documentação permite?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "As regras padrão só podem ser removidas depois que uma regra de mesma prioridade e direção for criada"
+      },
+      {
+        "letter": "B",
+        "text": "As regras padrão podem ser desativadas configurando a propriedade access como definir no arquivo de deployment"
+      },
+      {
+        "letter": "C",
+        "text": "As regras padrão são removidas automaticamente quando a sub-rede recebe uma tabela de rotas associada"
+      },
+      {
+        "letter": "D",
+        "text": "As regras padrão não podem ser removidas, e o efeito delas é alterado por uma regra customizada com prioridade mais alta, isto é, número menor"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "As regras de segurança padrão criadas em cada NSG não podem ser removidas; a forma de mudar o efeito delas é criar uma regra com prioridade mais alta, ou seja, número menor, que seja processada antes. É por isso que as regras padrão do Azure recebem a prioridade mais baixa, os maiores números, para garantir que as regras customizadas sejam sempre processadas primeiro. Propriedade access com valor de definir não existe, e associar tabela de rotas à sub-rede não tem efeito sobre as regras do NSG.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-204",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-stateful",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um NSG na sub-rede tem uma regra de saída que permite todo o tráfego de saída para qualquer destino na porta 443. Uma VM nessa sub-rede acessa um serviço externo por HTTPS. É preciso criar uma regra de entrada para permitir a resposta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sim, porque cada regra vale só para a direção em que foi criada e o retorno exige regra própria"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, mas apenas se a resposta vier de um endereço que não esteja na regra de saída"
+      },
+      {
+        "letter": "C",
+        "text": "Sim, e a regra de entrada precisa ter exatamente a mesma prioridade da regra de saída"
+      },
+      {
+        "letter": "D",
+        "text": "Não, porque o NSG é stateful: a regra de saída permite a requisição e o fluxo de retorno é permitido automaticamente"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "As regras de segurança são avaliadas pelo five-tuple de origem, porta de origem, destino, porta de destino e protocolo. Para conexões existentes é criado um registro de fluxo, e a comunicação é permitida ou negada conforme o estado de conexão desse registro: é o registro de fluxo que torna o grupo de segurança de rede stateful. Na prática, se você especifica uma regra de saída para qualquer endereço na porta 80, não precisa especificar regra de entrada para a resposta desse tráfego de saída; só é preciso uma regra de entrada quando a comunicação é iniciada externamente. O inverso também vale.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-205",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-service-tags-definicao",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Ao criar uma regra de entrada, o campo de origem aceita VirtualNetwork, AzureLoadBalancer e Internet. O que esses três valores são?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "São endereços IP reservados do Azure que podem ser escritos diretamente na regra"
+      },
+      {
+        "letter": "B",
+        "text": "São rótulos que apenas organizam as regras no portal e não afetam o tráfego"
+      },
+      {
+        "letter": "C",
+        "text": "São faixas de prefixos que o Azure atualiza a cada trinta dias, exigindo revisão das regras"
+      },
+      {
+        "letter": "D",
+        "text": "São marcas de serviço, que representam grupos de prefixos de endereços IP de um serviço do Azure, e não endereços IP literais"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Uma marca de serviço representa um grupo de prefixos de endereços IP de um determinado serviço do Azure, e existe para minimizar a complexidade das atualizações frequentes nas regras de segurança de rede. Azure gerencia os prefixos abrangidos pela marca e os atualiza à medida que os endereços mudam, então a regra não precisa ser editada a cada mudança. VirtualNetwork, AzureLoadBalancer e Internet são marcas de serviço dessa lista, e não endereços IP literais nem meros rótulos de organização no portal.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "service-tag"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-206",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-regras-aumentadas",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma regra de segurança precisa liberar a porta 443 de origem para três faixas de IP ao mesmo tempo. Qual é a restrição das regras de segurança aumentadas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Permitem combinar várias portas e vários endereços IP explícitos e faixas na mesma regra, mas não é possível especificar várias marcas de serviço ou vários grupos de aplicativo em uma única regra"
+      },
+      {
+        "letter": "B",
+        "text": "Permitem combinar qualquer quantidade de portas, endereços, marcas de serviço e grupos de aplicativo na mesma regra"
+      },
+      {
+        "letter": "C",
+        "text": "Permitem apenas um endereço IP por regra, como nas regras de segurança do modelo clássico"
+      },
+      {
+        "letter": "D",
+        "text": "Não existem no modelo de implantação Resource Manager, e só estão disponíveis no clássico"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "As regras de segurança aumentadas simplificam a definição de segurança das redes virtuais, permitindo definir políticas de rede maiores e mais complexas com menos regras. Elas permitem especificar vários endereços IP individuais e faixas em uma única regra, e também várias portas. A restrição é explícita: não é possível especificar múltiplas marcas de serviço ou múltiplos grupos de aplicativo em uma única regra. Para aproveitar a simplificação com marcas de serviço ou grupos de segurança de aplicativo, a recomendação é combinar as regras aumentadas com essas entidades, e não agrupá-las dentro da mesma regra. As regras aumentadas só existem em grupos de segurança de rede criados pelo modelo de implantação Resource Manager.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-207",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-regras-admin",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma política de segurança do Azure Virtual Network Manager define uma regra de segurança admin com ação Negar. Como ela se relaciona com as regras do grupo de segurança de rede da sub-rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "As regras de segurança admin só são aplicadas quando não existe nenhuma regra de NSG correspondente na sub-rede"
+      },
+      {
+        "letter": "B",
+        "text": "As regras admin são avaliadas antes das regras de NSG, e uma ação Negar encerra a avaliação, sem que o tráfego chegue às regras de NSG"
+      },
+      {
+        "letter": "C",
+        "text": "As regras de segurança admin têm prioridade menor que as regras de NSG e só entram na avaliação depois delas"
+      },
+      {
+        "letter": "D",
+        "text": "As regras de segurança admin aplicam a mesma ação à sessão inteira, sem diferença entre Negar e Always allow"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "As regras de segurança admin são regras de segurança de rede globais que aplicam políticas de segurança às redes virtuais, originadas do Azure Virtual Network Manager, que permite agrupar, configurar, implantar e gerenciar redes virtuais globalmente entre assinaturas. Elas sempre têm prioridade mais alta que as regras de grupo de segurança de rede e por isso são avaliadas primeiro. Uma regra admin com ação Allow continua a avaliação nas regras de NSG correspondentes; já as ações Always allow e Negar encerram a avaliação do tráfego depois de processada a regra admin. Uma regra Negar bloqueia o tráfego sem entregá-lo ao destino, e uma Always allow envia o tráfego direto ao recurso, contornando regras de NSG conflitantes. O ponto que costuma ser testado é que o tráfego que casa com Always allow ou Negar não chega às regras de NSG.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-208",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-vip-plataforma",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa precisa negar explicitamente o acesso aos serviços básicos de plataforma, como DNS e IMDS, nas suas VMs. Como a documentação orienta a fazer isso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Criando uma regra de saída que nega a porta 1688, porque é por ela que passam esses serviços de plataforma"
+      },
+      {
+        "letter": "B",
+        "text": "Criando uma regra que nega o tráfego usando as marcas de serviço AzurePlatformDNS, AzurePlatformIMDS e AzurePlatformLKM"
+      },
+      {
+        "letter": "C",
+        "text": "Criando uma regra que nega o destino 168.63.129.16, o IP virtualizado do nó host"
+      },
+      {
+        "letter": "D",
+        "text": "Não é possível sobrepor a configuração, porque esses serviços não passam pelo grupo de segurança de rede"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Os serviços básicos de infraestrutura, como DHCP, DNS, IMDS e monitoramento de integridade, são oferecidos pelos endereços IP virtualizados do host, 168.63.129.16 e 169.254.169.254, que pertencem à Microsoft e são os únicos IPs virtualizados usados para esse fim em todas as regiões. Por padrão esses serviços não estão sujeitos aos grupos de segurança de rede configurados, a menos que sejam alvo das marcas de serviço específicas de cada serviço. Para sobrepor essa comunicação de infraestrutura básica, a documentação orienta a criar uma regra de segurança que negue o tráfego usando as marcas de serviço AzurePlatformDNS, AzurePlatformIMDS e AzurePlatformLKM. A porta 1688 não é a porta desses serviços: ela é usada pela requisição de licenciamento das imagens do Windows.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-209",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-kms-1688",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Qual tráfego de plataforma do Azure é uma exceção conhecida à avaliação das NSGs, e qual é a condição em que essa exceção desaparece?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "As sondas de integridade do balanceador, que consultam a porta 8080; a exceção desaparece quando o pool usa IPv6"
+      },
+      {
+        "letter": "B",
+        "text": "A resolução de nomes do Azure DNS, que consulta a porta 53; a exceção desaparece quando a sub-rede usa service endpoint"
+      },
+      {
+        "letter": "C",
+        "text": "O licenciamento das imagens do Windows, que faz uma requisição de saída pela porta 1688; a exceção desaparece quando a VM usa uma rota padrão 0.0.0.0/0"
+      },
+      {
+        "letter": "D",
+        "text": "O download de imagens do marketplace, que consulta a porta 443; a exceção desaparece quando a VM é redimensionada"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "As imagens do Windows que rodam em máquinas virtuais precisam ser licenciadas, e para garantir o licenciamento o sistema envia uma requisição aos servidores host do Key Management Service que tratam dessas consultas. A requisição é feita de saída pela porta 1688, e essa regra de plataforma é uma das exceções conhecidas à avaliação das NSGs. Para implantações que usam a configuração de rota padrão 0.0.0.0/0, essa regra de plataforma é desabilitada, e é exatamente por isso que a condição de desaparecimento da exceção é o uso da rota padrão.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-210",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-smtp-porta25",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma VM em uma assinatura pay-as-you-go criada antes de 15 de novembro de 2017 precisa enviar e-mail para um parceiro externo. O que a documentação determina sobre o envio direto pela porta 25?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O envio pela porta 25 é bloqueado, mas a remoção do bloqueio pode ser solicitada pelo diagnóstico da rede virtual"
+      },
+      {
+        "letter": "B",
+        "text": "O envio é bloqueado para todas as assinaturas pay-as-you-go, e não há como solicitar a remoção"
+      },
+      {
+        "letter": "C",
+        "text": "O envio pela porta 25 é permitido apenas para destinatários no mesmo país da região da VM"
+      },
+      {
+        "letter": "D",
+        "text": "O envio direto pela porta 25 é permitido, porque a assinatura foi criada antes de 15 de novembro de 2017"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "A Microsoft recomenda usar serviços de retransmissão SMTP autenticados, tipicamente na porta TCP 587, para enviar e-mail de máquinas virtuais, porque esses serviços cuidam da reputação do remetente e reduzem a rejeição por parte dos provedores de e-mail dos parceiros. O uso desses serviços de retransmissão não é restringido de forma alguma, independentemente do tipo de assinatura. A diferença está no envio direto pela porta 25: assinaturas criadas antes de 15 de novembro de 2017 podem, além de usar os serviços de retransmissão, enviar e-mail diretamente pela porta 25. Para assinaturas pay-as-you-go criadas depois dessa data, a comunicação de saída pela porta 25 é bloqueada em todos os recursos e não há como solicitar a remoção, porque as solicitações não são concedidas.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-211",
+    "domain": "rede-virtual",
+    "subdomain": "nsg-pool-balanceamento",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Ao avaliar as regras de uma NSG aplicada a VMs que estão em um pool de balanceamento, quais endereço e porta a documentação diz que devem ser usados na avaliação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O IP privado e a porta do frontend do balanceador, porque o tráfego entra por ele antes de chegar à VM"
+      },
+      {
+        "letter": "B",
+        "text": "O IP público da VM de destino, porque a avaliação ocorre depois da tradução de endereços"
+      },
+      {
+        "letter": "C",
+        "text": "A porta e a faixa de origem são as da máquina que originou a conexão, e as de destino são as da máquina de destino, e não as do balanceador"
+      },
+      {
+        "letter": "D",
+        "text": "O IP e a porta do balanceador na origem e o IP privado da VM no destino, em qualquer regra do grupo"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Para máquinas virtuais em pools com balanceamento de carga, a porta e a faixa de origem aplicadas são as da máquina de origem, e não as do balanceador de carga. A porta e a faixa de destino são as da máquina de destino, e não as do balanceador. Isso evita que a regra seja escrita contra os endereços do frontend, que mudam conforme a topologia, e faz a avaliação da NSG refletir o fluxo real entre as máquinas. Vale lembrar a regra geral do mesmo doc: para tráfego de entrada, o NSG processa o tráfego depois de o Azure traduzir IP público para IP privado, e para tráfego de saída, processa antes da tradução.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": true,
+    "tags": ["nsg", "load-balancer"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T14:40:25.987Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-223",
+    "domain": "rede-virtual",
+    "subdomain": "se-dns-ip-publico",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma sub-rede tem o service endpoint do Azure Storage habilitado e uma regra de rede virtual permite a sub-rede no firewall da conta de armazenamento. Para qual endereço as consultas de DNS do nome da conta de armazenamento continuam resolvendo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Para um endereço IP privado do endpoint na sub-rede, porque o service endpoint entrega conectividade por IP privado"
+      },
+      {
+        "letter": "B",
+        "text": "Para o endereço IP público atribuído ao serviço Azure, porque com service endpoints as entradas DNS do serviço permanecem as mesmas"
+      },
+      {
+        "letter": "C",
+        "text": "Para o endereço IP privado da interface de rede do aplicativo que consome o serviço"
+      },
+      {
+        "letter": "D",
+        "text": "Para nenhum endereço, porque o registro do serviço é removido do DNS quando o endpoint é habilitado"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Com service endpoints, as entradas DNS dos serviços Azure permanecem como estão e continuam resolvendo para os endereços IP públicos atribuídos ao serviço. O que muda é o IP de origem: o tráfego de serviço passa a usar o endereço privado da rede virtual como IP de origem, em vez do IP público. É por isso que a documentação diz que não são mais necessários IPs públicos reservados nas regras de firewall do serviço. Endpoint público do serviço continua sendo o destino do DNS; o que muda na origem é que a sub-rede passa a ser identificada pelo endereço privado.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-service-endpoints-overview",
+    "needsReview": true,
+    "tags": ["service-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-224",
+    "domain": "rede-virtual",
+    "subdomain": "se-troca-ip-origem-firewall",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma conta de Armazenamento tem uma regra de firewall que libera o intervalo de IPs públicos do Azure, e não a rede virtual. O administrador vai habilitar o service endpoint na sub-rede que acessa a conta. O que a documentação exige?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nada, porque a regra continua valendo e o tráfego passa a ser identificado pelo IP público da sub-rede"
+      },
+      {
+        "letter": "B",
+        "text": "A regra deve ser removida, porque com service endpoint o firewall do serviço deixa de ser aplicado"
+      },
+      {
+        "letter": "C",
+        "text": "As regras de firewall que usam IPs públicos do Azure deixam de funcionar, e devem ser ajustadas para o endereço privado antes de habilitar o endpoint"
+      },
+      {
+        "letter": "D",
+        "text": "O tráfego passa a ser identificado pelo IP público do serviço, e não pelo da sub-rede"
+      }
+    ],
+    "correct": ["C"],
+    "explanation": "Hoje o tráfego de serviço de uma rede virtual usa endereços IP públicos como IP de origem. Com service endpoints, o tráfego de serviço passa a usar endereços privados da rede virtual como IP de origem, e por isso as regras de firewall existentes do serviço Azure que usam IPs públicos do Azure deixam de funcionar com essa troca. A documentação pede duas cautelas: garantir que as regras de firewall do serviço permitam a troca antes de configurar o service endpoint, e lembrar que as conexões TCP abertas existentes para o serviço são fechadas durante a troca. A troca de IP afeta apenas o tráfego de serviço, não o tráfego dos IPv4 públicos das VMs.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-service-endpoints-overview",
+    "needsReview": true,
+    "tags": ["service-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-225",
+    "domain": "rede-virtual",
+    "subdomain": "se-rota-sobrescreve-bg",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Com um service endpoint do Azure Storage habilitado na sub-rede, o administrador consulta as rotas efetivas de uma interface de rede nessa sub-rede. O que ele vê para a rota do serviço?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Uma rota mais específica que a rota default para os prefixos do serviço, com nextHopType VirtualNetworkServiceEndpoint, que sobrescreve rotas BGP e UDR"
+      },
+      {
+        "letter": "B",
+        "text": "Uma rota com nextHopType Virtual appliance, caso exista um appliance de rede virtual na sub-rede"
+      },
+      {
+        "letter": "C",
+        "text": "Uma rota com nextHopType Internet, porque o tráfego do serviço sai pela rota default da sub-rede"
+      },
+      {
+        "letter": "D",
+        "text": "Nenhuma rota para o serviço, porque o service endpoint não altera a tabela de rotas da sub-rede"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "A documentação de service endpoints diz que as rotas de service endpoint sobrescrevem qualquer rota BGP ou rota definida pelo usuário para a correspondência de prefixo de um serviço Azure. Para validar que a rota está em efeito, olha-se as rotas efetivas de uma interface de rede na sub-rede: a rota para o serviço mostra uma rota default mais específica para as faixas de prefixo de cada serviço, tem nextHopType VirtualNetworkServiceEndpoint e indica uma conexão mais direta ao serviço do que as rotas de túnel forçado. Isso combina com a regra geral de roteamento, em que rotas de sistema de rede virtual, peering e service endpoint são preferidas e não podem ser sobrescritas.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-service-endpoints-overview",
+    "needsReview": true,
+    "tags": ["service-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-226",
+    "domain": "rede-virtual",
+    "subdomain": "se-limitacao-on-premises",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa quer alcançar uma conta de Armazenamento protegida por regra de rede virtual a partir de um servidor no local (on-premises). O service endpoint da sub-rede já está habilitado. O que a documentação diz?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O service endpoint da sub-rede protege o acesso on-premises automaticamente, desde que o servidor use a mesma sub-rede por VPN"
+      },
+      {
+        "letter": "B",
+        "text": "É preciso habilitar um segundo service endpoint, habilitado especificamente para o tráfego on-premises"
+      },
+      {
+        "letter": "C",
+        "text": "Basta criar uma regra de rede virtual adicional que aponte para o prefixo do servidor on-premises"
+      },
+      {
+        "letter": "D",
+        "text": "Service endpoints não podem ser usados para tráfego de serviços on-premises a serviços Azure; para on-premises é preciso liberar os IPs públicos de NAT no firewall do serviço"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "Service endpoints são habilitados em sub-redes de redes virtuais e não podem ser usados para tráfego de serviços on-premises a serviços Azure. Para permitir acesso a partir de on-premises a um recurso de serviço Azure protegido por rede virtual, a documentação instrui a liberar também os endereços IP públicos, tipicamente de NAT, de on-premises ou do ExpressRoute, na configuração de firewall do recurso do serviço. Com ExpressRoute e Microsoft peering, são os endereços IP de NAT, fornecidos pelo cliente ou pelo provedor de serviço, que devem ser permitidos. Esse é justamente o caso em que a Microsoft recomenda Private Link, que dá acesso por private endpoint a partir de on-premises por ExpressRoute private peering, VPN ou peering de VNet.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-service-endpoints-overview",
+    "needsReview": true,
+    "tags": ["service-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-227",
+    "domain": "rede-virtual",
+    "subdomain": "pe-mapeia-instancia",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma equipe conecta um private endpoint à rede virtual e afirma que isso protege contra vazamento de dados, porque o consumidor passa a falar com um endpoint isolado. O que a documentação afirma sobre o que o private endpoint mapeia?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O private endpoint é mapeado a uma instância de um recurso PaaS específico, e não ao serviço inteiro, e o acesso a qualquer outro recurso do serviço é bloqueado"
+      },
+      {
+        "letter": "B",
+        "text": "O private endpoint é mapeado a todas as instâncias do serviço, e o isolamento é apenas de rede"
+      },
+      {
+        "letter": "C",
+        "text": "O private endpoint é mapeado ao serviço inteiro, e a proteção contra vazamento depende do NSG da sub-rede"
+      },
+      {
+        "letter": "D",
+        "text": "O private endpoint é mapeado à assinatura inteira, e o consumidor só alcança os serviços da própria assinatura"
+      }
+    ],
+    "correct": ["A"],
+    "explanation": "Um dos benefícios do Private Link é a proteção contra vazamento de dados: o private endpoint é mapeado a uma instância de um recurso PaaS, e não ao serviço inteiro. O consumidor só pode conectar ao recurso específico, e o acesso a qualquer outro recurso daquele serviço é bloqueado. Essa é a razão de o private endpoint ser uma boa opção para o outline: ele atua sobre um recurso específico, ao contrário do service endpoint, que estende a identidade da sub-rede como um todo ao serviço. O private endpoint também pode ser criado na VNet do consumidor para acessar serviços PaaS e serviços próprios ou de parceiros com o tráfego sempre pela rede backbone da Microsoft.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/private-link/private-link-overview",
+    "needsReview": true,
+    "tags": ["private-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-228",
+    "domain": "rede-virtual",
+    "subdomain": "pe-backbone-sem-ip-publico",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Com um private endpoint em uma rede virtual, por onde viaja o tráfego entre a rede virtual e o serviço PaaS, e qual é o efeito sobre a exposição do serviço à internet pública?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O tráfego viaja pela internet pública, com o IP privado do endpoint fazendo NAT para o IP público do serviço"
+      },
+      {
+        "letter": "B",
+        "text": "O tráfego viaja pela rede backbone da Microsoft, e expor o serviço à internet pública deixa de ser necessário"
+      },
+      {
+        "letter": "C",
+        "text": "O tráfego viaja pela rede backbone da Microsoft, mas o serviço ainda precisa expor a porta para a internet pública"
+      },
+      {
+        "letter": "D",
+        "text": "O tráfego viaja pelo gateway de rede virtual da sub-rede, e o serviço precisa continuar público para aceitar conexões"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "O Private Link permite acessar serviços Azure PaaS, como Armazenamento e SQL Database, e serviços próprios ou de parceiros por um private endpoint dentro da sua rede virtual. O tráfego entre a sua rede virtual e o serviço viaja pela rede backbone da Microsoft, e expor o serviço à internet pública deixa de ser necessário. A plataforma Private Link cuida da conectividade entre o consumidor e o serviço pela rede backbone do Azure, e o consumidor acessa o serviço por um private endpoint na rede virtual local. Por isso o serviço PaaS pode ser protegido contra vazamento de dados e alcançar workloads migrados para o Azure sem depender de rota pela internet.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/private-link/private-link-overview",
+    "needsReview": true,
+    "tags": ["private-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-229",
+    "domain": "rede-virtual",
+    "subdomain": "pe-on-premises-er-privado",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Uma empresa quer acessar, de sua instalação on-premises, um serviço PaaS do Azure por private endpoint. Qual caminho o Private Link permite sem precisar configurar o Microsoft peering do ExpressRoute nem atravessar a internet?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Acesso pelo Microsoft peering do ExpressRoute, com o private endpoint resolvendo o tráfego pelo peering da Microsoft"
+      },
+      {
+        "letter": "B",
+        "text": "Acesso por VPN site-to-site com forced tunneling obrigatório, para não haver rota pela internet"
+      },
+      {
+        "letter": "C",
+        "text": "Acesso por DNS privado apontando diretamente para o IP privado do serviço, sem passar por peering"
+      },
+      {
+        "letter": "D",
+        "text": "Acesso por ExpressRoute private peering, túneis VPN ou redes virtuais peered, usando private endpoints"
+      }
+    ],
+    "correct": ["D"],
+    "explanation": "O Private Link permite acessar serviços que rodam no Azure a partir de on-premises por ExpressRoute private peering, túneis VPN e redes virtuais peered, usando private endpoints. Não é preciso configurar o Microsoft peering do ExpressRoute nem atravessar a internet para alcançar o serviço. Essa é uma das formas de migrar cargas de trabalho com segurança para o Azure. Em contraste, o service endpoint é habilitado apenas na sub-rede e não serve para tráfego de serviços on-premises a serviços Azure, situação em que a documentação manda liberar IPs públicos de NAT no firewall do serviço.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/private-link/private-link-overview",
+    "needsReview": true,
+    "tags": ["private-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-230",
+    "domain": "rede-virtual",
+    "subdomain": "pe-service-atras-de-standard-lb",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um fornecedor quer expor seu próprio serviço, hospedado em uma rede virtual, a clientes na plataforma Azure com a mesma experiência de um serviço PaaS. O que a documentação exige para habilitar o Private Link nesse serviço?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Colocar o serviço atrás de um Azure Load Balancer básico, que já dá suporte nativo a private endpoint"
+      },
+      {
+        "letter": "B",
+        "text": "Colocar o serviço atrás de um Azure Load Balancer standard, para que os clientes conectem por private endpoint e as solicitações passem por um fluxo de aprovação"
+      },
+      {
+        "letter": "C",
+        "text": "Habilitar um service endpoint no próprio serviço, para que os clientes alcancem o IP privado por DNS privado"
+      },
+      {
+        "letter": "D",
+        "text": "Publicar o serviço com um IP público e um balanceador front-end, e limitar o acesso por NSG do balanceador"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Para expor o seu próprio serviço, a documentação diz que é preciso colocá-lo atrás de um Azure Load Balancer standard. Com isso, o serviço pode ser habilitado para Private Link, e o consumidor conecta diretamente ao serviço usando um private endpoint na própria rede virtual. O provedor gerencia as solicitações de conexão usando um fluxo de chamada de aprovação. O Private Link funciona tanto para serviços PaaS do Azure quanto para serviços próprios e de parceiros, e funciona para consumidor e serviço em tenants diferentes do Microsoft Entra. Private Endpoint e Private Link service estão ambos em disponibilidade geral.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/private-link/private-link-overview",
+    "needsReview": true,
+    "tags": ["private-link", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-231",
+    "domain": "rede-virtual",
+    "subdomain": "pe-alcance-global-regioes",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "O consumidor de um private link está em uma rede virtual na região A, e o serviço por trás do Private Link está na região B. O alcance global do Private Link permite essa combinação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Não, o private link exige que consumidor e serviço estejam na mesma região"
+      },
+      {
+        "letter": "B",
+        "text": "Sim, o consumidor pode estar em uma região e se conectar a serviços por trás do Private Link em outra região"
+      },
+      {
+        "letter": "C",
+        "text": "Não, salvo quando o consumidor usa ExpressRoute, que é a única forma de atravessar regiões"
+      },
+      {
+        "letter": "D",
+        "text": "Não, porque apenas o service endpoint, e não o private endpoint, pode atravessar regiões"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Um dos benefícios do Private Link é o alcance global: é possível conectar-se privadamente a serviços que rodam em outras regiões. A rede virtual do consumidor pode estar na região A e se conectar a serviços por trás do Private Link na região B. Essa propriedade contrasta com o service endpoint, que para o Azure SQL se aplica apenas ao tráfego de serviço dentro da região da rede virtual, embora para os demais serviços o recurso do Azure possa ser protegido a partir de uma rede virtual em qualquer região. O Private Link também é zone resilient, assim como a rede virtual.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/private-link/private-link-overview",
+    "needsReview": true,
+    "tags": ["private-link", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  },
+  {
+    "id": "az104-rv-232",
+    "domain": "rede-virtual",
+    "subdomain": "se-permissao-vincular",
+    "type": "single",
+    "difficulty": "medium",
+    "question": "Um usuário tem escrita na rede virtual e consegue habilitar um service endpoint na sub-rede. Para vincular um recurso do serviço Azure a essa rede virtual, além de habilitar o endpoint, o que a documentação exige?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Nenhuma permissão extra, porque habilitar o endpoint na sub-rede já vincula o serviço à rede virtual"
+      },
+      {
+        "letter": "B",
+        "text": "A permissão Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action nas sub-redes adicionadas"
+      },
+      {
+        "letter": "C",
+        "text": "A permissão de contribuidor na assinatura inteira, para que o endpoint se propague às demais sub-redes"
+      },
+      {
+        "letter": "D",
+        "text": "A permissão Microsoft.Network/virtualNetworks/write, que substitui a permissão de ação do endpoint"
+      }
+    ],
+    "correct": ["B"],
+    "explanation": "Quem tem acesso de escrita à rede virtual pode configurar service endpoints independentemente. Mas, para proteger recursos de serviço Azure a uma rede virtual, é preciso ter a permissão Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action para as sub-redes adicionadas. Os papéis de administrador de serviço internos incluem essa permissão por padrão, mas ela pode ser modificada criando papéis personalizados. A rede virtual e o recurso do serviço podem estar na mesma ou em assinaturas diferentes, e alguns serviços, como Armazenamento e Cofre de Chaves, também suportam service endpoints entre tenants diferentes do Microsoft Entra.",
+    "source": "original",
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-network-service-endpoints-overview",
+    "needsReview": true,
+    "tags": ["service-endpoint", "rede-virtual"],
+    "createdAt": "2026-10-04T02:11:52.930Z",
+    "updatedAt": "2026-10-04T16:57:08.489Z",
+    "version": 3
+  }
+]

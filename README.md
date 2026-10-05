@@ -2,7 +2,7 @@
 
 > Passe no AZ-104 treinando de verdade: simulados iguais à prova, revisão no ritmo certo e guia com links oficiais da Microsoft. Grátis, funciona offline.
 
-![logo](public/icons/source.png)
+![Passei AZ-104](public/icons/source-logo.webp)
 
 [![ci](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/ci.yml/badge.svg)](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/ci.yml)
 [![deploy](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/deploy.yml/badge.svg)](https://github.com/ZeroBond85/PasseiAZ104/actions/workflows/deploy.yml)
@@ -11,6 +11,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **👉 Use agora:** https://zerobond85.github.io/PasseiAZ104/
+
+![demonstração: respondendo questões no simulado](docs/screenshots/quiz.gif)
 
 ---
 
@@ -37,11 +39,11 @@ Um app de estudos em **português (Brasil)** que simula a prova real (formato Pe
 
 | Domínio | Questões |
 |---|---|
-| Identidade e Governança (20–25%) | 230 |
-| Storage (15–20%) | 170 |
-| Compute (20–25%) | 230 |
-| Rede Virtual (15–20%) | 175 |
-| Monitoramento (10–15%) | 145 |
+| Identidade e Governança (20–25%) | 243 |
+| Storage (15–20%) | 180 |
+| Compute (20–25%) | 243 |
+| Rede Virtual (15–20%) | 184 |
+| Monitoramento (10–15%) | 150 |
 
 Tipos: escolha única (60%) · múltipla escolha (20%) · case study (15%, em blocos) · sim/não (5%).
 Níveis: fácil 20% · médio 50% · difícil 30%.
@@ -53,11 +55,11 @@ e da documentação oficial da Microsoft, mapeadas 1:1 para o outline oficial vi
 (skills 17/04/2026 — `syllabus-gap` prova cobertura total, sem gaps).
 Não são cópias de questões da prova.
 
-**Estado do ancoramento (honesto):** hoje **51 das 1000** questões estão ancoradas em uma página
-específica da documentação oficial em PT-BR, com o link verificado a cada curadoria
-(`npm run grounding:probe`). As outras 949 estão mapeadas 1:1 para o outline oficial, mas ainda sem
-`sourceUrl` individual. As explicações e o Study Hub apontam para a documentação oficial; os links
-"estudar depois" só ficam completos quando o ancoramento das 949 fechar.
+**Estado do ancoramento (honesto):** hoje **472 das 1000** questões têm `sourceUrl`
+individual apontando para uma página específica da documentação oficial em PT-BR
+(todas vivas — `npm run grounding:probe` 135/135 URLs do mapa). As outras 528
+estão mapeadas 1:1 para o outline oficial, mas ainda sem `sourceUrl` individual. As explicações e o Study Hub apontam para a documentação oficial; os links
+"estudar depois" só ficam completos quando o ancoramento das 528 fechar.
 
 Dessas 51, a revisão factual de 2026-10-02 leu **uma a uma na fonte**: **49 confirmadas** e
 **2 corrigidas** (uma ensinava um recurso já aposentado — logs de fluxo do NSG — e outra estava
@@ -134,6 +136,12 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 
 Leia `CONTRIBUTING.md`, `REGRAS.md` e `docs/QUESTION-GUIDELINES.md`. Resumo: questão nova via `npx tsx scripts/new-question.mts` + checklist de qualidade + `validate` limpo; falha no CI vira teste de regressão + lição no `LESSONS.md`.
 
+## Onde reportar
+
+- **Erro em questão ou regressão no app** → abra uma [Issue](https://github.com/ZeroBond85/PasseiAZ104/issues) (falha no CI vira teste de regressão + lição no `LESSONS.md`).
+- **Dúvida de estudo ou estratégia de prova** → use as [Discussions](https://github.com/ZeroBond85/PasseiAZ104/discussions).
+- **Problema de segurança** → reporte em privado (ver `SECURITY.md`); nunca publique segredo em Issue, PR ou chat.
+
 ## Para quem é
 
 Para quem vai fazer a **prova oficial AZ-104 em português** (Microsoft Azure Administrator
@@ -141,6 +149,12 @@ Associate): simulado no formato real da prova, 1000 questões em PT-BR, revisão
 guia de estudo com links oficiais da Microsoft — e um painel que mostra quando você
 está pronto para marcar a prova. Grátis e offline.
 
+## Créditos
+
+Questões autorais em PT-BR (não são cópias da prova), ancoradas na [documentação oficial da Microsoft](https://learn.microsoft.com/pt-br/azure/). Feito com componentes [Lit](https://lit.dev/) (MIT), build [Vite](https://vite.dev/) (MIT), auth/sync [Supabase](https://supabase.com/) (Apache-2.0), testes [Vitest](https://vitest.dev/) + [Playwright](https://playwright.dev/) (ambos MIT/Apache-2.0) e lint [Biome](https://biomejs.dev/) (MIT). Ver `LICENSE`.
+
 ## Licença
 
 MIT — ver `LICENSE`. Feito para estudar e passar. Boa prova! 🚀
+
+[![Star History](https://api.star-history.com/svg?repos=ZeroBond85/PasseiAZ104&type=date)](https://star-history.com/#ZeroBond85/PasseiAZ104&date)

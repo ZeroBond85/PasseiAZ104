@@ -15,13 +15,25 @@ const DOMAINS = [
     code: 'ig',
     files: ['identidade-governanca.json', 'identidade-acesso.json'],
   },
-  { id: 'storage', code: 'st', files: ['storage.json'] },
+  {
+    id: 'storage',
+    code: 'st',
+    files: [
+      'storage-access.json',
+      'storage-accounts.json',
+      'storage-files-blobs.json',
+    ],
+  },
   {
     id: 'compute',
     code: 'co',
     files: ['compute-vms.json', 'compute-apps.json', 'compute-platform.json'],
   },
-  { id: 'rede-virtual', code: 'rv', files: ['rede-virtual.json'] },
+  {
+    id: 'rede-virtual',
+    code: 'rv',
+    files: ['rede-vnets.json', 'rede-secure-access.json', 'rede-dns-lb.json'],
+  },
   { id: 'monitoramento', code: 'mo', files: ['monitoramento.json'] },
 ] as const
 const TYPES = ['single', 'multiple', 'case-study', 'yes-no'] as const
