@@ -44,6 +44,6 @@ await page.locator('stats-dashboard h2').waitFor({ timeout: 10000 })
 await page.waitForTimeout(1500)
 
 const video = await page.video()?.path()
-console.log('VIDEO=' + video)
+console.log(`VIDEO=${video}`)
 await ctx.close()
 await browser.close()

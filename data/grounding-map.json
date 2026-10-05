@@ -117,6 +117,15 @@
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/cloud-sync/what-is-cloud-sync",
         "https://learn.microsoft.com/pt-br/entra/id-governance/privileged-identity-management/concept-pim-for-groups",
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-certificate-based-authentication",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/how-to-mfa-additional-context",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-sspr-writeback",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-strengths",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-sspr-howitworks",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-registration-mfa-sspr-combined",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/howto-authentication-temporary-access-pass",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-authenticator-app",
+        "https://learn.microsoft.com/pt-br/windows/security/identity-protection/hello-for-business/deploy",
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
       ]
     },

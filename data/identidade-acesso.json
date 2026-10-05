@@ -1128,7 +1128,8 @@
     "tags": ["cba", "certificado", "smartcard"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-certificate-based-authentication"
   },
   {
     "id": "az104-ig-079",
@@ -1495,7 +1496,8 @@
     "tags": ["number-matching", "fatigue", "authenticator"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/how-to-mfa-additional-context"
   },
   {
     "id": "az104-ig-091",
@@ -1963,7 +1965,8 @@
     "tags": ["password-writeback", "sspr", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-sspr-writeback"
   },
   {
     "id": "az104-ig-139",
@@ -2233,7 +2236,8 @@
     "tags": ["step-up", "reautenticacao", "sensivel"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-strengths"
   },
   {
     "id": "az104-ig-159",
@@ -3861,7 +3865,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-sspr-howitworks"
   },
   {
     "id": "az104-ig-245",
@@ -4241,7 +4246,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-registration-mfa-sspr-combined"
   },
   {
     "id": "az104-ig-256",
@@ -4275,7 +4281,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/howto-authentication-temporary-access-pass"
   },
   {
     "id": "az104-ig-257",
@@ -4283,33 +4290,34 @@
     "subdomain": "authenticator-backup-conceito",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um usuário afirma que o backup em nuvem do Authenticator restaura contas sem nova verificação. Essa afirmação está correta?",
+    "question": "Um usuário afirma que o Microsoft Authenticator serve apenas para aprovar pushes de MFA, sem outros usos. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
-        "text": "Sim, restaura sem verificar"
+        "text": "Sim, aprovar push de MFA é o único uso do aplicativo"
       },
       {
         "letter": "B",
-        "text": "Sim, desde que o backup tenha sido criado no mesmo dispositivo em que a restauração ocorreu"
+        "text": "Sim, o app só autentica logins e não serve para redefinição de senha"
       },
       {
         "letter": "C",
-        "text": "Não, exige verificação da conta Microsoft"
+        "text": "Não, o app suporta login sem senha, MFA por notificação e códigos de verificação"
       },
       {
         "letter": "D",
-        "text": "Sim, mas a verificação da conta só é exigida quando o backup envolve mais de um aplicativo"
+        "text": "Sim, mas o uso para redefinição de senha exige um aplicativo separado"
       }
     ],
     "correct": ["C"],
-    "explanation": "Restauração do backup do Authenticator exige login e verificação na conta Microsoft de backup. Sem essa verificação, qualquer pessoa clonaria o MFA.",
+    "explanation": "O Authenticator autentica sem senha no login, serve como opção de verificação em eventos de SSPR e MFA e gera códigos de verificação OATH. Reduzi-lo a push ignora os demais usos. Fonte: concept-authentication-authenticator-app.",
     "source": "original",
     "needsReview": false,
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
-    "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:33:31.631Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-authenticator-app"
   },
   {
     "id": "az104-ig-258",
@@ -4343,7 +4351,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/windows/security/identity-protection/hello-for-business/deploy"
   },
   {
     "id": "az104-ig-259",
