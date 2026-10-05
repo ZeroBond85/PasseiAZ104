@@ -152,6 +152,15 @@
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-condition-filters-for-devices",
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-device-writeback",
         "https://learn.microsoft.com/pt-br/intune/device-enrollment/mam-without-enrollment",
+        "https://learn.microsoft.com/pt-br/entra/msal/python/advanced/msal-python-token-cache-serialization",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-auth-code-flow",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-device-code",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-on-behalf-of-flow",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth-ropc",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-implicit-grant-flow",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/optional-claims",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/access-tokens",
         "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
       ]
     },

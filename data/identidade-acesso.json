@@ -3076,32 +3076,33 @@
     "subdomain": "token-cache-security",
     "type": "single",
     "difficulty": "medium",
-    "question": "Tokens em cache no cliente precisam de proteção contra leitura por outros processos. Onde armazenar com isolamento?",
+    "question": "App desktop precisa persistir o cache de tokens MSAL entre sessões, com um cache por usuário. O que a MSAL Python exige?",
     "options": [
       {
         "letter": "A",
-        "text": "Variável de ambiente global"
+        "text": "Cache persistente automático sem nenhum código"
       },
       {
         "letter": "B",
-        "text": "LocalStorage sem criptografia"
+        "text": "Cache único global compartilhado por todos os usuários"
       },
       {
         "letter": "C",
-        "text": "Arquivo texto na pasta do app"
+        "text": "Cache em memória compartilhada entre aplicativos"
       },
       {
         "letter": "D",
-        "text": "Armazenamento protegido do SO (DPAPI/Keychain)"
+        "text": "Serialização personalizada do cache, com bloqueio de arquivo se houver acesso concorrente"
       }
     ],
     "correct": ["D"],
-    "explanation": "DPAPI/Keychain isolam por usuário/processo com criptografia. Texto e env vazam; localStorage sem cripto expõe.",
+    "explanation": "A MSAL Python dá cache em memória por sessão; persistência exige serialização personalizada, um cache por conta e bloqueio de arquivo em acesso concorrente. Automático não existe; global mistura contas. Fonte: msal-python-token-cache-serialization.",
     "source": "original",
     "tags": ["token-cache", "dpapi", "keychain", "isolamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T12:21:01.512Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/msal/python/advanced/msal-python-token-cache-serialization"
   },
   {
     "id": "az104-ig-195",
@@ -3134,7 +3135,8 @@
     "tags": ["pkce", "oauth", "movel", "authorization-code"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-auth-code-flow"
   },
   {
     "id": "az104-ig-196",
@@ -3167,7 +3169,8 @@
     "tags": ["device-code", "tv", "entrada-limitada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-device-code"
   },
   {
     "id": "az104-ig-197",
@@ -3200,7 +3203,8 @@
     "tags": ["obo", "delegacao", "api", "downstream"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-on-behalf-of-flow"
   },
   {
     "id": "az104-ig-198",
@@ -3233,7 +3237,8 @@
     "tags": ["ropc", "migracao", "code-pkce"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth-ropc"
   },
   {
     "id": "az104-ig-199",
@@ -3266,7 +3271,8 @@
     "tags": ["implicit", "spa", "migracao", "bff"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-implicit-grant-flow"
   },
   {
     "id": "az104-ig-200",
@@ -3332,7 +3338,8 @@
     "tags": ["claims", "mapeamento", "atributos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization"
   },
   {
     "id": "az104-ig-206",
@@ -3365,7 +3372,8 @@
     "tags": ["group-claims", "overage", "token-size"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization"
   },
   {
     "id": "az104-ig-207",
@@ -3373,7 +3381,7 @@
     "subdomain": "optional-claims",
     "type": "single",
     "difficulty": "hard",
-    "question": "A API precisa do IP e do email_verified no token sem chamada extra ao Graph. O que incluir no token?",
+    "question": "A API precisa do IP de origem e do UPN no token sem chamada extra ao Graph. O que incluir no token?",
     "options": [
       {
         "letter": "A",
@@ -3397,8 +3405,9 @@
     "source": "original",
     "tags": ["optional-claims", "token", "registro"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T12:21:01.512Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/optional-claims"
   },
   {
     "id": "az104-ig-208",
@@ -3431,7 +3440,8 @@
     "tags": ["token-version", "v1", "v2", "manifesto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/access-tokens"
   },
   {
     "id": "az104-ig-209",
