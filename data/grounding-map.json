@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-05T02:19:46.181Z",
+  "updatedAt": "2026-10-05T03:04:36.271Z",
   "source": "data/exam-skills.json (outline 2026-04-17)",
   "bullets": {
     "ig-entra-users-groups#1": {
@@ -83,7 +83,18 @@
         "https://learn.microsoft.com/pt-br/azure/role-based-access-control/custom-roles",
         "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
         "https://learn.microsoft.com/pt-br/azure/role-based-access-control/overview",
-        "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-definitions"
+        "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-definitions",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-report-only",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-policies",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-policy-common",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/what-if-tool",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-filter-for-applications",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-conditions",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/howto-conditional-access-insights-reporting",
+        "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/overview"
       ]
     },
     "ig-subscriptions-governance#1": {
