@@ -165,7 +165,8 @@
     "tags": ["managed-identity", "key-vault"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview"
   },
   {
     "id": "az104-ig-018",
@@ -266,7 +267,8 @@
     "tags": ["password-protection", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-password-ban-bad-on-premises"
   },
   {
     "id": "az104-ig-029",
@@ -299,7 +301,8 @@
     "tags": ["service-principal", "certificado", "multitenant"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal"
   },
   {
     "id": "az104-ig-031",
@@ -399,7 +402,8 @@
     "tags": ["token-protection", "sessao", "replay"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection"
   },
   {
     "id": "az104-ig-040",
@@ -432,7 +436,8 @@
     "tags": ["workload-identity", "github-actions", "federacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview"
   },
   {
     "id": "az104-ig-042",
@@ -667,7 +672,8 @@
     "tags": ["break-glass", "emergencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/role-based-access-control/security-emergency-access"
   },
   {
     "id": "az104-ig-056",
@@ -700,7 +706,8 @@
     "tags": ["session-controls", "defender-cloud-apps", "download"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
   },
   {
     "id": "az104-ig-057",
@@ -1209,7 +1216,8 @@
     "tags": ["scim", "provisionamento", "ciclo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-provisioning/user-provisioning"
   },
   {
     "id": "az104-ig-081",
@@ -1750,7 +1758,8 @@
     "tags": ["oidc", "key-vault", "managed-identity", "pipeline"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview"
   },
   {
     "id": "az104-ig-126",
@@ -2798,7 +2807,8 @@
     "tags": ["principal-id", "rbac", "bicep"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-template"
   },
   {
     "id": "az104-ig-185",

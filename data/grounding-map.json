@@ -161,6 +161,12 @@
         "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization",
         "https://learn.microsoft.com/pt-br/entra/identity-platform/optional-claims",
         "https://learn.microsoft.com/pt-br/entra/identity-platform/access-tokens",
+        "https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview",
+        "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-password-ban-bad-on-premises",
+        "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview",
+        "https://learn.microsoft.com/pt-br/entra/identity/role-based-access-control/security-emergency-access",
+        "https://learn.microsoft.com/pt-br/entra/identity/app-provisioning/user-provisioning",
+        "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-template",
         "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
       ]
     },
