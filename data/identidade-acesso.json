@@ -1327,7 +1327,8 @@
     "tags": ["convidados", "expiracao", "review"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview"
   },
   {
     "id": "az104-ig-086",
@@ -1895,7 +1896,8 @@
     "tags": ["lgpd", "dsr", "privacidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/compliance/regulatory/gdpr-data-subject-requests"
   },
   {
     "id": "az104-ig-133",
@@ -2061,7 +2063,8 @@
     "tags": ["b2b", "convites", "restricao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/what-is-b2b"
   },
   {
     "id": "az104-ig-153",
@@ -2094,7 +2097,8 @@
     "tags": ["sponsor", "convidado", "responsabilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/b2b-sponsors"
   },
   {
     "id": "az104-ig-154",
@@ -2127,7 +2131,8 @@
     "tags": ["b2b", "resgate", "ordem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/redemption-experience"
   },
   {
     "id": "az104-ig-155",
@@ -2160,7 +2165,8 @@
     "tags": ["otp", "convidado", "e-mail"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/one-time-passcode"
   },
   {
     "id": "az104-ig-156",
@@ -3924,7 +3930,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/users-default-permissions"
   },
   {
     "id": "az104-ig-247",
@@ -4026,7 +4033,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users/directory-service-limits-restrictions"
   },
   {
     "id": "az104-ig-250",
@@ -4198,7 +4206,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
   },
   {
     "id": "az104-ig-255",

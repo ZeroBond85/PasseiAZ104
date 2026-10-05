@@ -22,7 +22,8 @@
       "url": "https://learn.microsoft.com/pt-br/entra/identity/users/users-bulk-add",
       "verifiedAt": "2026-09-28T21:01:48.453Z",
       "extraUrls": [
-        "https://learn.microsoft.com/pt-br/entra/identity/users/groups-restore-deleted"
+        "https://learn.microsoft.com/pt-br/entra/identity/users/groups-restore-deleted",
+        "https://learn.microsoft.com/pt-br/compliance/regulatory/gdpr-data-subject-requests"
       ]
     },
     "ig-entra-users-groups#3": {
@@ -42,7 +43,13 @@
       "url": "https://learn.microsoft.com/pt-br/entra/external-id/external-identities-overview",
       "verifiedAt": "2026-10-02T16:14:30.863Z",
       "extraUrls": [
-        "https://learn.microsoft.com/pt-br/entra/external-id/external-collaboration-settings-configure"
+        "https://learn.microsoft.com/pt-br/entra/external-id/external-collaboration-settings-configure",
+        "https://learn.microsoft.com/pt-br/entra/external-id/what-is-b2b",
+        "https://learn.microsoft.com/pt-br/entra/external-id/b2b-sponsors",
+        "https://learn.microsoft.com/pt-br/entra/external-id/redemption-experience",
+        "https://learn.microsoft.com/pt-br/entra/external-id/one-time-passcode",
+        "https://learn.microsoft.com/pt-br/entra/fundamentals/users-default-permissions",
+        "https://learn.microsoft.com/pt-br/entra/identity/users/directory-service-limits-restrictions"
       ]
     },
     "ig-entra-users-groups#5": {
@@ -109,7 +116,8 @@
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-syncservice-duplicate-attribute-resiliency",
         "https://learn.microsoft.com/pt-br/entra/identity/hybrid/cloud-sync/what-is-cloud-sync",
         "https://learn.microsoft.com/pt-br/entra/id-governance/privileged-identity-management/concept-pim-for-groups",
-        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant"
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
       ]
     },
     "ig-subscriptions-governance#1": {
