@@ -998,3 +998,11 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
   - Staging mode (1): revertida para `original` (sem página MS Learn válida).
 - **Validação:** `validate` 1000/0, `check-grounding` 0 apontadas, `audit-anchor-semantics` 0 suspeitos, CI verde.
 - **Próximo domínio R3:** Storage (180 questões, 17 bullets).
+
+## 2026-10-05 — G16 FECHADO + Track C + v0.1.0 publicada
+
+- **G16: 55 questões SLA substituídas** por conteúdo do outline AZ-104 com `sourceUrl` individual (LB 11 · NSG 11 · UDR 11 · Private Link/SE 10 · DNS/Cx/NW 10 · App Service/Bicep 2). Auditoria semântica contra markdown-fonte achou 6 respostas erradas no NSG e 4 itens sem lastro no LB — todos corrigidos antes de aplicar.
+- **Tracer de URLs mortas:** 4 extras 404 no mapa repointados + 7 questões com `sourceUrl` 404 corrigidas (`rv-023/052/073`, `ig-135`, `rv-034/098`, `rv-004` — esta última ganhou o bullet com `private-dns-privatednszone`). `grounding:probe` **135/135 vivas**; `validate` **1000/0**, gabarito A185 B185 C186 D180; 472/1000 questões com `sourceUrl`.
+- **SIZE GUARD:** `rede-virtual.json` → `rede-vnets` + `rede-secure-access` + `rede-dns-lb`; `storage.json` → `storage-access` + `storage-accounts` + `storage-files-blobs`. O particionamento quebrou o seed (QuestionLoader com lista hardcoded) — pego pelo e2e do quiz, não pelo unit (mock). Loader + testes + `shuffle`/`new-question` atualizados; AGENTS.md ganhou o gatilho.
+- **Track C fechada:** `package.json` 0.1.0 · README (hero WebP, GIF demo, Onde reportar, Créditos, Star History, tabela 243/180/243/184/150, ancoramento 472) · 17 topics · workflow `release.yml` · `docs/screenshots/quiz.gif` (800 px, 5 s, 182 KB, via `scripts/capture-demo.mts` + frames PIL — ffmpeg embutido não tem muxer GIF) · commit 3c2c913 · tag + release `v0.1.0` publicadas.
+- **Restauração:** limpeza com wildcard apagou `check-budget/secrets/exam-outline/lh/model` — restaurados do git; regra nova no AGENTS.md (nunca `rm` com wildcard em `scripts/`).

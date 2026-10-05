@@ -5,7 +5,7 @@
 ## Estado
 
 - `DATA_PROVA=TBD` — agendar só nas 3 condições do §12 (média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10).
-- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci; fase de ESTUDO**. Ver `LOG.md`.
+- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci + G16 fechado (55 SLA→outline, validate 1000/0) + v0.1.0 publicada; fase de ESTUDO**. Ver `LOG.md`.
 
 ## Gatilhos
 
@@ -21,7 +21,9 @@
 | Migration 002 não aplicada no Supabase | Aba Admin fica oculta (fail-closed por RLS) — não dar "false green": validar admin com 2 usuários antes de assumir |
 | Key path de store IDB contendo `:` | Bloqueado — IndexedDB não aceita (usar campo `key` explícito, LESSONS 16/set) |
 | `pre-push` ou `ci` falhando em `secrets` | Não faça push; rotacione a credencial exposta; `scripts/check-secrets.mjs` detalha o achado |
+| Particionou `data/*.json` | Atualizar juntos `QuestionLoader.ts` + testes + scripts com a lista de arquivos; o gate é o e2e do quiz (unit usa mock e não pega) |
+| Script temporário em `scripts/` | Quebra `biome check .` — gerar em `/tmp` ou apagar antes do CI; nunca `rm` com wildcard em `scripts/` (apaga ferramentas originais) |
 
-## Skills ativas
+## Skills ativas (repo `.opencode/skills/`)
 
-`test-driven-execution` · `code-review` · `doc-sync` · `dependency-audit` · `frontend-design` (neutralizada) · repo: `accessibility`.
+`accessibility` · `ui-visual-composition` · `ux-writing-content-design`.

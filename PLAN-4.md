@@ -479,8 +479,8 @@ relevantes para o simulado feito. README perde o "procedência mista" e passa a 
 - `README.md:5` hero = `public/icons/source.png` (**378 KB**, 1426×905, fundo transparente, arte ~11%) — o
   mesmo asset que já causou estouro de Lighthouse em 26/set. `README.md:31-32` = 2 screenshots estáticos.
 - 4 screenshots prontos em `docs/screenshots/`: `home-desktop` (108 KB), `quiz-mobile` (71 KB),
-  `review-mobile` (55 KB), `study-hub-desktop` (95 KB).
-- **Zero tags** → Releases vazio. `package.json:4` version = **`0.0.0`**. Sem `CHANGELOG.md` (coerente com §15).
+  `review-mobile` (55 KB), `study-hub-desktop` (95 KB) + `quiz.gif` (182 KB, 800 px, 5 s).
+- Tag `v0.1.0` + release publicada. `package.json:4` version = **`0.1.0`**. Sem `CHANGELOG.md` (coerente com §15).
 - 10 workflows, só actions oficiais. Discussions ON.
 - Topics atuais (10, a confirmar com `gh repo view --json topics`): `az-104 azure certification lit
   offline-first pwa spaced-repetition supabase typescript vite`.
@@ -550,7 +550,7 @@ estrelas/PRs/Issues. Linguagem honesta: "questões autorais em PT-BR, não são 
    *dentro* do R3 evita ancorar o mesmo fato duas vezes.
 3. **R3 lote a lote** (`ig` primeiro) — o gargalo; cada lote com `.agent/audits/retrofit-<domínio>.md`.
 4. ~~**Revisão das 22 da valve**~~ — feita (22→0). Não sobra.
-5. **Track C** — `v0.1.0` (código + visibilidade) pode sair a qualquer momento; `v0.2.0` só com R3 fechado.
+5. **Track C** — `v0.1.0` (código + visibilidade) **saiu em 05/out** (tag + release + GIF + 17 topics + workflow release); `v0.2.0` só com R3 fechado.
 6. **A3/A4/A5** antes da próxima feature grande.
 
 > **Ordem que quebraria qualidade:** começar o R3 antes de fechar G16 faria ancorar um bloco de 175
@@ -569,7 +569,7 @@ estrelas/PRs/Issues. Linguagem honesta: "questões autorais em PT-BR, não são 
 | **R3 — grounding das 949 restantes** | ~2–3 semanas | **RESTA** (o gargalo) |
 | **Aposentar 175 de autoavaliação + repor** (G16) | ~2 semanas | **RESTA** (depende do R3: substituto nasce ancorado) |
 | ~~Revisão humana das 22 da valve~~ | ~3 h | **gasta** (22→0; 2 bugs de conteúdo encontrados) |
-| **C visibilidade** (C-5 GIF domina) | ~4 h | **RESTA** (nenhum item feito) |
+| **C visibilidade** (C-5 GIF domina) | ~4 h | **FECHADA** (v0.1.0 + GIF 182KB + 17 topics + workflow release) |
 | **Doc-sync §5** | ~3 h | **fechada** (1000 + 115 unit em README/CODE-REVIEW/TESTING/ROADMAP/STUDY-LINKS; A8/A9 corrigidos) |
 | **Total restante** | **~4–5 semanas de trabalho focado** | |
 
