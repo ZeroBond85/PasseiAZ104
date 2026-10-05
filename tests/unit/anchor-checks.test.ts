@@ -1,4 +1,6 @@
+import { readdirSync, readFileSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
 
@@ -201,6 +203,43 @@ describe('invariantes do grounding-map', () => {
       if (new Set(lista).size !== lista.length) sujos.push(bullet)
     }
     expect(sujos).toEqual([])
+  })
+
+  it('toda sourceUrl de questão existe no mapa (qualquer source)', () => {
+    // RPR 2026-10-05: sourceUrl fora do mapa passou no validate porque o R2
+    // só checa source=mslearn; duas questões ficaram com link órfão sem
+    // nenhum gate acusar. Este teste checa todas, sem exceção.
+    const { map } = mapUrls()
+    const validas = new Set<string>()
+    for (const e of Object.values(bulletsOf(map))) {
+      if (e.url) validas.add(e.url)
+      for (const u of e.extraUrls ?? []) validas.add(u)
+    }
+    const SKIP = new Set([
+      'simulados.json',
+      'meta.json',
+      'case-studies.json',
+      'study-topics.json',
+      'exam-syllabus.json',
+      'exam-skills.json',
+      'grounding-map.json',
+      'anchor-map.json',
+      'retire_autoeval_ids.json',
+      '.generation-state.json',
+    ])
+    const dir = join(process.cwd(), 'data')
+    const fora: string[] = []
+    for (const f of readdirSync(dir).filter(
+      (x) => x.endsWith('.json') && !SKIP.has(x),
+    )) {
+      const arr: unknown = JSON.parse(readFileSync(join(dir, f), 'utf8'))
+      if (!Array.isArray(arr)) continue
+      for (const q of arr as { id?: string; sourceUrl?: string }[]) {
+        if (typeof q.sourceUrl === 'string' && !validas.has(q.sourceUrl))
+          fora.push(`${q.id} → ${q.sourceUrl}`)
+      }
+    }
+    expect(fora).toEqual([])
   })
 })
 

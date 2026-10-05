@@ -733,7 +733,8 @@
     "tags": ["devices", "entra-joined", "intune"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/devices/device-join-plan"
   },
   {
     "id": "az104-ig-058",
@@ -766,7 +767,8 @@
     "tags": ["conformidade", "intune", "conditional-access"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-grant"
   },
   {
     "id": "az104-ig-059",
@@ -799,7 +801,8 @@
     "tags": ["named-locations", "ips", "paises"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network"
   },
   {
     "id": "az104-ig-060",
@@ -1070,7 +1073,8 @@
     "tags": ["app-proxy", "on-premises", "pre-auth"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/overview-what-is-app-proxy"
   },
   {
     "id": "az104-ig-072",
@@ -1103,7 +1107,8 @@
     "tags": ["kerberos", "kcd", "sso", "app-proxy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/how-to-configure-sso-with-kcd"
   },
   {
     "id": "az104-ig-073",
@@ -1271,7 +1276,8 @@
     "tags": ["device-filter", "conformidade", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-condition-filters-for-devices"
   },
   {
     "id": "az104-ig-084",
@@ -1996,7 +2002,7 @@
       },
       {
         "letter": "B",
-        "text": "Device writeback no Connect com OU alvo"
+        "text": "Device writeback no Connect para objetos de dispositivo"
       },
       {
         "letter": "C",
@@ -2008,12 +2014,13 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "Device writeback cria o objeto do dispositivo na OU alvo para aplicar GPO legada. Só na nuvem não recebe GPO; sem objeto não existe alvo para a política.",
+    "explanation": "Device writeback cria o objeto do dispositivo no AD para aplicar GPO legada. Só na nuvem não recebe GPO; sem objeto não existe alvo para a política.",
     "source": "original",
     "tags": ["device-writeback", "gpo", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T04:01:33.561Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-device-writeback"
   },
   {
     "id": "az104-ig-151",
@@ -2418,7 +2425,8 @@
     "tags": ["mam", "byod", "app-protection"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/intune/device-enrollment/mam-without-enrollment"
   },
   {
     "id": "az104-ig-165",
@@ -4101,7 +4109,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/overview-what-is-app-proxy"
   },
   {
     "id": "az104-ig-251",

@@ -145,6 +145,13 @@
         "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk",
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-continuous-access-evaluation",
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection",
+        "https://learn.microsoft.com/pt-br/entra/identity/devices/device-join-plan",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-grant",
+        "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/overview-what-is-app-proxy",
+        "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/how-to-configure-sso-with-kcd",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-condition-filters-for-devices",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-device-writeback",
+        "https://learn.microsoft.com/pt-br/intune/device-enrollment/mam-without-enrollment",
         "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
       ]
     },
