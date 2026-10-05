@@ -126,6 +126,14 @@
         "https://learn.microsoft.com/pt-br/entra/identity/authentication/howto-authentication-temporary-access-pass",
         "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-authenticator-app",
         "https://learn.microsoft.com/pt-br/windows/security/identity-protection/hello-for-business/deploy",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-setup-sso",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/what-is-single-sign-on",
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/troubleshoot-saml-based-sso",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/choose-ad-authn",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sso",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sso-quick-start",
+        "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta",
         "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
       ]
     },

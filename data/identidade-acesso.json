@@ -607,7 +607,7 @@
     "subdomain": "sso-saml",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um SaaS de terceiros precisa de login único federado com o Entra ID via SAML, com provisionamento automático de usuários. O que configurar no registro do aplicativo?",
+    "question": "Um SaaS de terceiros precisa de login único federado com o Entra ID via SAML. O que configurar no registro do aplicativo?",
     "options": [
       {
         "letter": "A",
@@ -615,7 +615,7 @@
       },
       {
         "letter": "B",
-        "text": "SSO SAML + provisionamento SCIM no app corporativo"
+        "text": "SSO SAML no aplicativo corporativo"
       },
       {
         "letter": "C",
@@ -627,12 +627,13 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "SSO SAML federa o login e SCIM provisiona/desprovisiona contas. Chave por e-mail não federa; senha manual não escala; VPN não autentica SaaS.",
+    "explanation": "SSO SAML federa o login no aplicativo corporativo com as credenciais do Entra. Chave por e-mail não federa; senha manual não escala; VPN não autentica SaaS.",
     "source": "original",
     "tags": ["sso", "saml", "scim"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:41:34.805Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-setup-sso"
   },
   {
     "id": "az104-ig-055",
@@ -929,7 +930,8 @@
     "tags": ["federacao", "managed", "adfs", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication"
   },
   {
     "id": "az104-ig-068",
@@ -1162,7 +1164,8 @@
     "tags": ["sso", "saml", "oidc", "protocolos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/what-is-single-sign-on"
   },
   {
     "id": "az104-ig-080",
@@ -1932,7 +1935,8 @@
     "tags": ["sso", "saml", "troubleshooting", "certificado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/troubleshoot-saml-based-sso"
   },
   {
     "id": "az104-ig-137",
@@ -3970,7 +3974,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sso"
   },
   {
     "id": "az104-ig-248",
@@ -4004,7 +4009,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta"
   },
   {
     "id": "az104-ig-249",
@@ -4107,7 +4113,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/choose-ad-authn"
   },
   {
     "id": "az104-ig-252",
@@ -4386,7 +4393,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sso-quick-start"
   },
   {
     "id": "az104-ig-260",
@@ -4394,7 +4402,7 @@
     "subdomain": "pta-agent-count-conceito",
     "type": "single",
     "difficulty": "medium",
-    "question": "Um colega afirma que dois agentes PTA fazem balanceamento e failover automáticos sem configuração extra. Essa afirmação está correta?",
+    "question": "Um colega afirma que múltiplos agentes PTA ativos garantem alta disponibilidade. Essa afirmação está correta?",
     "options": [
       {
         "letter": "A",
@@ -4402,7 +4410,7 @@
       },
       {
         "letter": "B",
-        "text": "Sim, múltiplos agentes são ativos com failover"
+        "text": "Sim, múltiplos agentes ativos garantem alta disponibilidade"
       },
       {
         "letter": "C",
@@ -4414,13 +4422,14 @@
       }
     ],
     "correct": ["B"],
-    "explanation": "Múltiplos agentes PTA operam ativos com balanceamento e failover nativos sem configuração extra. Achar que só um funciona por vez mantém ponto único de falha.",
+    "explanation": "Agentes adicionais em vários servidores garantem alta disponibilidade das solicitações de login; um só mantém ponto único de falha. Não há limite de um agente por floresta nem porta manual a reconfigurar. Fonte: how-to-connect-pta.",
     "source": "original",
     "needsReview": false,
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
-    "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:41:34.805Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta"
   },
   {
     "id": "az104-ig-261",
@@ -4454,7 +4463,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization"
   },
   {
     "id": "az104-ig-262",
@@ -4488,6 +4498,7 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.813Z",
     "updatedAt": "2026-10-04T02:11:52.813Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/choose-ad-authn"
   }
 ]
