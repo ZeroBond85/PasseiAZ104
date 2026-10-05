@@ -435,7 +435,8 @@
     "tags": ["entra-connect", "phs", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization"
   },
   {
     "id": "az104-ig-020",
@@ -2220,15 +2221,15 @@
     "subdomain": "hybrid-agents-multiplos",
     "type": "multiple",
     "difficulty": "hard",
-    "question": "Autenticação híbrida resiliente exige dois agentes PTA e monitoramento de sincronização. Quais dois elementos compõem a resiliência? Selecione duas.",
+    "question": "Alta disponibilidade do login via autenticação de passagem exige dimensionar e distribuir os agentes. Quais dois elementos da implantação atendem? Selecione duas.",
     "options": [
       {
         "letter": "A",
-        "text": "Um agente único"
+        "text": "Um único agente para todo o tenant"
       },
       {
         "letter": "B",
-        "text": "Sem monitoramento"
+        "text": "Instalação assistida obrigatória em cada servidor, sem suporte a script"
       },
       {
         "letter": "C",
@@ -2236,16 +2237,17 @@
       },
       {
         "letter": "D",
-        "text": "Alertas de integridade do Connect Sync"
+        "text": "Dimensionamento dos agentes pela carga de pico e média de logins"
       }
     ],
     "correct": ["C", "D"],
-    "explanation": "Múltiplos agentes eliminam ponto único e alertas avisam degradação. Agente único cai junto; sem monitor ninguém percebe.",
+    "explanation": "Agentes adicionais em servidores distribuídos eliminam o ponto único de falha, e a quantidade de agentes deve considerar o pico e a média de logins — um agente atende 300 a 400 autenticações por segundo. Agente único cai junto; a instalação pode ser não assistida por script, inclusive em servidores sem interface. Fonte: how-to-connect-pta-quick-start.",
     "source": "original",
     "tags": ["pta", "resiliencia", "connect-sync", "ha"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:19:04.646Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta-quick-start"
   },
   {
     "id": "az104-ig-135",
@@ -2312,7 +2314,8 @@
     "tags": ["matching", "sourceAnchor", "duplicados"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant"
   },
   {
     "id": "az104-ig-138",
@@ -2324,7 +2327,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Writeback de grupos Microsoft 365 para distribuição"
+        "text": "Writeback de grupos Microsoft 365 para o Active Directory local"
       },
       {
         "letter": "B",
@@ -2340,12 +2343,13 @@
       }
     ],
     "correct": ["A", "C"],
-    "explanation": "Writeback replica M365 como distribuição na OU alvo. Só nuvem não alcança legado; manual não escala.",
+    "explanation": "Writeback replica os grupos Microsoft 365 na OU de destino do Active Directory local. Só nuvem não alcança legado; manual não escala.",
     "source": "original",
     "tags": ["group-writeback", "m365", "ad"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:19:04.646Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-group-writeback-enable"
   },
   {
     "id": "az104-ig-140",
@@ -2378,7 +2382,8 @@
     "tags": ["sync-errors", "duplicados", "quarentena"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-syncservice-duplicate-attribute-resiliency"
   },
   {
     "id": "az104-ig-141",
@@ -2411,7 +2416,8 @@
     "tags": ["cloud-sync", "agentes", "multifloresta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/cloud-sync/what-is-cloud-sync"
   },
   {
     "id": "az104-ig-142",
@@ -2444,7 +2450,8 @@
     "tags": ["filtragem", "ou", "grupo", "sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering"
   },
   {
     "id": "az104-ig-150",
@@ -3351,7 +3358,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.852Z",
     "updatedAt": "2026-10-04T02:11:52.852Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/privileged-identity-management/concept-pim-for-groups"
   },
   {
     "id": "az104-ig-264",
@@ -3454,7 +3462,8 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.852Z",
     "updatedAt": "2026-10-04T02:11:52.852Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
   },
   {
     "id": "az104-ig-267",
@@ -3660,6 +3669,7 @@
     "tags": ["g16"],
     "createdAt": "2026-10-04T02:11:52.852Z",
     "updatedAt": "2026-10-04T02:11:52.852Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant"
   }
 ]
