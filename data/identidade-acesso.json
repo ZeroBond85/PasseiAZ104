@@ -832,7 +832,8 @@
     "tags": ["identity-protection", "leaked-credentials"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks"
   },
   {
     "id": "az104-ig-061",
@@ -865,7 +866,8 @@
     "tags": ["user-risk", "remediacao", "senha"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies"
   },
   {
     "id": "az104-ig-062",
@@ -1000,7 +1002,8 @@
     "tags": ["sessao", "sign-in-frequency", "quiosque"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
   },
   {
     "id": "az104-ig-070",
@@ -1033,7 +1036,8 @@
     "tags": ["sessao-persistente", "navegador", "compartilhado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
   },
   {
     "id": "az104-ig-071",
@@ -1233,7 +1237,8 @@
     "tags": ["risco-login", "risco-usuario", "remediacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies"
   },
   {
     "id": "az104-ig-083",
@@ -2279,7 +2284,8 @@
     "tags": ["cae", "revogacao", "token", "continuo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-continuous-access-evaluation"
   },
   {
     "id": "az104-ig-160",
@@ -2312,7 +2318,8 @@
     "tags": ["token", "roubo", "cae", "protection"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection"
   },
   {
     "id": "az104-ig-162",
@@ -2512,7 +2519,8 @@
     "tags": ["risco", "escalonamento", "mfa", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies"
   },
   {
     "id": "az104-ig-172",
@@ -3448,7 +3456,8 @@
     "tags": ["logout", "front-channel", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
   },
   {
     "id": "az104-ig-210",
@@ -3464,7 +3473,7 @@
       },
       {
         "letter": "B",
-        "text": "Revogar sessões (revokeSessions) no Graph"
+        "text": "Bloquear a conta e invalidar as sessões ativas"
       },
       {
         "letter": "C",
@@ -3476,12 +3485,13 @@
       }
     ],
     "correct": ["B", "C"],
-    "explanation": "RevokeSessions invalida refresh e a troca com logout força reauth. Aguardar mantém invasor; foto não revoga.",
+    "explanation": "Bloquear a conta contém o invasor e a troca de senha com logout força nova autenticação; a revogação invalida tokens válidos. Aguardar mantém o invasor; foto não revoga. Fonte: howto-identity-protection-investigate-risk.",
     "source": "original",
     "tags": ["revoke", "sessao", "comprometida"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "updatedAt": "2026-10-05T03:58:52.140Z",
+    "version": 2,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk"
   },
   {
     "id": "az104-ig-211",
@@ -3514,7 +3524,8 @@
     "tags": ["soc", "playbook", "risco-login"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk"
   },
   {
     "id": "az104-ig-213",

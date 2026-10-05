@@ -140,7 +140,12 @@
         "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk",
         "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal",
         "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-assign-users",
-        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/protect-against-consent-phishing"
+        "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/protect-against-consent-phishing",
+        "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies",
+        "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-continuous-access-evaluation",
+        "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection",
+        "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
       ]
     },
     "ig-subscriptions-governance#1": {
