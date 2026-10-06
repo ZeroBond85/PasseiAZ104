@@ -1,6 +1,21 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { ensureSeeded, getBankLine } from '../../src/data/QuestionLoader.js'
+import { readdirSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import {
+  ensureSeeded,
+  getBankLine,
+  getCaseStudy,
+} from '../../src/data/QuestionLoader.js'
 import { questionsCount, seedQuestions } from '../../src/sync/IndexedDB.js'
+
+// Os casos "falha parcial" e "falha de rede" provocam logger.warn de propósito.
+// console.warn vai para stderr e polui o relatório, escondendo erro real.
+vi.spyOn(console, 'warn').mockImplementation(() => {})
+vi.spyOn(console, 'error').mockImplementation(() => {})
+
+afterAll(() => {
+  vi.restoreAllMocks()
+})
 
 vi.mock('../../src/sync/IndexedDB.js', () => ({
   loadAllQuestions: vi.fn(),
@@ -153,5 +168,78 @@ describe('QuestionLoader.getBankLine', () => {
   it('não anuncia quando IDB vazio', async () => {
     vi.mocked(questionsCount).mockResolvedValue(0)
     await expect(getBankLine()).resolves.toBe('')
+  })
+})
+
+describe('QuestionLoader.getCaseStudy', () => {
+  it('resolve o cenário real da Contoso e ignora id desconhecido', () => {
+    const caso = getCaseStudy('case-st-01')
+    expect(caso?.title).toBe('Migração de arquivos da Contoso')
+    expect(caso?.scenario).toContain('40 TB')
+    expect(getCaseStudy('caso-inexistente')).toBeUndefined()
+    expect(getCaseStudy(undefined)).toBeUndefined()
+  })
+
+  it('az104-st-054 é uma questão independente, não um item de cenário', async () => {
+    const raw = await readFile(
+      new URL('../../data/storage-accounts.json', import.meta.url),
+      'utf8',
+    )
+    const st054 = (JSON.parse(raw) as { id?: string }[]).find(
+      (q): q is { id: string } & Record<string, unknown> =>
+        q.id === 'az104-st-054',
+    )
+    expect(st054?.type).toBe('single')
+    expect(st054).not.toHaveProperty('caseStudyId')
+    expect(st054?.question).not.toMatch(/^Caso (Contoso|Fabrikam):/)
+  })
+
+  it('todo item de cenário começa com o cenário correspondente', async () => {
+    const cases = JSON.parse(
+      await readFile(
+        new URL('../../data/case-studies.json', import.meta.url),
+        'utf8',
+      ),
+    ) as { id: string; title: string }[]
+    const orgByCase = new Map(
+      cases.map((c) => [
+        c.id,
+        c.title.includes('Contoso') ? 'Contoso' : 'Fabrikam',
+      ]),
+    )
+    const dataDir = new URL('../../data/', import.meta.url)
+    const skip = new Set([
+      'simulados.json',
+      'meta.json',
+      'case-studies.json',
+      'study-topics.json',
+      'exam-syllabus.json',
+      'exam-skills.json',
+      'grounding-map.json',
+      'anchor-map.json',
+      'retire_autoeval_ids.json',
+      '.generation-state.json',
+    ])
+    const semCenario: string[] = []
+    for (const file of readdirSync(dataDir).filter(
+      (f) => f.endsWith('.json') && !skip.has(f),
+    )) {
+      const banco = JSON.parse(
+        await readFile(new URL(file, dataDir), 'utf8'),
+      ) as {
+        id?: string
+        type?: string
+        caseStudyId?: string
+        question?: string
+      }[]
+      if (!Array.isArray(banco)) continue
+      for (const q of banco) {
+        if (q.type !== 'case-study') continue
+        const org = orgByCase.get(q.caseStudyId ?? '')
+        if (!q.question?.startsWith(`Caso ${org}:`))
+          semCenario.push(q.id ?? '?')
+      }
+    }
+    expect(semCenario).toEqual([])
   })
 })

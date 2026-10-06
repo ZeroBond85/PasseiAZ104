@@ -73,7 +73,7 @@ export function selectQuestions(
 }
 
 // Agrupa questões de mesmo caseStudyId contiguamente (ordem original do pool preservada).
-function groupCases(arr: Question[]): Question[] {
+export function groupCases(arr: Question[]): Question[] {
   const byCase = new Map<string, Question[]>()
   const singles: Question[] = []
   for (const q of arr) {
@@ -88,6 +88,17 @@ function groupCases(arr: Question[]): Question[] {
   const out: Question[] = [...singles]
   for (const [, group] of byCase) out.push(...group)
   return out
+}
+
+// O cenário pertence ao bloco, não a cada item: exibe só na primeira questão
+// do mesmo caseStudyId adjacente. Sem isto, 5 itens repetem 400 caracteres.
+export function startsCaseBlock(
+  questions: Pick<Question, 'caseStudyId'>[],
+  index: number,
+): boolean {
+  const current = questions[index]
+  if (!current?.caseStudyId) return false
+  return questions[index - 1]?.caseStudyId !== current.caseStudyId
 }
 export function pickByIds<T extends { id: string }>(
   pool: T[],

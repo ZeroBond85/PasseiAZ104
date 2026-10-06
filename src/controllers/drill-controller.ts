@@ -1,6 +1,6 @@
 import { ensureSeeded, getQuestionPool } from '../data/QuestionLoader.js'
 import type { Question } from '../engine/question-schema.js'
-import { loadAllProgress, loadAttemptsForUser } from '../sync/IndexedDB.js'
+import { loadAttemptsForUser, loadProgressForUser } from '../sync/IndexedDB.js'
 
 // Drill (Sprint 4, PLAN-3): "Treinar meus erros" — 10q priorizadas por ciência.
 // Score composto: domínio fraco ×3 + questão errada ×2 + Leitner vencido ×2 +
@@ -40,7 +40,7 @@ export async function buildDrillQuestions(
   const [attempts, pool, progress] = await Promise.all([
     loadAttemptsForUser(userId).catch(() => []),
     getQuestionPool().catch(() => []),
-    loadAllProgress().catch(() => []),
+    loadProgressForUser(userId).catch(() => []),
   ])
   const now = Date.now()
   const dueIds = new Set(

@@ -50,6 +50,13 @@ export const QuestionSchema = z.object({
 
 export type Question = z.infer<typeof QuestionSchema>
 
+export const CaseStudySchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  scenario: z.string().min(20),
+})
+export type CaseStudy = z.infer<typeof CaseStudySchema>
+
 const schemaWithRefinements = QuestionSchema.superRefine((q, ctx) => {
   if ((q.source === 'community' || q.source === 'mslearn') && !q.sourceUrl) {
     ctx.addIssue({

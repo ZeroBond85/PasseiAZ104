@@ -16,12 +16,21 @@ const SKIP = new Set([
   'exam-skills.json',
   'grounding-map.json',
   'irt-params.json',
+  // NÃO é uma lista de questões: é o índice numérico das 164 autoavaliações
+  // aposentadas no G16 ([0, 1, 2], ...). Contava aqui e inflava o total para
+  // 1164, o que tornava toda percentual deste relatório sem sentido
+  // (1164 − 164 = 1000 = o invariante do banco).
+  'retire_autoeval_ids.json',
 ])
 const TIMEOUT_MS = 12000
 // PLAN-4 R4: banco 1000 → ~150-400 URLs únicas; concorrência 10 + 1 retry
 // para não estourar o job mensal (timeout 25min no workflow).
 const CONCURRENCY = 10
 const NEEDS_REVIEW_LIMIT = 50
+// Mesmo invariante de scripts/validate-questions.mts. Se o total do banco não
+// bater, todo percentual abaixo é lixo — por isso é erro por si só, e não
+// apenas uma nota no relatório.
+const TOTAL_ESPERADO = 1000
 
 async function headOnce(url) {
   const ctrl = new AbortController()
@@ -77,11 +86,12 @@ async function main() {
   }
 
   const date = new Date().toISOString().slice(0, 10)
+  const pctRevisao = total === 0 ? 0 : Math.round((needsReview / total) * 100)
   const lines = [
     `# Curadoria do banco — ${date}`,
     '',
-    `- Total: **${total}** questões · meta.updatedAt: \`${meta.updatedAt ?? '?'}\``,
-    `- needsReview: **${needsReview}** (limite ${NEEDS_REVIEW_LIMIT})`,
+    `- Total: **${total}** questões (invariante: ${TOTAL_ESPERADO}) · meta.updatedAt: \`${meta.updatedAt ?? '?'}\``,
+    `- needsReview: **${needsReview}** = ${pctRevisao}% (limite ${NEEDS_REVIEW_LIMIT})`,
     `- sourceUrl únicos: ${list.length} · mortos: ${dead.length}`,
     '',
     '## Por domínio',
@@ -95,11 +105,47 @@ async function main() {
   }
   writeFileSync(`.agent/audits/curation-${date}.md`, `${lines.join('\n')}\n`)
   console.log(
-    `needsReview=${needsReview} deadUrls=${dead.length} total=${total}`,
+    `needsReview=${needsReview} (${pctRevisao}%) deadUrls=${dead.length} total=${total}`,
   )
 
-  if (needsReview > NEEDS_REVIEW_LIMIT || dead.length > 0) {
-    console.error('ANOMALIA: abrir issue de curadoria (ver relatório).')
+  // Anomalia de banco inteiro em quarentena: este é o estado que quebraria o
+  // Gate 1.4/1.1 — filtrar needsReview nos 3 caminhos de estudo serviria ZERO
+  // questões. Não sai com 0 "porque a contagem é alta": sai porque o sinal de
+  // curadoria deixou de existir.
+  const bancoTodoEmQuarentena = total > 0 && needsReview === total
+  const totalForaDoInvariante = total !== TOTAL_ESPERADO
+  const excedeu = needsReview > NEEDS_REVIEW_LIMIT
+  let anomalias = 0
+  const erro = (msg) => {
+    anomalias++
+    console.error(`ANOMALIA: ${msg}`)
+  }
+
+  if (bancoTodoEmQuarentena) {
+    erro(
+      `banco inteiro em quarentena (${needsReview}/${total} = 100%). ` +
+        'needsReview perdeu o sentido: um passo de reescrita provavelmente ' +
+        'marcou tudo. Serve NÃO filtrar por needsReview até restaurar a curadoria.',
+    )
+  }
+  if (totalForaDoInvariante) {
+    erro(
+      `total ${total} != invariante ${TOTAL_ESPERADO} (delta ${total - TOTAL_ESPERADO}). ` +
+        'Conta de arquivo não-questão ou banco alterado — percentuais acima não valem.',
+    )
+  }
+  if (excedeu && !bancoTodoEmQuarentena) {
+    erro(
+      `needsReview ${needsReview} > limite ${NEEDS_REVIEW_LIMIT}: pausar generate, focar review.`,
+    )
+  }
+  if (dead.length > 0)
+    erro(`${dead.length} sourceUrl morto(s) (ver relatório).`)
+
+  if (anomalias > 0) {
+    console.error(
+      `curadoria: ${anomalias} anomalia(s) — abrir issue (ver relatório).`,
+    )
     process.exit(1)
   }
   console.log('curadoria: limpo')

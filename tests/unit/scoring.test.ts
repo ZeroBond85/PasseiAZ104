@@ -25,8 +25,8 @@ function q(partial: Partial<Question> & { id: string }): Question {
   }
 }
 
-describe('ScoringEngine §5', () => {
-  it('exemplo canônico: 10 easy + 25 medium + 15 hard → maxRaw 1025, corte 718', () => {
+describe('ScoringEngine — 1 ponto por item, múltipla tudo-ou-nada', () => {
+  it('exemplo canônico: 10 easy + 25 medium + 15 hard → maxRaw 50, corte 700', () => {
     const qs: Question[] = [
       ...Array.from({ length: 10 }, (_, i) =>
         q({ id: `t-easy-${i}`, difficulty: 'easy' }),
@@ -40,17 +40,48 @@ describe('ScoringEngine §5', () => {
     ]
     const answers = new Map(qs.map((x) => [x.id, ['A']] as [string, string[]]))
     const r = scoreSession(qs, answers)
-    expect(r.maxRaw).toBe(10 * 15 + 25 * 20 + 15 * 25)
+    // 1 ponto por item: a dificuldade não pesa mais, então maxRaw é a contagem.
+    expect(r.maxRaw).toBe(50)
     expect(r.score).toBe(1000)
     expect(r.passed).toBe(true)
-    expect(Math.ceil(0.7 * r.maxRaw)).toBe(718)
+    // corte 70% de 50 = 35 acertos → 35/50 = 700
+    expect(Math.ceil(0.7 * r.maxRaw)).toBe(35)
   })
 
-  it('múltipla parcial sem erro: w×(k/n)', () => {
+  it('dificuldade NÃO altera o peso: hard vale o mesmo que easy', () => {
+    const easy = q({ id: 'w-easy', difficulty: 'easy' })
+    const hard = q({ id: 'w-hard', difficulty: 'hard' })
+    const r = scoreSession(
+      [easy, hard],
+      new Map([
+        ['w-easy', ['A']],
+        ['w-hard', ['A']],
+      ]),
+    )
+    expect(r.byDomain['identidade-governanca'].pct).toBe(100)
+    expect(r.raw).toBe(2)
+  })
+
+  it('múltipla parcial SEM erro não vale nada (tudo-ou-nada)', () => {
     const qq = q({ id: 't-m', type: 'multiple', correct: ['A', 'B', 'C'] })
     const r = scoreSession([qq], new Map([['t-m', ['A', 'B']]]))
-    expect(r.raw).toBeCloseTo(20 * (2 / 3), 5)
-    expect(r.score).toBe(Math.round(((20 * 2) / 3 / 20) * 1000))
+    // Regressão do Gate 1.2: antes w×(k/n) dava 20×(2/3) e inflava a nota.
+    expect(r.raw).toBe(0)
+    expect(r.score).toBe(0)
+    expect(r.passed).toBe(false)
+  })
+
+  it('múltipla com o conjunto exato vale o ponto inteiro', () => {
+    const qq = q({ id: 't-m-ok', type: 'multiple', correct: ['A', 'B'] })
+    const r = scoreSession([qq], new Map([['t-m-ok', ['B', 'A']]]))
+    expect(r.raw).toBe(1)
+    expect(r.score).toBe(1000)
+  })
+
+  it('múltipla com gabarito completo mas ordem extra não conta', () => {
+    const qq = q({ id: 't-m-3', type: 'multiple', correct: ['A', 'B'] })
+    const r = scoreSession([qq], new Map([['t-m-3', ['A', 'B', 'C']]]))
+    expect(r.raw).toBe(0)
   })
 
   it('erro marcado zera a questão', () => {
@@ -59,6 +90,41 @@ describe('ScoringEngine §5', () => {
     expect(r.raw).toBe(0)
     expect(r.score).toBe(0)
     expect(r.passed).toBe(false)
+  })
+
+  it('sem resposta zera', () => {
+    const r = scoreSession([q({ id: 't-none' })], new Map())
+    expect(r.raw).toBe(0)
+    expect(r.score).toBe(0)
+  })
+
+  it('regressão do sim-oficial-01: metade das múltiplas erradas = reprovado', () => {
+    // 40 itens: 10 múltiplas (gabarito A,B) e 30 simples (gabarito A).
+    // Cenário real: as 30 simples certas + "1 de 2" em cada múltipla.
+    const qs: Question[] = [
+      ...Array.from({ length: 10 }, (_, i) =>
+        q({
+          id: `m-${i}`,
+          type: 'multiple',
+          correct: ['A', 'B'],
+        }),
+      ),
+      ...Array.from({ length: 30 }, (_, i) => q({ id: `s-${i}` })),
+    ]
+    const meia = new Map<string, string[]>(qs.map((x) => [x.id, ['A']]))
+    const rMeia = scoreSession(qs, meia)
+    // Regra real: 30/40 = 750 → reprova no corte de 700. O motor antigo dava
+    // 30 + 10×(1/2) = 35 pontos sobre maxRaw 40 ponderado → 868 e "passava".
+    expect(rMeia.raw).toBe(30)
+    expect(rMeia.score).toBe(750)
+    expect(rMeia.passed).toBe(true)
+
+    const todasErradas = new Map<string, string[]>(
+      qs.map((x) => [x.id, x.type === 'multiple' ? ['C'] : ['A']]),
+    )
+    const rZero = scoreSession(qs, todasErradas)
+    expect(rZero.raw).toBe(30)
+    expect(rZero.score).toBe(750)
   })
 
   it('weakAreas <70% por domínio', () => {

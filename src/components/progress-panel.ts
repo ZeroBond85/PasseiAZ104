@@ -10,10 +10,11 @@ import {
 } from '../styles/shared.js'
 import { getUserId } from '../sync/auth.js'
 import {
-  loadAllActivity,
+  loadActivityForUser,
   loadAllAttempts,
-  loadAllDoubts,
-  loadAllProgress,
+  loadDoubtsForUser,
+  loadProgressForUser,
+  resolveOwnerId,
   saveDoubt,
 } from '../sync/IndexedDB.js'
 import type { DoubtRecord } from '../sync/types.js'
@@ -40,12 +41,12 @@ export class ProgressPanel extends LitElement {
   }
 
   private async load() {
-    const userId = await getUserId()
+    const userId = resolveOwnerId(await getUserId())
     const [attempts, doubts, progress, activity, pool] = await Promise.all([
       loadAllAttempts(),
-      loadAllDoubts(),
-      loadAllProgress(),
-      loadAllActivity(),
+      loadDoubtsForUser(userId),
+      loadProgressForUser(userId),
+      loadActivityForUser(userId),
       getQuestionPool().catch(() => []),
     ])
     const mine = userId ? attempts.filter((a) => a.userId === userId) : attempts

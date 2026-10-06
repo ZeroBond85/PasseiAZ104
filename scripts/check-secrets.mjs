@@ -195,15 +195,56 @@ for (const rel of arquivos) {
   }
 }
 
-// 3. histórico — quem já commitou algo, o gitleaks do CI acha. Avisar, não barrar.
-let historicoSujo = false
+// 3. histórico — o CI roda gitleaks sobre o histórico inteiro; aqui replicamos a
+// MESMA precisão de PADROES/IGNORAR_CONTEUDO sobre os commits candidatos.
+// Antes isto casava a PALAVRA ('service_role', 'AIza', '-----BEGIN') em qualquer
+// diff, então o próprio detector, o AGENTS.md e o SECURITY.md — que nomeiam o
+// tipo de credencial em prosa ou guardam o literal do padrão — disparavam o
+// aviso. Falso positivo puro, do tipo que ensina a ignorar o gate. E a
+// consequência era dupla: o aviso mentia (o gitleaks exige `AIza` + 35 chars e
+// nunca casou `AIza` isolado) e saía com exit 0, ou seja, nunca barrou nada.
+// O pré-filtro abaixo só escolhe commits candidatos; quem decide é PADROES.
+const PRE_HISTORICO =
+  'service_role|AIza|-----BEGIN|eyJ|sk-|ghp_|github_pat|_auth|postgres'
+const hitsHistorico = []
 try {
-  const r = execFileSync(
+  const shas = execFileSync(
     'git',
-    ['log', '-p', '--all', '-G', 'service_role|AIza|-----BEGIN', '--oneline'],
-    { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    ['log', '--all', '-G', PRE_HISTORICO, '--format=%H'],
+    {
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    },
   )
-  historicoSujo = r.trim().length > 0
+    .split('\n')
+    .filter(Boolean)
+
+  for (const sha of shas) {
+    const patch = execFileSync(
+      'git',
+      ['show', '--format=', '--unified=0', '--no-color', sha],
+      { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
+    )
+    let arquivo = ''
+    for (const linha of patch.split('\n')) {
+      const header = linha.match(/^\+\+\+ b\/(.+)$/)
+      if (header) {
+        arquivo = header[1].trim()
+        continue
+      }
+      if (arquivo.startsWith('dev/null') || arquivo.startsWith('/dev/null'))
+        arquivo = ''
+      if (!linha.startsWith('+') || linha.startsWith('+++')) continue
+      if (!arquivo || IGNORAR_CONTEUDO.some((r) => r.test(arquivo))) continue
+      for (const p of PADROES) {
+        p.re.lastIndex = 0
+        const achado = linha.match(p.re)
+        if (!achado) continue
+        if (p.exige && !p.exige.test(achado[0])) continue
+        hitsHistorico.push({ sha: sha.slice(0, 7), arquivo, nome: p.nome })
+      }
+    }
+  }
 } catch {}
 
 console.log(
@@ -230,11 +271,15 @@ if (achados.length === 0) {
   )
 }
 
-if (historicoSujo) {
+if (hitsHistorico.length > 0) {
   console.log(
-    '\nAVISO: o histórico do git contém padrão de credencial. O gitleaks do CI\n' +
-      '        vai apontar; limpar histórico exige rotação da chave primeiro.',
+    `\nBLOQUEADO: ${hitsHistorico.length} segredo(s) real(is) no histórico do git.`,
+  )
+  for (const h of hitsHistorico.slice(0, 20))
+    console.log(`  ${h.sha}  ${h.arquivo}  ${h.nome}`)
+  console.log(
+    '        Rotacione a credencial exposta — reescrever o histórico NÃO invalida a chave.',
   )
 }
 
-process.exitCode = achados.length === 0 ? 0 : 1
+process.exitCode = achados.length === 0 && hitsHistorico.length === 0 ? 0 : 1

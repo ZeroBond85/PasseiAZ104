@@ -13,6 +13,13 @@ import {
 const DATA = new URL('../data/', import.meta.url)
 const CASES = new URL('../data/case-studies.json', import.meta.url)
 
+// INVARIANTE DO PROJETO — 1000 questões é a capa do produto, não um número
+// de conveniência. Encolher o banco é regressão de escopo; crescer além disso
+// exige decisão explícita, não puxão de PR. Até aqui o validate só *informava*
+// a contagem no console.log final, então apagar questões mantinha o CI verde:
+// contagem sem fail() é métrica, não invariante.
+const TOTAL_ESPERADO = 1000
+
 function fnv1a64(s: string): string {
   let h1 = 0xcbf29ce4
   let h2 = 0xcbf29ce4
@@ -142,6 +149,60 @@ for (const f of files) {
       fail(`sourceUrl fora do grounding-map: ${id} → ${qs.sourceUrl}`)
     }
   }
+}
+
+// ---- integridade dos simulados oficiais (Gate 1.1) ----
+// O conserto do Gate 1.1 foi no DADO (trocar 37 slots), nao em filtro de
+// runtime: filtrar encolheria cada oficial de 50 para 44-48 e quebraria o
+// blueprint. Logo a garantia tem de morar aqui, no CI — um needsReview que
+// entrar num oficial por regressao de geracao precisa reprovar.
+//
+// TAMANHO_OFICIAL vem da prova (50 itens), nao de `simulados.json`: derivar o
+// esperado dos proprios dados que se esta conferindo tornaria o check tautologico
+// (foi exatamente o que aconteceu na primeira versao deste guard, que lia
+// `questionCount` — campo que os fixos nem declaram).
+const TAMANHO_OFICIAL = 50
+{
+  const porId = new Map<
+    string,
+    { needsReview?: boolean; domain?: string; difficulty?: string }
+  >()
+  for (const arr of banks)
+    for (const q of arr) {
+      const o = q as {
+        id?: string
+        needsReview?: boolean
+        domain?: string
+        difficulty?: string
+      }
+      if (typeof o.id === 'string') porId.set(o.id, o)
+    }
+  const sims = JSON.parse(
+    readFileSync(join(fileURLToPath(DATA), 'simulados.json'), 'utf8'),
+  ) as { id?: string; mode?: string; questionIds?: string[] }[]
+  const fixos = sims.filter((s) => s.mode === 'fixed')
+  for (const s of fixos) {
+    const lista = (s.questionIds ?? []).map(String)
+    if (lista.length !== TAMANHO_OFICIAL)
+      fail(
+        `${s.id}: ${lista.length} questões, esperava ${TAMANHO_OFICIAL} (blueprint da prova quebrado)`,
+      )
+    const vistos = new Set<string>()
+    for (const qid of lista) {
+      if (vistos.has(qid)) fail(`${s.id}: id repetido no simulado → ${qid}`)
+      vistos.add(qid)
+      const q = porId.get(qid)
+      if (!q) {
+        fail(`${s.id}: id inexistente no banco → ${qid}`)
+        continue
+      }
+      if (q.needsReview === true)
+        fail(`${s.id}: questão em quarentena (needsReview) → ${qid}`)
+    }
+  }
+  console.log(
+    `simulados: ${fixos.length} oficiais · ${TAMANHO_OFICIAL} itens cada · 0 needsReview exigido · ids conferidos`,
+  )
 }
 
 // Honestidade do R0: mapa parcial significa que as âncoras aceitas hoje são
@@ -354,6 +415,12 @@ if (GROUNDING_FILLED < GROUNDING_BULLETS) {
   }
   for (const h of highs) fail(`paráfrase provável (Jaccard): ${h}`)
 }
+
+if (total !== TOTAL_ESPERADO)
+  fail(
+    `banco com ${total} questões; o invariante do projeto exige ${TOTAL_ESPERADO}` +
+      ` (${total > TOTAL_ESPERADO ? `+${total - TOTAL_ESPERADO}` : total - TOTAL_ESPERADO})`,
+  )
 
 console.log(`validate: ${total} questões, ${errors} erros`)
 process.exit(errors > 0 ? 1 : 0)

@@ -3,9 +3,14 @@ import { buildDrillQuestions } from '../controllers/drill-controller.js'
 import { QuizController } from '../controllers/quiz-controller.js'
 import { SyncController } from '../controllers/sync-controller.js'
 import { TreinoController } from '../controllers/treino-controller.js'
-import { ensureSeeded, getBankLine } from '../data/QuestionLoader.js'
+import {
+  ensureSeeded,
+  getBankLine,
+  getCaseStudy,
+} from '../data/QuestionLoader.js'
 import { buildDynamicSpec, SIMULADOS } from '../data/simulados.js'
 import { getDue, gradeCard } from '../engine/LeitnerEngine.js'
+import { startsCaseBlock } from '../engine/QuestionSelector.js'
 import type { SimuladoSpec } from '../engine/question-schema.js'
 import { CODE_BY_DOMAIN } from '../engine/question-schema.js'
 import {
@@ -16,8 +21,10 @@ import {
 } from '../styles/shared.js'
 import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
-  loadAllProgress,
+  loadProgressForUser,
   loadSession,
+  progressKey,
+  resolveOwnerId,
   saveProgress,
 } from '../sync/IndexedDB.js'
 import {
@@ -510,6 +517,8 @@ export class AppShell extends LitElement {
         <question-card
           .question=${q}
           .selected=${ctl.answerOf(q.id)}
+          .caseStudy=${getCaseStudy(q.caseStudyId)}
+          .showCaseStudy=${startsCaseBlock(ctl.quiz, ctl.current)}
           @answer=${(e: CustomEvent) => ctl.answer(e.detail)}
         ></question-card>
         <div class="actions">
@@ -560,7 +569,8 @@ export class AppShell extends LitElement {
   private async loadEstudo() {
     this.estudoLoaded = false
     const now = Date.now()
-    const allProgress = await loadAllProgress().catch(
+    const ownerId = resolveOwnerId(this.userId)
+    const allProgress = await loadProgressForUser(ownerId).catch(
       hushArr('data', 'estudo: load progress falhou'),
     )
     const { due, truncated } = getDue(allProgress, now, 50)
@@ -710,6 +720,8 @@ export class AppShell extends LitElement {
         <question-card
           .question=${q}
           .selected=${ctl.answerOf(q.id)}
+          .caseStudy=${getCaseStudy(q.caseStudyId)}
+          .showCaseStudy=${startsCaseBlock(ctl.quiz, ctl.current)}
           @answer=${(e: CustomEvent) => ctl.answer(e.detail)}
         ></question-card>
         <div class="actions">
@@ -767,7 +779,8 @@ export class AppShell extends LitElement {
     const d = (e as CustomEvent<{ questionId: string; quality: number }>).detail
     const now = Date.now()
     void (async () => {
-      const allProgress = await loadAllProgress().catch(
+      const ownerId = resolveOwnerId(this.userId)
+      const allProgress = await loadProgressForUser(ownerId).catch(
         hushArr('data', 'grade: load falhou'),
       )
       const prev = allProgress.find((p) => p.questionId === d.questionId)
@@ -781,6 +794,8 @@ export class AppShell extends LitElement {
         now,
       )
       await saveProgress({
+        userId: ownerId,
+        key: progressKey(ownerId, d.questionId),
         questionId: d.questionId,
         box: card.box,
         dueAt: card.dueAt,

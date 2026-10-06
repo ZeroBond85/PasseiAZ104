@@ -1,11 +1,15 @@
+import { SCORING_MODEL_VERSION } from '../engine/ScoringEngine.js'
 import { logger } from '../utils/logger.js'
 import {
-  loadAllActivity,
-  loadAllDoubts,
-  loadAllProgress,
+  activityKey,
+  doubtKey,
+  loadActivityForUser,
   loadAllSuggestions,
   loadAttemptsForUser,
+  loadDoubtsForUser,
+  loadProgressForUser,
   loadSession,
+  progressKey,
   saveActivity,
   saveAttempt,
   saveDoubt,
@@ -14,20 +18,21 @@ import {
   saveSuggestion,
 } from './IndexedDB.js'
 import { isSyncEnabled, supabase } from './supabase.js'
-import type {
-  ActivityRecord,
-  AttemptRecord,
-  DoubtRecord,
-  ProgressRecord,
-  SessionRecord,
+import {
+  type ActivityRecord,
+  type AttemptRecord,
+  type DoubtRecord,
+  ProfileRowSchema,
+  type ProgressRecord,
+  SCORING_MODEL_LEGACY,
+  type SessionRecord,
 } from './types.js'
-import { ProfileRowSchema } from './types.js'
 
 // Sync L2: IDB é fonte de leitura (offline-first). Supabase é espelho.
 // Conflito: updatedAt maior vence; box de Leitner usa max() (nunca regride).
 export async function pushProgress(userId: string) {
   if (!isSyncEnabled() || !supabase) return { pushed: 0 }
-  const local = await loadAllProgress()
+  const local = await loadProgressForUser(userId)
   if (local.length === 0) return { pushed: 0 }
   const rows = local.map((p) => ({
     user_id: userId,
@@ -52,11 +57,15 @@ export async function pullProgress(userId: string) {
     .select('*')
     .eq('user_id', userId)
   if (error) throw new Error(`pull progress: ${error.message}`)
-  const local = new Map((await loadAllProgress()).map((p) => [p.questionId, p]))
+  const local = new Map(
+    (await loadProgressForUser(userId)).map((p) => [p.questionId, p]),
+  )
   let pulled = 0
   for (const r of data ?? []) {
     const cur = local.get(r.question_id)
     const record: ProgressRecord = {
+      userId,
+      key: progressKey(userId, r.question_id),
       questionId: r.question_id,
       box: Math.max(r.box, cur?.box ?? 0),
       dueAt: r.due_at,
@@ -180,6 +189,9 @@ export async function pushPlatform(userId: string) {
           answers: a.answers,
           by_domain: a.byDomain,
           error_tags: a.errorTags,
+          // Gate 1.4: a nota persistida declara de qual modelo veio. Sem isto,
+          // uma média somaria crédito parcial com 1-ponto-por-item.
+          scoring_model_version: a.scoringModelVersion ?? SCORING_MODEL_VERSION,
         },
         { onConflict: 'id' },
       )
@@ -190,7 +202,7 @@ export async function pushPlatform(userId: string) {
     }
   }
 
-  const doubts = await loadAllDoubts()
+  const doubts = await loadDoubtsForUser(userId)
   for (const d of doubts) {
     try {
       const { error } = await supabase.from(A('doubts')).upsert(
@@ -213,7 +225,7 @@ export async function pushPlatform(userId: string) {
     }
   }
 
-  const activity = await loadAllActivity()
+  const activity = await loadActivityForUser(userId)
   for (const act of activity) {
     try {
       const { error } = await supabase.from(A('activity_log')).upsert(
@@ -286,11 +298,13 @@ export async function pullPlatform(userId: string) {
     .eq('user_id', userId)
   if (ed) throw new Error(`pull doubts: ${ed.message}`)
   const localDoubts = new Map(
-    (await loadAllDoubts()).map((d) => [d.questionId, d]),
+    (await loadDoubtsForUser(userId)).map((d) => [d.questionId, d]),
   )
   for (const r of doubts ?? []) {
     const cur = localDoubts.get(r.question_id)
     const rec: DoubtRecord = {
+      userId,
+      key: doubtKey(userId, r.question_id),
       questionId: r.question_id,
       note: String(r.note ?? ''),
       tag: r.tag ?? null,
@@ -310,13 +324,14 @@ export async function pullPlatform(userId: string) {
     .eq('user_id', userId)
   if (eAct) throw new Error(`pull activity: ${eAct.message}`)
   const localAct = new Map(
-    (await loadAllActivity()).map((x) => [`${x.date}:${x.kind}`, x]),
+    (await loadActivityForUser(userId)).map((x) => [`${x.date}:${x.kind}`, x]),
   )
   for (const r of activity ?? []) {
     const key = `${r.activity_date}:${r.kind}`
     const cur = localAct.get(key)
     const rec: ActivityRecord = {
-      key,
+      userId,
+      key: activityKey(userId, r.activity_date, r.kind),
       date: r.activity_date,
       kind: r.kind,
       createdAt: Number(r.created_at ?? 0),
@@ -368,6 +383,12 @@ function mapAttempt(r: Record<string, unknown>): AttemptRecord {
     answers: (r.answers ?? []) as AttemptRecord['answers'],
     byDomain: (r.by_domain ?? {}) as AttemptRecord['byDomain'],
     errorTags: (r.error_tags ?? {}) as AttemptRecord['errorTags'],
+    // Gate 1.4: coluna ausente (migration 005 ainda não aplicada) = 1, que é o
+    // que toda linha anterior à migração usou de fato.
+    scoringModelVersion:
+      r.scoring_model_version == null
+        ? SCORING_MODEL_LEGACY
+        : Number(r.scoring_model_version),
     createdAt: Number(r.created_at ?? 0),
   }
 }

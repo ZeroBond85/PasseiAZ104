@@ -4,20 +4,28 @@ import { toggleSelection } from '../engine/keyboard.js'
 import { gradeCard } from '../engine/LeitnerEngine.js'
 import {
   domainQuotas,
+  groupCases,
   pickByIds,
   selectQuestions,
 } from '../engine/QuestionSelector.js'
 import { QuizEngine } from '../engine/QuizEngine.js'
 import type { Question, SimuladoSpec } from '../engine/question-schema.js'
-import { type ScoreResult, scoreSession } from '../engine/ScoringEngine.js'
+import {
+  SCORING_MODEL_VERSION,
+  type ScoreResult,
+  scoreSession,
+} from '../engine/ScoringEngine.js'
 import { analyzeAttempt, type StudyGuideResult } from '../engine/StudyGuide.js'
 import { TimerEngine } from '../engine/TimerEngine.js'
 import {
+  doubtKey,
   loadAllAttempts,
-  loadAllProgress,
-  loadDoubt,
+  loadDoubtForUser,
+  loadProgressForUser,
   loadSession,
-  markActivity,
+  markActivityForUser,
+  progressKey,
+  resolveOwnerId,
   saveAttempt,
   saveDoubt,
   saveProgress,
@@ -144,12 +152,13 @@ export class QuizController {
     this.loading = true
     this.notify()
     await ensureSeeded()
+    const ownerId = resolveOwnerId(this.getUserId())
     const pool = (await getQuestionPool()) as Question[]
-    const progress = await loadAllProgress().catch(
+    const progress = await loadProgressForUser(ownerId).catch(
       hushArr('data', 'startQuiz: leitura de progresso falhou'),
     )
     const usage = new Map(progress.map((p) => [p.questionId, p.usageCount]))
-    const picked =
+    const basePicked =
       spec.mode === 'fixed'
         ? pickByIds(pool, spec.questionIds)
         : selectQuestions(pool, {
@@ -163,7 +172,7 @@ export class QuizController {
             usageCount: usage,
           })
     this.simId = spec.id
-    if (picked.length === 0) {
+    if (basePicked.length === 0) {
       this.loading = false
       logger.warn('quiz', 'startQuiz: nenhuma questão selecionável')
       this.notify()
@@ -178,6 +187,12 @@ export class QuizController {
             hush('data', 'startQuiz: restauração de sessão falhou'),
           )
         : null
+    // Sessões legadas guardam o índice na ordem pré-bloco. Não reordene uma
+    // sessão retomada: as respostas usam IDs, mas o índice salvo não.
+    const picked =
+      spec.mode === 'fixed' && !saved?.answers.length
+        ? groupCases(basePicked)
+        : basePicked
     this.engine.load(picked)
     this.quiz = picked
     this.current = this.engine.index
@@ -291,9 +306,10 @@ export class QuizController {
     this.result = scoreSession(this.quiz, answers)
     // Leitner: grava progresso (acerto = todas certas, sem erro)
     const now = Date.now()
+    const ownerId = resolveOwnerId(this.getUserId())
     const prior = new Map(
       (
-        await loadAllProgress().catch(
+        await loadProgressForUser(ownerId).catch(
           hushArr(
             'data',
             'finish: leitura de progresso falhou; Leitner sem histórico',
@@ -313,6 +329,8 @@ export class QuizController {
         now,
       )
       await saveProgress({
+        userId: ownerId,
+        key: progressKey(ownerId, q.id),
         questionId: q.id,
         box: card.box,
         dueAt: card.dueAt,
@@ -342,6 +360,7 @@ export class QuizController {
   }
 
   private async recordAttempt(now: number) {
+    const ownerId = resolveOwnerId(this.getUserId())
     const answers = new Map(this.engine.answers)
     const result = scoreSession(this.quiz, answers)
     const userId = this.getUserId() ?? 'local'
@@ -366,6 +385,9 @@ export class QuizController {
       }),
       byDomain: result.byDomain,
       errorTags: {},
+      // Gate 1.4: carimba o modelo com que a nota foi calculada, para a média
+      // de prontidão não somar crédito parcial com 1-ponto-por-item.
+      scoringModelVersion: SCORING_MODEL_VERSION,
       createdAt: now,
     }
     await saveAttempt(attempt).catch((err) =>
@@ -375,14 +397,16 @@ export class QuizController {
         err instanceof Error ? err.message : err,
       ),
     )
-    await markActivity(localDate(new Date(now)), 'simulado').catch(
-      hush('data', 'recordAttempt: markActivity falhou'),
-    )
+    await markActivityForUser(
+      ownerId,
+      localDate(new Date(now)),
+      'simulado',
+    ).catch(hush('data', 'recordAttempt: markActivity falhou'))
     // Estudo guiado recalculado (client-side) + snapshot
     const guide = analyzeAttempt(
       this.quiz,
       answers,
-      await loadAllProgress().catch(
+      await loadProgressForUser(userId).catch(
         hushArr('data', 'recordAttempt: progresso p/ guia falhou'),
       ),
     )
@@ -414,10 +438,12 @@ export class QuizController {
         )
       }
     }
-    const doubt = await loadDoubt(questionId).catch(
+    const doubt = await loadDoubtForUser(userId, questionId).catch(
       hush('data', 'tag de erro: loadDoubt falhou'),
     )
     await saveDoubt({
+      userId,
+      key: doubtKey(userId, questionId),
       questionId,
       note: doubt?.note ?? '',
       tag,

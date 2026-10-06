@@ -4,6 +4,7 @@ import type { Question } from '../engine/question-schema.js'
 import { btnStyles, cardStyles } from '../styles/shared.js'
 import { changeUserRole } from '../sync/admin.js'
 import { getUserId } from '../sync/auth.js'
+import { doubtKey } from '../sync/IndexedDB.js'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 import type { AttemptRecord, DoubtRecord } from '../sync/types.js'
 import { labels as ptLabels } from './study-guide.js'
@@ -97,6 +98,8 @@ export class AdminPanel extends LitElement {
       this.doubts = doubtsRows.map((d) => {
         const p = profilesRows.find((x) => x.user_id === d.user_id)
         return {
+          userId: String(d.user_id),
+          key: doubtKey(String(d.user_id), String(d.question_id)),
           questionId: String(d.question_id),
           note: String(d.note ?? ''),
           tag: (d.tag as DoubtRecord['tag']) ?? null,

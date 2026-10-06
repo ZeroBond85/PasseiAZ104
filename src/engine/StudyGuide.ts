@@ -1,6 +1,6 @@
 import type { ProgressRecord } from '../sync/types.js'
 import type { Question } from './question-schema.js'
-import { WEIGHT } from './ScoringEngine.js'
+import { isAnswerCorrect } from './ScoringEngine.js'
 
 export interface WeakDomain {
   domain: string
@@ -23,13 +23,10 @@ export interface StudyGuideResult {
   leitnerTip: string | null
 }
 
-function isCorrect(q: Question, given: string[] | undefined) {
-  const g = new Set(given ?? [])
-  const e = new Set(q.correct)
-  return g.size === e.size && [...e].every((l) => g.has(l))
-}
-
 // Análise pós-simulado — cliente, sem custo de backend. Determinística.
+// O acerto vem de ScoringEngine.isAnswerCorrect (fonte única): aqui havia uma
+// cópia com a mesma ideia, mas a nota ainda usava peso por dificuldade, então
+// o estudo pós-prova podia discordar da nota da prova.
 export function analyzeAttempt(
   questions: Question[],
   answers: Map<string, string[]>,
@@ -43,17 +40,16 @@ export function analyzeAttempt(
   let maxRaw = 0
 
   for (const q of questions) {
-    const w = WEIGHT[q.difficulty]
-    maxRaw += w
+    maxRaw += 1
     byDomain[q.domain] ??= { total: 0, correct: 0 }
     byType[q.type] ??= { total: 0, correct: 0 }
     byDifficulty[q.difficulty] ??= { total: 0, correct: 0 }
-    const ok = isCorrect(q, answers.get(q.id))
+    const ok = isAnswerCorrect(q, answers.get(q.id))
     byDomain[q.domain].total++
     byType[q.type].total++
     byDifficulty[q.difficulty].total++
     if (ok) {
-      raw += w
+      raw += 1
       byDomain[q.domain].correct++
       byType[q.type].correct++
       byDifficulty[q.difficulty].correct++

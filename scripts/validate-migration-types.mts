@@ -36,11 +36,19 @@ interface TableSpec {
 }
 
 const SPECS: Record<string, TableSpec> = {
-  az104_progress: { schema: ProgressRecordSchema, extras: ['user_id'] },
+  az104_progress: {
+    schema: ProgressRecordSchema,
+    skip: ['key'],
+    extras: ['user_id'],
+  },
   az104_sessions: { blob: true },
   az104_profiles: { schema: ProfileRowSchema },
   az104_attempts: { schema: AttemptRecordSchema, extras: ['user_id'] },
-  az104_doubts: { schema: DoubtRecordSchema, extras: ['user_id'] },
+  az104_doubts: {
+    schema: DoubtRecordSchema,
+    skip: ['key'],
+    extras: ['user_id'],
+  },
   az104_activity_log: {
     schema: ActivityRecordSchema,
     skip: ['key'],
@@ -60,8 +68,18 @@ const SPECS: Record<string, TableSpec> = {
 // ---- parse SQL ----
 const sqlFiles = readdirSync(SQL_DIR).filter((f) => f.endsWith('.sql'))
 const sqlTables = new Map<string, Set<string>>()
+const addCols = (table: string, cols: Iterable<string>) => {
+  const prev = sqlTables.get(table) ?? new Set<string>()
+  for (const c of cols) prev.add(c)
+  sqlTables.set(table, prev)
+}
 const createRe =
   /create table (?:if not exists )?public\.(\w+)\s*\(([\s\S]*?)\);/g
+// Coluna nova em tabela existente entra por ALTER TABLE, não por CREATE TABLE.
+// Sem este segundo parser, qualquer `alter table ... add column` seria
+// invisível ao gate e uma coluna faltando passaria como verde.
+const alterRe =
+  /alter table (?:if exists )?public\.(\w+)\s+add column (?:if not exists )?(\w+)/gi
 for (const f of sqlFiles) {
   const text = readFileSync(new URL(f, SQL_DIR), 'utf8')
   for (const m of text.matchAll(createRe)) {
@@ -76,10 +94,9 @@ for (const f of sqlFiles) {
         cols.add(name)
       }
     }
-    const prev = sqlTables.get(m[1]) ?? new Set<string>()
-    for (const c of cols) prev.add(c)
-    sqlTables.set(m[1], prev)
+    addCols(m[1], cols)
   }
+  for (const m of text.matchAll(alterRe)) addCols(m[1], [m[2]])
 }
 
 // ---- refs no código ----

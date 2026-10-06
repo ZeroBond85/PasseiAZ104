@@ -1,5 +1,5 @@
 import { css, html, LitElement } from 'lit'
-import type { Question } from '../engine/question-schema.js'
+import type { CaseStudy, Question } from '../engine/question-schema.js'
 import { cardStyles, controlStyles } from '../styles/shared.js'
 
 export class QuestionCard extends LitElement {
@@ -7,16 +7,21 @@ export class QuestionCard extends LitElement {
     question: { type: Object },
     selected: { type: Array },
     locked: { type: Boolean },
+    caseStudy: { type: Object },
+    showCaseStudy: { type: Boolean, attribute: 'show-case-study' },
   }
 
   declare question: Question
   declare selected: string[]
   declare locked: boolean
+  declare caseStudy?: CaseStudy
+  declare showCaseStudy: boolean
 
   constructor() {
     super()
     this.selected = []
     this.locked = false
+    this.showCaseStudy = false
   }
 
   private toggle(letter: string) {
@@ -42,6 +47,16 @@ export class QuestionCard extends LitElement {
     return html`
       <article class="card">
         <p class="qid">${q.id} · ${q.subdomain} · ${q.difficulty}</p>
+        ${
+          this.showCaseStudy && this.caseStudy
+            ? html`
+                <section class="case" aria-label="Cenário">
+                  <p class="case-kicker">Cenário · ${this.caseStudy.title}</p>
+                  <p class="case-text">${this.caseStudy.scenario}</p>
+                </section>
+              `
+            : ''
+        }
         <h2>${q.question}</h2>
         <div
           class="opts"
@@ -77,6 +92,27 @@ export class QuestionCard extends LitElement {
       letter-spacing: var(--tracking-wide);
       text-transform: uppercase;
       margin: 0 0 10px;
+    }
+    .case {
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--progress);
+      border-radius: var(--radius-sm);
+      background: var(--surface-raised);
+    }
+    .case-kicker {
+      margin: 0 0 6px;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .case-text {
+      margin: 0;
+      font-size: var(--fs-base);
+      line-height: 1.55;
     }
     h2 {
       font-size: var(--fs-xl);

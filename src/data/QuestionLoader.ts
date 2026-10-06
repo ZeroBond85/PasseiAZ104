@@ -1,4 +1,9 @@
-import { validateQuestion } from '../engine/question-schema.js'
+import bundledCaseStudies from '../../data/case-studies.json'
+import {
+  type CaseStudy,
+  CaseStudySchema,
+  validateQuestion,
+} from '../engine/question-schema.js'
 import {
   loadAllQuestions,
   questionsCount,
@@ -73,6 +78,24 @@ export async function ensureSeeded(): Promise<{
 export async function getQuestionPool() {
   const rows = await loadAllQuestions()
   return rows.map((r) => JSON.parse(r.json))
+}
+
+let caseStudyCache: Map<string, CaseStudy> | null = null
+
+// Cenários embutidos (2 registros): lookup síncrono, sem fetch nem nova store.
+// Falha de curadoria não pode quebrar a questão — retorna undefined.
+export function getCaseStudy(id: string | undefined): CaseStudy | undefined {
+  if (!id) return undefined
+  if (!caseStudyCache) {
+    const parsed = CaseStudySchema.array().safeParse(bundledCaseStudies)
+    if (!parsed.success) {
+      logger.warn('data', 'case-studies.json inválido', parsed.error.message)
+      caseStudyCache = new Map()
+      return undefined
+    }
+    caseStudyCache = new Map(parsed.data.map((c) => [c.id, c]))
+  }
+  return caseStudyCache.get(id)
 }
 
 export interface BankMeta {

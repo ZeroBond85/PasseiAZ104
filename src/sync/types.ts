@@ -17,6 +17,8 @@ export const SessionRecordSchema = z.object({
 export type SessionRecord = z.infer<typeof SessionRecordSchema>
 
 export const ProgressRecordSchema = z.object({
+  userId: z.string().min(1),
+  key: z.string().min(1),
   questionId: z.string(),
   box: z.number(),
   dueAt: z.number(),
@@ -67,11 +69,38 @@ export const AttemptRecordSchema = z.object({
     z.object({ raw: z.number(), max: z.number(), pct: z.number() }),
   ),
   errorTags: z.record(z.string(), ErrorTagSchema),
+  // Gate 1.4 / decisão R1(b): o resultado é persistido, então precisa dizer de
+  // qual modelo de pontuação veio. Ausente = 1 (legacy: crédito parcial + peso
+  // por dificuldade), porque todo registro anterior a 2026-10-06 usou esse.
+  // Não fazemos backfill: reetiquetar nota antiga com o modelo novo seria
+  // inventar resultado.
+  scoringModelVersion: z.number().optional(),
   createdAt: z.number(),
 })
 export type AttemptRecord = z.infer<typeof AttemptRecordSchema>
 
+export const SCORING_MODEL_LEGACY = 1
+
+// Versão efetiva de uma tentativa persistida.
+export function scoringModelOf(a: { scoringModelVersion?: number }): number {
+  return a.scoringModelVersion ?? SCORING_MODEL_LEGACY
+}
+
+// Tentativas com modelos diferentes não devem ser somadas em média: a média-5
+// da prontidão (§12) compara notas de 0..1000 que já não significam a mesma
+// coisa. Esta função separa para a UI poder avisar em vez de agregar.
+export function partitionByScoringModel<T extends { score: number }>(
+  attempts: (T & { scoringModelVersion?: number })[],
+): { current: T[]; legacy: T[] } {
+  const current: T[] = []
+  const legacy: T[] = []
+  for (const a of attempts) (scoringModelOf(a) === 1 ? legacy : current).push(a)
+  return { current, legacy }
+}
+
 export const DoubtRecordSchema = z.object({
+  userId: z.string().min(1),
+  key: z.string().min(1),
   questionId: z.string(),
   note: z.string(),
   tag: ErrorTagSchema.nullable(),
@@ -84,7 +113,8 @@ export type DoubtRecord = z.infer<typeof DoubtRecordSchema>
 // activityLog: dia ativo para streak — uma linha por (date, kind).
 // Aberto para kind livres: simulado, questions_10, doubt, leitner.
 export const ActivityRecordSchema = z.object({
-  key: z.string(), // 'YYYY-MM-DD:kind' — chave composta do store
+  userId: z.string().min(1),
+  key: z.string(), // 'userId|YYYY-MM-DD|kind' — chave composta do store
   date: z.string(), // YYYY-MM-DD local
   kind: z.string(),
   createdAt: z.number(),

@@ -37,3 +37,26 @@ test('quiz: responde, flag, finaliza, revisa', async ({ page }) => {
   await expect(page.locator('review-card')).toHaveCount(50)
   expect(errors).toEqual([])
 })
+
+// Gate 1.5: cenário importado uma vez no início do bloco contíguo.
+test('case study: cenário aparece no início do bloco e não repete', async ({
+  page,
+}) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+
+  await page.goto('./?local=1')
+  await page.getByRole('button', { name: 'Escolher um simulado' }).click()
+  await page.getByRole('button', { name: /^Simulado Oficial 1 / }).click()
+  await page.getByRole('button', { name: 'Começar simulado' }).click()
+  await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
+
+  await page.getByRole('button', { name: /^Questão 46,/ }).click()
+  const scenario = page.locator('question-card .case')
+  await expect(scenario).toContainText('Cenário · Observabilidade da Fabrikam')
+  await expect(scenario).toContainText('60 VMs')
+
+  await page.getByRole('button', { name: /^Questão 47,/ }).click()
+  await expect(page.locator('question-card .case')).toHaveCount(0)
+  expect(errors).toEqual([])
+})

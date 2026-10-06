@@ -1,12 +1,15 @@
 import { describe, expect, it } from 'vitest'
 import {
   domainQuotas,
+  groupCases,
   mulberry32,
+  pickByIds,
   selectQuestions,
+  startsCaseBlock,
 } from '../../src/engine/QuestionSelector.js'
 import type { Question } from '../../src/engine/question-schema.js'
 
-function q(id: string, domain: string): Question {
+function q(id: string, domain: string, caseStudyId?: string): Question {
   return {
     id,
     domain: domain as Question['domain'],
@@ -24,6 +27,7 @@ function q(id: string, domain: string): Question {
     explanation:
       'Explicação de teste com mais de cem caracteres para satisfazer o mínimo exigido pelo schema.',
     source: 'original',
+    caseStudyId,
     createdAt: '2026-09-12T00:00:00.000Z',
     updatedAt: '2026-09-12T00:00:00.000Z',
   }
@@ -77,5 +81,39 @@ describe('QuestionSelector §5', () => {
     const r1 = mulberry32(42)
     const r2 = mulberry32(42)
     expect([r1(), r1(), r1()]).toEqual([r2(), r2(), r2()])
+  })
+
+  it('caminho fixo agrupa o bloco do cenário no fim', () => {
+    const pool = [
+      q('az104-st-051', 'storage', 'case-st-01'),
+      q('az104-st-001', 'storage'),
+      q('az104-st-052', 'storage', 'case-st-01'),
+      q('az104-st-002', 'storage'),
+    ]
+    const picked = groupCases(
+      pickByIds(pool, [
+        'az104-st-051',
+        'az104-st-001',
+        'az104-st-052',
+        'az104-st-002',
+      ]),
+    )
+    expect(picked.map((x) => x.id)).toEqual([
+      'az104-st-001',
+      'az104-st-002',
+      'az104-st-051',
+      'az104-st-052',
+    ])
+  })
+
+  it('mostra o cenário só no início do bloco adjacente', () => {
+    const quiz = [
+      q('az104-st-001', 'storage'),
+      q('az104-st-051', 'storage', 'case-st-01'),
+      q('az104-st-052', 'storage', 'case-st-01'),
+    ]
+    expect(startsCaseBlock(quiz, 0)).toBe(false)
+    expect(startsCaseBlock(quiz, 1)).toBe(true)
+    expect(startsCaseBlock(quiz, 2)).toBe(false)
   })
 })

@@ -42,7 +42,8 @@ test('catalogo: lista oficiais e dinamico; dinamico cobre 5 dominios', async ({
   expect(errors).toEqual([])
 })
 
-// A1: oficial fixo = 50 questões na ordem do simulados.json
+// A1: oficial fixo = 50 questões com os IDs do simulados.json; blocos de caso
+// são apresentados contiguamente no fim.
 test('catalogo: oficial-01 carrega 50 questoes', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
