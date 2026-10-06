@@ -31,7 +31,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-002",
@@ -65,7 +66,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:18:45.591Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "needsReview": false
   },
   {
     "id": "az104-st-005",
@@ -95,6 +97,7 @@
     "correct": ["A"],
     "explanation": "Static website serve index/erro do contêiner $web com endpoint. Filas e tabelas não servem HTTP; disco com IIS exige VM.",
     "source": "original",
+    "needsReview": false,
     "tags": ["static-website", "blob", "web"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
@@ -132,7 +135,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:25:56.206Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "needsReview": false
   },
   {
     "id": "az104-st-010",
@@ -162,6 +166,7 @@
     "correct": ["A"],
     "explanation": "Lifecycle policy move camadas e exclui por idade automaticamente. Script manual falha; snapshot preserva em vez de transicionar; replicação copia, não gerencia idade.",
     "source": "original",
+    "needsReview": false,
     "tags": ["lifecycle", "blob", "regras"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
@@ -195,6 +200,7 @@
     "correct": ["D"],
     "explanation": "RA-GRS replica para região pareada com endpoint de leitura. LRS/ZRS não cruzam região; backup manual não dá leitura contínua.",
     "source": "original",
+    "needsReview": false,
     "tags": ["ra-grs", "georredundancia", "failover"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
@@ -230,8 +236,9 @@
     "source": "mslearn",
     "tags": ["soft-delete", "blob", "recuperacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
+    "needsReview": false,
     "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
   },
   {
@@ -264,9 +271,10 @@
     "source": "mslearn",
     "tags": ["versionamento", "blob", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "needsReview": false,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/versioning-overview"
   },
   {
     "id": "az104-st-014",
@@ -299,7 +307,8 @@
     "tags": ["files", "nfs", "linux", "posix"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-016",
@@ -332,7 +341,8 @@
     "tags": ["databox", "migracao-offline"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-017",
@@ -364,9 +374,10 @@
     "source": "mslearn",
     "tags": ["object-replication", "blob"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+    "needsReview": false,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/object-replication-overview"
   },
   {
     "id": "az104-st-019",
@@ -399,7 +410,8 @@
     "tags": ["static-website", "cdn", "https"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-020",
@@ -432,7 +444,8 @@
     "tags": ["file-sync", "tiering", "hibrido"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-022",
@@ -465,7 +478,8 @@
     "tags": ["change-feed", "blob", "pipeline"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-023",
@@ -498,7 +512,8 @@
     "tags": ["datalake-gen2", "hierarquia", "posix"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-024",
@@ -531,7 +546,8 @@
     "tags": ["sftp", "blob", "legado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-025",
@@ -563,9 +579,10 @@
     "source": "mslearn",
     "tags": ["premium", "block-blob", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T20:41:36.569Z",
+    "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "needsReview": false,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/storage-blobs-introduction"
   },
   {
     "id": "az104-st-028",
@@ -598,7 +615,8 @@
     "tags": ["files", "backup", "snapshot", "ransomware"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-029",
@@ -631,7 +649,8 @@
     "tags": ["conta", "storagev2", "tipos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-032",
@@ -664,7 +683,8 @@
     "tags": ["archive", "reidratacao", "prioridade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-033",
@@ -698,7 +718,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-034",
@@ -732,7 +753,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-035",
@@ -765,7 +787,8 @@
     "tags": ["migracao", "azcopy", "databox"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-036",
@@ -799,7 +822,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:10:58.737Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-037",
@@ -832,7 +856,8 @@
     "tags": ["private-endpoint", "dns", "firewall"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-038",
@@ -865,7 +890,8 @@
     "tags": ["failover", "grs", "secundaria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-039",
@@ -898,7 +924,8 @@
     "tags": ["last-sync-time", "rpo", "replicacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-040",
@@ -932,7 +959,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "needsReview": false
   },
   {
     "id": "az104-st-041",
@@ -965,7 +993,8 @@
     "tags": ["files", "premium", "provisionamento", "iops"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-042",
@@ -998,7 +1027,8 @@
     "tags": ["defender", "malware", "threat-detection"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-045",
@@ -1031,7 +1061,8 @@
     "tags": ["inventory", "lifecycle", "governanca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-051",
@@ -1065,7 +1096,8 @@
     "caseStudyId": "case-st-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-052",
@@ -1100,7 +1132,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-053",
@@ -1134,13 +1167,14 @@
     "caseStudyId": "case-st-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-054",
     "domain": "storage",
     "subdomain": "files-tiering",
-    "type": "case-study",
+    "type": "single",
     "difficulty": "hard",
     "question": "Uma organização usa Azure Files (SMB) e tem 70% dos arquivos não acessados há 2 anos. Qual recurso move automaticamente arquivos frios para a nuvem mantendo o acesso SMB transparente?",
     "options": [
@@ -1164,12 +1198,12 @@
     "correct": ["D"],
     "explanation": "Azure File Sync com cloud tiering faz o tiering automático: arquivos frios vão para a nuvem (camada fria) e apenas o namespace fica local, mantendo o acesso SMB transparente. A página de visão geral da conta menciona FileStorage para compartilhamentos Premium e Arquivos do Azure com tiering. Compactação/exclusão manual não escala; mover para Premium aumenta custo.",
     "source": "mslearn",
-    "tags": ["case", "tiering", "file-sync"],
-    "caseStudyId": "case-st-01",
+    "tags": ["tiering", "file-sync"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:11:41.150Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-055",
@@ -1203,7 +1237,8 @@
     "caseStudyId": "case-st-01",
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-056",
@@ -1237,7 +1272,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-057",
@@ -1269,9 +1305,10 @@
     "source": "mslearn",
     "tags": ["page-blob", "vhd", "aleatoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
-    "updatedAt": "2026-10-02T21:12:06.267Z",
+    "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-058",
@@ -1304,7 +1341,8 @@
     "tags": ["block-blob", "blocos", "upload", "limites"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-059",
@@ -1338,7 +1376,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:14:05.083Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-060",
@@ -1372,7 +1411,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-061",
@@ -1405,7 +1445,8 @@
     "tags": ["cors", "navegador", "origens"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-062",
@@ -1438,7 +1479,8 @@
     "tags": ["static-website", "cache-control", "headers"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-063",
@@ -1472,7 +1514,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:15:22.327Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-068",
@@ -1505,7 +1548,8 @@
     "tags": ["files", "snapshot", "politica", "retencao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-070",
@@ -1539,7 +1583,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-071",
@@ -1572,7 +1617,8 @@
     "tags": ["datalake", "acl", "heranca", "posix"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-076",
@@ -1606,7 +1652,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-077",
@@ -1639,7 +1686,8 @@
     "tags": ["pitr", "restauracao", "conta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-078",
@@ -1672,7 +1720,8 @@
     "tags": ["backup-operacional", "blobs", "continuo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-079",
@@ -1705,7 +1754,8 @@
     "tags": ["backup-cofre", "files", "retencao", "compliance"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-080",
@@ -1738,7 +1788,8 @@
     "tags": ["backup-disco", "snapshot", "incremental"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-081",
@@ -1771,7 +1822,8 @@
     "tags": ["backup-center", "centralizacao", "conformidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-082",
@@ -1804,7 +1856,8 @@
     "tags": ["cross-region", "restore", "dr"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-083",
@@ -1837,7 +1890,8 @@
     "tags": ["politica", "retencao", "camadas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-084",
@@ -1871,7 +1925,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-085",
@@ -1904,7 +1959,8 @@
     "tags": ["backup", "alertas", "monitor"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-086",
@@ -1937,7 +1993,8 @@
     "tags": ["backup", "relatorios", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-087",
@@ -1970,7 +2027,8 @@
     "tags": ["stop-protection", "reter", "descomissionar"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-088",
@@ -2003,7 +2061,8 @@
     "tags": ["resume", "protecao", "retomar"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-089",
@@ -2036,7 +2095,8 @@
     "tags": ["restore", "arquivo", "granular", "files"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-090",
@@ -2069,7 +2129,8 @@
     "tags": ["restore", "olr", "alr", "destino"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-092",
@@ -2102,7 +2163,8 @@
     "tags": ["backup", "private-endpoint", "dns"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-093",
@@ -2135,7 +2197,8 @@
     "tags": ["mua", "resource-guard", "exclusao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-094",
@@ -2168,7 +2231,8 @@
     "tags": ["cross-subscription", "restore", "rbac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-095",
@@ -2202,7 +2266,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-create",
+    "needsReview": false
   },
   {
     "id": "az104-st-096",
@@ -2235,7 +2300,8 @@
     "tags": ["janela", "agendamento", "pico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-097",
@@ -2268,7 +2334,8 @@
     "tags": ["retention-lock", "mua", "compliance"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-098",
@@ -2301,7 +2368,8 @@
     "tags": ["teste-restore", "validacao", "isolado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-099",
@@ -2334,7 +2402,8 @@
     "tags": ["air-gap", "isolamento", "imutabilidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-100",
@@ -2367,7 +2436,8 @@
     "tags": ["rpo", "rto", "sla", "backup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-101",
@@ -2400,7 +2470,8 @@
     "tags": ["custo", "archive", "retencao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-102",
@@ -2433,7 +2504,8 @@
     "tags": ["monitoramento", "metricas", "relatorio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-105",
@@ -2466,7 +2538,8 @@
     "tags": ["granular", "arquivo", "montagem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-106",
@@ -2499,7 +2572,8 @@
     "tags": ["sql", "backup", "log", "truncamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-107",
@@ -2532,7 +2606,8 @@
     "tags": ["sap", "hana", "backup", "certificado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-108",
@@ -2565,7 +2640,8 @@
     "tags": ["mars", "dpm", "legado", "on-premises"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-109",
@@ -2599,7 +2675,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:29:16.285Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-113",
@@ -2633,7 +2710,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:29:16.294Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/soft-delete-blob-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-126",
@@ -2667,7 +2745,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:41:36.569Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-127",
@@ -2701,7 +2780,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:16:05.315Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-128",
@@ -2734,7 +2814,8 @@
     "tags": ["abort-copy", "cancelar", "copy-id"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-129",
@@ -2767,7 +2848,8 @@
     "tags": ["lease", "break", "travado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-130",
@@ -2800,7 +2882,8 @@
     "tags": ["lease", "renew", "renovar"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-131",
@@ -2834,7 +2917,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:17:06.512Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-132",
@@ -2868,7 +2952,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:17:40.714Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-133",
@@ -2901,7 +2986,8 @@
     "tags": ["metricas", "capacidade", "projecao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-134",
@@ -2934,7 +3020,8 @@
     "tags": ["metricas", "transacoes", "throttling"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-135",
@@ -2967,7 +3054,8 @@
     "tags": ["insights", "storage", "monitor"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-136",
@@ -3000,7 +3088,8 @@
     "tags": ["diagnostico", "logs", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-137",
@@ -3033,7 +3122,8 @@
     "tags": ["metricas", "minuto", "granularidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-138",
@@ -3066,7 +3156,8 @@
     "tags": ["metricas", "retencao", "tendencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-139",
@@ -3099,7 +3190,8 @@
     "tags": ["metricas", "classicas", "migracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-140",
@@ -3132,7 +3224,8 @@
     "tags": ["alertas", "dimensoes", "container"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-141",
@@ -3165,7 +3258,8 @@
     "tags": ["fatura", "tags", "medidores"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-142",
@@ -3198,7 +3292,8 @@
     "tags": ["egress", "cdn", "custo", "regiao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-143",
@@ -3231,7 +3326,8 @@
     "tags": ["custo", "transacoes", "cache", "lotes"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-144",
@@ -3264,7 +3360,8 @@
     "tags": ["cool", "penalidade", "leitura", "exclusao-precoce"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-145",
@@ -3297,7 +3394,8 @@
     "tags": ["archive", "permanencia", "reidratacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-146",
@@ -3330,7 +3428,8 @@
     "tags": ["reserved-capacity", "reserva", "desconto"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-147",
@@ -3363,7 +3462,8 @@
     "tags": ["transferencia", "egress", "zonas", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-148",
@@ -3396,7 +3496,8 @@
     "tags": ["banda", "franquia", "gratuito", "egress"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-149",
@@ -3429,7 +3530,8 @@
     "tags": ["advisor", "custo", "tier", "orfaos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-150",
@@ -3462,7 +3564,8 @@
     "tags": ["budgets", "alertas", "acao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-151",
@@ -3495,7 +3598,8 @@
     "tags": ["discos-orfaos", "limpeza", "snapshot"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-152",
@@ -3528,7 +3632,8 @@
     "tags": ["snapshots", "retencao", "limpeza"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-153",
@@ -3561,7 +3666,8 @@
     "tags": ["lifecycle", "ciclo-vida", "custo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-154",
@@ -3594,7 +3700,8 @@
     "tags": ["compressao", "criptografia", "client-side"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-155",
@@ -3627,7 +3734,8 @@
     "tags": ["azcopy", "paralelismo", "retomada"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-156",
@@ -3660,7 +3768,8 @@
     "tags": ["put-blob", "copy-blob", "sincrono", "assincrono"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-157",
@@ -3694,7 +3803,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:30:22.182Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "needsReview": false
   },
   {
     "id": "az104-st-158",
@@ -3728,7 +3838,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:25:56.216Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "needsReview": false
   },
   {
     "id": "az104-st-159",
@@ -3762,7 +3873,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:30:05.683Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+    "needsReview": false
   },
   {
     "id": "az104-st-160",
@@ -3795,7 +3907,8 @@
     "tags": ["databox", "cadeia-custodia", "wipe"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-161",
@@ -3828,7 +3941,8 @@
     "tags": ["databox", "checksum", "validacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-171",
@@ -3862,7 +3976,8 @@
     "tags": ["soft-delete", "container", "pre-requisito", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T16:07:44.000Z",
-    "version": 2
+    "version": 2,
+    "needsReview": false
   },
   {
     "id": "az104-st-172",
@@ -3896,7 +4011,8 @@
     "tags": ["versionamento", "lifecycle", "custo", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-173",
@@ -3930,7 +4046,8 @@
     "tags": ["files", "soft-delete", "retencao", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-174",
@@ -3964,7 +4081,8 @@
     "tags": ["versionamento", "versionid", "auditoria", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-175",
@@ -3998,7 +4116,8 @@
     "tags": ["container", "nomenclatura", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-176",
@@ -4032,7 +4151,8 @@
     "tags": ["container", "acesso-publico", "anonimo", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-177",
@@ -4066,7 +4186,8 @@
     "tags": ["lifecycle", "filtros", "prefixmatch", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-178",
@@ -4100,7 +4221,8 @@
     "tags": ["soft-delete", "retencao", "conformidade", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-180",
@@ -4134,7 +4256,8 @@
     "tags": ["blob", "tiers", "cold", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-181",
