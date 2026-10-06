@@ -31,7 +31,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-167",
@@ -65,7 +66,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-191",
@@ -169,7 +171,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-203",
@@ -203,7 +206,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-204",
@@ -237,7 +241,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-205",
@@ -271,7 +276,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-206",
@@ -305,7 +311,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-207",
@@ -339,7 +346,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-208",
@@ -373,7 +381,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-209",
@@ -407,7 +416,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "needsReview": false
   },
   {
     "id": "az104-co-210",
@@ -441,7 +451,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes/general-purpose/d-family",
+    "needsReview": false
   },
   {
     "id": "az104-co-211",
@@ -475,7 +486,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-212",
@@ -509,7 +521,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:40:58.795Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-intro",
+    "needsReview": false
   },
   {
     "id": "az104-co-213",
@@ -543,7 +556,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-214",
@@ -577,7 +591,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-215",
@@ -611,7 +626,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-216",
@@ -645,7 +661,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-217",
@@ -679,7 +696,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-machines/availability",
+    "needsReview": false
   },
   {
     "id": "az104-co-218",
@@ -713,7 +731,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "needsReview": false
   },
   {
     "id": "az104-co-219",
@@ -747,7 +766,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "needsReview": false
   },
   {
     "id": "az104-co-220",
@@ -781,7 +801,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "needsReview": false
   },
   {
     "id": "az104-co-221",
@@ -815,7 +836,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/move-region",
+    "needsReview": false
   },
   {
     "id": "az104-co-231",
@@ -849,7 +871,8 @@
     "tags": ["vm", "trusted-launch", "secure-boot", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-232",
@@ -883,7 +906,8 @@
     "tags": ["vm", "host-encryption", "cmk", "des", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-233",
@@ -917,7 +941,8 @@
     "tags": ["vm", "mover", "assinatura", "regiao", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-234",
@@ -951,7 +976,8 @@
     "tags": ["vm", "tamanhos", "premium-ssd", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T16:07:44.000Z",
-    "version": 2
+    "version": 2,
+    "needsReview": false
   },
   {
     "id": "az104-co-235",
@@ -985,7 +1011,8 @@
     "tags": ["vm", "discos", "zrs", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T00:00:00.000Z",
-    "version": 2
+    "version": 2,
+    "needsReview": false
   },
   {
     "id": "az104-co-236",
@@ -1018,7 +1045,8 @@
     "tags": ["vm", "zonas", "zone-redundant", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T23:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-237",
@@ -1052,7 +1080,8 @@
     "tags": ["vmss", "auto-os-upgrade", "patch", "co-vms"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-238",
@@ -1086,7 +1115,8 @@
     "tags": ["acr", "geo-replicacao", "premium", "co-containers"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-239",
@@ -1120,7 +1150,8 @@
     "tags": ["aci", "identidade-gerenciada", "acrpull", "co-containers"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-240",
@@ -1154,7 +1185,8 @@
     "tags": ["aci", "secure-env", "segredos", "co-containers"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-241",
@@ -1188,7 +1220,8 @@
     "tags": ["container-apps", "revisoes", "canario", "co-containers"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-242",
@@ -1222,7 +1255,8 @@
     "tags": ["container-apps", "keda", "escala", "co-containers"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-243",
@@ -1256,7 +1290,8 @@
     "tags": ["aci", "grupo", "sidecar", "co-containers"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-co-246",

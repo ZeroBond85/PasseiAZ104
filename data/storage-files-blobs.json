@@ -30,7 +30,9 @@
     "tags": ["files", "smb"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-007",
@@ -63,7 +65,8 @@
     "tags": ["queues", "mensagens"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-008",
@@ -96,7 +99,8 @@
     "tags": ["tables", "nosql"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-021",
@@ -130,7 +134,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:10:18.202Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-026",
@@ -163,7 +168,8 @@
     "tags": ["queues", "poison", "retentativas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-027",
@@ -196,7 +202,8 @@
     "tags": ["tables", "partitionkey", "rowkey", "modelagem"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-046",
@@ -229,7 +236,8 @@
     "tags": ["queues", "throughput", "visibility-timeout"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-064",
@@ -262,7 +270,8 @@
     "tags": ["queues", "visibility-timeout", "processamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-065",
@@ -295,7 +304,8 @@
     "tags": ["queues", "ttl", "expiracao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-066",
@@ -328,7 +338,8 @@
     "tags": ["tables", "transacao", "batch", "atomicidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-067",
@@ -361,7 +372,8 @@
     "tags": ["tables", "indice-secundario", "email"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-179",
@@ -395,6 +407,7 @@
     "tags": ["files", "filestorage", "tipos-conta", "st-files-blobs"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T16:07:44.000Z",
-    "version": 2
+    "version": 2,
+    "needsReview": false
   }
 ]

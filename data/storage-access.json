@@ -31,7 +31,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:24:08.275Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-009",
@@ -65,7 +66,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:24:08.275Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "needsReview": false
   },
   {
     "id": "az104-st-015",
@@ -99,7 +101,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:40:58.778Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-018",
@@ -132,7 +135,8 @@
     "tags": ["encryption-scope", "cmk", "chaves"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-030",
@@ -166,7 +170,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:23:11.091Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-031",
@@ -199,7 +204,8 @@
     "tags": ["rbac", "dados", "entra-id", "chaves"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-043",
@@ -233,7 +239,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.146Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "needsReview": false
   },
   {
     "id": "az104-st-044",
@@ -266,7 +273,8 @@
     "tags": ["cmk", "key-vault", "rotacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-048",
@@ -300,7 +308,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:24:08.276Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-keys-manage"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-keys-manage",
+    "needsReview": false
   },
   {
     "id": "az104-st-050",
@@ -334,7 +343,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:11:18.252Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-069",
@@ -368,7 +378,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:40:58.778Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/files/storage-files-active-directory-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-072",
@@ -402,7 +413,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:25:56.216Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-sas-overview",
+    "needsReview": false
   },
   {
     "id": "az104-st-073",
@@ -436,7 +448,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.146Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/blobs/anonymous-read-access-configure",
+    "needsReview": false
   },
   {
     "id": "az104-st-074",
@@ -469,7 +482,8 @@
     "tags": ["user-delegation", "sas", "entra-id"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-075",
@@ -503,7 +517,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T21:24:08.276Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/storage/common/storage-network-security",
+    "needsReview": false
   },
   {
     "id": "az104-st-091",
@@ -536,7 +551,8 @@
     "tags": ["backup", "cmk", "imutabilidade", "ransomware"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-103",
@@ -569,7 +585,8 @@
     "tags": ["rede", "private-endpoint", "janela"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-104",
@@ -602,7 +619,8 @@
     "tags": ["criptografia", "tls", "cmk"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-st-189",

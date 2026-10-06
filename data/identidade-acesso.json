@@ -31,7 +31,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.372Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-002",
@@ -65,7 +66,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:53:39.657Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/users",
+    "needsReview": false
   },
   {
     "id": "az104-ig-011",
@@ -99,7 +101,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network",
+    "needsReview": false
   },
   {
     "id": "az104-ig-015",
@@ -132,7 +135,8 @@
     "tags": ["app-registration", "graph", "permissoes-delegadas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-016",
@@ -166,7 +170,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-018",
@@ -200,7 +205,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-report-only"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-report-only",
+    "needsReview": false
   },
   {
     "id": "az104-ig-024",
@@ -234,7 +240,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.372Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-026",
@@ -268,7 +275,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-password-ban-bad-on-premises"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-password-ban-bad-on-premises",
+    "needsReview": false
   },
   {
     "id": "az104-ig-029",
@@ -302,7 +310,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-031",
@@ -336,7 +345,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid",
+    "needsReview": false
   },
   {
     "id": "az104-ig-037",
@@ -369,7 +379,8 @@
     "tags": ["cross-tenant", "b2b", "confianca"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-039",
@@ -403,7 +414,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection",
+    "needsReview": false
   },
   {
     "id": "az104-ig-040",
@@ -437,7 +449,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-042",
@@ -471,7 +484,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-conditions"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-conditions",
+    "needsReview": false
   },
   {
     "id": "az104-ig-044",
@@ -504,7 +518,8 @@
     "tags": ["global-secure-access", "zero-trust", "private-access"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-045",
@@ -537,7 +552,8 @@
     "tags": ["verified-id", "credenciais", "did"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-046",
@@ -571,7 +587,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-051",
@@ -605,7 +622,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:46:38.438Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-052",
@@ -639,7 +657,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:41:34.805Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-setup-sso"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-setup-sso",
+    "needsReview": false
   },
   {
     "id": "az104-ig-055",
@@ -673,7 +692,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/role-based-access-control/security-emergency-access"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/role-based-access-control/security-emergency-access",
+    "needsReview": false
   },
   {
     "id": "az104-ig-056",
@@ -707,7 +727,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session",
+    "needsReview": false
   },
   {
     "id": "az104-ig-057",
@@ -741,7 +762,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/devices/device-join-plan"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/devices/device-join-plan",
+    "needsReview": false
   },
   {
     "id": "az104-ig-058",
@@ -775,7 +797,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-grant"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-grant",
+    "needsReview": false
   },
   {
     "id": "az104-ig-059",
@@ -809,7 +832,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network",
+    "needsReview": false
   },
   {
     "id": "az104-ig-060",
@@ -843,7 +867,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks",
+    "needsReview": false
   },
   {
     "id": "az104-ig-061",
@@ -877,7 +902,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies",
+    "needsReview": false
   },
   {
     "id": "az104-ig-062",
@@ -911,7 +937,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:55:33.377Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-assign-users"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/add-application-portal-assign-users",
+    "needsReview": false
   },
   {
     "id": "az104-ig-067",
@@ -945,7 +972,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication",
+    "needsReview": false
   },
   {
     "id": "az104-ig-068",
@@ -979,7 +1007,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/what-if-tool"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/what-if-tool",
+    "needsReview": false
   },
   {
     "id": "az104-ig-069",
@@ -1013,7 +1042,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session",
+    "needsReview": false
   },
   {
     "id": "az104-ig-070",
@@ -1047,7 +1077,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-session",
+    "needsReview": false
   },
   {
     "id": "az104-ig-071",
@@ -1081,7 +1112,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/overview-what-is-app-proxy"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/overview-what-is-app-proxy",
+    "needsReview": false
   },
   {
     "id": "az104-ig-072",
@@ -1115,7 +1147,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/how-to-configure-sso-with-kcd"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-proxy/how-to-configure-sso-with-kcd",
+    "needsReview": false
   },
   {
     "id": "az104-ig-073",
@@ -1149,7 +1182,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-certificate-based-authentication"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-certificate-based-authentication",
+    "needsReview": false
   },
   {
     "id": "az104-ig-079",
@@ -1183,7 +1217,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/what-is-single-sign-on"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/what-is-single-sign-on",
+    "needsReview": false
   },
   {
     "id": "az104-ig-080",
@@ -1217,7 +1252,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-provisioning/user-provisioning"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/app-provisioning/user-provisioning",
+    "needsReview": false
   },
   {
     "id": "az104-ig-081",
@@ -1251,7 +1287,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies",
+    "needsReview": false
   },
   {
     "id": "az104-ig-083",
@@ -1285,7 +1322,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-condition-filters-for-devices"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-condition-filters-for-devices",
+    "needsReview": false
   },
   {
     "id": "az104-ig-084",
@@ -1319,7 +1357,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-policy-common"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-policy-common",
+    "needsReview": false
   },
   {
     "id": "az104-ig-085",
@@ -1353,7 +1392,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-086",
@@ -1387,7 +1427,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:55:33.377Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-087",
@@ -1420,7 +1461,8 @@
     "tags": ["senhas", "rotacao", "contas-servico"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-088",
@@ -1454,7 +1496,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:52:58.755Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-089",
@@ -1488,7 +1531,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-090",
@@ -1522,7 +1566,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/how-to-mfa-additional-context"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/how-to-mfa-additional-context",
+    "needsReview": false
   },
   {
     "id": "az104-ig-091",
@@ -1591,7 +1636,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:46:38.447Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-107",
@@ -1625,7 +1671,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-108",
@@ -1659,7 +1706,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:55:33.377Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/protect-against-consent-phishing"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/protect-against-consent-phishing",
+    "needsReview": false
   },
   {
     "id": "az104-ig-121",
@@ -1692,7 +1740,8 @@
     "tags": ["what-if", "arm", "deploy", "previsao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-123",
@@ -1725,7 +1774,8 @@
     "tags": ["bicep", "arm", "iac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-125",
@@ -1759,7 +1809,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/workload-id/workload-identities-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-126",
@@ -1793,7 +1844,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-filter-for-applications"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-filter-for-applications",
+    "needsReview": false
   },
   {
     "id": "az104-ig-127",
@@ -1827,7 +1879,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network",
+    "needsReview": false
   },
   {
     "id": "az104-ig-129",
@@ -1860,7 +1913,8 @@
     "tags": ["cross-tenant-sync", "fusao", "sincronizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-130",
@@ -1893,7 +1947,8 @@
     "tags": ["multitenant", "contexto", "pim"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-131",
@@ -1927,7 +1982,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/compliance/regulatory/gdpr-data-subject-requests"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/compliance/regulatory/gdpr-data-subject-requests",
+    "needsReview": false
   },
   {
     "id": "az104-ig-133",
@@ -1961,7 +2017,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/troubleshoot-saml-based-sso"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/troubleshoot-saml-based-sso",
+    "needsReview": false
   },
   {
     "id": "az104-ig-137",
@@ -1995,7 +2052,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-sspr-writeback"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-sspr-writeback",
+    "needsReview": false
   },
   {
     "id": "az104-ig-139",
@@ -2029,7 +2087,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T04:01:33.561Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-device-writeback"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-device-writeback",
+    "needsReview": false
   },
   {
     "id": "az104-ig-151",
@@ -2063,7 +2122,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:46:38.447Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-152",
@@ -2097,7 +2157,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/what-is-b2b"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/what-is-b2b",
+    "needsReview": false
   },
   {
     "id": "az104-ig-153",
@@ -2131,7 +2192,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/b2b-sponsors"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/b2b-sponsors",
+    "needsReview": false
   },
   {
     "id": "az104-ig-154",
@@ -2165,7 +2227,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/redemption-experience"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/redemption-experience",
+    "needsReview": false
   },
   {
     "id": "az104-ig-155",
@@ -2199,7 +2262,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/one-time-passcode"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/external-id/one-time-passcode",
+    "needsReview": false
   },
   {
     "id": "az104-ig-156",
@@ -2233,7 +2297,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:46:38.447Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-158",
@@ -2267,7 +2332,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-strengths"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/concept-authentication-strengths",
+    "needsReview": false
   },
   {
     "id": "az104-ig-159",
@@ -2301,7 +2367,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-continuous-access-evaluation"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-continuous-access-evaluation",
+    "needsReview": false
   },
   {
     "id": "az104-ig-160",
@@ -2335,7 +2402,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-token-protection",
+    "needsReview": false
   },
   {
     "id": "az104-ig-162",
@@ -2368,7 +2436,8 @@
     "tags": ["verified-id", "admissao", "identidade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-163",
@@ -2401,7 +2470,8 @@
     "tags": ["face-check", "liveness", "prova-vida"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-164",
@@ -2435,7 +2505,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/intune/device-enrollment/mam-without-enrollment"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/intune/device-enrollment/mam-without-enrollment",
+    "needsReview": false
   },
   {
     "id": "az104-ig-165",
@@ -2469,7 +2540,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-166",
@@ -2503,7 +2575,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-policy-common"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-conditional-access-policy-common",
+    "needsReview": false
   },
   {
     "id": "az104-ig-171",
@@ -2537,7 +2610,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-configure-risk-policies",
+    "needsReview": false
   },
   {
     "id": "az104-ig-172",
@@ -2571,7 +2645,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-identity-protection-risks",
+    "needsReview": false
   },
   {
     "id": "az104-ig-173",
@@ -2605,7 +2680,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/concept-assignment-network",
+    "needsReview": false
   },
   {
     "id": "az104-ig-174",
@@ -2639,7 +2715,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:03:46.861Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-176",
@@ -2673,7 +2750,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:07:12.098Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-181",
@@ -2707,7 +2785,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.372Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-182",
@@ -2741,7 +2820,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:48:06.420Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/fundamentals/license-users-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-183",
@@ -2774,7 +2854,8 @@
     "tags": ["bicep", "rbac", "guid", "iac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-184",
@@ -2808,7 +2889,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-template"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-template",
+    "needsReview": false
   },
   {
     "id": "az104-ig-185",
@@ -2841,7 +2923,8 @@
     "tags": ["guid", "role-assignment", "idempotencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-186",
@@ -2874,7 +2957,8 @@
     "tags": ["scope", "bicep", "resourcegroup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-187",
@@ -2908,7 +2992,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-188",
@@ -2942,7 +3027,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/user-admin-consent-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-189",
@@ -2976,7 +3062,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/configure-permission-classifications"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/enterprise-apps/configure-permission-classifications",
+    "needsReview": false
   },
   {
     "id": "az104-ig-190",
@@ -3010,7 +3097,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:55:33.377Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk",
+    "needsReview": false
   },
   {
     "id": "az104-ig-191",
@@ -3044,7 +3132,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/concept-workload-identity-risk",
+    "needsReview": false
   },
   {
     "id": "az104-ig-193",
@@ -3078,7 +3167,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/architecture/service-accounts-principal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-194",
@@ -3112,7 +3202,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T12:21:01.512Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/msal/python/advanced/msal-python-token-cache-serialization"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/msal/python/advanced/msal-python-token-cache-serialization",
+    "needsReview": false
   },
   {
     "id": "az104-ig-195",
@@ -3146,7 +3237,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-auth-code-flow"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-auth-code-flow",
+    "needsReview": false
   },
   {
     "id": "az104-ig-196",
@@ -3180,7 +3272,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-device-code"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-device-code",
+    "needsReview": false
   },
   {
     "id": "az104-ig-197",
@@ -3214,7 +3307,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-on-behalf-of-flow"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-on-behalf-of-flow",
+    "needsReview": false
   },
   {
     "id": "az104-ig-198",
@@ -3248,7 +3342,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth-ropc"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth-ropc",
+    "needsReview": false
   },
   {
     "id": "az104-ig-199",
@@ -3282,7 +3377,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-implicit-grant-flow"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/v2-oauth2-implicit-grant-flow",
+    "needsReview": false
   },
   {
     "id": "az104-ig-200",
@@ -3315,7 +3411,8 @@
     "tags": ["bff", "spa", "cookie", "sessao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-205",
@@ -3349,7 +3446,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization",
+    "needsReview": false
   },
   {
     "id": "az104-ig-206",
@@ -3383,7 +3481,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/saml-claims-customization",
+    "needsReview": false
   },
   {
     "id": "az104-ig-207",
@@ -3417,7 +3516,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T12:21:01.512Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/optional-claims"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/optional-claims",
+    "needsReview": false
   },
   {
     "id": "az104-ig-208",
@@ -3451,7 +3551,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/access-tokens"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/access-tokens",
+    "needsReview": false
   },
   {
     "id": "az104-ig-209",
@@ -3485,7 +3586,7 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
+    "needsReview": false
   },
   {
     "id": "az104-ig-210",
@@ -3519,7 +3620,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:58:52.140Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk",
+    "needsReview": false
   },
   {
     "id": "az104-ig-211",
@@ -3553,7 +3655,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-protection/howto-identity-protection-investigate-risk",
+    "needsReview": false
   },
   {
     "id": "az104-ig-213",
@@ -3586,7 +3689,8 @@
     "tags": ["sentinel", "ueba", "entidades"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-214",
@@ -3619,7 +3723,8 @@
     "tags": ["kql", "hunting", "risco"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-215",
@@ -3652,7 +3757,8 @@
     "tags": ["watchlist", "vip", "hunting"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-216",
@@ -3685,7 +3791,8 @@
     "tags": ["threat-intel", "indicadores", "bloqueio"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-217",
@@ -3718,7 +3825,8 @@
     "tags": ["fusion", "correlacao", "kill-chain"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-218",
@@ -3751,7 +3859,8 @@
     "tags": ["mttr", "triagem", "playbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-219",
@@ -3784,7 +3893,8 @@
     "tags": ["secure-score", "postura", "campanhas"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-220",
@@ -3817,7 +3927,8 @@
     "tags": ["recomendacoes", "priorizacao", "prazo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-221",
@@ -3851,7 +3962,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-222",
@@ -3885,7 +3997,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:51:07.305Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-244",

@@ -31,7 +31,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-005",
@@ -64,7 +65,8 @@
     "tags": ["vpn", "site-to-site", "ipsec"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-006",
@@ -98,7 +100,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-010",
@@ -131,7 +134,8 @@
     "tags": ["firewall", "fqdn", "inspecao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-011",
@@ -165,7 +169,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-015",
@@ -199,7 +204,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-016",
@@ -233,7 +239,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-017",
@@ -267,7 +274,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-018",
@@ -300,7 +308,8 @@
     "tags": ["vpn", "p2s", "certificado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-019",
@@ -334,7 +343,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-022",
@@ -368,7 +378,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-025",
@@ -401,7 +412,8 @@
     "tags": ["firewall", "policy", "regras"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-026",
@@ -434,7 +446,8 @@
     "tags": ["vpn", "bgp", "ativo-ativo"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-027",
@@ -468,7 +481,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-038",
@@ -502,7 +516,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-039",
@@ -535,7 +550,8 @@
     "tags": ["firewall", "dnat", "rdp"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-041",
@@ -569,7 +585,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/network-security-groups-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-042",
@@ -602,7 +619,8 @@
     "tags": ["nsg", "asg", "agrupamento"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-045",
@@ -635,7 +653,8 @@
     "tags": ["vpn", "sku", "vpngw2", "bgp"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-046",
@@ -668,7 +687,8 @@
     "tags": ["expressroute", "global-reach"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-050",
@@ -702,7 +722,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-053",
@@ -736,7 +757,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-054",
@@ -770,7 +792,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-056",
@@ -804,7 +827,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-062",
@@ -837,7 +861,8 @@
     "tags": ["expressroute", "fastpath", "latencia"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-064",
@@ -870,7 +895,8 @@
     "tags": ["waf", "tuning", "falso-positivo", "owasp"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-066",
@@ -904,7 +930,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-088",
@@ -937,7 +964,8 @@
     "tags": ["waf", "bots", "scraping"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-089",
@@ -970,7 +998,8 @@
     "tags": ["waf", "rate-limit", "forca-bruta"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-090",
@@ -1003,7 +1032,8 @@
     "tags": ["waf", "geo-filter", "pais"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-rv-103",
@@ -1037,7 +1067,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-104",
@@ -1071,7 +1102,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/bastion/bastion-overview",
+    "needsReview": false
   },
   {
     "id": "az104-rv-109",
@@ -1105,7 +1137,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-110",
@@ -1139,7 +1172,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-111",
@@ -1173,7 +1207,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-112",
@@ -1207,7 +1242,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-113",
@@ -1241,7 +1277,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-114",
@@ -1275,7 +1312,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-115",
@@ -1309,7 +1347,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-116",
@@ -1343,7 +1382,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-117",
@@ -1377,7 +1417,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-118",
@@ -1411,7 +1452,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-119",
@@ -1445,7 +1487,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-120",
@@ -1479,7 +1522,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-121",
@@ -1513,7 +1557,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:02:04.163Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/virtual-network/quick-create-portal",
+    "needsReview": false
   },
   {
     "id": "az104-rv-186",

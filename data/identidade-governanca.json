@@ -31,7 +31,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.360Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-004",
@@ -65,7 +66,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:35:51.143Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-005",
@@ -99,7 +101,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-006",
@@ -132,7 +135,8 @@
     "tags": ["management-groups", "policy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-007",
@@ -166,7 +170,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-008",
@@ -200,7 +205,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-009",
@@ -234,7 +240,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-010",
@@ -267,7 +274,8 @@
     "tags": ["b2b", "convidados"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-012",
@@ -301,7 +309,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:35:51.154Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-013",
@@ -335,7 +344,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-014",
@@ -368,7 +378,8 @@
     "tags": ["identity-protection", "risco-login"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-017",
@@ -402,7 +413,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-019",
@@ -436,7 +448,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization",
+    "needsReview": false
   },
   {
     "id": "az104-ig-020",
@@ -469,7 +482,8 @@
     "tags": ["domain-services", "kerberos", "legado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-021",
@@ -503,7 +517,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-022",
@@ -537,7 +552,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-023",
@@ -571,7 +587,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-025",
@@ -605,7 +622,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use",
+    "needsReview": false
   },
   {
     "id": "az104-ig-027",
@@ -639,7 +657,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-028",
@@ -672,7 +691,8 @@
     "tags": ["fido2", "passwordless", "phishing"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-030",
@@ -705,7 +725,8 @@
     "tags": ["deny-assignments", "backup"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-032",
@@ -739,7 +760,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-033",
@@ -772,7 +794,8 @@
     "tags": ["grupos", "seguranca", "dinamicos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-034",
@@ -806,7 +829,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:35:51.154Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-035",
@@ -840,7 +864,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-036",
@@ -873,7 +898,8 @@
     "tags": ["paw", "conditional-access", "pim"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-038",
@@ -906,7 +932,8 @@
     "tags": ["authentication-strength", "phishing-resistant"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-041",
@@ -940,7 +967,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/what-are-lifecycle-workflows"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/what-are-lifecycle-workflows",
+    "needsReview": false
   },
   {
     "id": "az104-ig-043",
@@ -974,7 +1002,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-047",
@@ -1007,7 +1036,8 @@
     "tags": ["administrative-units", "delegacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-049",
@@ -1041,7 +1071,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:49:06.723Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-050",
@@ -1075,7 +1106,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T20:04:22.873Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/lock-resources",
+    "needsReview": false
   },
   {
     "id": "az104-ig-053",
@@ -1109,7 +1141,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/what-is-provisioning"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/what-is-provisioning",
+    "needsReview": false
   },
   {
     "id": "az104-ig-054",
@@ -1143,7 +1176,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:51:07.287Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/authentication/tutorial-enable-sspr",
+    "needsReview": false
   },
   {
     "id": "az104-ig-063",
@@ -1176,7 +1210,8 @@
     "tags": ["licenciamento", "grupo", "e5"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-064",
@@ -1210,7 +1245,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-065",
@@ -1243,7 +1279,8 @@
     "tags": ["tenant-id", "msal", "automacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-066",
@@ -1276,7 +1313,8 @@
     "tags": ["dominio-personalizado", "txt", "upn"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-074",
@@ -1309,7 +1347,8 @@
     "tags": ["cota", "diretorio", "limites", "b2b"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-075",
@@ -1343,7 +1382,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:56:29.838Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-076",
@@ -1377,7 +1417,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-077",
@@ -1411,7 +1452,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/entitlement-management-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-078",
@@ -1445,7 +1487,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/conditional-access/terms-of-use",
+    "needsReview": false
   },
   {
     "id": "az104-ig-082",
@@ -1479,7 +1522,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-092",
@@ -1513,7 +1557,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/create-access-review-pim-for-groups"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/create-access-review-pim-for-groups",
+    "needsReview": false
   },
   {
     "id": "az104-ig-102",
@@ -1546,7 +1591,8 @@
     "tags": ["graph", "delta-query", "sincronizacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-103",
@@ -1579,7 +1625,8 @@
     "tags": ["graph", "webhook", "subscription"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-104",
@@ -1612,7 +1659,8 @@
     "tags": ["graph", "batch", "throttling"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-105",
@@ -1645,7 +1693,8 @@
     "tags": ["graph", "throttling", "429", "backoff"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-106",
@@ -1678,7 +1727,8 @@
     "tags": ["graph", "permissoes", "least-privilege"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-109",
@@ -1711,7 +1761,8 @@
     "tags": ["administrative-units", "dinamica", "regra"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-110",
@@ -1744,7 +1795,8 @@
     "tags": ["administrative-units", "limitacoes", "m365"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-111",
@@ -1777,7 +1829,8 @@
     "tags": ["grupos", "role-assignable", "papeis"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-112",
@@ -1811,7 +1864,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:35:51.155Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-portal",
+    "needsReview": false
   },
   {
     "id": "az104-ig-113",
@@ -1845,7 +1899,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/access-reviews-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-114",
@@ -1879,7 +1934,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-115",
@@ -1913,7 +1969,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:09:27.368Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/governance/policy/tutorials/govern-tags",
+    "needsReview": false
   },
   {
     "id": "az104-ig-116",
@@ -1947,7 +2004,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:56:57.776Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/advisor/advisor-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-117",
@@ -1981,7 +2039,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:57:35.574Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/tag-resources",
+    "needsReview": false
   },
   {
     "id": "az104-ig-118",
@@ -2014,7 +2073,8 @@
     "tags": ["blueprints", "bicep", "migracao", "legado"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-119",
@@ -2047,7 +2107,8 @@
     "tags": ["deployment-stacks", "ciclo-vida", "iac"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-120",
@@ -2080,7 +2141,8 @@
     "tags": ["template-specs", "arm", "reuso"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-122",
@@ -2113,7 +2175,8 @@
     "tags": ["complete-mode", "drift", "deploy"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-124",
@@ -2146,7 +2209,8 @@
     "tags": ["github-actions", "oidc", "federacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-128",
@@ -2180,7 +2244,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/identity-governance-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/id-governance/identity-governance-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-132",
@@ -2213,7 +2278,8 @@
     "tags": ["retencao", "log-analytics", "storage", "auditoria"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-134",
@@ -2247,7 +2313,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:19:04.646Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta-quick-start"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-pta-quick-start",
+    "needsReview": false
   },
   {
     "id": "az104-ig-135",
@@ -2281,7 +2348,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T22:23:06.406Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-server"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-staging-server",
+    "needsReview": false
   },
   {
     "id": "az104-ig-136",
@@ -2315,7 +2383,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-install-existing-tenant",
+    "needsReview": false
   },
   {
     "id": "az104-ig-138",
@@ -2349,7 +2418,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-05T03:19:04.646Z",
     "version": 2,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-group-writeback-enable"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-group-writeback-enable",
+    "needsReview": false
   },
   {
     "id": "az104-ig-140",
@@ -2383,7 +2453,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-syncservice-duplicate-attribute-resiliency"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-syncservice-duplicate-attribute-resiliency",
+    "needsReview": false
   },
   {
     "id": "az104-ig-141",
@@ -2417,7 +2488,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/cloud-sync/what-is-cloud-sync"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/cloud-sync/what-is-cloud-sync",
+    "needsReview": false
   },
   {
     "id": "az104-ig-142",
@@ -2451,7 +2523,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering",
+    "needsReview": false
   },
   {
     "id": "az104-ig-150",
@@ -2485,7 +2558,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:49:06.733Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/role-based-access-control/built-in-roles",
+    "needsReview": false
   },
   {
     "id": "az104-ig-157",
@@ -2518,7 +2592,8 @@
     "tags": ["licenca", "frontline", "f", "quiosque"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-161",
@@ -2552,7 +2627,8 @@
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:58:38.180Z",
     "version": 1,
-    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview"
+    "sourceUrl": "https://learn.microsoft.com/pt-br/azure/azure-monitor/alerts/alerts-overview",
+    "needsReview": false
   },
   {
     "id": "az104-ig-167",
@@ -2585,7 +2661,8 @@
     "tags": ["nomenclatura", "padrao", "grupos"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-168",
@@ -2618,7 +2695,8 @@
     "tags": ["expiracao", "grupos", "renovacao"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-169",
@@ -2651,7 +2729,8 @@
     "tags": ["ociosos", "atividade", "limpeza"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-170",
@@ -2684,7 +2763,8 @@
     "tags": ["contas-inativas", "limpeza", "review"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-192",
@@ -2717,7 +2797,8 @@
     "tags": ["rotacao", "service-principal", "credencial"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-201",
@@ -2750,7 +2831,8 @@
     "tags": ["cookie", "samesite", "csrf", "httponly"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-202",
@@ -2783,7 +2865,8 @@
     "tags": ["xss", "token-theft", "bff", "httponly"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-203",
@@ -2816,7 +2899,8 @@
     "tags": ["csp", "headers", "xss"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-204",
@@ -2849,7 +2933,8 @@
     "tags": ["hsts", "preload", "downgrade"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-212",
@@ -2882,7 +2967,8 @@
     "tags": ["soar", "logic-app", "runbook"],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-09-12T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-231",
@@ -2916,7 +3002,8 @@
     "tags": ["usuarios", "bulk", "csv", "ig-entra"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-232",
@@ -2950,7 +3037,8 @@
     "tags": ["usuarios", "exclusao", "restauracao", "ig-entra"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-233",
@@ -2984,7 +3072,8 @@
     "tags": ["licencas", "usage-location", "ig-entra"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T16:07:44.000Z",
-    "version": 2
+    "version": 2,
+    "needsReview": false
   },
   {
     "id": "az104-ig-234",
@@ -3018,7 +3107,8 @@
     "tags": ["grupos", "exclusao", "restauracao", "ig-entra"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-235",
@@ -3052,7 +3142,8 @@
     "tags": ["rbac", "classic-admins", "migracao", "ig-acesso"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-236",
@@ -3086,7 +3177,8 @@
     "tags": ["rbac", "dataactions", "custom-roles", "ig-acesso"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-237",
@@ -3120,7 +3212,8 @@
     "tags": ["rbac", "grupos", "pratica", "ig-acesso"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-238",
@@ -3154,7 +3247,8 @@
     "tags": ["policy", "exemption", "isencao", "ig-governanca"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-239",
@@ -3188,7 +3282,8 @@
     "tags": ["policy", "requiretag", "tags", "ig-governanca"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-10-02T16:07:44.000Z",
-    "version": 2
+    "version": 2,
+    "needsReview": false
   },
   {
     "id": "az104-ig-240",
@@ -3222,7 +3317,8 @@
     "tags": ["tags", "heranca", "policy", "ig-governanca"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-241",
@@ -3256,7 +3352,8 @@
     "tags": ["travas", "heranca", "canotdelete", "ig-governanca"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-242",
@@ -3290,7 +3387,8 @@
     "tags": ["management-groups", "hierarquia", "limites", "ig-governanca"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-243",
@@ -3324,7 +3422,8 @@
     "tags": ["advisor", "custo", "economia", "ig-governanca"],
     "createdAt": "2026-09-27T00:00:00.000Z",
     "updatedAt": "2026-09-27T00:00:00.000Z",
-    "version": 1
+    "version": 1,
+    "needsReview": false
   },
   {
     "id": "az104-ig-263",

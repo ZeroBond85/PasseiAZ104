@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-05T03:04:36.271Z",
+  "updatedAt": "2026-10-06T02:12:19.726Z",
   "source": "data/exam-skills.json (outline 2026-04-17)",
   "bullets": {
     "ig-entra-users-groups#1": {
@@ -167,7 +167,9 @@
         "https://learn.microsoft.com/pt-br/entra/identity/role-based-access-control/security-emergency-access",
         "https://learn.microsoft.com/pt-br/entra/identity/app-provisioning/user-provisioning",
         "https://learn.microsoft.com/pt-br/azure/role-based-access-control/role-assignments-template",
-        "https://learn.microsoft.com/pt-br/entra/identity-platform/single-sign-out-saml-protocol"
+        "https://learn.microsoft.com/pt-br/azure/storage/common/storage-account-overview",
+        "https://learn.microsoft.com/pt-br/azure/storage/blobs/premium-block-blobs",
+        "https://learn.microsoft.com/pt-br/azure/storage/blobs/immutable-storage-overview"
       ]
     },
     "ig-subscriptions-governance#1": {
