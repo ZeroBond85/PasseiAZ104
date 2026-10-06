@@ -1,6 +1,6 @@
 import { getQuestionPool } from '../data/QuestionLoader.js'
 import type { Question } from '../engine/question-schema.js'
-import { loadAllProgress, loadAttemptsForUser } from '../sync/IndexedDB.js'
+import { loadAttemptsForUser, loadProgressForUser } from '../sync/IndexedDB.js'
 import {
   loadProfile,
   type StudyProfile,
@@ -37,7 +37,7 @@ export async function generateStudyPlan(userId: string): Promise<StudyPlan> {
     loadAttemptsForUser(userId).catch(() => []),
     getQuestionPool().catch(() => []),
     loadStudyTopics(),
-    loadAllProgress().catch(() => []),
+    loadProgressForUser(userId).catch(() => []),
   ])
 
   const byId = new Map(pool.map((q) => [q.id, q.domain]))
