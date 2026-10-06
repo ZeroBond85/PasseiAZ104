@@ -45,7 +45,7 @@ Um app de estudos em **português (Brasil)** que simula a prova real (formato Pe
 | Rede Virtual (15–20%) | 184 |
 | Monitoramento (10–15%) | 150 |
 
-Tipos: escolha única (60%) · múltipla escolha (20%) · case study (15%, em blocos) · sim/não (5%).
+Tipos: escolha única (72.7%) · múltipla escolha (26.4%) · case study (0.9%).
 Níveis: fácil 20% · médio 50% · difícil 30%.
 
 Cada questão passa por validação automática (schema + regras por tipo + anti-duplicata) antes de entrar no banco.
@@ -55,11 +55,11 @@ e da documentação oficial da Microsoft, mapeadas 1:1 para o outline oficial vi
 (skills 17/04/2026 — `syllabus-gap` prova cobertura total, sem gaps).
 Não são cópias de questões da prova.
 
-**Estado do ancoramento (honesto):** hoje **472 das 1000** questões têm `sourceUrl`
+**Estado do ancoramento (honesto):** hoje **587 das 1000** questões têm `sourceUrl`
 individual apontando para uma página específica da documentação oficial em PT-BR
-(todas vivas — `npm run grounding:probe` 135/135 URLs do mapa). As outras 528
+(todas vivas — `npm run grounding:probe` 82/82 bullets do mapa). As outras 413
 estão mapeadas 1:1 para o outline oficial, mas ainda sem `sourceUrl` individual. As explicações e o Study Hub apontam para a documentação oficial; os links
-"estudar depois" só ficam completos quando o ancoramento das 528 fechar.
+"estudar depois" só ficam completos quando o ancoramento das 413 fechar.
 
 Dessas 51, a revisão factual de 2026-10-02 leu **uma a uma na fonte**: **49 confirmadas** e
 **2 corrigidas** (uma ensinava um recurso já aposentado — logs de fluxo do NSG — e outra estava

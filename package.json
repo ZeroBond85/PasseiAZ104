@@ -46,10 +46,11 @@
     "grounding:search": "node scripts/search-grounding.mjs",
     "budget": "node scripts/check-budget.mjs",
     "meta:check": "node scripts/bump-bank-meta.mjs --check",
+    "readme:check": "node scripts/check-readme-claims.mjs",
     "test:count": "node scripts/update-readme-test-count.mjs --check",
     "migration:check": "npx tsx scripts/validate-migration-types.mts",
     "secrets": "node scripts/check-secrets.mjs",
-    "ci": "npm run secrets && npm run lint && npm run build && npm run test && npm run test:count && npm run validate && npm run meta:check && npm run migration:check && npm run budget",
+    "ci": "npm run secrets && npm run lint && npm run build && npm run test && npm run test:count && npm run validate && npm run meta:check && npm run readme:check && npm run migration:check && npm run budget",
     "prepare": "husky"
   },
   "dependencies": {
