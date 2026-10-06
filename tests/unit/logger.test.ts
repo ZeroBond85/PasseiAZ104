@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   clearLogs,
   debugEnabled,
@@ -6,6 +6,16 @@ import {
   logger,
   sanitize,
 } from '../../src/utils/logger.js'
+
+// Este arquivo exercita warn/error de propósito. Logger escreve em stderr
+// (console.warn), e stderr no meio do relatório esconde erro real — então o
+// esperado é silenciado aqui, não tolerado.
+vi.spyOn(console, 'warn').mockImplementation(() => {})
+vi.spyOn(console, 'error').mockImplementation(() => {})
+
+afterAll(() => {
+  vi.restoreAllMocks()
+})
 
 describe('logger', () => {
   beforeEach(() => clearLogs())

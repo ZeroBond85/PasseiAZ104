@@ -1,4 +1,13 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest'
+
+// Estes testes exercitam update/insert que falham; o logger.warn esperado
+// escrevia em stderr e enterrava o relatório do vitest.
+vi.spyOn(console, 'warn').mockImplementation(() => {})
+vi.spyOn(console, 'error').mockImplementation(() => {})
+
+afterAll(() => {
+  vi.restoreAllMocks()
+})
 
 const h = vi.hoisted(() => ({
   updates: [] as {

@@ -7,8 +7,8 @@ import { TreinoController } from '../../src/controllers/treino-controller.js'
 import { getQuestionPool } from '../../src/data/QuestionLoader.js'
 import type { Question } from '../../src/engine/question-schema.js'
 import {
-  loadAllProgress,
   loadAttemptsForUser,
+  loadProgressForUser,
 } from '../../src/sync/IndexedDB.js'
 
 vi.mock('../../src/data/QuestionLoader.js', () => ({
@@ -19,9 +19,8 @@ vi.mock('../../src/data/QuestionLoader.js', () => ({
 }))
 
 vi.mock('../../src/sync/IndexedDB.js', () => ({
-  loadAllAttempts: vi.fn(),
   loadAttemptsForUser: vi.fn(),
-  loadAllProgress: vi.fn(),
+  loadProgressForUser: vi.fn(),
   loadAllDoubts: vi.fn(),
 }))
 
@@ -139,7 +138,7 @@ describe('drill', () => {
         createdAt: 1,
       },
     ])
-    vi.mocked(loadAllProgress).mockResolvedValue([])
+    vi.mocked(loadProgressForUser).mockResolvedValue([])
     const out = await buildDrillQuestions('u1', 10)
     // compute fraco (0%) → co-001 primeiro; ig 100% fica de fora
     expect(out.map((x) => x.id)).toEqual(['az104-co-001'])

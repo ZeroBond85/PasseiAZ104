@@ -4,15 +4,14 @@ import type { Question } from '../../src/engine/question-schema.js'
 import { generateStudyPlan } from '../../src/study/study-hub.js'
 import { loadStudyTopics, matchTopic } from '../../src/study/topics.js'
 import {
-  loadAllProgress,
   loadAttemptsForUser,
+  loadProgressForUser,
 } from '../../src/sync/IndexedDB.js'
 import type { AttemptRecord } from '../../src/sync/types.js'
 
 vi.mock('../../src/sync/IndexedDB.js', () => ({
-  loadAllAttempts: vi.fn(),
   loadAttemptsForUser: vi.fn(),
-  loadAllProgress: vi.fn(),
+  loadProgressForUser: vi.fn(),
   loadAllDoubts: vi.fn(),
 }))
 
@@ -90,7 +89,7 @@ describe('study-hub', () => {
       q('az104-ig-002', 'identidade-governanca'),
       q('az104-st-001', 'storage'),
     ])
-    vi.mocked(loadAllProgress).mockResolvedValue([])
+    vi.mocked(loadProgressForUser).mockResolvedValue([])
   })
 
   it('domínio fraco (<70%) gera links priorizados do domínio', async () => {
