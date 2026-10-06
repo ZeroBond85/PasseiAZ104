@@ -240,7 +240,7 @@ Batch: 1 req/5s + backoff · flags `--limit --dry-run --resume` · checkpoint `d
 **S4 ✅ (80q Compute) · S5 ✅ (80q Rede + pipeline IA) · S6 ✅ (55q Storage + 55q Monitoramento + 2 cases).**
 **S7 ✅ (10 simulados oficiais + import). Gate 0B parcial (máquina):** banco ✓ · simulados ✓ · explicações ✓ · scores = estudo humano.
 **S8–S13 ✅ (banco 950/950).** Lotes por déficit até fechar §4: ig 230 · st 170 · co 230 · rv 175 · mo 145. Partições SIZE GUARD: identidade-acesso, compute-vms/apps/platform.
-**S14 — opcional/revisão (aberto). S15–16 — parcial:** axe 0 ✅ + Lighthouse 98/100/100 ✅ · iOS físico pendente (humano).
+**S14 — R3 completo (0 sem sourceUrl, 100% auditado). ✅** S15–16 — parcial: axe 0 ✅ + Lighthouse 98/100/100 ✅ · iOS físico pendente (humano).
 **S17+ — PÓS-PROVA ANTECIPADO (v6.0/v7.0 NO AR ✅):** backend multi-filho (backend v6.0 na nuvem) +
 **plataforma por usuário v7.0** (16/set/2026): migration 002, IDB v2, Study Guide, tags de erro, aba Admin,
 Progresso com streak/§12 — **QA local ✅ (e2e 9/9, axe 0, CI verde)**, commit 36d69ef+4571609. **Migration 002 aplicada + probe RLS validado (0 falhas) + validação 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci**. Falta:

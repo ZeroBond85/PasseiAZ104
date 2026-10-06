@@ -1,55 +1,40 @@
 # ROADMAP.md — PasseiAZ-104
 
-> Estado: banco 1000/1000 + PLAN-3 executado (Sprints 1–5, QA local ✅).
-> Falta (humano): migration 004 no Supabase · validar admin com 2 usuários ·
-> SMTP próprio · estudo até §12 · iOS físico · checklist GitHub Settings (Sprint 5d).
-> Abertas no repo: as **175 autoavaliações** viram 1000 ancoradas, e o **R3 das 949**
-> é o gargalo antes da prova.
+> Estado: banco 1000/1000 + PLAN v7.0 executado (Sprints 1–5, QA local ✅).  
+> R3 completo: 0 questões sem `sourceUrl`, 100% auditado semanticamente.  
+> Falta (humano): estudo até atender às 3 condições do §12 (média‑5 ≥750, nenhum domínio <70%, Caixa 1 <10) · iOS físico · checklist GitHub Settings (Sprint 5d).
 
 ## Antes da prova (restante)
 
-- **Aplicar migration 004 no Supabase SQL Editor** + validar admin/RLS com 2 usuários
-- **SMTP próprio** (Brevo) — magic link sem rate-limit
-- Estudo até média-5 ≥750 + 3 condições §12 · iOS físico
-
-## Feito na v7.1 (PLAN-3, set/2026)
-
-## Antes da prova (restante)
-
-- **Aplicar migration 002 no Supabase SQL Editor** + validar admin/RLS com 2 usuários (habilitar aba Admin em prod)
-- S14: revisão opcional · iOS físico · Estudo até média-5 ≥750 + 3 condições §12.
-
-## Feito na v7.1 (PLAN-3, set/2026)
-
-- [x] Sprint 1: seed parcial nunca marca versão + retry UI · CSP · `meta:check` anti-drift · budget por chunk
-- [x] Sprint 2: SW `runtimeCaching` p/ `data/*.json` (provado) + `SyncController` (retry auto + token bucket)
-- [x] Sprint 3: `QuizController` + `TreinoController` (bugs placar-0 e seed-treino achados na extração)
-- [x] Sprint 3.5: dinâmico principal + última atividade + "Simulados fixos"
-- [x] Sprint 4: Study Hub (34 tópicos MS + perfil + hub + links pós-simulado) · IRT 1PL · heatmap · drill · `syllabus-gap` · admin ampliado
-- [x] Sprint 5: Zod fonte única · validators no CI · 3 CIs mensais + backup · `test:count` · treino sem `alert`
-- [x] Copy UX PT-BR + guia oficial MS + frescor do banco visível
+- Estudar até média‑5 ≥750 + 3 condições do §12 (ver painel de prontidão)  
+- Testar em dispositivo iOS físico (humano)  
+- Revisar checklist de configurações do GitHub (secrets, workflows, etc.)
 
 ## Feito na v7.0 (16/set/2026)
 
-- [x] Marca revertida para source.png do dono + derivados letterbox
-- [x] Copy final + tela de Orientação (corte 700 só lá)
-- [x] Migration 002: profiles/attempts/doubts/activity_log/study_suggestions/admin_logs + `az104_is_admin()`
-- [x] Experiência por usuário: Progresso (histórico, streak, weak-map, dúvidas, prontidão §12)
-- [x] Study Guide pós-simulado + tags de erro ×5 + aba Admin (analytics por questão c/ distrator, CSV)
-- [x] IDB v2 + SyncEngine push/pull platform · e2e 9/9 · axe 0 · CI verde
+- [x] Marca revertida para source.png do dono + derivados letterbox  
+- [x] Copy final + tela de Orientação (corte 700 só lá)  
+- [x] Migration 002: profiles/attempts/doubts/activity_log/study_suggestions/admin_logs + `az104_is_admin()`  
+- [x] Experiência por usuário: Progresso (histórico, streak, weak-map, dúvidas, prontidão §12)  
+- [x] Study Guide pós-simulado + tags de erro ×5 + aba Admin (analytics por questão c/ distrator, CSV)  
+- [x] IDB v2 + SyncEngine push/pull platform · e2e 9/9 · axe 0 · CI verde  
+- [x] R3 completo: 0 sem `sourceUrl`, 100% auditado semanticamente  
+- [x] Gate de segredo no pre-push/ci ativo  
+- [x] v0.1.0 publicada  
 
 ## Feito na v6.0 (antecipado do pós-prova)
 
-- [x] Supabase + Auth magic link + sync multi-dispositivo
-- [x] Lighthouse 98/100/100 + axe 0 · UX 2026 (OKLCH, radiogroup, aria-live)
+- [x] Supabase + Auth magic link + sync multi-dispositivo  
+- [x] Lighthouse 98/100/100 + axe 0 · UX 2026 (OKLCH, radiogroup, aria-live)  
 
 ## Pós-prova
 
-- [ ] Reavaliar TS 7 (pin atual 6.0.3) e lista de modelos §7
-- [ ] Quarentena community (fontes pós-prova: RoodneyMoraes, Anki 4k, Study-Guide)
-- [ ] v1.0.0 · Gamificação extra · push · analytics externo · loja
-- [ ] `ordering` de volta se fonte exigir (§15)
+- [ ] Reavaliar TS 7 (pin atual 6.0.3) e lista de modelos §7  
+- [ ] Quarentena community (fontes pós-prova: RoodneyMoraes, Anki 4k, Study-Guide)  
+- [ ] v1.0.0 · Gamificação extra · push · analytics externo · loja  
+- [ ] `ordering` de volta se fonte exigir (§15)  
 
 ## Não fazer (cortes §15)
 
 `sw.ts` próprio, `workbox-cli`, auth pré-prova, OpenRouter/runtime, Capacitor garantido, changelog separado, reports na raiz, migration/rollback, `weight`.
+
