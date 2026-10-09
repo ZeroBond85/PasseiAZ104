@@ -16,8 +16,21 @@ test('axe: quiz sem violações', async ({ page }) => {
   ).toBeVisible()
   await page.getByRole('button', { name: 'Começar simulado' }).click()
   await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
-  const results = await new AxeBuilder({ page }).analyze()
-  expect(results.violations).toEqual([])
+  await page.getByRole('button', { name: /Finalizar/ }).click()
+  const dialog = page.getByRole('dialog', { name: 'Finalizar simulado?' })
+  await expect(dialog).toBeVisible()
+  const axeResults = await new AxeBuilder({ page }).analyze()
+  expect(axeResults.violations).toEqual([])
+
+  const cancel = dialog.getByRole('button', { name: 'Voltar' })
+  const confirm = dialog.getByRole('button', { name: 'Finalizar' })
+  await cancel.focus()
+  await page.keyboard.press('Tab')
+  await expect(confirm).toBeFocused()
+  await page.keyboard.press('Shift+Tab')
+  await expect(cancel).toBeFocused()
+  await page.keyboard.press('Escape')
+  await expect(dialog).toHaveCount(0)
 })
 
 test('axe: progresso sem violações', async ({ page }) => {

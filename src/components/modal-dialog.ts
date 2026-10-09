@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit'
+import { query } from 'lit/decorators.js'
 import { btnStyles, cardStyles, controlStyles } from '../styles/shared.js'
 
 export class ModalDialog extends LitElement {
@@ -17,6 +18,10 @@ export class ModalDialog extends LitElement {
   declare confirmText: string
   declare cancelText: string
   declare variant: 'confirm' | 'success' | 'info'
+
+  @query('dialog')
+  private dialog?: HTMLDialogElement
+  private previouslyFocused: Element | null = null
 
   constructor() {
     super()
@@ -54,19 +59,66 @@ export class ModalDialog extends LitElement {
     this.open = false
   }
 
-  private handleKeydown(e: KeyboardEvent) {
-    if (e.key === 'Escape') this.onCancel()
-    if (e.key === 'Enter' && this.variant !== 'success') this.onConfirm()
+  protected override updated(changedProperties: Map<string, unknown>): void {
+    super.updated(changedProperties)
+    if (!changedProperties.has('open')) return
+    if (this.open) {
+      this.previouslyFocused = document.activeElement
+      void this.updateComplete.then(() => {
+        if (this.dialog && !this.dialog.open) this.dialog.showModal()
+        this.dialog
+          ?.querySelector<HTMLButtonElement>('button:not([disabled])')
+          ?.focus()
+      })
+    } else if (this.previouslyFocused instanceof HTMLElement) {
+      this.previouslyFocused.focus()
+      this.previouslyFocused = null
+    }
+  }
+
+  private handleNativeCancel(event: Event) {
+    // O Escape nativo fecharia o <dialog> sem avisar o app-shell.
+    event.preventDefault()
+    this.onCancel()
+  }
+
+  private handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      event.preventDefault()
+      this.onCancel()
+      return
+    }
+    if (event.key !== 'Tab') return
+    const focusable = [
+      ...(this.dialog?.querySelectorAll<HTMLButtonElement>(
+        'button:not([disabled])',
+      ) ?? []),
+    ]
+    if (focusable.length === 0) return
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault()
+      first.focus()
+    }
   }
 
   render() {
     if (!this.open) return html``
     return html`
-      <div class="backdrop" @click=${this.onCancel} aria-hidden="true" data-testid="modal-backdrop"></div>
-      <dialog class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" @keydown=${this.handleKeydown} data-testid="modal-dialog" ?open=${this.open}>
-        <header class="modal-header">
+      <dialog
+        class="modal"
+        aria-labelledby="modal-title"
+        @cancel=${this.handleNativeCancel}
+        @keydown=${this.handleKeydown}
+        data-testid="modal-dialog"
+      >
+        <div class="modal-header">
           <h3 id="modal-title">${this.title}</h3>
-        </header>
+        </div>
         <div class="modal-body">
           <p>${this.message}</p>
           ${
@@ -101,41 +153,28 @@ export class ModalDialog extends LitElement {
     ${cardStyles}
     ${btnStyles}
     ${controlStyles}
-    .backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgb(0 0 0 / 0.5);
-      z-index: 100;
-      animation: fadeIn 0.15s ease;
-    }
     .modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 101;
+      margin: auto;
       min-width: 320px;
-      max-width: 90vw;
+      max-width: min(480px, 90vw);
       max-height: 80vh;
       overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      padding: 0;
       animation: slideUp 0.2s ease;
     }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+    .modal::backdrop {
+      background: rgb(0 0 0 / 0.5);
     }
     @keyframes slideUp {
       from {
         opacity: 0;
-        transform: translate(-50%, -40%);
       }
       to {
         opacity: 1;
-        transform: translate(-50%, -50%);
       }
     }
     .modal-header {
