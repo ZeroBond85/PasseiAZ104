@@ -320,7 +320,7 @@ afirma `maxRaw = 10*15 + 25*20 + 15*25`.
 |---|---|---|---|
 | **3.1** batch upsert | `SyncEngine.ts`, `tests/unit/sync.test.ts` | um `.upsert(array)` por tabela, `Promise.all`, chunk de 100. `onConflict` **difere**: `id` (attempts, suggestions) vs `user_id,question_id` (doubts). `profiles` (`:400`) fora do lote | ✅ 50 tentativas em 1 lote e <1s em mock; 250 em chunks 100/100/50 |
 | **3.2** cache do pool | `QuestionLoader.ts`, `question-loader.test.ts` | cache de módulo em `getQuestionPool()`; invalidar só em reseed. `getBankMeta` já usa o padrão (`bankMetaCache`). `ensureSeeded` **não tem** `force` | ✅ 2ª chamada usa o cache mesmo com JSON inválido; reseed invalida |
-| **3.3** dup no AdminPanel | `admin-panel.ts` | remover `buildUsers`/`buildQuestions` de `:92-93` | `npm run lint` |
+| **3.3** dup no AdminPanel | `admin-panel.ts` | remover `buildUsers`/`buildQuestions` de `:92-93` | ✅ compilação determinística única; `npm run lint` + `npm run build` |
 
 ---
 
@@ -394,7 +394,7 @@ Onda 0 (fechada) ──▶ qualquer outra onda
 | 2.2 | Reset no logout | 2 | `npm test` | ⬜ |
 | 3.1 | Batch upsert | 3 | `npm test tests/unit/sync.test.ts` | ✅ um `.upsert(array)` por tabela, `Promise.all`, chunks de 100 |
 | 3.2 | Cache do pool | 3 | `npm test tests/unit/question-loader.test.ts` | ✅ cache de módulo com invalidação só no reseed |
-| 3.3 | Duplicação no AdminPanel | 3 | `npm run lint` | ⬜ |
+| 3.3 | Duplicação no AdminPanel | 3 | `npm run lint` | ✅ chamadas duplicadas removidas; build limpo |
 | 4.1 | `sourceUrl` no review | 4 | teste de template | ⬜ |
 | 4.2 | Dialog nativo + foco preso | 4 | `axe.spec.ts` + teste de foco | ⬜ |
 | 4.3 | Router (9 tabs) | 4 | E2E `popstate` | ⬜ |

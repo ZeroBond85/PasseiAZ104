@@ -93,8 +93,6 @@ export class AdminPanel extends LitElement {
           .slice(0, 16)
           .replace('T', ' '),
       }))
-      this.buildUsers(attemptsRows, profilesRows)
-      this.buildQuestions(attemptsRows, pool)
       this.doubts = doubtsRows.map((d) => {
         const p = profilesRows.find((x) => x.user_id === d.user_id)
         return {
