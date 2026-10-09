@@ -2,6 +2,7 @@ import bundledCaseStudies from '../../data/case-studies.json'
 import {
   type CaseStudy,
   CaseStudySchema,
+  type Question,
   validateQuestion,
 } from '../engine/question-schema.js'
 import {
