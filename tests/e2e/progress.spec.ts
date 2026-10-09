@@ -33,6 +33,14 @@ test('progresso: attempt vira stats + diamond de estudo guiado + dúvida', async
     page.getByText('O que estudar a partir deste simulado'),
   ).toBeVisible({ timeout: 5000 })
 
+  // Fonte com procedência aparece na revisão.
+  const sourced = page
+    .locator('review-card', { has: page.locator('a.source-link') })
+    .first()
+  const sourceLink = sourced.locator('a.source-link')
+  await expect(sourceLink).toHaveAttribute('href', /^https:\/\//)
+  await expect(sourceLink).toHaveAttribute('rel', 'noopener noreferrer')
+
   // Marca a causa do erro na 1ª questão errada
   const cards = page.locator('review-card')
   const miss = cards.filter({ has: page.locator('.miss') }).first()

@@ -86,6 +86,19 @@ export class ReviewCard extends LitElement {
         }
         <p class="exp">${q.explanation}</p>
         ${
+          q.sourceUrl
+            ? html`<p class="source">
+                <a
+                  class="source-link"
+                  href=${q.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Abrir fonte ↗</a
+                >
+              </p>`
+            : ''
+        }
+        ${
           ok
             ? ''
             : html`<div class="tags" role="group" aria-label="Por que errei esta questão?">
@@ -132,6 +145,19 @@ export class ReviewCard extends LitElement {
     .exp {
       font-size: 14px;
       margin: 0 0 10px;
+    }
+    .source {
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+    .source-link {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .source-link:focus-visible {
+      outline: 2px solid var(--progress);
+      outline-offset: 2px;
     }
     .tags {
       display: flex;
