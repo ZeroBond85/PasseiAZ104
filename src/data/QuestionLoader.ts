@@ -72,12 +72,17 @@ export async function ensureSeeded(): Promise<{
     )
   }
   localStorage.setItem(VERSION_KEY, SEED_VERSION)
+  poolCache = null
   return { seeded: true, count: total }
 }
 
-export async function getQuestionPool() {
+let poolCache: Question[] | null = null
+
+export async function getQuestionPool(): Promise<Question[]> {
+  if (poolCache) return poolCache
   const rows = await loadAllQuestions()
-  return rows.map((r) => JSON.parse(r.json))
+  poolCache = rows.map((r) => JSON.parse(r.json))
+  return poolCache
 }
 
 let caseStudyCache: Map<string, CaseStudy> | null = null

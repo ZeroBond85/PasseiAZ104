@@ -243,3 +243,53 @@ describe('QuestionLoader.getCaseStudy', () => {
     expect(semCenario).toEqual([])
   })
 })
+
+describe('QuestionLoader.getQuestionPool', () => {
+  it('usa o cache da segunda chamada sem reler o JSON', async () => {
+    vi.resetModules()
+    const loader = await import('../../src/data/QuestionLoader.js')
+    const db = await import('../../src/sync/IndexedDB.js')
+
+    vi.mocked(db.loadAllQuestions).mockResolvedValue([
+      { id: 'cached', json: '{"id":"cached"}' },
+    ])
+    const first = await loader.getQuestionPool()
+    vi.mocked(db.loadAllQuestions).mockResolvedValue([
+      { id: 'changed', json: '{invalid' },
+    ])
+    await expect(loader.getQuestionPool()).resolves.toBe(first)
+  })
+
+  it('invalida o cache somente após um reseed completo', async () => {
+    vi.resetModules()
+    const loader = await import('../../src/data/QuestionLoader.js')
+    const db = await import('../../src/sync/IndexedDB.js')
+    const store = new Map<string, string>()
+    vi.stubGlobal('localStorage', {
+      getItem: (k: string) => store.get(k) ?? null,
+      setItem: (k: string, v: string) => {
+        store.set(k, v)
+      },
+      removeItem: (k: string) => {
+        store.delete(k)
+      },
+    })
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => ({ ok: true, json: async () => [validQ] })),
+    )
+    vi.mocked(db.questionsCount).mockResolvedValue(0)
+    vi.mocked(db.seedQuestions).mockResolvedValue(undefined)
+    vi.mocked(db.loadAllQuestions).mockResolvedValue([
+      { id: 'old', json: '{"id":"old"}' },
+    ])
+    await loader.getQuestionPool()
+    await loader.ensureSeeded()
+    vi.mocked(db.loadAllQuestions).mockResolvedValue([
+      { id: 'new', json: '{"id":"new"}' },
+    ])
+
+    const pool = await loader.getQuestionPool()
+    expect(pool.map((q: { id: string }) => q.id)).toEqual(['new'])
+  })
+})
