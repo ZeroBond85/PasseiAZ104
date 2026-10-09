@@ -52,6 +52,13 @@ minha máquina" ou "o erro é pré-existente".
 | Particionou `data/*.json` | Atualizar juntos `QuestionLoader.ts` + testes + scripts com a lista de arquivos; o gate é o e2e do quiz (unit usa mock e não pega) |
 | Script temporário em `scripts/` | Quebra `biome check .` — gerar em `/tmp` ou apagar antes do CI; nunca `rm` com wildcard em `scripts/` (apaga ferramentas originais) |
 
+## Regra de Push — monitoramento obrigatório
+
+- **Todo `git push` deve ser acompanhado até o CI ficar verde** via `gh run watch <run-id> --exit-status --interval 5` (ou polling na API se `gh` indisponível).
+- **Não considerar "push feito" enquanto o status check `build` não estiver verde** no GitHub Actions.
+- Se `gh` indisponível: `curl -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/<owner>/<repo>/actions/runs?branch=main&per_page=1` → pollar `conclusion` até `success`.
+- Falha no CI remoto = **rollback imediato** ou fix + novo push; nunca deixar vermelho.
+
 ## Skills ativas (repo `.opencode/skills/`)
 
 `accessibility` · `ui-visual-composition` · `ux-writing-content-design`.
