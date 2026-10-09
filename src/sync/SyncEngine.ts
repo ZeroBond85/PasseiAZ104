@@ -161,109 +161,121 @@ export async function syncNow(userId: string, simuladoId?: string) {
 
 const A = (t: string) => `az104_${t}`
 
+const BATCH_SIZE = 100
+type SyncRow = Record<string, unknown>
+
+async function upsertInChunks(
+  client: NonNullable<typeof supabase>,
+  table: string,
+  rows: SyncRow[],
+  onConflict: string,
+): Promise<{ pushed: number; failed: string[] }> {
+  if (rows.length === 0) return { pushed: 0, failed: [] }
+  const chunks: SyncRow[][] = []
+  for (let start = 0; start < rows.length; start += BATCH_SIZE) {
+    chunks.push(rows.slice(start, start + BATCH_SIZE))
+  }
+  const outcomes = await Promise.all(
+    chunks.map(async (chunk) => {
+      const { error } = await client
+        .from(A(table))
+        .upsert(chunk, { onConflict })
+      if (error) {
+        return {
+          pushed: 0,
+          failed: [`${table}: ${error.message}`],
+        }
+      }
+      return { pushed: chunk.length, failed: [] as string[] }
+    }),
+  )
+  return {
+    pushed: outcomes.reduce((total, outcome) => total + outcome.pushed, 0),
+    failed: outcomes.flatMap((outcome) => outcome.failed),
+  }
+}
+
 export async function pushPlatform(userId: string) {
   if (!isSyncEnabled() || !supabase) return { pushed: 0, failed: 0 }
   const started = Date.now()
-  let pushed = 0
-  const failed: string[] = []
-
-  const fail = (where: string, err: unknown) => {
-    failed.push(`${where}: ${err instanceof Error ? err.message : String(err)}`)
-  }
 
   const attempts = await loadAttemptsForUser(userId)
-  for (const a of attempts) {
-    try {
-      const { error } = await supabase.from(A('attempts')).upsert(
-        {
-          id: a.id,
-          user_id: userId,
-          kind: a.kind,
-          simulado_id: a.simuladoId,
-          started_at: a.startedAt,
-          finished_at: a.finishedAt,
-          duration_seconds: a.durationSeconds,
-          questions: a.questions,
-          score: a.score,
-          passed: a.passed,
-          answers: a.answers,
-          by_domain: a.byDomain,
-          error_tags: a.errorTags,
-          // Gate 1.4: a nota persistida declara de qual modelo veio. Sem isto,
-          // uma média somaria crédito parcial com 1-ponto-por-item.
-          scoring_model_version: a.scoringModelVersion ?? SCORING_MODEL_VERSION,
-        },
-        { onConflict: 'id' },
-      )
-      if (error) fail('attempts', error)
-      else pushed++
-    } catch (err) {
-      fail('attempts', err)
-    }
-  }
+  const attemptRows = attempts.map((a) => ({
+    id: a.id,
+    user_id: userId,
+    kind: a.kind,
+    simulado_id: a.simuladoId,
+    started_at: a.startedAt,
+    finished_at: a.finishedAt,
+    duration_seconds: a.durationSeconds,
+    questions: a.questions,
+    score: a.score,
+    passed: a.passed,
+    answers: a.answers,
+    by_domain: a.byDomain,
+    error_tags: a.errorTags,
+    // Gate 1.4: a nota persistida declara de qual modelo veio. Sem isto,
+    // uma média somaria crédito parcial com 1-ponto-por-item.
+    scoring_model_version: a.scoringModelVersion ?? SCORING_MODEL_VERSION,
+  }))
+  const attemptResult = await upsertInChunks(
+    supabase,
+    'attempts',
+    attemptRows,
+    'id',
+  )
 
   const doubts = await loadDoubtsForUser(userId)
-  for (const d of doubts) {
-    try {
-      const { error } = await supabase.from(A('doubts')).upsert(
-        {
-          user_id: userId,
-          question_id: d.questionId,
-          note: d.note,
-          tag: d.tag,
-          resolved: d.resolved,
-          created_at: d.createdAt,
-          updated_at: d.updatedAt,
-          resolved_at: d.resolved ? d.updatedAt : null,
-        },
-        { onConflict: 'user_id,question_id' },
-      )
-      if (error) fail('doubts', error)
-      else pushed++
-    } catch (err) {
-      fail('doubts', err)
-    }
-  }
+  const doubtRows = doubts.map((d) => ({
+    user_id: userId,
+    question_id: d.questionId,
+    note: d.note,
+    tag: d.tag,
+    resolved: d.resolved,
+    created_at: d.createdAt,
+    updated_at: d.updatedAt,
+    resolved_at: d.resolved ? d.updatedAt : null,
+  }))
+  const doubtResult = await upsertInChunks(
+    supabase,
+    'doubts',
+    doubtRows,
+    'user_id,question_id',
+  )
 
   const activity = await loadActivityForUser(userId)
-  for (const act of activity) {
-    try {
-      const { error } = await supabase.from(A('activity_log')).upsert(
-        {
-          user_id: userId,
-          activity_date: act.date,
-          kind: act.kind,
-          created_at: act.createdAt,
-        },
-        { onConflict: 'user_id,activity_date,kind' },
-      )
-      if (error) fail('activity_log', error)
-      else pushed++
-    } catch (err) {
-      fail('activity_log', err)
-    }
-  }
+  const activityRows = activity.map((act) => ({
+    user_id: userId,
+    activity_date: act.date,
+    kind: act.kind,
+    created_at: act.createdAt,
+  }))
+  const activityResult = await upsertInChunks(
+    supabase,
+    'activity_log',
+    activityRows,
+    'user_id,activity_date,kind',
+  )
 
   const suggestions = await loadAllSuggestions()
-  for (const s of suggestions) {
-    if (s.userId !== userId) continue
-    try {
-      const { error } = await supabase.from(A('study_suggestions')).upsert(
-        {
-          id: s.id,
-          user_id: userId,
-          generated_at: s.generatedAt,
-          payload: s.payload,
-        },
-        { onConflict: 'id' },
-      )
-      if (error) fail('study_suggestions', error)
-      else pushed++
-    } catch (err) {
-      fail('study_suggestions', err)
-    }
-  }
+  const suggestionRows = suggestions
+    .filter((s) => s.userId === userId)
+    .map((s) => ({
+      id: s.id,
+      user_id: userId,
+      generated_at: s.generatedAt,
+      payload: s.payload,
+    }))
+  const suggestionResult = await upsertInChunks(
+    supabase,
+    'study_suggestions',
+    suggestionRows,
+    'id',
+  )
 
+  const results = [attemptResult, doubtResult, activityResult, suggestionResult]
+  const pushed = results.reduce((total, result) => total + result.pushed, 0)
+  const failed = results.flatMap((result) => result.failed)
   if (failed.length > 0) {
     logger.warn(
       'sync',
