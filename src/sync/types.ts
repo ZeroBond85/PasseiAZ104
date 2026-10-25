@@ -6,6 +6,8 @@
 import { z } from 'zod'
 
 export const SessionRecordSchema = z.object({
+  userId: z.string().min(1),
+  key: z.string().min(1), // 'userId|simId'
   id: z.string(), // simulado id
   state: z.string(),
   index: z.number(),

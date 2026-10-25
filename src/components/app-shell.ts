@@ -307,7 +307,8 @@ export class AppShell extends LitElement {
       )
       this.syncFail = res?.enabled ? (res.pushFailed ?? 0) : this.syncFail
       // Se a sessão remota era mais nova, o IDB foi atualizado — recarrega estado
-      const saved = await loadSession(this.quizCtl.simId).catch(
+      const ownerId = resolveOwnerId(this.userId)
+      const saved = await loadSession(ownerId, this.quizCtl.simId).catch(
         hush('data', 'syncFromCloud: leitura de sessão falhou'),
       )
       if (saved && saved.answers.length > 0 && this.quizCtl.quiz.length === 0) {

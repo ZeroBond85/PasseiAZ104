@@ -45,7 +45,7 @@ vi.mock('../../src/sync/IndexedDB.js', () => ({
   loadAttemptsForUser: async () => h.attempts,
   loadDoubtsForUser: async () => [],
   loadActivityForUser: async () => [],
-  loadAllSuggestions: async () => [],
+  loadSuggestionsForUser: async () => [],
 }))
 
 function attempt(id: string): Attempt {

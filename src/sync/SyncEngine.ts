@@ -4,11 +4,11 @@ import {
   activityKey,
   doubtKey,
   loadActivityForUser,
-  loadAllSuggestions,
   loadAttemptsForUser,
   loadDoubtsForUser,
   loadProgressForUser,
   loadSession,
+  loadSuggestionsForUser,
   progressKey,
   saveActivity,
   saveAttempt,
@@ -16,6 +16,7 @@ import {
   saveProgress,
   saveSession,
   saveSuggestion,
+  sessionKey,
 } from './IndexedDB.js'
 import { isSyncEnabled, supabase } from './supabase.js'
 import {
@@ -85,7 +86,7 @@ export async function pullProgress(userId: string) {
 
 export async function pushSession(userId: string, simuladoId: string) {
   if (!isSyncEnabled() || !supabase) return
-  const s = await loadSession(simuladoId)
+  const s = await loadSession(userId, simuladoId)
   if (!s) return
   const { error } = await supabase.from('az104_sessions').upsert(
     {
@@ -120,6 +121,8 @@ export async function pullSession(
   if (!data) return null
   const st = data.state_json as SessionRecord & { timerRemaining: number }
   return {
+    userId,
+    key: sessionKey(userId, simuladoId),
     id: simuladoId,
     state: String(st.state),
     index: Number(st.index),
@@ -137,9 +140,19 @@ export async function syncNow(userId: string, simuladoId?: string) {
   await pullProgress(userId)
   if (simuladoId) {
     const remote = await pullSession(userId, simuladoId)
-    const local = await loadSession(simuladoId)
+    const local = await loadSession(userId, simuladoId)
     if (remote && (!local || remote.updatedAt > local.updatedAt)) {
-      await saveSession(remote)
+      await saveSession({
+        userId,
+        key: sessionKey(userId, simuladoId),
+        id: simuladoId,
+        state: remote.state,
+        index: remote.index,
+        answers: remote.answers,
+        flagged: remote.flagged,
+        timerRemaining: remote.timerRemaining,
+        updatedAt: remote.updatedAt,
+      })
     }
   }
   await pushProgress(userId)
@@ -257,15 +270,13 @@ export async function pushPlatform(userId: string) {
     'user_id,activity_date,kind',
   )
 
-  const suggestions = await loadAllSuggestions()
-  const suggestionRows = suggestions
-    .filter((s) => s.userId === userId)
-    .map((s) => ({
-      id: s.id,
-      user_id: userId,
-      generated_at: s.generatedAt,
-      payload: s.payload,
-    }))
+  const suggestions = await loadSuggestionsForUser(userId)
+  const suggestionRows = suggestions.map((s) => ({
+    id: s.id,
+    user_id: userId,
+    generated_at: s.generatedAt,
+    payload: s.payload,
+  }))
   const suggestionResult = await upsertInChunks(
     supabase,
     'study_suggestions',
@@ -359,7 +370,9 @@ export async function pullPlatform(userId: string) {
     .select('*')
     .eq('user_id', userId)
   if (es) throw new Error(`pull suggestions: ${es.message}`)
-  const localSug = new Map((await loadAllSuggestions()).map((s) => [s.id, s]))
+  const localSug = new Map(
+    (await loadSuggestionsForUser(userId)).map((s) => [s.id, s]),
+  )
   for (const r of suggestions ?? []) {
     if (localSug.has(r.id)) continue
     await saveSuggestion({

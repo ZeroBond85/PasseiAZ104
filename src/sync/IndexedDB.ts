@@ -17,6 +17,7 @@ import {
   ProgressRecordSchema,
   type SessionRecord,
   type SuggestionRecord,
+  SuggestionRecordSchema,
 } from './types.js'
 
 // Gate 2.1: progresso, dúvidas e atividade pertencem a um dono explícito.
@@ -42,6 +43,10 @@ export function doubtKey(userId: string, questionId: string): string {
   return scopedKey(userId, questionId)
 }
 
+export function sessionKey(userId: string, simuladoId: string): string {
+  return scopedKey(userId, simuladoId)
+}
+
 export function activityKey(
   userId: string,
   date: string,
@@ -55,7 +60,11 @@ export function resolveOwnerId(userId: string | null | undefined): string {
 }
 
 interface AzDB extends DBSchema {
-  sessions: { key: string; value: SessionRecord }
+  sessions: {
+    key: string
+    value: SessionRecord
+    indexes: { 'by-owner': string }
+  }
   progress: {
     key: string
     value: ProgressRecord
@@ -74,7 +83,11 @@ interface AzDB extends DBSchema {
     value: ActivityRecord
     indexes: { 'by-owner': string }
   }
-  suggestions: { key: string; value: SuggestionRecord }
+  suggestions: {
+    key: string
+    value: SuggestionRecord
+    indexes: { 'by-owner': string }
+  }
 }
 
 let db: IDBPDatabase<AzDB> | null = null
@@ -165,10 +178,11 @@ async function replaceUserScopedStore(
 
 export async function getDB() {
   if (!db) {
-    db = await openDB<AzDB>('passei-az104', 3, {
+    db = await openDB<AzDB>('passei-az104', 4, {
       async upgrade(d, old, _new, tx) {
         if (old < 1) {
-          d.createObjectStore('sessions', { keyPath: 'id' })
+          const sessions = d.createObjectStore('sessions', { keyPath: 'key' })
+          sessions.createIndex('by-owner', 'userId', { unique: false })
           const progress = d.createObjectStore('progress', { keyPath: 'key' })
           progress.createIndex('by-owner', 'userId', { unique: false })
           d.createObjectStore('meta', { keyPath: 'key' })
@@ -180,7 +194,10 @@ export async function getDB() {
           doubts.createIndex('by-owner', 'userId', { unique: false })
           const activity = d.createObjectStore('activity', { keyPath: 'key' })
           activity.createIndex('by-owner', 'userId', { unique: false })
-          d.createObjectStore('suggestions', { keyPath: 'id' })
+          const suggestions = d.createObjectStore('suggestions', {
+            keyPath: 'id',
+          })
+          suggestions.createIndex('by-owner', 'userId', { unique: false })
           // meta pode já existir da v1 — sem conflito.
         }
         // R2(b): migração in-place. Linhas antigas não têm dono confiável e
@@ -191,6 +208,46 @@ export async function getDB() {
           if (old >= 2) {
             await replaceUserScopedStore(d, tx, 'doubts', toLegacyDoubt)
             await replaceUserScopedStore(d, tx, 'activity', toLegacyActivity)
+          }
+        }
+        // v4: sessions + suggestions ganham dono (by-owner) e key composta.
+        // Sessões antigas são efêmeras → descartadas (D1). Suggestions
+        // migram (já tinham userId).
+        if (old >= 1 && old < 4) {
+          // sessions: recria com keyPath 'key' + by-owner; descarta antigas.
+          d.deleteObjectStore('sessions')
+          const sessions = d.createObjectStore('sessions', { keyPath: 'key' })
+          sessions.createIndex('by-owner', 'userId', { unique: false })
+          if (old >= 2) {
+            // suggestions: recria com by-owner; migra rows existentes.
+            const legacySug = (await tx
+              .objectStore('suggestions')
+              .getAll()) as unknown as Record<string, unknown>[]
+            d.deleteObjectStore('suggestions')
+            const sug = d.createObjectStore('suggestions', { keyPath: 'id' })
+            sug.createIndex('by-owner', 'userId', { unique: false })
+            for (const row of legacySug) {
+              try {
+                const userId =
+                  typeof row.userId === 'string' && row.userId
+                    ? row.userId
+                    : LEGACY_OWNER_ID
+                const parsed = SuggestionRecordSchema.safeParse({
+                  ...row,
+                  userId,
+                })
+                if (parsed.success)
+                  await sug.put(parsed.data as SuggestionRecord)
+              } catch (err) {
+                logger.warn(
+                  'data',
+                  'suggestion legada ignorada na migração v4',
+                  {
+                    error: err instanceof Error ? err.message : String(err),
+                  },
+                )
+              }
+            }
           }
         }
       },
@@ -217,8 +274,25 @@ export async function saveSession(s: SessionRecord) {
   return (await getDB()).put('sessions', s)
 }
 
-export async function loadSession(id: string) {
-  return (await getDB()).get('sessions', id)
+export async function loadSession(userId: string, simuladoId: string) {
+  const key = sessionKey(resolveOwnerId(userId), simuladoId)
+  return (await getDB()).get('sessions', key)
+}
+
+export async function loadSessionsForUser(
+  userId: string,
+): Promise<SessionRecord[]> {
+  const db = await getDB()
+  return (await db.getAllFromIndex(
+    'sessions',
+    'by-owner',
+    resolveOwnerId(userId),
+  )) as SessionRecord[]
+}
+
+export async function deleteSessionForUser(userId: string, simuladoId: string) {
+  const key = sessionKey(resolveOwnerId(userId), simuladoId)
+  return (await getDB()).delete('sessions', key)
 }
 
 // Progresso Leitner + uso
@@ -319,6 +393,18 @@ export async function saveSuggestion(s: SuggestionRecord) {
 export async function loadAllSuggestions() {
   const all = await (await getDB()).getAll('suggestions')
   return all.sort((a, b) => b.generatedAt - a.generatedAt)
+}
+
+export async function loadSuggestionsForUser(
+  userId: string,
+): Promise<SuggestionRecord[]> {
+  const db = await getDB()
+  const rows = (await db.getAllFromIndex(
+    'suggestions',
+    'by-owner',
+    resolveOwnerId(userId),
+  )) as SuggestionRecord[]
+  return rows.sort((a, b) => b.generatedAt - a.generatedAt)
 }
 
 // meta helpers (streak persistido localmente é determinístico, sem tabela)

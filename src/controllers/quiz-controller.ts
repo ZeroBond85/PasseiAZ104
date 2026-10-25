@@ -31,6 +31,7 @@ import {
   saveProgress,
   saveSession,
   saveSuggestion,
+  sessionKey,
 } from '../sync/IndexedDB.js'
 import { pushPlatform, pushProgress, pushSession } from '../sync/SyncEngine.js'
 import type {
@@ -183,7 +184,7 @@ export class QuizController {
     // cada clique, então restaurar respostas/timer antigos não faz sentido.
     const saved =
       spec.mode === 'fixed'
-        ? await loadSession(spec.id).catch(
+        ? await loadSession(ownerId, spec.id).catch(
             hush('data', 'startQuiz: restauração de sessão falhou'),
           )
         : null
@@ -228,7 +229,10 @@ export class QuizController {
 
   async persist() {
     const snap = this.engine.snapshot()
+    const ownerId = resolveOwnerId(this.getUserId())
     await saveSession({
+      userId: ownerId,
+      key: sessionKey(ownerId, this.simId),
       id: this.simId,
       state: snap.state,
       index: snap.index,
