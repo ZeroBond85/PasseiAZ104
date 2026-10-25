@@ -7,20 +7,20 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-     env:
-       VITE_E2E: 'true'
-     steps:
-       - uses: actions/checkout@v4
-       - uses: actions/setup-node@v4
-         with:
-           node-version: 24
-           cache: npm
-       - run: npm ci
-       - run: npx playwright install --with-deps chromium
-       - run: npm run build
-       - run: npx playwright test
-       - if: failure()
-         uses: actions/upload-artifact@v4
-         with:
-           name: playwright-traces
-           path: test-results/
+    env:
+      VITE_E2E: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npx playwright test
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: test-results/
