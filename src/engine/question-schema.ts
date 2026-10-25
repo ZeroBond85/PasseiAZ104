@@ -21,7 +21,7 @@ export const QuestionSchema = z.object({
     'monitoramento',
   ]),
   subdomain: z.string().min(1),
-  type: z.enum(['single', 'multiple', 'case-study', 'yes-no']),
+  type: z.enum(['single', 'multiple', 'case-study']),
   difficulty: z.enum(['easy', 'medium', 'hard']),
   question: z.string().min(50),
   options: z
@@ -97,17 +97,8 @@ const schemaWithRefinements = QuestionSchema.superRefine((q, ctx) => {
       message: 'single exige exatamente 1 correct',
     })
   }
-  if (q.type === 'multiple' && q.correct.length < 2) {
-    ctx.addIssue({ code: 'custom', message: 'multiple exige >=2 correct' })
-  }
-  if (
-    q.type === 'yes-no' &&
-    (q.options.length !== 2 || q.correct.length !== 1)
-  ) {
-    ctx.addIssue({
-      code: 'custom',
-      message: 'yes-no exige 2 options + 1 correct',
-    })
+  if (q.type === 'multiple' && (q.correct.length < 2 || q.correct.length > 2)) {
+    ctx.addIssue({ code: 'custom', message: 'multiple exige exatamente 2 gabaritos' })
   }
   if (
     (q.type === 'single' || q.type === 'multiple' || q.type === 'case-study') &&

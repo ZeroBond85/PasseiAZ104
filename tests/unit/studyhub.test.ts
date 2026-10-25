@@ -15,6 +15,11 @@ vi.mock('../../src/sync/IndexedDB.js', () => ({
   loadAllDoubts: vi.fn(),
 }))
 
+vi.mock('../../src/sync/supabase.js', () => ({
+  supabase: null,
+  isSyncEnabled: () => false,
+}))
+
 vi.mock('../../src/data/QuestionLoader.js', () => ({
   ensureSeeded: vi.fn(),
   getBankLine: vi.fn(),

@@ -41,6 +41,7 @@ import './navigator-grid.js'
 import './progress-panel.js'
 import './user-menu.js'
 import './question-card.js'
+import { hashForRoute, routeFromHash } from './router.js'
 import { labels as ptLabels } from './study-guide.js'
 import './review-card.js'
 import './stats-dashboard.js'
@@ -153,6 +154,10 @@ export class AppShell extends LitElement {
     window.addEventListener('keydown', this.onKey)
     window.addEventListener('online', this.onNet)
     window.addEventListener('offline', this.onNet)
+    window.addEventListener('hashchange', this.onRouteChange)
+    window.addEventListener('popstate', this.onRouteChange)
+    const route = routeFromHash(window.location.hash)
+    if (route) this.select(route)
     this.addEventListener('local-mode', this.onLocalMode)
     void getBankLine().then((t) => {
       this.bankLine = t
@@ -188,6 +193,8 @@ export class AppShell extends LitElement {
     window.removeEventListener('keydown', this.onKey)
     window.removeEventListener('online', this.onNet)
     window.removeEventListener('offline', this.onNet)
+    window.removeEventListener('hashchange', this.onRouteChange)
+    window.removeEventListener('popstate', this.onRouteChange)
     this.removeEventListener('local-mode', this.onLocalMode)
     this.unsubAuth()
     this.syncCtl.detach()
@@ -199,6 +206,21 @@ export class AppShell extends LitElement {
     this.userId = 'local'
     this.authReady = true
     this.requestUpdate()
+  }
+
+  private onRouteChange = () => {
+    const route = routeFromHash(window.location.hash)
+    if (route && route !== this.tab) this.select(route)
+  }
+
+  protected override updated(changedProperties: Map<string, unknown>): void {
+    super.updated(changedProperties)
+    if (changedProperties.has('tab')) {
+      const hash = hashForRoute(this.tab)
+      if (window.location.hash !== hash) {
+        window.history.pushState({ tab: this.tab }, '', hash)
+      }
+    }
   }
 
   private onNet = () => {

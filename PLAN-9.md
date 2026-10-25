@@ -330,7 +330,7 @@ afirma `maxRaw = 10*15 + 25*20 + 15*25`.
 |---|---|---|---|
 | **4.1** sourceUrl no review | `review-card.ts` | link com `rel="noopener noreferrer"` | ✅ link condicional após a explicação; teste de template verifica `href` e `rel` |
 | **4.2** dialog nativo | `modal-dialog.ts` | `showModal()`/`close()`, `::backdrop`, Escape nativo. **Critério corrigido:** `aria-modal="true"` manual (`:66`) mascara a falta de focus trap no axe — exigir teste de **foco preso dentro do modal**, não "axe 0 violações" | ✅ nativo com trap de Tab, Escape com restauração de foco e `axe.spec.ts` com modal aberto |
-| **4.3** router | `router.ts` (novo), `app-shell.ts` | hash para os **9** tabs (`home, catalog, treino, estudo, review, stats, progress, admin, quiz`) — o v8.0 listava 6 | E2E de `popstate` |
+| **4.3** router | `router.ts` (novo), `app-shell.ts` | hash para os **9** tabs (`home, catalog, treino, estudo, review, stats, progress, admin, quiz`) — o v8.0 listava 6 | ✅ hash `#/aba`, `hashchange`/`popstate` e round-trip unitário + E2E |
 | **4.4** radar | `stats-dashboard.ts` | SVG sobre `byDomain.pct` — **só depois de 1.3** | render responsivo + tabela alternativa |
 
 ---
@@ -397,7 +397,7 @@ Onda 0 (fechada) ──▶ qualquer outra onda
 | 3.3 | Duplicação no AdminPanel | 3 | `npm run lint` | ✅ chamadas duplicadas removidas; build limpo |
 | 4.1 | `sourceUrl` no review | 4 | teste de template | ✅ “Abrir fonte ↗” com `rel="noopener noreferrer"` |
 | 4.2 | Dialog nativo + foco preso | 4 | `axe.spec.ts` + teste de foco | ✅ Tab preso, Escape fecha e Axe 0 com modal aberto |
-| 4.3 | Router (9 tabs) | 4 | E2E `popstate` | ⬜ |
+| 4.3 | Router (9 tabs) | 4 | E2E `popstate` | ✅ hash sincronizado nos dois sentidos e histórico voltar/avançar |
 | 4.4 | Radar de competências | 4 | render + tabela alternativa | ⬜ |
 
 **Portão final da v9.0:** `npm run ci` em 0 **incluindo `readme:check`**, sem warning.

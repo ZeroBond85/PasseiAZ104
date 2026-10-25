@@ -11,6 +11,17 @@ test('treino: responde, finaliza no modal, volta à grade', async ({ page }) => 
 
   await page.goto('./?local=1')
   await page.getByRole('button', { name: 'Treino', exact: true }).click()
+  await expect(page).toHaveURL(/#\/treino$/)
+  await page.getByRole('button', { name: 'Início', exact: true }).click()
+  await expect(page).toHaveURL(/#\/home$/)
+  await page.goBack()
+  await expect(
+    page.getByRole('heading', { name: 'Treino por domínio' }),
+  ).toBeVisible()
+  await expect(page).toHaveURL(/#\/treino$/)
+  await page.goForward()
+  await expect(page).toHaveURL(/#\/home$/)
+  await page.getByRole('button', { name: 'Treino', exact: true }).click()
   await page.getByRole('button', { name: /Computação/ }).click()
   await expect(page.locator('question-card h2')).toBeVisible({ timeout: 15000 })
 
