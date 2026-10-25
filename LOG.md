@@ -1012,3 +1012,12 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
 - **13 `sourceUrl` verificadas termo a termo** nos markdowns entra-docs (policies, report-only, policy-common, what-if, assignment-network, filter-for-applications, policy-admin, conditions, insights, id-protection-risks) + **ig-091 reescrita** (workbook real: impact summary + breakdown; gabarito BD preservado). 11 URLs PT-BR 200 como extras de `ig-access-resources#3` (outline não tem bullet de CA; auditoria semântica só checa primárias).
 - `probe` **146/146**, `validate` **1000/0**. Commit 9978cd6.
 - **Lição:** round-trip JSON (`JSON.stringify` + biome) normaliza escapes `\uXXXX` → UTF-8 e incha o diff; próximos lotes R3 devem usar edição textual cirúrgica (Edit/replaceItem) para diffs mínimos.
+
+## 2026-10-25 — PLAN-10 v10.0: Onda 0 fechada (dependabot + A1/B2/B3/C1 + push verde)
+
+- **dependabot.yml descorrompido:** linhas 8-9 eram lixo de patch (`" filePath">` + path absoluto do editor) tornando o YAML inválido; removidas, YAML validado com `yaml.safe_load`.
+- **A1 (mitigação needsReview):** filtro `!q.needsReview` nos 3 seletores dinâmicos (`QuestionSelector.selectQuestions:58`, `treino-controller.ts:54`, `drill-controller.ts:20`) — as 64 em quarentena ficam fora de dinâmico/treino/drill; os 10 oficiais já exigem 0 needsReview no `validate`. Correção definitiva é a reposição G16 (Onda 3), no ritmo do estudo.
+- **B2:** zod 4.6.2 → 4.6.7 (`package.json` + lock + `pins.test.ts`); `npm audit --omit=dev --audit-level=high` entrou no script `ci` (0 vulns em prod).
+- **B3:** CSP com host exato do Supabase (`yktrozpeablbafdagxtg.supabase.co` no lugar de `*.supabase.co`) + `base-uri 'none'; form-action 'none'` (`index.html:27`).
+- **C1:** troca A→B de usuário no `onAuthChange` (`app-shell.ts:182`) agora detacha o SyncEngine, re-cria perfil e re-attacha — antes o sync do usuário A continuava ativo após login de B.
+- **Gates:** `npm run ci` **EXIT 0** (secrets · lint · build · 154 unit · validate 1000/0 · meta · readme · migration · audit 0 high · budget 129.5/140 KB).
