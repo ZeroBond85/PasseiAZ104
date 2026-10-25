@@ -98,7 +98,10 @@ const schemaWithRefinements = QuestionSchema.superRefine((q, ctx) => {
     })
   }
   if (q.type === 'multiple' && (q.correct.length < 2 || q.correct.length > 2)) {
-    ctx.addIssue({ code: 'custom', message: 'multiple exige exatamente 2 gabaritos' })
+    ctx.addIssue({
+      code: 'custom',
+      message: 'multiple exige exatamente 2 gabaritos',
+    })
   }
   if (
     (q.type === 'single' || q.type === 'multiple' || q.type === 'case-study') &&
