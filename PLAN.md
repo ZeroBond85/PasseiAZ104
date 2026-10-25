@@ -102,7 +102,7 @@ const QuestionSchema = z.object({
   id: z.string().regex(/^az104-(ig|st|co|rv|mo)-\d{3}$/),
   domain: z.enum(["identidade-governanca","storage","compute","rede-virtual","monitoramento"]),
   subdomain: z.string().min(1),
-  type: z.enum(["single","multiple","case-study","yes-no"]),  // `ordering` CORTADO (§15)
+  type: z.enum(["single","multiple","case-study"]),  // `ordering` e `yes-no` CORTADOS (§15)
   difficulty: z.enum(["easy","medium","hard"]),
   question: z.string().min(50),
   options: z.array(z.object({ letter: z.string().regex(/^[A-F]$/),
@@ -138,10 +138,8 @@ const QuestionSchema = z.object({
       ctx.addIssue({ code: "custom", message: `correct ${c} fora de options` });
   if (q.type === "single" && q.correct.length !== 1)
     ctx.addIssue({ code: "custom", message: "single exige exatamente 1 correct" });
-  if (q.type === "multiple" && q.correct.length < 2)
-    ctx.addIssue({ code: "custom", message: "multiple exige >=2 correct" });
-  if (q.type === "yes-no" && (q.options.length !== 2 || q.correct.length !== 1))
-    ctx.addIssue({ code: "custom", message: "yes-no exige 2 options + 1 correct" });
+  if (q.type === "multiple" && q.correct.length !== 2)
+    ctx.addIssue({ code: "custom", message: "multiple exige exatamente 2 correct" });
   if ((q.type === "single" || q.type === "multiple" || q.type === "case-study") && q.options.length < 4)
     ctx.addIssue({ code: "custom", message: "single/multiple/case-study exigem >=4 options" });
 });
@@ -169,7 +167,7 @@ const SimuladoSchema = z.discriminatedUnion("mode", [
 ## 4. BLUEPRINT (skills 17/abr/2026)
 
 Faixas: Identidade 20–25% · Storage 15–20% · Compute 20–25% · Rede 15–20% · Monitor 10–15%.
-**Simulado Oficial (travado): 50q / 100min / corte 700 — distribuição `ig 12 · st 9 · co 12 · rv 10 · mo 7` (soma = 50; cada domínio dentro da faixa: 24/18/24/20/14%).** Tipos: single .60 / multiple .20 / case .15 / yes-no .05. Dificuldade: easy .20 / medium .50 / hard .30.
+**Simulado Oficial (travado): 50q / 100min / corte 700 — distribuição `ig 12 · st 9 · co 12 · rv 10 · mo 7` (soma = 50; cada domínio dentro da faixa: 24/18/24/20/14%).** Tipos: single .60 / multiple .20 / case .15 / (yes-no removido — não é formato real do AZ-104). Dificuldade: easy .20 / medium .50 / hard .30.
 **Treino (mode `seed`):** `questionCount` configurável; distribuição = mesmas proporções arredondadas por largest-remainder.
 **Meta do banco: ~950 questões bem-validadas**, decomposta por domínio (proporção central do blueprint): ig ~230 · st ~170 · co ~230 · rv ~175 · mo ~145 (soma 950, tolerância ±5% por domínio). Antigas/obsoletas → pós-prova.
 **Throughput anti-fila:** alvo 10–15q validadas/dia · WIP `needsReview<=50` — estourou = pausa `generate`, foca em review/grounding. Lotes de 50q com `validate` + grounding 100% (§4.1, sem amostragem).
@@ -334,7 +332,7 @@ git add . && git commit -m "chore: scaffold Vite 8 + Lit + TS 6 + docs base" && 
 | 12 split hooks <10s/ci | §9 |
 | 13 Leitner cap | §5 |
 | 14 backup checkpoint duplo + restore testado em S2 | §7 |
-| 15 regras por tipo (single/multiple/yes-no) | §3 |
+| 15 regras por tipo (single/multiple) | §3 |
 | 16 selector Fisher-Yates <100ms + largest-remainder seed | §5 |
 | 17 IA 429 backoff + WIP needsReview + lista de modelos viva (audit mensal) | §4, §7, §10 |
 | 18 Dia 1: .npmrc antes de npm, --overwrite, remote check, re-pin scaffold | §16 |

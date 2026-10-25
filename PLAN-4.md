@@ -342,7 +342,7 @@ FNV passou). Alocação-alvo por domínio (ajuste fino pelo R0):
 | monitoramento | +5 | `mo 146–150` | ◆Monitorar recursos: regras de alerta × grupos de ações × regras de processamento, Insights, Observador de Rede |
 | identidade-governança | +13 | `ig 231–243` | sem grupo `◆`: distribuir pelos 3 grupos (Entra usuários/grupos + SSPR + externos · RBAC e escopos · Policy, travas, tags, custos, grupos de gerenciamento) |
 
-- **Mix §4 por lote:** `single .60 / multiple .20 / yes-no .05` (resto `single`; **sem `case-study` novo** —
+- **Mix §4 por lote:** `single .60 / multiple .20` (resto `single`; **sem `case-study` novo** —
   evita FK em `case-studies.json`). Dificuldade `easy .20 / medium .50 / hard .30` por domínio.
 - **Roteiro por questão:** grupo `◆`/bullet do §1.3 → chave do `grounding-map` (R0) → URL pt-br **verificada
   por fetch** → misconception real como distrator.
