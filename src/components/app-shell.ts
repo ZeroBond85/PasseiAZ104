@@ -179,6 +179,11 @@ export class AppShell extends LitElement {
         void this.ensureProfile(id)
         void this.syncFromCloud()
         this.syncCtl.attach(id, this.quizCtl.simId)
+      } else if (id && was && id !== was) {
+        this.syncCtl.detach()
+        void this.ensureProfile(id)
+        void this.syncFromCloud()
+        this.syncCtl.attach(id, this.quizCtl.simId)
       }
       if (!id) {
         this.isAdmin = false

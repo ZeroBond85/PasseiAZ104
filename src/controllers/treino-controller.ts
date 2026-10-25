@@ -51,7 +51,7 @@ export class TreinoController {
   async start(domain: string): Promise<boolean> {
     await ensureSeeded()
     const pool = await getQuestionPool()
-    const candidates = pool.filter((q) => q.domain === domain)
+    const candidates = pool.filter((q) => q.domain === domain && !q.needsReview)
     if (candidates.length === 0) return false
     const rand = mulberry32(Date.now())
     const shuffled = shuffleFisherYates([...candidates], rand)

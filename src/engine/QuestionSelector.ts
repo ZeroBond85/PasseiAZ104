@@ -55,7 +55,10 @@ export function selectQuestions(
 
   for (const [domain, quota] of Object.entries(opts.quotas)) {
     const candidates = pool
-      .filter((q) => q.domain === domain && !opts.recentIds.has(q.id))
+      .filter(
+        (q) =>
+          q.domain === domain && !q.needsReview && !opts.recentIds.has(q.id),
+      )
       .sort(
         (a, b) =>
           (opts.usageCount.get(a.id) ?? 0) - (opts.usageCount.get(b.id) ?? 0),

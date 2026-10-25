@@ -12,7 +12,7 @@ const PINS: Record<string, string> = {
   '@google/genai': '2.21.0',
   husky: '9.1.7',
   'lint-staged': '17.5.0',
-  zod: '4.6.2',
+  zod: '4.6.7',
   tsx: '4.21.0',
   lighthouse: '13.4.1',
 }

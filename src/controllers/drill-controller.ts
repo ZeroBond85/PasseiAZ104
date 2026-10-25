@@ -17,7 +17,7 @@ export interface DrillInput {
 export function buildDrillPool(input: DrillInput): Question[] {
   const count = input.count ?? 10
   const scored = new Map<string, { q: Question; score: number }>()
-  for (const q of input.pool) {
+  for (const q of input.pool.filter((q) => !q.needsReview)) {
     let score = 0
     if (input.weakDomains.includes(q.domain)) score += 3
     if (input.errorIds.has(q.id)) score += 2

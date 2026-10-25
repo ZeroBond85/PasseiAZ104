@@ -50,14 +50,14 @@
     "test:count": "node scripts/update-readme-test-count.mjs --check",
     "migration:check": "npx tsx scripts/validate-migration-types.mts",
     "secrets": "node scripts/check-secrets.mjs",
-    "ci": "npm run secrets && npm run lint && npm run build && npm run test && npm run test:count && npm run validate && npm run meta:check && npm run readme:check && npm run migration:check && npm run budget",
+    "ci": "npm run secrets && npm run lint && npm run build && npm run test && npm run test:count && npm run validate && npm run meta:check && npm run readme:check && npm run migration:check && npm audit --omit=dev --audit-level=high && npm run budget",
     "prepare": "husky"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",
     "idb": "8.0.3",
     "lit": "3.3.3",
-    "zod": "4.6.2"
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
