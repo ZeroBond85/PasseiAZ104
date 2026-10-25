@@ -9,7 +9,7 @@
 
 ## Tipos
 
-- `single`: 1 correct, ≥4 options · `multiple`: ≥2 correct, ≥4 options · `yes-no`: 2 options + 1 correct · `case-study`: ≥4 options + `caseStudyId` válido em `case-studies.json`
+- `single`: 1 correct, ≥4 options · `multiple`: exatamente 2 correct, ≥4 options · `case-study`: ≥4 options + `caseStudyId` válido em `case-studies.json`
 - `ordering`: CORTADO (§15) — não usar
 
 ## Fontes

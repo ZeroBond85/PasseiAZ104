@@ -1,6 +1,6 @@
 # CODE-REVIEW.md — PasseiAZ-104 v7.1
 
-> Revisão final pós-PLAN-3 (Sprints 1–5) + migration 002 validada + gate segredo + factual review. Método: leitura de código + suíte executada
+> ⚠️ Retrato de 02/out/2026 — superseded pelo código real e pelo PLAN-10 (v10.0). Consultar PLAN-10 para estado atual.
 > (lint/tsc/unit/e2e/validate/meta/migration/budget/secrets) + screenshots desktop/mobile lidos.
 > Data: 2026-10-02. Base: `main` pós-commit d665f9b.
 

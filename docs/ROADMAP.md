@@ -1,7 +1,7 @@
 # ROADMAP.md — PasseiAZ-104
 
 > Estado: banco 1000/1000 + PLAN v7.0 executado (Sprints 1–5, QA local ✅).  
-> R3 completo: 0 questões sem `sourceUrl`, 100% auditado semanticamente.  
+> R3: 587/1000 questões com sourceUrl (413 pendentes).  
 > Falta (humano): estudo até atender às 3 condições do §12 (média‑5 ≥750, nenhum domínio <70%, Caixa 1 <10) · iOS físico · checklist GitHub Settings (Sprint 5d).
 
 ## Antes da prova (restante)

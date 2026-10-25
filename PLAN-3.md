@@ -1,6 +1,6 @@
 # PLAN-3.md — v7.1: Study Hub + Arquitetura Limpa + Vitrine GitHub
 
-> Plano mestre pós-PLAN-2. Fonte da verdade continua `PLAN.md` v7.0.
+> ⚠️ Retrato de 23/set/2026 — superseded pelo código real e pelo PLAN-10 (v10.0). Consultar PLAN-10 para estado atual.
 > Diretriz do dono: fluxos automatizados, mínimo de intervenção humana, sem atalhos.
 > Cortes confirmados: SW custom, Repository Pattern, Event Bus, lazy load + manualChunks,
 > visual regression no CI, mutation testing no CI, contract tests via `gen types`.

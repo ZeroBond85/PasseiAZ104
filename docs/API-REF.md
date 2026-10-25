@@ -12,10 +12,13 @@
 - `analyzeAttempt(questions, answers, progress)` → Study Guide pós-simulado (weak domains, top errors, tips); `readiness(...)` → prontidão §12
 - `validateQuestion(q) → SafeParseResult` (Zod + superRefine §3)
 
-## Sync (IDB `passei-az104` v2 + espelho Supabase v7.0)
+## Sync (IDB `passei-az104` v3 + espelho Supabase v7.0)
 
-- `saveSession/loadSession(id)` · `saveProgress/loadAllProgress()` · `seedQuestions/loadAllQuestions/questionsCount()`
-- **v2 (por usuário):** `saveAttempt/loadAllAttempts/loadAttemptsForUser/deleteAttempt` · `saveDoubt/loadAllDoubts/loadDoubt/deleteDoubt` (1 por questão, tag+resolved) · `markActivity(date,kind)/saveActivity/loadAllActivity` (chave `key='date:kind'`; **proibido `:` no keyPath**) · `saveSuggestion/loadAllSuggestions` · `setMeta/getMeta`
+- `saveSession/loadSession(userId, simuladoId)` (chave `userId|simId`, scoped) · `saveProgress/loadProgressForUser(userId)` · `seedQuestions/loadAllQuestions/questionsCount()`
+- **v3 (por usuário, scoped):** `saveAttempt/loadAttemptsForUser` · `saveDoubt/loadDoubtsForUser/loadDoubtForUser/deleteDoubtForUser` (1 por questão, tag+resolved, chave `userId|questionId`) · `markActivityForUser(userId, date, kind)/saveActivity/loadActivityForUser` (chave `userId|date|kind`; **proibido `:` no keyPath**) · `saveSuggestion/loadSuggestionsForUser(userId)` · `setMeta/getMeta`
+- `ensureSeeded() → { seeded, count }` · `getQuestionPool()`
+- `LOCAL_OWNER_ID` / `LEGACY_OWNER_ID` · `resolveOwnerId(userId)` · `sessionKey(userId, simuladoId)` · `progressKey`/`doubtKey`/`activityKey`
+- `loadSessionsForUser(userId)` · `loadSuggestionsForUser(userId)` · `deleteSessionForUser(userId, simuladoId)`
 - `ensureSeeded() → { seeded, count }` · `getQuestionPool()`
 - `supabase` (null sem env) · `isSyncEnabled()` · `getUserId/signInWithEmail/signOut/onAuthChange`
 - `pushProgress/pullProgress(userId)` · `pushSession/pullSession(userId, simuladoId)` · `syncNow(userId, simuladoId?)` (pull-merge depois push; box usa `max()`)

@@ -9,9 +9,10 @@
 - **Banco:** senha Postgres **nunca** em chat/repo/env (incidente LESSONS 11/set/2026 — rotacionada;
   app desenhado para nunca precisar dela; migrations via SQL Editor pelo dono).
 - **Autorização:** RLS `auth.uid() = user_id` em tudo; admin via `az104_is_admin()` SECURITY DEFINER
-  só-leitura; admin read-only por `with check` (ADR-006). Aba Admin é só UX.
-- **Dados do usuário:** IndexedDB local como fonte de leitura; Supabase é espelho (push/pull LWW).
-- **Defesa em profundidade:** CSP via meta tag (`script-src 'self'`, `connect-src` só `*.supabase.co`);
+  (leitura + escrita de role em `az104_profiles`, auditada por trigger `az104_profiles_role_audit`).
+  Aba Admin é só UX.
+- **Defesa em profundidade:** CSP via meta tag (`script-src 'self'`, `connect-src` host exato do
+  Supabase `yktrozpeablbafdagxtg.supabase.co` + `base-uri 'none'; form-action 'none'`);
   SRI avaliado e descartado com motivo (zero sub-recursos third-party; quebraria precache — LESSONS).
 - **Reporte:** abra uma issue privada no GitHub com `[security]` no título. Não publique exploit antes de correção.
 - **Dependências:** `npm audit` mensal via `dependency-audit.yml` → `.agent/audits/`.

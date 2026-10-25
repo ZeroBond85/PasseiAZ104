@@ -1,6 +1,6 @@
 # PLAN 2 — v7.1: Fidelidade ao exame + UX de estudo
 
-> Mapa de execução sobre a **v7.0 (PLAN.md, fonte da verdade)**. Verificação feita em 23/set: bugs e gaps
+> ⚠️ Retrato de 23/set/2026 — superseded pelo código real e pelo PLAN-10 (v10.0). Consultar PLAN-10 para estado atual.
 > cruzados com código real. Skill: test-driven-execution. Conceito: red → green por fase.
 
 ## Verdict da auditoria (base deste plano)

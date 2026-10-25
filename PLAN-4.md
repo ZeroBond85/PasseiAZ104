@@ -1,6 +1,6 @@
 # PLAN-4.md — PasseiAZ-104: código + banco 1000 fundamentado + visibilidade
 
-> Complementa `PLAN.md` (§4 meta do banco, §9 hooks, §15 cortes) e `CODE-REVIEW.md`.
+> ⚠️ Retrato de 23/set/2026 — superseded pelo código real e pelo PLAN-10 (v10.0). Consultar PLAN-10 para estado atual.
 > Quatro trilhas: **A** = 10 achados de código (**fechada**) · **B** = banco 950→1000 (**fechada**) ·
 > **R** = grounding (**R0–R2 e R4 fechadas; R3 pendente: 949 `original`**) · **C** = visibilidade (**pendente**).
 > Custo $0. Gates mandam. Nada aqui é prazo. Execução no WSL Debian (`REGRAS.md`).
