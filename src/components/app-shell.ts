@@ -183,6 +183,17 @@ export class AppShell extends LitElement {
       if (!id) {
         this.isAdmin = false
         this.syncCtl.detach()
+        this.quizCtl.stopLoops()
+        this.quizCtl = new QuizController(
+          () => this.requestUpdate(),
+          () => this.userId,
+        )
+        this.quizCtl.onExpire(() => void this.finish(true))
+        this.treinoCtl = new TreinoController(() => this.requestUpdate())
+        this.syncCtl = new SyncController()
+        this.syncFail = 0
+        this.pendingSpec = null
+        this.tab = 'home'
       }
       this.requestUpdate()
     })

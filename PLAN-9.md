@@ -200,7 +200,7 @@ da árvore → `check-secrets: 236 arquivos · 0 achados` no scanner de arquivos
 `BLOQUEADO: 1 segredo(s) real(is) no histórico` e **EXIT 1**. Gate detector de si próprio
 não é gate.
 
-### Gate 0.5 — README honesto + verificador no CI · ABERTO
+### Gate 0.5 — README honesto + verificador no CI · FECHADO
 **Arquivos:** `README.md`, `scripts/check-readme-claims.mjs` (novo), `package.json`
 - `README.md:48` → tipos reais: 72,6% única · 26,4% múltipla · 1,0% cenário · 0% yes-no.
   Marcar como **fiel à prova**: a Microsoft não publica o mix 60/20/15/5.
@@ -291,7 +291,7 @@ afirma `maxRaw = 10*15 + 25*20 + 15*25`.
 
 ## §4 ONDA 2 — Segurança e privacidade
 
-### Gate 2.1 — Escopo de usuário no IndexedDB · VAZAMENTO REAL — 🔄 **EM ANDAMENTO**
+### Gate 2.1 — Escopo de usuário no IndexedDB · VAZAMENTO REAL — ✅ **FECHADO**
 **Arquivos:** `IndexedDB.ts`, `types.ts`
 - Stores sem escopo: `doubts` (keyPath `questionId`), `activity` (key `key`), `progress`.
 - `AttemptRecordSchema` **tem** `userId` e `loadAttemptsForUser` filtra (`:95-98`) →
@@ -307,7 +307,7 @@ afirma `maxRaw = 10*15 + 25*20 + 15*25`.
 **Aceite:** `tests/unit/auth-isolation.test.ts` novo — A grava dúvida, B faz login,
 `loadAllDoubts()` de B não retorna a de A, e `pushPlatform(B)` não envia payload de A.
 
-### Gate 2.2 — Reset no logout
+### Gate 2.2 — Reset no logout · FECHADO
 **Arquivos:** `app-shell.ts`, `src/sync/auth.ts`
 `signOut()` expurga sessão e reseta as instâncias dos controladores.
 **Aceite:** `npm test`
@@ -383,22 +383,22 @@ Onda 0 (fechada) ──▶ qualquer outra onda
 | 0.2 | Versionar `public/data` (symlink) | 0 | `npm run build` | ✅ |
 | 0.3 | Lint: remover 7 scripts one-shot + autofix | 0 | `npm run lint` | ✅ |
 | 0.4 | Gate de segredo: histórico usa `PADROES` + `IGNORAR_CONTEUDO` | 0 | `npm run secrets` + controle positivo | ✅ |
-| 0.5 | README honesto + `readme:check` no CI | 0 | `npm run readme:check` | ⬜ |
+| 0.5 | README honesto + `readme:check` no CI | 0 | `npm run readme:check` | ✅ |
 | **0.6** | **`TOTAL_ESPERADO = 1000` com `fail()`** — invariante da capa do projeto | 0 | `npm run validate` (controle: 997 → EXIT 1) | ✅ |
 | 1.1 | `needsReview` nos 3 caminhos | 1 | `npm run validate` (controles: quarentena / repetido / 49 / 51 → EXIT 1) | ✅ 37 slots trocados por domínio+dificuldade; 0 nos 10 oficiais |
 | 1.2 | Múltipla tudo-ou-nada | 1 | `npm test tests/unit/scoring.test.ts` | ✅ `868 → 760` medido no sim-oficial-01 real |
 | 1.3 | Remover peso por dificuldade | 1 | `npm test tests/unit/scoring.test.ts tests/unit/analytics.test.ts tests/unit/irt.test.ts` | ✅ `maxRaw 1025 → 50`; corte `718 → 35` |
 | 1.4 | Versionar modelo de pontuação | 1 | `npm run migration:check` | ✅ `scoringModelVersion` + migration `005`; parser `ALTER TABLE` corrigido no validador |
 | 1.5 | Case study real | 1 | E2E do quiz + testes de bloco e prefixo | ✅ cenário no início do bloco; `az104-st-054` como `single` |
-| 2.1 | Escopo de usuário no IDB | 2 | `tests/unit/auth-isolation.test.ts` | 🔄 em andamento |
-| 2.2 | Reset no logout | 2 | `npm test` | ⬜ |
+| 2.1 | Escopo de usuário no IDB | 2 | `tests/unit/auth-isolation.test.ts` | ✅ |
+| 2.2 | Reset no logout | 2 | `npm test` | ✅ |
 | 3.1 | Batch upsert | 3 | `npm test tests/unit/sync.test.ts` | ✅ um `.upsert(array)` por tabela, `Promise.all`, chunks de 100 |
 | 3.2 | Cache do pool | 3 | `npm test tests/unit/question-loader.test.ts` | ✅ cache de módulo com invalidação só no reseed |
 | 3.3 | Duplicação no AdminPanel | 3 | `npm run lint` | ✅ chamadas duplicadas removidas; build limpo |
 | 4.1 | `sourceUrl` no review | 4 | teste de template | ✅ “Abrir fonte ↗” com `rel="noopener noreferrer"` |
 | 4.2 | Dialog nativo + foco preso | 4 | `axe.spec.ts` + teste de foco | ✅ Tab preso, Escape fecha e Axe 0 com modal aberto |
 | 4.3 | Router (9 tabs) | 4 | E2E `popstate` | ✅ hash sincronizado nos dois sentidos e histórico voltar/avançar |
-| 4.4 | Radar de competências | 4 | render + tabela alternativa | ⬜ |
+| 4.4 | Radar de competências | 4 | render + tabela alternativa | ✅ |
 
 **Portão final da v9.0:** `npm run ci` em 0 **incluindo `readme:check`**, sem warning.
 
