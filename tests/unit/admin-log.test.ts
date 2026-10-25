@@ -84,7 +84,7 @@ describe('admin: auditoria de acoes administrativas', () => {
     expect(ok).toBe(false)
   })
 
-  it('changeUserRole altera a role E registra a auditoria', async () => {
+  it('changeUserRole altera a role (auditoria via trigger)', async () => {
     const r = await changeUserRole(ACTOR, TARGET, 'admin')
     expect(r.ok).toBe(true)
     expect(r.audited).toBe(true)
@@ -95,14 +95,8 @@ describe('admin: auditoria de acoes administrativas', () => {
         eq: `user_id=${TARGET}`,
       },
     ])
-    expect(h.inserts).toHaveLength(1)
-    expect(h.inserts[0].payload).toMatchObject({
-      actor_id: ACTOR,
-      action: 'role.change',
-      target_type: 'profile',
-      target_id: TARGET,
-      meta: { role: 'admin' },
-    })
+    // O log é gravado pelo trigger no DB — o front não insere em admin_logs.
+    expect(h.inserts).toHaveLength(0)
   })
 
   it('changeUserRole nao audita quando o update falha', async () => {
@@ -111,13 +105,5 @@ describe('admin: auditoria de acoes administrativas', () => {
     expect(r.ok).toBe(false)
     expect(r.error).toContain('sem permissao')
     expect(h.inserts).toHaveLength(0)
-  })
-
-  it('changeUserRole mantem a role alterada quando a auditoria falha (UI nao quebra)', async () => {
-    h.insertError = { message: 'auditoria indisponivel' }
-    const r = await changeUserRole(ACTOR, TARGET, 'user')
-    expect(r.ok).toBe(true)
-    expect(r.audited).toBe(false)
-    expect(h.updates).toHaveLength(1)
   })
 })

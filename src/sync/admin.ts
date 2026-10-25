@@ -51,6 +51,14 @@ export async function changeUserRole(
 ): Promise<{ ok: boolean; audited: boolean; error?: string }> {
   if (!supabase)
     return { ok: false, audited: false, error: 'Sincronizacao desativada' }
+  // Trava client-side: não rebaixa a si mesmo.
+  if (actorId === userId && role === 'user') {
+    return {
+      ok: false,
+      audited: false,
+      error: 'Não é possível rebaixar a si mesmo',
+    }
+  }
   const { error } = await supabase
     .from('az104_profiles')
     .update({ role })
@@ -61,14 +69,13 @@ export async function changeUserRole(
       role,
       message: error.message,
     })
-    return {
-      ok: false,
-      audited: false,
-      error: `Falha ao alterar role: ${error.message}`,
-    }
+    const msg = error.message.includes('self_demotion')
+      ? 'Não é possível rebaixar a si mesmo'
+      : error.message.includes('last_admin')
+        ? 'Não é possível rebaixar o último administrador'
+        : `Falha ao alterar role: ${error.message}`
+    return { ok: false, audited: false, error: msg }
   }
-  const audited = await recordAdminLog(
-    adminLogRow(actorId, 'role.change', 'profile', userId, { role }),
-  )
-  return { ok: true, audited }
+  // O log é gravado pelo trigger AFTER UPDATE (atômico, inescapável).
+  return { ok: true, audited: true }
 }
