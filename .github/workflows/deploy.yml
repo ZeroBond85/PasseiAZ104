@@ -1,7 +1,9 @@
 name: deploy
 
 on:
-  push:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -16,6 +18,7 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -23,6 +26,8 @@ jobs:
       VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 24

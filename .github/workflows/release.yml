@@ -30,6 +30,17 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: generate SBOM
+        run: npm sbom --omit=dev > sbom.json
       - run: gh release create "$GITHUB_REF_NAME" --generate-notes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: upload SBOM
+        run: gh release upload "$GITHUB_REF_NAME" sbom.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

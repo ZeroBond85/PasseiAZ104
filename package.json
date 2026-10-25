@@ -1,5 +1,8 @@
 {
   "name": "az104",
+  "engines": {
+    "node": ">=24"
+  },
   "private": true,
   "version": "0.1.0",
   "description": "Simulado AZ-104 no formato oficial + revisão espaçada + Study Hub com Microsoft Learn. PWA offline-first, custo $0.",
@@ -64,7 +67,7 @@
     "@biomejs/biome": "2.5.12",
     "@google/genai": "2.21.0",
     "@playwright/test": "1.63.0",
-    "@types/node": "22.20.2",
+    "@types/node": "24.19.2",
     "husky": "9.1.7",
     "lighthouse": "13.4.1",
     "lint-staged": "17.5.0",

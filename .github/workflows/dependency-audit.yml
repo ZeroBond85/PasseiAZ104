@@ -16,5 +16,12 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm audit --omit=dev > .agent/audits/audit-$(date +%F).txt 2>&1 || true
+      - run: npm audit --omit=dev --audit-level=high
       - run: npm outdated || true
+      - name: upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: .agent/audits/
+          if-no-files-found: ignore
