@@ -1078,3 +1078,13 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
 **Pendente não-bloqueante (Fase 4/5 cont.):** distractor consolidation (admin-panel inline × analyzeDistractors — semânticas divergentes, mantidos separados), QuizEngine.go/next/prev/pause/resume (mantidos, cobertos por testes), jsdom global (bloqueia question-loader/anchor-checks que usam `import.meta.url`+`fileURLToPath`; flags.test usa mock de localStorage), coverage thresholds >0, e2e sharding.
 
 **Pendente humano (migration 007):** aplicar no Supabase SQL Editor + validar com 2 usuários (fail-closed por RLS).
+
+## 2026-10-25 — Dependabot: 5 atualizações de dependência aplicadas
+
+- vite **8.2.2 → 8.3.5** (`package.json` + lock + `pins.test.ts`)
+- @axe-core/playwright **4.13.0 → 4.14.0** (`package.json` + lock)
+- lint-staged **17.5.0 → 17.6.0** (`package.json` + lock + `pins.test.ts`)
+- idb **8.0.3 → 8.0.4** (`package.json` + lock + `pins.test.ts`)
+- tsx **4.21.0 → 4.23.15** (`package.json` + lock + `pins.test.ts`)
+- PLAN.md §1 stack atualizado com os novos pins
+- **Gates:** `npm run ci` **EXIT 0** (secrets · lint · build · 158 unit · validate 1000/0 · meta · readme · migration · audit 0 high · budget 131.2/140 KB).

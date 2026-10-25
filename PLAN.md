@@ -35,7 +35,7 @@
 
 ## 1. STACK (free — pins reconfirmados no Dia 1)
 
-Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleResolution: bundler`, `target: es2025`, `types: []`) · Lit **3.3.3** sem decorators · Zod **4.6.7** · Biome **2.5.12** · `idb` **8.0.3** · `vite-plugin-pwa` **1.3.0** (sem `sw.ts`, sem `workbox-cli`) · `@google/genai` **2.21.0** + pré-voo de modelos (§7) · `@supabase/supabase-js` **2.116.0** (auth + sync, §17) · Vitest **5.0.0**/Playwright **1.63.0**/axe **4.13.0** · Husky **9.1.7** · lint-staged **17.5.0** · tsx **4.21.0** (runner `.mts`) · Lighthouse **13.4.1** (só CI perf) · Learn MCP (free) · GH Pages (soft limits: 100GB/mês banda, 10 builds/h, 1GB site — folgado para este uso) · Supabase free (Auth 50k MAU + 500MB, §17).
+Node **24.21.0** (nvm/WSL) · Vite **8.3.5** · TypeScript **6.0.3** (`moduleResolution: bundler`, `target: es2025`, `types: []`) · Lit **3.3.3** sem decorators · Zod **4.6.7** · Biome **2.5.12** · `idb` **8.0.4** · `vite-plugin-pwa` **1.3.0** (sem `sw.ts`, sem `workbox-cli`) · `@google/genai` **2.21.0** + pré-voo de modelos (§7) · `@supabase/supabase-js` **2.116.0** (auth + sync, §17) · Vitest **5.0.0**/Playwright **1.63.0**/axe **4.14.0** · Husky **9.1.7** · lint-staged **17.6.0** · tsx **4.23.15** (runner `.mts`) · Lighthouse **13.4.1** (só CI perf) · Learn MCP (free) · GH Pages (soft limits: 100GB/mês banda, 10 builds/h, 1GB site — folgado para este uso) · Supabase free (Auth 50k MAU + 500MB, §17).
 
 **Notas de versão (v6.0):** TS 7 já é estável/GA — ficamos em 6.0.3 por pin de stack (reavaliação pós-prova, ROADMAP). Lockfile manda; o plano nunca declara versão mentirosa. Pins v6.0 conferidos em `tests/unit/pins.test.ts` (11 asserts).
 
