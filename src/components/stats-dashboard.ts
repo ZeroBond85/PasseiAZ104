@@ -99,7 +99,7 @@ export class StatsDashboard extends LitElement {
               <tr>
                 <td>${ptLabels(d)}</td>
                 <td>
-                  <div class="bar"><div class="fill" style="width:${v.pct}%"></div></div>
+                  <div class="bar"><div class="fill" style="--fill-width:${v.pct}%"></div></div>
                   <span>${v.pct}%</span>
                 </td>
               </tr>
@@ -156,6 +156,7 @@ export class StatsDashboard extends LitElement {
       min-width: 60px;
     }
     .fill {
+      width: var(--fill-width);
       height: 100%;
       background: var(--progress);
       border-radius: 4px;

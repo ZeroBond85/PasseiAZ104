@@ -21,6 +21,7 @@ import {
 } from '../styles/shared.js'
 import { getUserId, onAuthChange } from '../sync/auth.js'
 import {
+  clearUserData,
   loadProgressForUser,
   loadSession,
   progressKey,
@@ -41,6 +42,7 @@ import './navigator-grid.js'
 import './progress-panel.js'
 import './user-menu.js'
 import './question-card.js'
+import { profileKey } from '../study/study-profile.js'
 import { hashForRoute, routeFromHash } from './router.js'
 import { labels as ptLabels } from './study-guide.js'
 import './review-card.js'
@@ -186,6 +188,14 @@ export class AppShell extends LitElement {
         this.syncCtl.attach(id, this.quizCtl.simId)
       }
       if (!id) {
+        if (was && was !== 'local') {
+          void clearUserData(was).catch(() => undefined)
+          try {
+            localStorage.removeItem(profileKey(was))
+          } catch {
+            // ignore
+          }
+        }
         this.isAdmin = false
         this.syncCtl.detach()
         this.quizCtl.stopLoops()
@@ -290,10 +300,11 @@ export class AppShell extends LitElement {
   get needsLogin() {
     if (this.localMode) return false
     if (
+      import.meta.env.VITE_E2E === 'true' &&
       typeof location !== 'undefined' &&
       new URLSearchParams(location.search).has('local')
     ) {
-      return false // bypass de teste e2e (?local=1) — nunca em produção
+      return false // bypass de teste e2e (?local=1) — apenas em builds de teste
     }
     return isSyncEnabled() && this.authReady && !this.userId
   }
@@ -332,6 +343,8 @@ export class AppShell extends LitElement {
 
   private onKey = (e: KeyboardEvent) => {
     if (e.ctrlKey || e.metaKey || e.altKey) return
+    if (this.finishConfirmOpen || this.victoryOpen || this.treinoResultOpen)
+      return
     if (this.tab !== 'quiz') return
     this.quizCtl.handleKey(e)
   }
@@ -532,11 +545,12 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
 
   private renderQuiz() {
     const ctl = this.quizCtl
-    if (ctl.loading) return html`<main><p>Carregando questões…</p></main>`
+    if (ctl.loading)
+      return html`<main><p role="status">Carregando questões…</p></main>`
     if (ctl.quiz.length === 0 && !ctl.isActive) return this.renderOrientation()
     const q = ctl.currentQuestion
     if (!q)
-      return html`<main><p>Não foi possível carregar as questões. Use “Recarregar banco” no topo e tente de novo.</p></main>`
+      return html`<main><p role="status">Não foi possível carregar as questões. Use “Recarregar banco” no topo e tente de novo.</p></main>`
     return html`
       <timer-bar .remaining=${ctl.timer.remaining} .total=${ctl.timer.totalSeconds} .saved=${ctl.savedFlash}></timer-bar>
       <navigator-grid
@@ -604,6 +618,7 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
   private estudoDue: { questionId: string; box: number; dueAt: number }[] = []
   private estudoTruncated = false
   private estudoLoaded = false
+  private estudoDueTotal = 0
 
   private async loadEstudo() {
     this.estudoLoaded = false
@@ -612,16 +627,17 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
     const allProgress = await loadProgressForUser(ownerId).catch(
       hushArr('data', 'estudo: load progress falhou'),
     )
-    const { due, truncated } = getDue(allProgress, now, 50)
+    const { due, truncated, total } = getDue(allProgress, now, 50)
     this.estudoDue = due
     this.estudoTruncated = truncated
+    this.estudoDueTotal = total
     this.estudoLoaded = true
     this.requestUpdate()
   }
 
   private renderEstudo() {
     if (!this.estudoLoaded)
-      return html`<main><p>Carregando revisões…</p></main>`
+      return html`<main><p role="status">Carregando revisões…</p></main>`
     const due = this.estudoDue
     const truncated = this.estudoTruncated
 
@@ -656,7 +672,7 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
         }
         <header class="estudo-header">
           <h2>Fixe o que errou</h2>
-          ${truncated ? html`<p class="hint">Mostrando 50 de ${due.length} para revisar — comece pela primeira.</p>` : ''}
+          ${truncated ? html`<p class="hint">Mostrando ${due.length} de ${this.estudoDueTotal} para revisar — comece pela primeira.</p>` : ''}
         </header>
         ${due.map(
           (card) => html`
@@ -691,7 +707,12 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
 
   private async onStartDrill() {
     const qs = await buildDrillQuestions(this.userId ?? 'local').catch(() => [])
-    if (qs.length === 0) return
+    if (qs.length === 0) {
+      this.treinoResultMsg = 'Nenhum erro para treinar ainda.'
+      this.treinoResultOpen = true
+      this.requestUpdate()
+      return
+    }
     await this.treinoCtl.startCustom(qs, 'Meus erros')
     this.tab = 'treino'
   }
@@ -761,6 +782,7 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
           .selected=${ctl.answerOf(q.id)}
           .caseStudy=${getCaseStudy(q.caseStudyId)}
           .showCaseStudy=${startsCaseBlock(ctl.quiz, ctl.current)}
+          .locked=${ctl.paused}
           @answer=${(e: CustomEvent) => ctl.answer(e.detail)}
         ></question-card>
         <div class="actions">
@@ -801,7 +823,7 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
     if (!this.isAdmin)
       return html`<main><p>Área restrita — só para administradores.</p></main>`
     if (!this.adminPanelLoaded) {
-      return html`<main class="loading">Carregando painel de administração…</main>`
+      return html`<main class="loading" role="status">Carregando painel de administração…</main>`
     }
     return html`<admin-panel></admin-panel>`
   }
@@ -841,6 +863,9 @@ ${this.seedError ? html`<button type="button" class="sync warn" @click=${() => v
         usageCount: (prev?.usageCount ?? 0) + 1,
         lastSeenAt: now,
       }).catch(hush('data', 'grade: saveProgress falhou'))
+      this.estudoDue = this.estudoDue.filter(
+        (c) => c.questionId !== d.questionId,
+      )
       this.requestUpdate()
     })()
   }

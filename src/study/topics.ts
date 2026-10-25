@@ -6,7 +6,9 @@ export const StudyTopicSchema = z.object({
   domain: z.string(),
   topic: z.string(),
   label: z.string(),
-  url: z.string(),
+  url: z.string().refine((v) => /^https?:\/\//i.test(v), {
+    message: 'url deve ser http(s)',
+  }),
   source: z.string(),
   match: z.array(z.string()),
   order_idx: z.number(),

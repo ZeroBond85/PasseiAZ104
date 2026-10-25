@@ -17,9 +17,13 @@ export function computeHeatmap(
   pool: Question[],
 ): HeatCell[] {
   const byId = new Map(pool.map((q) => [q.id, q]))
-  // Att mais recentes primeiro (loadAllAttempts já ordena por finishedAt desc)
-  const recent = attempts.filter((a) => a.kind === 'simulado').slice(0, 5)
-  const older = attempts.filter((a) => a.kind === 'simulado').slice(5, 10)
+  const sims = attempts
+    .filter((a) => a.kind === 'simulado')
+    .slice()
+    .sort((a, b) => b.finishedAt - a.finishedAt)
+  // Att mais recentes primeiro (contrato auto-contido: ordena internamente)
+  const recent = sims.slice(0, 5)
+  const older = sims.slice(5, 10)
 
   const agg = (
     list: AttemptRecord[],

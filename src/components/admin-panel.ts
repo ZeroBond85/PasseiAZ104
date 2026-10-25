@@ -65,7 +65,12 @@ export class AdminPanel extends LitElement {
       return
     }
     const userId = await getUserId()
-    if (!userId) return
+    if (!userId) {
+      this.error = 'Sem sessão'
+      this.loaded = true
+      this.requestUpdate()
+      return
+    }
     try {
       const [attempts, doubts, profiles, questions, logs] = await Promise.all([
         supabase.from('az104_attempts').select('*'),
@@ -312,8 +317,8 @@ export class AdminPanel extends LitElement {
 
         <section class="card">
           <h2>Usuários e últimas atividades</h2>
-          <table>
-            <thead><tr><th>E-mail</th><th>Perfil</th><th>Simulados</th><th>Média</th><th>Evolução</th><th>Última atividade</th></tr></thead>
+          <div class="table-wrap"><table>
+            <thead><tr><th scope="col">E-mail</th><th scope="col">Perfil</th><th scope="col">Simulados</th><th scope="col">Média</th><th scope="col">Evolução</th><th scope="col">Última atividade</th></tr></thead>
             <tbody>
               ${this.users.map(
                 (u) => html`
@@ -324,9 +329,9 @@ export class AdminPanel extends LitElement {
                       ${
                         this.confirmRole === u.userId
                           ? html`<button type="button" class="btn" @click=${() => void this.setRole(u.userId, u.role === 'admin' ? 'user' : 'admin')}>Confirmar</button>
-                            <button type="button" class="btn" @click=${() => {
-                              this.confirmRole = null
-                            }}>X</button>`
+                             <button type="button" class="btn" aria-label="Cancelar" @click=${() => {
+                               this.confirmRole = null
+                             }}>×</button>`
                           : html`<button type="button" class="btn" @click=${() => {
                               this.confirmRole = u.userId
                             }}>${u.role === 'admin' ? 'Rebaixar' : 'Tornar admin'}</button>`
@@ -340,14 +345,14 @@ export class AdminPanel extends LitElement {
                 `,
               )}
             </tbody>
-          </table>
+          </table></div>
         </section>
 
         <section class="card">
           <h2>Desempenho por questão</h2>
           <p class="dim">← casos com menor precisão primeiro; distrator = alternativa errada mais marcada.</p>
-          <table>
-            <thead><tr><th>Questão</th><th>Domínio</th><th>Tentativas</th><th>Acerto</th><th>Distrator</th><th>Erros por motivo</th></tr></thead>
+          <div class="table-wrap"><table>
+            <thead><tr><th scope="col">Questão</th><th scope="col">Domínio</th><th scope="col">Tentativas</th><th scope="col">Acerto</th><th scope="col">Distrator</th><th scope="col">Erros por motivo</th></tr></thead>
             <tbody>
               ${this.qStats.slice(0, 60).map(
                 (s) => html`
@@ -369,7 +374,7 @@ export class AdminPanel extends LitElement {
                 `,
               )}
             </tbody>
-          </table>
+          </table></div>
         </section>
 
         <section class="card">
@@ -491,6 +496,9 @@ export class AdminPanel extends LitElement {
     }
     .queue .done {
       opacity: 0.6;
+    }
+    .table-wrap {
+      overflow-x: auto;
     }
     .err {
       color: var(--danger);

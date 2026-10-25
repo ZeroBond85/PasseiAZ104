@@ -279,22 +279,6 @@ export async function loadSession(userId: string, simuladoId: string) {
   return (await getDB()).get('sessions', key)
 }
 
-export async function loadSessionsForUser(
-  userId: string,
-): Promise<SessionRecord[]> {
-  const db = await getDB()
-  return (await db.getAllFromIndex(
-    'sessions',
-    'by-owner',
-    resolveOwnerId(userId),
-  )) as SessionRecord[]
-}
-
-export async function deleteSessionForUser(userId: string, simuladoId: string) {
-  const key = sessionKey(resolveOwnerId(userId), simuladoId)
-  return (await getDB()).delete('sessions', key)
-}
-
 // Progresso Leitner + uso
 export async function saveProgress(p: ProgressRecord) {
   return (await getDB()).put('progress', p)
@@ -339,10 +323,6 @@ export async function loadAttemptsForUser(userId: string) {
   return all.filter((a) => a.userId === userId)
 }
 
-export async function deleteAttempt(id: string) {
-  return (await getDB()).delete('attempts', id)
-}
-
 // doubts: uma por questão por usuário (user_id no remote; local por dono)
 export async function saveDoubt(d: DoubtRecord) {
   return (await getDB()).put('doubts', d)
@@ -357,10 +337,6 @@ export async function loadDoubtsForUser(
 
 export async function loadDoubtForUser(userId: string, questionId: string) {
   return (await getDB()).get('doubts', doubtKey(userId, questionId))
-}
-
-export async function deleteDoubtForUser(userId: string, questionId: string) {
-  return (await getDB()).delete('doubts', doubtKey(userId, questionId))
 }
 
 // activity: streak/atividade — chave composta com dono, sem `:` no keyPath
@@ -405,6 +381,37 @@ export async function loadSuggestionsForUser(
     resolveOwnerId(userId),
   )) as SuggestionRecord[]
   return rows.sort((a, b) => b.generatedAt - a.generatedAt)
+}
+
+// Limpa todos os dados do usuário saiente (computador compartilhado).
+export async function clearUserData(userId: string): Promise<void> {
+  const ownerId = resolveOwnerId(userId)
+  const db = await getDB()
+  // stores com índice by-owner
+  for (const store of [
+    'sessions',
+    'progress',
+    'doubts',
+    'activity',
+    'suggestions',
+  ] as const) {
+    const rows = await db.getAllFromIndex(store, 'by-owner', ownerId)
+    const tx = db.transaction(store, 'readwrite')
+    for (const r of rows) {
+      const key =
+        (r as { key?: string; id?: string }).key ?? (r as { id?: string }).id
+      if (key !== undefined) await tx.store.delete(key as never)
+    }
+    await tx.done
+  }
+  // attempts: sem índice by-owner
+  const attempts = await db.getAll('attempts')
+  const myAttempts = attempts.filter((a) => a.userId === ownerId)
+  if (myAttempts.length) {
+    const tx = db.transaction('attempts', 'readwrite')
+    for (const a of myAttempts) await tx.store.delete(a.id)
+    await tx.done
+  }
 }
 
 // meta helpers (streak persistido localmente é determinístico, sem tabela)

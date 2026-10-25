@@ -36,7 +36,13 @@ export const QuestionSchema = z.object({
   correct: z.array(z.string().regex(/^[A-F]$/)).min(1),
   explanation: z.string().min(100),
   source: z.enum(['original', 'mslearn', 'community', 'ai-generated']),
-  sourceUrl: z.string().url().optional(),
+  sourceUrl: z
+    .string()
+    .url()
+    .refine((v) => /^https?:\/\//i.test(v), {
+      message: 'sourceUrl deve ser http(s)',
+    })
+    .optional(),
   generatedWith: z
     .object({ model: z.string(), date: z.string().datetime() })
     .optional(),

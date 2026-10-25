@@ -21,9 +21,13 @@ export function getDue(
   cards: Card[],
   now: number,
   limite = 50,
-): { due: Card[]; truncated: boolean } {
+): { due: Card[]; truncated: boolean; total: number } {
   const due = cards
     .filter((c) => c.dueAt <= now)
     .sort((a, b) => a.box - b.box || a.dueAt - b.dueAt)
-  return { due: due.slice(0, limite), truncated: due.length > limite }
+  return {
+    due: due.slice(0, limite),
+    truncated: due.length > limite,
+    total: due.length,
+  }
 }

@@ -1,6 +1,6 @@
 import { css, html, LitElement } from 'lit'
 import { query } from 'lit/decorators.js'
-import { btnStyles, cardStyles, controlStyles } from '../styles/shared.js'
+import { btnStyles, controlStyles } from '../styles/shared.js'
 
 export class ModalDialog extends LitElement {
   static properties = {
@@ -109,18 +109,19 @@ export class ModalDialog extends LitElement {
   render() {
     if (!this.open) return html``
     return html`
-      <dialog
-        class="modal"
-        aria-labelledby="modal-title"
-        @cancel=${this.handleNativeCancel}
-        @keydown=${this.handleKeydown}
-        data-testid="modal-dialog"
-      >
-        <div class="modal-header">
-          <h3 id="modal-title">${this.title}</h3>
-        </div>
-        <div class="modal-body">
-          <p>${this.message}</p>
+       <dialog
+         class="modal"
+         aria-labelledby="modal-title"
+         aria-describedby="modal-desc"
+         @cancel=${this.handleNativeCancel}
+         @keydown=${this.handleKeydown}
+         data-testid="modal-dialog"
+       >
+         <div class="modal-header">
+           <h3 id="modal-title">${this.title}</h3>
+         </div>
+         <div class="modal-body">
+           <p id="modal-desc">${this.message}</p>
           ${
             this.variant === 'success'
               ? html`<div class="celebration" aria-hidden="true">🎉</div>`
@@ -150,12 +151,11 @@ export class ModalDialog extends LitElement {
   }
 
   static styles = css`
-    ${cardStyles}
     ${btnStyles}
     ${controlStyles}
     .modal {
       margin: auto;
-      min-width: 320px;
+       min-width: min(320px, 100%);
       max-width: min(480px, 90vw);
       max-height: 80vh;
       overflow: hidden;

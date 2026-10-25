@@ -62,6 +62,7 @@
   --brand-green-contrast: oklch(0.98 0 0);
   --progress: oklch(0.5 0.19 255);
   --progress-ink: oklch(0.35 0.12 255);
+  --btn-primary-bg: oklch(0.5 0.17 255);
   --warning: oklch(0.6 0.15 85);
   --danger: oklch(0.5 0.2 25);
   --danger-contrast: oklch(0.98 0 0);

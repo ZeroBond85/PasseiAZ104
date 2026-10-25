@@ -24,6 +24,26 @@ export class QuestionCard extends LitElement {
     this.showCaseStudy = false
   }
 
+  private onOptsKey(e: KeyboardEvent) {
+    const opts = e.currentTarget as HTMLElement | null
+    if (!opts) return
+    const buttons = Array.from(
+      opts.querySelectorAll('button.opt'),
+    ) as HTMLButtonElement[]
+    const idx = buttons.indexOf(e.target as HTMLButtonElement)
+    if (idx < 0) return
+    let next = idx
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight')
+      next = (idx + 1) % buttons.length
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft')
+      next = (idx - 1 + buttons.length) % buttons.length
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = buttons.length - 1
+    else return
+    e.preventDefault()
+    buttons[next].focus()
+  }
+
   private toggle(letter: string) {
     if (this.locked || !this.question) return
     const multi = this.question.type === 'multiple'
@@ -62,6 +82,7 @@ export class QuestionCard extends LitElement {
           class="opts"
           role=${q.type === 'multiple' ? 'group' : 'radiogroup'}
           aria-label="Alternativas (teclas 1 a ${q.options.length})"
+          @keydown=${this.onOptsKey}
         >
           ${q.options.map(
             (o, i) => html`

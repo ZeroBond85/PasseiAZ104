@@ -32,7 +32,15 @@ export const btnStyles = css`
   .btn-primary {
     background-color: var(--btn-primary-bg);
     border-color: transparent;
-    color: #fff;
+    color: var(--brand-contrast);
+  }
+  .btn-secondary {
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-secondary:hover {
+    background-color: var(--surface-raised);
   }
   .btn-primary:hover {
     filter: brightness(1.1);

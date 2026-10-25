@@ -86,6 +86,7 @@ export class NavigatorGrid extends LitElement {
                     }),
                   )}
                 aria-label="Questão ${n}${this.answered.includes(i) ? ', respondida' : ', sem responder'}${this.flagged.includes(i) ? ', marcada' : ''}"
+                aria-current=${i === this.current ? 'true' : 'false'}
               >
                 ${this.flagged.includes(i) ? '⚑' : ''}${n}
               </button>

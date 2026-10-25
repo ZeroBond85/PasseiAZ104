@@ -26,6 +26,7 @@ export class ProgressPanel extends LitElement {
   }
 
   declare loaded: boolean
+  private error = ''
   private doubts: DoubtRecord[] = []
   private attempts = 0
   private streak = 0
@@ -41,28 +42,38 @@ export class ProgressPanel extends LitElement {
   }
 
   private async load() {
-    const userId = resolveOwnerId(await getUserId())
-    const [attempts, doubts, progress, activity, pool] = await Promise.all([
-      loadAllAttempts(),
-      loadDoubtsForUser(userId),
-      loadProgressForUser(userId),
-      loadActivityForUser(userId),
-      getQuestionPool().catch(() => []),
-    ])
-    const mine = userId ? attempts.filter((a) => a.userId === userId) : attempts
-    this.attempts = mine.length
-    this.doubts = doubts
-    this.lastScores = mine.map((a) => ({ score: a.score }))
-    this.streak = computeStreak(activity)
-    this.byDomain = aggregateDomains(mine)
-    this.ready = readiness(this.lastScores, this.byDomain, progress)
-    this.heat = computeHeatmap(mine, pool).slice(0, 8)
-    this.loaded = true
-    this.requestUpdate()
+    try {
+      const userId = resolveOwnerId(await getUserId())
+      const [attempts, doubts, progress, activity, pool] = await Promise.all([
+        loadAllAttempts(),
+        loadDoubtsForUser(userId),
+        loadProgressForUser(userId),
+        loadActivityForUser(userId),
+        getQuestionPool().catch(() => []),
+      ])
+      const mine = userId
+        ? attempts.filter((a) => a.userId === userId)
+        : attempts
+      this.attempts = mine.length
+      this.doubts = doubts
+      this.lastScores = mine.map((a) => ({ score: a.score }))
+      this.streak = computeStreak(activity)
+      this.byDomain = aggregateDomains(mine)
+      this.ready = readiness(this.lastScores, this.byDomain, progress)
+      this.heat = computeHeatmap(mine, pool).slice(0, 8)
+    } catch (err) {
+      this.error =
+        err instanceof Error ? err.message : 'Falha ao carregar progresso.'
+    } finally {
+      this.loaded = true
+      this.requestUpdate()
+    }
   }
 
   render() {
-    if (!this.loaded) return html`<main><p>Carregando…</p></main>`
+    if (!this.loaded) return html`<main><p role="status">Carregando…</p></main>`
+    if (this.error)
+      return html`<main><p class="err" role="alert">${this.error}</p></main>`
     return html`
       <main>
         <h1 class="sr-only">Seu progresso</h1>
@@ -110,7 +121,7 @@ export class ProgressPanel extends LitElement {
                       ([d, pct]) => html`
                         <li>
                           <span>${ptLabels(d)}</span>
-                          <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
+                          <div class="bar"><div class="fill" style="--fill-width:${pct}%"></div></div>
                           <span>${pct}%</span>
                         </li>
                       `,
@@ -280,7 +291,8 @@ export class ProgressPanel extends LitElement {
       margin-bottom: 6px;
     }
     .domains li span:first-child {
-      flex: 0 0 150px;
+      flex: 0 1 150px;
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -292,6 +304,7 @@ export class ProgressPanel extends LitElement {
       border-radius: 4px;
     }
     .fill {
+      width: var(--fill-width);
       height: 100%;
       background: var(--progress);
       border-radius: 4px;

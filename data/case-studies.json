@@ -3,14 +3,56 @@
     "id": "case-st-01",
     "title": "Migração de arquivos da Contoso",
     "scenario": "A Contoso tem 40 TB em servidores de arquivos locais com pastas por departamento e ACLs NTFS. O link de internet é de 200 Mbps. A meta é centralizar no Azure Files com acesso SMB dos escritórios, autenticação dos usuários do AD e retenção contra ransomware. O time cogita AzCopy direto, Data Box e File Sync.",
-    "sourceUrl": "https://learn.microsoft.com/azure/",
-    "needsReview": true
+    "sourceUrl": "https://learn.microsoft.com/azure/storage/files/storage-files-introduction",
+    "needsReview": false
   },
   {
     "id": "case-mo-01",
     "title": "Observabilidade da Fabrikam",
     "scenario": "A Fabrikam roda 60 VMs e 12 App Services em duas regiões. Latências intermitentes afetam o checkout e ninguém sabe se a causa é código, banco ou rede. A diretoria exige alertas automáticos, diagnóstico por camada e trilhas de auditoria de 90 dias, sem agentes manuais por máquina.",
-    "sourceUrl": "https://learn.microsoft.com/azure/",
-    "needsReview": true
+    "sourceUrl": "https://learn.microsoft.com/azure/azure-monitor/overview",
+    "needsReview": false
+  },
+  {
+    "id": "case-ig-01",
+    "title": "Identidade híbrida da Litware",
+    "scenario": "A Litware mantém um Active Directory local com 5.000 usuários e precisa integrar ao Microsoft Entra ID para acesso ao Azure Portal e SaaS. Requer SSO, MFA condicional e sincronização de identidades sem redefinir senhas locais.",
+    "sourceUrl": "https://learn.microsoft.com/azure/active-directory/hybrid/connect/whatis-hybrid-identity",
+    "needsReview": false
+  },
+  {
+    "id": "case-co-01",
+    "title": "Migração de VMs da Tailwind",
+    "scenario": "A Tailwind tem 150 VMs locais rodando Windows Server e Linux em VMware. Planeja migrar para o Azure com mínimo de tempo de inatividade, mantendo endereços IP e join de domínio existente.",
+    "sourceUrl": "https://learn.microsoft.com/azure/migrate/migrate-services-overview",
+    "needsReview": false
+  },
+  {
+    "id": "case-rv-01",
+    "title": "Conectividade global da Northwind",
+    "scenario": "A Northwind tem escritórios em 12 países conectados via VPN site-to-site instável. Precisa de links dedicados, filtragem de tráfego e proteção contra DDoS para aplicações críticas hospedadas no Azure.",
+    "sourceUrl": "https://learn.microsoft.com/azure/virtual-network/virtual-networks-overview",
+    "needsReview": false
+  },
+  {
+    "id": "case-st-02",
+    "title": "Backup e recuperação da Adventure Works",
+    "scenario": "A Adventure Works exige backup diário de bancos SQL Server e VMs de produção, com retenção de 30 dias e RTO de 4 horas. Testa restaurações mensalmente e precisa de cópia off-região para recuperação de desastres.",
+    "sourceUrl": "https://learn.microsoft.com/azure/backup/backup-overview",
+    "needsReview": false
+  },
+  {
+    "id": "case-mo-02",
+    "title": "Segurança na nuvem da Fabrikam",
+    "scenario": "A Fabrikam precisa centralizar alertas de segurança, detectar ameaças em tempo real e responder a incidentes em recursos Azure, incluindo VMs, bancos e contas de armazenamento.",
+    "sourceUrl": "https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction",
+    "needsReview": false
+  },
+  {
+    "id": "case-ig-02",
+    "title": "Acesso privilegiado da Contoso",
+    "scenario": "A Contoso precisa controlar acesso administrativo a recursos Azure, com aprovação de fluxo de trabalho, acesso just-in-time e auditoria completa de quem fez o quê e quando.",
+    "sourceUrl": "https://learn.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure",
+    "needsReview": false
   }
 ]

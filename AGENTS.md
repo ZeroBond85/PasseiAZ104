@@ -5,7 +5,7 @@
 ## Estado
 
 - `DATA_PROVA=TBD` — agendar só nas 3 condições do §12 (média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10).
-- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci + G16 em curso no ritmo do estudo (64 `needsReview` filtradas pelo A1; reposição sem bloquear) + v0.1.0 publicada; R3: 587/1000 `sourceUrl` (413 pendentes pós-prova); fase de ESTUDO**. Ver `LOG.md`.
+- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci + G16 em curso no ritmo do estudo (64 `needsReview` filtradas pelo A1; reposição sem bloquear) + v0.1.0 publicada; R3: 587/1000 `sourceUrl` (413 pendentes pós-prova); fase de ESTUDO + análise profunda aplicada (fases 1–7 do plano .kilo/plans/1792965348283-analise-profunda-az104.md): migration 007 criada (aguarda aplicação no Supabase), URL schemes restringidos, CSP `object-src 'none'` + `unsafe-inline` removido, `?local=1` gated por `VITE_E2E`, logout limpa IDB+localStorage, admin-panel não trava com userId null, estudoDue total original, a11y (role="status", aria-current, setas opções, modal aria-describedby), dead code removido, `.btn-secondary` tokenizado, components.css desimportado, flags.test.ts (5 testes), ci com upload de traces. Ver `LOG.md` (2026-10-25 análise profunda).
 
 ## Ambiente: rodar dentro do WSL
 
@@ -47,6 +47,7 @@ minha máquina" ou "o erro é pré-existente".
 | `npm install <x>` sem pin | Proibido — `.npmrc save-exact=true` (§1) |
 | Segredo de dono (Postgres, service_role, GitHub token, chave PEM) em chat ou arquivo commitado | Rotacionar + nunca repetir. **Anon key (VITE_*) é pública por definição — `SELECT` com ela é seguro por construção e usado para provar RLS; não é segredo.** |
 | Migration 002 não aplicada no Supabase | Aba Admin fica oculta (fail-closed por RLS) — não dar "false green": validar admin com 2 usuários antes de assumir |
+| Migration 007 não aplicada no Supabase | Role escalation continua aberta — aplicar no SQL Editor + validar com 2 usuários antes de assumir |
 | Key path de store IDB contendo `:` | Bloqueado — IndexedDB não aceita (usar campo `key` explícito, LESSONS 16/set) |
 | `pre-push` ou `ci` falhando em `secrets` | Não faça push; rotacione a credencial exposta; `scripts/check-secrets.mjs` detalha o achado |
 | Particionou `data/*.json` | Atualizar juntos `QuestionLoader.ts` + testes + scripts com a lista de arquivos; o gate é o e2e do quiz (unit usa mock e não pega) |

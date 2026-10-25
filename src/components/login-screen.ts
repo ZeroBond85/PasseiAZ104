@@ -74,7 +74,7 @@ export class LoginScreen extends LitElement {
       // Supabase 429 (built-in SMTP: poucas msgs/hora + janela 60s por usuário).
       this.error = /rate limit|429|too many/i.test(msg)
         ? 'Muitas tentativas de envio. Aguarde alguns minutos e tente de novo.'
-        : msg || 'Falha ao enviar o link.'
+        : 'Falha ao enviar o link. Tente novamente.'
     } finally {
       this.sending = false
       // Cooldown 60s após qualquer tentativa: evita queimar a cota do SMTP
@@ -107,7 +107,11 @@ export class LoginScreen extends LitElement {
           </p>
           ${
             this.sent
-              ? html`<p class="ok" role="status">Link enviado! Abra o e-mail e clique para entrar. ✅</p>`
+              ? html`<p class="ok" role="status">Link enviado! Abra o e-mail e clique para entrar. ✅</p>
+                   <button type="button" class="btn" @click=${() => {
+                     this.sent = false
+                     this.email = ''
+                   }}>Usar outro e-mail</button>`
               : html`
                 <form @submit=${this.submit} novalidate>
                   <label class="sr-only" for="email">E-mail</label>

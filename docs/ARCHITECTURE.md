@@ -7,7 +7,7 @@
 - Banco em `data/*.json` (particionado ≤200KB, §9). `public/data` é symlink → `../data`, seguido pelo Vite para `dist/data`.
 - 1ª carga (online): `fetch()` valida (Zod) e semeia o IDB; seguintes: IDB primeiro.
 - **SW participa de verdade desde a Sprint 2:** `workbox.runtimeCaching` StaleWhileRevalidate
-  p/ `/data/*.json` (cache `az104-questions`, 20 entradas, 30 dias, só `response.ok`) —
+  p/ `/data/*.json` (cache `az104-questions-v2`, 20 entradas, 30 dias, só `response.ok`) —
   sem rede, o seed volta do SW mesmo com IDB limpo (provado em `offline.spec.ts`).
   Antes da Sprint 2 o SW só fazia precache do shell (o nome antigo do ADR era enganoso).
 - Falha parcial de seed nunca marca versão (throw + retry na UI, LESSONS 2026-09-25).
@@ -21,9 +21,9 @@
 - `QuizEngine.snapshot()` grava tudo (respostas + `timerRemaining`) a cada 30s numa transação IDB.
 - `TimerEngine` só expõe `remaining`; nunca grava (sem corrida de records).
 
-## ADR-003 — Scoring determinístico
+## ADR-003 — Scoring determinístico (v2)
 
-- `W={easy:15, medium:20, hard:25}`; `maxRaw` por dificuldade; múltipla `w×(k/n)`, erro zera; `round(raw/max×1000)`; corte 700; `weakAreas<70%`.
+- 1 ponto por item respondido corretamente; múltipla-escolha é tudo-ou-nada (não há crédito parcial por dificuldade); versão 2 do scoring; `maxRaw` = total de questões; `score = round(acertos/total × 1000)`; corte de aprovação 700; `weakAreas` = domínios com acerto < 70%.
 
 ## ADR-004 — Seleção determinística
 
@@ -66,7 +66,7 @@
 - **Problema:** `app-shell.ts` com 1324 linhas misturava quiz/treino/sync/atalhos — God Component.
 - **Decisão:** `src/controllers/` com classes puras (`QuizController`, `TreinoController`, `SyncController`,
   `DrillController`): recebem `notify` + leem stores; zero DOM. Shell vira orquestrador fino
-  (1324→1061 linhas; meta <500 reavaliada — restam CSS+templates, fatiar mais criaria prop-drilling).
+  (1324→1181 linhas; meta <500 reavaliada — restam CSS+templates, fatiar mais criaria prop-drilling).
 - **Achados na extração:** placar do treino sempre 0 (engine sem `load()`), treino sem `ensureSeeded()`
   (botão morto em perfil zerado) — ambos invisíveis por falta de e2e de treino (LESSONS).
 
@@ -110,7 +110,7 @@ flowchart LR
 - `src/study/`: **topics** (Supabase c/ fallback JSON) + **study-hub** (`generateStudyPlan`, `buildStudyLinks`) + **study-profile** (localStorage + espelho).
 - `src/config/flags.ts`: feature flags (`study-hub`, `drill` ON).
 - `src/sync/`: IDB v2 (sessions/progress/meta/questions/**attempts/doubts/activity/suggestions**) + tipos **(Zod fonte única)** + `supabase.ts` + `auth.ts` + `SyncEngine.ts` + **`study-sync.ts`**.
-- `src/data/`: QuestionLoader (ADR-001; 8 arquivos particionados).
+- `src/data/`: QuestionLoader (ADR-001; 12 arquivos particionados).
 - `src/components/`: app-shell (gate+header+nav dinâmica), login-screen, user-menu, question-card (radiogroup), timer-bar, navigator-grid, review-card (+tags de erro ×5), stats-dashboard, theme-toggle, **study-guide** (+links MS), **progress-panel** (+heatmap), **admin-panel** (+roles, review queue, sparkline, logs), **study-hub-panel**, **study-link-card**, modal-dialog (confirm/success/info), catalog-screen (dinâmico primeiro ★), estudo-card.
 - `src/styles/`: tokens OKLCH + escala fluida (variables), global, components, dark.
 - `scripts/`: validate (Zod+FK+dedup FNV-1a), generate (IA + checkpoint), check-model (probe), build-simulados (seeded), import-community (quarentena), render-icons (source.png → derivados letterbox), **new-question (interativo+lote)**, **bump-bank-meta**, **calibrate-irt**, **syllabus-gap**, **validate-migration-types**, **validate-study-links**, **question-curation**, **check-exam-outline**, **update-readme-test-count**.

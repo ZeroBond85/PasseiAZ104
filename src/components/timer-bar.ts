@@ -40,13 +40,20 @@ export class TimerBar extends LitElement {
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <div class="fill" style="width:${pct}%"></div>
+          <div class="fill" style="--fill-width:${pct}%"></div>
         </div>
       </section>
     `
   }
 
   static styles = css`
+    .timer-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
     .row {
       display: flex;
       align-items: center;
@@ -69,6 +76,7 @@ export class TimerBar extends LitElement {
       border-radius: 3px;
     }
     .fill {
+      width: var(--fill-width);
       height: 100%;
       background: var(--progress);
       border-radius: 3px;

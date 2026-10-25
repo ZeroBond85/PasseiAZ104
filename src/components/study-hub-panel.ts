@@ -67,7 +67,8 @@ export class StudyHubPanel extends LitElement {
   }
 
   render() {
-    if (!this.loaded) return html`<main><p>Montando seu plano…</p></main>`
+    if (!this.loaded)
+      return html`<main><p role="status">Montando seu plano…</p></main>`
     const plan = this.plan
     // Sem attempts: não renderiza nada (a aba já tem estado vazio próprio)
     if (plan?.hasData !== true) return html``

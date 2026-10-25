@@ -91,7 +91,7 @@ export class StudyGuide extends LitElement {
                   return html`
                       <li>
                         <span>${labels(d)}</span>
-                        <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
+                        <div class="bar"><div class="fill" style="--fill-width:${pct}%"></div></div>
                         <span>${pct}%</span>
                       </li>
                     `
@@ -188,6 +188,7 @@ export class StudyGuide extends LitElement {
       border-radius: 4px;
     }
     .fill {
+      width: var(--fill-width);
       height: 100%;
       background: var(--progress);
       border-radius: 4px;

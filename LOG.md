@@ -1021,3 +1021,60 @@ com o motivo no código) · valve **0 a realinhar** · `check-seq --domain` **5/
 - **B3:** CSP com host exato do Supabase (`yktrozpeablbafdagxtg.supabase.co` no lugar de `*.supabase.co`) + `base-uri 'none'; form-action 'none'` (`index.html:27`).
 - **C1:** troca A→B de usuário no `onAuthChange` (`app-shell.ts:182`) agora detacha o SyncEngine, re-cria perfil e re-attacha — antes o sync do usuário A continuava ativo após login de B.
 - **Gates:** `npm run ci` **EXIT 0** (secrets · lint · build · 154 unit · validate 1000/0 · meta · readme · migration · audit 0 high · budget 129.5/140 KB).
+
+## 2026-10-25 — Análise profunda AZ-104: correções fases 1–7 (plano .kilo/plans/1792965348283-analise-profunda-az104.md)
+
+**Fase 1 — Segurança crítica (aplicada localmente; migration 002/007 aplica via SQL Editor pelo dono):**
+- `supabase/migrations/007_az104_profiles_insert_role_guard.sql` (nova): INSERT em `az104_profiles` restrito a `role='user'` (bloqueia role escalation); `az104_study_topics` inativos só admin (`is_active = true or az104_is_admin()`); `az104_attempts`/`az104_doubts` com políticas separadas SELECT (own+admin) × mutações (só dono) — admin não deleta alheios.
+- `src/engine/question-schema.ts:39`: `sourceUrl` refine aceita apenas `http(s)` (bloqueia `javascript:`/`data:`).
+- `src/study/topics.ts:9`: `url` refine aceita apenas `http(s)`.
+- `index.html:27`: CSP `object-src 'none'` adicionado.
+- `src/components/app-shell.ts:290-299`: `?local=1` gated por `import.meta.env.VITE_E2E === 'true'` (não `DEV` — e2e roda em build de produção); `VITE_E2E=true` em `ci.yml` e `e2e-only.yml`; upload de Playwright traces em `if: failure()` nos dois workflows.
+- `src/sync/IndexedDB.ts`: `clearUserData(userId)` exportado — limpa sessions/progress/doubts/activity/suggestions + attempts do usuário saiente (computador compartilhado).
+- `src/components/app-shell.ts:188-200`: `onAuthChange(!id)` chama `clearUserData(was)` + `localStorage.removeItem(profileKey(was))`.
+- `src/components/admin-panel.ts:67-70`: não trava quando `getUserId()` retorna null — `loaded=true` + `error='Sem sessão'`.
+- `src/components/login-screen.ts:72-77`: erros Supabase traduzidos para pt-BR (não-vaza mensagem em inglês); botão "Usar outro e-mail" após envio.
+
+**Fase 2 — Correção/UX alto:**
+- `src/components/app-shell.ts:759`: pause passa `.locked=${ctl.paused}` ao `question-card` (bloqueia respostas em treino pausado).
+- `src/components/app-shell.ts:333-337`: `onKey` ignora teclas quando qualquer modal está aberto (`finishConfirmOpen`/`victoryOpen`/`treinoResultOpen`).
+- `src/components/app-shell.ts:692-697`: `onStartDrill` mostra "Nenhum erro para treinar ainda" quando vazio.
+- `src/engine/LeitnerEngine.ts`: `getDue` retorna `{ due, truncated, total }`.
+- `src/components/app-shell.ts:608-627,659`: `estudoDueTotal` armazenado antes do slice; mensagem mostra `${due.length} de ${total}` (não mais 50/50).
+- `src/components/app-shell.ts:839`: `onGradeEstudo` remove o questão da lista de estudo após grade (feedback imediato).
+- `src/components/estudo-card.ts:86`: `boxLabels[this.box] ?? 'Caixa desconhecida'` (box > 5 não quebra).
+- `src/sync/IndexedDB.ts`: removidos dead helpers `loadSessionsForUser`, `deleteSessionForUser`, `deleteAttempt`, `deleteDoubtForUser`.
+
+**Fase 3 — Acessibilidade média:**
+- `role="status"` nos estados de carregamento/erro (app-shell, progress-panel, study-hub-panel).
+- `aria-current="true|false"` nas células do navigator-grid.
+- Navegação por setas (ArrowUp/Down/Left/Right/Home/End) nos grupos de opções do question-card (WCAG 2.1.1).
+- `aria-describedby="modal-desc"` no modal-dialog; `min-width: min(320px, 100%)`; removido import morto `cardStyles`.
+- `scope="col"` nos cabeçalhos de tabela admin; cancel button com `aria-label="Cancelar"`; tabelas admin com scroll horizontal (`.table-wrap`).
+- `progress-panel.ts`: `load()` com try/catch/finally, `error` property, estado de erro com `role="alert"`; mobile `flex: 0 1 150px` (responsivo).
+- `login-screen.ts`: erros em pt-BR (não-vaza mensagem bruta do Supabase).
+
+**Fase 4 — Limpeza:**
+- `src/index.css`: removido `@import "./styles/components.css"` (global CSS não atravessa shadow DOM — todo mundo morto; regras úteis já estão em `shared.ts`).
+- `src/styles/shared.ts`: `.btn-secondary` adicionado; `--btn-primary-bg`/`color: var(--brand-contrast)` em `.btn-primary` (não hardcode `#fff`).
+- `src/styles/variables.css`: `--btn-primary-bg` override no tema `[data-theme="light"]`.
+- `src/components/timer-bar.ts`: `.timer-sticky` movido para static styles do componente (agora aplica em shadow DOM).
+- `src/components/stats-dashboard.ts`, `study-guide.ts`, `timer-bar.ts`, `progress-panel.ts`: inline `style="width:${pct}%"` → CSS custom property `--fill-width`.
+
+**Fase 5 — Testes:**
+- `vitest.config.ts`: coverage config (v8, thresholds 0, include `src/**`).
+- `tests/unit/flags.test.ts` (5 testes): `isEnabled` defaults, localStorage override, JSON inválido, flag desconhecida.
+- `tests/unit/question-loader.test.ts`: corrigido `import.meta.url`+`readFile` para funcionar sob jsdom.
+
+**Fase 6 — Documentação:**
+- `docs/ARCHITECTURE.md`: ADR-003 reescrito (scoring v2: 1 ponto/item, tudo-ou-nada); ADR-001 8→12 arquivos; ADR-008 1324→1061→1181 linhas; cache `az104-questions`→`az104-questions-v2`.
+- `data/case-studies.json`: 2 existentes `needsReview: false` + `sourceUrl` específico; 6 novos case studies (IG, CO, RV, ST×2, MO×2) com `needsReview: false` e URLs MS Learn específicas.
+
+**Fase 7 — CSP apertado:**
+- `unsafe-inline` removido de `style-src` no CSP (index.html:27).
+
+**Gates:** `npm run ci` **EXIT 0** (secrets · lint · build · 158 unit · validate 1000/0 · meta · readme · migration · audit 0 high · budget 130.3/140 KB).
+
+**Pendente não-bloqueante (Fase 4/5 cont.):** distractor consolidation (admin-panel inline × analyzeDistractors — semânticas divergentes, mantidos separados), QuizEngine.go/next/prev/pause/resume (mantidos, cobertos por testes), jsdom global (bloqueia question-loader/anchor-checks que usam `import.meta.url`+`fileURLToPath`; flags.test usa mock de localStorage), coverage thresholds >0, e2e sharding.
+
+**Pendente humano (migration 007):** aplicar no Supabase SQL Editor + validar com 2 usuários (fail-closed por RLS).
