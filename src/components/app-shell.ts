@@ -398,9 +398,9 @@ export class AppShell extends LitElement {
         </div>
         <span class="spacer"></span>
         ${this.syncing ? html`<span class="sync" role="status">sincronizando ☁</span>` : ''}
-        ${this.syncFail > 0 ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySync()}>Falha ao sincronizar (${this.syncFail}) — tentar de novo ↻</button>` : ''}
-        ${!this.online ? html`<span class="sync warn" role="status">🔴 offline — dados salvos localmente</span>` : ''}
-        ${this.seedError ? html`<button type="button" class="sync warn" role="status" @click=${() => void this.retrySeed()}>⚠ Banco incompleto — recarregar</button>` : ''}
+${this.syncFail > 0 ? html`<button type="button" class="sync warn" @click=${() => void this.retrySync()}>Falha ao sincronizar (${this.syncFail}) — tentar de novo ↻</button>` : ''}
+${!this.online ? html`<span class="sync warn" role="status">🔴 offline — dados salvos localmente</span>` : ''}
+${this.seedError ? html`<button type="button" class="sync warn" @click=${() => void this.retrySeed()}>⚠ Banco incompleto — recarregar</button>` : ''}
         <user-menu .isAdmin=${this.isAdmin} @logout=${() => this.requestUpdate()}></user-menu>
         <theme-toggle></theme-toggle>
       </header>
@@ -682,7 +682,7 @@ export class AppShell extends LitElement {
           class="btn"
           href="https://learn.microsoft.com/pt-br/credentials/certifications/resources/study-guides/az-104"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >Abrir guia oficial ↗</a
         >
       </section>

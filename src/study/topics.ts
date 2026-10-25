@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import bundled from '../../data/study-topics.json'
 import { isSyncEnabled, supabase } from '../sync/supabase.js'
 
 export const StudyTopicSchema = z.object({
@@ -17,9 +16,14 @@ export type StudyTopic = z.infer<typeof StudyTopicSchema>
 
 let cache: StudyTopic[] | null = null
 
-function fromJson(): StudyTopic[] {
+async function loadBundled(): Promise<unknown> {
+  const mod = await import('../../data/study-topics.json')
+  return (mod as { default?: unknown }).default ?? mod
+}
+
+function fromJson(data: unknown): StudyTopic[] {
   // Fail-fast: seed corrompido quebra no load, não no meio do estudo.
-  return z.array(StudyTopicSchema).parse(bundled)
+  return z.array(StudyTopicSchema).parse(data)
 }
 
 // Fonte: Supabase (curadoria admin, se sync + linhas ativas) com fallback
@@ -50,7 +54,7 @@ export async function loadStudyTopics(): Promise<StudyTopic[]> {
       // sem rede/tabela: cai para o JSON embarcado
     }
   }
-  cache = fromJson()
+  cache = fromJson(await loadBundled())
   return cache
 }
 

@@ -83,7 +83,7 @@ export class CatalogScreen extends LitElement {
         <h1 class="sr-only">Escolha um simulado</h1>
         <p class="cert">Simulado e guia de estudo em português para o Exame AZ-104 —
           Administrador de Azure Associado (Microsoft).</p>
-        <p class="cert-link"><a href="https://learn.microsoft.com/pt-br/credentials/certifications/resources/study-guides/az-104" target="_blank" rel="noopener">Guia de estudo oficial do Exame AZ-104 ↗</a></p>
+        <p class="cert-link"><a href="https://learn.microsoft.com/pt-br/credentials/certifications/resources/study-guides/az-104" target="_blank" rel="noopener noreferrer">Guia de estudo oficial do Exame AZ-104 ↗</a></p>
         ${this.bankLine ? html`<p class="bank">${this.bankLine}</p>` : ''}
 
         <section class="card dynamic">

@@ -86,11 +86,11 @@ export class EstudoCard extends LitElement {
           <span class="box-info">${this.box === 0 ? 'Questão nova' : `Revisar em ${boxLabels[this.box]}`}</span>
         </header>
         <h3>${q.question}</h3>
-        ${
-          !this.showAnswer
-            ? this.renderGradeButtons()
-            : html`${this.renderAnswer()} ${this.renderGradeButtons()}`
-        }
+    ${
+      !this.showAnswer
+        ? html`<button type="button" class="show-answer" @click=${() => (this.showAnswer = true)}>Mostrar resposta</button>`
+        : html`${this.renderAnswer()} ${this.renderGradeButtons()}`
+    }
       </article>
     `
   }
@@ -167,6 +167,21 @@ export class EstudoCard extends LitElement {
       margin: 10px 0 0;
       font-size: 14px;
       color: var(--text);
+    }
+    .show-answer {
+      margin-top: 12px;
+      padding: 10px 16px;
+      border: 1px solid var(--brand);
+      border-radius: var(--radius-sm);
+      background: var(--brand);
+      color: var(--brand-contrast);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+    .show-answer:hover {
+      opacity: 0.9;
     }
     .grade-btns {
       display: flex;

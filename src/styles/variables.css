@@ -19,6 +19,11 @@
   --danger: oklch(0.62 0.2 25);
   --info: var(--progress);
 
+  --brand: var(--progress);
+  --brand-contrast: oklch(0.98 0 0);
+  --brand-green-contrast: oklch(0.15 0.02 260);
+  --danger-contrast: oklch(0.98 0 0);
+
   --radius: 12px;
   --radius-sm: 8px;
   --tap-min: 44px; /* alvo de toque WCAG */
@@ -50,6 +55,16 @@
   --border: oklch(0.87 0.02 260);
   --text: oklch(0.22 0.03 260);
   --text-dim: oklch(0.45 0.04 260);
+
+  --brand: var(--progress);
+  --brand-contrast: oklch(0.98 0 0);
+  --brand-green: oklch(0.55 0.18 145);
+  --brand-green-contrast: oklch(0.98 0 0);
+  --progress: oklch(0.5 0.19 255);
+  --progress-ink: oklch(0.35 0.12 255);
+  --warning: oklch(0.6 0.15 85);
+  --danger: oklch(0.5 0.2 25);
+  --danger-contrast: oklch(0.98 0 0);
 }
 
 /* Respeita quem prefere movimento reduzido: mata animações/transições globalmente.

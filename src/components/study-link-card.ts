@@ -55,7 +55,7 @@ export class StudyLinkCard extends LitElement {
               class="btn btn-primary"
               href=${l.url}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               >Abrir ↗</a
             >
           </div>
@@ -76,7 +76,7 @@ export class StudyLinkCard extends LitElement {
             class="btn btn-primary"
             href=${l.url}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             >Abrir ↗</a
           >
           <button type="button" class="btn" @click=${this.toggle}>
