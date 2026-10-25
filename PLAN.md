@@ -35,7 +35,7 @@
 
 ## 1. STACK (free — pins reconfirmados no Dia 1)
 
-Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleResolution: bundler`, `target: es2025`, `types: []`) · Lit **3.3.3** sem decorators · Zod **4.6.2** · Biome **2.5.12** · `idb` **8.0.3** · `vite-plugin-pwa` **1.3.0** (sem `sw.ts`, sem `workbox-cli`) · `@google/genai` **2.21.0** + pré-voo de modelos (§7) · `@supabase/supabase-js` **2.116.0** (auth + sync, §17) · Vitest **5.0.0**/Playwright **1.63.0**/axe **4.13.0** · Husky **9.1.7** · lint-staged **17.5.0** · tsx **4.21.0** (runner `.mts`) · Lighthouse **13.4.1** (só CI perf) · Learn MCP (free) · GH Pages (soft limits: 100GB/mês banda, 10 builds/h, 1GB site — folgado para este uso) · Supabase free (Auth 50k MAU + 500MB, §17).
+Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleResolution: bundler`, `target: es2025`, `types: []`) · Lit **3.3.3** sem decorators · Zod **4.6.7** · Biome **2.5.12** · `idb` **8.0.3** · `vite-plugin-pwa` **1.3.0** (sem `sw.ts`, sem `workbox-cli`) · `@google/genai` **2.21.0** + pré-voo de modelos (§7) · `@supabase/supabase-js` **2.116.0** (auth + sync, §17) · Vitest **5.0.0**/Playwright **1.63.0**/axe **4.13.0** · Husky **9.1.7** · lint-staged **17.5.0** · tsx **4.21.0** (runner `.mts`) · Lighthouse **13.4.1** (só CI perf) · Learn MCP (free) · GH Pages (soft limits: 100GB/mês banda, 10 builds/h, 1GB site — folgado para este uso) · Supabase free (Auth 50k MAU + 500MB, §17).
 
 **Notas de versão (v6.0):** TS 7 já é estável/GA — ficamos em 6.0.3 por pin de stack (reavaliação pós-prova, ROADMAP). Lockfile manda; o plano nunca declara versão mentirosa. Pins v6.0 conferidos em `tests/unit/pins.test.ts` (11 asserts).
 
@@ -54,7 +54,7 @@ Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleRes
 ├── vite.config.ts (VitePWA, base /PasseiAZ104/)  biome.json  .gitattributes  .gitignore
 ├── .env.local (gitignored: SUPABASE_URL + ANON)  .env.example  .nvmrc (24)
 ├── public/icons/ source.png (origem do dono) + derivados letterbox #0a0e14 (icon-192/512, icon-maskable-512, apple-touch, favicon-32, header-112, hero-wide)
-├── supabase/migrations/ 001_az104_progress_sessions.sql (tabelas + RLS)  002_az104_platform_user_admin.sql (per-user + admin)
+├── supabase/migrations/ 001_az104_progress_sessions.sql (tabelas + RLS)  002_az104_platform_user_admin.sql (per-user + admin)  003_az104_profiles_self_update.sql  004_az104_study_hub.sql  005_az104_scoring_model_version.sql  006_az104_admin_audit_trigger.sql
 ├── src/
 │   ├── main.ts
 │   ├── styles/ variables.css (OKLCH + escala fluida)  global.css  components.css  dark.css  shared.ts (primitivos p/ shadow DOM)
@@ -65,7 +65,7 @@ Node **24.21.0** (nvm/WSL) · Vite **8.2.2** · TypeScript **6.0.3** (`moduleRes
 │   │   LeitnerEngine.ts (cap §5)  QuestionSelector.ts  question-schema.ts (Zod §3)
 │   │   ExplanationEngine.ts (só lê)  StudyGuide.ts (P3: analyzeAttempt + readiness §12)
 │   ├── data/ QuestionLoader.ts (ADR-001: fetch + precache + IDB)
-│   ├── sync/ IndexedDB.ts (v2: sessions/progress/meta/questions/attempts/doubts/activity/suggestions)
+│   ├── sync/ IndexedDB.ts (v3: sessions/progress/meta/questions/attempts/doubts/activity/suggestions)
 │   │   types.ts  supabase.ts  auth.ts  SyncEngine.ts (espelho §17: push/pull platform + admin)
 │   └── utils/ azure-glossary.ts (→tooltip)  i18n.ts  questions-hash.ts (FNV-1a 64)  export.ts (só backup)
 ├── data/ identidade-governanca.json + identidade-acesso.json  storage.json

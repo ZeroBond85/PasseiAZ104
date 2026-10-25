@@ -20,7 +20,7 @@
 ## question-card — questão (reuso quiz + treino)
 
 - Props: `question`, `selected: string[]`. Emite `answer` (letras).
-- `radiogroup` (single/yes-no) ou `group` (multiple/case) + `aria-checked`; teclado 1–4/A–D só no quiz.
+- `radiogroup` (single/multiple) ou `group` (multiple/case) + `aria-checked`; teclado 1–4/A–D só no quiz.
 
 ## timer-bar — cronômetro
 
@@ -65,7 +65,7 @@
 ## study-link-card — link de estudo
 
 - Props: `link` (`StudyLink`), `showSeen` (default true). Emite `toggle-seen` (topicId).
-- Externo sempre `target="_blank" rel="noopener"`.
+- Externo sempre `target="_blank" rel="noopener noreferrer"`.
 
 ## study-hub-panel — "O que estudar agora" (aba Estudo)
 

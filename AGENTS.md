@@ -5,7 +5,7 @@
 ## Estado
 
 - `DATA_PROVA=TBD` — agendar só nas 3 condições do §12 (média-5 ≥750 · nenhum domínio <70% · Caixa 1 <10).
-- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci + G16 fechado (55 SLA→outline, validate 1000/0) + v0.1.0 publicada; R3 completo (0 sem sourceUrl, 100% auditado); fase de ESTUDO**. Ver `LOG.md`.
+- Fase atual: **plataforma v7.0 no ar (QA local ✅) — migration 002 aplicada + probe RLS validado (0 falhas) + validada 2 usuários (admin vê / user não vê) + gate de segredo no pre-push/ci + G16 em curso no ritmo do estudo (64 `needsReview` filtradas pelo A1; reposição sem bloquear) + v0.1.0 publicada; R3: 587/1000 `sourceUrl` (413 pendentes pós-prova); fase de ESTUDO**. Ver `LOG.md`.
 
 ## Ambiente: rodar dentro do WSL
 

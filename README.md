@@ -119,7 +119,7 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 │   └── components/  # Lit sem decorators: shell, login, questão, timer, navegador, revisão, stats, tema, usuário, hub
 ├── data/         # banco particionado por subdomínio (≤200KB/arquivo) + 10 simulados + meta + topics + syllabus
 ├── scripts/      # validate, generate (IA), new-question, check-model, build-simulados, import-community, curadoria
-├── supabase/migrations/  # 001 tabelas+RLS · 002 plataforma+admin · 003 self-update · 004 study hub
+├── supabase/migrations/  # 001 tabelas+RLS · 002 plataforma+admin · 003 self-update · 004 study hub · 005 scoring model · 006 admin audit trigger
 └── tests/        # unit, integração, e2e (Playwright + axe)
 ```
 
@@ -127,7 +127,7 @@ npx playwright test  # e2e no navegador (quiz, offline, acessibilidade)
 
 - `npm run ci` verde: lint (Biome) + `tsc` + 153 testes unit + validate 1000/0
 - e2e (17 specs): quiz fim-a-fim, treino (sem `alert`), offline (IDB + SW cache), tema/flags/timer, **axe 0 violações**
-- Lighthouse ≥90/90/90 (perf/a11y/boas práticas) · JS 125.8KB/teto 140KB gzip
+- Lighthouse ≥90/90/90 (perf/a11y/boas práticas) · JS 129.5KB/teto 140KB gzip
 - Hooks: pre-commit <10s (segredos, lint, tamanho) · pre-push roda o CI completo
 - Segurança: `.env` nunca commitado (gitleaks), senha Postgres nunca em chat/repo, RLS como fronteira, CSP via meta tag
 - Curadoria mensal automática: links MS Learn, banco, outline oficial + backup semanal

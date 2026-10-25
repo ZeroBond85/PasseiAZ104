@@ -4,7 +4,7 @@
 
 ## Pipeline
 
-1. Push em `main` → `ci` (lint+build+test+validate) → `deploy` (build + upload artifact + deploy-pages).
+1. Push em `main` → `ci` (lint+build+test+validate) → `deploy` (workflow_run do `ci` verde; build + upload artifact + deploy-pages).
 2. Branch `main` protegida (require check `build`).
 3. URL: https://zerobond85.github.io/PasseiAZ104/
 

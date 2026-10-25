@@ -6,7 +6,7 @@
 
 - 1 projeto Supabase para todos os filhos (free cobre).
 - Tabelas com prefixo do filho: `az104_progress`, `az104_sessions` (+ plataforma `az104_attempts`, `az104_doubts`, `az104_activity_log`, `az104_study_suggestions`, `az104_admin_logs`, `az104_profiles`) → `dp900_*`.
-- Colunas idênticas; RLS idêntico. Copie `supabase/migrations/001_*.sql` **e `002_*.sql`** (v7.0: profiles/role/email + administração via `az104_is_admin()`) trocando o prefixo.
+- Colunas idênticas; RLS idêntico. Copie `supabase/migrations/001_*.sql` **e `002_*.sql`** (v7.0: profiles/role/email + administração via `az104_is_admin()`) **+`003_*.sql`+`004_*.sql`+`005_*.sql`** trocando o prefixo.
 - Login único: o mesmo usuário transita entre filhos; progresso isolado por prefixo.
 
 ## Novo filho no app (checklist)

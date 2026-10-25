@@ -40,7 +40,7 @@ RPR (§0.11): teste que reproduz → regressão permanente → `LESSONS.md`. Re-
 ## CSP bloqueando algo legítimo
 
 Console mostra `Refused to ... (Content-Security-Policy)`. Política em `index.html`:
-`script-src 'self'`, `connect-src` só `*.supabase.co`. Novo domínio externo (fonte, API)
+`script-src 'self'`, `connect-src` host exato do Supabase `yktrozpeablbafdagxtg.supabase.co` + `base-uri 'none'; form-action 'none'`. Novo domínio externo (fonte, API)
 exige entrada explícita + e2e verde antes do merge.
 
 ## Links Microsoft Learn 404

@@ -37,7 +37,7 @@ Duas coisas diferentes, e só uma delas é o "link da questão":
   **587 das 1000** têm isso.
 
 Então o Study Hub mostra link para as 1000, mas só 587 têm âncora que sustenta a pergunta
-literalmente. Isso é o R3 (retrofit das 949 restantes); não é bug do espelho de topics.
+literalmente. Isso é o R3 (retrofit das 413 pendentes); não é bug do espelho de topics.
 
 ## Propor um link
 
